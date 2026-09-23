@@ -65,3 +65,29 @@ footer { max-width: 1440px; margin: 0 auto; padding: 1rem 1.25rem 2rem; color: #
   .primary { width: 100%; }
   .hero h1, .page-head h1 { font-size: 2.25rem; }
 }
+
+.study-content { margin-top: 1rem; line-height: 1.68; overflow-wrap: anywhere; }
+.study-content > :first-child { margin-top: 0; }
+.study-content h2 { margin: 1.6rem 0 .65rem; font-size: 1.35rem; letter-spacing: -.025em; }
+.study-content h3 { margin: 1.25rem 0 .5rem; font-size: 1.05rem; }
+.study-content p, .study-content li, .study-content blockquote { color: #dbe4f0; }
+.study-content ul, .study-content ol { padding-left: 1.35rem; }
+.study-content li + li { margin-top: .35rem; }
+.study-content a { color: #93c5fd; text-underline-offset: .18em; }
+.study-content blockquote { margin: 1rem 0; padding: .7rem 1rem; border-left: 3px solid #64748b; background: rgba(51,65,85,.2); }
+.study-callout { display: block; margin: 1rem 0; padding: .9rem 1rem; border: 1px solid #334155; border-radius: .8rem; background: rgba(30,41,59,.55); }
+.study-toggle { margin: .8rem 0; border: 1px solid #334155; border-radius: .75rem; padding: .7rem .85rem; background: rgba(15,23,42,.45); }
+.study-toggle summary { cursor: pointer; font-weight: 800; color: #e2e8f0; }
+.study-index-nav ol { margin-bottom: 0; }
+.study-index-level-3 { margin-left: .9rem; }
+.study-table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid #334155; border-radius: .75rem; }
+.study-content table { width: 100%; border-collapse: collapse; min-width: 520px; }
+.study-content th, .study-content td { padding: .65rem .75rem; border-bottom: 1px solid #334155; vertical-align: top; text-align: left; }
+.study-content th { background: #111827; }
+.study-content pre { overflow-x: auto; padding: 1rem; border-radius: .75rem; background: #020617; }
+.study-content code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.study-content figure { margin: 1rem 0; }
+.study-content img { display: block; max-width: 100%; height: auto; border-radius: .75rem; }
+.study-content figcaption, .study-media-note { color: #94a3b8; font-size: .84rem; margin-top: .45rem; }
+.study-todo { display: flex; gap: .55rem; align-items: flex-start; margin: .45rem 0; }
+.study-equation { overflow-x: auto; padding: .65rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
