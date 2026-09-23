@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T14:02:27.395Z",
+  "generatedAt": "2026-09-23T14:02:59.153Z",
   "days": [
     {
       "dxx": "D001",
@@ -2862,6 +2862,809 @@
       ],
       "version": 2,
       "lastEdited": "2026-09-22T11:32:56.141Z"
+    },
+    "d020": {
+      "dxx": "D020",
+      "title": "D020 — CHECKPOINT D20",
+      "summary": "CHECKPOINT D20 — Revisão do primeiro bloco. Bateria cumulativa de Controle/CASP/Legislação + checagem de retenção.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D020 — CHECKPOINT D20 \\| fundação do primeiro bloco\nCheckpoint de entrada — 40 questões cumulativas · até 120 min. Hoje não entra teoria nova. O objetivo é verificar se a fundação construída entre D001 e D019 está recuperável sem consulta e gerar uma decisão proporcional para o próximo bloco."
+        },
+        {
+          "heading": "1. Função do marco",
+          "body": "O D20 responde a uma pergunta simples:\n> A fundação inicial realmente entrou ou ainda depende demais de releitura?\nNão é:\n- prova completa;\n- projeção de aprovação;\n- nota oficial FCC;\n- justificativa para aumentar carga;\n- dia de reestudar todo o primeiro bloco.\nÉ um checkpoint de retenção + diagnóstico de rota."
+        },
+        {
+          "heading": "Controle Externo / Auditoria",
+          "body": "- controle interno × externo;\n- apreciar × julgar;\n- instrumentos LAIAM;\n- auditoria financeira × operacional × conformidade;\n- quatro Es;\n- asseguração razoável."
+        },
+        {
+          "heading": "CASP",
+          "body": "- AFO × CASP;\n- ativo/passivo/VPA/VPD;\n- arquitetura MCASP I/II/IV/V;\n- PCASP × DCASP em nível de mapa;\n- NBC TSP 01 × 02;\n- provisão × contingente;\n- três regras-base de estoques;\n- controle de versão das R1 estudadas."
+        },
+        {
+          "heading": "Legislação Institucional",
+          "body": "- Constituição de Goiás — arts. 25, 26 e 28 no recorte TCE;\n- Lei Orgânica — jurisdição, organização, processos, decisões, contas, sanções e recursos;\n- atualização do art. 84;\n- diferença Constituição × Lei Orgânica × Regimento."
+        },
+        {
+          "heading": "Apoio histórico",
+          "body": "- AFO já reaproveitada;\n- Constitucional já reaproveitado;\n- Administração Pública apenas em pontos históricos básicos de apoio, sem antecipar o D078."
+        },
+        {
+          "heading": "3. Configuração do checkpoint",
+          "body": "Bloco\nItens\nQuestões\nControle Externo/Auditoria\n1–12\n12\nCASP\n13–22\n10\nLegislação Institucional\n23–32\n10\nAFO/Constitucional/Administração Pública de apoio\n33–40\n8\nTotal\n1–40\n40"
+        },
+        {
+          "heading": "Origem",
+          "body": "- 28 FCC reais já validadas nas sessões anteriores, reexpostas para retenção;\n- 12 autorais cumulativas/integrativas;\n- nenhuma questão futura de D022+;\n- nenhuma questão real reexposta é contada como “inédita”."
+        },
+        {
+          "heading": "Consulta",
+          "body": "Sem consulta durante a resolução. Consulta entra somente na correção."
+        },
+        {
+          "heading": "Redação",
+          "body": "O D20 não possui nova redação. Se a R1 do D019 tiver sido realmente executada e corrigida, seu resultado pode ser lido no painel D20 como contexto; se não tiver, permanece vazio."
+        },
+        {
+          "heading": "Ordem",
+          "body": "1. Controle;\n2. CASP;\n3. Legislação;\n4. apoio histórico.\nEssa ordem testa primeiro os núcleos novos que justificam o projeto."
+        },
+        {
+          "heading": "Primeira passada",
+          "body": "- resolver o que estiver recuperável;\n- marcar retorno quando houver dúvida real;\n- não transformar uma questão travada em releitura mental de capítulo."
+        },
+        {
+          "heading": "Distribuição operacional sugerida",
+          "body": "- Controle: \\~30 min;\n- CASP: \\~25 min;\n- Legislação: \\~25 min;\n- apoio: \\~20 min;\n- reserva/retorno: \\~20 min.\nÉ estratégia de treino, não regra da FCC."
+        },
+        {
+          "heading": "Questão travada",
+          "body": "Se não houver progresso após leitura cuidadosa e eliminação inicial:\n1. marque para retorno;\n2. siga;\n3. volte com o tempo-reserva;\n4. registre depois se houve chute."
+        },
+        {
+          "heading": "5. Perguntas obrigatórias do D20",
+          "body": "Após corrigir, responder com evidência:\n1. Controle interno × externo está claro?\n2. Instrumentos de fiscalização estão diferenciados?\n3. Tipos de auditoria estão diferenciados?\n4. AFO × CASP está claro?\n5. MCASP tem mapa mental recuperável?\n6. Provisão × contingente está automático?\n7. Lei Orgânica deixou de ser texto desconhecido?\n8. A R1 respeitou 20–30 linhas e apresentou tese, se efetivamente produzida?"
+        },
+        {
+          "heading": "6. Antes de abrir o Q020",
+          "body": "Sem consultar material, escreva em 3 minutos:\n- LAIAM: __\n- 3 tipos de auditoria: __\n- MCASP I / II / IV / V: __\n- P-O-E da provisão: __\n- Constituição GO — apreciar × julgar: __\n- 4 recursos da Lei Orgânica: __\nEsse aquecimento não recebe nota; serve para comparar sensação × desempenho real."
+        },
+        {
+          "heading": "8. Painel D20 — preencher após correção",
+          "body": "Dimensão\nResultado real\nLeitura\nControle Externo\n— / 12\n—\nCASP\n— / 10\n—\nLegislação Institucional\n— / 10\n—\nApoio histórico\n— / 8\n—\nTotal\n— / 40\n—"
+        },
+        {
+          "heading": "Gerais / Específicos",
+          "body": "O Q020 é um recorte parcial, não reproduz as 25 questões gerais + 45 específicas da prova oficial.\nRegistrar:\n- gerais amostradas: —\n- específicas amostradas: —"
+        },
+        {
+          "heading": "IPI",
+          "body": "A Fonte 03 define o IPI com denominador 115 para a distribuição oficial completa. Como o D20 é uma bateria parcial de 40 questões e não replica a distribuição 25/45, não será inventado um “IPI-D20” adaptado.\nIPI D20: N/A — bateria parcial.\nO primeiro IPI diretamente comparável à fórmula oficial interna aparece quando houver simulado com distribuição integral."
+        },
+        {
+          "heading": "9. Faixas internas de leitura",
+          "body": "Estas faixas são operacionais do projeto, não cortes FCC.\nFaixa\nLeitura\nAção\n≥85%\nVerde\nmanutenção\n75–84%\nAmarelo\nrevisão curta + questões\n60–74%\nLaranja\nteoria dirigida + questões do ponto fraco\n&lt;60%\nVermelho\nreabrir apenas o bloco específico"
+        },
+        {
+          "heading": "Exceção importante",
+          "body": "Conteúdo novo pode aparecer laranja/vermelho no primeiro checkpoint sem significar fracasso. O dado importante será a trajetória até D45."
+        },
+        {
+          "heading": "10. Top 10 erros",
+          "body": "Preencher apenas após a tentativa:\n#\nAssunto\nErro real\nCausa\nSeveridade\nReincidência\n1\n—\n—\n—\n—\n—\n2\n—\n—\n—\n—\n—\n3\n—\n—\n—\n—\n—\n4\n—\n—\n—\n—\n—\n5\n—\n—\n—\n—\n—\n6\n—\n—\n—\n—\n—\n7\n—\n—\n—\n—\n—\n8\n—\n—\n—\n—\n—\n9\n—\n—\n—\n—\n—\n10\n—\n—\n—\n—\n—"
+        },
+        {
+          "heading": "11. Fatal Errors — gate",
+          "body": "Não criar Fatal Error por todo erro.\nUm erro pode entrar quando:\n- P1 + reincidência;\n- destrói estrutura central;\n- reaparece em checkpoint;\n- pertence a núcleo de alto peso/incidência.\nExemplos possíveis:\n- apreciar × julgar;\n- acompanhamento × monitoramento;\n- tipo de auditoria;\n- orçamento × patrimônio;\n- provisão × contingente;\n- regra essencial da Lei Orgânica.\nLimite global do projeto: 20 Fatal Errors."
+        },
+        {
+          "heading": "12. R1 dentro do painel",
+          "body": "Somente se R1 tiver sido executada:\n- nota interna: —\n- Tema/70: —\n- Língua/30: —\n- tempo: —\n- linhas: —\n- maior perda: —\n- ação para R2: —\nSe R1 não tiver sido executada, não preencher por estimativa."
+        },
+        {
+          "heading": "13. Impacto sobre SEEDF/TJDFT",
+          "body": "Responder após o bloco:\n- perdi sessão planejada de SEEDF por causa do TCE? —\n- perdi sessão planejada de TJDFT? —\n- acumulei revisões? —\n- aumentei fragmentação? —\n- misturei projetos na mesma sessão? —\n- o TCE ocupou dias além do desenho previsto? —\nNenhuma métrica de SEEDF/TJDFT é importada para o projeto TCE."
+        },
+        {
+          "heading": "14. Decisão D20",
+          "body": "A decisão real só existe após correção."
+        },
+        {
+          "heading": "Manter",
+          "body": "Fundação entrou sem sinal de rota errada."
+        },
+        {
+          "heading": "Ajustar",
+          "body": "Há fragilidade concentrada que exige ação dirigida."
+        },
+        {
+          "heading": "Reduzir excesso",
+          "body": "O projeto invadiu os demais ou a carga real ficou insustentável."
+        },
+        {
+          "heading": "Aumentar",
+          "body": "Não permitido como decisão do D20. A Fonte 03 determina que bom desempenho neste primeiro checkpoint não justifica aumento de carga."
+        },
+        {
+          "heading": "15. Três ações do próximo bloco",
+          "body": "Preencher depois:\n1. —\n2. —\n3. —\nAs ações devem ser:\n- específicas;\n- vinculadas a evidência;\n- executáveis;\n- sem reestudo integral automático."
+        },
+        {
+          "heading": "16. D0",
+          "body": "Após correção:\n1. separar erradas de acertos com dúvida;\n2. classificar causa;\n3. selecionar P1;\n4. recuperar sem consulta as 3 regras mais críticas;\n5. corrigir apenas o ponto necessário;\n6. levar ao Caderno de Erros somente erro real reaplicável;\n7. definir 3 ações do próximo bloco."
+        },
+        {
+          "heading": "17. D7 / D20 após o checkpoint",
+          "body": "No D020, não há pré-acionamento editorial.\nDepois da execução real:\n- D7 pode ser acionado para erro novo/relevante que mereça contato curto;\n- D20 pode ser acionado para conteúdo crítico, P1, reincidência ou fragilidade indicada pelo próprio checkpoint.\nCheckpoint aplicado ≠ revisão executada."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- Q020 = 40 questões válidas;\n- distribuição canônica respeitada;\n- painel e estratégia prontos;\n- registro D20 vinculado;\n- nenhum resultado inventado."
+        },
+        {
+          "heading": "Execução",
+          "body": "D020 só termina quando houver:\n- 40 respostas reais;\n- correção;\n- resultado por bloco;\n- top 10 erros ou todos os erros se menos de 10;\n- P1/reincidências;\n- impacto externo;\n- decisão manter/ajustar/reduzir;\n- 3 ações do próximo bloco;\n- D0."
+        },
+        {
+          "heading": "19. Fontes efetivamente usadas",
+          "body": "- Fonte-Mestra v1.3 — D020, 40 questões, 120 min;\n- Base Técnica v1.3 — núcleos de Controle/CASP/Legislação;\n- Base Operacional v1.3 — seção 12, checkpoint D20, painel, faixas e decisão;\n- Fonte 04 v1.3 — governança da evolução até reta final;\n- Fonte 05 v1.1 — Template Checkpoint/Simulado;\n- Índice v1.4 — governança;\n- materiais e Qxx já auditados em S01–S09."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T11:43:14.632Z"
+    },
+    "d022": {
+      "dxx": "D022",
+      "title": "D022 — Controle Externo IV",
+      "summary": "Controle Externo IV — INTOSAI/NBASP 100 — INTOSAI; estrutura das NBASP; NBASP 100 — princípios fundamentais de auditoria do setor público.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D022 — Controle Externo IV \\| INTOSAI e NBASP 100\nS11 / D022 — primeira aprendizagem estruturada da NBASP 100. O objetivo é sair da classificação dos tipos de auditoria estudada no D015 e entender a arquitetura normativa e conceitual comum a toda auditoria do setor público."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A sequência pedagógica é intencional:\n- D001: sistema constitucional de controle;\n- D008: instrumentos de fiscalização;\n- D015: financeira × operacional × conformidade;\n- D020: checkpoint da fundação;\n- D022: princípios comuns que dão linguagem única às auditorias do setor público.\nA partir daqui, o projeto deixa de tratar apenas de “qual tipo de auditoria é?” e passa a perguntar:\n> quais elementos, princípios e fases precisam existir para que o trabalho de auditoria pública seja tecnicamente reconhecível?"
+        },
+        {
+          "heading": "Ponte futura",
+          "body": "O D022 prepara:\n- D029: planejamento, escopo, risco e matriz de risco;\n- D036: amostragem, programa e papéis de trabalho;\n- D052: técnicas e evidência;\n- D059: achados e responsabilização.\nEsses temas aparecem hoje apenas no nível de princípio/arquitetura. O aprofundamento operacional fica nos Dxx próprios."
+        },
+        {
+          "heading": "3. Posição no edital",
+          "body": "B04 — Noções de Controle Externo\n- bloco: Específicos;\n- 4 questões;\n- peso 2;\n- baseline histórico: Misto;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Recorte verticalizado do D022",
+          "body": "Entra:\n1. INTOSAI;\n2. IFPP;\n3. ISSAI;\n4. posição da NBASP no contexto brasileiro;\n5. função da NBASP 100;\n6. três partes;\n7. objeto × critérios × informação do objeto;\n8. certificação × relatório direto;\n9. confiança e asseguração;\n10. asseguração razoável × limitada;\n11. princípios gerais;\n12. processo: planejamento → execução → relatório → monitoramento;\n13. aplicabilidade dos princípios da NBASP 100.\nFica fora em profundidade:\n- NBASP 200/300/400 — já introduzidas no D015 e retomadas quando necessário;\n- escopo, risco e matriz de risco — D029;\n- amostragem, programa e papéis — D036;\n- técnicas/evidências — D052;\n- achados e matrizes — D059."
+        },
+        {
+          "heading": "Já conhecido e aproveitado",
+          "body": "Do D001/D008/D015:\n- independência funcional do controle;\n- financeira × operacional × conformidade;\n- quatro Es;\n- critério como padrão de comparação;\n- evidência como base de conclusão;\n- asseguração razoável não é certeza absoluta."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- risco;\n- materialidade;\n- documentação;\n- comunicação.\nEsses conceitos já apareceram, mas ainda não foram organizados dentro da arquitetura da NBASP 100."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- INTOSAI × IFPP × ISSAI × NBASP;\n- posição atual da NBASP 100;\n- três partes da auditoria;\n- objeto × critérios × informação do objeto;\n- certificação × relatório direto;\n- formas e níveis de asseguração;\n- conjunto dos princípios gerais;\n- processo completo sob a lógica da NBASP 100."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir, sem consulta:\n1. explicar INTOSAI, IFPP, ISSAI e NBASP sem trocar os níveis;\n2. identificar as três partes de uma auditoria pública;\n3. separar objeto, critério e informação do objeto;\n4. distinguir certificação de relatório direto;\n5. explicar por que asseguração razoável não é absoluta;\n6. diferenciar asseguração razoável de limitada;\n7. recitar os princípios gerais da NBASP 100 por blocos;\n8. ordenar planejamento → execução → relatório → monitoramento;\n9. resolver pelo menos 80% das autorais de fixação sem consulta;\n10. classificar erros do Q022 por causa, não apenas por assunto."
+        },
+        {
+          "heading": "Oficiais prioritárias",
+          "body": "- [IRB — NBASP 100 \\| Princípios fundamentais de auditoria do setor público](https://nbasp.irbcontas.org.br/nbasp/principios-fundamentais-de-auditoria-do-setor-publico/)\n- [IRB — portal NBASP](https://nbasp.irbcontas.org.br/)\n- [INTOSAI — Audit Standards](https://intosai.org/focus-areas/audit-standards.html)"
+        },
+        {
+          "heading": "Fontes internas",
+          "body": "- Fonte 01 — planejamento e D022;\n- Fonte 02 — Base Técnica, seção 05.6–05.7;\n- Fonte 03 — curadoria Qxx;\n- Fonte 04 — prioridade de Controle na reta final;\n- Fonte 05 — Template Técnico;\n- Índice v1.4 — governança."
+        },
+        {
+          "heading": "Corte",
+          "body": "Auditoria editorial: 22/09/2026."
+        },
+        {
+          "heading": "Atualização de nomenclatura",
+          "body": "No portal atual do IRB:\n- até 2019, a NBASP 100 era referida como Nível 2;\n- a partir de 2020, aparece no Grupo 2 — Princípios e requisitos aplicáveis às atividades de controle do setor público;\n- o IRB informa que as mudanças editoriais da ISSAI 100 de 2019 foram incorporadas à versão brasileira em 2021.\nPegadinha de prova: questão antiga pode falar em “NBASP Nível 2”. Isso não torna automaticamente o núcleo conceitual errado, mas a nomenclatura atual do portal é Grupo 2."
+        },
+        {
+          "heading": "0–15 min — mapa",
+          "body": "Leia seções 8–10 e reconstrua a cadeia normativa."
+        },
+        {
+          "heading": "15–50 min — teoria nuclear",
+          "body": "Estude:\n- elementos;\n- certificação × relatório direto;\n- asseguração;\n- princípios gerais;\n- processo."
+        },
+        {
+          "heading": "50–85 min — Q022",
+          "body": "Resolva as 20 questões sem consultar correções."
+        },
+        {
+          "heading": "85–105 min — correção + D0",
+          "body": "Corrija erradas e dúvidas, volte apenas ao conceito que falhou e faça a recuperação ativa."
+        },
+        {
+          "heading": "INTOSAI",
+          "body": "International Organization of Supreme Audit Institutions — Organização Internacional das Entidades Fiscalizadoras Superiores.\nÉ o ambiente internacional de referência para auditoria do setor público."
+        },
+        {
+          "heading": "IFPP",
+          "body": "INTOSAI Framework of Professional Pronouncements — estrutura de pronunciamentos profissionais da INTOSAI.\nPense no IFPP como a arquitetura que organiza os pronunciamentos."
+        },
+        {
+          "heading": "ISSAI",
+          "body": "International Standards of Supreme Audit Institutions — normas internacionais de auditoria do setor público dentro da estrutura profissional da INTOSAI."
+        },
+        {
+          "heading": "NBASP",
+          "body": "Normas Brasileiras de Auditoria do Setor Público, mantidas no ecossistema do Instituto Rui Barbosa para o contexto dos Tribunais de Contas brasileiros."
+        },
+        {
+          "heading": "Cadeia mental",
+          "body": "INTOSAI → IFPP → ISSAI → NBASP\nIsso não significa que cada seta seja uma relação hierárquica simples de “lei superior”. É uma cadeia de referência profissional e adaptação/convergência normativa."
+        },
+        {
+          "heading": "9. O papel da NBASP 100",
+          "body": "A NBASP 100 é a porta de entrada dos princípios fundamentais de auditoria do setor público.\nEla fornece:\n- definição e objetivos gerais;\n- tipos de auditoria;\n- elementos comuns;\n- tipos de trabalho;\n- confiança e asseguração;\n- princípios gerais;\n- princípios ligados ao processo."
+        },
+        {
+          "heading": "Definição funcional",
+          "body": "Auditoria do setor público pode ser compreendida como um processo sistemático de obtenção e avaliação objetiva de evidências para determinar se informações ou condições reais de um objeto estão de acordo com critérios aplicáveis."
+        },
+        {
+          "heading": "Fórmula mental",
+          "body": "objeto real + critério + evidência → conclusão confiável\nSe uma alternativa reduzir auditoria pública a “procurar fraude”, “punir gestor” ou “conferir documentos”, desconfie. A auditoria é processo de obtenção e avaliação de evidência frente a critérios."
+        },
+        {
+          "heading": "10. Os tipos de auditoria — apenas como mapa",
+          "body": "O D015 já aprofundou os três tipos. Aqui o objetivo é enxergá-los dentro da NBASP 100.\nTipo\nPergunta nuclear\nCentro de gravidade\nFinanceira\na informação financeira está apresentada conforme o referencial?\ndemonstrações/informação financeira\nOperacional\nhá bom desempenho e espaço para aperfeiçoamento?\neconomicidade, eficiência, eficácia/efetividade conforme o referencial aplicável\nConformidade\no objeto está conforme critérios identificados?\nleis, regulamentos, contratos e outros critérios\n> Não reestudar D015 aqui. Use a tabela só para ligar “tipo” aos demais elementos da NBASP 100."
+        },
+        {
+          "heading": "11.1 — As três partes",
+          "body": "Toda auditoria do setor público envolve pelo menos:\n1. auditor;\n2. parte responsável;\n3. usuários previstos."
+        },
+        {
+          "heading": "Auditor",
+          "body": "No setor público, é quem conduz o trabalho de auditoria dentro do mandato da entidade fiscalizadora."
+        },
+        {
+          "heading": "Parte responsável",
+          "body": "É quem possui responsabilidades relacionadas ao objeto ou à informação do objeto, conforme o ordenamento aplicável."
+        },
+        {
+          "heading": "Usuários previstos",
+          "body": "São aqueles para quem o relatório/informação de auditoria é preparado e que utilizarão os resultados."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Não troque as três partes por:\n- controle interno + externo + social;\n- Executivo + Legislativo + Judiciário;\n- Tribunal + gestor + cidadão.\nEssas tríades podem existir em outros mapas, mas não são as três partes técnicas da NBASP 100."
+        },
+        {
+          "heading": "12. Objeto × critérios × informação do objeto",
+          "body": "Elemento\nPergunta mental\nExemplo\nObjeto\no que está sendo avaliado?\ncontratação pública\nCritério\ncomparado com qual referência?\nlei, contrato, norma, boa prática aplicável\nInformação do objeto\nqual informação resulta da mensuração/avaliação do objeto frente ao critério?\ndeclaração, demonstração ou resultado da avaliação conforme o tipo de trabalho"
+        },
+        {
+          "heading": "Exemplo 1",
+          "body": "Objeto: execução de contrato de limpeza.\nCritério: cláusulas contratuais e regras aplicáveis.\nPergunta: a execução ocorreu conforme o que deveria ocorrer?"
+        },
+        {
+          "heading": "Exemplo 2",
+          "body": "Objeto: demonstrações financeiras.\nCritério: referencial contábil aplicável.\nInformação do objeto: demonstrações preparadas pela parte responsável."
+        },
+        {
+          "heading": "Macete",
+          "body": "O-C-I\n- O que examino?\n- Comparo com quê?\n- qual Informação resulta?"
+        },
+        {
+          "heading": "Trabalho de certificação",
+          "body": "A parte responsável mensura/avalia o objeto de acordo com os critérios e apresenta a informação do objeto. O auditor obtém evidência suficiente e apropriada para expressar uma conclusão/opinião sobre essa informação."
+        },
+        {
+          "heading": "Trabalho de relatório direto",
+          "body": "O auditor mede ou avalia diretamente o objeto segundo os critérios; o resultado aparece no relatório por achados, conclusões, recomendações ou opinião, conforme o caso.\nPonto\nCertificação\nRelatório direto\nQuem mensura/avalia inicialmente?\nparte responsável\nauditor\nO que o auditor faz?\nobtém evidência sobre a informação do objeto\nmensura/avalia o próprio objeto\nProduto típico\nopinião/conclusão sobre informação apresentada\nachados + conclusões; pode conter recomendações/opinião"
+        },
+        {
+          "heading": "Associação importante",
+          "body": "Na arquitetura clássica da ISSAI/NBASP:\n- auditoria financeira → trabalho de certificação;\n- auditoria operacional → normalmente relatório direto;\n- auditoria de conformidade → pode assumir certificação, relatório direto ou combinação, conforme o trabalho.\nPegadinha: “auditoria operacional” não significa automaticamente que o objeto seja uma “operação”. O tipo depende do objetivo; o formato de trabalho depende de quem mensura/avalia o objeto e prepara a informação."
+        },
+        {
+          "heading": "14. Confiança e asseguração",
+          "body": "A auditoria pública existe para elevar a confiança dos usuários previstos nas informações e avaliações apresentadas."
+        },
+        {
+          "heading": "Asseguração razoável",
+          "body": "- nível alto de asseguração;\n- não é absoluta;\n- exige redução do risco de auditoria a nível aceitavelmente baixo nas circunstâncias;\n- conclusão costuma transmitir positivamente o resultado."
+        },
+        {
+          "heading": "Asseguração limitada",
+          "body": "- procedimentos menos extensos que os necessários para asseguração razoável;\n- risco aceitável é maior do que na asseguração razoável;\n- ainda deve proporcionar nível significativo de confiança aos usuários previstos;\n- o relatório precisa deixar clara a natureza limitada da asseguração."
+        },
+        {
+          "heading": "O que nunca decorar errado",
+          "body": "razoável ≠ absoluta\nNenhuma auditoria elimina integralmente risco e limitações inerentes."
+        },
+        {
+          "heading": "Relação mental",
+          "body": "mais asseguração → mais exigência de evidência/procedimentos → menor risco aceitável"
+        },
+        {
+          "heading": "15. Princípios gerais",
+          "body": "A NBASP 100 organiza princípios que acompanham o trabalho inteiro."
+        },
+        {
+          "heading": "15.1 — Ética e independência",
+          "body": "O auditor precisa atuar de modo compatível com requisitos éticos e de independência.\nRisco de prova: alternativa que normalize conflito de interesses ou interferência indevida."
+        },
+        {
+          "heading": "15.2 — Julgamento, devido zelo e ceticismo profissional",
+          "body": "- julgamento: aplicar conhecimento e experiência às circunstâncias;\n- devido zelo: cuidado técnico proporcional à responsabilidade;\n- ceticismo: atitude questionadora e avaliação crítica da evidência.\nCeticismo não é “desconfiar de tudo”. É não aceitar nem rejeitar informação sem avaliação suficiente."
+        },
+        {
+          "heading": "15.3 — Controle de qualidade",
+          "body": "Qualidade não é inspeção final isolada. Deve existir governança e revisão adequadas para sustentar a confiabilidade do trabalho."
+        },
+        {
+          "heading": "15.4 — Gerenciamento e qualificação da equipe",
+          "body": "A equipe precisa ter, coletivamente, competências e capacidades necessárias ao trabalho."
+        },
+        {
+          "heading": "15.5 — Risco de auditoria",
+          "body": "Risco de auditoria é o risco de o relatório/conclusão ser inadequado nas circunstâncias.\nHoje você precisa apenas saber:\n- risco existe;\n- deve ser gerenciado;\n- asseguração razoável não reduz risco a zero.\nCálculo, matriz e priorização aprofundada → D029."
+        },
+        {
+          "heading": "15.6 — Materialidade",
+          "body": "Materialidade não é apenas “valor alto”.\nUma questão pode ser relevante:\n- quantitativamente;\n- qualitativamente;\n- pelo contexto/natureza;\n- porque pode influenciar decisões dos usuários previstos.\nAprofundamento operacional → D029."
+        },
+        {
+          "heading": "15.7 — Documentação",
+          "body": "A documentação deve permitir compreender o trabalho realizado, a evidência relevante e a base das conclusões.\nPapéis de trabalho → D036."
+        },
+        {
+          "heading": "15.8 — Comunicação",
+          "body": "A comunicação acompanha o trabalho e deve ser adequada às partes pertinentes.\nRelatório em profundidade → D059."
+        },
+        {
+          "heading": "Fluxo-mãe",
+          "body": "planejamento → execução → relatório → monitoramento"
+        },
+        {
+          "heading": "Planejamento",
+          "body": "Transforma objetivo em trabalho executável.\nNo D022, memorize apenas o lugar do planejamento no processo."
+        },
+        {
+          "heading": "Execução",
+          "body": "Aplicar procedimentos e obter evidência suficiente e apropriada para responder aos objetivos."
+        },
+        {
+          "heading": "Relatório",
+          "body": "Comunicar achados, conclusões e, conforme o trabalho, opinião/recomendações."
+        },
+        {
+          "heading": "Monitoramento",
+          "body": "Verificar o tratamento de matérias relatadas/decididas quando pertinente."
+        },
+        {
+          "heading": "Não confundir",
+          "body": "- monitoramento como fase da auditoria = acompanhamento posterior do que foi reportado;\n- monitoramento como instrumento do controle externo, estudado no D008 = instrumento específico no contexto regimental.\nA lógica é próxima, mas a camada conceitual é diferente."
+        },
+        {
+          "heading": "Caso aplicado",
+          "body": "O TCE examina programa de alimentação escolar.\nTrês partes\n- auditor: equipe do TCE;\n- parte responsável: órgão/gestores responsáveis;\n- usuários previstos: destinatários do relatório institucionalmente definidos.\nObjeto\n- programa/execução.\nCritérios\n- normas, metas e referenciais aplicáveis.\nTipo\n- pode ser operacional se a pergunta central for desempenho.\nFormato\n- normalmente relatório direto se a equipe mede/avalia diretamente o desempenho.\nPrincípios\n- independência;\n- julgamento/ceticismo;\n- risco;\n- materialidade;\n- documentação;\n- comunicação.\nProcesso\n- planejar → executar → relatar → monitorar.\nEssa decomposição é exatamente o raciocínio que precisa ficar automático."
+        },
+        {
+          "heading": "18. Aplicabilidade da NBASP 100",
+          "body": "A NBASP 100 funciona como base para a construção/adoção de normas aplicáveis.\nO portal do IRB explicita três usos dos princípios:\n1. base para a entidade fiscalizadora desenvolver suas normas;\n2. base para adoção de normas nacionais consistentes;\n3. base para adoção das orientações gerais de auditoria como normas."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "A NBASP 100 não é um manual de procedimento minucioso para cada auditoria. Ela estabelece conceitos, elementos e princípios fundamentais que sustentam os demais referenciais."
+        },
+        {
+          "heading": "19. Como a FCC tende a cobrar",
+          "body": "Há evidência real de FCC/TCE-RS 2018 cobrando diretamente:\n- as três partes;\n- conceito de auditoria operacional dentro da ISSAI/NBASP 100.\nTambém há FCC recente cobrando:\n- finalidades da auditoria governamental;\n- função de padrões/normas;\n- conceitos de risco, asseguração e evidência."
+        },
+        {
+          "heading": "Padrões de erro previsíveis",
+          "body": "1. trocar “parte responsável” por “gestor” como se fossem sinônimos universais;\n2. dizer que razoável = absoluta;\n3. inverter quem mensura o objeto na certificação;\n4. dizer que relatório direto exige informação do objeto preparada previamente pela parte responsável;\n5. confundir objeto com critério;\n6. achar que materialidade é somente monetária;\n7. achar que ceticismo = suspeita permanente;\n8. usar nomenclatura antiga “Nível 2” como se fosse a classificação atual;\n9. tratar planejamento como etapa isolada e não parte de processo iterativo;\n10. misturar monitoramento-fase com monitoramento-instrumento."
+        },
+        {
+          "heading": "Arquitetura",
+          "body": "INTOSAI → IFPP → ISSAI → NBASP"
+        },
+        {
+          "heading": "Elementos",
+          "body": "3 partes + O-C-I + formato + asseguração"
+        },
+        {
+          "heading": "Três partes",
+          "body": "auditor · parte responsável · usuários previstos"
+        },
+        {
+          "heading": "O-C-I",
+          "body": "objeto · critérios · informação do objeto"
+        },
+        {
+          "heading": "Formatos",
+          "body": "certificação · relatório direto"
+        },
+        {
+          "heading": "Asseguração",
+          "body": "razoável · limitada"
+        },
+        {
+          "heading": "Gerais",
+          "body": "ética/independência · julgamento/zelo/ceticismo · qualidade · equipe · risco · materialidade · documentação · comunicação"
+        },
+        {
+          "heading": "Processo",
+          "body": "planejamento → execução → relatório → monitoramento"
+        },
+        {
+          "heading": "21. O que precisa ficar automático",
+          "body": "Antes do Q022, você deve responder em até 10 segundos:\n- três partes?\nauditor + parte responsável + usuários previstos\n- O-C-I?\nobjeto + critérios + informação do objeto\n- quem mensura no relatório direto?\nauditor\n- quem prepara a informação no trabalho de certificação?\nparte responsável\n- razoável = absoluta?\nnão\n- quatro fases?\nplanejamento → execução → relatório → monitoramento\n- classificação atual da NBASP 100 no portal IRB?\nGrupo 2"
+        },
+        {
+          "heading": "22. Pré-Q022",
+          "body": "Sem consulta, complete:\n1. INTOSAI →  → ISSAI →\n2. três partes =  /  /\n3. O-C-I =  /  /\n4. certificação: quem mensura inicialmente?\n5. relatório direto: quem mensura?\n6. razoável é , mas não\n7. princípios gerais: cite 6 de memória\n8. processo:  →  →  →\nSe travar em mais de três itens, releia apenas as seções 8, 11, 13, 14 e 16."
+        },
+        {
+          "heading": "23. Q022",
+          "body": "Meta: 20 questões."
+        },
+        {
+          "heading": "Durante",
+          "body": "- sem consultar a teoria;\n- marque dúvida verdadeira;\n- não abra a correção antes da resposta;\n- questão FCC real por ID/localizador;\n- autorais entram em métrica separada."
+        },
+        {
+          "heading": "24. Pós-Q022 — causa do erro",
+          "body": "Use uma causa primária:\n- N1 — arquitetura: INTOSAI/IFPP/ISSAI/NBASP;\n- N2 — partes: auditor/responsável/usuário;\n- N3 — O-C-I: objeto/critério/informação;\n- N4 — formato: certificação/relatório direto;\n- N5 — asseguração: razoável/limitada;\n- N6 — princípio: risco/materialidade/ceticismo/qualidade/equipe/documentação/comunicação;\n- N7 — processo: planejamento/execução/relatório/monitoramento;\n- N8 — versão: Nível 2 antigo × Grupo 2 atual;\n- N9 — leitura FCC: sabia o conceito, mas aceitou troca de termo."
+        },
+        {
+          "heading": "Severidade",
+          "body": "P1\n- três partes;\n- O-C-I;\n- certificação × relatório direto;\n- razoável × limitada;\n- arquitetura normativa;\n- processo.\nP2\n- detalhe acessório sem perda do mapa."
+        },
+        {
+          "heading": "25. D0",
+          "body": "Depois da tentativa real:\n1. refaça erradas + acertos com dúvida;\n2. recite a folha de princípios sem olhar;\n3. explique certificação × relatório direto com um exemplo próprio;\n4. explique por que asseguração razoável não é absoluta;\n5. reordene as quatro fases;\n6. registre somente erro real reaplicável."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente porque:\n- NBASP 100 é conteúdo técnico realmente novo;\n- arquitetura e terminologia exigem recuperação espaçada."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente porque:\n- é conteúdo estrutural e reutilizado em toda Auditoria;\n- confusão em partes/formato/asseguração compromete D029, D036, D052 e D059.\n> Acionado ≠ realizado. A revisão só será registrada quando ocorrer de fato."
+        },
+        {
+          "heading": "27. Flashcards candidatos",
+          "body": "Criar apenas se houver dificuldade real:\n1. 3 partes: auditor / responsável / usuários.\n2. O-C-I: objeto / critérios / informação.\n3. Certificação: responsável mensura → auditor assegura.\n4. Relatório direto: auditor mensura/avalia.\n5. Razoável: alta, não absoluta.\n6. Processo: P-E-R-M.\n7. Nomenclatura: antigo Nível 2 → atual Grupo 2."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- teoria suficiente para primeira aprendizagem;\n- recorte D022 preservado;\n- fontes oficiais identificadas;\n- Q022 com 20 itens;\n- D7/D20 configurados;\n- nenhum campo de execução preenchido."
+        },
+        {
+          "heading": "Execução do aluno",
+          "body": "D022 só está estudado quando houver:\n- leitura/recuperação da teoria;\n- 20 respostas reais;\n- correção;\n- registro de dúvidas/erros;\n- D0;\n- capacidade de reconstruir a folha de princípios sem consulta."
+        },
+        {
+          "heading": "29. Notas editoriais",
+          "body": "- O D022 não duplica a Sessão TCE em Material/Q022; S11 permanece no banco de controle.\n- Nomenclatura atual do IRB foi conferida em 22/09/2026.\n- Questões antigas com “Nível 2” devem receber controle de versão.\n- Compatibilidade estrutural: coluna única, tabelas curtas, índice e toggles; não equivale a teste físico de viewport.\n- Próxima sessão ativa: S12 / D024 — CASP IV — NBC TSP 06–10."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T11:53:23.123Z"
+    },
+    "d024": {
+      "dxx": "D024",
+      "title": "D024 — CASP IV",
+      "summary": "CASP IV — NBC TSP 06–10 — propriedade para investimento, imobilizado, intangível e impairment.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D024 — CASP IV \\| NBC TSP 06–10\nS12 / D024 — 105 min. Hoje o foco é classificar e mensurar ativos de longa duração: propriedade para investimento, imobilizado, intangível e redução ao valor recuperável. A pergunta central é sempre: que ativo é este, por que ele é mantido e qual regra patrimonial se aplica?"
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A trilha CASP está sendo construída em camadas:\n- D003: linguagem patrimonial — ativo, passivo, VPA/VPD;\n- D010: arquitetura MCASP;\n- D017: receitas, provisões/contingências e estoques;\n- D024: ativos de longa duração e impairment;\n- D031: apresentação, DFC, informação orçamentária e benefícios;\n- D038: políticas/estimativas/erros, eventos subsequentes, custos e MCASP II;\n- D050/D057: PCASP e DCASP.\nO D024 é a primeira sessão em que classificação, reconhecimento, mensuração e consumo do potencial de serviços aparecem juntos."
+        },
+        {
+          "heading": "3. Posição no edital e recorte verticalizado",
+          "body": "B06 — Contabilidade Aplicada ao Setor Público\n- 5 questões;\n- peso 2;\n- baseline histórico: Novo;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Entra hoje",
+          "body": "- NBC TSP 06 — Propriedade para Investimento;\n- NBC TSP 07 — Ativo Imobilizado;\n- NBC TSP 08 — Ativo Intangível;\n- NBC TSP 09 — Redução ao Valor Recuperável de Ativo Não Gerador de Caixa;\n- NBC TSP 10 — Redução ao Valor Recuperável de Ativo Gerador de Caixa;\n- reconhecimento e mensuração no nível necessário para prova;\n- depreciação × amortização × impairment;\n- gerador × não gerador de caixa;\n- controle de versão 2026."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- NBC TSP 11–13 e 15 → D031;\n- políticas/estimativas/erros e eventos subsequentes → D038;\n- PCASP em profundidade → D050;\n- DCASP → D057;\n- lançamentos contábeis complexos e integração completa → dias próprios."
+        },
+        {
+          "heading": "Já reaproveitável",
+          "body": "Dos dias anteriores:\n- ativo = recurso controlado;\n- potencial de serviços e benefícios econômicos;\n- reconhecimento × mensuração × evidenciação;\n- custo e valor justo como bases já conhecidas em nível introdutório;\n- AFO × CASP;\n- estoque continua ativo enquanto não consumido."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- depreciação;\n- vida útil;\n- valor residual;\n- redução ao valor recuperável."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- finalidade do imóvel como critério de classificação;\n- propriedade para investimento × imobilizado;\n- identificação e controle do intangível;\n- pesquisa × desenvolvimento;\n- vida útil definida × indefinida;\n- ativo gerador × não gerador de caixa;\n- valor recuperável de serviço;\n- impairment como perda adicional à depreciação/amortização;\n- transição NBC TSP 07 × NBC TSP 37."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. classificar imóvel como propriedade para investimento ou imobilizado;\n2. explicar por que a finalidade do imóvel decide a classificação;\n3. reconhecer o núcleo do ativo imobilizado;\n4. separar depreciação de impairment;\n5. classificar software como imobilizado ou intangível conforme integração ao hardware;\n6. explicar por que gasto com pesquisa não vira automaticamente intangível;\n7. diferenciar vida útil definida × indefinida;\n8. distinguir NBC TSP 09 × 10;\n9. definir valor recuperável de serviço no recorte da NBC TSP 09;\n10. resolver Q024 e identificar a causa de cada erro."
+        },
+        {
+          "heading": "Portal CFC",
+          "body": "[Portal oficial NBC TSP — CFC](https://cfc.org.br/tecnica/normas-brasileiras-de-contabilidade/nbc-tsp-do-setor-publico/)"
+        },
+        {
+          "heading": "Corte do concurso",
+          "body": "O edital usa como corte as referências vigentes até 25/08/2026."
+        },
+        {
+          "heading": "Matriz de versionamento",
+          "body": "Norma do edital\nSituação de transição em 2026\nRegra do D024\nNBC TSP 06\nR1 publicada em 17/03/2026, com aplicação aos exercícios iniciados em 01/01/2027\nusar o núcleo do número 06 cobrado no edital; R1 fica como controle de transição\nNBC TSP 07\nNBC TSP 37 publicada em 17/03/2026; aplica-se e revoga a 07 a partir de 01/01/2027\nmanter NBC TSP 07 como referência do edital\nNBC TSP 08\nR1 publicada em 17/03/2026, aplicação a partir de 01/01/2027\nusar regras do recorte aplicável ao edital; R1 como transição\nNBC TSP 09\nR1 publicada em 17/03/2026, aplicação a partir de 01/01/2027\npreservar regras de cobrança do recorte editalício; validar questões antigas individualmente\nNBC TSP 10\nR1 publicada em 17/03/2026, aplicação a partir de 01/01/2027\npreservar regras de cobrança do recorte editalício; validar questões antigas individualmente\nRegra crítica: prova em 2027 não significa importar automaticamente toda norma cuja aplicação começa em 2027. O projeto segue o corte normativo do edital e o número expressamente indicado no programa, salvo retificação/orientação oficial posterior."
+        },
+        {
+          "heading": "7. Como estudar os 105 minutos",
+          "body": "1. 10 min — mapa 06–10 e versionamento.\n2. 20 min — NBC 06 × 07: finalidade do imóvel + imobilizado.\n3. 20 min — NBC 08: identificação, software, pesquisa/desenvolvimento, vida útil.\n4. 20 min — NBC 09 × 10: impairment e diferença gerador/não gerador de caixa.\n5. 25 min — Q024: 20 itens.\n6. 10 min — D0: quadro 06–10 + recuperação ativa."
+        },
+        {
+          "heading": "8. Mapa de entrada",
+          "body": "Norma\nObjeto\nPergunta mental\nPegadinha nuclear\n06\nPropriedade para investimento\nPor que a entidade mantém este imóvel?\naluguel/valorização × uso operacional\n07\nAtivo imobilizado\nÉ tangível, usado na atividade e por mais de um período?\ncompra ≠ despesa automática\n08\nAtivo intangível\nÉ identificável, sem substância física e controlado?\ngasto de TI ≠ intangível automático\n09\nImpairment — não gerador de caixa\nO potencial de serviços se recupera?\nvalor recuperável de serviço\n10\nImpairment — gerador de caixa\nO ativo recupera valor por fluxos/benefícios econômicos?\nnão confundir com ativo de serviço público"
+        },
+        {
+          "heading": "Pergunta central",
+          "body": "> Por que a entidade mantém o imóvel?\nO núcleo é a finalidade.\nPropriedade para investimento é terreno ou edificação — ou parte deles — mantida predominantemente:\n- para obter receitas de aluguel;\n- para valorização do capital;\n- ou para ambas."
+        },
+        {
+          "heading": "Não é propriedade para investimento",
+          "body": "Em regra, não entra aqui imóvel:\n- usado na produção ou fornecimento de bens/serviços;\n- usado para finalidades administrativas;\n- mantido para venda no curso normal das operações;\n- usado diretamente na prestação do serviço público."
+        },
+        {
+          "heading": "Caso 1",
+          "body": "Prédio público alugado a terceiros para gerar renda, sem uso operacional relevante pela entidade.\nClassificação: propriedade para investimento."
+        },
+        {
+          "heading": "Caso 2",
+          "body": "Prédio onde funciona a sede administrativa.\nClassificação: ativo imobilizado, não propriedade para investimento."
+        },
+        {
+          "heading": "Macete",
+          "body": "06 = “ganha com o imóvel”\n07 = “usa o imóvel”\nNão é uma regra jurídica absoluta; é um atalho para identificar a finalidade predominante."
+        },
+        {
+          "heading": "Conceito operacional",
+          "body": "Ativo imobilizado reúne itens tangíveis:\n- mantidos para uso na produção/fornecimento de bens ou serviços;\n- para aluguel a terceiros quando não enquadrados como propriedade para investimento;\n- ou para finalidades administrativas;\n- e que se espera utilizar por mais de um período."
+        },
+        {
+          "heading": "Reconhecimento",
+          "body": "O raciocínio-base:\n1. o item atende à definição de ativo?\n2. há potencial de serviços ou benefícios econômicos futuros?\n3. seu custo/valor pode ser mensurado de modo confiável?\nSe sim, o fato de haver desembolso não transforma o bem em despesa imediata."
+        },
+        {
+          "heading": "Mensuração inicial",
+          "body": "No núcleo cobrado pela FCC:\n- reconhecer pelo custo quando adquirido em transação com contraprestação, conforme os componentes aplicáveis;\n- analisar bases específicas quando a aquisição ocorrer sem contraprestação."
+        },
+        {
+          "heading": "Depois do reconhecimento",
+          "body": "A NBC TSP 07 trabalha:\n- modelo do custo;\n- modelo da reavaliação;\n- depreciação;\n- vida útil;\n- valor residual;\n- impairment;\n- desreconhecimento;\n- divulgação."
+        },
+        {
+          "heading": "O que é",
+          "body": "Alocação sistemática do valor depreciável ao longo da vida útil."
+        },
+        {
+          "heading": "Valor depreciável",
+          "body": "custo (ou valor que o substitua) − valor residual"
+        },
+        {
+          "heading": "Início",
+          "body": "A depreciação começa quando o ativo está disponível para uso, isto é, em condição e localização necessárias para operar como pretendido."
+        },
+        {
+          "heading": "Não confundir",
+          "body": "- comprar ≠ começar a depreciar automaticamente;\n- pagar ≠ começar a depreciar;\n- empenhar ≠ começar a depreciar.\nA lógica é patrimonial: disponibilidade para uso."
+        },
+        {
+          "heading": "Conceito-base",
+          "body": "Ativo intangível é item identificável de natureza não monetária e sem substância física, controlado pela entidade e capaz de gerar benefícios econômicos futuros ou potencial de serviços."
+        },
+        {
+          "heading": "Identificabilidade",
+          "body": "Um item tende a ser identificável quando:\n- é separável; ou\n- decorre de direitos contratuais ou outros direitos jurídicos, conforme o caso."
+        },
+        {
+          "heading": "Controle",
+          "body": "A entidade precisa ter poder de obter o potencial de serviços/benefícios e restringir o acesso de terceiros de forma compatível com a norma."
+        },
+        {
+          "heading": "Exemplos",
+          "body": "- software;\n- licença;\n- direito contratual;\n- certos ativos digitais, se satisfizerem os critérios."
+        },
+        {
+          "heading": "13. Software: imobilizado ou intangível?",
+          "body": "A pergunta é:\n> o software é parte integrante do hardware?"
+        },
+        {
+          "heading": "Se for indispensável/integral",
+          "body": "Hardware + software são tratados como ativo imobilizado.\nExemplo FCC:\nnotebook cujo sistema operacional é parte integrante do equipamento → valor total no imobilizado."
+        },
+        {
+          "heading": "Se não for integral",
+          "body": "Software separável e controlado pode ser intangível, se atender aos critérios."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "“Software” não significa automaticamente NBC TSP 08."
+        },
+        {
+          "heading": "Fase de pesquisa",
+          "body": "Gasto de pesquisa de ativo intangível gerado internamente:\n- não é reconhecido como ativo intangível;\n- é reconhecido como despesa/VPD quando incorrido, conforme o recorte normativo."
+        },
+        {
+          "heading": "Desenvolvimento",
+          "body": "Pode ser reconhecido como ativo apenas quando os critérios normativos forem demonstrados."
+        },
+        {
+          "heading": "Itens gerados internamente",
+          "body": "Certos itens como:\n- marcas;\n- títulos de publicações;\n- listas de usuários;\n- outros semelhantes\nnão devem ser reconhecidos como ativos intangíveis gerados internamente."
+        },
+        {
+          "heading": "Definida",
+          "body": "- sofre amortização sistemática ao longo da vida útil;\n- permanece sujeita a avaliação de impairment quando aplicável."
+        },
+        {
+          "heading": "Indefinida",
+          "body": "- não é amortizada enquanto permanecer indefinida;\n- exige revisão da avaliação da vida útil;\n- continua sujeita a teste de recuperabilidade conforme a norma aplicável."
+        },
+        {
+          "heading": "Pegadinha FCC",
+          "body": "indefinida ≠ infinita.\nÉ ausência de limite previsível para o período de geração de benefícios/potencial, dentro das condições consideradas."
+        },
+        {
+          "heading": "16. Depreciação × amortização × impairment",
+          "body": "Fenômeno\nAplica-se tipicamente a\nLógica\nDepreciação\nimobilizado tangível\nalocação sistemática do valor depreciável\nAmortização\nintangível com vida útil definida\nalocação sistemática do valor amortizável\nImpairment\nativos sujeitos ao teste\nperda adicional quando valor recuperável/potencial recuperável fica abaixo do valor contábil\nDepreciação/amortização = consumo sistemático.\nImpairment = perda de recuperabilidade além desse consumo sistemático."
+        },
+        {
+          "heading": "17. NBC TSP 09 — não gerador de caixa",
+          "body": "A NBC TSP 09 trata de redução ao valor recuperável de ativos não geradores de caixa."
+        },
+        {
+          "heading": "Como reconhecer o tipo",
+          "body": "São ativos mantidos predominantemente para prestação de serviços, e não com objetivo principal de gerar retorno comercial.\nExemplos possíveis:\n- escola pública;\n- hospital público;\n- equipamento usado para serviço gratuito;\n- infraestrutura voltada a serviço público sem retorno comercial predominante."
+        },
+        {
+          "heading": "Valor recuperável de serviço",
+          "body": "No recorte clássico cobrado pela FCC, é o maior entre:\n- valor justo líquido de despesas de venda; e\n- valor em uso do ativo não gerador de caixa.\nO valor em uso representa o valor presente do potencial de serviços remanescente."
+        },
+        {
+          "heading": "Impairment",
+          "body": "Se o valor recuperável de serviço for inferior ao valor contábil:\n- há perda por redução ao valor recuperável;\n- o valor contábil deve ser ajustado conforme a norma."
+        },
+        {
+          "heading": "18. NBC TSP 10 — gerador de caixa",
+          "body": "A NBC TSP 10 trata de ativos geradores de caixa."
+        },
+        {
+          "heading": "Ideia central",
+          "body": "O ativo é mantido predominantemente com objetivo de gerar retorno comercial."
+        },
+        {
+          "heading": "Valor recuperável",
+          "body": "A lógica clássica usa o maior entre:\n- valor justo líquido de despesas de venda; e\n- valor em uso.\nAqui o valor em uso se conecta a fluxos de caixa/benefícios econômicos futuros."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "O fato de um ativo gerar alguma receita não o transforma automaticamente em “gerador de caixa” para a norma.\nO que importa é o objetivo predominante de manutenção e uso."
+        },
+        {
+          "heading": "19. NBC TSP 09 × 10",
+          "body": "Ponto\nNBC TSP 09\nNBC TSP 10\nTipo de ativo\nnão gerador de caixa\ngerador de caixa\nCentro\npotencial de serviços\nbenefícios econômicos/fluxos\nValor em uso\npotencial de serviços remanescente\nfluxos de caixa futuros descontados, no núcleo clássico\nTeste\nrecuperabilidade do serviço\nrecuperabilidade econômica"
+        },
+        {
+          "heading": "Macete",
+          "body": "09 = Serviço\n10 = Caixa"
+        },
+        {
+          "heading": "20. Indícios de perda",
+          "body": "A entidade precisa observar se há indicação de que o ativo perdeu recuperabilidade.\nExemplos didáticos:\n- dano físico;\n- obsolescência relevante;\n- mudança tecnológica;\n- interrupção/redução relevante no uso;\n- queda relevante no desempenho do serviço;\n- mudança externa que afete o potencial ou benefício.\nNão transforme essa lista em literalidade universal: a questão pode exigir a norma específica e seu contexto."
+        },
+        {
+          "heading": "21. Caso integrado",
+          "body": "Uma entidade pública possui:"
+        },
+        {
+          "heading": "A — prédio alugado para renda",
+          "body": "→ NBC 06"
+        },
+        {
+          "heading": "B — edifício da sede administrativa",
+          "body": "→ NBC 07"
+        },
+        {
+          "heading": "C — sistema corporativo separável e controlado",
+          "body": "→ NBC 08"
+        },
+        {
+          "heading": "D — equipamento hospitalar gratuito ao usuário com forte perda do potencial de serviço",
+          "body": "→ NBC 09"
+        },
+        {
+          "heading": "E — ativo mantido predominantemente para gerar retorno comercial que perdeu capacidade de gerar fluxos",
+          "body": "→ NBC 10\nEssa sequência 06–07–08–09–10 deve ficar automática."
+        },
+        {
+          "heading": "22. O que a FCC já mostrou",
+          "body": "A curadoria encontrou questões FCC úteis sobre:\n- definição de propriedade para investimento — FCC/2026;\n- imobilizado × propriedade para investimento × intangível — FCC/2025;\n- software integral ao hardware — FCC/2019 e FCC/2025;\n- pesquisa, vida útil e itens gerados internamente — FCC/2022;\n- valor recuperável de serviço — FCC/2025;\n- impairment como perda além da depreciação — FCC/2026."
+        },
+        {
+          "heading": "Trocas previsíveis",
+          "body": "1. imóvel administrativo como propriedade para investimento;\n2. terreno para venda normal como propriedade para investimento;\n3. todo software como intangível;\n4. pesquisa como ativo;\n5. intangível de vida indefinida sendo amortizado;\n6. depreciação = impairment;\n7. valor recuperável menor/maior invertido;\n8. ativo de serviço público tratado como gerador de caixa;\n9. substituição automática da NBC 07 pela 37;\n10. uso de R1 de 2027 para invalidar questão correta no recorte do edital."
+        },
+        {
+          "heading": "23. O que precisa ficar automático",
+          "body": "1. 06 = finalidade do imóvel.\n2. 07 = tangível usado por mais de um período.\n3. 08 = identificável + sem substância física + controle.\n4. Software integral ao hardware → imobilizado.\n5. Pesquisa → despesa/VPD, não intangível.\n6. Vida indefinida → não amortiza.\n7. Depreciação ≠ impairment.\n8. 09 = não gerador / serviço.\n9. 10 = gerador / caixa.\n10. NBC 07 continua referência do edital no corte do projeto."
+        },
+        {
+          "heading": "24. Pré-Q024",
+          "body": "Sem consulta:\n1. prédio alugado para renda: 06 ou 07?\n2. sede administrativa: 06 ou 07?\n3. software integral ao hardware: 07 ou 08?\n4. pesquisa interna é ativo?\n5. vida útil indefinida amortiza?\n6. depreciação e impairment são iguais?\n7. 09 trata de qual tipo de ativo?\n8. 10 trata de qual tipo?\n9. valor recuperável de serviço = menor ou maior entre as bases?\n10. NBC 37 substitui a 07 automaticamente neste edital?"
+        },
+        {
+          "heading": "25. Pós-Q024 — causa do erro",
+          "body": "Classifique apenas o que realmente ocorrer:\n- P1 — classificação do ativo: 06 × 07 × 08;\n- P2 — reconhecimento: ativo × despesa;\n- P3 — mensuração: custo/valor recuperável;\n- P4 — consumo: depreciação/amortização;\n- P5 — impairment: 09 × 10;\n- P6 — software: integral × separável;\n- P7 — intangível interno: pesquisa/desenvolvimento;\n- P8 — versionamento: 07 × 37 ou R1 2026;\n- P9 — leitura FCC: conceito conhecido aplicado ao objeto errado."
+        },
+        {
+          "heading": "Severidade",
+          "body": "Crítico\n- 06 × 07;\n- 07 × 08;\n- pesquisa × desenvolvimento;\n- depreciação × impairment;\n- 09 × 10;\n- NBC 07 × 37 no recorte."
+        },
+        {
+          "heading": "26. D0",
+          "body": "Depois da tentativa real:\n1. desenhe cinco caixas: 06 \\| 07 \\| 08 \\| 09 \\| 10;\n2. coloque uma frase e uma pegadinha em cada;\n3. explique 06 × 07 com um imóvel;\n4. explique 07 × 08 com um software;\n5. explique 09 × 10 com dois ativos;\n6. refaça erradas + acertos com dúvida;\n7. registre somente falha real reaplicável."
+        },
+        {
+          "heading": "D7 — acionado",
+          "body": "Motivo:\n- CASP continua sendo núcleo novo;\n- cinco normas em uma sessão;\n- alto risco de classificação e mensuração."
+        },
+        {
+          "heading": "D20 — acionado",
+          "body": "Motivo:\n- classificação de ativos e impairment são conceitos estruturais;\n- reaparecem em MCASP, PCASP, DCASP e simulados;\n- a transição 07 × 37 é detalhe normativo crítico do edital.\n> Acionado ≠ realizado."
+        },
+        {
+          "heading": "28. Flashcards candidatos",
+          "body": "Somente se houver utilidade real:\n1. 06 = aluguel/valorização.\n2. 07 = tangível + uso \\> 1 período.\n3. 08 = identificável + não monetário + sem forma física.\n4. software integral → imobilizado.\n5. pesquisa → despesa.\n6. vida indefinida → sem amortização.\n7. 09 = serviço.\n8. 10 = caixa.\n9. depreciação ≠ impairment.\n10. 37 revoga 07 apenas a partir de 01/01/2027."
+        },
+        {
+          "heading": "29. Ponte para os próximos dias",
+          "body": "- D031: demonstrações e informação orçamentária;\n- D038: políticas/estimativas/erros + eventos subsequentes + custos;\n- D050: contas que registram esses fenômenos;\n- D057: demonstrações em que aparecem;\n- D061: integração geral.\nNão abra PCASP/DCASP hoje."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- NBC 06–10 explicadas no nível do D024;\n- versionamento registrado;\n- Q024 com 20 itens válidos;\n- D0 e revisões configurados;\n- fronteiras futuras preservadas."
+        },
+        {
+          "heading": "Execução do aluno",
+          "body": "Só considerar D024 estudado após:\n- leitura efetiva;\n- 20 respostas;\n- correção;\n- D0;\n- reconstrução 06–10 sem consulta;\n- erros/dúvidas reais registrados."
+        },
+        {
+          "heading": "31. Fontes efetivamente usadas",
+          "body": "- Fonte-Mestra v1.3 — D024;\n- Base Técnica v1.3 — CASP 06.11–06.14 + regra de versionamento;\n- Base Operacional v1.3 — curadoria CASP;\n- Fonte 04 v1.3 — prioridade CASP;\n- Fonte 05 v1.1 — Template Técnico/CASP;\n- Índice v1.4;\n- CFC — portal NBC TSP e atos de transição de 2026;\n- MCASP 11ª edição como integração conceitual;\n- FCC reais registradas no Q024."
+        },
+        {
+          "heading": "Nota editorial",
+          "body": "A página preserva compatibilidade estrutural responsiva por coluna única, tabelas curtas e correções recolhíveis. Isso não equivale a teste físico de viewport."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T13:24:26.052Z"
     }
   },
   "questions": {
@@ -2963,6 +3766,39 @@
       "copyrightMode": "metadata-only",
       "version": 2,
       "lastEdited": "2026-09-22T11:32:57.841Z"
+    },
+    "q020": {
+      "qxx": "Q020",
+      "dxx": "D020",
+      "title": "Q020 — Questões \\| CHECKPOINT D20",
+      "meta": 40,
+      "valid": 40,
+      "sourceSummary": "28 FCC reais já validadas e reexpostas para retenção + 12 autorais cumulativas/integrativas; distribuição 12 Controle, 10 CASP, 10 Legislação Institucional e 8 apoio histórico.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T11:43:16.496Z"
+    },
+    "q022": {
+      "qxx": "Q022",
+      "dxx": "D022",
+      "title": "Q022 — Questões \\| Controle Externo IV",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "3 FCC reais de nível superior (2 TCE-RS/2018 diretamente aderentes a ISSAI/NBASP 100 + 1 FCC recente de apoio) + 17 autorais técnicas NBASP 100 identificadas.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T11:53:26.261Z"
+    },
+    "q024": {
+      "qxx": "Q024",
+      "dxx": "D024",
+      "title": "Q024 — Questões \\| CASP IV",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "7 FCC reais de nível superior, validadas no recorte 06–10, + 13 autorais técnicas; FCC: Q4643535, Q3819247, Q3819245, Q3946135, Q2679227, Q1068069 e Q4627357.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T13:24:30.527Z"
     }
   },
   "publicStats": {
@@ -2971,7 +3807,7 @@
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 9,
-    "questionPages": 9
+    "materialPages": 12,
+    "questionPages": 12
   }
 }
