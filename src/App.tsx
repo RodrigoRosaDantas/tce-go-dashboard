@@ -198,7 +198,7 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
           <p><strong>Meta:</strong> {q.meta} · <strong>válidas:</strong> {q.valid}</p>
           <p><strong>Origem:</strong> {q.sourceSummary}</p>
           <div className="notice">Questões externas permanecem em metadados/referência; conteúdo autoral e comentários pedagógicos são publicados somente após sanitização server-side.</div>
-          {q.contentHtml ? <div className="study-content" dangerouslySetInnerHTML={{ __html: q.contentHtml }} /> : null}
+          <p className="small">O sincronizador automático não publica enunciados externos; o Qxx público permanece em metadados e referência.</p>
         </div>
       ) : <div className="notice">Qxx liberado no dia, aguardando extração sanitizada do conteúdo.</div>}
       <a className="secondary" href={href(`/dia/${day.dxx.toLowerCase()}/`)}>Voltar ao dia</a>
@@ -230,7 +230,7 @@ function SyncPage({ snapshot }: { snapshot: Snapshot }) {
         <p><strong>Origem:</strong> Notion canônico.</p>
         <p><strong>Último snapshot:</strong> {new Date(snapshot.generatedAt).toLocaleString("pt-BR")}.</p>
         <p><strong>Modo de conteúdo:</strong> {snapshot.contentMode === "full" ? "completo e sincronizado" : "bootstrap versionado"}.</p>
-        <p><strong>Cobertura pública:</strong> {snapshot.publicStats.materialDays ?? Object.keys(snapshot.materials).length} materiais · {snapshot.publicStats.questionDays ?? Object.keys(snapshot.questions).length} cadernos Qxx.</p>
+        <p><strong>Cobertura pública:</strong> {snapshot.publicStats.materialPages ?? Object.keys(snapshot.materials).length} materiais · {snapshot.publicStats.questionPages ?? Object.keys(snapshot.questions).length} cadernos Qxx.</p>
         {snapshot.contentHash ? <p><strong>Hash:</strong> <code>{snapshot.contentHash.slice(0, 12)}</code>.</p> : null}
         <p><strong>Fluxo:</strong> extração server-side → normalização → validação → sanitização → snapshot → quality → Pages/PWA.</p>
         <p><strong>Privacidade:</strong> respostas, notas, tempo real, Caderno de Erros detalhado e URLs internas não são publicados.</p>
