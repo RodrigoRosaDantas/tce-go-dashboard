@@ -61,6 +61,16 @@ export function validateSnapshot(snapshot) {
     if (day && question?.dxx !== day.dxx) errors.push(`questões ${slug}: dxx divergente`);
     if (question?.qxx && question.qxx.toLowerCase() !== slug) errors.push(`questões ${slug}: qxx divergente`);
     if (question?.copyrightMode !== "metadata-only") errors.push(`questões ${slug}: modo público deve ser metadata-only no sync automático`);
+    if (question?.platformBattery) {
+      if (!question.platformBattery.materia || !question.platformBattery.topico) {
+        errors.push(`questões ${slug}: plataforma exige matéria + tópico validados`);
+      }
+      for (const value of Object.values(question.platformBattery)) {
+        if (typeof value === "string" && /app\.notion\.com|notion\.so|collection:\/\//i.test(value)) {
+          errors.push(`questões ${slug}: filtro da plataforma contém referência interna`);
+        }
+      }
+    }
   }
 
   if (snapshot.contentMode === "full") {
