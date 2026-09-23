@@ -131,6 +131,10 @@ export function EssayWriteback({ snapshot }: { snapshot: Snapshot }) {
 
   async function save(event: FormEvent) {
     event.preventDefault();
+    if (status !== "Em produção" && (!lines.trim() || !time.trim())) {
+      setMessage("Redação produzida/corrigida exige linhas e tempo real.");
+      return;
+    }
     setBusy(true);
     const result = await submitSpecialized(snapshot, dxx, "essay.result", {
       status,
@@ -157,8 +161,8 @@ export function EssayWriteback({ snapshot }: { snapshot: Snapshot }) {
         <div className="progress-fields">
           <label>Redação<select value={dxx} onChange={(e) => setDxx(e.target.value)}>{plans.map((p) => <option key={p.code} value={p.dxx}>{p.code} · {p.dxx}</option>)}</select></label>
           <label>Status<select value={status} onChange={(e) => setStatus(e.target.value)}><option>Em produção</option><option>Produzida</option><option>Corrigida</option><option>Reescrita</option></select></label>
-          <label>Linhas<input type="number" min="0" value={lines} onChange={(e) => setLines(e.target.value)} /></label>
-          <label>Tempo (min)<input type="number" min="0" value={time} onChange={(e) => setTime(e.target.value)} /></label>
+          <label>Linhas<input type="number" min="1" required={status !== "Em produção"} value={lines} onChange={(e) => setLines(e.target.value)} /></label>
+          <label>Tempo (min)<input type="number" min="1" required={status !== "Em produção"} value={time} onChange={(e) => setTime(e.target.value)} /></label>
           {scoreField("recorte", "Recorte /20", 20)}
           {scoreField("interpretacao", "Interpretação /20", 20)}
           {scoreField("progressao", "Progressão /30", 30)}
@@ -181,10 +185,22 @@ export function SimulationWriteback({ snapshot }: { snapshot: Snapshot }) {
   const [generalCorrect, setGeneralCorrect] = useState("");
   const [specificTotal, setSpecificTotal] = useState("");
   const [specificCorrect, setSpecificCorrect] = useState("");
+  const [coverageExecuted, setCoverageExecuted] = useState("");
+  const [sessionsCompleted, setSessionsCompleted] = useState("");
   const [time, setTime] = useState("");
+  const [timeByBlock, setTimeByBlock] = useState("");
   const [control, setControl] = useState("");
   const [casp, setCasp] = useState("");
   const [legislation, setLegislation] = useState("");
+  const [known, setKnown] = useState("");
+  const [weakKnown, setWeakKnown] = useState("");
+  const [p1Open, setP1Open] = useState("");
+  const [openErrors, setOpenErrors] = useState("");
+  const [recurrent, setRecurrent] = useState("");
+  const [essayScore, setEssayScore] = useState("");
+  const [biggestEssayLoss, setBiggestEssayLoss] = useState("");
+  const [impactedSeedf, setImpactedSeedf] = useState(false);
+  const [impactedTjdft, setImpactedTjdft] = useState(false);
   const [decision, setDecision] = useState("Manter");
   const [notes, setNotes] = useState("");
   const [message, setMessage] = useState("");
@@ -198,10 +214,22 @@ export function SimulationWriteback({ snapshot }: { snapshot: Snapshot }) {
       generalCorrect: numberOrUndefined(generalCorrect),
       specificTotal: numberOrUndefined(specificTotal),
       specificCorrect: numberOrUndefined(specificCorrect),
+      coverageExecuted: numberOrUndefined(coverageExecuted),
+      sessionsCompleted: numberOrUndefined(sessionsCompleted),
       timeMinutes: numberOrUndefined(time),
+      timeByBlock,
       controlPercent: numberOrUndefined(control),
       caspPercent: numberOrUndefined(casp),
       legislationPercent: numberOrUndefined(legislation),
+      knownPercent: numberOrUndefined(known),
+      weakKnown,
+      p1Open: numberOrUndefined(p1Open),
+      openErrors: numberOrUndefined(openErrors),
+      recurrent: numberOrUndefined(recurrent),
+      essayScore: numberOrUndefined(essayScore),
+      biggestEssayLoss,
+      impactedSeedf,
+      impactedTjdft,
       decision,
       notes,
     });
@@ -213,20 +241,33 @@ export function SimulationWriteback({ snapshot }: { snapshot: Snapshot }) {
     <article className="panel execution-module">
       <h2>Registrar resultado do marco</h2>
       <PrivateWritebackIntro />
+      <p className="small">O formulário segue o painel mínimo canônico: cobertura, objetiva, IPI, núcleos, matérias conhecidas, tempo, erros, carga, impacto externo e decisão.</p>
       <form className="progress-form" onSubmit={save}>
         <div className="progress-fields">
           <label>Marco<select value={dxx} onChange={(e) => setDxx(e.target.value)}>{plans.map((p) => <option key={p.dxx} value={p.dxx}>{p.dxx} · {p.type}</option>)}</select></label>
-          <label>Gerais — total<input type="number" min="0" value={generalTotal} onChange={(e) => setGeneralTotal(e.target.value)} /></label>
-          <label>Gerais — acertos<input type="number" min="0" value={generalCorrect} onChange={(e) => setGeneralCorrect(e.target.value)} /></label>
-          <label>Específicos — total<input type="number" min="0" value={specificTotal} onChange={(e) => setSpecificTotal(e.target.value)} /></label>
-          <label>Específicos — acertos<input type="number" min="0" value={specificCorrect} onChange={(e) => setSpecificCorrect(e.target.value)} /></label>
-          <label>Tempo (min)<input type="number" min="0" value={time} onChange={(e) => setTime(e.target.value)} /></label>
-          <label>Controle Externo %<input type="number" min="0" max="100" value={control} onChange={(e) => setControl(e.target.value)} /></label>
-          <label>CASP %<input type="number" min="0" max="100" value={casp} onChange={(e) => setCasp(e.target.value)} /></label>
-          <label>Legislação %<input type="number" min="0" max="100" value={legislation} onChange={(e) => setLegislation(e.target.value)} /></label>
+          <label>Cobertura executada<input required type="number" min="0" value={coverageExecuted} onChange={(e) => setCoverageExecuted(e.target.value)} /></label>
+          <label>Sessões realizadas<input required type="number" min="0" value={sessionsCompleted} onChange={(e) => setSessionsCompleted(e.target.value)} /></label>
+          <label>Gerais — total<input required type="number" min="0" value={generalTotal} onChange={(e) => setGeneralTotal(e.target.value)} /></label>
+          <label>Gerais — acertos<input required type="number" min="0" value={generalCorrect} onChange={(e) => setGeneralCorrect(e.target.value)} /></label>
+          <label>Específicos — total<input required type="number" min="0" value={specificTotal} onChange={(e) => setSpecificTotal(e.target.value)} /></label>
+          <label>Específicos — acertos<input required type="number" min="0" value={specificCorrect} onChange={(e) => setSpecificCorrect(e.target.value)} /></label>
+          <label>Tempo total (min)<input required type="number" min="1" value={time} onChange={(e) => setTime(e.target.value)} /></label>
+          <label>Controle Externo %<input required type="number" min="0" max="100" step="0.1" value={control} onChange={(e) => setControl(e.target.value)} /></label>
+          <label>CASP %<input required type="number" min="0" max="100" step="0.1" value={casp} onChange={(e) => setCasp(e.target.value)} /></label>
+          <label>Legislação %<input required type="number" min="0" max="100" step="0.1" value={legislation} onChange={(e) => setLegislation(e.target.value)} /></label>
+          <label>Matérias conhecidas %<input required type="number" min="0" max="100" step="0.1" value={known} onChange={(e) => setKnown(e.target.value)} /></label>
+          <label>P1 abertos<input required type="number" min="0" value={p1Open} onChange={(e) => setP1Open(e.target.value)} /></label>
+          <label>Erros abertos<input required type="number" min="0" value={openErrors} onChange={(e) => setOpenErrors(e.target.value)} /></label>
+          <label>Reincidentes<input required type="number" min="0" value={recurrent} onChange={(e) => setRecurrent(e.target.value)} /></label>
+          <label>Redação /100 (se houver)<input type="number" min="0" max="100" step="0.5" value={essayScore} onChange={(e) => setEssayScore(e.target.value)} /></label>
           <label>Decisão<select value={decision} onChange={(e) => setDecision(e.target.value)}><option>Manter</option><option>Ajustar</option><option>Reduzir</option><option>Ampliar</option></select></label>
         </div>
+        <label className="notes-field">Tempo por bloco<textarea required value={timeByBlock} onChange={(e) => setTimeByBlock(e.target.value)} /></label>
+        <label className="notes-field">Pontos fracos — matérias conhecidas<textarea required value={weakKnown} onChange={(e) => setWeakKnown(e.target.value)} /></label>
+        <label className="notes-field">Maior perda — redação (se houver)<textarea value={biggestEssayLoss} onChange={(e) => setBiggestEssayLoss(e.target.value)} /></label>
         <label className="notes-field">Observações<textarea value={notes} onChange={(e) => setNotes(e.target.value)} /></label>
+        <label className="check-field"><input type="checkbox" checked={impactedSeedf} onChange={(e) => setImpactedSeedf(e.target.checked)} /> Houve impacto perceptível na SEEDF</label>
+        <label className="check-field"><input type="checkbox" checked={impactedTjdft} onChange={(e) => setImpactedTjdft(e.target.checked)} /> Houve impacto perceptível no TJDFT</label>
         <div className="progress-actions"><button className="primary button" type="submit" disabled={busy}>{busy ? "Sincronizando…" : "Salvar marco"}</button><span className="small">{message}</span></div>
       </form>
     </article>
