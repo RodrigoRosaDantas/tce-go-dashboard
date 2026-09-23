@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - "supabase/functions/tce-progress/**"
+      - "supabase/functions/tce-public-snapshot/**"
       - "supabase/config.toml"
       - ".github/workflows/deploy-supabase.yml"
 
@@ -47,3 +48,7 @@ jobs:
       - name: Deploy tce-progress
         if: steps.config.outputs.ready == 'true'
         run: supabase functions deploy tce-progress --project-ref "$SUPABASE_PROJECT_ID"
+
+      - name: Deploy tce-public-snapshot
+        if: steps.config.outputs.ready == 'true'
+        run: supabase functions deploy tce-public-snapshot --project-ref "$SUPABASE_PROJECT_ID"
