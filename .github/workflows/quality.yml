@@ -4,9 +4,6 @@ on:
   pull_request:
   push:
     branches: [main]
-  workflow_run:
-    workflows: ["Sync TCE-GO from Notion"]
-    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -18,7 +15,6 @@ concurrency:
 
 jobs:
   quality:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
