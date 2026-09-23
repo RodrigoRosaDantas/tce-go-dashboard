@@ -74,8 +74,6 @@ export interface EditalItemSnapshot {
   questions: number;
   weight: number;
   weightedPoints: number;
-  baseline: string;
-  treatment: string;
   editorialStatus: string;
   normativeSource: string;
 }
