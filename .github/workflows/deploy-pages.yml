@@ -138,7 +138,21 @@ jobs:
             fi
           done
 
-          curl --retry 5 --retry-delay 2 --retry-all-errors -sS "${base}/data/tce-go-snapshot.json" -o /tmp/tce-snapshot.json\n          node - <<'NODE'\n          const fs = require("fs");\n          const s = JSON.parse(fs.readFileSync("/tmp/tce-snapshot.json", "utf8"));\n          const m = Object.keys(s.materials || {}).length;\n          const q = Object.keys(s.questions || {}).length;\n          if (s.contentMode !== "full" || s.publicStats?.totalDays !== 100 || s.publicStats?.activeDays !== 47 || s.publicStats?.protectedDays !== 53 || s.publicStats?.sessions !== 47 || m !== 47 || q !== 47) {\n            throw new Error(`Snapshot público incompleto: mode=${s.contentMode}, days=${s.publicStats?.totalDays}, active=${s.publicStats?.activeDays}, protected=${s.publicStats?.protectedDays}, sessions=${s.publicStats?.sessions}, materials=${m}, questions=${q}`);\n          }\n          const protectedWithSession = (s.days || []).filter(d => d.protected && d.session).length;\n          if (protectedWithSession !== 0) throw new Error(`Dias protegidos com Sxx: ${protectedWithSession}`);\n          console.log("Snapshot full 47/47 validado no site publicado.");\nNODE\n\n          fallback_code="$(curl --retry 5 --retry-delay 2 --retry-all-errors -sS -o /tmp/tce-fallback.html -w "%{http_code}" "${base}/rota-inexistente-smoke/")"
+          curl --retry 5 --retry-delay 2 --retry-all-errors -sS "${base}/data/tce-go-snapshot.json" -o /tmp/tce-snapshot.json
+          node - <<'NODE'
+          const fs = require("fs");
+          const s = JSON.parse(fs.readFileSync("/tmp/tce-snapshot.json", "utf8"));
+          const m = Object.keys(s.materials || {}).length;
+          const q = Object.keys(s.questions || {}).length;
+          if (s.contentMode !== "full" || s.publicStats?.totalDays !== 100 || s.publicStats?.activeDays !== 47 || s.publicStats?.protectedDays !== 53 || s.publicStats?.sessions !== 47 || m !== 47 || q !== 47) {
+            throw new Error(`Snapshot público incompleto: mode=${s.contentMode}, days=${s.publicStats?.totalDays}, active=${s.publicStats?.activeDays}, protected=${s.publicStats?.protectedDays}, sessions=${s.publicStats?.sessions}, materials=${m}, questions=${q}`);
+          }
+          const protectedWithSession = (s.days || []).filter(d => d.protected && d.session).length;
+          if (protectedWithSession !== 0) throw new Error(`Dias protegidos com Sxx: ${protectedWithSession}`);
+          console.log("Snapshot full 47/47 validado no site publicado.");
+NODE
+
+          fallback_code="$(curl --retry 5 --retry-delay 2 --retry-all-errors -sS -o /tmp/tce-fallback.html -w "%{http_code}" "${base}/rota-inexistente-smoke/")"
           if [ "$fallback_code" != "404" ]; then
             echo "::error::Fallback esperado HTTP 404; recebido $fallback_code"
             exit 1
