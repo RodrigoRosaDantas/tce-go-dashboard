@@ -2,6 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "full",
+  "auxiliaryMode": "full",
   "days": [
     {
       "dxx": "D001",
@@ -12278,6 +12279,579 @@
       "gapDeclared": true
     }
   },
+  "redactions": [
+    {
+      "code": "R1",
+      "title": "R1 — Calibração FCC",
+      "dxx": "D019",
+      "date": "2026-10-10",
+      "theme": "Responsabilidade humana diante do uso crescente de ferramentas de inteligência artificial no cotidiano"
+    },
+    {
+      "code": "R2",
+      "title": "R2 — Checkpoint D45",
+      "dxx": "D045",
+      "date": "2026-11-05",
+      "theme": "Transparência e controle como condições para a confiança nas instituições públicas"
+    },
+    {
+      "code": "R3",
+      "title": "R3 — Simulado 1",
+      "dxx": "D070",
+      "date": "2026-11-30",
+      "theme": "Digitalização dos serviços públicos e o desafio de não ampliar desigualdades de acesso"
+    },
+    {
+      "code": "R4",
+      "title": "R4 — Bloco aplicado",
+      "dxx": "D082",
+      "date": "2026-12-12",
+      "theme": "Eficiência administrativa e qualidade dos serviços públicos: os limites de reduzir resultados a indicadores numéricos"
+    },
+    {
+      "code": "R5",
+      "title": "R5 — FCC cronometrada",
+      "dxx": "D087",
+      "date": "2026-12-17",
+      "theme": "Rever opiniões diante de novas evidências: responsabilidade ou incoerência?"
+    },
+    {
+      "code": "R6",
+      "title": "R6 — Simulado 2",
+      "dxx": "D090",
+      "date": "2026-12-20",
+      "theme": "A atenção como recurso limitado em uma sociedade de estímulos permanentes."
+    },
+    {
+      "code": "R7",
+      "title": "R7 — Simulado 3",
+      "dxx": "D096",
+      "date": "2026-12-26",
+      "theme": "Confiança pública em uma sociedade de conteúdos produzidos e distribuídos por sistemas automatizados."
+    },
+    {
+      "code": "R8",
+      "title": "R8 — Fechamento do Projeto 100 Dias",
+      "dxx": "D099",
+      "date": "2026-12-29",
+      "theme": "O valor social de preservar espaços de escuta em uma cultura marcada pela resposta imediata."
+    }
+  ],
+  "simulations": [
+    {
+      "title": "D20 — Checkpoint de entrada",
+      "dxx": "D020",
+      "date": "2026-10-11",
+      "type": "Checkpoint",
+      "plannedCoverage": 0,
+      "plannedSessions": 0
+    },
+    {
+      "title": "D45 — Checkpoint de construção",
+      "dxx": "D045",
+      "date": "2026-11-05",
+      "type": "Checkpoint",
+      "plannedCoverage": 0,
+      "plannedSessions": 0
+    },
+    {
+      "title": "D70 — Simulado 1",
+      "dxx": "D070",
+      "date": "2026-11-30",
+      "type": "Simulado integral",
+      "plannedCoverage": 0,
+      "plannedSessions": 0
+    },
+    {
+      "title": "D90 — Simulado 2",
+      "dxx": "D090",
+      "date": "2026-12-20",
+      "type": "Simulado integral",
+      "plannedCoverage": 0,
+      "plannedSessions": 0
+    },
+    {
+      "title": "D96 — Simulado 3 de validação",
+      "dxx": "D096",
+      "date": "2026-12-26",
+      "type": "Simulado integral",
+      "plannedCoverage": 0,
+      "plannedSessions": 0
+    },
+    {
+      "title": "D100 — Benchmark final",
+      "dxx": "D100",
+      "date": "2026-12-30",
+      "type": "Benchmark",
+      "plannedCoverage": 0,
+      "plannedSessions": 0
+    }
+  ],
+  "edital": [
+    {
+      "code": "A01",
+      "order": 1,
+      "discipline": "Português",
+      "active": true,
+      "block": "Gerais",
+      "questions": 10,
+      "weight": 1,
+      "weightedPoints": 10,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "A02",
+      "order": 2,
+      "discipline": "Matemática e Raciocínio Lógico",
+      "active": true,
+      "block": "Gerais",
+      "questions": 10,
+      "weight": 1,
+      "weightedPoints": 10,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "A03",
+      "order": 3,
+      "discipline": "Legislação Institucional",
+      "active": true,
+      "block": "Gerais",
+      "questions": 5,
+      "weight": 1,
+      "weightedPoints": 5,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B01",
+      "order": 4,
+      "discipline": "Noções de Direito Administrativo",
+      "active": true,
+      "block": "Específicos",
+      "questions": 5,
+      "weight": 2,
+      "weightedPoints": 10,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B02",
+      "order": 5,
+      "discipline": "Licitações e Contratos",
+      "active": true,
+      "block": "Específicos",
+      "questions": 5,
+      "weight": 2,
+      "weightedPoints": 10,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B03",
+      "order": 6,
+      "discipline": "Noções de Direito Constitucional",
+      "active": true,
+      "block": "Específicos",
+      "questions": 3,
+      "weight": 2,
+      "weightedPoints": 6,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B04",
+      "order": 7,
+      "discipline": "Noções de Controle Externo",
+      "active": true,
+      "block": "Específicos",
+      "questions": 4,
+      "weight": 2,
+      "weightedPoints": 8,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B05",
+      "order": 8,
+      "discipline": "Administração Financeira e Orçamentária",
+      "active": true,
+      "block": "Específicos",
+      "questions": 5,
+      "weight": 2,
+      "weightedPoints": 10,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B06",
+      "order": 9,
+      "discipline": "Contabilidade Aplicada ao Setor Público",
+      "active": true,
+      "block": "Específicos",
+      "questions": 5,
+      "weight": 2,
+      "weightedPoints": 10,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B07",
+      "order": 10,
+      "discipline": "Noções de Administração Pública",
+      "active": true,
+      "block": "Específicos",
+      "questions": 5,
+      "weight": 2,
+      "weightedPoints": 10,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B08",
+      "order": 11,
+      "discipline": "Noções de Administração Geral",
+      "active": true,
+      "block": "Específicos",
+      "questions": 4,
+      "weight": 2,
+      "weightedPoints": 8,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B09",
+      "order": 12,
+      "discipline": "Noções de Administração Estratégica",
+      "active": true,
+      "block": "Específicos",
+      "questions": 3,
+      "weight": 2,
+      "weightedPoints": 6,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B10",
+      "order": 13,
+      "discipline": "Noções de Comportamento Organizacional",
+      "active": true,
+      "block": "Específicos",
+      "questions": 3,
+      "weight": 2,
+      "weightedPoints": 6,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "B11",
+      "order": 14,
+      "discipline": "Noções de Gestão de Pessoas",
+      "active": true,
+      "block": "Específicos",
+      "questions": 3,
+      "weight": 2,
+      "weightedPoints": 6,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    },
+    {
+      "code": "R01",
+      "order": 15,
+      "discipline": "Redação FCC",
+      "active": true,
+      "block": "Discursiva",
+      "questions": 0,
+      "weight": 0,
+      "weightedPoints": 0,
+      "editorialStatus": "Em migração",
+      "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+    }
+  ],
+  "legislation": [
+    {
+      "code": "ADM01",
+      "title": "Lei Estadual nº 13.800/2001 — Processo Administrativo GO",
+      "category": "Lei estadual",
+      "cutoff": "Texto consolidado vigente no corte de 25/08/2026; revalidado em 22/09/2026. Alterações relevantes incorporadas até Lei nº 22.416/2023.",
+      "dxx": "D064",
+      "use": "D064 — princípios, competência/delegação/avocação, impedimento/suspeição, intimação, instrução, decisão, motivação, anulação/revogação/convalidação, recursos e prazos.",
+      "status": "Validada",
+      "officialUrl": "https://legisla.casacivil.go.gov.br/pesquisa_legislacao/81441/lei-13800"
+    },
+    {
+      "code": "ADM04",
+      "title": "Lei Estadual nº 18.025/2013 — Acesso à Informação GO",
+      "category": "Lei estadual",
+      "cutoff": "Texto consolidado vigente no corte de 25/08/2026; revalidado em 22/09/2026. Alterada pela Lei nº 22.060/2023 e regulamentada pelo Decreto nº 10.306/2023.",
+      "dxx": "D064",
+      "use": "D064 — alcance, transparência ativa, SIC/transparência passiva, pedido, resposta, recursos e atualização 2023.",
+      "status": "Validada",
+      "officialUrl": "https://legisla.casacivil.go.gov.br/pesquisa_legislacao/90142"
+    },
+    {
+      "code": "L-TCE01",
+      "title": "Constituição Federal — Administração Pública e Controle",
+      "category": "Constituição",
+      "cutoff": "Vigente no corte + EC 139/2026",
+      "dxx": "D001/D005",
+      "use": "Matriz constitucional; arts. 70–75 e Administração Pública",
+      "status": "Validada",
+      "officialUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+    },
+    {
+      "code": "L-TCE02",
+      "title": "Constituição do Estado de Goiás — disposições TCE-GO",
+      "category": "Constituição",
+      "cutoff": "Corte do edital: 25/08/2026",
+      "dxx": "D005",
+      "use": "Competência estadual e TCE-GO",
+      "status": "Validada",
+      "officialUrl": "https://legisla.casacivil.go.gov.br/constituicao-estadual"
+    },
+    {
+      "code": "L-TCE03",
+      "title": "Lei Estadual nº 16.168/2007 — Lei Orgânica TCE-GO",
+      "category": "Lei estadual",
+      "cutoff": "Corte do edital: 25/08/2026",
+      "dxx": "D005/D012",
+      "use": "Competência, jurisdição, processos e sanções",
+      "status": "Validada",
+      "officialUrl": "https://legisla.casacivil.go.gov.br/api/v2/pesquisa/legislacoes/86708/pdf"
+    },
+    {
+      "code": "L-TCE04",
+      "title": "Resolução nº 22/2008 — Regimento Interno TCE-GO",
+      "category": "Ato TCE-GO",
+      "cutoff": "Corte do edital: 25/08/2026",
+      "dxx": "D026",
+      "use": "Organização, competências, instrumentos e processo",
+      "status": "Validada",
+      "officialUrl": "https://gnoi.tce.go.gov.br/atoNormativo/Publicado?id=9544"
+    },
+    {
+      "code": "L-TCE05",
+      "title": "Lei Estadual nº 15.122/2005 — Plano de Carreira",
+      "category": "Lei estadual",
+      "cutoff": "Texto consolidado oficial conferido em 22/09/2026; corte do edital: 25/08/2026.",
+      "dxx": "D033",
+      "use": "Carreira/quadro permanente",
+      "status": "Validada",
+      "officialUrl": "https://legisla.casacivil.go.gov.br/pesquisa_legislacao/80023"
+    },
+    {
+      "code": "L-TCE06",
+      "title": "Lei Estadual nº 20.756/2020 — Regime Jurídico",
+      "category": "Lei estadual",
+      "cutoff": "Texto consolidado oficial conferido em 22/09/2026; corte do edital: 25/08/2026.",
+      "dxx": "D033",
+      "use": "Regime jurídico estadual no recorte do edital",
+      "status": "Validada",
+      "officialUrl": "https://legisla.casacivil.go.gov.br/pesquisa_legislacao/100979/lei--20756"
+    },
+    {
+      "code": "L-TCE07",
+      "title": "RA nº 1/2014 + RA nº 6/2026 — Código de Ética",
+      "category": "Ato TCE-GO",
+      "cutoff": "RA nº 6/2026 vigente antes do corte de 25/08/2026; Anexo II da RA nº 1/2014 substituído.",
+      "dxx": "D033",
+      "use": "Código de Ética com atualização de 2026",
+      "status": "Validada",
+      "officialUrl": "https://gnoi.tce.go.gov.br/atoNormativo/Publicado?id=26496"
+    },
+    {
+      "code": "L-TCE08",
+      "title": "RA nº 14/2025 — Estrutura Organizacional",
+      "category": "Ato TCE-GO",
+      "cutoff": "Vigente no corte 25/08/2026 | consulta oficial revalidada em 22/09/2026",
+      "dxx": "D040",
+      "use": "Estrutura e competências",
+      "status": "Validada",
+      "officialUrl": "https://gnoi.tce.go.gov.br/atoNormativo/Publicado/25999"
+    },
+    {
+      "code": "L-TCE09",
+      "title": "RA nº 17/2024 — Política de Segurança da Informação",
+      "category": "Ato TCE-GO",
+      "cutoff": "Vigente no corte 25/08/2026 | consulta oficial revalidada em 22/09/2026",
+      "dxx": "D040",
+      "use": "Segurança da informação/SGSI",
+      "status": "Validada",
+      "officialUrl": "https://gnoi.tce.go.gov.br/atoNormativo/Publicado/22924"
+    },
+    {
+      "code": "L-TCE10",
+      "title": "RN nº 5/2024 — Proteção de Dados Pessoais",
+      "category": "Ato TCE-GO",
+      "cutoff": "Vigente no corte 25/08/2026 | consulta oficial revalidada em 22/09/2026",
+      "dxx": "D040",
+      "use": "LGPD/tratamento de dados no Tribunal",
+      "status": "Validada",
+      "officialUrl": "https://gnoi.tce.go.gov.br/atoNormativo/Publicado?id=21125"
+    },
+    {
+      "code": "L-TCE11",
+      "title": "RA nº 24/2024 — Uso de Inteligência Artificial",
+      "category": "Ato TCE-GO",
+      "cutoff": "Vigente no corte 25/08/2026 | texto oficial revalidado em 22/09/2026",
+      "dxx": "D040",
+      "use": "Uso responsável de IA no TCE-GO",
+      "status": "Validada",
+      "officialUrl": "https://dec.tce.go.gov.br/ConsultaDiario/CarregaDocumento?documento=331702342642061"
+    },
+    {
+      "code": "L-TCE12",
+      "title": "RA nº 5/2024 — Política de Gestão de Pessoas",
+      "category": "Ato TCE-GO",
+      "cutoff": "Vigente no corte 25/08/2026 | texto oficial GNOI revalidado em 22/09/2026",
+      "dxx": "D054",
+      "use": "Gestão de Pessoas",
+      "status": "Validada",
+      "officialUrl": "https://gnoi.tce.go.gov.br/atoNormativo/Publicado/20784"
+    },
+    {
+      "code": "L-TCE13",
+      "title": "RA nº 19/2024 — Política de Comunicação",
+      "category": "Ato TCE-GO",
+      "cutoff": "Vigente no corte 25/08/2026 | texto oficial GNOI revalidado em 22/09/2026",
+      "dxx": "D054",
+      "use": "Comunicação institucional",
+      "status": "Validada",
+      "officialUrl": "https://gnoi.tce.go.gov.br/atoNormativo/Publicado/23268"
+    },
+    {
+      "code": "L-TCE14",
+      "title": "RA nº 15/2024 — Sistema de Planejamento e Gestão",
+      "category": "Ato TCE-GO",
+      "cutoff": "Vigente no corte 25/08/2026 | texto oficial GNOI revalidado em 22/09/2026",
+      "dxx": "D054",
+      "use": "Planejamento e Gestão",
+      "status": "Validada",
+      "officialUrl": "https://gnoi.tce.go.gov.br/atoNormativo/Publicado/22389"
+    }
+  ],
+  "finalSprint": [
+    {
+      "code": "RF01",
+      "order": 1,
+      "date": "2026-12-31",
+      "title": "RF01 — Auditoria D100 + top 10 riscos + Fatal Errors",
+      "type": "Revisão"
+    },
+    {
+      "code": "Protegido",
+      "order": 2,
+      "date": "2027-01-01",
+      "title": "Protegido — Sem obrigação TCE",
+      "type": "Protegido"
+    },
+    {
+      "code": "RF02",
+      "order": 3,
+      "date": "2027-01-02",
+      "title": "RF02 — Controle Externo + CASP, somente vermelho/amarelo",
+      "type": "Revisão"
+    },
+    {
+      "code": "Protegido",
+      "order": 4,
+      "date": "2027-01-03",
+      "title": "Protegido — Descanso/SEEDF/TJDFT",
+      "type": "Protegido"
+    },
+    {
+      "code": "Protegido",
+      "order": 5,
+      "date": "2027-01-04",
+      "title": "Protegido — Sem TCE",
+      "type": "Protegido"
+    },
+    {
+      "code": "RF03",
+      "order": 6,
+      "date": "2027-01-05",
+      "title": "RF03 — Legislação Institucional — Lei Orgânica/Regimento/Ética",
+      "type": "Revisão"
+    },
+    {
+      "code": "Protegido",
+      "order": 7,
+      "date": "2027-01-06",
+      "title": "Protegido — Sem TCE",
+      "type": "Protegido"
+    },
+    {
+      "code": "RF04",
+      "order": 8,
+      "date": "2027-01-07",
+      "title": "RF04 — AFO + Licitações + normas novas de Administrativo",
+      "type": "Revisão"
+    },
+    {
+      "code": "Protegido",
+      "order": 9,
+      "date": "2027-01-08",
+      "title": "Protegido — Sem TCE",
+      "type": "Protegido"
+    },
+    {
+      "code": "RF05",
+      "order": 10,
+      "date": "2027-01-09",
+      "title": "RF05 — Simulado Final 4h30 + redação opcional conforme fadiga/D100",
+      "type": "Simulado"
+    },
+    {
+      "code": "REC",
+      "order": 11,
+      "date": "2027-01-10",
+      "title": "REC — Correção leve; sem maratona",
+      "type": "Correção"
+    },
+    {
+      "code": "Protegido",
+      "order": 12,
+      "date": "2027-01-11",
+      "title": "Protegido — Sem TCE",
+      "type": "Protegido"
+    },
+    {
+      "code": "RF06",
+      "order": 13,
+      "date": "2027-01-12",
+      "title": "RF06 — Correção do simulado + Fatal Errors + 20 questões",
+      "type": "Correção"
+    },
+    {
+      "code": "Protegido",
+      "order": 14,
+      "date": "2027-01-13",
+      "title": "Protegido — Sem TCE",
+      "type": "Protegido"
+    },
+    {
+      "code": "RF07",
+      "order": 15,
+      "date": "2027-01-14",
+      "title": "RF07 — 35 questões seletivas + lei seca",
+      "type": "Revisão"
+    },
+    {
+      "code": "RF08",
+      "order": 16,
+      "date": "2027-01-15",
+      "title": "RF08 — Revisão leve: mapas, erros, fórmulas, artigos marcados",
+      "type": "Revisão"
+    },
+    {
+      "code": "LOG",
+      "order": 17,
+      "date": "2027-01-16",
+      "title": "LOG — Logística, documentos, deslocamento, descanso; no máximo revisão ultraleve",
+      "type": "Logística"
+    }
+  ],
   "publicStats": {
     "totalDays": 100,
     "activeDays": 47,
@@ -12285,8 +12859,13 @@
     "sessions": 47,
     "readyDays": 47,
     "materialPages": 47,
-    "questionPages": 47
+    "questionPages": 47,
+    "redactionPlans": 8,
+    "simulationPlans": 6,
+    "editalItems": 15,
+    "legislationSources": 16,
+    "finalSprintDays": 17
   },
-  "generatedAt": "2026-09-23T15:14:13.120Z",
-  "contentHash": "a4e12f127dabbd8bec408fb74611c8bab26280c82fed98283d07cda61a0f8eef"
+  "generatedAt": "2026-09-23T17:14:59.760Z",
+  "contentHash": "d03a6dddaa9e1b1cc119a1694d65b7fcb910d49bdafb7363cb3f72a92bb57168"
 }

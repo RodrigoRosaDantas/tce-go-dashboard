@@ -1,14 +1,182 @@
-{
-  "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-23T10:25:00.000Z",
-  "source": "notion",
-  "note": "Snapshot público mínimo do edital. A verticalização integral será sincronizada server-side sem URLs ou IDs internos.",
-  "blocks": [
-    {
-      "code": "B04",
-      "name": "Noções de Controle Externo",
-      "treatment": "Construção",
-      "public": true
-    }
-  ]
-}
+[
+  {
+    "code": "A01",
+    "order": 1,
+    "discipline": "Português",
+    "active": true,
+    "block": "Gerais",
+    "questions": 10,
+    "weight": 1,
+    "weightedPoints": 10,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "A02",
+    "order": 2,
+    "discipline": "Matemática e Raciocínio Lógico",
+    "active": true,
+    "block": "Gerais",
+    "questions": 10,
+    "weight": 1,
+    "weightedPoints": 10,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "A03",
+    "order": 3,
+    "discipline": "Legislação Institucional",
+    "active": true,
+    "block": "Gerais",
+    "questions": 5,
+    "weight": 1,
+    "weightedPoints": 5,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B01",
+    "order": 4,
+    "discipline": "Noções de Direito Administrativo",
+    "active": true,
+    "block": "Específicos",
+    "questions": 5,
+    "weight": 2,
+    "weightedPoints": 10,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B02",
+    "order": 5,
+    "discipline": "Licitações e Contratos",
+    "active": true,
+    "block": "Específicos",
+    "questions": 5,
+    "weight": 2,
+    "weightedPoints": 10,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B03",
+    "order": 6,
+    "discipline": "Noções de Direito Constitucional",
+    "active": true,
+    "block": "Específicos",
+    "questions": 3,
+    "weight": 2,
+    "weightedPoints": 6,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B04",
+    "order": 7,
+    "discipline": "Noções de Controle Externo",
+    "active": true,
+    "block": "Específicos",
+    "questions": 4,
+    "weight": 2,
+    "weightedPoints": 8,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B05",
+    "order": 8,
+    "discipline": "Administração Financeira e Orçamentária",
+    "active": true,
+    "block": "Específicos",
+    "questions": 5,
+    "weight": 2,
+    "weightedPoints": 10,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B06",
+    "order": 9,
+    "discipline": "Contabilidade Aplicada ao Setor Público",
+    "active": true,
+    "block": "Específicos",
+    "questions": 5,
+    "weight": 2,
+    "weightedPoints": 10,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B07",
+    "order": 10,
+    "discipline": "Noções de Administração Pública",
+    "active": true,
+    "block": "Específicos",
+    "questions": 5,
+    "weight": 2,
+    "weightedPoints": 10,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B08",
+    "order": 11,
+    "discipline": "Noções de Administração Geral",
+    "active": true,
+    "block": "Específicos",
+    "questions": 4,
+    "weight": 2,
+    "weightedPoints": 8,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B09",
+    "order": 12,
+    "discipline": "Noções de Administração Estratégica",
+    "active": true,
+    "block": "Específicos",
+    "questions": 3,
+    "weight": 2,
+    "weightedPoints": 6,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B10",
+    "order": 13,
+    "discipline": "Noções de Comportamento Organizacional",
+    "active": true,
+    "block": "Específicos",
+    "questions": 3,
+    "weight": 2,
+    "weightedPoints": 6,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "B11",
+    "order": 14,
+    "discipline": "Noções de Gestão de Pessoas",
+    "active": true,
+    "block": "Específicos",
+    "questions": 3,
+    "weight": 2,
+    "weightedPoints": 6,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  },
+  {
+    "code": "R01",
+    "order": 15,
+    "discipline": "Redação FCC",
+    "active": true,
+    "block": "Discursiva",
+    "questions": 0,
+    "weight": 0,
+    "weightedPoints": 0,
+    "editorialStatus": "Em migração",
+    "normativeSource": "Edital nº 01/2026 + Edital nº 02/2026 (retificação)"
+  }
+]
