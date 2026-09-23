@@ -152,6 +152,7 @@ test("resumo operacional privado agrega estado canônico e degrada sem Notion", 
   assert.match(edge, /readOperationalSummary/);
   assert.match(edge, /queryAllDataSource\(DAYS/);
   assert.match(edge, /queryAllDataSource\(SESSIONS/);
+  assert.match(edge, /queryAllDataSource\(QUESTIONS/);
   assert.match(edge, /queryAllDataSource\(REVIEWS/);
   assert.match(edge, /queryAllDataSource\(ERRORS_BANK/);
   assert.match(edge, /queryAllDataSource\(REDACTIONS/);
@@ -206,6 +207,8 @@ test("resumo analítico preserva null e expõe bancos operacionais detalhados", 
   assert.match(edge, /npropNull/);
   assert.match(edge, /dayControl/);
   assert.match(edge, /sessions/);
+  assert.match(edge, /questionMeta/);
+  assert.match(edge, /Matéria\/foco/);
   assert.match(edge, /plannedTime/);
   assert.match(edge, /metaQuestions/);
   assert.match(edge, /thematicCut/);
@@ -213,4 +216,5 @@ test("resumo analítico preserva null e expõe bancos operacionais detalhados", 
   assert.match(edge, /function dayAnalyticsFromPage[\s\S]*timeMinutes:npropNull\(p,"Tempo real \(min\)"\)[\s\S]*questionsDone:npropNull\(p,"Questões feitas"\)[\s\S]*correct:npropNull\(p,"Acertos"\)[\s\S]*errors:npropNull\(p,"Erros"\)[\s\S]*doubts:npropNull\(p,"Acertos com dúvida"\)/);
   assert.match(client, /dayControl: OperationalDay\[\]/);
   assert.match(client, /sessions: OperationalSession\[\]/);
+  assert.match(client, /questionMeta: OperationalQuestionMeta\[\]/);
 });
