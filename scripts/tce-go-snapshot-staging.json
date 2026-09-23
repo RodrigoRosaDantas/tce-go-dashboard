@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T14:03:36.476Z",
+  "generatedAt": "2026-09-23T14:04:23.485Z",
   "days": [
     {
       "dxx": "D001",
@@ -4664,6 +4664,1094 @@
       ],
       "version": 2,
       "lastEdited": "2026-09-22T13:59:39.232Z"
+    },
+    "d033": {
+      "dxx": "D033",
+      "title": "D033 — Legislação Institucional IV",
+      "summary": "Legislação Institucional IV — Lei GO nº 20.756/2020 + Lei nº 15.122/2005 + Código de Ética TCE-GO: primeira leitura dirigida.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D033 — Legislação Institucional IV \\| servidor, carreira e ética\nS16 / D033 — 105 min. Primeira leitura dirigida de três camadas que precisam ser separadas na cabeça: regime jurídico geral do servidor, carreira própria do TCE-GO e ética funcional própria do Tribunal. Entregável: quadro servidor × carreira × ética e bateria Q033."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "Os D005, D012 e D026 montaram a arquitetura institucional: Constituição de Goiás, Lei Orgânica e Regimento Interno. O D033 troca a pergunta.\nAté aqui: o que o TCE-GO é, o que controla e como funciona?\nAgora: quem trabalha no Tribunal, qual regra funcional se aplica e qual padrão ético deve orientar a atuação?\nEssa mudança é importante porque a FCC costuma explorar trocas entre:\n- regra geral de servidor e regra especial da carreira;\n- cargo atual e denominação antiga;\n- dever disciplinar e dever ético;\n- sanção disciplinar e consequência ética;\n- redação vigente e questão histórica."
+        },
+        {
+          "heading": "3. Posição no edital e ponto de partida",
+          "body": "A03 — Legislação Institucional\n- bloco: Gerais;\n- 5 questões objetivas;\n- peso 1;\n- baseline histórico do projeto: Novo;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Recorte de hoje",
+          "body": "1. Lei Estadual nº 20.756/2020 — regime jurídico estadual, no recorte útil ao servidor do TCE-GO.\n2. Lei Estadual nº 15.122/2005 — Plano de Carreiras e Quadro Permanente do TCE-GO.\n3. RA nº 1/2014, Anexo II, na redação integral dada pela RA nº 6/2026 — Código de Ética dos servidores do TCE-GO."
+        },
+        {
+          "heading": "O que é reaproveitado",
+          "body": "- noção de administração pública e servidor;\n- hierarquia normativa;\n- organização institucional do TCE-GO dos D005/D012/D026;\n- diferença entre competência institucional e atribuição funcional."
+        },
+        {
+          "heading": "O que é realmente novo",
+          "body": "- relação Lei 15.122 especial × Lei 20.756 subsidiária;\n- cargos efetivos e estrutura atual da carreira;\n- atribuições do Técnico de Controle Externo;\n- jornada própria do TCE-GO;\n- deveres, responsabilidades e penalidades do regime jurídico;\n- Código de Ética reescrito em 2026;\n- conflito de interesses, Comissão de Ética, processo ético e seus prazos."
+        },
+        {
+          "heading": "4. Fontes oficiais, versão e corte",
+          "body": "Corte do edital do projeto: 25/08/2026. Consulta normativa: 22/09/2026.\n- Regra válida no corte: usar os textos consolidados indicados abaixo, com as alterações anteriores a 25/08/2026 já incorporadas.\n- Alteração posterior ao corte: na consulta às fontes oficiais realizada em 22/09/2026, não foi identificada alteração posterior a 25/08/2026 que modificasse os recortes trabalhados nesta sessão.\n- Redação revogada/substituída relevante: antigo Anexo II do Código de Ética de 2014 foi substituído pela RA nº 6/2026; o antigo parágrafo único do art. 75 da Lei nº 20.756/2020, usado em questão FCC/2022 de teletrabalho, foi substituído em 2023."
+        },
+        {
+          "heading": "Lei nº 20.756/2020",
+          "body": "- [Casa Civil de Goiás — texto consolidado](https://legisla.casacivil.go.gov.br/pesquisa_legislacao/100979/lei--20756)\n- O consolidado já incorpora alterações anteriores ao corte, inclusive mudanças de 2026.\n- Para esta sessão, uma questão antiga só é V1 se a proposição cobrada continuar correta no texto consolidado."
+        },
+        {
+          "heading": "Lei nº 15.122/2005",
+          "body": "- [Casa Civil de Goiás — texto consolidado](https://legisla.casacivil.go.gov.br/pesquisa_legislacao/80023)\n- O texto atual já traz Auditor de Controle Externo no lugar da antiga denominação Analista de Controle Externo e mantém Técnico de Controle Externo.\n- O Auxiliar de Controle Externo não integra mais o quadro atual como cargo efetivo da estrutura cobrada.\n- A própria Lei nº 15.122 determina aplicação subsidiária da Lei nº 20.756 aos cargos efetivos."
+        },
+        {
+          "heading": "Código de Ética",
+          "body": "- [TCE-GO — RA nº 6/2026](https://gnoi.tce.go.gov.br/atoNormativo/Publicado?id=26496)\n- A RA nº 6/2026 substituiu o Anexo II da RA nº 1/2014 e entrou em vigor na publicação.\n- Portanto, não estudar o antigo Anexo II de 2014 como redação vigente.\nPegadinha de vigência: uma questão FCC pode ser excelente para estilo e, ainda assim, estar materialmente desatualizada. O item FCC/TCE-GO de 2022 que afirmava a exclusão de cargos comissionados de chefia/direção do teletrabalho perdeu validade com a nova redação do art. 75 em 2023 e foi excluído do Q033."
+        },
+        {
+          "heading": "5. Como usar os 105 minutos",
+          "body": "1. 10 min — mapa das três normas: geral × especial × ética.\n2. 30 min — Lei nº 20.756: provimento/vida funcional + deveres/proibições + responsabilidades/penalidades.\n3. 20 min — Lei nº 15.122: cargos, atribuições, carreira, jornada e regra subsidiária.\n4. 25 min — Código de Ética 2026: sujeitos, deveres, vedações, conflito, Comissão, sanções e prazos.\n5. 20 min — pré-Q033 + primeira passada da bateria."
+        },
+        {
+          "heading": "6. Mapa dos diplomas",
+          "body": "Diploma\nPergunta central\nPapel no D033\nLei 20.756/2020\nQual é o regime funcional geral?\nDireitos, deveres, responsabilidades, disciplina e regras gerais.\nLei 15.122/2005\nQual é a regra própria da carreira do TCE-GO?\nCargos, atribuições, desenvolvimento, jornada e especialidades.\nRA 6/2026\nQual é o padrão ético do servidor do TCE-GO?\nConduta, conflito, Comissão e processo ético.\nRegra mental: especial primeiro; geral subsidiariamente; ética atua em paralelo e não substitui o regime disciplinar.\n---"
+        },
+        {
+          "heading": "7.1. Como ela chega ao TCE-GO",
+          "body": "Não decore que a Lei nº 20.756 “é a lei própria do TCE”. A ponte correta é:\nLei nº 15.122/2005 = lei especial da carreira do TCE-GO → Lei nº 20.756/2020 = aplicação subsidiária aos cargos efetivos.\nA FCC pode inverter essa relação e tratar a lei geral como se eliminasse a disciplina especial. Não elimina."
+        },
+        {
+          "heading": "7.2. Mapa de primeira leitura",
+          "body": "Localize no diploma:\n- provimento, posse, exercício e vacância;\n- estágio probatório;\n- jornada e regime de trabalho;\n- férias, licenças e afastamentos;\n- vantagens e indenizações;\n- deveres funcionais;\n- proibições/transgressões;\n- responsabilidade funcional;\n- penalidades;\n- processo disciplinar.\nO objetivo do D033 não é esgotar todos os detalhes procedimentais do estatuto. É construir a prateleira certa e automatizar o núcleo de alta incidência."
+        },
+        {
+          "heading": "7.3. Deveres — núcleo para prova",
+          "body": "No bloco de deveres, pense em quatro famílias:\n1. execução correta do serviço — zelo, dedicação, observância de normas e cumprimento das ordens legítimas;\n2. integridade administrativa — sigilo, moralidade, conservação do patrimônio e representação de irregularidade;\n3. disciplina funcional — assiduidade, pontualidade e urbanidade;\n4. responsabilidade ativa — comunicar dúvidas/dificuldades e não se esconder atrás de ordem manifestamente ilegal.\nContraste-chave: dever de obediência não significa cumprir ordem manifestamente ilegal."
+        },
+        {
+          "heading": "7.4. Penalidades — não misturar com ética",
+          "body": "O estatuto trabalha, entre outras, com:\n- advertência;\n- suspensão;\n- multa;\n- demissão;\n- cassação de aposentadoria;\n- cassação de disponibilidade;\n- destituição de cargo em comissão.\nA suspensão possui teto legal próprio e a escolha da penalidade depende da natureza da transgressão e das regras de dosimetria. No D033, memorize primeiro a lista e o contraste; detalhes finos de cada hipótese entram após erro real ou necessidade do edital."
+        },
+        {
+          "heading": "7.5. Três sinais FCC já observados no próprio TCE-GO",
+          "body": "Questões FCC/TCE-GO 2022 exploraram:\n- hipóteses consideradas de efetivo exercício;\n- restrições durante o estágio probatório;\n- classificação de indenizações.\nIsso é evidência de cobrança por enumeração e exceção, não licença para decorar redação antiga."
+        },
+        {
+          "heading": "7.6. Alterações de 2026 que entram no corte",
+          "body": "O consolidado oficial incorpora alterações anteriores a 25/08/2026, inclusive leis estaduais de junho/julho de 2026. A consequência prática é simples:\n> Q033 usa o texto consolidado no corte; questão anterior só permanece quando o conceito sobrevive.\nNão crie um “caderno paralelo” com versão 2020, 2022 e 2026. Aprenda a vigente e marque apenas a diferença histórica que possa contaminar uma questão.\n---"
+        },
+        {
+          "heading": "8.1. O que a lei institui",
+          "body": "A lei organiza:\n- Plano de Carreiras;\n- Quadro Permanente;\n- cargos comissionados;\n- funções de confiança;\n- regras próprias de desenvolvimento e vida funcional no TCE-GO."
+        },
+        {
+          "heading": "8.2. Cargos efetivos atuais",
+          "body": "O quadro permanente trabalha, no núcleo atual:\n- Auditor de Controle Externo — nível superior;\n- Técnico de Controle Externo — nível médio.\nQuestão ou material antigo pode usar Analista de Controle Externo. A denominação vigente é Auditor de Controle Externo. Não transportar nomenclatura antiga como atual."
+        },
+        {
+          "heading": "8.3. Regra subsidiária — ponto de alta prioridade",
+          "body": "Os cargos efetivos de Auditor e Técnico são regidos pela Lei nº 15.122 e, subsidiariamente, pela Lei nº 20.756.\nMacete útil: 15 primeiro; 20 completa.\nNão transforme o macete em regra de revogação: a Lei nº 20.756 não “some”; ela preenche o que a disciplina especial não resolver."
+        },
+        {
+          "heading": "8.4. Técnico de Controle Externo",
+          "body": "No art. 6º, a atribuição nuclear do Técnico é executar atividades de apoio técnico e administrativo necessárias ao funcionamento do TCE-GO.\nO Anexo X diferencia especialidades, entre elas:\n- Técnico Administrativo;\n- Tecnologia da Informação;\n- Técnico Operacional — Apoio Técnico;\n- Técnico Operacional — Transporte.\nPara Técnico Administrativo, o requisito-base é ensino médio ou equivalente."
+        },
+        {
+          "heading": "8.5. Jornada",
+          "body": "A regra própria atual do art. 27-A é de 6 horas ininterruptas, com possibilidade de distribuição em turnos. Situações excepcionais são tratadas por ato do Tribunal.\nPegadinha: não importar automaticamente a jornada geral do estatuto para uma carreira que possui regra especial."
+        },
+        {
+          "heading": "8.6. Desenvolvimento e tabelas",
+          "body": "A lei contém progressões, avaliações, níveis/graus, vantagens e anexos remuneratórios. Neste D033:\n- entenda a estrutura;\n- saiba localizar os anexos;\n- não gaste memória com tabela salarial histórica;\n- se a FCC cobrar número/percentual concreto, validar a redação vigente antes de transformar em flashcard.\n---"
+        },
+        {
+          "heading": "9.1. Quem está sujeito",
+          "body": "O Código alcança:\n- servidores efetivos;\n- ocupantes de cargo em comissão;\n- cedidos de outras instituições;\n- no que couber, estagiários, aprendizes e prestadores/colaboradores que atuem no Tribunal.\nPegadinha: ética institucional não se limita ao servidor efetivo."
+        },
+        {
+          "heading": "9.2. Princípios e valores",
+          "body": "O núcleo inclui interesse público, legalidade, impessoalidade, moralidade, transparência, honestidade, dignidade, respeito, eficiência, equidade, integridade, independência, objetividade, imparcialidade, neutralidade no exercício da função, sigilo, competência e desenvolvimento profissional.\nNão decore a lista como poema. Agrupe:\n- interesse público/integridade;\n- imparcialidade/independência;\n- qualidade/competência;\n- sigilo/decoro."
+        },
+        {
+          "heading": "9.3. Deveres éticos",
+          "body": "Entre os eixos de prova:\n- cumprir e promover o Código;\n- comunicar à Corregedoria-Geral situações contrárias ao Código, com proteção da fonte;\n- manter confidencialidade;\n- agir com zelo, eficiência e tempestividade;\n- assumir responsabilidade por trabalhos, pareceres e opiniões;\n- reportar à chefia imediata atos contrários ao interesse público;\n- fundamentar tecnicamente instruções e relatórios;\n- preservar patrimônio e recursos."
+        },
+        {
+          "heading": "9.4. Vedações — leia pelo tipo de risco",
+          "body": "Organize as vedações em:\n- vantagem indevida/favorecimento;\n- uso indevido de informação ou recursos;\n- interferência pessoal/preconceito/assédio;\n- consultoria ou atuação incompatível;\n- presentes e hospitalidades;\n- uso de redes sociais que comprometa credibilidade, isenção ou imagem institucional.\n#### Presente × hospitalidade\nO Código admite exceções restritas para presentes protocolares ou de baixo valor nos parâmetros do próprio texto. Já hospitalidade oferecida por pessoa ligada direta ou indiretamente a jurisdicionado é vedada.\nFCC adora trocar “presente” por “hospitalidade” e apagar a exceção."
+        },
+        {
+          "heading": "9.5. Conflito de interesses",
+          "body": "Conflito existe quando interesse privado pode comprometer o interesse coletivo ou influenciar impropriamente a função.\nPontos automáticos:\n- independe de recebimento de ganho;\n- reconhecido o conflito, o servidor comunica formalmente à chefia imediata;\n- interessado pode arguir impedimento/suspeição à Corregedoria-Geral;\n- o arguido tem 5 dias para resposta nesse incidente;\n- regras de conflito podem alcançar o período de licença e, em hipóteses previstas, 6 meses após o afastamento/desligamento."
+        },
+        {
+          "heading": "9.6. Comissão de Ética",
+          "body": "- órgão colegiado, pedagógico, consultivo e permanente;\n- subordinado à Corregedoria-Geral;\n- 10 servidores efetivos em atividade: 5 titulares + 5 suplentes;\n- escolha: 1+1 Presidente, 1+1 Corregedor-Geral, 3+3 sindicato da maioria;\n- mandato: 2 anos, permitida recondução;\n- nomeação: em até 45 dias do início do biênio da nova mesa;\n- decisões: maioria absoluta dos membros titulares."
+        },
+        {
+          "heading": "9.7. Infração e consequência ética",
+          "body": "Duas consequências centrais:\n- Recomendação Pessoal — infrações leves;\n- Advertência Confidencial em Aviso Reservado — infrações moderadas ou graves.\nPode existir plano de ação associado à infração leve, por período não superior a 12 meses.\nNão misture: advertência disciplinar do estatuto ≠ Advertência Confidencial em Aviso Reservado do Código de Ética. Mesmo nome-base, regimes diferentes."
+        },
+        {
+          "heading": "9.8. Prazos de alta prioridade",
+          "body": "Evento\nPrazo\nResposta em arguição de impedimento/suspeição\n5 dias\nDefesa prévia no processo ético\n10 dias\nConclusão do processo ético\n90 dias + uma prorrogação por igual período\nAlegações finais\n15 dias\nRecurso\n15 dias; efeito suspensivo; dirigido ao Pleno\nParecer em consulta\n30 dias\nConsulta formal de conflito sem decisão final\n60 dias para a regra especial do art. 52"
+        },
+        {
+          "heading": "9.9. Prescrição e cancelamento de registros",
+          "body": "- infração ética: prescrição em 3 anos, contada da ciência do fato pela administração, com causas de interrupção previstas no Código;\n- registro de sanção: cancelamento após 1 ano (leve), 2 anos (moderada), 3 anos (grave), se não houver reincidência."
+        },
+        {
+          "heading": "9.10. Processo ético × PAD",
+          "body": "O processo ético possui rito próprio. As disposições do PAD da Lei nº 20.756 aplicam-se subsidiariamente ao processo de apuração ética.\nIsso não transforma infração ética em infração disciplinar automaticamente. O próprio parecer pode apontar indício de ilícito penal, civil, improbidade ou infração disciplinar para providências cabíveis.\n---"
+        },
+        {
+          "heading": "10. Quadro servidor × carreira × ética",
+          "body": "Se a questão falar em...\nAbra primeiro...\ndever funcional, licença, vantagem, penalidade, PAD\nLei 20.756/2020\ncargo, especialidade, atribuição, desenvolvimento, jornada TCE\nLei 15.122/2005\nconduta, conflito, Comissão, sanção ética, processo ético\nRA 6/2026\nQuando houver sobreposição: aplicar a regra especial da carreira/ética e usar o estatuto de modo subsidiário quando a própria norma fizer a remissão."
+        },
+        {
+          "heading": "A — precisa sair automático",
+          "body": "- Lei 15.122 especial × Lei 20.756 subsidiária;\n- cargos atuais: Auditor × Técnico;\n- Técnico = nível médio; apoio técnico/administrativo;\n- jornada própria de 6h ininterruptas;\n- Código vigente = RA 6/2026;\n- sujeitos do Código;\n- conflito independe de ganho;\n- Comissão 10 = 5+5;\n- sanções éticas;\n- prazos 5 / 10 / 90+90 / 15 / 15 / 30 / 60;\n- prescrição 3 anos;\n- cancelamento 1/2/3 anos."
+        },
+        {
+          "heading": "B — compreender e saber localizar",
+          "body": "- famílias de direitos/deveres/proibições do estatuto;\n- especialidades do Técnico;\n- regras de presentes/hospitalidade;\n- competências da Comissão;\n- fluxo do processo ético."
+        },
+        {
+          "heading": "C — não gastar memória agora",
+          "body": "- tabelas históricas de vencimento;\n- dispositivos de transição já exauridos;\n- enumerações marginais sem evidência de cobrança;\n- redações antigas riscadas no consolidado."
+        },
+        {
+          "heading": "12. Como a FCC tende a cobrar",
+          "body": "A banca pode:\n1. trocar lei especial por lei subsidiária;\n2. usar nomenclatura antiga de cargo;\n3. substituir “nível médio” por “nível superior” no Técnico;\n4. trocar sujeito da comunicação: chefia × Corregedoria;\n5. trocar “maioria absoluta dos titulares” por maioria simples;\n6. trocar prazo de defesa, recurso ou conclusão;\n7. tratar sanção ética como penalidade disciplinar;\n8. transformar conflito em situação dependente de vantagem econômica;\n9. usar regra histórica de teletrabalho como se ainda estivesse vigente;\n10. apagar exceção ou inserir exceção inexistente."
+        },
+        {
+          "heading": "13. Pré-Q033",
+          "body": "Sem consultar:\n1. Qual lei é especial para a carreira do TCE-GO?\n2. Qual lei entra subsidiariamente?\n3. Quais são os dois cargos efetivos atuais do núcleo da carreira?\n4. Qual o nível de escolaridade do Técnico?\n5. Qual a jornada legal própria?\n6. Qual ato contém a redação vigente do Código de Ética?\n7. Quantos membros compõem a Comissão?\n8. Quais são as duas sanções éticas centrais?\n9. Qual o prazo de defesa prévia?\n10. Qual o prazo do recurso?\nSe errar 3 ou mais, retorne apenas ao bloco correspondente antes do Q033."
+        },
+        {
+          "heading": "14. Q033",
+          "body": "A bateria tem 20 itens, com separação entre FCC real e autoral. Questão histórica só permanece quando a literalidade/conceito continua válido no corte."
+        },
+        {
+          "heading": "15. Pós-Q033",
+          "body": "Classifique cada erro:\n- N — norma não lembrada;\n- V — versão/vigência;\n- S — sujeito/competência;\n- P — prazo;\n- E — exceção/enumeração;\n- C — confusão entre diplomas.\nErro de vigência, regra subsidiária, sanção ou prazo central é candidato forte a D7 e, se reincidente/crítico, D20."
+        },
+        {
+          "heading": "16. D0",
+          "body": "Depois da execução real:\n- refaça mentalmente o quadro servidor/carreira/ética;\n- recite 10 pontos do bloco A;\n- explique em voz alta: 15 especial; 20 subsidiária; ética paralela;\n- recupere os prazos do Código sem reler a tabela;\n- revise somente os erros e acertos com dúvida do Q033.\nD0 configurado ≠ realizado."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente: legislação institucional nova, alta literalidade e atualização relevante de 2026."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente: a relação entre estatuto/carreira/ética volta na reta institucional e possui alto risco de confusão normativa, especialmente em prazos, sanções e vigência.\nD7/D20 acionados ≠ revisões realizadas."
+        },
+        {
+          "heading": "18. Flashcards candidatos",
+          "body": "Criar somente se úteis após a execução:\n- 15.122 especial × 20.756 subsidiária;\n- Auditor superior × Técnico médio;\n- jornada 6h ininterruptas;\n- RA 6/2026 substituiu Anexo II;\n- Comissão 10 = 5+5;\n- conflito independe de ganho;\n- defesa 10 × alegações 15 × recurso 15;\n- prescrição 3 anos;\n- cancelamento 1/2/3;\n- sanção ética ≠ penalidade disciplinar."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- fonte oficial e corte conferidos;\n- leitura guiada dos três diplomas;\n- Q033 válido e separado;\n- vigência controlada;\n- D0/D7/D20 configurados;\n- nenhuma seção artificial vazia."
+        },
+        {
+          "heading": "20. Ponte",
+          "body": "- S17 / D036: Auditoria II — amostragem, programas, papéis e rastreabilidade.\n- D040/D054: novas políticas e atos institucionais do TCE-GO.\n- D094: volta final de Legislação Institucional."
+        },
+        {
+          "heading": "21. Fontes efetivamente utilizadas",
+          "body": "- Fontes canônicas TCE-GO vigentes;\n- [Lei Estadual nº 20.756/2020 — Casa Civil](https://legisla.casacivil.go.gov.br/pesquisa_legislacao/100979/lei--20756);\n- [Lei Estadual nº 15.122/2005 — Casa Civil](https://legisla.casacivil.go.gov.br/pesquisa_legislacao/80023);\n- [RA nº 6/2026 — TCE-GO](https://gnoi.tce.go.gov.br/atoNormativo/Publicado?id=26496);\n- FCC/TCE-GO 2022, apenas pelos localizadores/metadados do Q033.\nSaída esperada do D033: você deve conseguir olhar uma regra e responder primeiro “isso é estatuto, carreira ou ética?”. Depois, acertar sujeito, prazo, exceção e versão vigente. Esse é o mapa que impede decorar três leis como um saco de artigos soltos."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T14:21:14.936Z"
+    },
+    "d036": {
+      "dxx": "D036",
+      "title": "D036 — Auditoria II",
+      "summary": "Auditoria II — amostragem, programas e papéis — Amostragem estatística; programas de auditoria; papéis de trabalho; rastreabilidade.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D036 — Auditoria II \\| amostragem, programa e papéis de trabalho\nS17 / D036 — 105 min. O D029 transformou risco e materialidade em planejamento. O D036 dá o passo operacional seguinte: quando não examinar 100%, como selecionar; como converter objetivo e risco em procedimentos; e como documentar o caminho até a conclusão."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A trilha já construiu:\n- D015: tipos de auditoria;\n- D022: NBASP 100 e processo de auditoria;\n- D029: objetivo, escopo, critérios, risco, materialidade e matriz de risco.\nO D036 responde:\n> como o planejamento vira trabalho executável e rastreável?\nA ponte posterior será:\n- D052: técnicas/procedimentos e evidência em profundidade;\n- D059: achados e responsabilização."
+        },
+        {
+          "heading": "3. Posição no edital e recorte verticalizado",
+          "body": "B04 — Noções de Controle Externo\n- 4 questões;\n- peso 2;\n- baseline: Misto;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Entra hoje",
+          "body": "- população e unidade de amostragem;\n- amostragem estatística e não estatística;\n- risco de amostragem;\n- tamanho da amostra e fatores que o afetam;\n- erro/desvio tolerável e esperado;\n- estratificação;\n- seleção de itens;\n- programa de auditoria;\n- documentação/papéis de trabalho;\n- rastreabilidade."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- técnicas específicas de obtenção de evidência → D052;\n- avaliação profunda de suficiência/adequação → D052;\n- condição × critério × causa × efeito → D059;\n- matriz de achados/responsabilização → D059;\n- cálculo estatístico avançado de tamanho de amostra → fora do D036."
+        },
+        {
+          "heading": "Já conhecido",
+          "body": "- planejamento dinâmico;\n- objetivo × escopo;\n- risco e materialidade;\n- critérios;\n- resposta planejada ao risco;\n- evidência em nível introdutório."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- documentação;\n- procedimentos;\n- relação risco → teste;\n- quantidade × qualidade de evidência."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- risco de amostragem;\n- amostragem estatística × não estatística;\n- distorção/desvio tolerável;\n- estratificação;\n- programa de auditoria como plano operacional;\n- papéis/documentação como trilha verificável do trabalho;\n- rastreabilidade completa."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. definir população e unidade de amostragem;\n2. explicar quando há amostragem e quando há exame de 100%;\n3. diferenciar amostragem estatística e não estatística;\n4. definir risco de amostragem;\n5. relacionar risco tolerável, distorção tolerável, distorção esperada e tamanho da amostra;\n6. explicar a função da estratificação;\n7. distinguir planejamento, programa e documentação;\n8. construir um programa simples de auditoria;\n9. explicar o que deve permitir uma boa documentação;\n10. montar a cadeia risco → procedimento → evidência → conclusão;\n11. resolver Q036 sem antecipar D052/D059."
+        },
+        {
+          "heading": "Canônicas",
+          "body": "- Fonte-Mestra v1.3;\n- Base Técnica v1.3 — seções 05.11 a 05.13;\n- Base Operacional v1.3;\n- Fonte 04 v1.3;\n- Fonte 05 v1.1;\n- Índice canônico v1.4."
+        },
+        {
+          "heading": "Oficiais consultadas em 22/09/2026",
+          "body": "- [IRB — NBASP 100](https://nbasp.irbcontas.org.br/nbasp/principios-fundamentais-de-auditoria-do-setor-publico/)\n- [IRB — NBASP 4000](https://nbasp.irbcontas.org.br/nbasp/norma-para-auditoria-de-conformidade/)\n- [IRB — Normas de Auditoria Financeira / NBASP 2530](https://nbasp.irbcontas.org.br/nbasp/incorporado-mediante-consulta-publica-a-estrutura-da-nbasp-em-2023-traducao-para-o-portugues-do-texto-da-issai-2000-em-ingles-sem-alteracoes-de-conteudo/)\n- [CFC — NBC TA 230 (R1) e NBC TA 530](https://cfc.org.br/tecnica/normas-brasileiras-de-contabilidade/nbc-ta-de-auditoria-independente/)"
+        },
+        {
+          "heading": "Controle técnico",
+          "body": "O portal do CFC lista:\n- NBC TA 230 (R1) — Documentação de Auditoria;\n- NBC TA 530 — Amostragem em Auditoria.\nO IRB correlaciona a NBC TA 530 à NBASP 2530 no conjunto das normas de auditoria financeira. Para o D036, essas normas são usadas como apoio conceitual técnico, sem transformar o recorte em curso de auditoria independente."
+        },
+        {
+          "heading": "7. Como estudar os 105 minutos",
+          "body": "1. 10 min — ponte D029 → D036.\n2. 30 min — amostragem.\n3. 20 min — programa de auditoria.\n4. 20 min — papéis/documentação + rastreabilidade.\n5. 25 min — pré-Q036 + início da bateria."
+        },
+        {
+          "heading": "8. Mapa de entrada",
+          "body": "Elemento\nPergunta\nProduto\nPlanejamento\no que, por quê e com qual risco?\nobjetivo/escopo/risco\nAmostra\nquais itens examinar?\nseleção suficiente para o objetivo\nPrograma\no que a equipe fará?\nprocedimentos organizados\nPapéis/documentação\ncomo provar o que foi feito e concluído?\ntrilha de auditoria\nMacete funcional: planeja → seleciona → executa → documenta.\n---"
+        },
+        {
+          "heading": "9.1. O que é",
+          "body": "Amostragem de auditoria é a aplicação de procedimentos em menos de 100% dos itens de uma população relevante, de modo a permitir conclusão sobre essa população.\nNão é sinônimo de:\n- escolher apenas itens “suspeitos”;\n- testar alguns itens sem lógica de seleção;\n- examinar 100%;\n- selecionar itens específicos sem pretensão de projetar conclusões."
+        },
+        {
+          "heading": "9.2. População",
+          "body": "É o conjunto completo de dados sobre o qual se deseja concluir.\nExemplo: todas as 18.400 notas fiscais emitidas em um exercício."
+        },
+        {
+          "heading": "9.3. Unidade de amostragem",
+          "body": "É o elemento individual passível de seleção.\nExemplo:\n- cada nota fiscal;\n- cada empenho;\n- cada pagamento;\n- cada contrato;\n- cada usuário de um sistema.\nPegadinha: população não é unidade."
+        },
+        {
+          "heading": "Exame de 100%",
+          "body": "Todos os itens são submetidos ao procedimento."
+        },
+        {
+          "heading": "Seleção de itens específicos",
+          "body": "O auditor escolhe itens por valor, risco, natureza ou outra característica. Isso pode ser útil, mas não é automaticamente amostragem e o resultado não é projetado para toda a população da mesma forma."
+        },
+        {
+          "heading": "Amostragem",
+          "body": "Há seleção de parte da população com desenho compatível com o objetivo de formar conclusão sobre ela."
+        },
+        {
+          "heading": "Amostragem estatística",
+          "body": "Reúne dois elementos essenciais:\n- seleção aleatória/probabilística;\n- uso da teoria das probabilidades na avaliação dos resultados, inclusive risco de amostragem."
+        },
+        {
+          "heading": "Amostragem não estatística",
+          "body": "Baseia-se em julgamento profissional para desenho/seleção/avaliação sem preencher simultaneamente os requisitos estatísticos.\nNão estatística ≠ aleatória ou intuitiva. Julgamento profissional não autoriza escolher só o que “parece interessante” e chamar o resultado de representativo."
+        },
+        {
+          "heading": "12. Risco de amostragem",
+          "body": "É o risco de que a conclusão obtida com base na amostra seja diferente da conclusão que seria alcançada se toda a população fosse submetida ao mesmo procedimento."
+        },
+        {
+          "heading": "Não confundir com risco não relacionado à amostragem",
+          "body": "Exemplos:\n- aplicar procedimento inadequado;\n- interpretar evidência incorretamente;\n- não reconhecer uma distorção existente;\n- executar o teste de modo errado.\nResumo: risco de amostragem nasce da parte escolhida; risco não amostral nasce do modo de auditar."
+        },
+        {
+          "heading": "13. Tamanho da amostra — relações que precisam ficar automáticas",
+          "body": "Sem fórmula, memorize as direções:\nFator\nEfeito típico no tamanho\nmenor risco de amostragem aceitável\n↑ amostra\nmaior distorção/desvio esperado\n↑ amostra\nmaior segurança desejada\n↑ amostra\nmaior distorção/desvio tolerável\n↓ amostra\nestratificação eficiente\npode ↓ amostra"
+        },
+        {
+          "heading": "Regra de prova",
+          "body": "Quanto menos erro você aceita, mais trabalho tende a ser necessário."
+        },
+        {
+          "heading": "14. Estratificação",
+          "body": "É dividir a população em subpopulações com características semelhantes.\nExemplo:\n- contratos acima de R\\$ 10 milhões;\n- contratos entre R\\$ 1 e 10 milhões;\n- contratos abaixo de R\\$ 1 milhão.\nA finalidade é reduzir variabilidade dentro dos estratos e tornar a seleção mais eficiente.\nPegadinha FCC: trocar “homogêneas dentro do estrato” por “heterogêneas”."
+        },
+        {
+          "heading": "Tolerável",
+          "body": "Limite que o auditor aceita para o objetivo do teste."
+        },
+        {
+          "heading": "Esperado",
+          "body": "Aquilo que o auditor espera encontrar com base em experiência, testes preliminares, histórico e conhecimento do objeto.\nSe o esperado aumenta, o tamanho da amostra tende a aumentar."
+        },
+        {
+          "heading": "16. Exemplo resolvido — amostragem",
+          "body": "Uma unidade possui 12.000 pagamentos. O risco foi avaliado como alto e o auditor admite pouco desvio.\nRaciocínio correto:\n- não conclua “examinar 100%” automaticamente;\n- risco alto + baixa tolerância → tendência de amostra maior;\n- pagamentos muito heterogêneos → considerar estratos;\n- itens excepcionalmente relevantes podem ser examinados especificamente, fora da lógica de projeção da amostra.\n---"
+        },
+        {
+          "heading": "17.1. Função",
+          "body": "É o plano operacional dos procedimentos.\nTransforma:\nobjetivo + escopo + riscos + critérios em atividades executáveis pela equipe."
+        },
+        {
+          "heading": "17.2. Modelo mínimo",
+          "body": "Questão/objetivo\nCritério\nInformação\nProcedimento\nFonte\nResponsável\nResultado esperado\npagamentos foram regulares?\nlei/contrato\nnotas + ordens\ntestar amostra\nsistema/processo\nauditor A\ndesvio identificado ou não"
+        },
+        {
+          "heading": "17.3. Planejamento × programa",
+          "body": "- Planejamento: direção geral do trabalho.\n- Programa: detalhamento operacional do que será executado.\nO programa não substitui o planejamento; materializa o planejamento."
+        },
+        {
+          "heading": "17.4. Programa não é peça rígida",
+          "body": "Se o risco muda ou surge evidência nova, o programa pode precisar de revisão.\nPegadinha: tratar programa como checklist imutável."
+        },
+        {
+          "heading": "18. Exemplo resolvido — programa",
+          "body": "Risco: pagamento por serviço não prestado.\nPrograma:\n1. selecionar amostra de pagamentos de maior risco;\n2. confrontar nota, medição e aceite;\n3. verificar evidência de entrega;\n4. reconciliar com sistema financeiro;\n5. registrar desvios;\n6. ampliar teste se o padrão encontrado justificar.\nVeja a lógica:\nrisco → procedimento → fonte → resultado → possível resposta adicional.\n---"
+        },
+        {
+          "heading": "19.1. O que são",
+          "body": "Documentação de auditoria é o registro:\n- dos procedimentos executados;\n- das evidências relevantes obtidas;\n- das análises;\n- dos julgamentos;\n- das conclusões.\n“Papéis de trabalho” é expressão tradicional. A linguagem normativa moderna prefere documentação de auditoria."
+        },
+        {
+          "heading": "19.2. Para que serve",
+          "body": "Uma documentação adequada deve permitir que auditor experiente sem envolvimento prévio compreenda:\n- o que foi feito;\n- natureza, época e extensão dos procedimentos;\n- resultados;\n- evidências;\n- questões significativas;\n- julgamentos relevantes;\n- como a conclusão foi alcançada.\nEsse é um padrão central da NBC TA 230 (R1) e também aparece na NBASP 4000 para auditoria pública."
+        },
+        {
+          "heading": "19.3. Evidência × documentação",
+          "body": "Evidência = informação que sustenta a conclusão.\nDocumentação = registro organizado do trabalho, incluindo evidência, procedimento, análise e conclusão.\nExemplo:\n- confirmação externa recebida = evidência;\n- papel que identifica objetivo do teste, amostra, confirmação, análise e conclusão = documentação.\nEvidência responde “com base em quê?”. Documentação responde “o que foi feito, com base em quê e como chegamos aqui?”."
+        },
+        {
+          "heading": "20. Rastreabilidade",
+          "body": "Rastreabilidade é a capacidade de reconstruir a cadeia lógica do trabalho.\nCadeia mínima:\nobjetivo → risco → critério → procedimento → amostra/item → evidência → análise → conclusão.\nA NBASP 4000 exige ligação clara entre achados e evidências e documentação suficientemente detalhada sobre métodos, escopo, procedimentos, resultados e julgamentos."
+        },
+        {
+          "heading": "Teste de qualidade",
+          "body": "Se outro auditor experiente não consegue reconstruir a decisão, a documentação está fraca."
+        },
+        {
+          "heading": "21. Exemplo integrado — do D029 ao D036",
+          "body": "Objeto: compras emergenciais de medicamentos."
+        },
+        {
+          "heading": "D029",
+          "body": "- objetivo: verificar regularidade e entrega;\n- risco: pagamento sem entrega;\n- critério: contrato + norma aplicável;\n- materialidade: alta."
+        },
+        {
+          "heading": "D036",
+          "body": "- população: todos os pagamentos emergenciais;\n- unidade: cada pagamento;\n- amostra: estratificada por valor/risco;\n- programa: confrontar nota, aceite, entrada em estoque e pagamento;\n- papel: documentar item, teste, evidência, desvio e conclusão."
+        },
+        {
+          "heading": "D052 depois",
+          "body": "Escolher técnicas em profundidade."
+        },
+        {
+          "heading": "D059 depois",
+          "body": "Se houver desvio relevante, estruturar achado e eventual responsabilização.\n---"
+        },
+        {
+          "heading": "22. Como a FCC tende a cobrar",
+          "body": "O mapeamento real do Q036 mostra quatro padrões fortes:\n1. definição literal de risco de amostragem;\n2. relações que aumentam/reduzem tamanho da amostra;\n3. auditor experiente sem envolvimento prévio como teste da documentação;\n4. documentação ≠ evidência ≠ explicação verbal.\nA FCC também usa:\n- “sempre” e “necessariamente” para tornar falsa a exigência de método estatístico;\n- inversão entre risco aceitável e tamanho da amostra;\n- “leigo” no lugar de auditor experiente;\n- planejamento como fase estanque;\n- programa como simples registro posterior."
+        },
+        {
+          "heading": "23. Questões reais mapeadas",
+          "body": "Q036 contém, entre outras:\n- Q2109768 — TCE-GO/FCC/2022;\n- Q4067473 — SEFAZ-GO/FCC/2026;\n- Q3947188 — SEFAZ-MT/FCC/2026;\n- Q3884294 — MPE-SE/FCC/2026;\n- Q4221421 — SEFAZ-CE/FCC/2026;\n- Q3596316 e Q3596311 — SEFAZ-PI/FCC/2025;\n- Q1317109 — AL-AP/FCC/2020;\n- Q937776 — SEFAZ-GO/FCC/2018;\n- Q1037658 — SANASA/FCC/2019.\nQuestões externas são registradas por metadados/localizador e correção em paráfrase."
+        },
+        {
+          "heading": "24. Pegadinhas prioritárias",
+          "body": "1. amostragem ≠ itens específicos;\n2. estatística ≠ única forma válida;\n3. maior risco aceitável → menor amostra, não maior;\n4. maior tolerância → menor amostra;\n5. estrato deve ser mais homogêneo internamente;\n6. exame de 100% não é amostragem;\n7. programa ≠ planejamento;\n8. documentação ≠ evidência;\n9. documentação não é feita para “um leigo”;\n10. explicação oral isolada não substitui documentação adequada."
+        },
+        {
+          "heading": "25. O que precisa ficar automático",
+          "body": "- população × unidade;\n- 100% × itens específicos × amostragem;\n- estatística × não estatística;\n- risco amostral × não amostral;\n- tolerância ↑ → amostra ↓;\n- risco desejado ↓ → amostra ↑;\n- programa = plano operacional;\n- documento = procedimento + evidência + análise + conclusão;\n- rastreabilidade = cadeia reconstruível."
+        },
+        {
+          "heading": "26. Pré-Q036",
+          "body": "Sem consulta:\n1. amostragem exige método estatístico?\n2. o que é risco de amostragem?\n3. maior tolerância aumenta ou reduz a amostra?\n4. qual a função da estratificação?\n5. programa é planejamento ou execução operacional?\n6. evidência e documentação são sinônimos?\n7. quem deve conseguir compreender a documentação?\n8. monte a cadeia de rastreabilidade em 7 passos.\nSe errar 3+, retorne somente aos blocos correspondentes."
+        },
+        {
+          "heading": "27. Q036",
+          "body": "Meta: 25 questões."
+        },
+        {
+          "heading": "28. Pós-Q036",
+          "body": "Para cada erro, classificar:\n- A — amostragem;\n- R — relação/tamanho;\n- P — programa;\n- D — documentação;\n- T — rastreabilidade;\n- C — confusão conceitual.\nErro em definição nuclear ou relação inversa é candidato forte a revisão."
+        },
+        {
+          "heading": "29. D0",
+          "body": "Após execução real:\n- explicar sem consulta estatística × não estatística;\n- recitar as cinco relações do tamanho da amostra;\n- desenhar o modelo de programa;\n- reconstruir a cadeia de rastreabilidade;\n- revisar apenas erros e acertos com dúvida.\nD0 configurado ≠ realizado."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente: amostragem e documentação trazem conceitos novos e relações inversas de alta incidência."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente: programa/documentação/rastreabilidade sustentam D052, D059 e os simulados; erro aqui contamina toda a execução de auditoria.\nD7/D20 acionados ≠ revisão realizada."
+        },
+        {
+          "heading": "31. Flashcards candidatos",
+          "body": "- risco aceitável ↓ → amostra ↑;\n- tolerância ↑ → amostra ↓;\n- estratificação = subpopulações semelhantes;\n- estatística = aleatoriedade + probabilidade;\n- programa = plano operacional;\n- evidência ≠ documentação;\n- auditor experiente sem envolvimento prévio;\n- cadeia de rastreabilidade."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- teoria suficiente para primeira aprendizagem;\n- fontes oficiais atuais;\n- Q036 separado e auditado;\n- 25 itens válidos;\n- D0/D7/D20 configurados;\n- fronteiras D052/D059 preservadas."
+        },
+        {
+          "heading": "33. Ponte",
+          "body": "- S18 / D038: CASP VI — não processar nesta execução.\n- D052: técnicas e evidências.\n- D059: achados e responsabilização."
+        },
+        {
+          "heading": "34. Fontes efetivamente usadas",
+          "body": "- seis Fontes canônicas vigentes;\n- IRB/NBASP 100;\n- IRB/NBASP 4000;\n- IRB/NBASP 2530 ↔ NBC TA 530;\n- CFC/NBC TA 230 (R1) e NBC TA 530;\n- FCC reais conforme localizadores do Q036.\nSaída esperada: diante de um risco de auditoria, você deve saber como selecionar parte da população, transformar o plano em procedimentos e deixar uma trilha documental que outra pessoa consiga reconstruir."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T14:34:57.241Z"
+    },
+    "d038": {
+      "dxx": "D038",
+      "title": "D038 — CASP VI",
+      "summary": "CASP VI — NBC TSP 23, 25 e 34 + MCASP II — políticas/estimativas/erros, eventos subsequentes, custos e procedimentos patrimoniais.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D038 — CASP VI \\| políticas, estimativas, eventos subsequentes, custos e MCASP II\nS18 / D038 — 105 min. Esta sessão fecha o primeiro ciclo de construção normativa da CASP: aprender a distinguir política × estimativa × erro, decidir retrospectivo × prospectivo, classificar evento subsequente com ou sem ajuste, compreender a informação de custos no setor público e localizar esses raciocínios dentro dos procedimentos patrimoniais do MCASP."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A sequência CASP já construiu:\n- D003: Estrutura Conceitual, ativo/passivo, VPA/VPD e AFO × CASP;\n- D010: arquitetura do MCASP;\n- D017: NBC TSP 01–04;\n- D024: NBC TSP 06–10;\n- D031: NBC TSP 11–13 e 15.\nO D038 acrescenta quatro decisões transversais que aparecem em praticamente toda contabilidade:\n1. a regra mudou ou a estimativa mudou?\n2. houve erro do passado ou informação nova?\n3. um fato posterior ajusta ou apenas divulga?\n4. como transformar consumo de recursos em informação útil de custos?\nDepois, a trilha volta ao institucional em D040 e retoma CASP em D050 (PCASP) e D057 (DCASP)."
+        },
+        {
+          "heading": "3. Posição no edital e recorte verticalizado",
+          "body": "B06 — Contabilidade Aplicada ao Setor Público\n- bloco: Específicos;\n- 5 questões;\n- peso 2;\n- baseline: Novo;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Entra hoje",
+          "body": "- NBC TSP 23 (R1): políticas contábeis, estimativas e erros;\n- aplicação retrospectiva × prospectiva;\n- impraticabilidade;\n- NBC TSP 25 (R1): eventos subsequentes;\n- ajuste × não ajuste × divulgação;\n- continuidade;\n- NBC TSP 34: custos no setor público;\n- custo, gasto, desembolso, objeto de custo, custo direto/indireto, direcionador;\n- usuários e objetivos da informação de custos;\n- MCASP 11ª edição — Parte II: mapa dos procedimentos contábeis patrimoniais."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- PCASP por classes, lançamentos e natureza da informação → D050;\n- montagem e leitura profunda das DCASP → D057;\n- cálculos complexos de custos industriais → fora do D038;\n- reestudo integral de imobilizado/intangível/impairment → já tratado no D024;\n- benefícios a empregados → D031."
+        },
+        {
+          "heading": "Já conhecido",
+          "body": "- ativo, passivo, VPA e VPD;\n- fato gerador patrimonial;\n- reconhecimento × mensuração × evidenciação;\n- estoques, provisões, imobilizado, intangível e impairment;\n- arquitetura do MCASP;\n- orçamento × patrimônio × caixa."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- materialidade;\n- depreciação e vida útil;\n- reconhecimento de perdas;\n- notas explicativas;\n- competência patrimonial."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- política × estimativa × erro;\n- retrospectivo × prospectivo;\n- regra de impraticabilidade;\n- janela temporal dos eventos subsequentes;\n- condição existente × condição surgida depois;\n- custo como consumo de recurso;\n- objeto de custo final × intermediário;\n- sistema/modelo de gerenciamento de custos;\n- integração NBC TSP 23/25/34 ↔ MCASP II."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. classificar um caso como política, estimativa ou erro;\n2. indicar tratamento retrospectivo ou prospectivo;\n3. reconhecer quando a reapresentação retrospectiva é impraticável;\n4. delimitar a janela de evento subsequente;\n5. separar evento com ajuste de evento sem ajuste;\n6. indicar quando evento sem ajuste material exige divulgação;\n7. explicar a repercussão de evento subsequente sobre continuidade;\n8. distinguir gasto, desembolso e custo;\n9. identificar objeto de custo, custo direto/indireto e direcionador;\n10. explicar quem usa informação de custos e para quê;\n11. localizar o assunto no MCASP Parte II;\n12. resolver Q038 preservando o controle de versão 2026/2027."
+        },
+        {
+          "heading": "Corte do projeto",
+          "body": "25/08/2026 — publicação do edital."
+        },
+        {
+          "heading": "CFC — controle de versão",
+          "body": "- NBC TSP 23 (R1): publicada em 17/03/2026.\n- NBC TSP 25 (R1): publicada em 19/03/2026.\n- NBC TSP 34: texto de 2021, aplicável desde 01/01/2024.\nAs R1 da NBC TSP 23 e 25 estavam publicadas antes do corte e são os textos oficiais a consultar. Contudo, os próprios atos estabelecem aplicação aos exercícios iniciados em 01/01/2027, ressalvados prazos nacionais específicos.\nRegra de versão do D038: estudar a R1 como redação oficial vigente no corte, mas não retroagir automaticamente uma regra de aplicação 2027 para um fato contábil de 2026. Em questão histórica, validar o conceito efetivamente cobrado."
+        },
+        {
+          "heading": "MCASP",
+          "body": "A 11ª edição permanece a edição vigente na página oficial da STN e é a edição indicada no edital."
+        },
+        {
+          "heading": "Links",
+          "body": "- [CFC — Portal NBC TSP](https://cfc.org.br/tecnica/normas-brasileiras-de-contabilidade/nbc-tsp-do-setor-publico/)\n- [STN — MCASP](https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/manuais/manual-de-contabilidade-aplicado-ao-setor-publico-mcasp-1)"
+        },
+        {
+          "heading": "7. Como estudar os 105 minutos",
+          "body": "1. 10 min: mapa 23–25–34–MCASP II.\n2. 30 min: NBC TSP 23 — política × estimativa × erro.\n3. 20 min: NBC TSP 25 — evento subsequente.\n4. 20 min: NBC TSP 34 — custos.\n5. 10 min: MCASP II — mapa patrimonial.\n6. 15 min: pré-Q038 + início da bateria."
+        },
+        {
+          "heading": "8. Mapa de entrada",
+          "body": "Fonte\nPergunta central\nPalavra-chave\nNBC TSP 23\nmudou a regra, a estimativa ou descobri um erro?\ntempo\nNBC TSP 25\no fato posterior revela condição antiga ou cria condição nova?\norigem\nNBC TSP 34\nquanto recurso foi consumido para gerar o objeto?\nconsumo\nMCASP II\ncomo o fenômeno patrimonial é reconhecido, mensurado e evidenciado?\nprocedimento\nMacete: 23 = como corrigir/mudar; 25 = quando o fato posterior pertence; 34 = quanto consumiu; MCASP II = onde tratar.\n---\n# PARTE I — NBC TSP 23 (R1)"
+        },
+        {
+          "heading": "9. Política contábil",
+          "body": "Políticas contábeis são os princípios, bases, convenções, regras e práticas específicas adotados pela entidade na elaboração e apresentação das demonstrações."
+        },
+        {
+          "heading": "Pergunta de prova",
+          "body": "> Mudou a forma/regra usada para contabilizar?\nExemplo: mudança de uma base de mensuração, quando tecnicamente caracterizada como política."
+        },
+        {
+          "heading": "Tratamento",
+          "body": "Mudança de política, em regra, tem lógica retrospectiva, salvo regra de transição específica ou impraticabilidade."
+        },
+        {
+          "heading": "10. Estimativa contábil",
+          "body": "Estimativa existe porque determinados valores não podem ser conhecidos com precisão absoluta e precisam ser mensurados com base na melhor informação disponível.\nExemplos:\n- vida útil remanescente;\n- valor residual;\n- perda estimada em crédito;\n- determinadas provisões e mensurações dependentes de julgamento."
+        },
+        {
+          "heading": "O ponto decisivo",
+          "body": "Informação nova, experiência nova ou alteração das circunstâncias pode levar a nova estimativa.\n> Informação nova ≠ erro antigo."
+        },
+        {
+          "heading": "Tratamento",
+          "body": "A mudança de estimativa é prospectiva:\n- período corrente, se só ele for afetado;\n- período corrente + futuros, se ambos forem afetados."
+        },
+        {
+          "heading": "11. Erro de período anterior",
+          "body": "Erro é omissão ou incorreção resultante de:\n- falta de uso de informação confiável que estava disponível; ou\n- uso incorreto de informação que poderia ter sido razoavelmente obtida e considerada.\nPode envolver:\n- cálculo;\n- aplicação de política;\n- omissão;\n- descuido;\n- interpretação incorreta;\n- fraude."
+        },
+        {
+          "heading": "Pergunta de prova",
+          "body": "> A informação correta já existia e estava disponível?\nSe sim, o caso tende a ser erro, não mudança de estimativa."
+        },
+        {
+          "heading": "12. Quadro decisório — política × estimativa × erro",
+          "body": "Evento\nDiagnóstico\nTratamento-base\nnova regra/base contábil aplicável\npolítica\nretrospectivo, observadas transição/impraticabilidade\nnova informação sobre vida útil\nestimativa\nprospectivo\nvalor residual passado calculado incorretamente com dados já disponíveis\nerro\nreapresentação retrospectiva\nnova expectativa de perda em créditos\nestimativa\nprospectivo"
+        },
+        {
+          "heading": "Aplicação retrospectiva",
+          "body": "É tratar a nova política como se tivesse sido aplicada desde sempre, na extensão praticável."
+        },
+        {
+          "heading": "Reapresentação retrospectiva",
+          "body": "É corrigir reconhecimento, mensuração e divulgação como se o erro anterior não tivesse ocorrido."
+        },
+        {
+          "heading": "Prospectivo",
+          "body": "A mudança passa a produzir efeito da data da alteração em diante.\nAutomatize: política → olha para trás; erro → corrige para trás; estimativa → olha para frente. Depois verifique exceções e transição."
+        },
+        {
+          "heading": "14. Impraticabilidade",
+          "body": "“Impraticável” não significa apenas “difícil” ou “trabalhoso”.\nHá impraticabilidade quando, depois de esforços razoáveis, não é possível aplicar o requisito, por exemplo porque:\n- os efeitos não podem ser determinados;\n- seria necessário reconstruir intenção passada da administração;\n- seriam necessárias estimativas significativas sem possibilidade de separar objetivamente informação disponível no passado de conhecimento posterior.\nA saída normativa é aplicar/corrigir a partir da data mais antiga praticável, conforme o caso."
+        },
+        {
+          "heading": "15. Exemplo resolvido — erro × estimativa",
+          "body": "Em 2027, a entidade descobre que a depreciação de 2026 usou por engano valor residual errado que já constava do cadastro patrimonial.\nDiagnóstico: erro anterior → lógica retrospectiva.\nNo mesmo momento, laudo técnico novo conclui que a vida útil remanescente do equipamento aumentou.\nDiagnóstico: nova informação → mudança de estimativa → prospectiva.\nPegadinha FCC: juntar os dois fatos e tentar impor o mesmo tratamento temporal aos dois.\n---\n# PARTE II — NBC TSP 25 (R1)"
+        },
+        {
+          "heading": "16. O que é evento subsequente",
+          "body": "É evento favorável ou desfavorável ocorrido entre:\n1. a data das demonstrações contábeis; e\n2. a data de autorização para emissão dessas demonstrações.\nO evento ocorrer depois do fechamento não basta para dizer se ajusta.\nA pergunta correta é:\n> a condição já existia na data das demonstrações?"
+        },
+        {
+          "heading": "17. Evento que dá origem a ajuste",
+          "body": "Dá ajuste quando o fato posterior fornece evidência adicional sobre condição que já existia na data das demonstrações.\nExemplos:\n- decisão judicial posterior confirmando obrigação já existente;\n- informação posterior confirmando perda de valor já existente;\n- descoberta de fraude ou erro que mostra que as demonstrações já estavam incorretas.\nRegra: a data da descoberta não é necessariamente a data de origem da condição."
+        },
+        {
+          "heading": "18. Evento que não dá origem a ajuste",
+          "body": "Não ajusta quando a condição surgiu depois da data das demonstrações.\nSe for significativo/material, pode exigir divulgação:\n- natureza do evento;\n- estimativa do efeito financeiro, ou declaração de que não é possível estimá-lo."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Incêndio relevante ocorrido depois do fechamento, sem relação com condição existente na data-base:\n- não corrige valores daquela data por esse fato novo;\n- pode exigir divulgação."
+        },
+        {
+          "heading": "19. Ajustar × divulgar",
+          "body": "Situação\nValor nas demonstrações\nDivulgação\ncondição já existia\najusta\nquando aplicável\ncondição surgiu depois e não é significativa\nnão ajusta\nem regra, não é o foco\ncondição surgiu depois e é significativa\nnão ajusta\nsim"
+        },
+        {
+          "heading": "20. Continuidade",
+          "body": "Evento subsequente pode ser tão relevante que afete o pressuposto da continuidade.\nSe, após a data das demonstrações, a administração determinar que:\n- pretende liquidar ou deixar de operar; ou\n- não possui alternativa realista a fazê-lo,\na elaboração com base em continuidade pode deixar de ser apropriada.\nPegadinha: classificar todo problema posterior como mera nota explicativa, ignorando a continuidade.\n---\n# PARTE III — NBC TSP 34 — CUSTOS NO SETOR PÚBLICO"
+        },
+        {
+          "heading": "Gasto",
+          "body": "Dispêndio de ativo ou criação de passivo, relacionado ou não à obtenção de bem ou serviço."
+        },
+        {
+          "heading": "Desembolso",
+          "body": "Pagamento decorrente do gasto."
+        },
+        {
+          "heading": "Custo",
+          "body": "Consumo ou utilização de recursos para gerar bens ou serviços.\nLogo:\n- pode haver custo sem desembolso naquele momento;\n- desembolso e custo podem ocorrer em momentos diferentes;\n- custo exige vínculo com consumo de recursos."
+        },
+        {
+          "heading": "22. Objeto de custo",
+          "body": "Objeto de custo é a unidade para a qual se deseja identificar, mensurar e avaliar custos.\nPode ser:\n- serviço;\n- política;\n- programa;\n- unidade;\n- processo;\n- entrega à sociedade."
+        },
+        {
+          "heading": "Final × intermediário",
+          "body": "- final: bem/serviço/entrega destinada à sociedade;\n- intermediário: objeto que serve a outros objetos, sem representar diretamente a entrega final.\nExemplo:\n- atendimento hospitalar = objeto final;\n- lavanderia central do hospital = objeto intermediário."
+        },
+        {
+          "heading": "Direto",
+          "body": "Identificado e apropriado direta e objetivamente ao objeto."
+        },
+        {
+          "heading": "Indireto",
+          "body": "Não pode ser identificado diretamente ao objeto; exige direcionador de custo ou, em última instância, base de rateio razoável e consistente."
+        },
+        {
+          "heading": "Direcionador",
+          "body": "Indicador que procura estabelecer relação de causa e efeito para alocar custos indiretos.\nRateio arbitrário não é sinônimo de informação de custos. A norma admite que a alocação de custo indireto seja dispensada quando for arbitrária e comprometer a qualidade da informação."
+        },
+        {
+          "heading": "Custo fixo",
+          "body": "Não varia proporcionalmente ao volume dentro de intervalo relevante."
+        },
+        {
+          "heading": "Custo variável",
+          "body": "Varia em função do nível de atividade conforme a relação definida pelo modelo."
+        },
+        {
+          "heading": "Controlável",
+          "body": "O gestor consegue exercer influência sobre consumo/desempenho."
+        },
+        {
+          "heading": "Não controlável",
+          "body": "O controle daquele consumo não pode ser atribuído àquele nível de gestão.\nPegadinha: “fixo” não significa “imutável para sempre”; significa comportamento em determinado intervalo/estrutura."
+        },
+        {
+          "heading": "25. Usuários da informação de custos",
+          "body": "Os principais usuários são gestores, para decisões sobre recursos.\nTambém usam:\n- órgãos de controle;\n- cidadãos;\n- Legislativo;\n- organizações sociais;\n- academia;\n- mídia;\n- demais interessados.\nA informação subsidia:\n- planejamento;\n- decisão;\n- monitoramento;\n- avaliação de desempenho;\n- transparência;\n- prestação de contas;\n- responsabilização."
+        },
+        {
+          "heading": "Modelo de gerenciamento de custos",
+          "body": "Combina:\n- diretrizes;\n- escopo;\n- objetos;\n- sistema de acumulação;\n- método de custeio;\n- bases de mensuração."
+        },
+        {
+          "heading": "Sistema de informação de custos",
+          "body": "Registra, processa e evidencia custos de bens, serviços e demais objetos."
+        },
+        {
+          "heading": "Sistema de custos",
+          "body": "Integra modelo + sistema de informação + funções/responsabilidades organizacionais."
+        },
+        {
+          "heading": "27. Competência e rastreabilidade",
+          "body": "A informação de custos deve ser compatível com o regime de competência.\nAlém disso:\n- diferentes métodos podem gerar informações diferentes;\n- os resultados devem ser rastreáveis à base de dados de origem;\n- bases contábeis e não contábeis podem ser integradas;\n- quando necessário, dados não contábeis devem ser conciliados."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Um prédio cedido gratuitamente pode gerar consumo de recurso relevante ao serviço, mesmo sem desembolso da unidade beneficiária.\nA NBC TSP 34 orienta que recursos consumidos sejam atribuídos ao objeto para representar com fidedignidade o custo efetivo."
+        },
+        {
+          "heading": "28. Ponte para auditoria operacional",
+          "body": "Informação de custos não serve apenas para “contabilidade interna”.\nEla ajuda a perguntar:\n- quanto custa entregar o serviço?\n- o custo aumentou sem aumento correspondente de entrega?\n- há alternativa mais econômica?\n- unidades comparáveis apresentam diferenças relevantes?\n- recursos estão sendo usados com eficiência?\nIsso conversa diretamente com economicidade e eficiência, sem transformar D038 em aula de auditoria operacional.\n---\n# PARTE IV — MCASP 11ª EDIÇÃO / PARTE II"
+        },
+        {
+          "heading": "29. O papel da Parte II",
+          "body": "A Parte II organiza Procedimentos Contábeis Patrimoniais.\nEla responde, em essência:\n1. o que é o elemento/fato?\n2. quando reconhecer?\n3. por qual base mensurar?\n4. como ajustar ao longo do tempo?\n5. como evidenciar?"
+        },
+        {
+          "heading": "Ativos",
+          "body": "- caixa/créditos;\n- estoques;\n- propriedade para investimento;\n- imobilizado;\n- intangível;\n- redução ao valor recuperável."
+        },
+        {
+          "heading": "Passivos e obrigações",
+          "body": "- obrigações;\n- provisões;\n- contingências;\n- benefícios e outros passivos."
+        },
+        {
+          "heading": "Variações patrimoniais",
+          "body": "- VPA e VPD pelo fato gerador patrimonial;\n- independência em relação ao momento puramente orçamentário ou financeiro."
+        },
+        {
+          "heading": "Mensuração e ajustes",
+          "body": "- custo e outras bases aplicáveis;\n- depreciação;\n- amortização;\n- impairment;\n- reavaliação quando prevista;\n- estimativas;\n- correção de erros."
+        },
+        {
+          "heading": "31. Como NBC TSP 23 e 25 entram no MCASP II",
+          "body": "Exemplo integrado:\nUm ativo tem vida útil revisada por laudo novo.\n- fenômeno patrimonial: imobilizado;\n- procedimento: depreciação;\n- NBC TSP 23: mudança de estimativa → prospectiva.\nOutro caso: após o fechamento, decisão judicial confirma obrigação já existente.\n- fenômeno patrimonial: passivo/provisão;\n- NBC TSP 25: evento subsequente com ajuste;\n- MCASP II: reconhecimento/mensuração patrimonial coerente."
+        },
+        {
+          "heading": "32. Quadro final de decisão",
+          "body": "Se a questão trouxer...\nPergunte...\nDestino\nmudança de regra\né política?\nNBC 23\ninformação nova sobre valor/vida útil\né estimativa?\nNBC 23\ninformação antiga usada errado\né erro?\nNBC 23\nfato entre fechamento e autorização\ncondição já existia?\nNBC 25\nconsumo de recurso\nqual objeto recebeu o custo?\nNBC 34\nreconhecer/mensurar/evidenciar patrimônio\nqual procedimento?\nMCASP II"
+        },
+        {
+          "heading": "33. Como a FCC tende a cobrar",
+          "body": "O levantamento real para Q038 mostrou incidência forte, por analogia técnica, em:\n- conceito de impraticabilidade;\n- política × estimativa × erro;\n- erro material anterior → correção retrospectiva;\n- informação nova → estimativa prospectiva;\n- significado de aplicação/reapresentação retrospectiva;\n- materialidade e intenção na correção de erros.\nPara NBC TSP 25, NBC TSP 34 e MCASP II, o lote FCC específico encontrado foi menos aderente; por isso a cobertura normativa será completada com questões autorais identificadas, sem fingir origem FCC."
+        },
+        {
+          "heading": "34. Pegadinhas prioritárias",
+          "body": "1. informação nova = erro;\n2. erro passado = prospectivo;\n3. estimativa = retrospectiva;\n4. “impraticável” = apenas caro/difícil;\n5. evento descoberto depois = sempre condição surgida depois;\n6. evento sem ajuste = nunca divulga;\n7. evento com ajuste = fato necessariamente ocorrido antes do fechamento;\n8. custo = pagamento;\n9. custo indireto = rateio arbitrário;\n10. gestor = único usuário da informação de custos;\n11. MCASP substitui NBC TSP;\n12. prova em 2027 = toda regra de aplicação 2027 vale retroativamente a 2026."
+        },
+        {
+          "heading": "35. O que precisa ficar automático",
+          "body": "- política → retrospectivo;\n- estimativa → prospectivo;\n- erro → reapresentação retrospectiva;\n- “data da descoberta” ≠ “data da condição”;\n- condição existente → ajusta;\n- condição nova → não ajusta;\n- condição nova + significativa → divulga;\n- custo = consumo/utilização de recurso;\n- objeto = aquilo cujo custo quero medir;\n- direto → apropriação objetiva;\n- indireto → direcionador/base razoável;\n- MCASP II = procedimento patrimonial."
+        },
+        {
+          "heading": "36. Pré-Q038",
+          "body": "Sem consulta, responda:\n1. vida útil revisada por laudo novo: política, estimativa ou erro?\n2. cálculo antigo errado com dado já disponível: qual categoria?\n3. o que muda retrospectivamente?\n4. o que é impraticabilidade?\n5. qual intervalo define evento subsequente?\n6. decisão judicial posterior que confirma obrigação antiga: ajusta?\n7. incêndio totalmente posterior: ajusta ou divulga?\n8. defina custo sem usar “pagamento”.\n9. diferencie custo direto e indireto.\n10. diga em uma frase o papel do MCASP II.\nSe errar 3 ou mais, volte apenas ao bloco correspondente."
+        },
+        {
+          "heading": "37. Q038",
+          "body": "Meta: 20 questões."
+        },
+        {
+          "heading": "38. Pós-Q038 — causa do erro",
+          "body": "- P — política;\n- E — estimativa;\n- R — erro/retrospectivo;\n- S — evento subsequente;\n- C — custos;\n- M — MCASP;\n- V — vigência/versionamento.\nErro em P/E/R ou S é de alta prioridade porque envolve troca conceitual simples e muito cobrável."
+        },
+        {
+          "heading": "39. D0",
+          "body": "Após execução real:\n1. refaça erradas + acertos com dúvida;\n2. desenhe P/E/R sem consulta;\n3. crie um exemplo de evento com ajuste e um sem ajuste;\n4. explique custo × gasto × desembolso;\n5. dê um objeto de custo final e um intermediário;\n6. recite direto × indireto × direcionador;\n7. reconstrua o mapa MCASP II em cinco perguntas;\n8. explique a transição R1 2026/2027.\nD0 configurado ≠ executado."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente: P/E/R e evento subsequente são classificações novas, com alta chance de inversão."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente: custos e MCASP II serão reutilizados em PCASP/DCASP, auditoria e simulados.\nAcionados ≠ realizados."
+        },
+        {
+          "heading": "41. Flashcards candidatos",
+          "body": "- política × estimativa × erro;\n- retrospectivo × prospectivo;\n- impraticabilidade;\n- condição existente × condição nova;\n- custo × gasto × desembolso;\n- objeto final × intermediário;\n- direto × indireto;\n- NBC 23/25 R1 → aplicação exercícios 01/01/2027;\n- NBC 34 → custos;\n- MCASP II → procedimentos patrimoniais."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- teoria autônoma de primeira aprendizagem;\n- versões oficiais controladas;\n- Q038 separado e auditado;\n- 20 itens válidos;\n- questões reais historicamente validadas por conceito;\n- lacunas de FCC preenchidas com autorais identificadas;\n- D0/D7/D20 configurados."
+        },
+        {
+          "heading": "Execução do aluno",
+          "body": "Somente após:\n- estudar o material;\n- responder 20 questões;\n- corrigir a bateria;\n- registrar erros/dúvidas reais;\n- executar D0;\n- explicar, sem consulta, P/E/R + evento subsequente + custos + MCASP II."
+        },
+        {
+          "heading": "43. Ponte",
+          "body": "- S19 / D040 — Legislação Institucional V: próxima sessão da esteira; não processar agora.\n- D050: PCASP.\n- D057: DCASP.\n- D061: integração CASP/MCASP posterior."
+        },
+        {
+          "heading": "44. Fontes efetivamente usadas",
+          "body": "- seis Fontes canônicas vigentes;\n- CFC — NBC TSP 23 (R1);\n- CFC — NBC TSP 25 (R1);\n- CFC — NBC TSP 34;\n- STN — MCASP 11ª edição, especialmente Parte II;\n- FCC reais históricas no Q038, validadas apenas no conceito mantido.\nSaída esperada: ao receber um caso, você deve decidir primeiro que fenômeno é, depois em que tempo ele produz efeito, e só então pensar em reconhecimento, mensuração, evidenciação ou custo."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T14:56:24.993Z"
+    },
+    "d040": {
+      "dxx": "D040",
+      "title": "D040 — Legislação Institucional V",
+      "summary": "Legislação Institucional V — políticas TCE-GO — RA 14/2025; RA 17/2024; RN 5/2024; RA 24/2024 — estrutura, segurança, dados e IA.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D040 — Legislação Institucional V \\| estrutura, segurança, dados e IA\nS19 / D040 — 105 min. A sessão organiza quatro atos institucionais recentes do TCE-GO em uma única pergunta: quem faz o quê, como a informação é protegida, quando dados pessoais podem ser tratados e quais limites cercam o uso de IA?"
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "Até o D033, a trilha respondeu:\n- D005: qual é a posição constitucional do TCE-GO;\n- D012: como funciona sua Lei Orgânica;\n- D026: como o Regimento disciplina o funcionamento;\n- D033: quem são os servidores, como funciona a carreira e quais limites éticos os alcançam.\nO D040 muda o ângulo:\n> como o Tribunal se organiza internamente e como governa informação, dados pessoais e IA?\nA sessão seguinte de Legislação Institucional, D054, tratará outras políticas institucionais: pessoas, comunicação e planejamento/gestão. Aqui, portanto, não se antecipa esse bloco."
+        },
+        {
+          "heading": "3. Posição no edital",
+          "body": "A03 — Legislação Institucional\n- bloco: Gerais;\n- 5 questões;\n- peso 1;\n- baseline histórico: Novo;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Recorte de hoje",
+          "body": "1. RA nº 14/2025 — Estrutura Organizacional;\n2. RA nº 17/2024 — Política de Segurança da Informação;\n3. RN nº 5/2024 — Proteção de Dados Pessoais;\n4. RA nº 24/2024 — Uso de Inteligência Artificial."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- políticas de gestão de pessoas, comunicação e planejamento/gestão → D054;\n- reestudo integral de Lei Orgânica e Regimento → D012/D026;\n- Código de Ética → D033;\n- LGPD federal em profundidade para além do necessário à RN 5/2024;\n- arquitetura técnica de redes/cibersegurança;\n- programação ou funcionamento técnico de modelos de IA."
+        },
+        {
+          "heading": "Já conhecido",
+          "body": "- Pleno, Câmaras, Presidência e Corregedoria em nível institucional;\n- Lei Orgânica × Regimento;\n- deveres funcionais e ética;\n- ideia de competência institucional."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- estrutura administrativa interna;\n- responsabilidade por informação;\n- LGPD;\n- segurança da informação;\n- uso responsável de IA."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- estrutura vigente da RA 14/2025;\n- grupos organizacionais do art. 2º;\n- Serviço de Inteligência Artificial dentro da estrutura vigente;\n- SGSI e matriz de responsabilidades da RA 17/2024;\n- aplicação interna da LGPD pela RN 5/2024;\n- encarregado/DPO e hipóteses de conflito;\n- IAGO e regras de uso de IA externa da RA 24/2024."
+        },
+        {
+          "heading": "Corte normativo",
+          "body": "25/08/2026 — corte do edital."
+        },
+        {
+          "heading": "Fontes oficiais revalidadas em 22/09/2026",
+          "body": "- [RA nº 14/2025 — GNOI](https://gnoi.tce.go.gov.br/atoNormativo/Publicado/25999)\n- [RA nº 17/2024 — GNOI](https://gnoi.tce.go.gov.br/atoNormativo/Publicado/22924)\n- [RN nº 5/2024 — GNOI](https://gnoi.tce.go.gov.br/atoNormativo/Publicado?id=21125)\n- [RA nº 24/2024 — Diário Eletrônico](https://dec.tce.go.gov.br/ConsultaDiario/CarregaDocumento?documento=331702342642061)"
+        },
+        {
+          "heading": "Controle de versão essencial",
+          "body": "RA 14/2025 é a estrutura vigente para esta trilha. Ela revogou expressamente:\n- RA 19/2022;\n- RA 15/2023;\n- RA 23/2024;\n- RA 6/2025.\nNão aprenda organograma histórico como vigente. A RA 23/2024 chegou a inserir o Serviço de IA na estrutura anterior, mas foi revogada pela RA 14/2025. O Serviço de IA continua existindo, agora dentro da estrutura atual desenhada pela RA 14/2025.\nA RA 17/2024 continua sendo a política de segurança, mas contém referências organizacionais concebidas antes da RA 14/2025. Em questão que envolva nome/estrutura atual da unidade, prevalece a leitura integrada com a estrutura vigente da RA 14/2025."
+        },
+        {
+          "heading": "6. Como estudar os 105 minutos",
+          "body": "1. 10 min — mapa das quatro normas.\n2. 30 min — RA 14/2025: estrutura e competências críticas.\n3. 20 min — RA 17/2024: segurança e responsabilidades.\n4. 20 min — RN 5/2024: dados pessoais.\n5. 15 min — RA 24/2024: IA/IAGO.\n6. 10 min — pré-Q040 + início da bateria."
+        },
+        {
+          "heading": "Regra de marcação",
+          "body": "Marque apenas:\n- verbo de competência;\n- sujeito responsável;\n- enumeração fechada;\n- prazo/composição quando houver;\n- vedação;\n- exceção;\n- troca fácil de banca."
+        },
+        {
+          "heading": "7. Mapa das quatro normas",
+          "body": "Norma\nPergunta central\nPalavra-chave\nRA 14/2025\nquem existe e quem faz o quê?\nestrutura\nRA 17/2024\ncomo proteger informação e quem responde por cada domínio?\nsegurança\nRN 5/2024\ncomo o TCE-GO trata dados pessoais?\nproteção\nRA 24/2024\ncomo usar IA sem transferir responsabilidade nem expor dados?\nresponsabilidade\nMacete funcional: estrutura → segurança → dados → IA.\n---\n# PARTE I — RA Nº 14/2025 \\| ESTRUTURA ORGANIZACIONAL"
+        },
+        {
+          "heading": "8. Identificação e finalidade",
+          "body": "A RA nº 14/2025 define a estrutura organizacional do TCE-GO com competências e atribuições.\nEla não é apenas um organograma. Para prova, o núcleo é:\n- classificação dos órgãos/unidades;\n- composição;\n- finalidade;\n- competência;\n- relação entre nível estratégico, tático e operacional."
+        },
+        {
+          "heading": "I — Órgãos Colegiados do Corpo Deliberativo",
+          "body": "- Tribunal Pleno;\n- Primeira Câmara;\n- Segunda Câmara."
+        },
+        {
+          "heading": "II — Órgãos do Corpo Diretivo",
+          "body": "- Presidência;\n- Vice-Presidência;\n- Corregedoria-Geral."
+        },
+        {
+          "heading": "III — Órgãos Superiores",
+          "body": "- Gabinetes de Conselheiros;\n- Gabinetes de Conselheiros Substitutos;\n- Ouvidoria;\n- Escola Superior de Controle Externo Aélson Nascimento — Escoex."
+        },
+        {
+          "heading": "IV — Órgãos com Independência Funcional",
+          "body": "- Ministério Público de Contas do Estado de Goiás — MPC-GO."
+        },
+        {
+          "heading": "V — Unidades de Apoio à Segurança Institucional",
+          "body": "- Assistência de Segurança Policial Militar;\n- Assistência de Segurança Bombeiro Militar."
+        },
+        {
+          "heading": "VI — Unidades Básicas",
+          "body": "- Secretaria Executiva da Presidência;\n- Secretaria de Planejamento;\n- Secretaria Administrativa;\n- Secretaria de Controle Externo;\n- Secretaria-Geral."
+        },
+        {
+          "heading": "VII — Unidades Colegiadas",
+          "body": "- Comitês e Comissões permanentes.\nPrimeira camada para decorar: Deliberativo → Diretivo → Superiores → Independência funcional → Segurança institucional → Básicas → Colegiadas."
+        },
+        {
+          "heading": "10. Tribunal Pleno",
+          "body": "O Pleno:\n- é o órgão colegiado máximo do corpo deliberativo;\n- reúne os 7 Conselheiros;\n- é presidido pelo Presidente do Tribunal;\n- representa a instância máxima de governança;\n- delibera, no âmbito de suas competências, sobre políticas, planos, diretrizes e normas institucionais de caráter estratégico e tático."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Pleno ≠ Presidência.\n- Pleno = colegiado máximo/governança;\n- Presidência = direção administrativa e representação institucional."
+        },
+        {
+          "heading": "11. Câmaras",
+          "body": "Primeira e Segunda Câmara são órgãos colegiados fracionados.\nExcluído o Presidente do TCE-GO:\n- cada Câmara é composta por 3 Conselheiros;\n- cada uma é presidida por um de seus membros.\nPegadinha: dizer que o Presidente integra uma Câmara para completar três membros."
+        },
+        {
+          "heading": "12. Presidência",
+          "body": "Finalidade:\n- dirigir administrativamente o Tribunal;\n- praticar atos de administração orçamentária, financeira e patrimonial;\n- representar o TCE-GO perante poderes e autoridades;\n- realizar o desdobramento tático do Plano Estratégico na perspectiva corporativa.\nTroca provável: atribuir à Presidência a função de “órgão colegiado máximo”, que pertence ao Pleno."
+        },
+        {
+          "heading": "13. Vice-Presidência",
+          "body": "Núcleo:\n- substituir o Presidente nas ausências ou impedimentos;\n- colaborar com o Presidente quando solicitado.\nNão transformar a Vice-Presidência em “segunda Presidência” com competência geral própria inventada."
+        },
+        {
+          "heading": "14. Corregedoria-Geral",
+          "body": "Finalidade nuclear:\n- orientar;\n- disciplinar;\n- apurar atividades funcionais de membros e servidores;\n- avaliar resultados das atividades das unidades organizacionais.\nPegadinha: confundir Corregedoria com Ouvidoria ou controle externo."
+        },
+        {
+          "heading": "15. DTI e Serviço de Inteligência Artificial",
+          "body": "Na estrutura vigente, a Diretoria de Tecnologia da Informação contempla serviços especializados, incluindo o Serviço de Inteligência Artificial.\nO Serviço de IA tem por finalidade planejar, gerenciar, executar e monitorar projetos de desenvolvimento e aquisição de soluções de IA.\nEntre seus eixos:\n- estratégia e padrões;\n- identificação de aplicações;\n- qualidade e integridade de dados;\n- desenvolvimento/treinamento/implantação de modelos;\n- monitoramento de qualidade e precisão;\n- integração, interoperabilidade e segurança;\n- uso responsável e ético;\n- capacitação;\n- apoio a contratações e fiscalização;\n- obtenção de dados/sistemas úteis ao controle externo."
+        },
+        {
+          "heading": "Não confundir",
+          "body": "- RA 14/2025: onde o Serviço de IA está e quais são suas competências estruturais;\n- RA 24/2024: como usuários internos podem usar IA."
+        },
+        {
+          "heading": "16. O que não decorar agora",
+          "body": "Não memorize de primeira:\n- todos os níveis inferiores;\n- todas as assessorias;\n- cada serviço administrativo;\n- todas as siglas do Anexo II.\nPrioridade:\n1. grandes grupos;\n2. Pleno/Câmaras/Presidência/Corregedoria;\n3. unidades básicas;\n4. DTI/Serviço de IA;\n5. competências que a FCC pode trocar.\n---\n# PARTE II — RA Nº 17/2024 \\| SEGURANÇA DA INFORMAÇÃO"
+        },
+        {
+          "heading": "17. Núcleo da política",
+          "body": "A Política de Segurança da Informação busca viabilizar:\n- disponibilidade;\n- integridade;\n- confidencialidade;\n- autenticidade.\nTambém organiza:\n- conformidade;\n- padronização;\n- responsabilidades;\n- proteção dos ativos de informação."
+        },
+        {
+          "heading": "Macete",
+          "body": "DICA:\n- Disponibilidade;\n- Integridade;\n- Confidencialidade;\n- Autenticidade."
+        },
+        {
+          "heading": "18. Segurança não é “assunto da TI”",
+          "body": "A política alcança:\n- todas as unidades organizacionais;\n- usuários;\n- ambientes;\n- processos;\n- tecnologias;\n- informação processada/comunicada/armazenada por meios informatizados e convencionais.\nPegadinha clássica: reduzir segurança da informação a computador, senha ou DTI."
+        },
+        {
+          "heading": "19. SGSI e SGI",
+          "body": "O Sistema de Gestão de Segurança da Informação — SGSI integra o Sistema de Gestão Integrado — SGI do Tribunal.\nLogo:\n- SGSI não é sistema isolado de TI;\n- integra a governança organizacional."
+        },
+        {
+          "heading": "20. Princípios expressos",
+          "body": "A política trabalha, entre outros:\n- autenticidade;\n- celeridade;\n- confidencialidade;\n- conhecimento;\n- clareza;\n- disponibilidade;\n- ética;\n- integridade;\n- privacidade;\n- responsabilidade."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "“Segurança = sigilo” é incompleto. Confidencialidade é apenas uma dimensão."
+        },
+        {
+          "heading": "21. Responsabilidade dos usuários",
+          "body": "Todos os usuários devem:\n- proteger credenciais e dados;\n- seguir orientações competentes;\n- usar recursos de forma ética, legal e consciente;\n- preservar integridade e confidencialidade.\nGestores da informação possuem responsabilidades próprias, inclusive classificação de ativos e gestão de acessos."
+        },
+        {
+          "heading": "22. Matriz de competências por domínio",
+          "body": "Para prova, importa perceber que a RA distribui responsabilidades.\nExemplos nucleares:\n- acesso físico → segurança institucional;\n- acesso virtual → DTI;\n- backup → DTI;\n- incidentes e continuidade → DTI;\n- criptografia → DTI;\n- comunicação e mídias sociais → unidade de comunicação;\n- mesa/tela limpa → área administrativa.\nNão decore como bloco solto: associe cada domínio ao responsável lógico."
+        },
+        {
+          "heading": "23. Presidência, encarregado e CSI",
+          "body": "- a Presidência aprova diretrizes/normas específicas de segurança;\n- a Presidência define o encarregado de proteção de dados;\n- a política institui Comitê de Segurança da Informação — CSI, com coordenação ligada à DTI e representação institucional."
+        },
+        {
+          "heading": "Controle de versão",
+          "body": "Se a RA 17 mencionar nome de unidade que foi reorganizada posteriormente, não conclua que a política foi revogada. Para estrutura atual, leia junto com a RA 14/2025.\n---\n# PARTE III — RN Nº 5/2024 \\| PROTEÇÃO DE DADOS PESSOAIS"
+        },
+        {
+          "heading": "24. Objeto e alcance",
+          "body": "A RN nº 5/2024 regulamenta a aplicação da LGPD no TCE-GO em relação a dados pessoais de jurisdicionados e demais interessados tratados em processos, peças, publicações e atividades institucionais.\nAlcança, conforme o ato:\n- Conselheiros;\n- Procuradores;\n- Auditores/Conselheiros Substitutos;\n- servidores;\n- estagiários;\n- colaboradores;\n- unidades técnicas e administrativas."
+        },
+        {
+          "heading": "25. Finalidade pública",
+          "body": "O tratamento deve atender:\n- finalidade pública;\n- interesse público;\n- exercício das funções do Tribunal;\n- competências constitucionais, legais, regulamentares e administrativas.\nPegadinha: a Administração não recebe uma autorização genérica para tratar qualquer dado por simplesmente “ser órgão público”."
+        },
+        {
+          "heading": "26. Dado publicamente acessível",
+          "body": "Mesmo dado de acesso público deve respeitar:\n- boa-fé;\n- princípios da LGPD;\n- finalidade e base jurídica cabível.\nMera existência ou disponibilidade de um banco de dados não autoriza, por si só, qualquer tratamento."
+        },
+        {
+          "heading": "Dados sensíveis",
+          "body": "O tratamento observa o regime específico da LGPD."
+        },
+        {
+          "heading": "Crianças e adolescentes",
+          "body": "A diretriz é o melhor interesse, conforme o regime legal aplicável.\nFCC pode trocar:\n- dado pessoal comum × sensível;\n- interesse administrativo × melhor interesse da criança/adolescente."
+        },
+        {
+          "heading": "28. Encarregado pelo tratamento de dados — DPO",
+          "body": "A indicação cabe ao Presidente do Tribunal.\nA identidade e o contato devem ser disponibilizados de forma permanente no sítio eletrônico.\nFunções nucleares:\n- aceitar reclamações/comunicações dos titulares;\n- prestar esclarecimentos e adotar providências;\n- receber comunicações da ANPD;\n- orientar servidores e contratados;\n- executar outras atribuições do controlador ou previstas em normas complementares."
+        },
+        {
+          "heading": "29. Conflito de interesses do encarregado",
+          "body": "O desenho da RN busca independência funcional do encarregado.\nHá restrições para evitar que ele simultaneamente:\n- fiscalize e decida finalidades/meios do tratamento;\n- atue em área com conflito estrutural, como determinadas funções de gestão financeira, pessoas, TI ou outra unidade conflitante.\nIdeia de prova: DPO orienta/intermedeia/fiscaliza; não se confunde com quem decide as finalidades e meios do tratamento."
+        },
+        {
+          "heading": "30. Banco sob custódia",
+          "body": "Quando o TCE-GO atua apenas como custodiante de base:\n- os direitos do titular devem ser exercidos diretamente perante a organização responsável pelo tratamento;\n- o Tribunal mantém informação/lista adequada sobre essas bases conforme a norma.\nCustódia ≠ controle automático de toda finalidade do tratamento."
+        },
+        {
+          "heading": "31. Consequências",
+          "body": "Descumprimentos podem gerar, conforme o caso:\n- responsabilidade administrativa;\n- ética/disciplinar;\n- civil;\n- criminal.\nA RN também adota como referência o guia da ANPD para tratamento de dados pelo Poder Público.\n---\n# PARTE IV — RA Nº 24/2024 \\| USO DE INTELIGÊNCIA ARTIFICIAL"
+        },
+        {
+          "heading": "32. Objeto",
+          "body": "A RA nº 24/2024 estabelece diretrizes para o uso e desenvolvimento de ferramentas de IA por usuários internos do TCE-GO.\nEla parte de três riscos:\n- erro/alucinação;\n- exposição de dados;\n- transferência indevida de responsabilidade à ferramenta."
+        },
+        {
+          "heading": "33. Definições que podem virar literalidade",
+          "body": "O ato define:\n- IA Generativa;\n- Large Language Model — LLM;\n- prompt;\n- contexto;\n- alucinação;\n- IAGO;\n- Portal IAGO;\n- plataforma externa de IA generativa;\n- usuário interno de IA."
+        },
+        {
+          "heading": "Usuário interno",
+          "body": "Abrange, em síntese:\n- membros;\n- servidores efetivos/comissionados;\n- cedidos;\n- estagiários;\n- terceirizados;\n- demais colaboradores que usem/desenvolvam IA no Tribunal."
+        },
+        {
+          "heading": "34. IAGO",
+          "body": "O IAGO é instituído como ecossistema oficial de soluções de IA do TCE-GO.\nO Portal IAGO é a solução de IA generativa aprovada/desenvolvida pelo Tribunal voltada, entre outros requisitos, à confidencialidade das informações institucionais.\nA RA determina que o IAGO seja priorizado pelos usuários internos nas atividades institucionais."
+        },
+        {
+          "heading": "35. As seis diretrizes operacionais do art. 4º",
+          "body": "O usuário interno deve:\n1. verificar precisão/confiabilidade da informação gerada ou tratada e corrigir alucinações antes de usar/divulgar;\n2. assumir autoria e responsabilidade pelo conteúdo resultante;\n3. não inserir dados pessoais e sensíveis em plataformas externas de IA generativa;\n4. usar em plataforma externa somente dados públicos da instituição;\n5. não usar e-mail e senha institucionais para criar contas em plataformas externas de IA;\n6. observar direitos autorais e propriedade intelectual.\nRegra-mãe: IA apoia o trabalho; não recebe a responsabilidade funcional do usuário."
+        },
+        {
+          "heading": "36. Informação legalmente protegida",
+          "body": "Informação legalmente protegida só pode ser inserida/processada na solução institucional autorizada, IAGO, conforme a RA.\nIsso cria uma distinção forte:\n- IAGO: ambiente oficial;\n- plataforma externa: uso muito mais restrito."
+        },
+        {
+          "heading": "37. Casos omissos",
+          "body": "Casos omissos são resolvidos pela Presidência."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Não atribua essa competência automaticamente à DTI ou ao Serviço de IA.\n---\n# PARTE V — INTEGRAÇÃO DAS QUATRO NORMAS"
+        },
+        {
+          "heading": "38. Quadro norma → finalidade → responsável",
+          "body": "Norma\nFinalidade principal\nSujeito/estrutura-chave\nPegadinha\nRA 14/2025\nestrutura e competências\nPleno, Diretivo, Superiores, Básicas etc.\nusar organograma revogado\nRA 17/2024\nsegurança da informação\ntodos usuários + gestores + DTI/CSI/Presidência\nsegurança = só TI/confidencialidade\nRN 5/2024\nproteção de dados\ncontrolador, encarregado, agentes e titulares\nbanco disponível = uso livre\nRA 24/2024\nuso responsável de IA\nusuário interno + IAGO + Presidência\nIA assume autoria/responsabilidade"
+        },
+        {
+          "heading": "39. Caso integrado resolvido",
+          "body": "Servidor quer usar uma IA externa para resumir peça processual com dados pessoais."
+        },
+        {
+          "heading": "Passo 1 — RA 14",
+          "body": "Identifique a estrutura, mas não conclua que estar na DTI/Serviço de IA autoriza o uso."
+        },
+        {
+          "heading": "Passo 2 — RA 17",
+          "body": "Informação precisa respeitar segurança, credenciais, integridade e confidencialidade."
+        },
+        {
+          "heading": "Passo 3 — RN 5",
+          "body": "Dado pessoal exige tratamento compatível com finalidade pública e LGPD."
+        },
+        {
+          "heading": "Passo 4 — RA 24",
+          "body": "Plataforma externa não pode receber dados pessoais/sensíveis. Informação legalmente protegida deve ficar no ambiente institucional autorizado."
+        },
+        {
+          "heading": "Resultado",
+          "body": "Ferramenta externa não recebe o conteúdo protegido. A responsabilidade continua humana."
+        },
+        {
+          "heading": "A — decorar/recuperar sem consulta",
+          "body": "- sete grupos da RA 14;\n- Pleno × Presidência × Câmaras × Corregedoria;\n- DICA da segurança;\n- princípios-chave da RA 17;\n- finalidade pública e mera disponibilidade ≠ autorização;\n- Presidente indica DPO;\n- IAGO × plataforma externa;\n- seis diretrizes do art. 4º da RA 24;\n- revogações estruturais da RA 14."
+        },
+        {
+          "heading": "B — compreender e localizar rápido",
+          "body": "- matriz de competências por domínio da RA 17;\n- composição/funcionamento do CSI;\n- conflito do DPO;\n- banco sob custódia;\n- competências detalhadas do Serviço de IA."
+        },
+        {
+          "heading": "C — apenas localizar nesta passagem",
+          "body": "- todas as assessorias e subdivisões da RA 14;\n- lista completa de siglas;\n- detalhes operacionais de portarias derivadas da RA 17."
+        },
+        {
+          "heading": "41. Como a FCC pode cobrar",
+          "body": "Padrões mais prováveis:\n1. trocar órgão e competência;\n2. trocar Pleno por Presidência;\n3. dizer que cada Câmara inclui o Presidente;\n4. reduzir segurança a confidencialidade;\n5. atribuir toda segurança à DTI;\n6. transformar banco público em autorização irrestrita de tratamento;\n7. trocar Presidente por DTI na indicação do DPO;\n8. afirmar que IA externa pode receber dado pessoal se “necessário ao trabalho”;\n9. retirar responsabilidade humana sobre saída da IA;\n10. usar RA 23/2024 como estrutura vigente apesar da revogação."
+        },
+        {
+          "heading": "42. O que precisa ficar automático",
+          "body": "- 7 grupos da estrutura;\n- Pleno = máximo colegiado/governança;\n- Presidência = direção administrativa/representação;\n- Câmara = 3 Conselheiros, excluído Presidente;\n- Corregedoria = orientar/disciplinar/apurar/avaliar;\n- DICA = disponibilidade, integridade, confidencialidade, autenticidade;\n- segurança = todos usuários/ambientes/processos;\n- dado público ≠ tratamento livre;\n- DPO indicado pelo Presidente;\n- IAGO = oficial/priorizado;\n- externa = sem dado pessoal/sensível e só dado público institucional;\n- saída de IA = responsabilidade humana."
+        },
+        {
+          "heading": "43. Pré-Q040",
+          "body": "Sem consulta:\n1. recite os sete grupos do art. 2º da RA 14;\n2. quem é a instância máxima de governança?\n3. quantos Conselheiros há em cada Câmara e o Presidente entra nessa conta?\n4. recite DICA;\n5. SGSI integra qual sistema?\n6. banco publicamente acessível autoriza qualquer tratamento?\n7. quem indica o DPO?\n8. diferencie custodiante de controlador;\n9. o que é IAGO?\n10. cite três das seis diretrizes operacionais da RA 24.\nSe errar 3+, retorne apenas ao bloco correspondente."
+        },
+        {
+          "heading": "44. Q040",
+          "body": "Meta: 20 questões."
+        },
+        {
+          "heading": "45. Pós-Q040 — causa do erro",
+          "body": "- E — estrutura/competência;\n- S — segurança;\n- D — dados/LGPD;\n- I — IA;\n- V — versão/vigência;\n- L — literalidade.\nErro em competência, vedação de IA externa ou finalidade de tratamento é prioritário."
+        },
+        {
+          "heading": "46. D0",
+          "body": "Após a execução real:\n1. refaça erradas + acertos com dúvida;\n2. reconstrua os sete grupos da RA 14;\n3. faça Pleno × Presidência × Corregedoria em três linhas;\n4. recite DICA;\n5. explique dado público ≠ uso livre;\n6. explique DPO e conflito;\n7. recite as seis regras da RA 24;\n8. explique por que RA 23/2024 não é a estrutura vigente.\nD0 configurado ≠ realizado."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente: legislação institucional nova, muita enumeração, competência e vedação."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente: estrutura, segurança, dados e IA serão reutilizados no D054, D094, simulados e leitura institucional.\nD7/D20 acionados ≠ revisões realizadas."
+        },
+        {
+          "heading": "48. Flashcards candidatos",
+          "body": "- 7 grupos RA 14;\n- 7 Conselheiros no Pleno;\n- 3 Conselheiros por Câmara, excluído Presidente;\n- DICA;\n- SGSI ↔ SGI;\n- Presidente → DPO;\n- banco disponível ≠ tratamento livre;\n- IAGO oficial/priorizado;\n- 6 diretrizes RA 24;\n- informação protegida → IAGO;\n- RA 14 revoga RA 23/2024."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- quatro fontes oficiais validadas;\n- versão/corte explícitos;\n- leitura guiada;\n- estrutura histórica revogada bloqueada;\n- Q040 separado com 20 itens válidos;\n- D0/D7/D20 configurados."
+        },
+        {
+          "heading": "50. Ponte",
+          "body": "- D054 — Legislação Institucional VI: pessoas, comunicação e planejamento/gestão;\n- D094: volta final integrada de Legislação Institucional."
+        },
+        {
+          "heading": "51. Fontes efetivamente usadas",
+          "body": "- seis Fontes canônicas vigentes;\n- RA nº 14/2025 — GNOI TCE-GO;\n- RA nº 17/2024 — GNOI TCE-GO;\n- RN nº 5/2024 — GNOI TCE-GO;\n- RA nº 24/2024 — Diário Eletrônico TCE-GO;\n- Edital verticalizado A03;\n- Template Legislação.\nSaída esperada: diante de uma regra institucional, primeiro identifique qual norma governa o caso; depois procure sujeito, verbo, vedação e versão vigente."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T15:09:02.905Z"
     }
   },
   "questions": {
@@ -4831,6 +5919,50 @@
       "copyrightMode": "metadata-only",
       "version": 2,
       "lastEdited": "2026-09-22T13:59:41.727Z"
+    },
+    "q033": {
+      "qxx": "Q033",
+      "dxx": "D033",
+      "title": "Q033 — Questões \\| Legislação Institucional IV",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "3 FCC reais TCE-GO/2022 válidas (Q2109612, Q2109613, Q2109615) + 17 autorais normativas; Q2109614 rejeitada como V4 por alteração do art. 75.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T14:21:17.193Z"
+    },
+    "q036": {
+      "qxx": "Q036",
+      "dxx": "D036",
+      "title": "Q036 — Questões \\| Auditoria II",
+      "meta": 25,
+      "valid": 25,
+      "sourceSummary": "10 FCC reais (1 TCE-GO; 6 de 2025–2026) + 15 autorais técnicas. IDs reais: Q2109768, Q4067473, Q3947188, Q3884294, Q4221421, Q3596316, Q3596311, Q1317109, Q937776, Q1037658.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T14:34:59.320Z"
+    },
+    "q038": {
+      "qxx": "Q038",
+      "dxx": "D038",
+      "title": "Q038 — Questões \\| CASP VI",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "6 FCC reais por analogia CPC/NBC TG 23, todas V2 controladas + 14 autorais normativas V1. FCC: MPE-AM/2024; Metrô-SP/2019; AFAP/2019 (3 itens); ICMS-SC/2018. Cobertura específica NBC TSP 25/34 e MCASP II feita por autorais oficiais.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T14:56:27.065Z"
+    },
+    "q040": {
+      "qxx": "Q040",
+      "dxx": "D040",
+      "title": "Q040 — Questões \\| Legislação Institucional V",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "20 autorais normativas V1 sobre RA 14/2025, RA 17/2024, RN 5/2024 e RA 24/2024. Nenhuma FCC real específica destes atos locais/recentes foi localizada com validação suficiente; não foi usada analogia de outro Estado.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T15:09:05.391Z"
     }
   },
   "publicStats": {
@@ -4839,7 +5971,7 @@
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 15,
-    "questionPages": 15
+    "materialPages": 19,
+    "questionPages": 19
   }
 }
