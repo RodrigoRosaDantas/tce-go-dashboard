@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T14:02:59.153Z",
+  "generatedAt": "2026-09-23T14:03:36.476Z",
   "days": [
     {
       "dxx": "D001",
@@ -3665,6 +3665,1005 @@
       ],
       "version": 2,
       "lastEdited": "2026-09-22T13:24:26.052Z"
+    },
+    "d026": {
+      "dxx": "D026",
+      "title": "D026 — Legislação Institucional III",
+      "summary": "Legislação Institucional III — Regimento Interno do TCE-GO — estrutura, competências, funcionamento e processo no recorte editalício.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D026 — Legislação Institucional III \\| Regimento Interno do TCE-GO\nS13 / D026 — 105 min. Hoje o objetivo é entender como a Lei Orgânica vira funcionamento concreto: quem decide, como o Tribunal se organiza, como os processos circulam, como se comunica a parte e como Plenário/Câmaras funcionam."
+        },
+        {
+          "heading": "1. Identificação oficial",
+          "body": "- Diploma: Resolução nº 22/2008.\n- Órgão emissor: Tribunal de Contas do Estado de Goiás.\n- Natureza: Regimento Interno do TCE-GO.\n- Texto oficial GNOI: [https://gnoi.tce.go.gov.br/atoNormativo/Publicado?id=9544](https://gnoi.tce.go.gov.br/atoNormativo/Publicado?id=9544)\n- Corte do edital: 25/08/2026."
+        },
+        {
+          "heading": "3. Regra de versão e corte",
+          "body": "O texto consolidado oficial consultado em 22/09/2026 já mostra alteração posterior ao corte do edital:\n- Resolução nº 3/2026, aprovada em 03/09/2026 e publicada em 04/09/2026;\n- altera apenas o art. 247 no ponto relevante a esta sessão;\n- por ser posterior a 25/08/2026, não entra como regra aprendida para o edital atual."
+        },
+        {
+          "heading": "Art. 247 — o que vale para o corte",
+          "body": "Para o projeto, permanece a redação anterior ao ato de 03/09/2026:\n- auditorias, acompanhamentos e monitoramentos obedecem a plano de fiscalização elaborado bianualmente pela Presidência;\n- consolidação de informações da Secretaria de Controle Externo;\n- crítica/consulta aos Relatores;\n- aprovação pelo Plenário;\n- inspeções e levantamentos independem de programação;\n- propostas de auditorias, acompanhamentos e monitoramentos enquadradas no plano submetem-se ao Relator."
+        },
+        {
+          "heading": "O que mudou depois do corte",
+          "body": "A Resolução nº 3/2026 passou a trabalhar Plano Anual de Fiscalização, incluindo também avaliações de políticas públicas, novos critérios e nova dinâmica de elaboração.\nPara este concurso: não estudar a redação pós-03/09/2026 do art. 247 como vigente no corte editalício. Ela fica registrada apenas como controle de versão."
+        },
+        {
+          "heading": "4. Por que este assunto entra agora",
+          "body": "A sequência institucional é:\n- D005: Constituição GO + mapa da Lei Orgânica;\n- D012: Lei Orgânica — organização, competência, jurisdição, processo, sanções e recursos;\n- D026: Regimento — funcionamento interno e operacionalização;\n- D033: carreira, regime jurídico e ética;\n- D040/D054: estrutura e políticas institucionais;\n- D094: volta final consolidada.\nHoje a pergunta muda de:\n> “o Tribunal pode fazer o quê?”\npara:\n> “quem faz, em qual órgão, por qual rito e com qual competência?”"
+        },
+        {
+          "heading": "5. Lei Orgânica × Regimento",
+          "body": "Plano\nFunção\nPergunta mental\nConstituição\nmatriz do controle e competências\nqual é a competência constitucional?\nLei Orgânica nº 16.168/2007\nestrutura legal do Tribunal, jurisdição, processos, sanções e recursos\nqual é a regra legal própria do TCE?\nRegimento — Res. 22/2008\nfuncionamento concreto, colegiados, sessões, distribuição, instrução e atos processuais\ncomo a regra funciona dentro do Tribunal?"
+        },
+        {
+          "heading": "Regra de prova",
+          "body": "Regimento não substitui Lei Orgânica.\nEle a detalha e operacionaliza dentro dos limites legais."
+        },
+        {
+          "heading": "Prioridade A — precisa ficar automático",
+          "body": "- arts. 1º–11: natureza, competência, jurisdição, autonomia e composição;\n- arts. 13–19: Plenário e Câmaras;\n- arts. 20–26: Presidente, Vice e Corregedor;\n- arts. 92–111: distribuição/instrução;\n- arts. 112–119 e 143–153: funcionamento de Plenário/Câmaras;\n- arts. 156, 161–165: atos, diligências e comunicação;\n- arts. 237–244: instrumentos, apenas em integração com D008;\n- art. 247: controle de versão do corte."
+        },
+        {
+          "heading": "Prioridade B — compreender/localizar",
+          "body": "- ordem de pauta;\n- atos decisórios;\n- voto de desempate;\n- sustentação oral;\n- prazos processuais acessórios."
+        },
+        {
+          "heading": "Prioridade C — não decorar agora",
+          "body": "- capítulos especializados de prestações/tomadas de contas;\n- detalhes de licitações e contratos;\n- regras setoriais específicas;\n- estrutura administrativa atual da RA nº 14/2025, que terá sessão própria."
+        },
+        {
+          "heading": "Passada P0 — mapa",
+          "body": "Primeiro veja:\n1. natureza/jurisdição;\n2. organização;\n3. direção;\n4. processo;\n5. sessões;\n6. fiscalização;\n7. recursos."
+        },
+        {
+          "heading": "Passada P1 — literalidade crítica",
+          "body": "Marque:\n- quem decide;\n- quantos membros/quórum;\n- qual prazo;\n- qual colegiado;\n- qual ato;\n- qual exceção."
+        },
+        {
+          "heading": "Passada P2",
+          "body": "Só depois do Q026: voltar aos artigos que gerarem erro/dúvida."
+        },
+        {
+          "heading": "Título I",
+          "body": "Natureza, competência e jurisdição."
+        },
+        {
+          "heading": "Título II",
+          "body": "Organização do Tribunal:\n- Plenário;\n- Câmaras;\n- Presidência;\n- Vice-Presidência;\n- Corregedoria;\n- Conselheiros/Auditores/Procuradoria e serviços."
+        },
+        {
+          "heading": "Título IV",
+          "body": "Exercício do Controle Externo:\n- distribuição;\n- instrução;\n- sessões;\n- decisões;\n- diligências;\n- comunicações/prazos;\n- fiscalizações;\n- demais processos."
+        },
+        {
+          "heading": "Art. 1º",
+          "body": "O TCE-GO é órgão de controle externo e auxilia a Assembleia Legislativa na fiscalização."
+        },
+        {
+          "heading": "Art. 6º",
+          "body": "A jurisdição do Tribunal é:\n- própria;\n- privativa;\n- em todo o território estadual;\n- sobre pessoas e matérias sujeitas à sua competência."
+        },
+        {
+          "heading": "Art. 9º",
+          "body": "O Tribunal:\n- tem sede na Capital;\n- compõe-se de 7 Conselheiros."
+        },
+        {
+          "heading": "Art. 10",
+          "body": "Autonomia:\n- funcional;\n- administrativa;\n- financeira.\nInclui elaborar/alterar o Regimento, eleger direção, organizar serviços, elaborar proposta orçamentária e demais competências institucionais."
+        },
+        {
+          "heading": "10. Quem integra o Tribunal — art. 11",
+          "body": "Integram o Tribunal, no Regimento:\n- Plenário;\n- Câmaras;\n- Auditorias;\n- Presidência;\n- Vice-Presidência;\n- Corregedoria-Geral;\n- Conselheiros;\n- Auditores;\n- Procuradoria-Geral de Contas;\n- Serviços Técnicos e Administrativos."
+        },
+        {
+          "heading": "Cuidado",
+          "body": "A RA nº 14/2025 disciplina a estrutura organizacional administrativa atual em nível próprio.\nNão use o art. 11 como se fosse organograma administrativo completo de 2025/2026."
+        },
+        {
+          "heading": "Art. 13",
+          "body": "O Plenário é o órgão máximo de deliberação."
+        },
+        {
+          "heading": "Art. 14 — lógica de competência",
+          "body": "Pense no Plenário como centro de:\n- matérias de maior relevância institucional;\n- competências privativas;\n- recursos contra suas próprias decisões;\n- revisão de decisões das Câmaras;\n- matéria regimental/normativa;\n- conflitos de competência;\n- súmulas;\n- assuntos administrativos relevantes;\n- matérias que a Câmara remete por relevância."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "“Urgente” pode levar o Plenário a apreciar assunto ordinariamente das Câmaras."
+        },
+        {
+          "heading": "Art. 15",
+          "body": "São:\n- duas Câmaras deliberativas;\n- cada uma com 3 Conselheiros;\n- excluído o Presidente do Tribunal;\n- integração por 2 anos;\n- rodízio bienal."
+        },
+        {
+          "heading": "Art. 16",
+          "body": "A composição é formada por indicação do Presidente em sessão extraordinária no primeiro dia útil após sua posse, obedecidas as regras regimentais."
+        },
+        {
+          "heading": "Art. 19",
+          "body": "As Câmaras têm competência própria e não podem deliberar matéria privativa do Plenário."
+        },
+        {
+          "heading": "Regra útil",
+          "body": "Assunto da Câmara pode ser encaminhado ao Plenário por relevância, nas hipóteses regimentais."
+        },
+        {
+          "heading": "Núcleo",
+          "body": "- Presidente;\n- Vice-Presidente;\n- Corregedor-Geral;\n- mandato de 2 anos;\n- início em 1º de janeiro;\n- vedada a reeleição."
+        },
+        {
+          "heading": "Eleição",
+          "body": "- terceira sessão ordinária de novembro do último ano do mandato;\n- escrutínio secreto;\n- presença da maioria absoluta dos membros titulares;\n- vedada convocação de Auditor para efeito de quórum;\n- Conselheiros licenciados ou em férias podem participar.\nEsta literalidade foi cobrada pela FCC/TCE-GO em 2022."
+        },
+        {
+          "heading": "Presidente — art. 23",
+          "body": "Núcleo:\n- dirige os trabalhos;\n- representa o Tribunal;\n- zela pelo cumprimento da Lei Orgânica e do Regimento;\n- abre/preside/dirige sessões plenárias;\n- convoca sessão extraordinária;\n- resolve questões de ordem;\n- pratica atos administrativos e institucionais previstos."
+        },
+        {
+          "heading": "Competência FCC já cobrada",
+          "body": "Na ausência legal do Relator e sem substituto, compete ao Presidente determinar inspeção/auditoria na hipótese regimental."
+        },
+        {
+          "heading": "Vice — arts. 24–25",
+          "body": "- substitui o Presidente nas ausências/impedimentos;\n- sucede-o na vacância;\n- colabora e exerce atribuições regimentais."
+        },
+        {
+          "heading": "Corregedor — art. 26",
+          "body": "Núcleo:\n- correições;\n- atividades disciplinares;\n- substituição na Presidência na ordem regimental;\n- demais funções próprias da Corregedoria."
+        },
+        {
+          "heading": "Arts. 92–94",
+          "body": "A distribuição envolve:\n- publicidade;\n- alternatividade;\n- sorteio;\n- rodízio;\n- regras de agrupamento de jurisdicionados;\n- disciplina por ato normativo específico."
+        },
+        {
+          "heading": "Regra mental",
+          "body": "processo entra → distribui-se → Relator conduz a instrução → colegiado decide."
+        },
+        {
+          "heading": "Art. 104",
+          "body": "Por delegação expressa do Relator, o Auditor que atua no processo pode presidir sua instrução."
+        },
+        {
+          "heading": "Arts. 110–111",
+          "body": "Durante a instrução:\n- o Relator pode solicitar manifestações prévias/complementares;\n- a conclusão é precedida de instrução técnica conclusiva das unidades competentes."
+        },
+        {
+          "heading": "Art. 112",
+          "body": "Semanalmente:\n- 1 sessão ordinária de cada Câmara;\n- 1 sessão ordinária do Plenário.\nEm regra, as sessões são públicas."
+        },
+        {
+          "heading": "Art. 113 — quórum",
+          "body": "Abertura: 4 Conselheiros, incluído o Presidente.\nDeliberação: 5 Conselheiros, incluído o Presidente.\nPara obter quórum, podem ser convocados até 3 Auditores."
+        },
+        {
+          "heading": "Macete",
+          "body": "Pleno = 4 abre / 5 decide."
+        },
+        {
+          "heading": "Art. 116",
+          "body": "Sessões extraordinárias podem tratar, entre outros pontos, de:\n- eleição;\n- contas do Governador;\n- posses;\n- lista tríplice;\n- processos remanescentes;\n- outros assuntos conforme o Regimento."
+        },
+        {
+          "heading": "Art. 143",
+          "body": "Abertura:\n- quórum de 3 Conselheiros.\nPara composição:\n- Presidente da Câmara pode convocar até 2 Auditores."
+        },
+        {
+          "heading": "Art. 144",
+          "body": "Sessões ordinárias semanalmente, em dias/horários estabelecidos pelo Plenário."
+        },
+        {
+          "heading": "Art. 149",
+          "body": "Aplicam-se às Câmaras, quando couber, as normas relativas ao Plenário."
+        },
+        {
+          "heading": "Macete",
+          "body": "Câmara = 3 para abrir."
+        },
+        {
+          "heading": "Art. 153",
+          "body": "A pauta:\n- é organizada pela Secretaria-Geral;\n- sob supervisão dos Presidentes;\n- observa antiguidade dos Relatores;\n- possui regras de antecedência e divulgação."
+        },
+        {
+          "heading": "Art. 156",
+          "body": "O Tribunal pode expedir, entre outros:\n- Resolução Normativa — matéria referente ao exercício das atividades de fiscalização envolvendo jurisdicionados;\n- Instrução Normativa — procedimentos de fiscalização sobre matéria específica de unidade técnica;\n- Parecer — quando cabível."
+        },
+        {
+          "heading": "Pegadinha FCC",
+          "body": "Atividade de fiscalização envolvendo jurisdicionado → Resolução Normativa, quando a questão reproduz o art. 156, I."
+        },
+        {
+          "heading": "Art. 161",
+          "body": "O Relator preside a instrução e pode determinar diligência:\n- por iniciativa própria;\n- por provocação de Unidade Técnica;\n- Procuradoria-Geral de Contas;\n- Auditoria.\nPrazo da diligência:\n- até 15 dias."
+        },
+        {
+          "heading": "Art. 162",
+          "body": "Se o ato que ordenar a diligência for omisso quanto ao prazo:\n- 15 dias, salvo disposição em contrário."
+        },
+        {
+          "heading": "Art. 164",
+          "body": "Citação: chamamento inicial para alegações de defesa e razões de justificativa.\nIntimação: comunicação dos demais atos e termos do processo."
+        },
+        {
+          "heading": "Não misturar",
+          "body": "- citação = entrada/defesa inicial;\n- intimação = ciência dos atos seguintes."
+        },
+        {
+          "heading": "21. Fluxo processual simplificado",
+          "body": "ingresso → distribuição → Relator → instrução técnica → defesa/manifestações → diligências, se necessárias → pauta → apreciação/julgamento → decisão → recurso/cumprimento/monitoramento"
+        },
+        {
+          "heading": "Importante",
+          "body": "Esse é um mapa pedagógico, não substitui os ritos específicos dos diversos tipos processuais."
+        },
+        {
+          "heading": "22. Instrumentos — ponte com D008",
+          "body": "O Regimento disciplina:\n- levantamento;\n- auditoria;\n- inspeção;\n- acompanhamento;\n- monitoramento.\nNo D026, apenas recupere:\n- levantamento = conhecer/mapear;\n- inspeção = suprir lacuna/esclarecer;\n- acompanhamento = observar ao longo do tempo;\n- monitoramento = verificar cumprimento/resultados;\n- auditoria = exame/avaliação estruturada.\nNão reestude D008 inteiro."
+        },
+        {
+          "heading": "Corte do edital — até 25/08/2026",
+          "body": "Plano de fiscalização:\n- bianual;\n- elaborado pela Presidência;\n- informações da Secretaria de Controle Externo;\n- consulta aos Relatores;\n- aprovação do Plenário."
+        },
+        {
+          "heading": "Texto pós-corte — não aprender para o edital",
+          "body": "A partir de 04/09/2026:\n- Plano Anual de Fiscalização;\n- inclui avaliações de políticas públicas;\n- novos critérios/materialidade/relevância/criticidade/oportunidade;\n- nova dinâmica e prazo."
+        },
+        {
+          "heading": "Regra de validade",
+          "body": "Questão que cobre literalmente o novo art. 247:\n- não entra como V1 para este edital, salvo nova retificação/comunicado."
+        },
+        {
+          "heading": "24. Mapa de literalidade",
+          "body": "Item\nRegra\nConselheiros\n7\nCâmaras\n2\nConselheiros por Câmara\n3\nMandato direção\n2 anos\nReeleição direção\nvedada\nPleno — abrir\n4, incluído Presidente\nPleno — deliberar\n5, incluído Presidente\nAuditores para quórum Pleno\naté 3\nCâmara — abrir\n3 Conselheiros\nAuditores para quórum Câmara\naté 2\nDiligência do art. 161\naté 15 dias\nDiligência sem prazo expresso\n15 dias\nArt. 247 no corte\nplano bianual"
+        },
+        {
+          "heading": "A — decorar/compreender",
+          "body": "- arts. 6, 9–11;\n- 13–20;\n- 23–26;\n- 92–94;\n- 112–113;\n- 143;\n- 156;\n- 161–165;\n- art. 247 no corte."
+        },
+        {
+          "heading": "B — localizar bem",
+          "body": "- 104–111;\n- 115–119;\n- 146–153."
+        },
+        {
+          "heading": "C — apenas reconhecer",
+          "body": "- capítulos processuais especializados não cobrados no recorte de hoje."
+        },
+        {
+          "heading": "26. Como a FCC tende a cobrar",
+          "body": "A evidência do próprio TCE-GO mostra cobrança de:\n- mandato/reeleição;\n- quem pode votar;\n- quórum;\n- competência do Presidente;\n- tipo de ato normativo;\n- funcionamento de sessões;\n- literalidade de prazos."
+        },
+        {
+          "heading": "Trocas previsíveis",
+          "body": "1. 1 ano × 2 anos;\n2. reeleição permitida × vedada;\n3. Auditor entra × não entra no quórum eleitoral;\n4. Pleno 4/5 invertido;\n5. Câmara com 2 × 3;\n6. Presidente × Relator;\n7. Resolução Normativa × Instrução Normativa;\n8. citação × intimação;\n9. plano bianual × anual;\n10. Lei Orgânica × Regimento."
+        },
+        {
+          "heading": "27. Pré-Q026",
+          "body": "Sem consulta:\n1. quantos Conselheiros tem o TCE-GO?\n2. quantas Câmaras?\n3. quantos Conselheiros por Câmara?\n4. mandato da direção?\n5. reeleição?\n6. licenciado/férias pode votar?\n7. Auditor pode completar quórum da eleição?\n8. Pleno: quantos para abrir e deliberar?\n9. Câmara: quantos para abrir?\n10. quem preside a instrução?\n11. prazo-base de diligência?\n12. citação × intimação?\n13. Resolução Normativa serve para quê?\n14. art. 247 no corte: anual ou bianual?"
+        },
+        {
+          "heading": "28. Pós-Q026 — causa do erro",
+          "body": "- R1: Plenário × Câmara;\n- R2: Presidente × Relator × Corregedor;\n- R3: quórum;\n- R4: eleição;\n- R5: distribuição/instrução;\n- R6: atos normativos;\n- R7: citação/intimação;\n- R8: prazo;\n- R9: Lei Orgânica × Regimento;\n- R10: versão pós-corte."
+        },
+        {
+          "heading": "Severidade crítica",
+          "body": "- 4/5 do Pleno;\n- 3 da Câmara;\n- mandato/reeleição;\n- Relator preside instrução;\n- Resolução Normativa × Instrução Normativa;\n- citação × intimação;\n- art. 247 bianual no corte."
+        },
+        {
+          "heading": "29. D0",
+          "body": "Depois da tentativa real:\n1. reconstrua de memória 7 → 2×3 → 4/5 → 3;\n2. escreva Presidente / Relator / Câmara / Pleno e 2 competências de cada;\n3. explique citação × intimação;\n4. explique RN × IN;\n5. recite prazo da diligência;\n6. explique por que art. 247 do portal atual não é automaticamente o do edital;\n7. refaça erradas + dúvidas."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente porque é legislação institucional nova e de alta literalidade."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente porque organização, quóruns, competências e processo serão reutilizados em Controle, Auditoria e volta final.\n> Acionado ≠ realizado."
+        },
+        {
+          "heading": "31. Flashcards candidatos",
+          "body": "Criar somente se houver necessidade real:\n- Pleno: 4 abre / 5 delibera;\n- Câmara: 3 abre;\n- direção: 2 anos / sem reeleição;\n- licenciado/férias vota;\n- Auditor não completa quórum eleitoral;\n- Relator preside instrução;\n- diligência: até 15;\n- RN × IN;\n- citação × intimação;\n- art. 247: bianual no corte."
+        },
+        {
+          "heading": "32. Ponte",
+          "body": "Próxima sessão ativa:\nS14 / D029 — Auditoria I — planejamento, escopo e risco.\nA próxima legislação institucional é:\nD033 — Lei nº 20.756/2020 + Lei nº 15.122/2005 + Código de Ética."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- fonte oficial, versão e corte registrados;\n- pós-corte separado;\n- mapa Regimento × Lei Orgânica;\n- leitura guiada do recorte;\n- Q026 com 20 questões;\n- D0/D7/D20 configurados."
+        },
+        {
+          "heading": "Execução",
+          "body": "Só considerar D026 estudado quando houver:\n- leitura real;\n- 20 respostas;\n- correção;\n- recuperação dos quóruns/competências sem consulta;\n- D0;\n- erros/dúvidas registrados."
+        },
+        {
+          "heading": "34. Fontes efetivamente usadas",
+          "body": "- Fonte-Mestra v1.3 — D026;\n- Base Técnica v1.3 — seções 07.4, 07.16–07.19;\n- Base Operacional v1.3 — curadoria de Legislação Institucional;\n- Fonte 04 v1.3 — prioridade de Legislação Institucional;\n- Fonte 05 v1.1 — Template Legislação;\n- Índice v1.4;\n- TCE-GO/GNOI — Resolução nº 22/2008 consolidada;\n- Diário Eletrônico TCE-GO — Resolução nº 3/2026, apenas para controle de alteração pós-corte;\n- FCC/TCE-GO 2014 e 2022, conforme Q026."
+        },
+        {
+          "heading": "Nota estrutural",
+          "body": "Coluna única, índice e tabelas curtas garantem compatibilidade estrutural responsiva; isso não equivale a teste físico de viewport."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T13:35:32.596Z"
+    },
+    "d029": {
+      "dxx": "D029",
+      "title": "D029 — Auditoria I",
+      "summary": "Auditoria I — planejamento, escopo e risco — Planejamento; determinação de escopo; materialidade/risco no raciocínio de auditoria; matriz de risco.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D029 — Auditoria I \\| planejamento, escopo e risco\nS14 / D029 — 105 min. O objetivo é transformar um tema de controle em um trabalho de auditoria executável: definir objetivo, escopo, critérios, materialidade e riscos, priorizar o que merece atenção e construir uma matriz de risco simples sem confundi-la com matriz de achados ou responsabilização."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A trilha já construiu:\n- D008: instrumentos de fiscalização;\n- D015: tipos de auditoria;\n- D022: NBASP 100 e processo planejamento → execução → relatório → monitoramento.\nAgora entra a primeira pergunta operacional:\n> como transformar um objetivo de controle em uma auditoria planejada, delimitada e orientada por risco?\nA ponte futura será:\n- D036: amostragem, programa de auditoria e papéis de trabalho;\n- D052: técnicas/procedimentos e evidência;\n- D059: achados, matriz de achados e responsabilização."
+        },
+        {
+          "heading": "3. Posição no edital e recorte verticalizado",
+          "body": "B04 — Noções de Controle Externo\n- 4 questões;\n- peso 2;\n- baseline histórico: Misto;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Entra hoje",
+          "body": "- planejamento de auditoria;\n- compreensão do objeto/contexto;\n- objetivo;\n- escopo;\n- critérios;\n- risco de auditoria;\n- riscos do objeto/tema;\n- materialidade;\n- relevância;\n- oportunidade;\n- resposta aos riscos;\n- matriz de risco simples."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- amostragem estatística → D036;\n- programa de auditoria detalhado e papéis de trabalho → D036;\n- técnicas/procedimentos específicos → D052;\n- evidência em profundidade → D052;\n- matriz de achados/responsabilização → D059."
+        },
+        {
+          "heading": "Já conhecido",
+          "body": "Dos D015/D022:\n- objeto;\n- critérios;\n- evidência;\n- asseguração;\n- risco de auditoria em nível introdutório;\n- materialidade em nível introdutório;\n- tipos financeira, operacional e conformidade;\n- processo geral da auditoria."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- risco;\n- materialidade;\n- documentação;\n- comunicação."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- objetivo × escopo;\n- escopo como limite real do trabalho;\n- risco do objeto × risco de auditoria;\n- materialidade quantitativa × qualitativa aplicada ao planejamento;\n- risco/materialidade/relevância/oportunidade na seleção de fiscalizações do TCE-GO;\n- resposta planejada ao risco;\n- matriz de risco como ferramenta de priorização."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. distinguir objetivo e escopo;\n2. delimitar período, unidade, processo e tema de uma auditoria;\n3. escolher critérios coerentes;\n4. separar risco de auditoria de risco do objeto;\n5. explicar materialidade quantitativa e qualitativa;\n6. reconhecer relevância e oportunidade;\n7. construir uma matriz de risco simples;\n8. priorizar riscos sem usar fórmula normativa inventada;\n9. diferenciar matriz de risco, planejamento, achados e responsabilização;\n10. resolver Q029 e diagnosticar a causa do erro."
+        },
+        {
+          "heading": "Canônicas",
+          "body": "- Fonte-Mestra v1.3;\n- Base Técnica v1.3, seção 05.11;\n- Base Operacional v1.3;\n- Fonte 04 v1.3;\n- Fonte 05 v1.1;\n- Índice v1.4."
+        },
+        {
+          "heading": "Oficiais",
+          "body": "- [NBASP 100 — IRB](https://nbasp.irbcontas.org.br/nbasp/principios-fundamentais-de-auditoria-do-setor-publico/)\n- [NBASP 300 — IRB](https://nbasp.irbcontas.org.br/nbasp/principios-de-auditoria-operacional/)\n- [NBASP 400 — IRB](https://nbasp.irbcontas.org.br/nbasp/principios-de-auditoria-de-conformidade/)\n- [RA nº 15/2024 — TCE-GO](https://gnoi.tce.go.gov.br/atoNormativo/Publicado/22389)\nAuditoria técnica: 22/09/2026."
+        },
+        {
+          "heading": "7. Sequência do planejamento",
+          "body": "A Base Técnica usa a seguinte cadeia didática:\n1. compreender objeto e contexto;\n2. definir objetivo;\n3. delimitar escopo;\n4. identificar critérios;\n5. avaliar riscos;\n6. considerar materialidade/relevância;\n7. selecionar procedimentos;\n8. definir amostra quando necessário;\n9. elaborar programa;\n10. definir documentação;\n11. executar.\nNo D029, o foco termina essencialmente no item 7. Amostra/programa/papéis entram no D036."
+        },
+        {
+          "heading": "8. Planejamento não é formulário inicial",
+          "body": "Planejamento é processo dinâmico e iterativo.\nEle:\n- começa antes da execução;\n- orienta recursos;\n- identifica problemas potenciais;\n- define direção;\n- pode ser revisto quando surgem fatos, riscos ou evidências novas."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Planejamento não é etapa rígida encerrada antes da execução."
+        },
+        {
+          "heading": "9. Compreensão do objeto e do contexto",
+          "body": "Antes de formular questões, é preciso entender:\n- o que a entidade/programa/processo faz;\n- objetivos institucionais;\n- responsáveis;\n- ambiente normativo;\n- recursos envolvidos;\n- riscos conhecidos;\n- controles relevantes;\n- dados disponíveis;\n- resultados esperados."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Objeto: programa estadual de distribuição de medicamentos.\nSem compreender:\n- público-alvo;\n- logística;\n- orçamento;\n- contratos;\n- indicadores;\n- sistemas;\n- competências,\no auditor pode formular pergunta irrelevante ou escolher critério inadequado."
+        },
+        {
+          "heading": "10. Objetivo da auditoria",
+          "body": "O objetivo responde:\n> o que a auditoria pretende concluir?\nExemplos:\n- verificar conformidade de contratações com a legislação;\n- avaliar eficiência da distribuição;\n- obter asseguração sobre informação financeira."
+        },
+        {
+          "heading": "Bom objetivo",
+          "body": "- claro;\n- específico;\n- verificável;\n- compatível com o mandato;\n- ligado aos usuários previstos."
+        },
+        {
+          "heading": "11. Escopo",
+          "body": "Escopo responde:\n> até onde o trabalho vai?\nPode delimitar:\n- objeto;\n- período;\n- unidades;\n- localidades;\n- processos;\n- sistemas;\n- temas;\n- questões de auditoria;\n- limites/exclusões."
+        },
+        {
+          "heading": "Objetivo × escopo",
+          "body": "Objetivo: pergunta/conclusão desejada.\nEscopo: fronteira dentro da qual a pergunta será respondida."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Objetivo: avaliar eficiência da distribuição de medicamentos.\nEscopo:\n- exercício de 2026;\n- 15 unidades regionais;\n- aquisição, armazenagem e distribuição;\n- medicamentos de alto custo;\n- excluído atendimento hospitalar próprio."
+        },
+        {
+          "heading": "12. Critérios",
+          "body": "Critério é a referência para comparar a condição encontrada.\nPodem ser:\n- lei;\n- regulamento;\n- contrato;\n- meta;\n- indicador;\n- padrão técnico;\n- benchmark válido;\n- referencial contábil;\n- boa prática reconhecida."
+        },
+        {
+          "heading": "Regra",
+          "body": "Sem critério adequado, não existe comparação auditável robusta."
+        },
+        {
+          "heading": "13.1 Risco de auditoria",
+          "body": "É o risco de o relatório, conclusão ou opinião ser inadequado nas circunstâncias.\nEm referenciais de auditoria financeira/conformidade, podem aparecer dimensões como:\n- risco inerente;\n- risco de controle;\n- risco de detecção."
+        },
+        {
+          "heading": "13.2 Risco do objeto/tema",
+          "body": "É o risco de evento/condição comprometer:\n- objetivos;\n- legalidade;\n- desempenho;\n- patrimônio;\n- informação;\n- prestação do serviço público.\nEsse segundo risco ajuda a decidir onde concentrar atenção.\nNão misture: “risco alto no objeto” não é sinônimo de “risco de auditoria alto”. Eles se relacionam, mas são conceitos diferentes."
+        },
+        {
+          "heading": "Risco inerente",
+          "body": "Suscetibilidade a erro/distorção/irregularidade antes de considerar controles."
+        },
+        {
+          "heading": "Risco de controle",
+          "body": "Risco de os controles não prevenirem ou detectarem/corrigirem adequadamente o problema."
+        },
+        {
+          "heading": "Risco de detecção",
+          "body": "Risco de os procedimentos do auditor não detectarem problema relevante existente."
+        },
+        {
+          "heading": "Relação",
+          "body": "O auditor não “zera” risco inerente nem risco de controle pelo simples planejamento.\nEle planeja procedimentos para reduzir o risco global a nível aceitável."
+        },
+        {
+          "heading": "15. Materialidade",
+          "body": "Materialidade responde:\n> isso importa o suficiente para influenciar decisão, conclusão ou foco do trabalho?"
+        },
+        {
+          "heading": "Quantitativa",
+          "body": "- valor;\n- volume;\n- frequência;\n- proporção."
+        },
+        {
+          "heading": "Qualitativa",
+          "body": "- natureza;\n- contexto;\n- interesse público;\n- sensibilidade;\n- ilegalidade;\n- impacto social;\n- grupos afetados;\n- potencial reputacional/institucional."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Materialidade ≠ só dinheiro.\nNo setor público, questão de baixo valor pode ser material pela natureza/contexto."
+        },
+        {
+          "heading": "Relevância",
+          "body": "Importância do tema para:\n- usuários;\n- sociedade;\n- objetivos públicos;\n- missão institucional."
+        },
+        {
+          "heading": "Oportunidade",
+          "body": "Adequação temporal da fiscalização:\n- problema em curso;\n- decisão iminente;\n- janela de prevenção;\n- risco de perda de utilidade se auditado tarde."
+        },
+        {
+          "heading": "17. Regra institucional do TCE-GO",
+          "body": "A RA nº 15/2024 estabelece, para proposta de fiscalização, critérios de:\n- risco;\n- materialidade;\n- relevância;\n- oportunidade;\ne exige alinhamento ao Plano de Controle Externo vigente."
+        },
+        {
+          "heading": "Macete",
+          "body": "R-M-R-O\n- Risco\n- Materialidade\n- Relevância\n- Oportunidade"
+        },
+        {
+          "heading": "18. Priorização não é matemática cega",
+          "body": "Uma matriz pode usar escalas simples para:\n- probabilidade;\n- impacto;\n- força do controle;\n- prioridade.\nMas o projeto não transforma isso em fórmula oficial."
+        },
+        {
+          "heading": "Exemplo didático",
+          "body": "Risco A:\n- probabilidade alta;\n- impacto alto;\n- controle fraco.\nPrioridade: alta.\nRisco B:\n- probabilidade baixa;\n- impacto pequeno;\n- controle forte.\nPrioridade: menor.\nO julgamento profissional continua necessário."
+        },
+        {
+          "heading": "19. Matriz de risco — modelo de estudo",
+          "body": "Risco/evento\nProbabilidade\nImpacto\nControle existente\nPrioridade\nResposta/procedimento\nentrega de medicamento fora do prazo\nalta\nalto\nmonitoramento parcial\nalta\ntestar prazos, causas e controles\nerro pontual sem efeito relevante\nbaixa\nbaixo\ncontrole forte\nbaixa\nprocedimento limitado"
+        },
+        {
+          "heading": "Função",
+          "body": "A matriz ajuda a:\n- organizar riscos;\n- comparar prioridades;\n- justificar atenção;\n- conectar risco a resposta de auditoria."
+        },
+        {
+          "heading": "20. Matriz de risco × outras matrizes",
+          "body": "Matriz\nMomento\nFunção\nRisco\nplanejamento\npriorizar riscos e respostas\nPlanejamento\nplanejamento\norganizar questões, critérios, informações e procedimentos\nAchados\nexecução/conclusão\ncondição × critério × causa × efeito\nResponsabilização\nfase própria\nvincular conduta, responsabilidade e elementos necessários"
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Matriz de risco não é matriz de achados antecipada."
+        },
+        {
+          "heading": "21. Risco → resposta",
+          "body": "Um risco relevante precisa influenciar o plano.\nExemplos:\n- risco de pagamento por serviço não prestado → confirmar execução;\n- risco de preços inadequados → comparar parâmetros/mercado;\n- risco de meta não alcançada → analisar indicador, causa e desenho do programa;\n- risco de distorção em saldo relevante → ampliar/ajustar procedimentos conforme referencial."
+        },
+        {
+          "heading": "Regra",
+          "body": "Risco identificado sem resposta planejada é informação solta."
+        },
+        {
+          "heading": "22. Materialidade × risco",
+          "body": "Eles não são sinônimos."
+        },
+        {
+          "heading": "Materialidade",
+          "body": "quanto importa?"
+        },
+        {
+          "heading": "Risco",
+          "body": "qual a possibilidade de algo relevante ocorrer ou de a conclusão ser inadequada?\nUm item:\n- pode ser material e ter risco baixo;\n- pode ter risco alto, mas impacto pouco material;\n- pode exigir prioridade alta quando ambos se combinam."
+        },
+        {
+          "heading": "23. Caso integrado",
+          "body": "Objeto: programa de obras escolares."
+        },
+        {
+          "heading": "Objetivo",
+          "body": "Avaliar conformidade e risco de atrasos críticos."
+        },
+        {
+          "heading": "Escopo",
+          "body": "- 2025–2026;\n- 20 obras;\n- contratos acima de determinado recorte operacional;\n- medições e pagamentos;\n- excluídas reformas emergenciais pequenas."
+        },
+        {
+          "heading": "Critérios",
+          "body": "- contratos;\n- legislação aplicável;\n- cronogramas;\n- especificações."
+        },
+        {
+          "heading": "Riscos",
+          "body": "- pagamento sem medição;\n- aditivos indevidos;\n- atraso;\n- baixa qualidade."
+        },
+        {
+          "heading": "Materialidade",
+          "body": "- valor financeiro;\n- quantidade de alunos impactados;\n- criticidade da obra."
+        },
+        {
+          "heading": "Resposta",
+          "body": "- selecionar procedimentos direcionados aos riscos prioritários."
+        },
+        {
+          "heading": "24. Como a FCC tende a cobrar",
+          "body": "A curadoria atual encontrou padrões FCC recentes:\n- planejamento é dinâmico;\n- materialidade pode ser revista;\n- materialidade não elimina contexto qualitativo;\n- risco de detecção se relaciona aos procedimentos do auditor;\n- complexidade/instabilidade aumenta fatores de risco;\n- asseguração razoável exige risco reduzido a nível aceitavelmente baixo."
+        },
+        {
+          "heading": "Trocas previsíveis",
+          "body": "1. planejamento = etapa rígida;\n2. objetivo = escopo;\n3. materialidade = valor monetário apenas;\n4. risco = fraude apenas;\n5. confiança pessoal no gestor reduz risco;\n6. risco de detecção = risco do controle;\n7. risco alto = auditar tudo;\n8. matriz de risco = matriz de achados;\n9. prioridade = probabilidade apenas;\n10. RA 15 usa só risco e ignora materialidade/relevância/oportunidade."
+        },
+        {
+          "heading": "25. O que precisa ficar automático",
+          "body": "1. objetivo = o que concluir.\n2. escopo = até onde examinar.\n3. critério = comparar com quê.\n4. risco de auditoria ≠ risco do objeto.\n5. materialidade = quantitativa + qualitativa.\n6. R-M-R-O = risco + materialidade + relevância + oportunidade.\n7. planejamento é iterativo.\n8. matriz de risco = priorização/resposta.\n9. matriz de risco ≠ matriz de achados.\n10. D036 começa onde D029 termina."
+        },
+        {
+          "heading": "26. Como estudar os 105 minutos",
+          "body": "- 15 min: mapa D015/D022 → D029.\n- 35 min: objetivo, escopo, critério, risco e materialidade.\n- 15 min: RA nº 15/2024 + R-M-R-O.\n- 15 min: construir a matriz do caso integrado.\n- 20 min: Q029.\n- 5 min: D0."
+        },
+        {
+          "heading": "27. Pré-Q029",
+          "body": "Sem consulta:\n1. objetivo × escopo?\n2. risco de auditoria × risco do objeto?\n3. materialidade é só monetária?\n4. quatro critérios da RA 15?\n5. qual matriz pertence ao planejamento?\n6. risco de detecção depende de quê?\n7. planejamento pode mudar?\n8. matriz de risco é fórmula oficial?"
+        },
+        {
+          "heading": "28. Pós-Q029 — causa do erro",
+          "body": "- A1: objetivo × escopo;\n- A2: critério;\n- A3: risco de auditoria;\n- A4: risco inerente/controle/detecção;\n- A5: materialidade;\n- A6: R-M-R-O;\n- A7: matriz de risco;\n- A8: matriz errada;\n- A9: planejamento rígido;\n- A10: leitura FCC."
+        },
+        {
+          "heading": "P1",
+          "body": "- objetivo × escopo;\n- risco de auditoria × risco do objeto;\n- materialidade qualitativa;\n- R-M-R-O;\n- matriz de risco × achados."
+        },
+        {
+          "heading": "29. D0",
+          "body": "Após a tentativa real:\n1. escreva objetivo / escopo / critério / risco / materialidade sem olhar;\n2. recite R-M-R-O;\n3. monte uma matriz com 2 riscos;\n4. vincule cada risco a uma resposta;\n5. explique risco de detecção;\n6. refaça erradas + dúvidas."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente: planejamento/risco é conteúdo técnico novo e base do D036/D052/D059."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente: objetivo, escopo, materialidade e risco são conceitos estruturais de toda auditoria.\n> Acionado ≠ realizado."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- Material suficiente para primeira aprendizagem;\n- matriz de risco funcional;\n- Q029 com 20 itens válidos;\n- fontes oficiais atuais;\n- fronteiras futuras preservadas."
+        },
+        {
+          "heading": "Execução",
+          "body": "Só considerar estudado após:\n- leitura real;\n- 20 respostas;\n- correção;\n- D0;\n- construção de uma matriz de risco sem consulta;\n- registro dos erros/dúvidas reais."
+        },
+        {
+          "heading": "32. Fontes efetivamente usadas",
+          "body": "- seis Fontes canônicas vigentes;\n- IRB/NBASP 100, 300 e 400;\n- RA nº 15/2024 — TCE-GO;\n- FCC recentes registradas no Q029."
+        },
+        {
+          "heading": "Nota estrutural",
+          "body": "Coluna única, índice e tabelas curtas preservam compatibilidade estrutural responsiva, sem afirmar teste físico de viewport."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T13:45:31.583Z"
+    },
+    "d031": {
+      "dxx": "D031",
+      "title": "D031 — CASP V",
+      "summary": "CASP V — NBC TSP 11–13 e 15 — apresentação, DFC, informação orçamentária e benefícios a empregados.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D031 — CASP V \\| NBC TSP 11–13 e 15\nS15 / D031 — 105 min. A sessão muda o eixo da CASP: depois de reconhecer e mensurar elementos patrimoniais, agora é preciso entender como a informação é apresentada, como o caixa é explicado, como o orçamento é comparado com o realizado e como benefícios a empregados geram obrigações."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A trilha CASP já passou por:\n- D003: Estrutura Conceitual, ativo/passivo, VPA/VPD e AFO × CASP;\n- D010: arquitetura do MCASP;\n- D017: NBC TSP 01–04;\n- D024: NBC TSP 06–10.\nAté aqui, a pergunta dominante foi:\n> o que reconhecer, quando reconhecer e como mensurar?\nNo D031, a pergunta muda:\n> como a informação reconhecida aparece para o usuário e como distinguir resultado patrimonial, orçamento e caixa?\nA sequência futura preservada:\n- D038: NBC TSP 23, 25 e 34 + MCASP II;\n- D050: PCASP;\n- D057: DCASP/MCASP V em profundidade."
+        },
+        {
+          "heading": "3. Posição no edital e recorte verticalizado",
+          "body": "B06 — Contabilidade Aplicada ao Setor Público\n- bloco: Específicos;\n- 5 questões;\n- peso 2;\n- baseline histórico: Novo;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Entra hoje",
+          "body": "- NBC TSP 11 — princípios de apresentação;\n- NBC TSP 12 — Demonstração dos Fluxos de Caixa;\n- NBC TSP 13 — informação orçamentária nas demonstrações;\n- NBC TSP 15 — benefícios a empregados;\n- diferenças entre orçamento, patrimônio e caixa;\n- integração inicial com MCASP 11ª edição."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- montagem completa de BO/BF/BP/DVP/DFC/DMPL → D057;\n- PCASP e lançamentos por classes → D050;\n- políticas, estimativas, erros e eventos subsequentes → D038;\n- cálculos atuariais profundos de benefícios definidos → fora do D031;\n- leitura integral do MCASP Parte V → fora do D031."
+        },
+        {
+          "heading": "Já reaproveitável",
+          "body": "Você já construiu:\n- regime patrimonial × regime orçamentário;\n- ativo, passivo, VPA e VPD;\n- reconhecimento pelo fato gerador patrimonial;\n- noção de DCASP dentro da arquitetura do MCASP;\n- classificação básica de ativos/passivos e mensuração."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- Balanço Orçamentário e conceitos de previsão/dotação oriundos de AFO;\n- entradas e saídas financeiras;\n- restos a pagar;\n- noção de demonstrações públicas."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- NBC TSP 11 como norma de apresentação;\n- DFC por atividades operacionais, de investimento e de financiamento;\n- caixa × equivalente de caixa;\n- orçamento original × final × realizado;\n- base comparável da NBC TSP 13;\n- categorias de benefícios a empregados;\n- contribuição definida × benefício definido;\n- controle de versão 2018 × R1 de 2026."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. associar corretamente cada norma ao seu objeto;\n2. explicar por que DFC não mede resultado patrimonial;\n3. classificar fluxos em operacional, investimento e financiamento;\n4. reconhecer transação sem caixa que não entra na DFC;\n5. distinguir caixa de equivalente de caixa;\n6. distinguir orçamento original, orçamento final e realizado;\n7. explicar a exigência de comparação orçamentária;\n8. classificar benefícios de curto prazo, pós-emprego, outros de longo prazo e rescisórios;\n9. distinguir plano de contribuição definida de benefício definido;\n10. resolver Q031 sem antecipar o estudo completo das DCASP."
+        },
+        {
+          "heading": "Fontes oficiais",
+          "body": "- [CFC — NBC TSP](https://cfc.org.br/tecnica/normas-brasileiras-de-contabilidade/nbc-tsp-do-setor-publico/)\n- [STN — MCASP 11ª edição](https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/manuais/manual-de-contabilidade-aplicada-ao-setor-publico-mcasp-1)"
+        },
+        {
+          "heading": "Situação normativa observada em 22/09/2026",
+          "body": "O CFC lista:\n- NBC TSP 11 (R1) — DOU 17/03/2026;\n- NBC TSP 12 (R1) — DOU 17/03/2026;\n- NBC TSP 13 (R1) — DOU 17/03/2026;\n- NBC TSP 15 (R1) — DOU 17/03/2026.\nOs textos das quatro R1 estabelecem aplicação aos exercícios iniciados a partir de 01/01/2027, ressalvados prazos nacionais específicos."
+        },
+        {
+          "heading": "Regra do projeto",
+          "body": "O corte do edital é 25/08/2026.\nPor isso:\n- registrar a R1 como norma atual do portal CFC;\n- não transportar automaticamente para fatos de 2026 regra específica cuja aplicação é 2027;\n- questões históricas só entram se o conceito efetivamente cobrado continuar materialmente válido;\n- o Q031 evita literalidade cuja resposta dependa de mudança específica entre a versão anterior e a R1.\nData da prova não é sinônimo de exercício de aplicação da norma. O controle de versão existe justamente para impedir esse atalho."
+        },
+        {
+          "heading": "MCASP",
+          "body": "A STN mantém a 11ª edição como edição vigente. O capítulo de benefícios pós-emprego da Parte III foi aprovado especificamente pela Portaria Conjunta STN/SRPC nº 25/2024, com efeitos a partir de 2025."
+        },
+        {
+          "heading": "7. Como estudar os 105 minutos",
+          "body": "1. 10 min — mapa 11 / 12 / 13 / 15.\n2. 20 min — NBC 11: apresentação e diferenças para DCASP nacional.\n3. 25 min — NBC 12: classificação da DFC + casos.\n4. 15 min — NBC 13: orçamento original/final/realizado.\n5. 15 min — NBC 15: quatro famílias de benefícios.\n6. 15 min — Q031.\n7. 5 min — D0."
+        },
+        {
+          "heading": "8. Mapa de entrada",
+          "body": "Norma\nPergunta central\nPalavra-chave\nNBC TSP 11\ncomo apresentar as demonstrações com comparabilidade e estrutura adequada?\napresentação\nNBC TSP 12\nde onde veio e para onde foi o caixa?\nfluxo de caixa\nNBC TSP 13\ncomo o orçamento aprovado se compara ao realizado?\norçamento × realizado\nNBC TSP 15\nque obrigação/despesa nasce dos benefícios concedidos em troca de serviço ou término do vínculo?\nbenefícios"
+        },
+        {
+          "heading": "Macete",
+          "body": "11 apresenta · 12 movimenta caixa · 13 compara orçamento · 15 remunera/beneficia."
+        },
+        {
+          "heading": "9. NBC TSP 11 — apresentação das demonstrações",
+          "body": "A NBC TSP 11 é norma-base de apresentação, não uma norma que substitui todas as normas de reconhecimento e mensuração."
+        },
+        {
+          "heading": "Objetivo funcional",
+          "body": "Dar estrutura às demonstrações para favorecer:\n- apresentação adequada;\n- comparabilidade entre períodos;\n- comparabilidade entre entidades;\n- informação útil aos usuários."
+        },
+        {
+          "heading": "Núcleo",
+          "body": "- continuidade;\n- consistência de apresentação;\n- materialidade e agregação;\n- compensação;\n- informação comparativa;\n- estrutura e conteúdo;\n- classificação circulante × não circulante quando aplicável."
+        },
+        {
+          "heading": "Continuidade",
+          "body": "A apresentação pressupõe avaliação sobre capacidade de continuidade da entidade, dentro da lógica aplicável ao setor público."
+        },
+        {
+          "heading": "Consistência",
+          "body": "A forma de apresentação/classificação deve manter coerência entre períodos, salvo razão válida para mudança."
+        },
+        {
+          "heading": "Materialidade e agregação",
+          "body": "Itens materiais merecem apresentação adequada. Agregar demais pode ocultar informação; detalhar demais pode diluir o que importa."
+        },
+        {
+          "heading": "Compensação",
+          "body": "Ativos/passivos ou receitas/despesas não devem ser compensados indiscriminadamente quando a norma não permite."
+        },
+        {
+          "heading": "Informação comparativa",
+          "body": "A comparabilidade exige referência a períodos anteriores nos casos previstos."
+        },
+        {
+          "heading": "10. NBC TSP 11 × MCASP Parte V",
+          "body": "Não são sinônimos."
+        },
+        {
+          "heading": "NBC TSP 11",
+          "body": "Fornece princípios gerais e estrutura de apresentação."
+        },
+        {
+          "heading": "MCASP Parte V",
+          "body": "Materializa a forma nacional das Demonstrações Contábeis Aplicadas ao Setor Público — DCASP."
+        },
+        {
+          "heading": "Regra de fronteira",
+          "body": "No D031, entenda a relação.\nNo D057, você aprofundará:\n- Balanço Orçamentário;\n- Balanço Financeiro;\n- Balanço Patrimonial;\n- DVP;\n- DFC;\n- DMPL;\n- Notas Explicativas."
+        },
+        {
+          "heading": "11. Circulante × não circulante — ponto FCC",
+          "body": "Um ativo tende a ser circulante quando, entre outras hipóteses normativas, é mantido essencialmente para negociação."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Não classifique caixa automaticamente como circulante se houver restrição incompatível com o critério aplicável."
+        },
+        {
+          "heading": "O que a FCC já fez",
+          "body": "FCC/TRT-20/2024 cobrou exatamente a classificação de ativo mantido para negociação."
+        },
+        {
+          "heading": "12. NBC TSP 12 — Demonstração dos Fluxos de Caixa",
+          "body": "A DFC explica entradas e saídas de caixa e equivalentes de caixa."
+        },
+        {
+          "heading": "Três atividades",
+          "body": "1. Operacionais\n2. Investimento\n3. Financiamento"
+        },
+        {
+          "heading": "Regra-mãe",
+          "body": "DFC registra fluxo efetivo de caixa.\nEmpenhar, liquidar, depreciar ou reconhecer contabilmente sem movimentação de caixa não cria, sozinho, fluxo de caixa."
+        },
+        {
+          "heading": "Caixa",
+          "body": "- numerário;\n- depósitos disponíveis."
+        },
+        {
+          "heading": "Equivalentes de caixa",
+          "body": "Investimentos:\n- de curto prazo;\n- alta liquidez;\n- prontamente conversíveis em montante conhecido de caixa;\n- sujeitos a insignificante risco de mudança de valor."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Curto prazo + alta liquidez não basta se houver risco significativo ou se o investimento tiver finalidade incompatível com gestão de caixa."
+        },
+        {
+          "heading": "14. Atividades operacionais",
+          "body": "São, em essência, atividades que não se classificam como investimento ou financiamento e se ligam ao funcionamento ordinário da entidade.\nExemplos frequentes:\n- recebimentos de tributos;\n- transferências correntes/intragovernamentais recebidas conforme estrutura aplicável;\n- pagamentos a pessoal;\n- pagamentos a fornecedores;\n- recebimentos de aluguel em situação enquadrada como operação ordinária pertinente."
+        },
+        {
+          "heading": "FCC",
+          "body": "A banca cobra muito pela exclusão:\n- não é investimento;\n- não é financiamento;\n- houve caixa;\n→ operacional."
+        },
+        {
+          "heading": "15. Atividades de investimento",
+          "body": "Ligam-se à aquisição e alienação de ativos de longo prazo e outros investimentos que não sejam equivalentes de caixa.\nExemplos:\n- pagamento em caixa pela aquisição de imobilizado;\n- adiantamentos e empréstimos concedidos a terceiros, ressalvadas situações próprias de instituição financeira pública;\n- aquisição/venda de determinados investimentos."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Compra a prazo sem saída de caixa no período não entra como fluxo de caixa naquele momento."
+        },
+        {
+          "heading": "16. Atividades de financiamento",
+          "body": "Relacionam-se a mudanças no tamanho/composição do capital próprio e endividamento da entidade, conforme a norma.\nExemplo típico:\n- entradas/saídas ligadas à obtenção ou amortização de certas formas de financiamento."
+        },
+        {
+          "heading": "Regra",
+          "body": "Não classifique como financiamento só porque a transação envolve “dinheiro”."
+        },
+        {
+          "heading": "17. Transações sem caixa",
+          "body": "Ficam fora da DFC enquanto não houver fluxo efetivo de caixa.\nExemplos:\n- aquisição de ativo integralmente a prazo;\n- depreciação;\n- reconhecimento de VPA/VPD sem caixa;\n- recebimento de bem por doação sem caixa.\nPodem exigir evidenciação em outros lugares, mas não são fluxo de caixa."
+        },
+        {
+          "heading": "18. Método direto × indireto",
+          "body": "Na estrutura da NBC TSP 12, os fluxos operacionais podem ser apresentados pelo:\n- método direto;\n- método indireto.\nA norma incentiva o método direto, por fornecer informação potencialmente mais útil sobre classes de recebimentos e pagamentos."
+        },
+        {
+          "heading": "Cuidado",
+          "body": "O D031 não exige decorar reconciliações extensas do método indireto."
+        },
+        {
+          "heading": "19. DFC × DVP × orçamento",
+          "body": "Camada\nPergunta\nBase central\nDFC\nhouve entrada/saída de caixa?\ncaixa\nDVP\nhouve variação patrimonial aumentativa/diminutiva?\ncompetência patrimonial\nOrçamento\ncomo se comportaram previsão/dotação e execução?\nexecução orçamentária\nFluxo de caixa ≠ resultado patrimonial ≠ resultado orçamentário."
+        },
+        {
+          "heading": "20. Caso integrado — uma máquina",
+          "body": "A entidade:\n1. empenha a compra;\n2. recebe a máquina e reconhece ativo/passivo;\n3. paga depois."
+        },
+        {
+          "heading": "Orçamento",
+          "body": "Há eventos próprios da execução orçamentária."
+        },
+        {
+          "heading": "Patrimônio",
+          "body": "O ativo/passivo nasce conforme o fato gerador e critérios contábeis."
+        },
+        {
+          "heading": "DFC",
+          "body": "O fluxo de investimento ocorre quando há saída de caixa, não no simples empenho nem no reconhecimento sem pagamento."
+        },
+        {
+          "heading": "21. NBC TSP 13 — informação orçamentária",
+          "body": "A NBC TSP 13 conecta:\n- orçamento aprovado;\n- alterações autorizadas;\n- valores realizados;\n- explicações sobre diferenças materiais."
+        },
+        {
+          "heading": "Finalidade",
+          "body": "Permitir accountability sobre o cumprimento do orçamento aprovado."
+        },
+        {
+          "heading": "Orçamento original",
+          "body": "Orçamento inicialmente aprovado."
+        },
+        {
+          "heading": "Orçamento final",
+          "body": "Orçamento original ajustado pelas alterações autorizadas durante o período."
+        },
+        {
+          "heading": "Realizado",
+          "body": "Valor efetivamente executado na base comparável."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Original ≠ final.\nSe o orçamento sofreu créditos/alterações autorizadas, a comparação não pode fingir que o orçamento permaneceu igual ao inicialmente aprovado."
+        },
+        {
+          "heading": "23. Base comparável",
+          "body": "Para a comparação ser válida, orçamento e realizado precisam ser colocados em base comparável quanto a elementos como:\n- base contábil;\n- classificação;\n- entidades abrangidas;\n- período."
+        },
+        {
+          "heading": "Por que isso importa?",
+          "body": "Sem base comparável, diferença pode decorrer apenas da forma de medir ou do perímetro, não da execução."
+        },
+        {
+          "heading": "24. Diferenças materiais",
+          "body": "A NBC TSP 13 exige explicar diferenças materiais entre orçamento e realizado conforme suas regras de apresentação/divulgação."
+        },
+        {
+          "heading": "Não automatize errado",
+          "body": "Diferença orçamentária:\n- não é automaticamente erro;\n- não é automaticamente irregularidade;\n- não é automaticamente variação patrimonial.\nPrimeiro identifique o que está sendo comparado e por quê."
+        },
+        {
+          "heading": "25. Ponte brasileira — Balanço Orçamentário",
+          "body": "No Brasil, a integração orçamento × execução aparece fortemente no Balanço Orçamentário do MCASP."
+        },
+        {
+          "heading": "Exemplo TCE-GO/FCC 2022",
+          "body": "Previsão atualizada da receita: 395 milhões.\nReceita arrecadada: 413 milhões.\nExcesso de arrecadação:\n413 − 395 = 18 milhões.\nIsso treina a leitura orçamento atualizado × realizado, útil para o eixo da NBC TSP 13."
+        },
+        {
+          "heading": "26. NBC TSP 15 — benefícios a empregados",
+          "body": "A norma trata das formas de compensação fornecidas pela entidade em troca:\n- dos serviços prestados pelos empregados; ou\n- da rescisão do vínculo, conforme o caso."
+        },
+        {
+          "heading": "Quatro famílias para o D031",
+          "body": "1. benefícios de curto prazo;\n2. benefícios pós-emprego;\n3. outros benefícios de longo prazo;\n4. benefícios rescisórios."
+        },
+        {
+          "heading": "27. Benefícios de curto prazo",
+          "body": "São benefícios, exceto rescisórios, que se espera liquidar integralmente em até doze meses após a data a que se referem as demonstrações em que o serviço foi prestado, conforme a definição normativa.\nExemplos possíveis dentro do alcance:\n- remunerações;\n- determinadas ausências remuneradas;\n- benefícios não monetários de curto prazo."
+        },
+        {
+          "heading": "Núcleo",
+          "body": "Serviço prestado → obrigação/despesa reconhecida conforme a norma."
+        },
+        {
+          "heading": "28. Benefícios pós-emprego",
+          "body": "São benefícios pagos após o período de emprego, excluídas as categorias que a norma separa.\nExemplo central:\n- aposentadorias/pensões e outros benefícios pós-emprego dentro do plano aplicável."
+        },
+        {
+          "heading": "Dois desenhos",
+          "body": "#### Contribuição definida\nA entidade paga contribuições fixas e, em essência, não possui obrigação adicional além do que o plano exige nos termos normativos.\n#### Benefício definido\nÉ o plano pós-emprego que não se enquadra como contribuição definida."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Não trate “benefício definido” como sinônimo de “benefício de valor fixo simples”."
+        },
+        {
+          "heading": "29. Outros benefícios de longo prazo",
+          "body": "São benefícios que não se classificam como:\n- curto prazo;\n- pós-emprego;\n- rescisórios.\nExemplos normativos podem incluir:\n- ausências remuneradas de longo prazo;\n- licenças-prêmio;\n- invalidez de longo prazo;\n- remuneração diferida, conforme condições."
+        },
+        {
+          "heading": "30. Benefícios rescisórios",
+          "body": "Nascem da rescisão do vínculo em circunstâncias definidas pela norma, e não do simples serviço prestado."
+        },
+        {
+          "heading": "Contraste",
+          "body": "- serviço prestado → benefício relacionado ao serviço;\n- término do vínculo → pode gerar benefício rescisório."
+        },
+        {
+          "heading": "Não aprofundar hoje",
+          "body": "- cálculo atuarial;\n- hipóteses atuariais;\n- remensurações detalhadas;\n- teto de ativo;\n- reconciliações complexas.\nEsses detalhes excedem o recorte de primeira passagem definido pela Fonte Técnica."
+        },
+        {
+          "heading": "31. MCASP 11ª × NBC TSP 15",
+          "body": "A 11ª edição do MCASP contém capítulo específico de Benefícios Pós-Emprego (Benefícios a Empregados) na Parte III, aprovado separadamente pela Portaria Conjunta STN/SRPC nº 25/2024."
+        },
+        {
+          "heading": "Estratégia do D031",
+          "body": "- NBC TSP 15 = estrutura conceitual principal;\n- MCASP = aplicação nacional, especialmente pós-emprego;\n- sem transformar a sessão em curso atuarial."
+        },
+        {
+          "heading": "32. Quadro 11–13–15",
+          "body": "Norma\nObjeto\nErro típico\n11\napresentação\nconfundir princípio geral com formulário nacional completo\n12\nfluxos de caixa\nusar empenho/liquidação/depreciação como se fossem caixa\n13\norçamento × realizado\nconfundir original com final ou diferença com irregularidade\n15\nbenefícios a empregados\nmisturar curto prazo, pós-emprego, longo prazo e rescisório"
+        },
+        {
+          "heading": "33. Como a FCC tende a cobrar",
+          "body": "A curadoria encontrou três frentes fortes:"
+        },
+        {
+          "heading": "NBC 11",
+          "body": "- classificação circulante × não circulante;\n- literalidade de critérios de apresentação."
+        },
+        {
+          "heading": "NBC 12",
+          "body": "- classificação operacional × investimento × financiamento;\n- transação com caixa × sem caixa;\n- transferência intragovernamental;\n- aquisição de imobilizado;\n- aluguel;\n- método direto."
+        },
+        {
+          "heading": "NBC 13 / MCASP",
+          "body": "- leitura de valores orçamentários;\n- previsão inicial × atualizada;\n- dotação inicial × atualizada;\n- realizado/arrecadado;\n- excesso/economia/diferenças."
+        },
+        {
+          "heading": "NBC 15",
+          "body": "A oferta FCC diretamente aderente é menor no lote pesquisado; por isso a bateria usa autorais identificadas para as quatro categorias e contribuição definida × benefício definido."
+        },
+        {
+          "heading": "34. Pegadinhas de alto rendimento",
+          "body": "1. DFC mede competência patrimonial.\n2. empenho = saída de caixa.\n3. compra a prazo = fluxo de investimento imediato.\n4. depreciação = desembolso operacional.\n5. equivalente de caixa admite risco significativo.\n6. orçamento original = orçamento final.\n7. diferença material = irregularidade automática.\n8. NBC 11 = MCASP Parte V inteiro.\n9. pós-emprego = todo benefício de longo prazo.\n10. benefício rescisório nasce da prestação normal de serviço.\n11. R1 publicada em 2026 = aplicar toda regra nova retroativamente a fatos de 2026.\n12. prova em 2027 = ignorar corte normativo do edital."
+        },
+        {
+          "heading": "35. O que precisa ficar automático",
+          "body": "- 11 → apresentação.\n- 12 → caixa: O / I / F.\n- 13 → orçamento × realizado.\n- 15 → benefícios: curto / pós / longo / rescisório.\n- empenho ≠ caixa;\n- competência ≠ caixa;\n- original ≠ final;\n- contribuição definida ≠ benefício definido;\n- NBC 11 ≠ formulário completo do MCASP;\n- R1 2026 possui aplicação a exercícios iniciados em 2027."
+        },
+        {
+          "heading": "36. Pré-Q031",
+          "body": "Sem consulta:\n1. NBC 11 trata de quê?\n2. quais as três atividades da DFC?\n3. depreciação entra na DFC?\n4. compra de imobilizado paga em caixa tende a qual atividade?\n5. orçamento original × final?\n6. o que é base comparável?\n7. quatro famílias da NBC 15?\n8. contribuição definida × benefício definido?\n9. fluxo de caixa = resultado patrimonial?\n10. R1 das quatro normas aplica-se a partir de qual exercício?"
+        },
+        {
+          "heading": "37. Pós-Q031 — causa do erro",
+          "body": "- C1: NBC 11 / apresentação;\n- C2: caixa × competência;\n- C3: operacional × investimento × financiamento;\n- C4: transação sem caixa;\n- C5: orçamento original × final;\n- C6: base comparável/diferença material;\n- C7: famílias NBC 15;\n- C8: contribuição × benefício definido;\n- C9: NBC × MCASP;\n- C10: versionamento R1;\n- C11: leitura FCC."
+        },
+        {
+          "heading": "Severidade P1",
+          "body": "- caixa × competência;\n- O/I/F;\n- original × final;\n- quatro famílias da NBC 15;\n- regra de aplicação das R1."
+        },
+        {
+          "heading": "38. D0",
+          "body": "Após a tentativa real:\n1. escreva 11 / 12 / 13 / 15 e o objeto de cada uma;\n2. classifique 5 fluxos próprios em O/I/F;\n3. crie uma transação sem caixa;\n4. explique original × final × realizado;\n5. recite as quatro famílias da NBC 15;\n6. explique contribuição definida × benefício definido;\n7. refaça erradas + acertos com dúvida."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente porque CASP continua sendo matéria nova e o D031 cria quatro classificações novas de alto potencial de confusão."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente porque DFC, orçamento × realizado e benefícios se integram posteriormente a MCASP/PCASP/DCASP e à volta final.\n> Acionado ≠ realizado."
+        },
+        {
+          "heading": "40. Flashcards candidatos",
+          "body": "Criar apenas se houver dificuldade real:\n- 11 = apresentação;\n- 12 = O/I/F;\n- transação sem caixa;\n- 13 = original/final/realizado;\n- 15 = curto/pós/longo/rescisório;\n- contribuição definida × benefício definido;\n- R1 → aplicação em 01/01/2027."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- quatro normas explicadas em profundidade proporcional;\n- versão/corte controlados;\n- MCASP 11ª integrado sem antecipar D057;\n- Q031 com 20 itens válidos;\n- D0/D7/D20 configurados;\n- nenhuma execução real preenchida."
+        },
+        {
+          "heading": "Execução do aluno",
+          "body": "D031 só está estudado quando houver:\n- leitura real;\n- 20 respostas;\n- correção;\n- D0;\n- classificação correta de O/I/F sem consulta;\n- recuperação das quatro famílias da NBC 15;\n- registro dos erros/dúvidas reais."
+        },
+        {
+          "heading": "42. Fontes efetivamente usadas",
+          "body": "- Fonte-Mestra v1.3 — D031;\n- Base Técnica v1.3 — 06.15–06.18;\n- Base Operacional v1.3 — curadoria CASP;\n- Fonte 04 v1.3 — prioridade CASP/revisão por contraste;\n- Fonte 05 v1.1 — Template Técnico;\n- Índice v1.4;\n- CFC — NBC TSP 11 (R1), 12 (R1), 13 (R1) e 15 (R1);\n- STN — MCASP 11ª edição e Portaria Conjunta STN/SRPC nº 25/2024;\n- FCC conforme Q031."
+        },
+        {
+          "heading": "Nota estrutural",
+          "body": "Coluna única, índice, tabelas curtas e blocos comparativos preservam compatibilidade estrutural responsiva, sem afirmar teste físico de viewport."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T13:59:39.232Z"
     }
   },
   "questions": {
@@ -3799,6 +4798,39 @@
       "copyrightMode": "metadata-only",
       "version": 2,
       "lastEdited": "2026-09-22T13:24:30.527Z"
+    },
+    "q026": {
+      "qxx": "Q026",
+      "dxx": "D026",
+      "title": "Q026 — Questões \\| Legislação Institucional III",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "5 FCC reais do próprio TCE-GO, todas de nível superior e normativamente validadas, + 15 autorais normativas locais. FCC: Q1982496, Q1675845, Q1675851, Q1674476 e Q1674480.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T13:35:34.675Z"
+    },
+    "q029": {
+      "qxx": "Q029",
+      "dxx": "D029",
+      "title": "Q029 — Questões \\| Auditoria I",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "5 FCC reais recentes de nível superior (2025–2026) + 15 autorais técnicas; FCC: Q4067471, Q3596317, Q3596312, Q3884293 e Q3538545.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T13:45:33.751Z"
+    },
+    "q031": {
+      "qxx": "Q031",
+      "dxx": "D031",
+      "title": "Q031 — Questões \\| CASP V",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "6 FCC reais de nível superior + 14 autorais técnicas; FCC: Q1982523, Q3737497, Q4359447, Q3932085, Q3731950 e Q3056237.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T13:59:41.727Z"
     }
   },
   "publicStats": {
@@ -3807,7 +4839,7 @@
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 12,
-    "questionPages": 12
+    "materialPages": 15,
+    "questionPages": 15
   }
 }
