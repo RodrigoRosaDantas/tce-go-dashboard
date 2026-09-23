@@ -24,6 +24,7 @@ jobs:
     env:
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN || secrets.SUPABASE_ACESS_TOKEN }}
       SUPABASE_PROJECT_ID: fqqkkyusnzhuuizahkww
+      TCE_GO_NOTION_TOKEN: ${{ secrets.TCE_GO_NOTION_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -45,17 +46,22 @@ jobs:
         with:
           version: latest
 
-      - name: Check TCE-GO runtime secrets
+      - name: Sync and check TCE-GO runtime secret
         if: steps.config.outputs.ready == 'true'
         shell: bash
         run: |
           set -euo pipefail
-          supabase secrets list --project-ref "$SUPABASE_PROJECT_ID" > /tmp/tce-go-secrets.txt
-          if ! grep -Eq '(^|[[:space:]|])TCE_GO_NOTION_TOKEN([[:space:]|]|$)' /tmp/tce-go-secrets.txt; then
-            echo "::error::Secret TCE_GO_NOTION_TOKEN não está configurado no Supabase."
+          if [ -z "$TCE_GO_NOTION_TOKEN" ]; then
+            echo "::error::Secret TCE_GO_NOTION_TOKEN não está configurado no GitHub Actions."
             exit 1
           fi
-          echo "Secret TCE_GO_NOTION_TOKEN confirmado no Supabase (valor não exposto)."
+          supabase secrets set TCE_GO_NOTION_TOKEN="$TCE_GO_NOTION_TOKEN" --project-ref "$SUPABASE_PROJECT_ID" >/dev/null
+          supabase secrets list --project-ref "$SUPABASE_PROJECT_ID" > /tmp/tce-go-secrets.txt
+          if ! grep -Eq '(^|[[:space:]|])TCE_GO_NOTION_TOKEN([[:space:]|]|$)' /tmp/tce-go-secrets.txt; then
+            echo "::error::Secret TCE_GO_NOTION_TOKEN não foi sincronizado com o Supabase."
+            exit 1
+          fi
+          echo "Secret TCE_GO_NOTION_TOKEN sincronizado GitHub → Supabase (valor não exposto)."
 
       - name: Deploy tce-progress
         if: steps.config.outputs.ready == 'true'
