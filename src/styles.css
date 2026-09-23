@@ -75,6 +75,7 @@ footer { max-width: 1440px; margin: 0 auto; padding: 1rem 1.25rem 2rem; color: #
 }
 
 .study-content { margin-top: 1rem; line-height: 1.68; overflow-wrap: anywhere; }
+.study-content h2[id], .study-content h3[id] { scroll-margin-top: 5.25rem; }
 .study-content > :first-child { margin-top: 0; }
 .study-content h2 { margin: 1.6rem 0 .65rem; font-size: 1.35rem; letter-spacing: -.025em; }
 .study-content h3 { margin: 1.25rem 0 .5rem; font-size: 1.05rem; }
