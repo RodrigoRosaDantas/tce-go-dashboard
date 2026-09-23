@@ -47,6 +47,19 @@ export type OperationalDay = {
   lastEditedAt?: string | null;
 };
 
+export type OperationalQuestionMeta = {
+  id: string;
+  dxx?: string | null;
+  qxx?: string | null;
+  focus?: string | null;
+  meta: number | null;
+  valid: number | null;
+  prioritySource?: string | null;
+  platformMatter?: string | null;
+  platformTopic?: string | null;
+  lastEditedAt?: string | null;
+};
+
 export type OperationalSession = {
   id: string;
   title: string;
@@ -165,6 +178,7 @@ export type OperationalSummary = {
   progress: ProgressState[];
   dayControl: OperationalDay[];
   sessions: OperationalSession[];
+  questionMeta: OperationalQuestionMeta[];
   reviews: OperationalReview[];
   errors: OperationalError[];
   redactions: OperationalRedaction[];
@@ -300,6 +314,7 @@ export async function loadOperationalSummary() {
       progress: Array.isArray(data.progress) ? data.progress as ProgressState[] : [],
       dayControl: Array.isArray(data.dayControl) ? data.dayControl as OperationalDay[] : [],
       sessions: Array.isArray(data.sessions) ? data.sessions as OperationalSession[] : [],
+      questionMeta: Array.isArray(data.questionMeta) ? data.questionMeta as OperationalQuestionMeta[] : [],
       reviews: Array.isArray(data.reviews) ? data.reviews as OperationalReview[] : [],
       errors: Array.isArray(data.errors) ? data.errors as OperationalError[] : [],
       redactions: Array.isArray(data.redactions) ? data.redactions as OperationalRedaction[] : [],
