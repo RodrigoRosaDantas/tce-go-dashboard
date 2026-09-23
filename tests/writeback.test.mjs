@@ -151,7 +151,8 @@ test("resumo operacional privado agrega estado canônico e degrada sem Notion", 
   assert.match(edge, /mode\"\)==\=\"summary\"/);
   assert.match(edge, /readOperationalSummary/);
   assert.match(edge, /queryAllDataSource\(DAYS/);
-  assert.match(edge, /queryAllDataSource\(SESSIONS/);\n  assert.match(edge, /queryAllDataSource\(REVIEWS/);
+  assert.match(edge, /queryAllDataSource\(SESSIONS/);
+  assert.match(edge, /queryAllDataSource\(REVIEWS/);
   assert.match(edge, /queryAllDataSource\(ERRORS_BANK/);
   assert.match(edge, /queryAllDataSource\(REDACTIONS/);
   assert.match(edge, /queryAllDataSource\(SIMULATIONS/);
