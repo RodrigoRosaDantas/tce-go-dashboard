@@ -35,7 +35,7 @@ for (const viewport of viewports) {
     });
     page.on("pageerror", (error) => consoleErrors.push(error.message));
 
-    const response = await page.goto(baseUrl + route.path, { waitUntil: "networkidle" });
+    const response = await page.goto(baseUrl + route.path, { waitUntil: "domcontentloaded" });
     await page.waitForSelector(".app-v3", { timeout: 10_000 });
 
     const geometry = await page.evaluate(() => {
@@ -85,7 +85,7 @@ for (const viewport of viewports) {
     if (consoleErrors.length) issues.push(`console/page errors: ${consoleErrors.join(" | ")}`);
 
     const shot = `${outDir}/${viewport.name}-${route.name}.png`;
-    await page.screenshot({ path: shot, fullPage: true });
+    await page.screenshot({ path: shot, fullPage: false });
     report.push({ viewport, route: route.path, geometry, issues, screenshot: shot });
     if (issues.length) failures.push(`${viewport.name} ${route.path}: ${issues.join("; ")}`);
     await page.close();
