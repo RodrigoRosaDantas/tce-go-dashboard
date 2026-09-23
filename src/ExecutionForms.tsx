@@ -122,7 +122,9 @@ export function ReviewWriteback({ snapshot }: { snapshot: Snapshot }) {
 
 export function EssayWriteback({ snapshot }: { snapshot: Snapshot }) {
   const plans = snapshot.redactions ?? [];
-  const [dxx, setDxx] = useState(plans[0]?.dxx ?? "D019");
+  const params = useMemo(() => new URLSearchParams(window.location.search), []);
+  const requestedDxx = params.get("dxx");
+  const [dxx, setDxx] = useState(() => plans.some((p) => p.dxx === requestedDxx) ? String(requestedDxx) : plans[0]?.dxx ?? "D019");
   const [status, setStatus] = useState("Produzida");
   const [lines, setLines] = useState("");
   const [time, setTime] = useState("");
@@ -187,7 +189,9 @@ export function EssayWriteback({ snapshot }: { snapshot: Snapshot }) {
 
 export function SimulationWriteback({ snapshot }: { snapshot: Snapshot }) {
   const plans = snapshot.simulations ?? [];
-  const [dxx, setDxx] = useState(plans[0]?.dxx ?? "D020");
+  const params = useMemo(() => new URLSearchParams(window.location.search), []);
+  const requestedDxx = params.get("dxx");
+  const [dxx, setDxx] = useState(() => plans.some((p) => p.dxx === requestedDxx) ? String(requestedDxx) : plans[0]?.dxx ?? "D020");
   const [generalTotal, setGeneralTotal] = useState("");
   const [generalCorrect, setGeneralCorrect] = useState("");
   const [specificTotal, setSpecificTotal] = useState("");
