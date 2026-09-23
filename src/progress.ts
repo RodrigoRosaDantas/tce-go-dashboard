@@ -3,7 +3,7 @@ const SUPABASE_KEY = "sb_publishable_GfoaAPKtYuSu_UY6wE8jMg_XsVjdWU7";
 const SESSION_KEY = "plataforma.questoes.supabase.session.v1";
 const QUEUE_KEY = "tce-go.pending-events.v1";
 const CACHE_KEY = "tce-go.confirmed-progress.v1";
-const SUMMARY_CACHE_KEY = "tce-go.operational-summary.v1";
+const SUMMARY_CACHE_KEY = "tce-go.operational-summary.v2";
 const ENDPOINT = `${SUPABASE_URL}/functions/v1/tce-progress`;
 
 export type ProgressState = {
