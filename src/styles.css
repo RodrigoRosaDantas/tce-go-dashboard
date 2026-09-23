@@ -91,3 +91,36 @@ footer { max-width: 1440px; margin: 0 auto; padding: 1rem 1.25rem 2rem; color: #
 .study-content figcaption, .study-media-note { color: #94a3b8; font-size: .84rem; margin-top: .45rem; }
 .study-todo { display: flex; gap: .55rem; align-items: flex-start; margin: .45rem 0; }
 .study-equation { overflow-x: auto; padding: .65rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+
+.progress-panel { margin-top: 1rem; }
+.progress-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.progress-head h2 { margin: .15rem 0 .35rem; }
+.sync-badges { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .45rem; }
+.badge.pending { border-color: #92400e; color: #fcd34d; }
+.badge.conflict { border-color: #991b1b; color: #fca5a5; }
+.progress-notice a { color: #fde68a; font-weight: 800; }
+.progress-form { display: grid; gap: .9rem; }
+.check-field { display: inline-flex; align-items: center; gap: .5rem; margin-right: 1rem; color: #e2e8f0; }
+.check-field input { width: 1.05rem; height: 1.05rem; }
+.progress-fields { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: .65rem; }
+.progress-fields label, .notes-field { display: grid; gap: .35rem; color: #cbd5e1; font-size: .82rem; font-weight: 700; }
+.progress-fields input, .notes-field textarea {
+  width: 100%; border: 1px solid #475569; border-radius: .65rem; padding: .62rem .7rem;
+  background: #0b1220; color: #f8fafc; font: inherit;
+}
+.progress-fields input:focus, .notes-field textarea:focus { outline: 2px solid #2563eb; outline-offset: 1px; }
+.notes-field textarea { resize: vertical; min-height: 4.5rem; }
+.progress-actions { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
+.button { border: 0; cursor: pointer; }
+.button:disabled { opacity: .6; cursor: progress; }
+
+@media (max-width: 900px) {
+  .progress-fields { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 640px) {
+  .progress-head { flex-direction: column; }
+  .sync-badges { justify-content: flex-start; }
+  .progress-fields { grid-template-columns: 1fr 1fr; }
+  .progress-actions .button { width: 100%; }
+}

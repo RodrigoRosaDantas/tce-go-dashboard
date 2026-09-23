@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { loadSnapshot, publicRoute } from "./data";
 import type { DaySnapshot, Snapshot } from "./types";
+import { ProgressPanel } from "./ProgressPanel";
+import { platformBatteryUrl } from "./progress";
 
 const navItems = [
   ["/", "Hoje"],
@@ -211,8 +213,18 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
             </>
           ) : <p>Qxx vinculado ao dia; detalhes serão publicados pelo snapshot sanitizado.</p>}
           {day.questionSlug ? <a className="secondary" href={href(`/questoes/${day.questionSlug}/`)}>Abrir Qxx</a> : null}
+          {question?.platformBattery ? (
+            <a className="secondary" href={platformBatteryUrl({
+              dxx: day.dxx,
+              sxx: day.session,
+              materia: question.platformBattery.materia,
+              topico: question.platformBattery.topico,
+              subtopico: question.platformBattery.subtopico,
+            })}>Abrir bateria validada na Plataforma</a>
+          ) : null}
         </article>
       </div>
+      <ProgressPanel day={day} />
       <div className="next-card">
         <span>Próxima sessão ativa</span>
         {nextActive ? (
@@ -240,6 +252,17 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
           <p><strong>Origem:</strong> {q.sourceSummary}</p>
           <div className="notice">Questões externas permanecem em metadados/referência; conteúdo autoral e comentários pedagógicos são publicados somente após sanitização server-side.</div>
           <p className="small">O sincronizador automático não publica enunciados externos; o Qxx público permanece em metadados e referência.</p>
+          {q.platformBattery ? (
+            <a className="secondary" href={platformBatteryUrl({
+              dxx: day.dxx,
+              sxx: day.session,
+              materia: q.platformBattery.materia,
+              topico: q.platformBattery.topico,
+              subtopico: q.platformBattery.subtopico,
+            })}>Abrir bateria validada na Plataforma</a>
+          ) : (
+            <div className="notice">Sem bateria externa validada para este Dxx. O Qxx do Notion continua sendo o fallback integral.</div>
+          )}
         </div>
       ) : <div className="notice">Qxx liberado no dia, aguardando extração sanitizada do conteúdo.</div>}
       <a className="secondary" href={href(`/dia/${day.dxx.toLowerCase()}/`)}>Voltar ao dia</a>
@@ -275,6 +298,8 @@ function SyncPage({ snapshot }: { snapshot: Snapshot }) {
         {snapshot.contentHash ? <p><strong>Hash:</strong> <code>{snapshot.contentHash.slice(0, 12)}</code>.</p> : null}
         <p><strong>Fluxo:</strong> extração server-side → normalização → validação → sanitização → snapshot → quality → Pages/PWA.</p>
         <p><strong>Privacidade:</strong> respostas, notas, tempo real, Caderno de Erros detalhado e URLs internas não são publicados.</p>
+        <p><strong>Writeback:</strong> progresso privado segue site → endpoint autenticado → validação Dxx → resolução Sxx no Notion → gravação → confirmação → cache.</p>
+        <p><strong>Offline:</strong> eventos ficam “Pendente de sincronização” até a confirmação do Notion; replay usa idempotency key e não transforma cache em fonte canônica.</p>
       </div>
     </section>
   );
