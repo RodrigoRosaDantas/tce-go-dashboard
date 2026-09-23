@@ -17,7 +17,10 @@ const routes = [
   { name: "trilha", path: "/dias/" },
   { name: "d001", path: "/dia/d001/" },
   { name: "q001", path: "/questoes/q001/" },
+  { name: "revisoes", path: "/revisoes/" },
+  { name: "erros", path: "/erros/" },
   { name: "desempenho", path: "/desempenho/" },
+  { name: "reta-final", path: "/reta-final/" },
 ];
 
 fs.mkdirSync(outDir, { recursive: true });
@@ -139,4 +142,4 @@ if (failures.length) {
   console.error("V3 visual smoke falhou:\n- " + failures.join("\n- "));
   process.exit(1);
 }
-console.log(`V3 visual smoke aprovado em ${viewports.length} viewports × ${routes.length} rotas.`);
+console.log(`Study OS visual smoke aprovado em ${viewports.length} viewports × ${routes.length} rotas.`);
