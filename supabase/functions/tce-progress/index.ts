@@ -255,7 +255,7 @@ async function readOperationalSummary(owner,cors){
     return {
       id:page.id,
       dxx:txt(p,"Dxx"),
-      title:txt(p,"Simulado")||txt(p,"Título")||"Simulado",
+      title:txt(p,"Marco")||"Simulado / checkpoint",
       decision:txt(p,"Decisão"),
       type:txt(p,"Tipo")||null,
       date:dateVal(p,"Data"),
