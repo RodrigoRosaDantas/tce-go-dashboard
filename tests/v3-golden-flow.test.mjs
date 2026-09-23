@@ -43,9 +43,9 @@ test("Leitor V3 oferece tema, escala, largura, foco e retomada", () => {
   assert.match(tools, /tce-study-time/);
 });
 
-test("Command palette cobre navegação e sessões Sxx", () => {
+test("Command palette cobre navegação e somente sessões Sxx publicadas", () => {
   assert.match(shell, /Ctrl K/);
-  assert.match(shell, /activeDays\(snapshot\)/);
+  assert.match(shell, /publishedDays\(snapshot\)/);
   assert.match(shell, /command-palette/);
 });
 
