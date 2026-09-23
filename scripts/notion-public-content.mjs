@@ -73,6 +73,7 @@ export function questionSnapshotFromPage({ dxx, page }) {
   const priority = propertyText(p, "Origem prioritária");
   const focus = propertyText(p, "Matéria/foco");
   const sourceSummary = priority || focus || "Metadados editoriais do caderno canônico.";
+  const adaptive = valid === 0 && meta > 0 && /adaptativ|reteste|equivalente/i.test(sourceSummary);
   const version = propertyNumber(p, "Versão editorial");
   const gapDeclared = propertyCheckbox(p, "Lacuna declarada");
   const platformValidated = propertyCheckbox(p, "Plataforma — bateria validada");
@@ -100,6 +101,7 @@ export function questionSnapshotFromPage({ dxx, page }) {
     ...(version ? { version } : {}),
     ...(page?.last_edited_time ? { lastEdited: page.last_edited_time } : {}),
     ...(gapDeclared ? { gapDeclared: true } : {}),
+    ...(adaptive ? { adaptive: true } : {}),
     ...(platformBattery ? { platformBattery } : {}),
   };
 }
