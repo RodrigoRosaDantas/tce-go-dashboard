@@ -41,7 +41,7 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
   const completed = executionDays.filter((day) => day.completed).length;
   const plannedQuestions = activeDays.reduce((sum, day) => {
     const canonicalMeta = dayMap.get(day.dxx)?.metaQuestions ?? questionMetaMap.get(day.dxx)?.meta;
-    const publicFallback = day.questionSlug ? snapshot.questions[day.questionSlug]?.valid ?? 0 : 0;
+    const publicFallback = day.questionSlug ? snapshot.questions[day.questionSlug]?.meta ?? snapshot.questions[day.questionSlug]?.valid ?? 0 : 0;
     return sum + (canonicalMeta ?? publicFallback);
   }, 0);
   const questions = executionDays.reduce((sum, day) => sum + (day.questionsDone ?? 0), 0);
@@ -56,7 +56,7 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
   const criticalErrors = openErrors.filter((item) => item.fatal || item.severity === "P1");
   const incompleteDxx = new Set(issues.filter((issue) => issue.source === "Dxx" && issue.level !== "info").map((issue) => issue.key));
 
-  const latestEdit = [...summary.dayControl.map((x) => x.lastEditedAt), ...summary.sessions.map((x) => x.lastEditedAt), ...summary.reviews.map((x) => x.lastEditedAt), ...summary.errors.map((x) => x.lastEditedAt), ...summary.redactions.map((x) => x.lastEditedAt), ...summary.simulations.map((x) => x.lastEditedAt)]
+  const latestEdit = [...summary.dayControl.map((x) => x.lastEditedAt), ...summary.sessions.map((x) => x.lastEditedAt), ...summary.questionMeta.map((x) => x.lastEditedAt), ...summary.reviews.map((x) => x.lastEditedAt), ...summary.errors.map((x) => x.lastEditedAt), ...summary.redactions.map((x) => x.lastEditedAt), ...summary.simulations.map((x) => x.lastEditedAt)]
     .filter((value): value is string => Boolean(value)).sort().at(-1) ?? null;
 
   const originCounts = executionDays.reduce<Record<string, number>>((acc, day) => {
@@ -126,7 +126,7 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
         <div className="execution-strip-v41">{activeDays.map((day) => {
           const raw = dayMap.get(day.dxx);
           const done = raw?.questionsDone;
-          const meta = raw?.metaQuestions ?? (day.questionSlug ? snapshot.questions[day.questionSlug]?.valid : 0) ?? 0;
+          const meta = raw?.metaQuestions ?? questionMetaMap.get(day.dxx)?.meta ?? (day.questionSlug ? snapshot.questions[day.questionSlug]?.meta ?? snapshot.questions[day.questionSlug]?.valid : 0) ?? 0;
           const height = meta ? Math.max(4, Math.min(100, ((done ?? 0) / meta) * 100)) : 4;
           return <button type="button" key={day.dxx} className={raw && hasExecution(raw) ? "executed" : ""} title={(day.session || "") + " · " + day.dxx + " · " + (done == null ? "não preenchido" : done) + "/" + meta} onClick={() => setTab("execution")}><span>{day.session}</span><i style={{ height: String(height) + "%" }} /><small>{done == null ? "—" : done}</small></button>;
         })}</div>
@@ -146,12 +146,12 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
         <span>{filteredDays.length} Dxx</span>
       </section>
       <section className="analytics-panel-v41"><SectionHeader eyebrow="DXX CANÔNICO" title="Planejamento × execução" detail="Você pode preencher esses campos direto no Notion; o site apenas relê." /><div className="analytics-table-wrap-v41"><table className="analytics-table-v41"><thead><tr><th>Sessão</th><th>Tipo</th><th>Origem</th><th>Tempo</th><th>Questões</th><th>Acertos</th><th>Erros</th><th>Dúvidas</th><th>Precisão</th><th>Dados</th></tr></thead><tbody>{filteredDays.map((day) => {
-        const raw = dayMap.get(day.dxx); const sessions = sessionMap.get(day.dxx) ?? []; const meta = raw?.metaQuestions ?? (day.questionSlug ? snapshot.questions[day.questionSlug]?.valid : null); const dayIssues = issues.filter((x) => x.source === "Dxx" && x.key === day.dxx && x.level !== "info");
+        const raw = dayMap.get(day.dxx); const sessions = sessionMap.get(day.dxx) ?? []; const meta = raw?.metaQuestions ?? questionMetaMap.get(day.dxx)?.meta ?? (day.questionSlug ? snapshot.questions[day.questionSlug]?.meta ?? snapshot.questions[day.questionSlug]?.valid : null); const dayIssues = issues.filter((x) => x.source === "Dxx" && x.key === day.dxx && x.level !== "info");
         return <tr key={day.dxx} className={raw && hasExecution(raw) ? "has-execution" : ""}><td><a href={href("/dia/" + day.dxx.toLowerCase() + "/")}><strong>{day.session}</strong><small>{day.dxx}</small></a></td><td>{day.type}</td><td>{raw ? dataOrigin(raw, sessions) : "—"}</td><td><strong>{raw?.timeMinutes == null ? "—" : formatMinutes(raw.timeMinutes)}</strong><small>{raw?.plannedTime ? "prev. " + raw.plannedTime : ""}</small></td><td><strong>{raw?.questionsDone == null ? "—" : raw.questionsDone}</strong><small>{meta != null ? "meta " + meta : ""}</small></td><td>{raw?.correct ?? "—"}</td><td>{raw?.errors ?? "—"}</td><td>{raw?.doubts ?? "—"}</td><td>{pct(accuracy(raw?.correct, raw?.errors), 1)}</td><td>{dayIssues.length ? <StatusPill tone={dayIssues.some((x) => x.level === "error") ? "danger" : "warning"}>{dayIssues.length} alerta(s)</StatusPill> : raw && hasExecution(raw) ? <StatusPill tone="success">Completo</StatusPill> : <StatusPill>Não executado</StatusPill>}</td></tr>;
       })}</tbody></table></div></section>
     </> : null}
 
-    {tab === "subjects" ? <section className="analytics-panel-v41"><SectionHeader eyebrow="MATÉRIAS" title="Carga e desempenho por disciplina" detail="O agrupamento vem de Matéria/foco no Banco de Questões do Notion; checkpoints, redações e correções não entram na estatística por matéria." /><div className="subject-cards-v41">{disciplines.map((row) => <article key={row.discipline}><header><strong>{row.discipline}</strong><StatusPill>{row.execution}/{row.sessions} sessões</StatusPill></header><div className="subject-kpis-v41"><span><b>{row.planned}</b> previstas</span><span><b>{row.done}</b> feitas</span><span><b>{pct(accuracy(row.correct, row.errors), 1)}</b> precisão</span><span><b>{formatMinutes(row.minutes)}</b> tempo</span></div><AnalyticsBar value={row.done} max={row.planned} /></article>)}</div></section> : null}
+    {tab === "subjects" ? <section className="analytics-panel-v41"><SectionHeader eyebrow="MATÉRIAS" title="Carga e desempenho por disciplina" detail="O agrupamento vem de Matéria/foco no Banco de Questões do Notion; checkpoints, redações e correções não entram na estatística por matéria." />{disciplines.length ? <div className="subject-cards-v41">{disciplines.map((row) => <article key={row.discipline}><header><strong>{row.discipline}</strong><StatusPill>{row.execution}/{row.sessions} sessões</StatusPill></header><div className="subject-kpis-v41"><span><b>{row.planned}</b> previstas</span><span><b>{row.done}</b> feitas</span><span><b>{pct(accuracy(row.correct, row.errors), 1)}</b> precisão</span><span><b>{formatMinutes(row.minutes)}</b> tempo</span></div><AnalyticsBar value={row.done} max={row.planned} /></article>)}</div> : <EmptyState title="Matérias indisponíveis neste cache." description="Conecte os dados privados ou releia o Notion para carregar Matéria/foco dos Qxx." />}</section> : null}
 
     {tab === "edital" ? <section className="analytics-panel-v41">
       <SectionHeader eyebrow="BLUEPRINT DO EDITAL" title="Distribuição planejada por disciplina" detail="Questões, pesos e pontos vêm do banco verticalizado. Execução por item não é inferida sem relação Dxx/Qxx." action={<a href={href("/edital/")}>Abrir edital →</a>} />
