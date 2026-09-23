@@ -3,6 +3,11 @@ import { createRemoteJWKSet, jwtVerify } from "npm:jose@5.9.6";
 const NAPI = "https://api.notion.com/v1";
 const NVER = "2026-03-11";
 const DAYS = "a1075521-857b-4e1e-8fb2-849b51fdccc0";
+const REDACTIONS = "d837d3d6-7646-4f41-888a-ed8b48f94c9d";
+const SIMULATIONS = "6deb1496-01ae-4a2d-8b38-5e99423410ee";
+const EDITAL = "930ae7dd-c076-40ad-a723-b2b9118c3367";
+const SOURCES = "926f6b7c-7886-4917-a2f8-76aa1d87d39f";
+const FINAL_SPRINT = "bd489b71-876d-450b-81f3-a8944f837bda";
 const ISSUER = "https://token.actions.githubusercontent.com";
 const AUDIENCE = "tce-go-sync";
 const REPOSITORY = "RodrigoRosaDantas/tce-go-dashboard";
@@ -64,6 +69,29 @@ Deno.serve(async (req) => {
       return { materialSlug: item.day.slug, questionSlug: item.day.questionSlug, material, question };
     });
 
+    const [redactionRows, simulationRows, editalRows, sourceRows, finalSprintRows] = await Promise.all([
+      queryAllDataSource(REDACTIONS, token),
+      queryAllDataSource(SIMULATIONS, token),
+      queryAllDataSource(EDITAL, token),
+      queryAllDataSource(SOURCES, token),
+      queryAllDataSource(FINAL_SPRINT, token),
+    ]);
+    const redactions = redactionRows.map(normalizeRedactionPlan)
+      .filter((item) => item.code && item.dxx)
+      .sort((a, b) => a.code.localeCompare(b.code, "pt-BR", { numeric: true }));
+    const simulations = simulationRows.map(normalizeSimulationPlan)
+      .filter((item) => item.dxx)
+      .sort((a, b) => Number(a.dxx.slice(1)) - Number(b.dxx.slice(1)));
+    const edital = editalRows.map(normalizeEditalItem)
+      .filter((item) => item.code && item.discipline)
+      .sort((a, b) => a.order - b.order);
+    const legislation = sourceRows.map(normalizeLegislationSource)
+      .filter((item) => item && ["Constituição", "Lei estadual", "Ato TCE-GO"].includes(item.category))
+      .sort((a, b) => a.code.localeCompare(b.code, "pt-BR", { numeric: true }));
+    const finalSprint = finalSprintRows.map(normalizeFinalSprintDay)
+      .filter((item) => item.code && item.date)
+      .sort((a, b) => a.order - b.order);
+
     const materials = Object.fromEntries(pairs.map((item) => [item.materialSlug, item.material]));
     const questions = Object.fromEntries(pairs.map((item) => [item.questionSlug, item.question]));
     const publicStats = {
@@ -74,14 +102,25 @@ Deno.serve(async (req) => {
       readyDays: ready.length,
       materialPages: Object.keys(materials).length,
       questionPages: Object.keys(questions).length,
+      redactionPlans: redactions.length,
+      simulationPlans: simulations.length,
+      editalItems: edital.length,
+      legislationSources: legislation.length,
+      finalSprintDays: finalSprint.length,
     };
     const stablePayload = {
       schemaVersion: "1.0.0",
       source: "notion",
       contentMode: "full",
+      auxiliaryMode: "full",
       days,
       materials,
       questions,
+      redactions,
+      simulations,
+      edital,
+      legislation,
+      finalSprint,
       publicStats,
     };
     const contentHash = await sha256(JSON.stringify(stable(stablePayload)));
@@ -113,16 +152,90 @@ async function authenticateGithub(req: Request) {
 }
 
 async function queryAllDays(token: string) {
+  return queryAllDataSource(DAYS, token);
+}
+
+async function queryAllDataSource(id: string, token: string) {
   const pages: any[] = [];
   let cursor: string | undefined;
   do {
     const body: Record<string, unknown> = { page_size: 100 };
     if (cursor) body.start_cursor = cursor;
-    const result = await notion(`/data_sources/${DAYS}/query`, token, { method: "POST", body: JSON.stringify(body) });
+    const result = await notion(`/data_sources/${id}/query`, token, { method: "POST", body: JSON.stringify(body) });
     pages.push(...(result.results || []));
     cursor = result.has_more ? result.next_cursor : undefined;
   } while (cursor);
   return pages.filter((page) => !page.archived);
+}
+
+function normalizeRedactionPlan(page: any) {
+  const p = page.properties || {};
+  const title = propertyText(p, "Redação");
+  const match = title.match(/\bR(\d+)\b/i);
+  return {
+    code: match ? `R${Number(match[1])}` : "",
+    title,
+    dxx: propertyText(p, "Dxx"),
+    date: dateProperty(p, "Data"),
+    theme: propertyText(p, "Tema"),
+  };
+}
+
+function normalizeSimulationPlan(page: any) {
+  const p = page.properties || {};
+  return {
+    title: propertyText(p, "Marco"),
+    dxx: propertyText(p, "Dxx"),
+    date: dateProperty(p, "Data"),
+    type: propertyText(p, "Tipo"),
+    plannedCoverage: numberProperty(p, "Cobertura — previstos"),
+    plannedSessions: numberProperty(p, "Carga — sessões previstas"),
+  };
+}
+
+function normalizeEditalItem(page: any) {
+  const p = page.properties || {};
+  return {
+    code: propertyText(p, "Código"),
+    order: numberProperty(p, "Ordem"),
+    discipline: propertyText(p, "Disciplina"),
+    active: checkboxProperty(p, "Ativo"),
+    block: propertyText(p, "Bloco"),
+    questions: numberProperty(p, "Questões"),
+    weight: numberProperty(p, "Peso"),
+    weightedPoints: numberProperty(p, "Pontos ponderados"),
+    editorialStatus: propertyText(p, "Status editorial"),
+    normativeSource: propertyText(p, "Fonte normativa"),
+  };
+}
+
+function normalizeLegislationSource(page: any) {
+  const p = page.properties || {};
+  const official = checkboxProperty(p, "Fonte oficial");
+  const nature = propertyText(p, "Natureza");
+  const officialUrl = safeExternalUrl(p?.["URL oficial"]?.url || "");
+  if (!official || nature !== "Fonte oficial externa" || !officialUrl) return null;
+  return {
+    code: propertyText(p, "Código"),
+    title: propertyText(p, "Fonte"),
+    category: propertyText(p, "Categoria"),
+    cutoff: propertyText(p, "Corte/vigência"),
+    dxx: propertyText(p, "Dxx principal"),
+    use: propertyText(p, "Uso"),
+    status: propertyText(p, "Status"),
+    officialUrl,
+  };
+}
+
+function normalizeFinalSprintDay(page: any) {
+  const p = page.properties || {};
+  return {
+    code: propertyText(p, "Código"),
+    order: numberProperty(p, "Ordem"),
+    date: dateProperty(p, "Data"),
+    title: propertyText(p, "Dia da reta final"),
+    type: propertyText(p, "Tipo"),
+  };
 }
 
 function normalizeDayRecord(page: any) {
@@ -395,6 +508,7 @@ function richProperty(properties: any, name: string) { return (properties?.[name
 function selectProperty(properties: any, name: string) { return properties?.[name]?.select?.name || properties?.[name]?.status?.name || ""; }
 function numberProperty(properties: any, name: string) { const v = properties?.[name]?.number; return typeof v === "number" && Number.isFinite(v) ? v : 0; }
 function checkboxProperty(properties: any, name: string) { return Boolean(properties?.[name]?.checkbox); }
+function dateProperty(properties: any, name: string) { return properties?.[name]?.date?.start?.slice(0, 10) || ""; }
 function relationIds(property: any) { return Array.isArray(property?.relation) ? property.relation.map((x: any) => x?.id).filter(Boolean) : []; }
 function assertLinkedDxx(expected: string, page: any, kind: string) { const actual = propertyText(page.properties, "Dxx"); if (actual && actual !== expected) throw new Error(`${expected}: ${kind} vinculado declara ${actual}.`); }
 
