@@ -10,7 +10,17 @@ export function PerformancePageV4({ snapshot }: { snapshot: Snapshot }) {
   const rows = snapshot.days
     .filter((day) => !day.protected)
     .map((day) => ({ day, progress: summary.progress.find((state) => state.dxx === day.dxx) }))
-    .filter((item) => item.progress)
+    .filter((item) => Boolean(
+      item.progress && (
+        item.progress.studied
+        || item.progress.completed
+        || item.progress.timeMinutes > 0
+        || item.progress.questionsDone > 0
+        || item.progress.correct > 0
+        || item.progress.errors > 0
+        || item.progress.doubts > 0
+      )
+    ))
     .sort((a,b) => a.day.order - b.day.order);
 
   const completed = rows.filter((item) => item.progress?.completed).length;
