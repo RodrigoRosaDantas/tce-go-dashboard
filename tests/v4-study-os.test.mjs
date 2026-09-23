@@ -134,7 +134,7 @@ test("analytics preserva ausência de dado e audita inconsistências", () => {
 });
 
 test("Dashboard V4.1 cobre execução, matérias, erros, retenção, redação, checkpoints e dados", () => {
-  for (const label of ["Visão geral","Execução","Matérias","Erros","Retenção","Redação","Checkpoints","Dados"]) {
+  for (const label of ["Visão geral","Execução","Matérias","Edital","Erros","Retenção","Redação","Checkpoints","Dados"]) {
     assert.ok(performance.includes(label), `aba analítica ausente: ${label}`);
   }
   assert.match(performance, /Meta de questões/);
@@ -147,4 +147,13 @@ test("V4.1 usa cache analítico versionado e não reutiliza contrato V4 antigo",
   const progressSource = fs.readFileSync("src/progress.ts","utf8");
   assert.match(progressSource, /tce-go\.operational-summary\.v2/);
   assert.doesNotMatch(progressSource, /const SUMMARY_CACHE_KEY = "tce-go\.operational-summary\.v1"/);
+});
+
+
+test("Dashboard usa Matéria/foco canônica e declara lacuna de cobertura do edital", () => {
+  assert.match(analytics, /canonicalSubjectLabel/);
+  assert.match(analytics, /summary\.questionMeta/);
+  assert.match(performance, /Matéria\/foco no Banco de Questões do Notion/);
+  assert.match(performance, /Lacuna estrutural declarada/);
+  assert.match(performance, /não fabrica percentual de cobertura executada por item/);
 });
