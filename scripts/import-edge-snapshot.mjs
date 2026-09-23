@@ -8,12 +8,12 @@ const incoming = JSON.parse(fs.readFileSync(input, "utf8"));
 const currentPath = path.resolve("public/data/tce-go-snapshot.json");
 const current = fs.existsSync(currentPath) ? JSON.parse(fs.readFileSync(currentPath, "utf8")) : null;
 
-const errors = validateSnapshot(incoming);
-if (errors.length) throw new Error("Snapshot Edge recusado:\n- " + errors.join("\n- "));
 if (current?.auxiliaryMode === "full" && incoming?.auxiliaryMode !== "full") {
   console.warn("Snapshot Edge sem cobertura auxiliar full; último snapshot válido preservado.");
   process.exit(0);
 }
+const errors = validateSnapshot(incoming);
+if (errors.length) throw new Error("Snapshot Edge recusado:\n- " + errors.join("\n- "));
 
 if (current?.contentHash && current.contentHash === incoming.contentHash && current.contentMode === "full") {
   console.log("Sem mudança pública no snapshot Edge.");
