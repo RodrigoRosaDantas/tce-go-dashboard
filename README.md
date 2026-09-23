@@ -33,3 +33,18 @@ O workflow usa:
 - Notion API version: `2026-03-11`
 
 Nenhum token é enviado ao navegador ou gravado no snapshot.
+
+## GitHub Pages
+
+A implantação usa GitHub Actions e o base path `/tce-go-dashboard/`.
+
+No primeiro uso do repositório, habilite em **Settings → Pages → Build and deployment → Source → GitHub Actions**. Enquanto o Pages não estiver habilitado, o workflow de deploy faz um preflight seguro, emite aviso e não tenta publicar.
+
+## Configuração server-side do Notion
+
+Em **Settings → Secrets and variables → Actions**:
+
+- Secret: `TCE_GO_NOTION_TOKEN`
+- Variable: `TCE_GO_DAYS_DATA_SOURCE_ID`
+
+Sem essas configurações, o workflow periódico continua instalado, mas fica inativo com aviso. O snapshot público versionado permanece utilizável e nenhuma credencial é enviada ao navegador.
