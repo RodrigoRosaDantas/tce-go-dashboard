@@ -36,6 +36,37 @@ const emptyForm: FormState = {
   notes: "",
 };
 
+type LocalQuestionResult = {
+  dxx: string;
+  qxx?: string;
+  questionsDone: number;
+  correct: number;
+  errors: number;
+  doubts: number;
+  savedAt?: string;
+};
+
+function localQuestionResult(dxx: string): LocalQuestionResult | null {
+  try {
+    const raw = localStorage.getItem(`tce-go.v4.question-result.${dxx}`);
+    return raw ? JSON.parse(raw) as LocalQuestionResult : null;
+  } catch {
+    return null;
+  }
+}
+
+function applyQuestionResult(base: FormState, result: LocalQuestionResult | null) {
+  if (!result) return base;
+  return {
+    ...base,
+    studied: true,
+    questionsDone: Math.max(base.questionsDone, Math.max(0, Math.round(result.questionsDone || 0))),
+    correct: Math.max(base.correct, Math.max(0, Math.round(result.correct || 0))),
+    errors: Math.max(base.errors, Math.max(0, Math.round(result.errors || 0))),
+    doubts: Math.max(base.doubts, Math.max(0, Math.round(result.doubts || 0))),
+  };
+}
+
 function fromProgress(state: ProgressState | null): FormState {
   if (!state) return emptyForm;
   return {
@@ -77,17 +108,38 @@ export function ProgressPanel({ day }: { day: DaySnapshot }) {
   }, [day.dxx]);
 
   useEffect(() => {
+    const onQuestionResult = (event: Event) => {
+      const detail = (event as CustomEvent<LocalQuestionResult>).detail;
+      if (detail?.dxx !== day.dxx) return;
+      setForm((current) => applyQuestionResult(current, detail));
+      setMessage(`Resultado de ${detail.qxx || "Qxx"} aplicado ao fechamento. Revise antes de salvar.`);
+    };
+    window.addEventListener("tce-question-result", onQuestionResult);
+    return () => window.removeEventListener("tce-question-result", onQuestionResult);
+  }, [day.dxx]);
+
+  useEffect(() => {
     let alive = true;
     loadProgress(day.dxx).then((state) => {
       if (!alive) return;
       if (state) {
         setConfirmed(state);
-        setForm(fromProgress(state));
-        setMessage(state.canonical
-          ? "Estado confirmado pelo Notion."
-          : "Último estado confirmado em cache; a versão atual do Notion ainda não foi revalidada.");
+        const localResult = localQuestionResult(day.dxx);
+        const resultIsNewer = localResult?.savedAt && (!state.eventOccurredAt || Date.parse(localResult.savedAt) > Date.parse(state.eventOccurredAt));
+        setForm(applyQuestionResult(fromProgress(state), resultIsNewer ? localResult : null));
+        setMessage(resultIsNewer
+          ? `Estado canônico carregado + resultado local de ${localResult?.qxx || "Qxx"} ainda não salvo.`
+          : state.canonical
+            ? "Estado confirmado pelo Notion."
+            : "Último estado confirmado em cache; a versão atual do Notion ainda não foi revalidada.");
       } else {
-        setMessage(connected ? "Sem progresso confirmado para este Dxx." : "Conta de progresso não conectada.");
+        const localResult = localQuestionResult(day.dxx);
+        if (localResult) {
+          setForm(applyQuestionResult(emptyForm, localResult));
+          setMessage(`Resultado local de ${localResult.qxx || "Qxx"} importado; ainda não confirmado no Notion.`);
+        } else {
+          setMessage(connected ? "Sem progresso confirmado para este Dxx." : "Conta de progresso não conectada.");
+        }
       }
     });
 
