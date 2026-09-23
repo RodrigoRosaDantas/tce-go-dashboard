@@ -44,6 +44,7 @@ export interface QuestionSnapshot {
   version?: number;
   lastEdited?: string;
   gapDeclared?: boolean;
+  adaptive?: boolean;
   platformBattery?: PlatformBattery;
 }
 
