@@ -96,3 +96,17 @@ test("contexto cross-device atualiza após writeback, online e storage", () => {
   assert.match(context, /window\.addEventListener\("online"/);
   assert.match(context, /window\.addEventListener\("storage"/);
 });
+
+
+test("Qxx separa parte FCC da autoral e impede total acima da meta", () => {
+  assert.match(trainer, /externalMax = Math\.max\(0, question\.valid - items\.length\)/);
+  assert.match(trainer, /attempted > externalMax/);
+  assert.match(trainer, /max=\{externalMax\}/);
+});
+
+test("resultado Qxx substitui métricas como conjunto atômico no fechamento", () => {
+  assert.match(progress, /const questionsDone = Math\.max/);
+  assert.match(progress, /if \(correct \+ errors > questionsDone \|\| doubts > correct\) return base/);
+  assert.match(progress, /questionsDone,\s*correct,\s*errors,\s*doubts,/);
+  assert.doesNotMatch(progress, /questionsDone: Math\.max\(base\.questionsDone/);
+});
