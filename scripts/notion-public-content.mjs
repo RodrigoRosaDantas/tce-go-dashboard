@@ -1,4 +1,7 @@
-const PRIVATE_SECTION = /(?:navega[çc][ãa]o|controle operacional|execução real|registro de execução|folha de resposta|respostas pessoais|tempo real|desempenho pessoal|caderno de erros pessoal|hist[óo]rico pessoal|hist[óo]rico reaproveitado|baseline pessoal)/i;
+import { createHash } from "node:crypto";
+
+const PRIVATE_SECTION = /(?:navega[çc][ãa]o|controle\s+operacional|execu[çc][ãa]o\s+real|registro\s+de\s+execu[çc][ãa]o|folha\s+de\s+resposta|respostas\s+pessoais|tempo\s+real|desempenho\s+pessoal|hist[óo]rico\s+pessoal|hist[óo]rico\s+reaproveitado|baseline\s+pessoal)/i;
+const PRIVATE_LINE = /(?:resposta\s+pessoal|tempo\s+real|acertos\/erros\s+reais|n[ãa]o\s+preencher\s+editorialmente|meus\s+dados)/i;
 const NOTION_INTERNAL_URL = /https?:\/\/(?:www\.)?(?:app\.)?notion\.(?:so|com)\/[^\s)\]}]+/gi;
 const NOTION_INTERNAL_REF = /collection:\/\/[-a-z0-9]+/gi;
 
@@ -40,81 +43,23 @@ export function relationIds(property) {
     : [];
 }
 
-export function blockText(block) {
-  if (!block || typeof block !== "object") return "";
-  const type = block.type;
-  const data = block[type] || {};
-  if (type === "table_row") {
-    return sanitizePublicText((data.cells || []).map((cell) => richText(cell)).join(" | "));
-  }
-  if (type === "equation") return sanitizePublicText(data.expression || "");
-  if (type === "child_page") return sanitizePublicText(data.title || "");
-  if (type === "bookmark" || type === "embed" || type === "link_preview") {
-    const url = sanitizePublicText(data.url || "");
-    return /^https?:\/\//i.test(url) ? url : "";
-  }
-  const text = richText(data.rich_text || data.caption || []);
-  return sanitizePublicText(text);
-}
-
 export function materialSnapshotFromBlocks({ dxx, title, focus, version, lastEdited }, blocks) {
-  const flat = flatten(blocks);
-  const sections = [];
-  let current = { heading: "Visão geral", lines: [] };
-  let privateLevel = 0;
-
-  const flush = () => {
-    const body = sanitizePublicText(current.lines.join("\n"));
-    const heading = sanitizePublicText(current.heading);
-    if (heading && body && !PRIVATE_SECTION.test(heading)) {
-      sections.push({ heading, body });
-    }
-    current = { heading: "Continuação", lines: [] };
-  };
-
-  for (const block of flat) {
-    const type = block.type || "";
-    const text = blockText(block);
-    if (!text) continue;
-
-    const headingMatch = type.match(/^heading_([123])$/);
-    if (headingMatch) {
-      const level = Number(headingMatch[1]);
-
-      if (privateLevel && level <= privateLevel) privateLevel = 0;
-      if (privateLevel) continue;
-
-      flush();
-      if (PRIVATE_SECTION.test(text)) {
-        privateLevel = level;
-        current = { heading: text, lines: [] };
-        continue;
-      }
-
-      current = { heading: text, lines: [] };
-      continue;
-    }
-
-    if (privateLevel || PRIVATE_SECTION.test(current.heading)) continue;
-    if (type === "bulleted_list_item") current.lines.push(`• ${text}`);
-    else if (type === "numbered_list_item") current.lines.push(`• ${text}`);
-    else if (type === "to_do") current.lines.push(`• ${text}`);
-    else if (type === "quote") current.lines.push(`“${text}”`);
-    else current.lines.push(text);
-  }
-  flush();
-
-  const safeSections = sections.filter((section) => section.body.length > 0);
-  const firstBody = safeSections[0]?.body || sanitizePublicText(focus);
-  const summary = sanitizePublicText(focus) || firstBody.slice(0, 420);
+  const contentHtml = withStudyIndex(
+    sanitizeMaterialHtml(renderBlocks(blocks)),
+    dxx.toLowerCase(),
+  );
+  const sections = extractTextSections(blocks);
+  const summary = sanitizePublicText(focus) || stripHtml(contentHtml).slice(0, 420);
 
   return {
     dxx,
     title: sanitizePublicText(title) || dxx,
     summary,
-    sections: safeSections,
+    contentHtml,
+    sections,
     ...(version ? { version } : {}),
     ...(lastEdited ? { lastEdited } : {}),
+    hash: sha256(contentHtml),
   };
 }
 
@@ -126,7 +71,8 @@ export function questionSnapshotFromPage({ dxx, page }) {
   const valid = propertyNumber(p, "Questões válidas");
   const priority = propertyText(p, "Origem prioritária");
   const focus = propertyText(p, "Matéria/foco");
-  const sourceSummary = priority || focus || "Metadados editoriais do caderno canônico.";
+  const notes = propertyText(p, "Observações editoriais");
+  const sourceSummary = priority || focus || notes || "Metadados editoriais do caderno canônico.";
   const version = propertyNumber(p, "Versão editorial");
   const gapDeclared = propertyCheckbox(p, "Lacuna declarada");
 
@@ -148,25 +94,245 @@ export function pageTitle(page, fallback = "") {
   const properties = page?.properties || {};
   for (const property of Object.values(properties)) {
     if (Array.isArray(property?.title)) {
-      const value = richText(property.title);
+      const value = richTextPlain(property.title);
       if (value) return sanitizePublicText(value);
     }
   }
   return sanitizePublicText(fallback);
 }
 
-function richText(items) {
-  return (items || []).map((item) => item?.plain_text || item?.text?.content || "").join("");
+export function stripHtml(value = "") {
+  return String(value)
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
-function flatten(blocks) {
-  const out = [];
+function renderBlocks(blocks) {
+  let html = "";
+  for (let index = 0; index < (blocks || []).length; index += 1) {
+    const block = blocks[index];
+    if (["bulleted_list_item", "numbered_list_item"].includes(block.type)) {
+      const type = block.type;
+      const tag = type === "bulleted_list_item" ? "ul" : "ol";
+      const items = [];
+      while (index < blocks.length && blocks[index].type === type) {
+        const item = blocks[index];
+        const data = item[type] || {};
+        items.push(`<li>${richTextHtml(data.rich_text)}${renderBlocks(item.children || [])}</li>`);
+        index += 1;
+      }
+      index -= 1;
+      html += `<${tag}>${items.join("")}</${tag}>`;
+      continue;
+    }
+    html += renderBlock(block);
+  }
+  return html;
+}
+
+function renderBlock(block) {
+  const type = block?.type;
+  const data = block?.[type] || {};
+  const text = richTextHtml(data.rich_text);
+  const children = renderBlocks(block?.children || []);
+
+  if (type === "paragraph") return text ? `<p>${text}</p>${children}` : children;
+  if (type === "heading_1" || type === "heading_2") return `<h2>${text}</h2>${children}`;
+  if (type === "heading_3") return `<h3>${text}</h3>${children}`;
+  if (type === "quote") return `<blockquote>${text}${children}</blockquote>`;
+  if (type === "callout") {
+    const icon = data.icon?.type === "emoji" ? `${escapeHtml(data.icon.emoji)} ` : "";
+    return `<aside class="study-callout">${icon}${text}${children}</aside>`;
+  }
+  if (type === "divider") return "<hr>";
+  if (type === "toggle") return `<details class="study-toggle"><summary>${text || "Ver conteúdo"}</summary>${children}</details>`;
+  if (type === "to_do") return `<div class="study-todo"><span>${data.checked ? "☑" : "☐"}</span><span>${text}</span></div>${children}`;
+  if (type === "code") {
+    const raw = (data.rich_text || []).map((item) => item.plain_text || "").join("");
+    return `<pre><code>${escapeHtml(raw)}</code></pre>${children}`;
+  }
+  if (type === "equation") return `<div class="study-equation">${escapeHtml(data.expression || "")}</div>${children}`;
+  if (type === "table") {
+    const rows = (block.children || [])
+      .filter((item) => item.type === "table_row")
+      .map((row, rowIndex) => {
+        const cells = (row.table_row?.cells || []).map((cell) => {
+          const tag = rowIndex === 0 && data.has_column_header ? "th" : "td";
+          return `<${tag}>${richTextHtml(cell)}</${tag}>`;
+        }).join("");
+        return `<tr>${cells}</tr>`;
+      }).join("");
+    return `<div class="study-table-wrap"><table>${rows}</table></div>`;
+  }
+  if (type === "bookmark" || type === "link_preview" || type === "embed") {
+    const url = safeExternalUrl(data.url);
+    return url
+      ? `<p><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">Abrir referência externa ↗</a></p>`
+      : children;
+  }
+  if (type === "image") {
+    return children || '<div class="study-media-note">🖼️ Imagem disponível apenas na fonte canônica.</div>';
+  }
+  if (["synced_block", "column", "column_list"].includes(type)) return children;
+  if (["child_page", "child_database", "file", "pdf", "video", "audio"].includes(type)) {
+    return children || '<div class="study-media-note">Anexo ou conteúdo vinculado disponível apenas na fonte canônica.</div>';
+  }
+  if (type === "table_row") return "";
+  return children || (text ? `<p>${text}</p>` : "");
+}
+
+function richTextHtml(items = []) {
+  return (items || []).map((item) => {
+    let value = item.type === "equation"
+      ? escapeHtml(item.equation?.expression || "")
+      : escapeHtml(item.plain_text || item.text?.content || "");
+    const annotations = item.annotations || {};
+    if (annotations.code) value = `<code>${value}</code>`;
+    if (annotations.bold) value = `<strong>${value}</strong>`;
+    if (annotations.italic) value = `<em>${value}</em>`;
+    if (annotations.underline) value = `<u>${value}</u>`;
+    if (annotations.strikethrough) value = `<s>${value}</s>`;
+
+    const external = safeExternalUrl(item.href || item.text?.link?.url || "");
+    if (external) value = `<a href="${escapeHtml(external)}" target="_blank" rel="noreferrer">${value}</a>`;
+    return value;
+  }).join("");
+}
+
+function sanitizeMaterialHtml(value) {
+  let html = String(value || "")
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/\son[a-z]+="[^"]*"/gi, "")
+    .replace(/\son[a-z]+='[^']*'/gi, "");
+
+  html = removeHtmlSections(html, (heading) => PRIVATE_SECTION.test(stripHtml(heading)));
+  html = html.replace(/<(p|blockquote|li|aside)\b[^>]*>[\s\S]*?<\/\1>/gi, (block) => {
+    const plain = stripHtml(block);
+    return PRIVATE_LINE.test(plain) ? "" : block;
+  });
+
+  return html.replace(/\s{2,}/g, " ").trim();
+}
+
+function removeHtmlSections(html, shouldRemove) {
+  const headingPattern = /<h[23]\b[^>]*>[\s\S]*?<\/h[23]>/gi;
+  const matches = [...html.matchAll(headingPattern)];
+  if (!matches.length) return html;
+
+  let output = "";
+  let cursor = 0;
+  for (let index = 0; index < matches.length; index += 1) {
+    const match = matches[index];
+    const start = match.index ?? 0;
+    const nextStart = matches[index + 1]?.index ?? html.length;
+    output += html.slice(cursor, start);
+    if (!shouldRemove(match[0])) output += html.slice(start, nextStart);
+    cursor = nextStart;
+  }
+  return output + html.slice(cursor);
+}
+
+function withStudyIndex(html, code) {
+  const headings = [];
+  let counter = 0;
+  const anchored = String(html || "").replace(/<h([23])\b[^>]*>([\s\S]*?)<\/h\1>/gi, (heading, level, inner) => {
+    const label = stripHtml(inner);
+    if (!label) return heading;
+    counter += 1;
+    const id = `${String(code).toLowerCase()}-${slugifyHeading(label)}-${counter}`;
+    headings.push({ id, label, level: Number(level) });
+    return `<h${level} id="${id}">${inner}</h${level}>`;
+  });
+  if (!headings.length) return anchored;
+  const index = `<details class="study-toggle study-index"><summary>🧭 Índice da aula</summary><nav class="study-index-nav" aria-label="Seções da aula"><ol>${headings.map((h) => `<li class="study-index-level-${h.level}"><a href="#${h.id}">${escapeHtml(h.label)}</a></li>`).join("")}</ol></nav></details>`;
+  return index + anchored;
+}
+
+function extractTextSections(blocks) {
+  const flat = [];
   const visit = (list) => {
     for (const block of list || []) {
-      out.push(block);
+      flat.push(block);
       if (Array.isArray(block.children)) visit(block.children);
     }
   };
   visit(blocks);
-  return out;
+
+  const sections = [];
+  let current = { heading: "Visão geral", lines: [] };
+  const flush = () => {
+    const body = sanitizePublicText(current.lines.join("\n"));
+    const heading = sanitizePublicText(current.heading);
+    if (heading && body && !PRIVATE_SECTION.test(heading)) sections.push({ heading, body: body.slice(0, 18000) });
+    current = { heading: "Continuação", lines: [] };
+  };
+
+  for (const block of flat) {
+    const type = block?.type || "";
+    const text = blockPlainText(block);
+    if (!text) continue;
+    if (/^heading_[123]$/.test(type)) {
+      flush();
+      current = { heading: text, lines: [] };
+      continue;
+    }
+    if (PRIVATE_SECTION.test(current.heading) || PRIVATE_LINE.test(text)) continue;
+    current.lines.push(["bulleted_list_item","numbered_list_item","to_do"].includes(type) ? `• ${text}` : text);
+  }
+  flush();
+  return sections;
+}
+
+function blockPlainText(block) {
+  const type = block?.type;
+  const data = block?.[type] || {};
+  if (type === "table_row") {
+    return sanitizePublicText((data.cells || []).map((cell) => richTextPlain(cell)).join(" | "));
+  }
+  if (type === "equation") return sanitizePublicText(data.expression || "");
+  return sanitizePublicText(richTextPlain(data.rich_text || data.caption || []));
+}
+
+function richTextPlain(items) {
+  return (items || []).map((item) => item?.plain_text || item?.text?.content || "").join("");
+}
+
+function safeExternalUrl(value) {
+  const raw = String(value || "").trim();
+  if (!/^https?:\/\//i.test(raw)) return "";
+  try {
+    const url = new URL(raw);
+    if (/^(?:www\.)?notion\.so$/i.test(url.hostname) || /^app\.notion\.com$/i.test(url.hostname)) return "";
+    return url.toString();
+  } catch {
+    return "";
+  }
+}
+
+function escapeHtml(value = "") {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function slugifyHeading(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60) || "secao";
+}
+
+function sha256(value) {
+  return createHash("sha256").update(String(value || "")).digest("hex");
 }
