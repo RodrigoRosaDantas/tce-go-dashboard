@@ -5,7 +5,7 @@ import { Shell } from "./v3/Shell";
 import { OperationalProvider } from "./v4/OperationalContext";
 import { HomePage } from "./v3/HomePage";
 import { StudyPage, QuestionPage } from "./v3/StudyPage";
-import { PerformancePageV4 } from "./v4/PerformancePage";
+import { DataDashboardPage } from "./v4/DataDashboardPage";
 import { TrailPageV4 } from "./v4/TrailPage";
 import { RevisionsPageV4 } from "./v4/RevisionsPage";
 import { ErrorsPageV4 } from "./v4/ErrorsPage";
@@ -65,7 +65,7 @@ export default function AppV3() {
   else if (route === "/redacoes/") page = <RedactionsPage snapshot={snapshot} />;
   else if (route === "/erros/") page = <ErrorsPageV4 snapshot={snapshot} />;
   else if (route === "/simulados/") page = <SimulationsPage snapshot={snapshot} />;
-  else if (route === "/desempenho/") page = <PerformancePageV4 snapshot={snapshot} />;
+  else if (route === "/desempenho/") page = <DataDashboardPage snapshot={snapshot} />;
   else if (route === "/edital/") page = <EditalPage snapshot={snapshot} />;
   else if (route === "/legislacao/") page = <LegislationPage snapshot={snapshot} />;
   else if (route === "/reta-final/") page = <FinalSprintPageV4 snapshot={snapshot} />;
