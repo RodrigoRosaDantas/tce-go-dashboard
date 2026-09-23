@@ -15,6 +15,13 @@ const token = process.env.TCE_GO_NOTION_TOKEN?.trim();
 const dataSourceOverride = process.env.TCE_GO_DAYS_DATA_SOURCE_ID?.trim();
 const notionVersion = process.env.NOTION_VERSION || "2026-03-11";
 const daysDataSourceTitle = "Estudo dia a dia — D001 a D100 | TCE-GO";
+const auxiliaryDataSources = {
+  redactions: "d837d3d6-7646-4f41-888a-ed8b48f94c9d",
+  simulations: "6deb1496-01ae-4a2d-8b38-5e99423410ee",
+  edital: "930ae7dd-c076-40ad-a723-b2b9118c3367",
+  sources: "926f6b7c-7886-4917-a2f8-76aa1d87d39f",
+  finalSprint: "bd489b71-876d-450b-81f3-a8944f837bda",
+};
 const notionBase = "https://api.notion.com/v1";
 const maxConcurrency = 3;
 
@@ -30,6 +37,29 @@ const rows = await queryAllDays();
 const links = rows.map(normalizeDayRecord).sort((a, b) => a.day.order - b.day.order);
 const days = links.map((item) => item.day);
 const ready = links.filter((item) => !item.day.protected && item.day.readyForStudy);
+
+const [redactionRows, simulationRows, editalRows, sourceRows, finalSprintRows] = await Promise.all([
+  queryAllDataSource(auxiliaryDataSources.redactions),
+  queryAllDataSource(auxiliaryDataSources.simulations),
+  queryAllDataSource(auxiliaryDataSources.edital),
+  queryAllDataSource(auxiliaryDataSources.sources),
+  queryAllDataSource(auxiliaryDataSources.finalSprint),
+]);
+const redactions = redactionRows.map(normalizeRedactionPlan)
+  .filter((item) => item.code && item.dxx)
+  .sort((a, b) => a.code.localeCompare(b.code, "pt-BR", { numeric: true }));
+const simulations = simulationRows.map(normalizeSimulationPlan)
+  .filter((item) => item.dxx)
+  .sort((a, b) => Number(a.dxx.slice(1)) - Number(b.dxx.slice(1)));
+const edital = editalRows.map(normalizeEditalItem)
+  .filter((item) => item.code && item.discipline)
+  .sort((a, b) => a.order - b.order);
+const legislation = sourceRows.map(normalizeLegislationSource)
+  .filter((item) => item && ["Constituição", "Lei estadual", "Ato TCE-GO"].includes(item.category))
+  .sort((a, b) => a.code.localeCompare(b.code, "pt-BR", { numeric: true }));
+const finalSprint = finalSprintRows.map(normalizeFinalSprintDay)
+  .filter((item) => item.code && item.date)
+  .sort((a, b) => a.order - b.order);
 
 const pairs = await mapLimit(ready, maxConcurrency, async (item) => {
   if (!item.materialPageId) throw new Error(`${item.day.dxx}: Material canônico ausente.`);
@@ -80,15 +110,26 @@ const publicStats = {
   readyDays: ready.length,
   materialPages: Object.keys(materials).length,
   questionPages: Object.keys(questions).length,
+  redactionPlans: redactions.length,
+  simulationPlans: simulations.length,
+  editalItems: edital.length,
+  legislationSources: legislation.length,
+  finalSprintDays: finalSprint.length,
 };
 
 const stablePayload = {
   schemaVersion: "1.0.0",
   source: "notion",
   contentMode: "full",
+  auxiliaryMode: "full",
   days,
   materials,
   questions,
+  redactions,
+  simulations,
+  edital,
+  legislation,
+  finalSprint,
   publicStats,
 };
 const contentHash = createHash("sha256").update(JSON.stringify(stablePayload)).digest("hex");
@@ -140,12 +181,16 @@ function dataSourceTitle(item) {
 }
 
 async function queryAllDays() {
+  return queryAllDataSource(dataSourceId);
+}
+
+async function queryAllDataSource(id) {
   const pages = [];
   let cursor;
   do {
     const body = { page_size: 100 };
     if (cursor) body.start_cursor = cursor;
-    const json = await notionRequest(`/data_sources/${dataSourceId}/query`, {
+    const json = await notionRequest(`/data_sources/${id}/query`, {
       method: "POST",
       body: JSON.stringify(body),
     });
@@ -153,6 +198,78 @@ async function queryAllDays() {
     cursor = json.has_more ? json.next_cursor : undefined;
   } while (cursor);
   return pages.filter((page) => !page.archived);
+}
+
+function normalizeRedactionPlan(page) {
+  const p = page.properties || {};
+  const title = propertyText(p, "Redação");
+  const match = title.match(/\bR(\d+)\b/i);
+  return {
+    code: match ? `R${Number(match[1])}` : "",
+    title,
+    dxx: propertyText(p, "Dxx"),
+    date: dateProperty(p, "Data"),
+    theme: propertyText(p, "Tema"),
+  };
+}
+
+function normalizeSimulationPlan(page) {
+  const p = page.properties || {};
+  return {
+    title: propertyText(p, "Marco"),
+    dxx: propertyText(p, "Dxx"),
+    date: dateProperty(p, "Data"),
+    type: propertyText(p, "Tipo"),
+    plannedCoverage: numberProperty(p, "Cobertura — previstos"),
+    plannedSessions: numberProperty(p, "Carga — sessões previstas"),
+  };
+}
+
+function normalizeEditalItem(page) {
+  const p = page.properties || {};
+  return {
+    code: propertyText(p, "Código"),
+    order: numberProperty(p, "Ordem"),
+    discipline: propertyText(p, "Disciplina"),
+    active: checkboxProperty(p, "Ativo"),
+    block: propertyText(p, "Bloco"),
+    questions: numberProperty(p, "Questões"),
+    weight: numberProperty(p, "Peso"),
+    weightedPoints: numberProperty(p, "Pontos ponderados"),
+    baseline: propertyText(p, "Baseline histórico"),
+    treatment: propertyText(p, "Tratamento"),
+    editorialStatus: propertyText(p, "Status editorial"),
+    normativeSource: propertyText(p, "Fonte normativa"),
+  };
+}
+
+function normalizeLegislationSource(page) {
+  const p = page.properties || {};
+  const official = checkboxProperty(p, "Fonte oficial");
+  const nature = propertyText(p, "Natureza");
+  const officialUrl = safePublicUrl(urlProperty(p, "URL oficial"));
+  if (!official || nature !== "Fonte oficial externa" || !officialUrl) return null;
+  return {
+    code: propertyText(p, "Código"),
+    title: propertyText(p, "Fonte"),
+    category: propertyText(p, "Categoria"),
+    cutoff: propertyText(p, "Corte/vigência"),
+    dxx: propertyText(p, "Dxx principal"),
+    use: propertyText(p, "Uso"),
+    status: propertyText(p, "Status"),
+    officialUrl,
+  };
+}
+
+function normalizeFinalSprintDay(page) {
+  const p = page.properties || {};
+  return {
+    code: propertyText(p, "Código"),
+    order: numberProperty(p, "Ordem"),
+    date: dateProperty(p, "Data"),
+    title: propertyText(p, "Dia da reta final"),
+    type: propertyText(p, "Tipo"),
+  };
 }
 
 function normalizeDayRecord(page) {
@@ -251,6 +368,22 @@ function numberProperty(properties, name) {
 function checkboxProperty(properties, name) {
   return Boolean(properties?.[name]?.checkbox);
 }
+function dateProperty(properties, name) {
+  return properties?.[name]?.date?.start?.slice(0, 10) || "";
+}
+function urlProperty(properties, name) {
+  return String(properties?.[name]?.url || "").trim();
+}
+function safePublicUrl(value) {
+  if (!/^https?:\/\//i.test(value || "")) return "";
+  try {
+    const parsed = new URL(value);
+    if (/^(?:www\.)?notion\.so$/i.test(parsed.hostname) || /^app\.notion\.com$/i.test(parsed.hostname)) return "";
+    return parsed.toString();
+  } catch {
+    return "";
+  }
+}
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -274,4 +407,5 @@ function writeSnapshot(data) {
   fs.writeFileSync(path.join(dir, "tce-go-days.json"), JSON.stringify(data.days, null, 2) + "\n");
   fs.writeFileSync(path.join(dir, "tce-go-materials.json"), JSON.stringify(data.materials, null, 2) + "\n");
   fs.writeFileSync(path.join(dir, "tce-go-questions.json"), JSON.stringify(data.questions, null, 2) + "\n");
+  fs.writeFileSync(path.join(dir, "tce-go-edital.json"), JSON.stringify(data.edital || [], null, 2) + "\n");
 }
