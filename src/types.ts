@@ -33,6 +33,21 @@ export interface PlatformBattery {
   size: number;
 }
 
+export interface AuthorialQuestionChoice {
+  key: string;
+  text: string;
+}
+
+export interface AuthorialQuestionItem {
+  number: number;
+  id: string;
+  title: string;
+  prompt: string;
+  choices: AuthorialQuestionChoice[];
+  answer?: string;
+  rationale?: string;
+}
+
 export interface QuestionSnapshot {
   qxx: string;
   dxx: string;
@@ -49,6 +64,7 @@ export interface QuestionSnapshot {
   gapDeclared?: boolean;
   adaptive?: boolean;
   platformBattery?: PlatformBattery;
+  authorialItems?: AuthorialQuestionItem[];
 }
 
 export interface RedactionPlanSnapshot {
