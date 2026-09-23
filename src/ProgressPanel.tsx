@@ -67,7 +67,9 @@ export function ProgressPanel({ day }: { day: DaySnapshot }) {
       if (state) {
         setConfirmed(state);
         setForm(fromProgress(state));
-        setMessage(state.canonical ? "Estado confirmado pelo Notion." : "Último estado confirmado em cache; aguardando validação do Notion.");
+        setMessage(state.canonical
+          ? "Estado confirmado pelo Notion."
+          : "Último estado confirmado em cache; a versão atual do Notion ainda não foi revalidada.");
       } else {
         setMessage(connected ? "Sem progresso confirmado para este Dxx." : "Conta de progresso não conectada.");
       }
@@ -81,7 +83,9 @@ export function ProgressPanel({ day }: { day: DaySnapshot }) {
       if (alive && state) {
         setConfirmed(state);
         setForm(fromProgress(state));
-        setMessage(state.canonical ? "Sincronização confirmada pelo Notion." : "Conectado novamente; confirmação do Notion ainda pendente.");
+        setMessage(state.canonical
+          ? "Sincronização confirmada pelo Notion."
+          : "Conectado novamente; a versão atual do Notion ainda não foi revalidada.");
       }
     };
     window.addEventListener("tce-progress-queue", onQueue);
@@ -120,6 +124,7 @@ export function ProgressPanel({ day }: { day: DaySnapshot }) {
       dxx: day.dxx,
       sxx: day.session ?? null,
       eventType: type,
+      baseCanonicalRevision: confirmed?.canonicalRevision ?? null,
       payload: {
         studied: form.studied || form.completed || form.timeMinutes > 0 || form.questionsDone > 0,
         completed: form.completed,

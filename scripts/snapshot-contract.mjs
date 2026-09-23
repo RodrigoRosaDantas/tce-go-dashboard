@@ -65,6 +65,9 @@ export function validateSnapshot(snapshot) {
       if (!question.platformBattery.materia || !question.platformBattery.topico) {
         errors.push(`questões ${slug}: plataforma exige matéria + tópico validados`);
       }
+      if (!Number.isInteger(question.platformBattery.size) || question.platformBattery.size < 1 || question.platformBattery.size !== question.meta) {
+        errors.push(`questões ${slug}: bateria externa deve cobrir exatamente a meta pública do Qxx`);
+      }
       for (const value of Object.values(question.platformBattery)) {
         if (typeof value === "string" && /app\.notion\.com|notion\.so|collection:\/\//i.test(value)) {
           errors.push(`questões ${slug}: filtro da plataforma contém referência interna`);

@@ -79,11 +79,13 @@ export function questionSnapshotFromPage({ dxx, page }) {
   const platformMateria = sanitizePublicText(propertyText(p, "Plataforma — matéria"));
   const platformTopico = sanitizePublicText(propertyText(p, "Plataforma — tópico"));
   const platformSubtopico = sanitizePublicText(propertyText(p, "Plataforma — subtópico"));
-  const platformBattery = platformValidated && platformMateria && platformTopico
+  const platformQuantity = propertyNumber(p, "Plataforma — quantidade validada");
+  const platformBattery = platformValidated && platformMateria && platformTopico && meta > 0 && platformQuantity >= meta
     ? {
         materia: platformMateria,
         topico: platformTopico,
         ...(platformSubtopico ? { subtopico: platformSubtopico } : {}),
+        size: meta,
       }
     : null;
 

@@ -18,6 +18,7 @@ export type ProgressState = {
   status?: string | null;
   confirmedAt?: string | null;
   eventOccurredAt?: string | null;
+  canonicalRevision?: string | null;
   canonical: boolean;
   source: "notion" | "cache";
 };
@@ -29,6 +30,7 @@ export type ProgressEvent = {
   timestamp: string;
   origin: "tce-go-dashboard";
   idempotencyKey: string;
+  baseCanonicalRevision?: string | null;
   payload: {
     studied?: boolean;
     completed?: boolean;
@@ -205,6 +207,7 @@ async function syncEvent(event: ProgressEvent) {
           source: "notion",
           confirmedAt: data.confirmation?.confirmedAt ?? new Date().toISOString(),
           eventOccurredAt: data.confirmation?.occurredAt ?? event.timestamp,
+          canonicalRevision: data.confirmation?.canonicalRevision ?? null,
         });
       }
       return { status: "confirmed" as const, data };
@@ -234,7 +237,7 @@ export function platformAccountUrl() {
   return "https://rodrigorosadantas.github.io/plataforma-questoes/?view=settings";
 }
 
-export function platformBatteryUrl(input: { dxx: string; sxx?: string | null; materia: string; topico: string; subtopico?: string | null }) {
+export function platformBatteryUrl(input: { dxx: string; sxx?: string | null; materia: string; topico: string; subtopico?: string | null; size?: number }) {
   const url = new URL("https://rodrigorosadantas.github.io/plataforma-questoes/");
   url.searchParams.set("view", "questions");
   url.searchParams.set("dxx", input.dxx);
@@ -242,6 +245,7 @@ export function platformBatteryUrl(input: { dxx: string; sxx?: string | null; ma
   url.searchParams.set("disciplina", input.materia);
   url.searchParams.set("assunto", input.topico);
   if (input.subtopico) url.searchParams.set("subassunto", input.subtopico);
+  if (input.size && input.size > 0) url.searchParams.set("size", String(Math.round(input.size)));
   url.searchParams.set("autostart", "1");
   return url.href;
 }
