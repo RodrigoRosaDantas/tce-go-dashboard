@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T14:04:23.485Z",
+  "generatedAt": "2026-09-23T14:05:09.145Z",
   "days": [
     {
       "dxx": "D001",
@@ -5752,6 +5752,1183 @@
       ],
       "version": 2,
       "lastEdited": "2026-09-22T15:09:02.905Z"
+    },
+    "d043": {
+      "dxx": "D043",
+      "title": "D043 — AFO",
+      "summary": "AFO — complemento I — LRF: pessoal, dívida/endividamento, operações de crédito, ARO e recondução; ligação com controle externo.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D043 — AFO \\| LRF de alto risco: pessoal, dívida, crédito, ARO e controle externo\nS20 / D043 — 120 min. Este não é um reestudo completo de AFO. O baseline do projeto para B05 é Forte e o tratamento é Complemento. A sessão calibra retenção FCC e aprofunda apenas o bloco LRF de maior risco: pessoal → dívida → operações de crédito → ARO → RGF/Tribunal de Contas."
+        },
+        {
+          "heading": "2. Hipótese de calibração",
+          "body": "O edital verticalizado registra:\n- B05 — AFO;\n- bloco Específicos;\n- 5 questões;\n- peso 2;\n- baseline histórico Forte;\n- tratamento Complemento.\nPortanto, a hipótese é:\n> os fundamentos gerais de AFO não precisam ser reabertos; o que precisa ser testado é a retenção do bloco LRF e a adaptação à literalidade FCC atual."
+        },
+        {
+          "heading": "Trava anti-reestudo",
+          "body": "Este D043 não reabre:\n- PPA/LDO/LOA em geral;\n- princípios orçamentários;\n- créditos adicionais em geral;\n- receita/despesa pública inteira;\n- restos a pagar inteiro;\n- Lei nº 4.320/1964 inteira.\nSe Q043 revelar lacuna localizada, reabra somente o subbloco correspondente."
+        },
+        {
+          "heading": "3. Por que este complemento entra aqui",
+          "body": "A LRF é ponto de encontro entre:\n- AFO;\n- controle externo;\n- gestão fiscal;\n- responsabilidade de titulares;\n- relatórios fiscais;\n- limites objetivos.\nPara o TCE-GO, o ganho é duplo:\n1. resolver AFO/FCC;\n2. reconhecer exatamente o que o Tribunal de Contas fiscaliza e quando alerta."
+        },
+        {
+          "heading": "Entra",
+          "body": "- LC nº 101/2000:\n- arts. 18–23 — despesa com pessoal;\n- arts. 29–32 — dívida e operações de crédito;\n- arts. 35–38 — vedações e ARO;\n- arts. 54–55 — RGF;\n- art. 59 — fiscalização e alertas dos Tribunais de Contas.\n- Resolução do Senado nº 40/2001:\n- limites de dívida consolidada líquida.\n- Resolução do Senado nº 43/2001:\n- limites principais de operações de crédito e ARO."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- LRF artigo por artigo;\n- transferências voluntárias em profundidade;\n- renúncia de receita e despesa obrigatória continuada;\n- restos a pagar/art. 42 em profundidade;\n- calamidade pública em profundidade;\n- dívida mobiliária histórica;\n- exceções especiais de programas fiscais que não tenham incidência provável no recorte."
+        },
+        {
+          "heading": "Corte normativo",
+          "body": "25/08/2026."
+        },
+        {
+          "heading": "Fontes",
+          "body": "- [LC nº 101/2000 — LRF consolidada, Planalto](https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp101.htm)\n- [RSF nº 40/2001 — Senado Federal](https://legis.senado.leg.br/norma/562458/publicacao/16433689)\n- [RSF nº 43/2001 — Senado Federal](https://legis.senado.leg.br/norma/582604/publicacao/16433616)\nRegistros internos:"
+        },
+        {
+          "heading": "Atualizações que contaminam questão antiga",
+          "body": "- Art. 23 e art. 31: redações de restrições foram ajustadas pela LC nº 178/2021. Questão antiga deve ser confrontada com a redação atual.\n- Art. 35: a LC nº 212/2025 alterou a exceção relativa a operações entre entes; não use redação anterior como atual.\n- Pós-corte: a LC nº 237/2026, de 15/09/2026, continha tentativa de alteração do art. 25, § 4º, mas o dispositivo correspondente foi vetado. Não altera este recorte e, de qualquer forma, é posterior ao corte.\nRegra de prova: questão FCC antiga pode continuar útil, mas o fundamento final do D043 é sempre a redação oficial vigente no corte."
+        },
+        {
+          "heading": "6. Roteiro de 120 minutos",
+          "body": "1. 10 min — reativação curta pelo quadro de gatilhos abaixo.\n2. 50 min — Q043, questões 1–30, sem consultar correções.\n3. 25 min — correção e classificação da causa do erro.\n4. 25 min — abrir somente os módulos teóricos das lacunas.\n5. 10 min — D0 por evocação.\nSe a bateria demonstrar retenção forte, não transforme o tempo poupado em releitura geral."
+        },
+        {
+          "heading": "7. Reativação de 10 minutos — números-gatilho",
+          "body": "Gatilho\nNúmero/regra\nDTP global União\n50% da RCL\nDTP global Estados\n60% da RCL\nDTP global Municípios\n60% da RCL\nalerta do TC — pessoal\nacima de 90% do limite\nprudencial\nexceder 95% do limite\nexcesso pessoal\n2 quadrimestres; ≥ 1/3 no primeiro\nexcesso dívida\n3 quadrimestres; ≥ 25% no primeiro\nDCL Estados/DF — RSF 40\n2 × RCL\nDCL Municípios — RSF 40\n1,2 × RCL\noperações de crédito — RSF 43\n16% da RCL/ano\nserviço da dívida — RSF 43\n11,5% da RCL\nsaldo ARO — RSF 43\n7% da RCL\nARO — início\na partir do 10º dia do exercício\nARO — quitação\naté 10 de dezembro\nSe esses gatilhos estiverem vivos, vá direto ao Q043.\n---\n# MÓDULOS DE CORREÇÃO DIRIGIDA\n> Abra depois da bateria apenas se o erro/dúvida justificar.\n👥 Módulo P — despesa total com pessoal\n## 8. O que integra a DTP\nA LRF considera gastos do ente com:\n- ativos;\n- inativos;\n- pensionistas;\n- mandatos eletivos;\n- cargos, funções e empregos;\n- civis e militares;\n- membros de Poder;\n- quaisquer espécies remuneratórias;\n- encargos sociais e contribuições recolhidas pelo ente às entidades de previdência.\nContratos de terceirização de mão de obra que substituam servidores e empregados públicos são contabilizados como Outras Despesas de Pessoal.\n## 9. Janela de apuração\nA DTP é apurada:\n- pelo mês de referência + 11 anteriores;\n- pelo regime de competência;\n- independentemente do empenho.\n### Pegadinha FCC\nDespesa empenhada, liquidada e paga podem aparecer no enunciado. O comando pode exigir a despesa reconhecida pelo regime de competência.\n## 10. Limites globais\n- União: 50% da RCL.\n- Estados: 60% da RCL.\n- Municípios: 60% da RCL.\nNa esfera estadual, o art. 20 distribui:\n- Legislativo, incluído o Tribunal de Contas: 3%;\n- Judiciário: 6%;\n- Executivo: 49%;\n- Ministério Público: 2%.\nNão conclua daí que “o TCE sozinho tem 3%”. O percentual legal citado é do Poder Legislativo, incluído o Tribunal de Contas, com a disciplina de repartição entre órgãos.\n## 11. Escada 90 → 95 → 100\n### Acima de 90%\nAlerta do Tribunal de Contas.\nNão é o limite prudencial.\n### Exceder 95%\nLimite prudencial — art. 22.\nO Poder/órgão fica sujeito às vedações:\n1. vantagem/aumento/reajuste/adequação, com exceções legais;\n2. criação de cargo, emprego ou função;\n3. alteração de estrutura de carreira que aumente despesa;\n4. provimento/admissão/contratação, salvo reposição por aposentadoria/falecimento nas áreas de educação, saúde e segurança;\n5. hora extra, ressalvadas as hipóteses legais.\n### Ultrapassar 100%\nExcesso sobre o limite máximo — art. 23.\nDeve ser eliminado:\n- em 2 quadrimestres;\n- ao menos 1/3 no primeiro.\nNão alcançada a redução no prazo e enquanto perdurar o excesso, ficam vedados:\n- transferências voluntárias;\n- garantia de outro ente;\n- operações de crédito, ressalvadas as atuais exceções legais.\n## 12. Último ano de mandato\nSe o excesso do limite máximo ocorrer no primeiro quadrimestre do último ano do mandato, as restrições do art. 23, § 3º aplicam-se imediatamente.\nNão confundir com o art. 21, que traz nulidades específicas para atos que elevam despesa com pessoal em janelas de final de mandato.\n💳 Módulo D — dívida e recondução\n## 13. Dívida consolidada\nA dívida pública consolidada/fundada representa obrigações financeiras assumidas para amortização em prazo superior a 12 meses, sem prejuízo das inclusões específicas da LRF.\nTambém entram:\n- operações de crédito de prazo inferior a 12 meses cujas receitas tenham constado do orçamento;\n- precatórios judiciais não pagos durante a execução do orçamento em que foram incluídos, para fins dos limites.\n## 14. Limites da RSF nº 40/2001\n### Estados e DF\nDívida Consolidada Líquida: até 2 vezes a RCL.\n### Municípios\nDívida Consolidada Líquida: até 1,2 vez a RCL.\n## 15. Recondução\nSe a dívida consolidada ultrapassar o limite ao final de um quadrimestre:\n- retorno até o fim dos 3 quadrimestres subsequentes;\n- redução mínima de 25% do excedente no primeiro.\nEnquanto perdurar o excesso:\n- vedada operação de crédito interna ou externa, inclusive ARO, ressalvadas as operações para pagamento de dívidas mobiliárias;\n- o ente deve obter resultado primário necessário, inclusive com limitação de empenho.\nVencido o prazo sem retorno e enquanto persistir o excesso:\n- também fica impedido de receber transferências voluntárias.\n### Último mandato\nSe o excesso ocorrer no primeiro quadrimestre do último ano do mandato do Chefe do Executivo, as restrições do § 1º incidem imediatamente.\n## 16. Contraste automático\nPessoal: 2 quadrimestres / 1/3.\nDívida: 3 quadrimestres / 25%.\nEssa troca é uma das pegadinhas mais previsíveis.\n🏦 Módulo C — operações de crédito\n## 17. Conceito funcional\nOperação de crédito é compromisso financeiro assumido em razão de:\n- mútuo;\n- abertura de crédito;\n- emissão/aceite de título;\n- aquisição financiada;\n- recebimento antecipado de venda a termo;\n- arrendamento mercantil;\n- outras operações assemelhadas, inclusive derivativos.\nA LRF equipara determinadas operações e também cria vedações específicas.\n## 18. Art. 32 — requisitos\nO pleito deve demonstrar:\n- relação custo-benefício;\n- interesse econômico e social;\n- autorização prévia e expressa na LOA, créditos adicionais ou lei específica;\n- inclusão dos recursos no orçamento/créditos adicionais, exceto ARO;\n- limites e condições do Senado;\n- autorização específica do Senado para operação externa;\n- regra de ouro;\n- demais restrições da LRF.\n## 19. Limites da RSF nº 43/2001\nPara Estados, DF e Municípios:\n- montante global anual das operações de crédito: até 16% da RCL;\n- comprometimento anual com amortizações, juros e encargos: até 11,5% da RCL;\n- ARO possui limite próprio e não entra nesses limites nos termos da Resolução.\n### Art. 35 — cuidado com prova antiga\nÉ vedada operação de crédito entre entes federativos, direta ou por fundo/autarquia/fundação/estatal dependente.\nA redação atual, após LC nº 212/2025, admite exceção para operações destinadas a financiar estruturação de projetos ou garantir contraprestações em PPP/concessão.\nNão marque como atual uma questão antiga cuja conclusão dependa da redação anterior dessa exceção.\n⚡ Módulo A — ARO\n## 20. Finalidade\nARO = operação de crédito por antecipação de receita destinada a atender insuficiência de caixa durante o exercício financeiro.\nNão é receita “gratuita”, nem solução para desequilíbrio estrutural permanente.\n## 21. Regras literais\nA ARO:\n- só pode ocorrer a partir do 10º dia do início do exercício;\n- deve ser liquidada, com juros e encargos, até 10 de dezembro;\n- não admite outros encargos além da taxa de juros, nos termos legais;\n- é proibida se existir ARO anterior não integralmente resgatada;\n- é proibida no último ano do mandato do Presidente, Governador ou Prefeito.\n## 22. Regra de ouro\nSe liquidada até 10 de dezembro, a ARO não é computada para a regra de ouro do art. 167, III, da Constituição.\n## 23. Estados e Municípios\nARO de Estado ou Município ocorre mediante abertura de crédito junto à instituição financeira vencedora de processo competitivo eletrônico promovido pelo Banco Central.\n## 24. Limite da RSF nº 43/2001\nO saldo devedor das ARO não pode exceder 7% da RCL no exercício.\n### Pegadinha\n- limite geral de operações: 16%;\n- ARO: 7%;\n- serviço da dívida: 11,5%.\nNão misture.\n📋 Módulo R — RGF e controle externo\n## 25. RGF\nO Relatório de Gestão Fiscal é emitido ao final de cada quadrimestre pelos titulares dos Poderes e órgãos do art. 20.\nContém comparativo com limites de:\n- despesa total com pessoal;\n- dívidas consolidada e mobiliária;\n- garantias;\n- operações de crédito, inclusive ARO;\n- medidas corretivas quando houver excesso.\nNo último quadrimestre há demonstrativos adicionais, inclusive sobre caixa/restos a pagar e cumprimento de regras de ARO.\nPublicação: até 30 dias após o encerramento do período.\n## 26. Art. 59 — ponte direta com Tribunal de Contas\nO Legislativo, com auxílio dos Tribunais de Contas, e os sistemas de controle interno fiscalizam a LRF, com ênfase em:\n- metas da LDO;\n- operações de crédito e restos a pagar;\n- retorno da DTP aos limites;\n- recondução da dívida;\n- alienação de ativos;\n- limite dos legislativos municipais.\n### Alertas do Tribunal de Contas\nO TC alerta quando:\n- DTP ultrapassa 90% do limite;\n- dívida consolidada/mobiliária, operações de crédito ou garantias ficam acima de 90% dos respectivos limites;\n- gastos com inativos/pensionistas excedem limite legal;\n- há fatos que comprometem custos/resultados ou indícios de irregularidade.\nCompete ainda ao TC verificar os cálculos dos limites da DTP de cada Poder/órgão do art. 20.\n### Mapa definitivo\n90 = alerta do TC\n95 = prudencial\n100 = máximo/excesso"
+        },
+        {
+          "heading": "27. Caso integrado — Estado",
+          "body": "Um Estado encerra quadrimestre com:\n- DTP de determinado Poder = 96% do respectivo limite;\n- dívida consolidada acima do teto;\n- intenção de contratar ARO;\n- RGF a publicar."
+        },
+        {
+          "heading": "Diagnóstico",
+          "body": "1. DTP \\>95% → entram as vedações prudenciais do art. 22.\n2. Dívida acima do teto → recondução em 3 quadrimestres, 25% do excedente no primeiro.\n3. Enquanto perdurar o excesso da dívida → ARO está vedada pela regra de recondução.\n4. O RGF precisa refletir os limites e medidas corretivas.\n5. O Tribunal de Contas atua no acompanhamento e nos alertas previstos na LRF.\nA LRF não deve ser resolvida por um percentual isolado; monte a cadeia condição → limiar → consequência → prazo → controle."
+        },
+        {
+          "heading": "28. Atualização pós-corte — não transportar",
+          "body": "Em 15/09/2026, a LC nº 237/2026 foi publicada depois do corte do edital. O dispositivo do projeto que pretendia inserir § 4º no art. 25 da LRF foi vetado.\nPara D043:\n- é pós-corte;\n- não afeta pessoal, dívida, crédito, ARO ou art. 59;\n- não altera o material liberado."
+        },
+        {
+          "heading": "29. Evidência FCC mapeada para Q043",
+          "body": "O lote real inclui, entre outros:\n- SEFAZ-GO/FCC 2026 — ARO;\n- SEFAZ-SP/FCC 2026 — dívida/endividamento;\n- AL-MS/FCC 2026 — RGF;\n- PGE-TO/FCC 2025 — ARO;\n- TRT-18/GO/FCC 2023 — RGF e ARO;\n- CLDF/FCC 2018 — limite de operações de crédito;\n- TCE-SP/FCC 2012 — pessoal;\n- TCM-PA/FCC 2010 — alerta do Tribunal de Contas;\n- TCE-MA/FCC 2005 — limites e controle de pessoal.\nQuestões antigas são classificadas individualmente por validade; idade não produz V1 automática."
+        },
+        {
+          "heading": "30. Como a FCC tende a cobrar",
+          "body": "1. troca de percentuais: 90 × 95 × 100;\n2. troca de prazos: pessoal 2 × dívida 3;\n3. troca da fração: 1/3 × 25%;\n4. troca de relatório: RREO × RGF;\n5. ARO: 10º dia × 10/dezembro × último ano;\n6. regra de ouro: dizer que ARO liquidada no prazo sempre entra;\n7. operações de crédito: 16 × 11,5 × 7;\n8. controle externo: dizer que 90% já é prudencial;\n9. usar redação histórica do art. 35/23/31 como atual;\n10. confundir limite global estadual com limite isolado do TCE."
+        },
+        {
+          "heading": "31. O que precisa ficar automático",
+          "body": "- 50 / 60 / 60;\n- 90 alerta / 95 prudencial / 100 máximo;\n- P2-1/3 = pessoal: 2 quadrimestres, 1/3 primeiro;\n- D3-25 = dívida: 3 quadrimestres, 25% primeiro;\n- DCL 2 / 1,2 = Estados/DF × Municípios;\n- OC 16 / serviço 11,5 / ARO 7;\n- ARO: 10º → 10/dez → não último ano;\n- RGF = quadrimestral;\n- TC = alerta 90 + verifica cálculo DTP."
+        },
+        {
+          "heading": "32. Pré-Q043",
+          "body": "Sem consultar os módulos:\n1. qual é o limite global de pessoal do Estado?\n2. 90%, 95% e 100% significam o quê?\n3. pessoal excedente volta em quanto tempo?\n4. dívida excedente volta em quanto tempo?\n5. qual percentual do excedente da dívida no primeiro quadrimestre?\n6. limite DCL estadual?\n7. limites 16%, 11,5% e 7% correspondem a quê?\n8. quando ARO pode começar e quando deve terminar?\n9. ARO entra na regra de ouro se liquidada no prazo?\n10. quando o TC emite alerta por pessoal?\nSe houver hesitação em 3+, faça Q043 normalmente e use o resultado para escolher quais módulos abrir."
+        },
+        {
+          "heading": "33. Q043",
+          "body": "Meta: 30 questões."
+        },
+        {
+          "heading": "35. Pós-Q043 — causa do erro",
+          "body": "- P — pessoal;\n- D — dívida;\n- C — operação de crédito;\n- A — ARO;\n- R — RGF/relatórios;\n- T — Tribunal de Contas;\n- V — vigência;\n- N — número/prazo trocado.\nErro 90/95/100, P2-1/3 ou D3-25 é candidato forte a Caderno de Erros."
+        },
+        {
+          "heading": "36. D0",
+          "body": "Após correção real:\n1. escreva 90 → 95 → 100 sem consulta;\n2. escreva P2-1/3 e D3-25;\n3. escreva 16 → 11,5 → 7;\n4. escreva 10º dia → 10/dezembro → último ano;\n5. explique em 30 segundos a ligação LRF → RGF → Tribunal de Contas;\n6. refaça somente erradas + acertos com dúvida.\nD0 configurado ≠ realizado."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente porque o complemento contém:\n- números muito confundíveis;\n- texto normativo atualizado;\n- alta literalidade FCC;\n- integração direta com controle externo."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente pela alta reutilização em:\n- D080 — AFO + Licitações;\n- simulados;\n- controle externo;\n- reta final.\nD7/D20 acionados ≠ revisões realizadas."
+        },
+        {
+          "heading": "38. Flashcards candidatos",
+          "body": "- 90 × 95 × 100;\n- P2-1/3;\n- D3-25;\n- DCL 2 × 1,2;\n- 16 × 11,5 × 7;\n- ARO: 10º dia / 10 dez / último ano;\n- RGF = quadrimestral;\n- TC alerta \\>90%.\nCrie/ative apenas se a execução real mostrar utilidade."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- recorte atual da LRF validado;\n- Senado 40/43 validado;\n- material proporcional a uma matéria histórica forte;\n- Q043 separado;\n- 30 itens curados;\n- itens históricos com validade explícita;\n- D0/D7/D20 configurados."
+        },
+        {
+          "heading": "40. Ponte",
+          "body": "- S21: identificar somente após auditoria final desta sessão; não processar aqui.\n- D080: calibração integrada AFO + Licitações.\n- Simulados posteriores reutilizam os gatilhos numéricos deste D043."
+        },
+        {
+          "heading": "41. Fontes efetivamente usadas",
+          "body": "- seis Fontes canônicas vigentes;\n- LC nº 101/2000 — Planalto;\n- RSF nº 40/2001 — Senado;\n- RSF nº 43/2001 — Senado;\n- B05 — edital verticalizado;\n- Template Calibração de matéria histórica;\n- questões FCC mapeadas no Q043.\nSaída esperada: você não precisa “rever AFO”. Precisa provar, por questões, que domina os gatilhos da LRF — e reabrir somente o que falhar."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T15:30:16.400Z"
+    },
+    "d045": {
+      "dxx": "D045",
+      "title": "D045 — CHECKPOINT D45",
+      "summary": "CHECKPOINT D45 — 45 questões específicas cumulativas + Redação R2. Priorizar Controle, CASP, Institucional e AFO.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D045 — CHECKPOINT D45 \\| checkpoint de construção + Redação R2\nS21 / D045 — até 3h30. Este é o segundo checkpoint cumulativo do projeto. Ele não introduz teoria nova: mede retenção do bloco construído até D043, força recuperação sem consulta e acopla a Redação R2 para testar estabilidade do padrão FCC em um marco mais longo."
+        },
+        {
+          "heading": "1. Função do marco",
+          "body": "O D45 responde:\n> O conteúdo específico construído até aqui está recuperável, integrado e suficientemente estável para avançar sem reabrir blocos inteiros?\nÉ um checkpoint de construção, não:\n- simulado integral de 70 questões;\n- previsão de aprovação;\n- nota oficial FCC;\n- justificativa automática para ampliar carga;\n- sessão de teoria nova;\n- autorização para “revisar tudo”.\nA decisão de rota só existe depois da execução e correção reais."
+        },
+        {
+          "heading": "D20",
+          "body": "O D20 está editorialmente pronto, porém não executado:\n- sem acertos/erros;\n- sem top 10;\n- sem decisão de rota.\nLogo, o D45 possui estrutura de comparação D20 × D45, mas hoje não existe série real para comparar."
+        },
+        {
+          "heading": "R1",
+          "body": "A R1 também permanece Planejada:\n- nenhum texto produzido;\n- nenhuma nota;\n- nenhum tempo;\n- nenhuma ação prioritária real.\nPortanto, R2 não pode afirmar evolução sobre R1 antes de ambas existirem.\nRegra de integridade: campo vazio continua vazio. “Checkpoint preparado” não significa “checkpoint realizado”."
+        },
+        {
+          "heading": "3. Configuração do D45",
+          "body": "Bloco\nItens\nQuantidade\nControle Externo\n1–8\n8\nAuditoria\n9–15\n7\nCASP\n16–27\n12\nLegislação Institucional\n28–37\n10\nAFO/LRF\n38–45\n8\nTotal\n1–45\n45"
+        },
+        {
+          "heading": "Origem",
+          "body": "- 35 FCC reais já validadas nas sessões S11–S20 e reexpostas para retenção;\n- 10 autorais cumulativas/integrativas;\n- nenhuma questão reexposta é contada como inédita;\n- validade normativa herdada da bateria de origem e rechecada por coerência de versão."
+        },
+        {
+          "heading": "Redação",
+          "body": "- R2 — Checkpoint D45;\n- 20–30 linhas;\n- sem consulta;\n- tema autoral no padrão FCC;\n- texto, linhas, tempo e nota permanecem vazios até a execução."
+        },
+        {
+          "heading": "Controle Externo",
+          "body": "- partes/elementos da auditoria pública;\n- tipos de auditoria;\n- O-C-I;\n- certificação × relatório direto;\n- asseguração;\n- materialidade;\n- processo da auditoria."
+        },
+        {
+          "heading": "Auditoria",
+          "body": "- planejamento dinâmico;\n- risco e materialidade;\n- risco de detecção;\n- evidência × documentação;\n- amostragem e estratificação."
+        },
+        {
+          "heading": "CASP",
+          "body": "- propriedade para investimento;\n- imobilizado × intangível;\n- impairment;\n- apresentação;\n- DFC;\n- informação orçamentária;\n- políticas/estimativas/erros;\n- eventos subsequentes."
+        },
+        {
+          "heading": "Legislação Institucional",
+          "body": "- Regimento;\n- servidor/carreira/ética;\n- estrutura organizacional vigente;\n- segurança, dados e IA."
+        },
+        {
+          "heading": "AFO",
+          "body": "- ARO;\n- dívida;\n- RGF;\n- pessoal;\n- escada 90/95/100;\n- recondução."
+        },
+        {
+          "heading": "Consulta",
+          "body": "Nenhuma durante as 45 objetivas ou a escrita da R2."
+        },
+        {
+          "heading": "Ordem recomendada",
+          "body": "1. Controle Externo;\n2. Auditoria;\n3. CASP;\n4. Legislação Institucional;\n5. AFO;\n6. R2.\nEssa ordem é padrão inicial, não obrigação. A execução pode registrar outra ordem se houver motivo real."
+        },
+        {
+          "heading": "Primeira passada",
+          "body": "- responda o que estiver recuperável;\n- marque dúvida;\n- não gaste tempo excessivo tentando “vencer” uma questão;\n- questão travada segue para retorno."
+        },
+        {
+          "heading": "Segunda passada",
+          "body": "Prioridade:\n1. questão com duas alternativas plausíveis;\n2. troca de número/prazo/competência;\n3. questão técnica em que o conceito foi reconhecido, mas a aplicação travou."
+        },
+        {
+          "heading": "Chute",
+          "body": "Se permanecer travada após retorno:\n- elimine o que puder;\n- marque a melhor alternativa;\n- registre depois apenas se o chute ocorreu de fato."
+        },
+        {
+          "heading": "6. Gestão de tempo",
+          "body": "Limite total: até 3h30.\nReferência operacional, não meta rígida:\n- objetivas — primeira passada: \\~75–90 min;\n- retorno: \\~20–30 min;\n- R2: \\~45–60 min;\n- revisão final e margem: restante.\nNão é necessário “gastar” 3h30 se a execução terminar antes com qualidade."
+        },
+        {
+          "heading": "O que registrar depois",
+          "body": "- início/fim;\n- tempo total;\n- tempo por bloco;\n- questões para retorno;\n- chutes;\n- acertos com dúvida;\n- R2: planejamento, escrita, revisão, linhas e tempo total."
+        },
+        {
+          "heading": "7. Q045",
+          "body": "A bateria foi montada prioritariamente com itens posteriores ao D20, para que o D45 não seja simples repetição do primeiro checkpoint."
+        },
+        {
+          "heading": "Função",
+          "body": "Testar:\n- recorte;\n- tese;\n- progressão;\n- interpretação crítica;\n- controle de 20–30 linhas;\n- estabilidade após carga objetiva intermediária."
+        },
+        {
+          "heading": "Comparação com R1",
+          "body": "Somente se R1 tiver sido realmente produzida e corrigida. No estado atual, a comparação fica vazia."
+        },
+        {
+          "heading": "9. Painel de resultado — preencher só depois",
+          "body": "Bloco\nAcertos\nErros\nDúvidas\nTempo\nControle 1–8\n—\n—\n—\n—\nAuditoria 9–15\n—\n—\n—\n—\nCASP 16–27\n—\n—\n—\n—\nInstitucional 28–37\n—\n—\n—\n—\nAFO 38–45\n—\n—\n—\n—\nTotal\n—\n—\n—\n—"
+        },
+        {
+          "heading": "10. IPI interno",
+          "body": "O IPI do projeto:\n- é métrica interna;\n- não é nota FCC;\n- não é previsão de classificação;\n- só deve ser calculado com dados reais."
+        },
+        {
+          "heading": "11. Comparação D20 × D45",
+          "body": "Indicador\nD20\nD45\nTendência\nAcerto geral\n—\n—\n—\nControle\n—\n—\n—\nCASP\n—\n—\n—\nInstitucional\n—\n—\n—\nP1/reincidência\n—\n—\n—\nTempo\n—\n—\n—\nEstado atual: D20 sem execução; nenhuma tendência pode ser inferida."
+        },
+        {
+          "heading": "12. Clínica pós-checkpoint",
+          "body": "Após corrigir:\n1. separar erro conceitual de distração;\n2. marcar P1/P2/P3;\n3. identificar reincidência;\n4. escolher top 10 riscos;\n5. decidir o que não será reaberto;\n6. definir 3 ações objetivas para o bloco seguinte;\n7. avaliar se algum erro exige Caderno de Erros;\n8. avaliar D7/D20 somente com evidência real."
+        },
+        {
+          "heading": "13. D0",
+          "body": "D0 do checkpoint:\n- refazer erradas;\n- refazer acertos com dúvida;\n- verbalizar 5 regras P1;\n- reconstruir os contrastes que falharam;\n- revisar a maior perda da R2.\nD0 configurado ≠ realizado."
+        },
+        {
+          "heading": "14. D7 / D20",
+          "body": "Nesta preparação:\n- D7 não é pré-acionado;\n- D20 não é pré-acionado.\nSó acionar depois se houver:\n- erro importante;\n- reincidência;\n- conceito central instável;\n- fragilidade do checkpoint;\n- falha grave na redação.\nCheckpoint sem resultado não cria revisão por burocracia."
+        },
+        {
+          "heading": "15. Impacto externo",
+          "body": "Depois da execução, registrar apenas qualitativamente:\n- o TCE prejudicou SEEDF?\n- o TCE prejudicou TJDFT?\nNenhuma métrica desses projetos entra no TCE-GO."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- Material D045 auditado;\n- Q045 com 45/45;\n- R2 preparada;\n- registro de checkpoint preparado;\n- validade/copyright conferidos;\n- campos reais vazios."
+        },
+        {
+          "heading": "17. Fontes e componentes usados",
+          "body": "- seis Fontes canônicas do projeto;\n- Template Checkpoint/Simulado;\n- Template Redação Rxx — FCC;\n- Q022, Q024, Q026, Q029, Q031, Q033, Q036, Q038, Q040 e Q043 já auditados;\n- D20/Q020 como modelo de reexposição cumulativa;\n- R1 apenas como referência estrutural, sem transportar resultado inexistente.\nSaída esperada: o D45 deve dizer o que está estável, o que está frágil e o que merece intervenção — mas somente depois de você realmente executar e corrigir o checkpoint."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T16:04:46.700Z"
+    },
+    "d047": {
+      "dxx": "D047",
+      "title": "D047 — Licitações",
+      "summary": "Licitações — planejamento da contratação — Governança; planejamento; PCA; ETP; Termo de Referência; matriz de riscos.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D047 — Licitações \\| planejamento da contratação\nS22 / D047 — 105 min · 30 questões. O núcleo clássico da Lei nº 14.133/2021 já é capital reaproveitável. Hoje o objetivo é completar o que ainda está parcialmente comprovado: governança → PCA → fase preparatória → ETP → Termo de Referência → riscos."
+        },
+        {
+          "heading": "2. Posição no edital",
+          "body": "- B02 — Licitações e Contratos Administrativos;\n- bloco Específicos;\n- 5 questões;\n- peso 2;\n- baseline no banco: Misto;\n- diagnóstico canônico mais preciso: núcleo forte; instrumentos avançados parciais;\n- tratamento: Complemento."
+        },
+        {
+          "heading": "Capital reaproveitado",
+          "body": "A Base Técnica considera já existente:\n- princípios;\n- modalidades;\n- critérios de julgamento;\n- fases;\n- contratação direta;\n- dispensa;\n- inexigibilidade."
+        },
+        {
+          "heading": "Complemento D047",
+          "body": "Hoje entra:\n- governança das contratações;\n- planejamento;\n- Plano de Contratações Anual — PCA;\n- Estudo Técnico Preliminar — ETP;\n- Termo de Referência — TR;\n- análise e matriz de riscos.\nTrava anti-reestudo: não reabra modalidades, dispensa e inexigibilidade como curso completo. Um erro isolado nesses temas não autoriza reconstruir a disciplina inteira."
+        },
+        {
+          "heading": "Fonte principal",
+          "body": "Lei nº 14.133/2021 — texto consolidado do Planalto."
+        },
+        {
+          "heading": "Corte",
+          "body": "- corte do edital: 25/08/2026;\n- consulta oficial: 22/09/2026;\n- a Lei nº 15.471/2026, anterior ao corte, alterou a Lei nº 14.133 em tema estratégico de saúde, sem modificar o núcleo do D047;\n- não foi identificada, na consulta oficial realizada em 22/09/2026, alteração posterior ao corte que modifique os arts. 6º, XX/XXIII/XXVII; 11, parágrafo único; 12, VII e §1º; 18; 22 e 103 usados nesta sessão."
+        },
+        {
+          "heading": "Regulamento federal do PCA",
+          "body": "O Decreto nº 10.947/2022 é útil somente como exemplo federal. Ele regulamenta o PCA na Administração Pública federal direta, autárquica e fundacional.\n> Não transforme prazo, exceção ou fluxo desse decreto em regra automática do TCE-GO."
+        },
+        {
+          "heading": "Prioridade A — precisa ficar automático",
+          "body": "- art. 11, parágrafo único — alta administração e governança;\n- art. 12, VII e §1º — PCA;\n- art. 6º, XX — conceito de ETP;\n- art. 18 — fase preparatória e conteúdo do ETP;\n- art. 6º, XXIII — TR;\n- art. 6º, XXVII — conceito de matriz de riscos;\n- art. 22, §3º — matriz obrigatória;\n- art. 103 — alocação contratual de riscos."
+        },
+        {
+          "heading": "Prioridade B — compreender e localizar",
+          "body": "- compatibilidade com leis orçamentárias;\n- estimativas, mercado, parcelamento e resultados pretendidos no ETP;\n- execução, gestão, medição, pagamento e seleção no TR;\n- quantificação e equilíbrio econômico-financeiro na matriz."
+        },
+        {
+          "heading": "Prioridade C — apenas contexto hoje",
+          "body": "- modalidades;\n- critérios;\n- contratação direta;\n- SRP, credenciamento e pré-qualificação;\n- execução/gestão contratual ampla;\n- sanções e PNCP.\nEsses blocos reaparecem depois, sobretudo em D080."
+        },
+        {
+          "heading": "6. Roteiro de 105 minutos",
+          "body": "1. 10 min — reativação: fluxo e contrastes.\n2. 25 min — leitura guiada dos arts. 11, 12 e 18.\n3. 15 min — ETP × TR.\n4. 10 min — risco: análise × matriz.\n5. 35 min — Q047.\n6. 10 min — D0 por evocação das lacunas reais.\nSe a retenção estiver forte, não use tempo poupado para releitura geral da Lei."
+        },
+        {
+          "heading": "7. Mapa do planejamento",
+          "body": "necessidade → planejamento institucional/PCA → ETP → definição da solução → TR/projeto → análise de riscos → edital/seleção → contrato → gestão/fiscalização\nEsse fluxo é pedagógico. A lei não transforma todos os elementos em uma fila rígida universal; o objetivo é saber qual documento responde a qual pergunta."
+        },
+        {
+          "heading": "8. Governança das contratações — art. 11",
+          "body": "A responsabilidade de governança está na alta administração.\nEla deve implementar:\n- processos e estruturas;\n- gestão de riscos;\n- controles internos;\n- avaliação, direcionamento e monitoramento de licitações e contratos;\n- ambiente íntegro e confiável;\n- alinhamento com planejamento estratégico;\n- alinhamento com leis orçamentárias;\n- busca de eficiência, efetividade e eficácia."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Governança não significa executar pessoalmente cada contratação.\n> Governança = direcionar + monitorar + estruturar controles. Gestão operacional = executar os processos."
+        },
+        {
+          "heading": "9. PCA — Plano de Contratações Anual",
+          "body": "O art. 12, VII usa verbo importante:\n> os órgãos responsáveis pelo planejamento de cada ente poderão, na forma de regulamento, elaborar PCA a partir dos documentos de formalização de demandas."
+        },
+        {
+          "heading": "Finalidades legais",
+          "body": "- racionalizar contratações;\n- alinhar ao planejamento estratégico;\n- subsidiar as leis orçamentárias."
+        },
+        {
+          "heading": "Se houver PCA",
+          "body": "Ele:\n- deve ser divulgado e mantido disponível em sítio eletrônico oficial;\n- deve ser observado nas licitações e na execução contratual."
+        },
+        {
+          "heading": "Pegadinha FCC",
+          "body": "Lei 14.133 geral ≠ Decreto federal 10.947.\nA lei estabelece a moldura para cada ente. O Decreto 10.947 detalha a União. Questão que cobra datas, agentes ou dispensas de registro do decreto precisa dizer que está no regime federal correspondente."
+        },
+        {
+          "heading": "10. Fase preparatória — art. 18",
+          "body": "A fase preparatória é planejamento.\nDeve:\n- compatibilizar-se com o PCA, sempre que elaborado;\n- compatibilizar-se com as leis orçamentárias;\n- abordar aspectos técnicos, mercadológicos e de gestão."
+        },
+        {
+          "heading": "O art. 18 reúne, entre outros",
+          "body": "- descrição da necessidade com base no ETP;\n- definição do objeto por TR/anteprojeto/projeto básico/projeto executivo, conforme o caso;\n- execução, pagamento, garantias e recebimento;\n- orçamento estimado;\n- edital;\n- minuta contratual quando necessária;\n- regime de fornecimento/prestação/execução;\n- modalidade, julgamento e modo de disputa;\n- motivações das condições do edital;\n- análise dos riscos que possam comprometer a licitação e a execução;\n- motivação sobre divulgação do orçamento.\nNão confunda: a análise dos riscos da fase preparatória não é automaticamente a mesma coisa que a matriz de alocação de riscos do edital/contrato."
+        },
+        {
+          "heading": "Conceito",
+          "body": "O ETP é a primeira etapa do planejamento de uma contratação que:\n- caracteriza o interesse público;\n- estuda a melhor solução;\n- serve de base ao anteprojeto, TR ou projeto básico quando a contratação se mostra viável."
+        },
+        {
+          "heading": "Pergunta que o ETP responde",
+          "body": "> Qual problema público precisa ser resolvido e qual solução faz sentido?"
+        },
+        {
+          "heading": "Art. 18, §1º — lógica",
+          "body": "O ETP deve evidenciar:\nproblema → alternativas → solução → viabilidade técnica/econômica.\nElementos relevantes:\n- necessidade;\n- alinhamento com PCA, quando elaborado;\n- requisitos;\n- quantidades e memórias;\n- levantamento de mercado;\n- estimativa de valor;\n- solução como um todo e ciclo de vida;\n- parcelamento ou não;\n- resultados pretendidos;\n- providências prévias;\n- contratações correlatas/interdependentes;\n- impactos ambientais e mitigação, quando cabível;\n- conclusão sobre adequação da contratação."
+        },
+        {
+          "heading": "Núcleo mínimo do §2º",
+          "body": "A FCC pode cobrar que nem todos os itens do §1º são inderrogavelmente detalhados em toda situação.\nO ETP deve conter ao menos:\n- descrição da necessidade;\n- estimativas das quantidades;\n- estimativa do valor;\n- justificativa para parcelamento ou não;\n- posicionamento conclusivo sobre adequação.\nA ausência dos demais elementos deve ser justificada."
+        },
+        {
+          "heading": "Pegadinhas",
+          "body": "- ETP não é documento do licitante;\n- ETP não é fase final;\n- ETP não serve apenas para obras;\n- ETP não é TR;\n- ETP estuda a solução antes de fechá-la prematuramente."
+        },
+        {
+          "heading": "Conceito",
+          "body": "Documento necessário para contratação de bens e serviços."
+        },
+        {
+          "heading": "Pergunta que o TR responde",
+          "body": "> O que será contratado, como deverá ser executado e como a Administração verificará o resultado?"
+        },
+        {
+          "heading": "Elementos do art. 6º, XXIII",
+          "body": "- definição do objeto;\n- fundamentação com referência ao ETP;\n- descrição da solução como um todo e ciclo de vida;\n- requisitos;\n- modelo de execução;\n- modelo de gestão;\n- critérios de medição e pagamento;\n- forma e critérios de seleção do fornecedor;\n- estimativa de valor;\n- adequação orçamentária."
+        },
+        {
+          "heading": "Contraste",
+          "body": "ETP\nTR\nproblema + alternativas + viabilidade\nobjeto + requisitos + execução + gestão\nprimeira etapa do planejamento\ndefine a contratação de bens/serviços\n“qual solução faz sentido?”\n“o que exatamente contratar e como medir?”"
+        },
+        {
+          "heading": "Erro clássico",
+          "body": "Escrever o TR primeiro e depois usar o ETP para “validar” uma solução já fechada inverte a lógica do planejamento."
+        },
+        {
+          "heading": "13.1 Gestão de riscos da governança",
+          "body": "Art. 11: a alta administração implementa processos/estruturas de gestão de riscos e controles."
+        },
+        {
+          "heading": "13.2 Análise de riscos da fase preparatória",
+          "body": "Art. 18, X: identificar riscos que podem comprometer:\n- sucesso da licitação;\n- boa execução contratual."
+        },
+        {
+          "heading": "13.3 Matriz de alocação de riscos",
+          "body": "Arts. 6º, XXVII; 22; 103:\n- distribui riscos e responsabilidades entre as partes;\n- caracteriza o equilíbrio econômico-financeiro inicial;\n- identifica eventos supervenientes;\n- indica quem suporta cada risco.\nMacete funcional:\ngovernança gerencia → planejamento analisa → contrato aloca."
+        },
+        {
+          "heading": "14. Quando a matriz é obrigatória?",
+          "body": "Regra geral do art. 22: o edital poderá contemplar matriz.\nMas será obrigatória quando:\n1. a contratação se referir a obras e serviços de grande vulto; ou\n2. houver regime de contratação integrada; ou\n3. houver regime de contratação semi-integrada."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Não é:\n- toda concorrência;\n- todo serviço de engenharia;\n- toda contratação pública;\n- apenas se houver lei local reproduzindo a regra geral."
+        },
+        {
+          "heading": "15. Art. 103 — efeito da alocação",
+          "body": "O contrato pode identificar riscos previstos/presumíveis e distribuí-los:\n- setor público;\n- setor privado;\n- compartilhados.\nA alocação considera:\n- natureza do risco;\n- beneficiário das prestações;\n- capacidade de cada setor para gerenciá-lo."
+        },
+        {
+          "heading": "Equilíbrio econômico-financeiro",
+          "body": "A matriz:\n- define o equilíbrio inicial quanto a eventos supervenientes;\n- orienta pleitos posteriores;\n- se as condições do contrato/matriz forem respeitadas, as partes assumem os riscos alocados e, em regra, não pedem recomposição por aquilo que aceitaram suportar.\nNão transforme isso em “nunca existe reequilíbrio”: a própria lei preserva exceções."
+        },
+        {
+          "heading": "16. Caso integrado",
+          "body": "O órgão precisa contratar solução de armazenamento digital.\nEtapa 1 — necessidade: há crescimento do acervo e indisponibilidade do modelo atual.\nETP: compara nuvem, infraestrutura própria e solução híbrida, quantifica demanda, avalia custos e viabilidade.\nTR: define capacidade, níveis de serviço, segurança, implantação, medição, gestão e pagamento.\nAnálise de riscos: identifica indisponibilidade, migração mal sucedida, dependência tecnológica.\nMatriz, se utilizada/obrigatória: define quem responde por eventos supervenientes e seus efeitos econômicos.\nErro: começar especificando marca/solução fechada e usar ETP só para justificar decisão tomada."
+        },
+        {
+          "heading": "17. Como a FCC tende a cobrar",
+          "body": "A banca costuma:\n- trocar ETP por TR;\n- transformar ETP em documento do licitante;\n- chamar ETP de fase final;\n- dizer que PCA é obrigatoriamente elaborado por todos os entes sem considerar a redação legal/regulamentação;\n- trocar “poderá” por “deverá” na matriz geral;\n- esquecer a obrigatoriedade em grande vulto/integrada/semi-integrada;\n- confundir análise de riscos com matriz;\n- trocar governança da alta administração por execução operacional."
+        },
+        {
+          "heading": "18. Reativação antes do Q047",
+          "body": "Responda sem consultar:\n1. Quem responde pela governança das contratações?\n2. Quais são os três objetivos centrais do PCA?\n3. O PCA é compatibilizado com a fase preparatória em qual condição?\n4. Qual pergunta o ETP responde?\n5. Qual pergunta o TR responde?\n6. Quais cinco elementos são mínimos no ETP?\n7. Análise de riscos e matriz são sinônimos?\n8. Em quais três hipóteses a matriz é obrigatória?\n9. O que a matriz faz com o equilíbrio econômico-financeiro?\n10. Qual o macete das três camadas de risco?"
+        },
+        {
+          "heading": "19. Q047",
+          "body": "Meta: 30 questões.\nA bateria privilegia:\n- FCC 2025–2026 sobre ETP/TR/matriz;\n- autorais normativas para governança, PCA e articulação entre os documentos;\n- nenhuma regra local de outro Estado é convertida em norma do TCE-GO."
+        },
+        {
+          "heading": "20. Pós-Q047 — matriz de retenção",
+          "body": "Classifique apenas após responder:\n- verde: ≥85%, sem erro estrutural;\n- amarelo: 75–84% ou dúvida relevante;\n- laranja: 60–74% ou lacuna concentrada;\n- vermelho: \\<60% ou erro central/P1."
+        },
+        {
+          "heading": "Ação por erro",
+          "body": "- G = governança;\n- P = PCA;\n- E = ETP;\n- T = TR;\n- A = análise de riscos;\n- M = matriz;\n- V = vigência/ente/regulamento;\n- N = nomenclatura/alternativas."
+        },
+        {
+          "heading": "21. D0",
+          "body": "Depois da tentativa real:\n1. refazer erradas + acertos com dúvida;\n2. escrever governança → PCA → ETP → TR → riscos sem olhar;\n3. explicar ETP × TR em 30 segundos;\n4. recitar as três hipóteses de matriz obrigatória;\n5. separar análise de riscos × matriz com um exemplo."
+        },
+        {
+          "heading": "22. D7 / D20",
+          "body": "- D7 acionado editorialmente: o D047 aprofunda instrumentos antes apenas parciais e com alta possibilidade de troca conceitual.\n- D20: não é pré-acionado. Depende de erro importante/reincidência ou de fragilidade mostrada na execução.\nD7 acionado ≠ revisão realizada."
+        },
+        {
+          "heading": "23. Ponte",
+          "body": "- D080: calibração integrada AFO + Licitações; verificará se este complemento foi suficiente.\n- Não usar D080 para reaprender modalidades, salvo perda real demonstrada.\n- O segundo bloco de Licitações ainda poderá testar SRP, credenciamento, pré-qualificação, formalização, execução, fiscalização, gestão, recebimento, alterações, equilíbrio, sanções e PNCP."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- fonte oficial/corte controlados;\n- Material e Q047 auditados;\n- relações preservadas;\n- D7 apenas acionado, não realizado."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T16:54:19.339Z"
+    },
+    "d050": {
+      "dxx": "D050",
+      "title": "D050 — CASP VII",
+      "summary": "CASP VII — PCASP / MCASP IV — classes, natureza das informações, lógica dos registros e leitura de lançamentos.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D050 — CASP VII \\| PCASP, naturezas e leitura de lançamentos\nS23 / D050 — 120 min · 25 questões. Depois de construir reconhecimento, mensuração, demonstrações e políticas contábeis, o objetivo agora é aprender a ler a linguagem de registro da CASP: identificar a natureza da informação, reconhecer as 8 classes e reconstruir a lógica de um lançamento sem decorar centenas de contas."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A sequência CASP já construiu:\n- D003: ativo, passivo, VPA/VPD e diferença entre fenômeno patrimonial e orçamento;\n- D010: arquitetura do MCASP;\n- D017/D024/D031: reconhecimento, mensuração e demonstrações;\n- D038: políticas, estimativas, eventos subsequentes, custos e mapa patrimonial.\nAté aqui você aprendeu o que o fenômeno significa.\nO D050 ensina como o sistema contábil o organiza e registra.\nA ponte seguinte será:\n- D057 — DCASP: leitura das demonstrações a partir da informação registrada;\n- D061: integração posterior CASP/MCASP."
+        },
+        {
+          "heading": "3. Posição no edital",
+          "body": "B06 — Contabilidade Aplicada ao Setor Público\n- bloco: Específicos;\n- 5 questões;\n- peso 2;\n- baseline: Novo;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Recorte exato de hoje",
+          "body": "- estrutura e objetivos do PCASP;\n- 3 naturezas de informação;\n- 8 classes;\n- níveis/código da conta;\n- integridade dos lançamentos;\n- lógica horizontal × vertical;\n- leitura de lançamentos patrimoniais, orçamentários e de controle;\n- estágios básicos de receita/despesa vistos pela conta;\n- restos a pagar e dívida ativa apenas para reconhecer classes;\n- controle anual PCASP 2026 × 2027."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- decorar o catálogo inteiro de contas;\n- DCASP em profundidade → D057;\n- consolidação/demonstrações avançadas;\n- rotina de encerramento completa;\n- custos em profundidade → D038;\n- NBC TSP já estudadas em detalhes."
+        },
+        {
+          "heading": "Já conhecido",
+          "body": "- ativo/passivo;\n- VPA/VPD;\n- competência;\n- orçamento × patrimônio;\n- receita/despesa orçamentária;\n- caixa;\n- demonstrações em nível anterior."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- débito/crédito;\n- empenho/liquidação/pagamento;\n- restos a pagar;\n- disponibilidade por destinação de recursos."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- as três naturezas do PCASP;\n- mapa das 8 classes;\n- regra de integridade por natureza;\n- lançamento horizontal × vertical;\n- leitura reversa: conta → natureza → estágio → fato;\n- separação entre estrutura permanente do PCASP e catálogo anual."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. recitar as 8 classes sem consulta;\n2. separar natureza patrimonial, orçamentária e de controle;\n3. identificar a natureza pelo primeiro dígito da conta;\n4. explicar por que um único lançamento não mistura naturezas;\n5. distinguir lançamento horizontal de vertical;\n6. ler um lançamento patrimonial simples;\n7. reconhecer previsão/realização da receita;\n8. reconhecer fixação/empenho/liquidação/pagamento da despesa pelas classes;\n9. identificar o papel das classes 7 e 8;\n10. resolver as 10 FCC centrais do Q050 explicando o raciocínio, não apenas a letra."
+        },
+        {
+          "heading": "MCASP",
+          "body": "- 11ª edição;\n- edição vigente e indicada no edital;\n- D050 usa especialmente a Parte IV — Plano de Contas Aplicado ao Setor Público."
+        },
+        {
+          "heading": "PCASP anual",
+          "body": "- corte do edital: 25/08/2026;\n- consulta oficial: 22/09/2026;\n- PCASP 2026 = catálogo do exercício de 2026;\n- PCASP 2027 = publicado pela STN em 21/08/2026 para utilização no exercício de 2027.\nControle de versão: o PCASP é atualizado anualmente. O D050 ensina a estrutura conceitual estável do MCASP 11ª edição. O catálogo PCASP 2027, embora publicado antes do corte, não é retroagido para contabilizações do exercício de 2026.\nLinks:\n- [STN — MCASP](https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/manuais/manual-de-contabilidade-aplicado-ao-setor-publico-mcasp-1)\n- [STN — PCASP](https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/federacao/plano-de-contas-aplicado-ao-setor-publico-pcasp-1)"
+        },
+        {
+          "heading": "7. Como estudar os 120 minutos",
+          "body": "1. 15 min — mapa das 8 classes e 3 naturezas.\n2. 20 min — integridade + horizontal/vertical.\n3. 25 min — receita e despesa em lançamentos.\n4. 15 min — classes 7/8 + restos a pagar/dívida ativa.\n5. 35 min — Q050.\n6. 10 min — D0 e correção das trocas de classe.\nNão use o bloco para memorizar conta analítica por conta analítica.\n---\n# PARTE I — O MAPA DO PCASP"
+        },
+        {
+          "heading": "Natureza patrimonial",
+          "body": "Registra:\n- fatos financeiros e não financeiros relacionados ao patrimônio;\n- variações qualitativas e quantitativas;\n- ativos, passivos, patrimônio líquido, VPA e VPD.\nClasses: 1, 2, 3 e 4."
+        },
+        {
+          "heading": "Natureza orçamentária",
+          "body": "Registra:\n- aprovação do planejamento/orçamento;\n- execução da receita e da despesa orçamentárias.\nClasses: 5 e 6."
+        },
+        {
+          "heading": "Natureza de controle",
+          "body": "Registra:\n- atos de gestão com potencial de afetar o patrimônio;\n- outros controles específicos da Administração.\nClasses: 7 e 8."
+        },
+        {
+          "heading": "Macete",
+          "body": "P-O-C = 1–4 \\| 5–6 \\| 7–8"
+        },
+        {
+          "heading": "9. As 8 classes — mapa que precisa ficar automático",
+          "body": "Classe\nNome\nNatureza\n1\nAtivo\nPatrimonial\n2\nPassivo e Patrimônio Líquido\nPatrimonial\n3\nVariações Patrimoniais Diminutivas — VPD\nPatrimonial\n4\nVariações Patrimoniais Aumentativas — VPA\nPatrimonial\n5\nControles da Aprovação do Planejamento e Orçamento\nOrçamentária\n6\nControles da Execução do Planejamento e Orçamento\nOrçamentária\n7\nControles Devedores\nControle\n8\nControles Credores\nControle"
+        },
+        {
+          "heading": "Memória visual",
+          "body": "1–4 = patrimônio\n5–6 = orçamento\n7–8 = controle\nEssa divisão resolve grande parte das questões da FCC antes mesmo de conhecer o nome completo da conta."
+        },
+        {
+          "heading": "10. Código da conta",
+          "body": "O PCASP possui 7 níveis de desdobramento e 9 dígitos.\nModelo:\nX.X.X.X.X.XX.XX\nNíveis:\n1. classe;\n2. grupo;\n3. subgrupo;\n4. título;\n5. subtítulo;\n6. item;\n7. subitem."
+        },
+        {
+          "heading": "Estratégia de prova",
+          "body": "Quando a FCC exibir uma conta extensa:\n1. olhe o primeiro dígito;\n2. descubra a natureza;\n3. só depois leia os demais níveis.\nNão comece tentando decorar todos os nove dígitos.\n---\n# PARTE II — INTEGRIDADE DOS LANÇAMENTOS"
+        },
+        {
+          "heading": "11. Regra central",
+          "body": "A partida dobrada continua válida: para todo débito há crédito de igual valor.\nMas o PCASP adiciona um controle estrutural importante:\n> débito e crédito do mesmo lançamento pertencem à mesma natureza de informação.\nAssim:\n- patrimonial ↔ patrimonial;\n- orçamentária ↔ orçamentária;\n- controle ↔ controle."
+        },
+        {
+          "heading": "O que não pode",
+          "body": "Um único lançamento:\n- D classe 1;\n- C classe 6.\nIsso mistura natureza patrimonial com orçamentária."
+        },
+        {
+          "heading": "O que pode acontecer",
+          "body": "O mesmo fato econômico pode exigir vários lançamentos distintos, um em cada natureza necessária.\nFato único ≠ lançamento único. Um empenho, liquidação ou pagamento pode produzir registros patrimoniais, orçamentários e de controle, mas cada partida preserva a integridade de sua natureza."
+        },
+        {
+          "heading": "12. Não confunda natureza com saldo",
+          "body": "Dizer que a conta é da natureza patrimonial significa que ela pertence às classes 1–4.\nIsso é diferente de perguntar:\n- saldo devedor/credor;\n- atributo financeiro/permanente;\n- aumento/redução.\nEssas são outras camadas."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Uma conta de passivo:\n- classe 2;\n- natureza patrimonial;\n- costuma aumentar por crédito.\nUma VPD:\n- classe 3;\n- natureza patrimonial;\n- aumenta por débito."
+        },
+        {
+          "heading": "Lançamento horizontal",
+          "body": "O registro cruza classes dentro da mesma natureza.\nExemplos típicos de abertura:\n- classe 5 ↔ classe 6;\n- classe 7 ↔ classe 8."
+        },
+        {
+          "heading": "Lançamento vertical",
+          "body": "O registro ocorre dentro da mesma classe, acompanhando a execução.\nExemplos:\n- classe 6 → classe 6;\n- classe 8 → classe 8."
+        },
+        {
+          "heading": "Intuição",
+          "body": "Horizontal abre/estabelece o controle. Vertical movimenta a execução.\nÉ uma heurística útil, não uma regra para decorar sem olhar a transação.\n---\n# PARTE III — ORÇAMENTO EM MOVIMENTO"
+        },
+        {
+          "heading": "14. Receita — previsão",
+          "body": "Na previsão inicial da receita, a lógica é:\nD — classe 5: previsão/aprovação\nC — classe 6: receita a realizar\nÉ um lançamento orçamentário horizontal."
+        },
+        {
+          "heading": "Leitura",
+          "body": "O orçamento foi aprovado e a receita passou a existir como valor a realizar."
+        },
+        {
+          "heading": "15. Receita — realização",
+          "body": "Quando a receita é realizada:\nD — classe 6: receita a realizar\nC — classe 6: receita realizada\nÉ execução orçamentária dentro da classe 6: lançamento vertical."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "A entrada de caixa também gera registro patrimonial próprio. Não misture esse registro com o lançamento orçamentário acima."
+        },
+        {
+          "heading": "16. Despesa — fixação",
+          "body": "Na fixação da despesa:\nD — classe 5: dotação inicial/aprovação\nC — classe 6: crédito disponível\nNovamente:\n- natureza orçamentária;\n- lançamento horizontal."
+        },
+        {
+          "heading": "17. Despesa — empenho",
+          "body": "No controle orçamentário da despesa:\nD — classe 6: crédito disponível\nC — classe 6: crédito empenhado a liquidar\nNo controle da disponibilidade por destinação de recursos:\nD — classe 8: DDR\nC — classe 8: DDR comprometida por empenho\nObserve:\n- orçamento = classe 6;\n- controle = classe 8;\n- são dois lançamentos, não uma partida cruzando classe 6 e classe 8."
+        },
+        {
+          "heading": "18. Liquidação",
+          "body": "Na liquidação, a questão pode trazer simultaneamente:"
+        },
+        {
+          "heading": "Patrimonial",
+          "body": "Exemplo de serviço já prestado:\n- D classe 3 — VPD\n- C classe 2 — obrigação/passivo"
+        },
+        {
+          "heading": "Orçamentária",
+          "body": "Movimentação entre estágios de crédito na classe 6."
+        },
+        {
+          "heading": "Controle",
+          "body": "Movimentação da DDR na classe 8."
+        },
+        {
+          "heading": "Regra de leitura",
+          "body": "Se a FCC disser “natureza de controle”, descarte imediatamente alternativas puramente 2/3 ou 6."
+        },
+        {
+          "heading": "19. Pagamento",
+          "body": "Em uma obrigação já reconhecida:"
+        },
+        {
+          "heading": "Patrimonial",
+          "body": "- D passivo — classe 2;\n- C caixa — classe 1."
+        },
+        {
+          "heading": "Orçamentária",
+          "body": "A execução avança dentro da classe 6."
+        },
+        {
+          "heading": "Controle",
+          "body": "A disponibilidade avança dentro da classe 8.\nNão existe uma única partida que misture 2 com 6 ou 8.\n---\n# PARTE IV — CLASSES 7 E 8"
+        },
+        {
+          "heading": "Classe 7",
+          "body": "Registra controles devedores."
+        },
+        {
+          "heading": "Classe 8",
+          "body": "Registra controles credores e, em muitas cadeias, sua execução.\nExemplos de temas recorrentes:\n- atos potenciais;\n- garantias;\n- contratos;\n- disponibilidade por destinação de recursos;\n- inscrição/execução de controles específicos;\n- administração financeira;\n- custos, conforme estrutura do PCASP."
+        },
+        {
+          "heading": "Pegadinha FCC",
+          "body": "A assinatura de contrato que ainda não produz reconhecimento patrimonial imediato pode gerar registro de controle em 7 e 8, e não obrigatoriamente Ativo/Passivo."
+        },
+        {
+          "heading": "21. DDR — Disponibilidade por Destinação de Recursos",
+          "body": "A DDR conecta:\n- origem/destinação do recurso;\n- comprometimento por empenho;\n- liquidação;\n- utilização.\nExemplo na natureza de controle:\nD DDR → C DDR comprometida por empenho\nDepois:\nD DDR comprometida por empenho → C DDR comprometida por liquidação/entradas compensatórias\nE assim por diante conforme o estágio."
+        },
+        {
+          "heading": "Leitura de prova",
+          "body": "A banca costuma oferecer:\n- uma alternativa patrimonial;\n- uma orçamentária;\n- uma de controle correta;\n- uma alternativa híbrida impossível.\nPrimeiro identifique a natureza pedida no enunciado.\n---\n# PARTE V — CONTAS QUE A FCC ADORA"
+        },
+        {
+          "heading": "22. Restos a pagar",
+          "body": "No mapa estrutural do PCASP:\n- Inscrição de Restos a Pagar → classe 5;\n- Execução de Restos a Pagar → classe 6.\nIsso apareceu no próprio TCE-GO/FCC 2022."
+        },
+        {
+          "heading": "Macete",
+          "body": "Inscrição = aprovação/registro inicial → 5\nExecução = execução → 6"
+        },
+        {
+          "heading": "23. Dívida ativa",
+          "body": "A execução da inscrição de créditos em dívida ativa aparece na classe 8 — Controles Credores.\nNão confunda:\n- o crédito patrimonial de dívida ativa, que pode envolver classe 1;\n- o controle da execução da inscrição, que a questão pode perguntar especificamente e pertence à classe 8."
+        },
+        {
+          "heading": "24. Execução da Administração Financeira",
+          "body": "É grupo da classe 8 — Controles Credores.\nFCC já cobrou exatamente a relação grupo ↔ classe."
+        },
+        {
+          "heading": "25. Balanço Orçamentário",
+          "body": "O Balanço Orçamentário utiliza informação de execução/aprovação orçamentária.\nEm questão FCC clássica, o grupo relevante é o grupo 2 das classes 5 e 6."
+        },
+        {
+          "heading": "Estratégia",
+          "body": "Se a demonstração é orçamentária, olhe primeiro para 5/6, não para 1–4 ou 7–8.\n---\n# PARTE VI — LEITURA DE LANÇAMENTO"
+        },
+        {
+          "heading": "26. Algoritmo em 6 passos",
+          "body": "Ao receber um lançamento:"
+        },
+        {
+          "heading": "Passo 1 — qual é o fato?",
+          "body": "- previsão?\n- empenho?\n- liquidação?\n- pagamento?\n- reconhecimento patrimonial?\n- ato potencial?"
+        },
+        {
+          "heading": "Passo 2 — qual natureza o comando pediu?",
+          "body": "- patrimonial?\n- orçamentária?\n- controle?"
+        },
+        {
+          "heading": "Passo 3 — valide o primeiro dígito",
+          "body": "- P → 1–4;\n- O → 5–6;\n- C → 7–8."
+        },
+        {
+          "heading": "Passo 4 — confirme a integridade",
+          "body": "Débito e crédito estão na mesma natureza?\nSe não, a alternativa tende a estar errada."
+        },
+        {
+          "heading": "Passo 5 — leia o estágio",
+          "body": "Exemplo:\n- crédito disponível → empenhado;\n- empenhado → liquidado;\n- DDR → comprometida."
+        },
+        {
+          "heading": "Passo 6 — só depois veja detalhes",
+          "body": "- curto/longo prazo;\n- P/F;\n- subitem;\n- valor."
+        },
+        {
+          "heading": "27. Exemplo resolvido 1 — juros incorridos",
+          "body": "A entidade reconhece juros incorridos sobre dívida fundada, pelo regime de competência.\nNatureza: patrimonial.\nLógica:\n- D — VPD de juros/encargos = classe 3;\n- C — empréstimos/financiamentos = classe 2.\nNão é empenho, caixa nem receita."
+        },
+        {
+          "heading": "28. Exemplo resolvido 2 — serviço prestado + liquidação",
+          "body": "Uma empresa terceirizada presta serviço e a despesa é liquidada.\nPodem coexistir:\nPatrimonial\n- D classe 3;\n- C classe 2.\nOrçamentária\n- movimentação na classe 6.\nControle\n- movimentação na classe 8.\nPor isso uma FCC clássica identifica corretamente o conjunto 2, 3, 6 e 8."
+        },
+        {
+          "heading": "29. Exemplo resolvido 3 — contrato assinado",
+          "body": "A Administração assina contrato de consultoria cujo registro naquele momento é de ato potencial.\nA natureza é de controle:\n- classes 7 e 8.\nNão se reconhece automaticamente VPD/passivo apenas porque o contrato foi assinado.\n---\n# PARTE VII — PCASP ANUAL × ESTRUTURA"
+        },
+        {
+          "heading": "30. O que muda anualmente?",
+          "body": "A STN publica PCASP atualizado para o exercício seguinte.\nPodem mudar:\n- contas analíticas;\n- títulos;\n- detalhamentos;\n- inclusões/exclusões;\n- instruções específicas."
+        },
+        {
+          "heading": "31. O que o D050 quer estabilizar?",
+          "body": "- estrutura das 8 classes;\n- 3 naturezas;\n- níveis;\n- integridade;\n- lógica de execução;\n- capacidade de ler conta/lançamento.\nIsso é mais robusto para prova do que decorar uma folha analítica que pode mudar de um exercício para outro."
+        },
+        {
+          "heading": "Para fato de 2026",
+          "body": "Use o catálogo aplicável a 2026."
+        },
+        {
+          "heading": "Para fato de 2027",
+          "body": "O catálogo 2027 já havia sido publicado antes do corte do edital."
+        },
+        {
+          "heading": "Para questão conceitual",
+          "body": "Use o MCASP 11ª edição + estrutura vigente, observando o exercício indicado no enunciado.\nPublicado antes do edital ≠ aplicável retroativamente. A data de publicação e o exercício de aplicação são perguntas diferentes.\n---"
+        },
+        {
+          "heading": "33. As 10 FCC de correção detalhada do Q050",
+          "body": "O Q050 prioriza:\n1. Q1982530 — TCE-GO/FCC/2022 — classes 5, 6 e 8;\n2. Q4221415 — SEFAZ-CE/FCC/2026 — lançamentos na amortização de operação de crédito;\n3. Q2098969 — TRT-18/GO/FCC/2023 — controle da DDR no empenho;\n4. Q1986052 — TRT-22/FCC/2022 — grupo Execução da Administração Financeira;\n5. Q995159 — SEFAZ-BA/FCC/2019 — Balanço Orçamentário e classes 5/6;\n6. Q970188 — Recife/FCC/2019 — abertura de crédito adicional;\n7. Q416835 — TCE-PI/FCC/2014 — serviço prestado + liquidação;\n8. Q372426 — AL-PE/FCC/2014 — natureza de controle na liquidação;\n9. Q375646 — TRT-15/FCC/2013 — reconhecimento patrimonial de juros;\n10. Q223115 — TCE-SP/FCC/2012 — assinatura de contrato e classes 7/8.\nOs itens antigos foram mantidos apenas porque o núcleo estrutural cobrado permanece válido no MCASP atual."
+        },
+        {
+          "heading": "34. Como a FCC tende a cobrar",
+          "body": "1. trocar classe 5 por 6;\n2. trocar 7 por 8;\n3. colocar lançamento híbrido entre naturezas;\n4. perguntar a natureza pedida e oferecer lançamento de outra natureza tecnicamente verdadeiro;\n5. confundir assinatura do contrato com reconhecimento patrimonial;\n6. usar estágios de despesa para testar classe 6/8;\n7. cobrar grupo ↔ classe;\n8. testar demonstração ↔ classes;\n9. perguntar P/F junto com classes para aumentar a carga cognitiva;\n10. usar conta longa para ver se você ignora o primeiro dígito."
+        },
+        {
+          "heading": "35. Pegadinhas prioritárias",
+          "body": "- orçamento ≠ patrimônio;\n- classe 5 ≠ execução; classe 6 = execução;\n- classe 7/8 ≠ “contas sem importância”;\n- mesma transação pode gerar 3 lançamentos;\n- mesmo lançamento não cruza naturezas;\n- classe ≠ grupo;\n- primeiro dígito resolve a natureza;\n- informação de controle ≠ controle interno institucional;\n- PCASP 2027 publicado em 2026 ≠ conta 2027 aplicada em 2026."
+        },
+        {
+          "heading": "36. O que precisa ficar automático",
+          "body": "1 Ativo\n2 Passivo/PL\n3 VPD\n4 VPA\n5 Aprovação do Planejamento/Orçamento\n6 Execução do Planejamento/Orçamento\n7 Controles Devedores\n8 Controles Credores\nE:\n- 1–4 P\n- 5–6 O\n- 7–8 C\n- lançamento preserva a natureza;\n- fato único pode gerar lançamentos múltiplos."
+        },
+        {
+          "heading": "37. Pré-Q050",
+          "body": "Sem consulta:\n1. recite as 8 classes;\n2. quais classes são patrimoniais?\n3. quais são orçamentárias?\n4. quais são de controle?\n5. um lançamento pode debitar classe 1 e creditar classe 6?\n6. previsão inicial da receita usa quais classes?\n7. execução da receita tende a ocorrer em qual classe?\n8. assinatura de ato potencial usa qual par?\n9. inscrição/executação de RP pertencem a quais classes?\n10. qual é o primeiro passo para ler uma conta de 9 dígitos?\nSe errar 3+, volte apenas ao bloco correspondente antes da bateria."
+        },
+        {
+          "heading": "38. Q050",
+          "body": "Meta: 25 questões."
+        },
+        {
+          "heading": "39. Pós-Q050 — causa do erro",
+          "body": "- C — classe;\n- N — natureza;\n- L — lógica débito/crédito;\n- E — estágio orçamentário;\n- R — controle/DDR;\n- V — versão anual;\n- D — distração de leitura."
+        },
+        {
+          "heading": "P1",
+          "body": "- misturar naturezas;\n- trocar 5/6;\n- trocar 7/8;\n- não reconhecer estágio;\n- aplicar PCASP anual ao exercício errado."
+        },
+        {
+          "heading": "40. D0",
+          "body": "Após tentativa e correção reais:\n1. escrever 1–8 sem consulta;\n2. escrever P/O/C;\n3. desenhar previsão → realização da receita;\n4. desenhar fixação → empenho → liquidação → pagamento;\n5. explicar horizontal × vertical;\n6. refazer as 10 FCC prioritárias erradas ou com dúvida;\n7. verbalizar por que uma mesma transação pode gerar mais de um lançamento.\nD0 configurado ≠ realizado."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente:\n- estrutura nova;\n- alta densidade de contrastes;\n- uso direto em Q050 e DCASP."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente:\n- PCASP é linguagem-base para D057 e integração D061;\n- erro estrutural em classe/natureza contamina vários temas da CASP.\nD7/D20 acionados ≠ revisões realizadas."
+        },
+        {
+          "heading": "42. Flashcards candidatos",
+          "body": "- 8 classes;\n- P/O/C;\n- integridade das partidas;\n- horizontal × vertical;\n- previsão receita 5→6;\n- realização classe 6;\n- fixação 5→6;\n- empenho classe 6 + DDR classe 8;\n- RP inscrição 5 / execução 6;\n- dívida ativa — execução da inscrição = 8.\nCriar apenas se a execução mostrar utilidade."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- fontes STN validadas;\n- versão 2026/2027 controlada;\n- mapa das 8 classes completo;\n- Q050 separado com 25 válidas;\n- 10 FCC reais corrigidas em detalhe;\n- D0/D7/D20 configurados."
+        },
+        {
+          "heading": "44. Ponte",
+          "body": "- D057 — DCASP: transformar os registros em leitura de demonstrações;\n- D061: integração posterior CASP/MCASP;\n- próxima Sxx: identificar ao fim da auditoria desta sessão; não processar agora."
+        },
+        {
+          "heading": "45. Fontes efetivamente usadas",
+          "body": "- seis Fontes canônicas vigentes;\n- MCASP 11ª edição — Parte IV;\n- página oficial PCASP/STN;\n- edital verticalizado B06;\n- questões FCC mapeadas no Q050.\nSaída esperada: diante de qualquer conta ou lançamento, primeiro identifique a natureza, depois a classe, depois o estágio. Só então leia o restante da conta."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T17:08:34.632Z"
+    },
+    "d052": {
+      "dxx": "D052",
+      "title": "D052 — Auditoria III",
+      "summary": "Auditoria III — técnicas e evidências — Exame documental; inspeção física; cálculos; observação; entrevista; circularização; conciliações; análise de contas; revisão analítica; evidência.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D052 — Auditoria III \\| técnicas, procedimentos e evidências\nS24 / D052 — 105 min · 25 questões. O D029 estruturou planejamento/risco e o D036 transformou isso em programa, amostragem e papéis de trabalho. Agora o foco é operacional: qual técnica usar, quando usar e que tipo de evidência ela produz."
+        },
+        {
+          "heading": "2. Por que este assunto entra aqui",
+          "body": "A sequência de Auditoria foi construída em três degraus:\n1. D029 — Auditoria I: objetivo, escopo, critério, materialidade e risco;\n2. D036 — Auditoria II: programa, papéis, amostragem e rastreabilidade;\n3. D052 — Auditoria III: execução — obter, combinar e avaliar evidência.\nA lógica é simples:\nrisco identificado → procedimento escolhido → evidência obtida → achado/conclusão sustentados\nSem essa ponte, o planejamento vira lista teórica sem execução."
+        },
+        {
+          "heading": "3. Posição no edital",
+          "body": "O recorte do D052 corresponde ao bloco de Auditoria com ênfase em:\n- exame documental;\n- inspeção física;\n- conferência de cálculos;\n- observação;\n- entrevista/indagação;\n- circularização/confirmação externa;\n- conciliações;\n- análise de contas;\n- revisão analítica;\n- evidências de auditoria."
+        },
+        {
+          "heading": "O que fica fora hoje",
+          "body": "- planejamento em profundidade → D029;\n- amostragem e papéis → D036;\n- relatório/opinião → sessão posterior;\n- achados/matriz de responsabilização em profundidade → sessão posterior;\n- técnicas de auditoria assistidas por computador em profundidade."
+        },
+        {
+          "heading": "Reaproveitado",
+          "body": "Você já viu:\n- risco;\n- materialidade;\n- programa;\n- papéis de trabalho;\n- suficiência/adequação em nível introdutório;\n- amostragem."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "O D052 exige associar corretamente:\n- objetivo do teste;\n- técnica;\n- fonte da informação;\n- força/limite da evidência;\n- procedimento alternativo quando necessário."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. definir evidência suficiente × apropriada;\n2. distinguir inspeção documental × inspeção física;\n3. distinguir observação × reexecução;\n4. distinguir recálculo × revisão analítica;\n5. distinguir entrevista/indagação × confirmação externa;\n6. explicar por que indagação isolada costuma ser fraca;\n7. explicar por que confirmação externa tende a ser mais confiável;\n8. escolher técnica coerente com existência, integridade, cálculo, execução de controle e tendência;\n9. distinguir conciliação × análise de contas;\n10. resolver Q052 justificando a técnica antes de olhar alternativas."
+        },
+        {
+          "heading": "NBASP / IRB",
+          "body": "A NBASP 100 trabalha evidência no setor público e lista métodos como:\n- inspeção;\n- observação;\n- indagação;\n- confirmação;\n- recálculo;\n- reexecução;\n- procedimentos analíticos."
+        },
+        {
+          "heading": "NBC TA / CFC",
+          "body": "Recorte:\n- NBC TA 500 (R1) — Evidência de Auditoria;\n- NBC TA 505 — Confirmações Externas;\n- NBC TA 520 — Procedimentos Analíticos."
+        },
+        {
+          "heading": "NBC TI 01",
+          "body": "Usada para a terminologia clássica de auditoria interna:\n- inspeção;\n- observação;\n- investigação e confirmação;\n- testes de observância;\n- testes substantivos."
+        },
+        {
+          "heading": "Controle temporal",
+          "body": "- corte do edital: 25/08/2026;\n- fontes revalidadas em 22/09/2026;\n- nenhuma alteração posterior ao corte foi incorporada como requisito do D052."
+        },
+        {
+          "heading": "7. Roteiro dos 105 minutos",
+          "body": "1. 10 min — mapa técnica → objetivo → evidência.\n2. 25 min — evidência: suficiência, adequação, relevância e confiabilidade.\n3. 25 min — técnicas nucleares.\n4. 15 min — contrastes e casos.\n5. 25 min — Q052.\n6. 5 min — D0.\n---\n# PARTE I — EVIDÊNCIA"
+        },
+        {
+          "heading": "8. O que é evidência de auditoria",
+          "body": "Evidência é a informação usada pelo auditor para sustentar:\n- achados;\n- conclusões;\n- opinião/relatório, conforme o tipo de trabalho.\nEla pode vir de:\n- documentos;\n- registros eletrônicos;\n- observações;\n- respostas externas;\n- cálculos;\n- reexecução;\n- entrevistas;\n- relações entre dados;\n- combinações de fontes."
+        },
+        {
+          "heading": "Regra-chave",
+          "body": "Conclusão forte depende de evidência suficiente e apropriada."
+        },
+        {
+          "heading": "Suficiência",
+          "body": "É a quantidade de evidência.\nÉ influenciada por:\n- risco;\n- materialidade;\n- qualidade da evidência obtida;\n- tamanho/população;\n- dispersão dos achados.\nQuanto maior o risco, normalmente maior a necessidade de evidência."
+        },
+        {
+          "heading": "Adequação",
+          "body": "É a qualidade da evidência.\nEnvolve:\n- relevância;\n- confiabilidade."
+        },
+        {
+          "heading": "Macete",
+          "body": "Suficiência = Quanto\nAdequação = Quão boa"
+        },
+        {
+          "heading": "Pegadinha FCC",
+          "body": "Trocar:\n- suficiência por qualidade;\n- adequação por quantidade."
+        },
+        {
+          "heading": "10. Confiabilidade — regra prática",
+          "body": "Em geral, tende a ser mais confiável a evidência:\n- externa independente;\n- obtida diretamente pelo auditor;\n- documental em vez de apenas oral;\n- original/autêntica em vez de reprodução sem controle;\n- proveniente de sistema interno com controles efetivos.\nMas isso não vira regra absoluta."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Confirmação bancária recebida diretamente pelo auditor tende a ser mais confiável que planilha produzida internamente pela unidade auditada."
+        },
+        {
+          "heading": "11. Evidência cumulativa",
+          "body": "Evidência não precisa vir de uma única “prova perfeita”.\nO auditor combina:\n- documentos;\n- observação;\n- entrevista;\n- confirmação;\n- análise;\n- cálculos."
+        },
+        {
+          "heading": "Triangulação",
+          "body": "Quando fontes independentes/naturezas diferentes convergem, a força da conclusão aumenta."
+        },
+        {
+          "heading": "Inconsistência",
+          "body": "Se uma evidência contradiz outra:\n- não escolha arbitrariamente a favorita;\n- investigue a inconsistência;\n- aplique procedimento adicional.\n---\n# PARTE II — TÉCNICA → QUANDO USAR → EVIDÊNCIA"
+        },
+        {
+          "heading": "12. Quadro-mestre",
+          "body": "Técnica\nQuando usar\nEvidência produzida / foco\nExame documental\nvalidar autorização, existência de documento, cláusula, data, assinatura, registro\ndocumental\nInspeção física\nconfirmar existência/estado de bem\nfísica/direta\nRecálculo\ntestar exatidão matemática\nreprodução matemática independente\nObservação\nver processo/controle sendo executado\ndireta, limitada ao momento observado\nEntrevista/indagação\nentender processo, causa, percepção, explicação\noral/escrita declaratória\nConfirmação externa/circularização\nconfirmar saldo/fato com terceiro independente\nexterna direta\nConciliação\ncomparar saldos/registros que deveriam corresponder\ncompatibilidade entre bases\nAnálise de contas\ndecompor saldo/movimentações e investigar composição\ncomposição e comportamento da conta\nProcedimento/revisão analítica\nidentificar relações, tendências e anomalias\nexpectativa × realizado / relações plausíveis\nReexecução\nverificar se controle/procedimento funciona ao ser executado pelo auditor\nexecução independente do processo/controle"
+        },
+        {
+          "heading": "O que é",
+          "body": "Análise de:\n- contratos;\n- notas;\n- processos;\n- relatórios;\n- ordens;\n- registros;\n- documentos digitais ou físicos."
+        },
+        {
+          "heading": "Bom para",
+          "body": "- autorização;\n- prazo;\n- requisito formal;\n- existência de registro;\n- condição contratual;\n- trilha documental."
+        },
+        {
+          "heading": "Limite",
+          "body": "Documento existente não prova automaticamente:\n- que o fato ocorreu;\n- que o bem existe;\n- que o serviço foi prestado;\n- que o conteúdo é verdadeiro.\nPor isso, muitas vezes precisa ser combinado com outra técnica."
+        },
+        {
+          "heading": "O que é",
+          "body": "Constatação direta da existência física e, quando pertinente, de atributos do objeto."
+        },
+        {
+          "heading": "Bom para",
+          "body": "- estoque;\n- equipamento;\n- obra;\n- bem patrimonial;\n- condição/estado físico."
+        },
+        {
+          "heading": "Força",
+          "body": "É evidência direta sobre existência física."
+        },
+        {
+          "heading": "Limite",
+          "body": "Ver um ativo:\n- não prova automaticamente propriedade jurídica;\n- não prova valor;\n- não prova completude do universo;\n- não prova que todos os registros estão corretos."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Existência ≠ propriedade ≠ avaliação ≠ completude."
+        },
+        {
+          "heading": "O que é",
+          "body": "Acompanhar processo/procedimento enquanto ele ocorre.\nExemplos:\n- inventário;\n- conferência;\n- atendimento;\n- execução de controle;\n- procedimento operacional."
+        },
+        {
+          "heading": "Vantagem",
+          "body": "Permite ver como o processo funciona na prática."
+        },
+        {
+          "heading": "Limite",
+          "body": "A evidência fica limitada:\n- ao momento;\n- ao local;\n- ao procedimento observado.\nAlém disso, pessoas podem mudar comportamento porque sabem que estão sendo observadas."
+        },
+        {
+          "heading": "O que é",
+          "body": "Verificação da exatidão matemática.\nExemplos:\n- juros;\n- depreciação;\n- multa;\n- soma;\n- rateio;\n- atualização monetária."
+        },
+        {
+          "heading": "Macete",
+          "body": "Recálculo = número.\nNão confundir com reexecução."
+        },
+        {
+          "heading": "O que é",
+          "body": "O auditor executa independentemente procedimento ou controle originalmente realizado pela entidade.\nExemplo:\n- refazer rotina de aprovação;\n- aplicar controle de sistema com base na mesma regra;\n- refazer classificação conforme procedimento interno."
+        },
+        {
+          "heading": "Macete",
+          "body": "Reexecução = processo/controle.\nRecálculo = matemática."
+        },
+        {
+          "heading": "O que é",
+          "body": "Busca de informações com pessoas conhecedoras:\n- dentro;\n- ou fora da entidade."
+        },
+        {
+          "heading": "Bom para",
+          "body": "- compreender fluxo;\n- levantar hipóteses;\n- entender causa;\n- identificar exceções;\n- localizar documentos;\n- compreender justificativas."
+        },
+        {
+          "heading": "Limite",
+          "body": "Indagação isolada raramente deve ser tratada como evidência conclusiva para tema relevante.\nA resposta precisa, quando necessário, ser corroborada."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Entrevista não é circularização."
+        },
+        {
+          "heading": "O que é",
+          "body": "Obtenção de resposta diretamente de terceiro independente.\nExemplos:\n- banco;\n- fornecedor;\n- cliente;\n- advogado;\n- custodiante."
+        },
+        {
+          "heading": "Força",
+          "body": "Em geral, evidência obtida diretamente de fonte externa independente tende a ser mais confiável."
+        },
+        {
+          "heading": "Controle do auditor",
+          "body": "O auditor precisa manter controle sobre:\n- informação a confirmar;\n- destinatário;\n- envio;\n- resposta."
+        },
+        {
+          "heading": "Não resposta",
+          "body": "Não significa:\n- “saldo correto”;\n- nem “procedimento encerrado”.\nPode exigir procedimento alternativo."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Confirmação externa não dispensa automaticamente outros procedimentos."
+        },
+        {
+          "heading": "O que é",
+          "body": "Comparar registros/saldos que deveriam guardar correspondência.\nExemplos:\n- razão × extrato bancário;\n- sintético × analítico;\n- sistema contábil × sistema auxiliar;\n- folha × contabilidade;\n- estoque físico × razão."
+        },
+        {
+          "heading": "Resultado",
+          "body": "Identifica:\n- diferenças;\n- pendências;\n- duplicidades;\n- lançamentos não registrados;\n- divergências temporais."
+        },
+        {
+          "heading": "Macete",
+          "body": "Conciliação = duas bases que deveriam bater."
+        },
+        {
+          "heading": "O que é",
+          "body": "Examinar:\n- composição;\n- lançamentos;\n- movimentos;\n- contrapartidas;\n- origem;\n- histórico;\n- saldos atípicos."
+        },
+        {
+          "heading": "Quando usar",
+          "body": "- conta com saldo incomum;\n- movimentação concentrada;\n- reversões;\n- contas transitórias;\n- lançamentos manuais;\n- conta antiga sem baixa."
+        },
+        {
+          "heading": "Diferença para conciliação",
+          "body": "- conciliação = comparação entre bases/saldos;\n- análise de contas = decomposição/investigação da própria conta."
+        },
+        {
+          "heading": "O que são",
+          "body": "Avaliação de informações por meio de relações plausíveis entre:\n- dados financeiros;\n- dados não financeiros.\nIncluem investigação de:\n- flutuações;\n- tendências;\n- relações inesperadas;\n- desvios significativos do esperado."
+        },
+        {
+          "heading": "Exemplos",
+          "body": "- despesa de combustível × km rodado;\n- folha × número de servidores;\n- receita tributária × base econômica;\n- margem histórica × margem atual;\n- custo por unidade × períodos anteriores."
+        },
+        {
+          "heading": "Macete",
+          "body": "Analítico = comportamento, relação, tendência.\nNão confundir com:\n- recálculo;\n- exame documental;\n- conciliação.\n---\n# PARTE III — PROCEDIMENTO CERTO PARA A PERGUNTA CERTA"
+        },
+        {
+          "heading": "Se a pergunta é “isso existe?”",
+          "body": "Ponto de partida comum:\n- registro → documento/bem."
+        },
+        {
+          "heading": "Se a pergunta é “está tudo registrado?”",
+          "body": "Ponto de partida comum:\n- fonte externa/física/documento-base → registro.\nEssa direção do teste ajuda a entender:\n- existência/ocorrência;\n- completude/integridade.\nNão transforme em regra mecânica; o desenho depende do objeto e risco."
+        },
+        {
+          "heading": "Caso 1 — estoque",
+          "body": "Objetivo: confirmar estoque final.\nCombinação:\n- inspeção física;\n- observação de inventário;\n- exame documental;\n- conciliação;\n- testes de corte;\n- confirmação externa se estoque em terceiros."
+        },
+        {
+          "heading": "Caso 2 — contrato",
+          "body": "Objetivo: verificar execução.\nCombinação:\n- exame contratual;\n- inspeção física/observação;\n- entrevista;\n- recálculo de medição;\n- confirmação externa quando aplicável;\n- análise de pagamentos."
+        },
+        {
+          "heading": "Caso 3 — folha",
+          "body": "Objetivo: identificar pagamento indevido.\nCombinação:\n- análise de dados;\n- exame documental;\n- conciliação;\n- recálculo;\n- confirmação/indagação dirigida."
+        },
+        {
+          "heading": "25. Qualidade da evidência por técnica",
+          "body": "Nenhuma técnica é “sempre melhor”.\nA pergunta é:\n> esta técnica produz evidência relevante e confiável para este objetivo?\nExemplo:\n- inspeção física é excelente para existência;\n- péssima, sozinha, para propriedade;\n- recálculo é excelente para exatidão matemática;\n- irrelevante, sozinho, para comprovar ocorrência do fato;\n- entrevista explica causa;\n- confirmação externa fortalece existência/saldo perante terceiro."
+        },
+        {
+          "heading": "Teste de controle",
+          "body": "Avalia se o controle:\n- existe;\n- foi aplicado;\n- funcionou efetivamente no período."
+        },
+        {
+          "heading": "Procedimento substantivo",
+          "body": "Busca detectar distorção relevante em:\n- classes de transações;\n- saldos;\n- divulgações.\nPode assumir:\n- teste de detalhes;\n- procedimento analítico substantivo."
+        },
+        {
+          "heading": "Relação",
+          "body": "São complementares conforme a estratégia de auditoria."
+        },
+        {
+          "heading": "Pegadinha FCC",
+          "body": "Trocar:\n- teste de controle = validade do dado final;\n- substantivo = funcionamento do controle."
+        },
+        {
+          "heading": "27. NBC TI 01 — terminologia clássica",
+          "body": "Na NBC TI 01:\n- inspeção = verificação de registros, documentos e ativos tangíveis;\n- observação = acompanhamento de processo/procedimento quando executado;\n- investigação e confirmação = obtenção de informações de pessoas físicas/jurídicas conhecedoras, dentro ou fora da entidade.\nEssa terminologia aparece em questões FCC do TCE-GO."
+        },
+        {
+          "heading": "Cuidado",
+          "body": "Na NBC TA:\n- indagação e confirmação externa aparecem de forma mais separada;\n- não trate todo contato com terceiro como “circularização formal”.\n---\n# PARTE IV — CASOS RESOLVIDOS"
+        },
+        {
+          "heading": "28. Caso 1 — banco",
+          "body": "A unidade apresenta extrato impresso para provar saldo bancário."
+        },
+        {
+          "heading": "Melhor reforço",
+          "body": "Confirmação direta com a instituição financeira."
+        },
+        {
+          "heading": "Por quê?",
+          "body": "A fonte:\n- é externa;\n- independente;\n- responde diretamente ao auditor."
+        },
+        {
+          "heading": "Limite",
+          "body": "Ainda pode ser necessário:\n- conciliar;\n- examinar trânsito;\n- avaliar restrições;\n- testar corte."
+        },
+        {
+          "heading": "29. Caso 2 — inventário",
+          "body": "A comissão afirma que o estoque existe e está em bom estado."
+        },
+        {
+          "heading": "Procedimento",
+          "body": "- inspeção física;\n- observação da contagem;\n- amostragem;\n- conciliação com registros."
+        },
+        {
+          "heading": "Por quê?",
+          "body": "A declaração da comissão é apenas indagação. O auditor precisa evidência direta."
+        },
+        {
+          "heading": "30. Caso 3 — cálculo de reajuste",
+          "body": "Contrato usa fórmula de reajuste."
+        },
+        {
+          "heading": "Procedimento nuclear",
+          "body": "Recálculo.\nSe a fórmula foi aplicada por sistema:\n- recálculo testa matemática;\n- reexecução pode testar o controle/processo;\n- exame documental testa índice e cláusula."
+        },
+        {
+          "heading": "31. Caso 4 — queda atípica em arrecadação",
+          "body": "Receita cai 25% enquanto base econômica cresce."
+        },
+        {
+          "heading": "Procedimento inicial",
+          "body": "Procedimento analítico.\nDepois:\n- investigar composição;\n- entrevistar;\n- examinar base;\n- conciliar;\n- testar transações.\nAnalítico identifica o sinal; outras técnicas explicam a causa.\n---"
+        },
+        {
+          "heading": "32. Como a FCC tende a cobrar",
+          "body": "A FCC costuma:\n1. trocar recálculo por reexecução;\n2. trocar observação por inspeção;\n3. chamar circularização de entrevista;\n4. inverter suficiência/adequação;\n5. dizer que evidência externa é sempre conclusiva;\n6. dizer que indagação isolada basta;\n7. confundir revisão analítica com conferência aritmética;\n8. trocar teste de controle por substantivo;\n9. apresentar técnica correta, mas para objetivo errado;\n10. misturar documentação do trabalho com evidência obtida."
+        },
+        {
+          "heading": "33. Evidência FCC mapeada",
+          "body": "O Q052 usa, entre outras:\n- TCE-GO/FCC 2022 — Q2109770;\n- SEFAZ-CE/FCC 2026 — Q4221426;\n- SEFAZ-GO/FCC 2026 — Q4067469 e Q4067470;\n- TRF-4/FCC 2025 — Q3538545;\n- TCE-CE/FCC 2015 — Q525402 e Q528820;\n- TCE-AL/FCC 2008 — Q449990.\nQuestões históricas só permanecem quando o núcleo conceitual ainda é válido."
+        },
+        {
+          "heading": "34. O que precisa ficar automático",
+          "body": "- suficiente = quantidade;\n- apropriada = qualidade;\n- inspeção = examinar documento/ativo;\n- observação = acompanhar execução;\n- recálculo = matemática;\n- reexecução = procedimento/controle;\n- indagação = perguntar;\n- confirmação externa = terceiro → auditor;\n- conciliação = duas bases;\n- análise de contas = decompor uma conta;\n- analítico = relação/tendência;\n- indagação isolada pede corroborar;\n- evidência externa direta tende a ser mais confiável."
+        },
+        {
+          "heading": "35. Pré-Q052",
+          "body": "Sem consultar:\n1. suficiência significa o quê?\n2. adequação significa o quê?\n3. qual a diferença entre recálculo e reexecução?\n4. qual a diferença entre inspeção e observação?\n5. qual a diferença entre entrevista e circularização?\n6. qual a diferença entre conciliação e análise de contas?\n7. revisão analítica procura o quê?\n8. não resposta à confirmação positiva encerra o teste?\n9. inspeção física prova propriedade?\n10. qual técnica você usaria para testar fórmula matemática?"
+        },
+        {
+          "heading": "36. Q052",
+          "body": "Meta: 25 questões."
+        },
+        {
+          "heading": "37. Pós-Q052 — causa do erro",
+          "body": "- E — evidência;\n- I — inspeção;\n- O — observação;\n- R — recálculo/reexecução;\n- Q — indagação/entrevista;\n- C — confirmação/circularização;\n- N — conciliação/análise de contas;\n- A — analítico;\n- T — teste de controle/substantivo."
+        },
+        {
+          "heading": "P1",
+          "body": "Considere grave:\n- inverter suficiência/adequação;\n- confundir recálculo/reexecução;\n- confundir confirmação/indagação;\n- aceitar evidência não relevante para o objetivo;\n- não perceber limitação de uma técnica."
+        },
+        {
+          "heading": "38. D0",
+          "body": "Após execução real:\n1. refazer erradas + acertos com dúvida;\n2. escrever a tabela “técnica → quando usar → evidência” de memória;\n3. explicar 5 contrastes:\n- inspeção × observação;\n- recálculo × reexecução;\n- entrevista × confirmação;\n- conciliação × análise de contas;\n- analítico × recálculo;\n4. explicar suficiência × adequação;\n5. construir uma combinação de 3 técnicas para um caso real.\nD0 configurado ≠ realizado."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente:\n- conteúdo operacional novo;\n- muitos pares conceituais próximos;\n- alta incidência de troca em prova."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente:\n- técnica/evidência reaparece em relatório, achados, responsabilização e simulados;\n- erro aqui contamina a execução de auditoria inteira.\nD7/D20 acionados ≠ revisões realizadas."
+        },
+        {
+          "heading": "40. Flashcards candidatos",
+          "body": "- suficiência × adequação;\n- inspeção × observação;\n- recálculo × reexecução;\n- entrevista × confirmação;\n- conciliação × análise de contas;\n- revisão analítica;\n- confiabilidade externa;\n- teste de controle × substantivo.\nCriar apenas se a execução mostrar utilidade."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- fontes oficiais validadas;\n- mapa técnica→uso→evidência completo;\n- Q052 com 25 válidas;\n- FCC e autorais separadas;\n- D0/D7/D20 configurados."
+        },
+        {
+          "heading": "42. Ponte",
+          "body": "- próxima etapa de Auditoria: achados, relatório, qualidade/conclusão conforme a sequência canônica;\n- D036 fornece amostra/documentação;\n- D052 fornece evidência;\n- sessões posteriores transformam isso em achado e relatório."
+        },
+        {
+          "heading": "43. Fontes efetivamente usadas",
+          "body": "- seis Fontes canônicas do projeto;\n- NBASP/IRB;\n- NBC TA 500 (R1), 505 e 520 — CFC;\n- NBC TI 01 — CFC;\n- Q029/Q036 como pré-requisitos;\n- questões FCC mapeadas para Q052.\nSaída esperada: antes de escolher uma técnica, pergunte “qual afirmação eu preciso comprovar?”. A técnica correta é consequência do objetivo da evidência."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T18:13:10.830Z"
     }
   },
   "questions": {
@@ -5963,6 +7140,61 @@
       "copyrightMode": "metadata-only",
       "version": 2,
       "lastEdited": "2026-09-22T15:09:05.391Z"
+    },
+    "q043": {
+      "qxx": "Q043",
+      "dxx": "D043",
+      "title": "Q043 — Questões \\| AFO",
+      "meta": 30,
+      "valid": 30,
+      "sourceSummary": "19 FCC reais + 11 autorais normativas. FCC: SEFAZ-GO/2026, SEFAZ-SP/2026, AL-MS/2026, TRT-18/GO/2023 (2), TRT-2/2018, CLDF/2018, São Luís/2015 (2), TCE-RS/2014 (2), TCE-SP/2012 e 2011, TJ-RJ/2012, TCE-PR/2011, TCM-PA/2010, MPU/2007 (2), TCE-MA/2005.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T15:30:18.410Z"
+    },
+    "q045": {
+      "qxx": "Q045",
+      "dxx": "D045",
+      "title": "Q045 — Questões \\| CHECKPOINT D45",
+      "meta": 45,
+      "valid": 45,
+      "sourceSummary": "35 FCC reais reexpostas de Q022/Q024/Q026/Q029/Q031/Q033/Q036/Q043 + 10 autorais cumulativas/integrativas; nenhuma FCC nova republicada integralmente.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T16:04:49.676Z"
+    },
+    "q047": {
+      "qxx": "Q047",
+      "dxx": "D047",
+      "title": "Q047 — Questões \\| Licitações",
+      "meta": 30,
+      "valid": 30,
+      "sourceSummary": "7 FCC reais recentes de nível superior (2025–2026) + 23 autorais normativas. FCC: Q3884297, Q3848792, Q3508687, Q4240124, Q4158847, Q3910552 e Q3993991. Q3910556 excluída V3 por decreto específico de SP.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T16:54:21.322Z"
+    },
+    "q050": {
+      "qxx": "Q050",
+      "dxx": "D050",
+      "title": "Q050 — Questões \\| CASP VII",
+      "meta": 25,
+      "valid": 25,
+      "sourceSummary": "10 FCC reais + 15 autorais técnicas. FCC: Q1982530 TCE-GO/2022; Q4221415 SEFAZ-CE/2026; Q2098969 TRT-18/2023; Q1986052 TRT-22/2022; Q995159 SEFAZ-BA/2019; Q970188 Recife/2019; Q416835 TCE-PI/2014; Q372426 AL-PE/2014; Q375646 TRT-15/2013; Q223115 TCE-SP/2012.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T17:08:36.419Z"
+    },
+    "q052": {
+      "qxx": "Q052",
+      "dxx": "D052",
+      "title": "Q052 — Questões \\| Auditoria III",
+      "meta": 25,
+      "valid": 25,
+      "sourceSummary": "8 FCC reais + 17 autorais técnicas. FCC: Q2109770 TCE-GO/2022; Q4221426 SEFAZ-CE/2026; Q4067469 e Q4067470 SEFAZ-GO/2026; Q3538545 TRF-4/2025; Q525402 e Q528820 TCE-CE/2015; Q449990 TCE-AL/2008.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T18:13:12.734Z"
     }
   },
   "publicStats": {
@@ -5971,7 +7203,7 @@
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 19,
-    "questionPages": 19
+    "materialPages": 24,
+    "questionPages": 24
   }
 }
