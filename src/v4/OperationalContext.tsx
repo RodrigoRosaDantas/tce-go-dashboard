@@ -33,6 +33,7 @@ function localFallback(snapshot: Snapshot): OperationalSummary {
     progress,
     dayControl: [],
     sessions: [],
+    questionMeta: [],
     reviews: [],
     errors: [],
     redactions: [],
