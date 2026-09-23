@@ -96,6 +96,8 @@ test("contexto cross-device atualiza após writeback, online e storage", () => {
   assert.match(context, /tce-progress-confirmed/);
   assert.match(context, /window\.addEventListener\("online"/);
   assert.match(context, /window\.addEventListener\("storage"/);
+  assert.match(context, /document\.addEventListener\("visibilitychange"/);
+  assert.match(context, /60_000/);
 });
 
 
