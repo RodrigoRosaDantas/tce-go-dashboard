@@ -45,6 +45,12 @@ Deno.serve(async req=>{
     }
     await patchEvent(user.id,ev.v.idempotencyKey,{resolved_sxx:day.sxx,notion_day_page_id:day.id});
 
+    const newer=await one("tce_progress_events",`owner_id=eq.${enc(user.id)}&dxx=eq.${enc(day.dxx)}&idempotency_key=neq.${enc(ev.v.idempotencyKey)}&occurred_at=gt.${enc(ev.v.occurredAt)}&status=in.(pending,confirmed)&order=occurred_at.desc&limit=1`);
+    if(newer){
+      await conflict(user.id,ev.v.idempotencyKey,"SUPERSEDED_BY_NEWER_EVENT","Existe evento mais novo para o mesmo Dxx; o evento antigo foi preservado sem escrita canônica.",day);
+      return json({status:"conflict",error:"Existe um evento mais novo para este Dxx. O evento anterior foi preservado e não sobrescreveu o Notion.",dxx:day.dxx,sxx:day.sxx,supersededBy:newer.idempotency_key},409,cors);
+    }
+
     const prev=await one("tce_progress_state",`owner_id=eq.${enc(user.id)}&dxx=eq.${enc(day.dxx)}`);
     if(prev?.event_occurred_at&&Date.parse(prev.event_occurred_at)>Date.parse(ev.v.occurredAt)){
       await conflict(user.id,ev.v.idempotencyKey,"STALE_REPLAY","Replay offline mais antigo que o último estado confirmado.",day);
