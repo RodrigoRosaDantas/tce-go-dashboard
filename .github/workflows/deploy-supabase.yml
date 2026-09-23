@@ -65,8 +65,36 @@ jobs:
 
       - name: Deploy tce-progress
         if: steps.config.outputs.ready == 'true'
-        run: supabase functions deploy tce-progress --project-ref "$SUPABASE_PROJECT_ID"
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            if supabase functions deploy tce-progress --project-ref "$SUPABASE_PROJECT_ID"; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "::error::Deploy tce-progress falhou após 3 tentativas."
+              exit 1
+            fi
+            delay=$((attempt * 20))
+            echo "::warning::Deploy tce-progress falhou na tentativa $attempt; repetindo em ${delay}s."
+            sleep "$delay"
+          done
 
       - name: Deploy tce-public-snapshot
         if: steps.config.outputs.ready == 'true'
-        run: supabase functions deploy tce-public-snapshot --project-ref "$SUPABASE_PROJECT_ID"
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            if supabase functions deploy tce-public-snapshot --project-ref "$SUPABASE_PROJECT_ID"; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "::error::Deploy tce-public-snapshot falhou após 3 tentativas."
+              exit 1
+            fi
+            delay=$((attempt * 20))
+            echo "::warning::Deploy tce-public-snapshot falhou na tentativa $attempt; repetindo em ${delay}s."
+            sleep "$delay"
+          done
