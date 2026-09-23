@@ -103,6 +103,7 @@ export function buildDataIssues(summary: OperationalSummary, snapshot: Snapshot)
   const issues: DataIssue[] = [];
   const active = new Set(snapshot.days.filter((day) => !day.protected).map((day) => day.dxx));
   const sessionMap = sessionRowsByDay(summary);
+  const dayControlMap = new Map(summary.dayControl.map((day) => [day.dxx, day]));
   const questionDays = new Set(summary.questionMeta.map((item) => String(item.dxx || "").toUpperCase()).filter(Boolean));
   if (summary.canonical) {
     for (const dxx of active) {
@@ -139,6 +140,13 @@ export function buildDataIssues(summary: OperationalSummary, snapshot: Snapshot)
     if (dxx && !active.has(dxx)) issues.push({ level:"error", source:"Sessões", key:row.title, message:`Sessão aponta para ${dxx}, que não é Dxx ativo.` });
     if ((row.questions ?? 0) > 0 && (row.correct == null || row.errors == null)) {
       issues.push({ level:"warning", source:"Sessões", key:row.title, fields:["Acertos","Erros"], message:"Linha de sessão com questões mas sem correção completa." });
+    }
+    if (dxx && active.has(dxx)) {
+      const canonicalDay = dayControlMap.get(dxx);
+      const detailedExecution = (row.timeMinutes ?? 0) > 0 || (row.questions ?? 0) > 0 || (row.correct ?? 0) > 0 || (row.errors ?? 0) > 0 || (row.doubts ?? 0) > 0;
+      if (detailedExecution && (!canonicalDay || !hasExecution(canonicalDay))) {
+        issues.push({ level:"warning", source:"Sessões", key:row.title, message:`Há execução detalhada para ${dxx}, mas o Banco Dxx não registra execução. Atualize o Dxx para os totais do Dashboard refletirem esta sessão.` });
+      }
     }
   }
 
