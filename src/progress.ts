@@ -26,7 +26,7 @@ export type ProgressState = {
 export type ProgressEvent = {
   dxx: string;
   sxx?: string | null;
-  eventType: "progress.snapshot" | "questions.result" | "day.completed" | "day.reopened" | "review.snapshot" | "simulation.result" | "essay.result";
+  eventType: "progress.snapshot" | "questions.result" | "day.completed" | "day.reopened" | "review.snapshot" | "simulation.result" | "essay.result" | "error.capture";
   timestamp: string;
   origin: "tce-go-dashboard";
   idempotencyKey: string;
@@ -41,6 +41,7 @@ export type ProgressEvent = {
     doubts?: number;
     notes?: string;
     sourceUrl?: string;
+    [key: string]: unknown;
   };
   localStatus?: "pending" | "conflict";
   lastError?: string;
