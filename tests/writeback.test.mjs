@@ -161,7 +161,7 @@ test("resumo operacional privado agrega estado canônico e degrada sem Notion", 
 });
 
 test("cliente usa resumo cross-device e o invalida após writeback confirmado", () => {
-  assert.match(client, /tce-go\.operational-summary\.v1/);
+  assert.match(client, /tce-go\.operational-summary\.v2/);
   assert.match(client, /loadOperationalSummary/);
   assert.match(client, /\?mode=summary/);
   assert.match(client, /invalidateOperationalSummary\(\)/);
