@@ -104,6 +104,40 @@ await page.waitForSelector("#review-form");
 const statusSelect = page.locator("#review-form label", { hasText: "Status" }).locator("select");
 check(await statusSelect.inputValue() === "Próxima", "Formulário D7 não respeitou status Próxima");
 
+// 9) Dashboard V4.1 preserva null e usa Dxx como fonte analítica.
+await page.evaluate(() => {
+  localStorage.setItem("tce-go.operational-summary.v2", JSON.stringify({
+    generatedAt:new Date().toISOString(),
+    canonical:false,
+    source:"cache",
+    degraded:true,
+    progress:[],
+    dayControl:[
+      {id:"d1",dxx:"D001",sxx:"S01",order:1,type:"Estudo",protected:false,status:"Não iniciado",focus:"Controle Externo",studied:false,completed:false,plannedTime:"90–105 min",metaQuestions:20,timeMinutes:null,questionsDone:0,correct:0,errors:0,doubts:0,d7Triggered:false,d20Triggered:false,lastEditedAt:new Date().toISOString()},
+      {id:"d3",dxx:"D003",sxx:"S02",order:3,type:"Estudo",protected:false,status:"Não iniciado",focus:"CASP",studied:false,completed:false,plannedTime:"90 min",metaQuestions:15,timeMinutes:null,questionsDone:null,correct:null,errors:null,doubts:null,d7Triggered:false,d20Triggered:false,lastEditedAt:new Date().toISOString()},
+      {id:"d5",dxx:"D005",sxx:"S03",order:5,type:"Estudo",protected:false,status:"Em andamento",focus:"Auditoria",studied:true,completed:false,plannedTime:"90 min",metaQuestions:15,timeMinutes:null,questionsDone:10,correct:7,errors:3,doubts:null,d7Triggered:false,d20Triggered:false,lastEditedAt:new Date().toISOString()}
+    ],
+    sessions:[
+      {id:"s1",title:"D005 · S03",dxx:"D005",sxx:"S03",type:"Questões",eventType:"manual",origin:"manual-notion",date:new Date().toISOString(),timestamp:new Date().toISOString(),timeMinutes:null,questions:10,correct:7,errors:3,doubts:null}
+    ],
+    reviews:[],errors:[],redactions:[],simulations:[]
+  }));
+});
+await page.goto(baseUrl + "/desempenho/", { waitUntil: "domcontentloaded" });
+await page.waitForSelector(".data-dashboard-v41");
+check((await page.locator(".analytics-tabs-v41 button").allTextContents()).includes("Dados"), "Dashboard V4.1 não exibiu aba Dados");
+await page.locator(".analytics-tabs-v41 button", { hasText: "Execução" }).click();
+await page.waitForSelector(".analytics-table-v41");
+const d003Row = page.locator(".analytics-table-v41 tbody tr", { hasText: "D003" });
+check((await d003Row.innerText()).includes("—"), "D003 com métricas null não preservou vazio visual");
+const d005Row = page.locator(".analytics-table-v41 tbody tr", { hasText: "D005" });
+check((await d005Row.innerText()).includes("70.0%"), "D005 não calculou precisão a partir do Notion/cache canônico");
+check((await d005Row.innerText()).includes("Sessão no Notion"), "Origem manual do Notion não foi identificada");
+await page.locator(".analytics-tabs-v41 button", { hasText: "Dados" }).click();
+check((await page.locator(".data-issues-v41").innerText()).includes("D005"), "Qualidade de dados não sinalizou D005 incompleto");
+check((await page.locator(".data-issues-v41").innerText()).includes("Tempo real"), "Qualidade de dados não identificou Tempo real ausente");
+check((await page.locator(".data-issues-v41").innerText()).includes("Acertos com dúvida"), "Qualidade de dados não identificou Acertos com dúvida ausente");
+
 // Nenhum evento canônico deve ter sido enfileirado pelo E2E.
 const queued = await page.evaluate(() => localStorage.getItem("tce-go.pending-events.v1"));
 check(!queued || queued === "[]", "E2E criou evento de writeback sem submissão explícita");
@@ -113,4 +147,4 @@ if (failures.length) {
   console.error("Study OS E2E falhou:\n- " + failures.join("\n- "));
   process.exit(1);
 }
-console.log("Study OS E2E aprovado: busca + notas + timer + seção/bookmark + teto 18+2 + Qxx atômico → fechamento + D7 futura.");
+console.log("Study OS E2E aprovado: fluxo de estudo + Dashboard Notion-first + null preservado + qualidade de dados.");
