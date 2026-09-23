@@ -30,6 +30,7 @@ export interface PlatformBattery {
   materia: string;
   topico: string;
   subtopico?: string;
+  size: number;
 }
 
 export interface QuestionSnapshot {
