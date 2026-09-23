@@ -52,8 +52,16 @@ Deno.serve(async req=>{
 
     if(!stateEvent){
       const metrics=specializedSessionMetrics(ev.v,day);
-      const sid=await ensureSession(user.id,day,ev.v,metrics,nt);
-      const target=await writeSpecialized(user.id,day,ev.v,nt);
+      const sid=await ensureSession(user.id,day,ev.v,metrics,nt,cors);
+      let target;
+      try{target=await writeSpecialized(user.id,day,ev.v,nt);}
+      catch(err){
+        if(err instanceof Error&&err.name==="ValidationError"){
+          await conflict(user.id,ev.v.idempotencyKey,"SPECIALIZED_PAYLOAD_INVALID",err.message,day);
+          return json({status:"conflict",error:err.message,code:"SPECIALIZED_PAYLOAD_INVALID",dxx:day.dxx,sxx:day.sxx},409,cors);
+        }
+        throw err;
+      }
       const confirmedAt=new Date().toISOString();
       const canonicalRevision=day.lastEditedAt||confirmedAt;
       const confirmation={dxx:day.dxx,sxx:day.sxx,eventType:ev.v.eventType,occurredAt:ev.v.occurredAt,confirmedAt,canonicalRevision,canonical:true,target};
@@ -74,7 +82,7 @@ Deno.serve(async req=>{
     }
 
     const next=progress(ev.v.payload,day);
-    const sid=await ensureSession(user.id,day,ev.v,next,nt);
+    const sid=await ensureSession(user.id,day,ev.v,next,nt,cors);
     const updatedPage=await updateDay(day,next,nt);
     const confirmedAt=new Date().toISOString();
     const canonicalRevision=updatedPage?.last_edited_time||confirmedAt;
@@ -82,7 +90,7 @@ Deno.serve(async req=>{
     await patchEvent(user.id,ev.v.idempotencyKey,{status:"confirmed",resolved_sxx:day.sxx,notion_session_page_id:sid,notion_day_page_id:day.id,confirmation,confirmed_at:confirmedAt,error_code:null,error_message:null});
     await upsertState(user.id,day,next,ev.v.idempotencyKey,ev.v.occurredAt,confirmedAt,canonicalRevision);
     return json({status:"confirmed",canonical:true,dxx:day.dxx,sxx:day.sxx,idempotencyKey:ev.v.idempotencyKey,confirmation,state:next},200,cors);
-  }catch(e){console.error("tce-progress",e instanceof Error?e.message:e);return json({error:"Falha segura no writeback TCE-GO."},502,cors);}
+  }catch(e){if(e instanceof Response)return e;console.error("tce-progress",e instanceof Error?e.message:e);return json({error:"Falha segura no writeback TCE-GO."},502,cors);}
 });
 
 async function currentUser(req){
@@ -121,12 +129,12 @@ async function createSession(d,e,p,token){const props={"Sessão":title(`${d.dxx}
 async function updateDay(d,p,token){return notion(`/pages/${d.id}`,token,{method:"PATCH",body:JSON.stringify({properties:{"Estudado":{checkbox:p.studied},"Concluído":{checkbox:p.completed},"Tempo real (min)":{number:p.timeMinutes},"Questões feitas":{number:p.questionsDone},"Acertos":{number:p.correct},"Erros":{number:p.errors},"Acertos com dúvida":{number:p.doubts},"Status":{select:{name:p.status}}}})});}
 function sessionType(day,event){if(event==="questions.result")return"Questões";if(event==="review.snapshot")return"Revisão";if(event==="simulation.result"||day==="Simulado"||day==="Checkpoint")return"Simulado";if(event==="essay.result"||day==="Redação")return"Redação";if(event==="error.capture")return"Correção";if(day==="Correção")return"Correção";return"Teoria";}
 
-async function ensureSession(owner,day,event,metrics,token){
+async function ensureSession(owner,day,event,metrics,token,cors){
   const refreshed=await one("tce_progress_events",`owner_id=eq.${enc(owner)}&idempotency_key=eq.${enc(event.idempotencyKey)}`);
   let sid=refreshed?.notion_session_page_id||null;
   if(sid)return sid;
   const existing=await findNotionSessions(event.idempotencyKey,token);
-  if(existing.length>1)throw new Error("NOTION_DUPLICATE_IDEMPOTENCY");
+  if(existing.length>1){await conflict(owner,event.idempotencyKey,"NOTION_DUPLICATE_IDEMPOTENCY","Mais de uma sessão Notion usa a mesma idempotency key.",day);throw json({status:"conflict",error:"Duplicidade detectada no Notion; gravação interrompida para auditoria.",code:"NOTION_DUPLICATE_IDEMPOTENCY"},409,cors);}
   if(existing.length===1)sid=existing[0].id;
   else sid=(await createSession(day,event,metrics,token)).id;
   await patchEvent(owner,event.idempotencyKey,{notion_session_page_id:sid});
@@ -157,10 +165,10 @@ async function writeReview(day,event,token){
   const p=event.payload||{},type=choice(p.reviewType,["D0","D7","D20","Fatal Error"],"Tipo de revisão");
   const status=choice(p.status||"Concluída",["Pendente","Próxima","Concluída","Cancelada por domínio"],"Status da revisão");
   const q=num(p.questions,0),c=num(p.correct,0),e=num(p.errors,0);
-  if(c+e>q)throw new Error("Revisão: acertos + erros excedem questões.");
+  if(c+e>q)throw validation("Revisão: acertos + erros excedem questões.");
   const filter={and:[{property:"Dxx origem",rich_text:{equals:day.dxx}},{property:"Tipo",select:{equals:type}}]};
   const rows=await queryDataSource(REVIEWS,filter,token,3);
-  if(rows.length>1)throw new Error(`Revisão duplicada para ${day.dxx}/${type}.`);
+  if(rows.length>1)throw validation(`Revisão duplicada para ${day.dxx}/${type}.`);
   const props={
     "Dxx origem":rich(day.dxx),
     "Tipo":{select:{name:type}},
@@ -181,7 +189,7 @@ async function writeReview(day,event,token){
 
 async function writeEssay(day,event,token){
   const p=event.payload||{},rows=await queryDataSource(REDACTIONS,{property:"Dxx",rich_text:{equals:day.dxx}},token,3);
-  if(rows.length!==1)throw new Error(`Redação canônica de ${day.dxx}: esperado 1 registro; recebido ${rows.length}.`);
+  if(rows.length!==1)throw validation(`Redação canônica de ${day.dxx}: esperado 1 registro; recebido ${rows.length}.`);
   const status=choice(p.status||"Produzida",["Planejada","Em produção","Produzida","Corrigida","Reescrita"],"Status da redação");
   const props={"Status":{select:{name:status}}};
   optionalNumber(props,"Linhas",p.lines,0,80);
@@ -197,7 +205,7 @@ async function writeEssay(day,event,token){
     ["Morfossintaxe /6","morfossintaxe",6],
   ];
   const given=criteria.filter(([,key])=>p[key]!=null&&p[key]!=="");
-  if(["Corrigida","Reescrita"].includes(status)&&given.length!==criteria.length)throw new Error("Redação corrigida exige os 6 critérios FCC.");
+  if(["Corrigida","Reescrita"].includes(status)&&given.length!==criteria.length)throw validation("Redação corrigida exige os 6 critérios FCC.");
   let total=0;
   for(const [prop,key,max] of criteria){
     if(p[key]==null||p[key]==="")continue;
@@ -210,12 +218,12 @@ async function writeEssay(day,event,token){
 
 async function writeSimulation(day,event,token){
   const p=event.payload||{},rows=await queryDataSource(SIMULATIONS,{property:"Dxx",rich_text:{equals:day.dxx}},token,3);
-  if(rows.length!==1)throw new Error(`Simulado/checkpoint de ${day.dxx}: esperado 1 registro; recebido ${rows.length}.`);
+  if(rows.length!==1)throw validation(`Simulado/checkpoint de ${day.dxx}: esperado 1 registro; recebido ${rows.length}.`);
   const props={};
   const gt=optionalNumber(props,"Gerais — total",p.generalTotal,0,100),gc=optionalNumber(props,"Gerais — acertos",p.generalCorrect,0,100);
   const st=optionalNumber(props,"Específicos — total",p.specificTotal,0,100),sc=optionalNumber(props,"Específicos — acertos",p.specificCorrect,0,100);
-  if(gt!=null&&gc!=null&&gc>gt)throw new Error("Simulado: acertos gerais excedem total.");
-  if(st!=null&&sc!=null&&sc>st)throw new Error("Simulado: acertos específicos excedem total.");
+  if(gt!=null&&gc!=null&&gc>gt)throw validation("Simulado: acertos gerais excedem total.");
+  if(st!=null&&sc!=null&&sc>st)throw validation("Simulado: acertos específicos excedem total.");
   optionalNumber(props,"Tempo (min)",p.timeMinutes,0,600);
   optionalNumber(props,"Cobertura — executados",p.coverageExecuted,0,1000);
   optionalNumber(props,"Carga — sessões realizadas",p.sessionsCompleted,0,1000);
@@ -248,7 +256,7 @@ async function writeError(owner,day,event,token){
     await patchEvent(owner,event.idempotencyKey,{payload:{...event.payload,errorId}});
   }
   const rows=await queryDataSource(ERRORS_BANK,{property:"ID erro",rich_text:{equals:errorId}},token,3);
-  if(rows.length>1)throw new Error(`Caderno de Erros duplicado para ${errorId}.`);
+  if(rows.length>1)throw validation(`Caderno de Erros duplicado para ${errorId}.`);
   const props={
     "ID erro":rich(errorId),
     "Dxx":rich(day.dxx),
@@ -282,10 +290,11 @@ async function queryDataSource(id,filter,token,pageSize=3){
   const r=await notion(`/data_sources/${id}/query`,token,{method:"POST",body:JSON.stringify({page_size:pageSize,filter})});
   return Array.isArray(r.results)?r.results:[];
 }
-function choice(value,allowed,label){const v=String(value||"").trim();if(!allowed.includes(v))throw new Error(`${label} inválido.`);return v;}
-function bounded(value,min,max,label){const n=Number(value);if(!Number.isFinite(n)||n<min||n>max)throw new Error(`${label} inválido.`);return Math.round(n*100)/100;}
+function validation(message){const e=new Error(message);e.name="ValidationError";return e;}
+function choice(value,allowed,label){const v=String(value||"").trim();if(!allowed.includes(v))throw validation(`${label} inválido.`);return v;}
+function bounded(value,min,max,label){const n=Number(value);if(!Number.isFinite(n)||n<min||n>max)throw validation(`${label} inválido.`);return Math.round(n*100)/100;}
 function optionalNumber(props,name,value,min,max){if(value==null||value==="")return null;const n=bounded(value,min,max,name);props[name]={number:n};return n;}
-function isoDate(value,label){const d=new Date(String(value));if(Number.isNaN(d.getTime()))throw new Error(`${label} inválida.`);return d.toISOString();}
+function isoDate(value,label){const d=new Date(String(value));if(Number.isNaN(d.getTime()))throw validation(`${label} inválida.`);return d.toISOString();}
 
 async function notion(path,token,init={}){const h=new Headers(init.headers);h.set("Authorization",`Bearer ${token}`);h.set("Notion-Version",NVER);h.set("Content-Type","application/json");const r=await fetch(NAPI+path,{...init,headers:h});const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(`Notion ${r.status}: ${data?.message||"erro"}`);return data;}
 function txt(p,n){const x=p?.[n];if(!x)return"";if(x.title)return x.title.map(y=>y.plain_text||"").join("").trim();if(x.rich_text)return x.rich_text.map(y=>y.plain_text||"").join("").trim();return x.select?.name||x.status?.name||"";}
