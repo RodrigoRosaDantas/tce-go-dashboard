@@ -151,7 +151,9 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
           {material ? (
             <>
               <p>{material.summary}</p>
-              {material.sections?.map((section) => (
+              {material.contentHtml ? (
+                <div className="study-content" dangerouslySetInnerHTML={{ __html: material.contentHtml }} />
+              ) : material.sections?.map((section) => (
                 <section key={section.heading} className="material-section">
                   <h3>{section.heading}</h3>
                   <p>{section.body}</p>
@@ -195,7 +197,8 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
         <div className="panel">
           <p><strong>Meta:</strong> {q.meta} · <strong>válidas:</strong> {q.valid}</p>
           <p><strong>Origem:</strong> {q.sourceSummary}</p>
-          <div className="notice">Por direitos autorais, questões externas são publicadas por metadados/referência. Conteúdo autoral do projeto pode ser exibido integralmente pelo sincronizador.</div>
+          <div className="notice">Questões externas permanecem em metadados/referência; conteúdo autoral e comentários pedagógicos são publicados somente após sanitização server-side.</div>
+          {q.contentHtml ? <div className="study-content" dangerouslySetInnerHTML={{ __html: q.contentHtml }} /> : null}
         </div>
       ) : <div className="notice">Qxx liberado no dia, aguardando extração sanitizada do conteúdo.</div>}
       <a className="secondary" href={href(`/dia/${day.dxx.toLowerCase()}/`)}>Voltar ao dia</a>
