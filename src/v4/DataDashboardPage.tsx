@@ -105,7 +105,7 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
 
       <div className="analytics-grid-v41 two">
         <section className="analytics-panel-v41">
-          <SectionHeader eyebrow="PLANEJAMENTO × EXECUÇÃO" title="Carga de questões" detail="Meta vem do Dxx; realizado vem de Questões feitas." />
+          <SectionHeader eyebrow="PLANEJAMENTO × EXECUÇÃO" title="Carga de questões" detail="Planejado = Meta de questões do Dxx; realizado = Questões feitas. Ambos vêm do Notion." />
           <div className="big-comparison-v41"><div><span>Planejado</span><strong>{plannedQuestions}</strong></div><b>→</b><div><span>Executado</span><strong>{questions}</strong></div><em>{pct(coverage, 1)}</em></div>
           <AnalyticsBar value={questions} max={plannedQuestions} />
           <div className="comparison-foot-v41"><span>Sessões concluídas</span><strong>{completed}/{activeDays.length}</strong></div>
