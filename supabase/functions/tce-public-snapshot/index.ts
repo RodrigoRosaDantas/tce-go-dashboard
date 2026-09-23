@@ -20,8 +20,8 @@ Deno.serve(async (req) => {
   if (req.method !== "GET") return json({ error: "Método não permitido." }, 405);
   try {
     await authenticateGithub(req);
-    const token = (Deno.env.get("TCE_GO_NOTION_TOKEN") || Deno.env.get("SEEDF") || "").trim();
-    if (!token) return json({ error: "Credencial Notion ausente no ambiente server-side.", code: "NOTION_UNCONFIGURED" }, 503);
+    const token = await resolveNotionToken();
+    if (!token) return json({ error: "Nenhuma credencial Notion server-side válida para o TCE-GO.", code: "NOTION_UNCONFIGURED" }, 503);
 
     const rows = await queryAllDays(token);
     const links = rows.map(normalizeDayRecord).sort((a, b) => a.day.order - b.day.order);
@@ -153,6 +153,22 @@ Deno.serve(async (req) => {
     return json({ error: "Falha segura no snapshot público TCE-GO.", detail }, 502);
   }
 });
+
+async function resolveNotionToken() {
+  const candidates = [...new Set([
+    (Deno.env.get("TCE_GO_NOTION_TOKEN") || "").trim(),
+    (Deno.env.get("SEEDF") || "").trim(),
+  ].filter(Boolean))];
+  for (const token of candidates) {
+    try {
+      await notion(`/data_sources/${DAYS}/query`, token, { method: "POST", body: JSON.stringify({ page_size: 1 }) });
+      return token;
+    } catch (error) {
+      console.warn("Credencial Notion server-side recusada; tentando alternativa configurada.", error instanceof Error ? error.message.replace(/:.*/, "") : "erro");
+    }
+  }
+  return "";
+}
 
 async function authenticateGithub(req: Request) {
   const auth = req.headers.get("authorization") || "";
