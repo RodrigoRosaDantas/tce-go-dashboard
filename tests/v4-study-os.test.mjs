@@ -99,9 +99,9 @@ test("contexto cross-device atualiza após writeback, online e storage", () => {
 
 
 test("Qxx separa parte FCC da autoral e impede total acima da meta", () => {
-  assert.match(trainer, /externalMax = Math\.max\(0, question\.valid - items\.length\)/);
-  assert.match(trainer, /attempted > externalMax/);
-  assert.match(trainer, /max=\{externalMax\}/);
+  assert.match(trainer, /fccMax = Math\.max\(0, question\.valid - items\.length\)/);
+  assert.match(trainer, /attempted > fccMax/);
+  assert.match(trainer, /max=\{fccMax\}/);
 });
 
 test("resultado Qxx substitui métricas como conjunto atômico no fechamento", () => {
