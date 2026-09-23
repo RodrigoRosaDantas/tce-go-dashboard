@@ -1,4 +1,4 @@
-const CACHE = "tce-go-v3-20260923";
+const CACHE = "tce-go-v4-20260923";
 const CORE = ["./", "./dias/", "./data/tce-go-snapshot.json", "./manifest.webmanifest", "./icon.svg"];
 
 self.addEventListener("install", (event) => {
