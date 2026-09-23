@@ -188,18 +188,28 @@ export function StudyTimer({ dxx }: { dxx: string }) {
 
   function start() {
     if (timer.runningSince) return;
-    setTimer((value) => ({ ...value, runningSince: Date.now() }));
+    setTimer((value) => {
+      const next = { ...value, runningSince: Date.now() };
+      writeJson(timerKey(dxx), next);
+      return next;
+    });
   }
 
   function pause() {
-    setTimer((value) => ({
-      elapsedSeconds: currentElapsed(value),
-      runningSince: null,
-    }));
+    setTimer((value) => {
+      const next = {
+        elapsedSeconds: currentElapsed(value),
+        runningSince: null,
+      };
+      writeJson(timerKey(dxx), next);
+      return next;
+    });
   }
 
   function reset() {
-    setTimer({ elapsedSeconds: 0, runningSince: null });
+    const next = { elapsedSeconds: 0, runningSince: null };
+    writeJson(timerKey(dxx), next);
+    setTimer(next);
   }
 
   function sendToRegister() {
