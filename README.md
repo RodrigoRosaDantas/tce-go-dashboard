@@ -29,7 +29,7 @@ Base path de produção: `/tce-go-dashboard/`.
 O workflow usa:
 
 - secret: `TCE_GO_NOTION_TOKEN`
-- variable: `TCE_GO_DAYS_DATA_SOURCE_ID`
+- optional variable override: `TCE_GO_DAYS_DATA_SOURCE_ID`
 - Notion API version: `2026-03-11`
 
 Nenhum token é enviado ao navegador ou gravado no snapshot.
@@ -46,7 +46,7 @@ No primeiro uso do repositório, habilite em **Settings → Pages → Build and 
 
 Em **Settings → Secrets and variables → Actions**:
 
-- Secret: `TCE_GO_NOTION_TOKEN`
-- Variable: `TCE_GO_DAYS_DATA_SOURCE_ID`
+- Secret obrigatório: `TCE_GO_NOTION_TOKEN`
+- Variable opcional: `TCE_GO_DAYS_DATA_SOURCE_ID` — somente como override. Sem ela, o sincronizador descobre o data source canônico pelo título `Estudo dia a dia — D001 a D100 | TCE-GO`.
 
-Sem essas configurações, o workflow periódico continua instalado, mas fica inativo com aviso. O snapshot público versionado permanece utilizável e nenhuma credencial é enviada ao navegador.
+Sem o secret, o workflow periódico continua instalado, mas fica inativo com aviso. O snapshot público versionado permanece utilizável e nenhuma credencial é enviada ao navegador.
