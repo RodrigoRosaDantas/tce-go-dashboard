@@ -367,9 +367,9 @@ function EditalPage({ snapshot }: { snapshot: Snapshot }) {
       {rows.length ? (
         <div className="data-table-wrap">
           <table className="data-table">
-            <thead><tr><th>Código</th><th>Disciplina</th><th>Bloco</th><th>Questões</th><th>Peso</th><th>Baseline</th><th>Tratamento</th><th>Status editorial</th></tr></thead>
+            <thead><tr><th>Código</th><th>Disciplina</th><th>Bloco</th><th>Questões</th><th>Peso</th><th>Status editorial</th></tr></thead>
             <tbody>{rows.map((item) => <tr key={item.code}>
-              <td><strong>{item.code}</strong></td><td>{item.discipline}</td><td>{item.block}</td><td>{item.questions}</td><td>{item.weight}</td><td>{item.baseline}</td><td>{item.treatment}</td><td>{item.editorialStatus}</td>
+              <td><strong>{item.code}</strong></td><td>{item.discipline}</td><td>{item.block}</td><td>{item.questions}</td><td>{item.weight}</td><td>{item.editorialStatus}</td>
             </tr>)}</tbody>
           </table>
         </div>
