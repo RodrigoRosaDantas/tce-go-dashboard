@@ -598,7 +598,22 @@ async function resolveNotionToken(){
   return "";
 }
 
-async function notion(path,token,init={}){const h=new Headers(init.headers);h.set("Authorization",`Bearer ${token}`);h.set("Notion-Version",NVER);h.set("Content-Type","application/json");const r=await fetch(NAPI+path,{...init,headers:h});const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(`Notion ${r.status}: ${data?.message||"erro"}`);return data;}
+async function notion(path,token,init={},attempt=0){
+  const h=new Headers(init.headers);
+  h.set("Authorization",`Bearer ${token}`);
+  h.set("Notion-Version",NVER);
+  h.set("Content-Type","application/json");
+  const r=await fetch(NAPI+path,{...init,headers:h});
+  if(r.status===429&&attempt<3){
+    const retryHeader=Number(r.headers.get("retry-after")||0);
+    const delay=Math.max(350,retryHeader>0?retryHeader*1000:450*(attempt+1));
+    await new Promise(resolve=>setTimeout(resolve,delay));
+    return await notion(path,token,init,attempt+1);
+  }
+  const data=await r.json().catch(()=>({}));
+  if(!r.ok)throw new Error(`Notion ${r.status}: ${data?.message||"erro"}`);
+  return data;
+}
 function txt(p,n){const x=p?.[n];if(!x)return"";if(x.title)return x.title.map(y=>y.plain_text||"").join("").trim();if(x.rich_text)return x.rich_text.map(y=>y.plain_text||"").join("").trim();return x.select?.name||x.status?.name||"";}
 function npropNull(p,n){const x=p?.[n]?.number;return typeof x==="number"&&Number.isFinite(x)?x:null;}
 function nprop(p,n){return npropNull(p,n)??0;}function check(p,n){return Boolean(p?.[n]?.checkbox);}
