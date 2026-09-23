@@ -306,14 +306,14 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
 }
 
 const sectionCopy: Record<string, [string, string]> = {
-  "/revisoes/": ["Revisões", "D0 é parte do próprio dia; D7 e D20 entram apenas quando houver gatilho real."],
-  "/redacoes/": ["Redações", "R1–R8 permanecem separadas da objetiva e seguem a rubrica FCC do projeto."],
-  "/erros/": ["Caderno de Erros", "A camada pública não expõe respostas pessoais, reincidências ou diagnósticos privados."],
-  "/simulados/": ["Simulados e checkpoints", "D20, D45, D70, D90, D96 e D100 aparecem pela mesma Ordem canônica do calendário."],
-  "/desempenho/": ["Desempenho", "Dados pessoais de execução não entram no snapshot público. Esta tela mantém apenas o contrato de privacidade."],
-  "/edital/": ["Edital verticalizado", "A publicação editorial usa o recorte canônico do Notion; nenhum conteúdo é corrigido apenas no frontend."],
-  "/legislacao/": ["Legislação", "Fontes e vigência são consumidas do snapshot sanitizado; o Notion continua sendo a fonte editorial."],
-  "/reta-final/": ["Reta final", "A fase 31/12/2026–16/01/2027 não é D101–D117 e será recalibrada pelo D100 real."],
+  "/revisoes/": ["Revisões", "D0 é parte do próprio dia; D7 e D20 entram apenas quando houver gatilho real. Resultados e revisões executadas são dados privados e não entram no snapshot público."],
+  "/redacoes/": ["Redações", "R1–R8 estão modeladas no Notion e seguem a rubrica FCC. O snapshot público atual ainda não carrega o banco editorial de redações; nenhuma produção pessoal é publicada."],
+  "/erros/": ["Caderno de Erros", "Respostas pessoais, reincidências, fundamentos associados a erros reais e diagnósticos são privados. A rota pública não simula um caderno que ainda não foi executado."],
+  "/simulados/": ["Simulados e checkpoints", "D20, D45, D70, D90, D96 e D100 estão modelados no Notion. O calendário público preserva esses Dxx; resultados só existirão após execução real."],
+  "/desempenho/": ["Desempenho", "Tempo, acertos, erros, dúvidas e sessões são privados. O snapshot editorial público não publica métricas pessoais."],
+  "/edital/": ["Edital verticalizado", "O banco canônico está no Notion. A extração editorial auxiliar ainda não está presente no snapshot bootstrap; esta rota não inventa conteúdo para preencher a lacuna."],
+  "/legislacao/": ["Legislação", "Fontes e vigência permanecem canônicas no Notion. A extração editorial auxiliar ainda não está presente no snapshot bootstrap; nenhuma norma é mantida apenas no frontend."],
+  "/reta-final/": ["Reta final", "A fase 31/12/2026–16/01/2027 não é D101–D117 e será recalibrada pelo D100 real. O calendário detalhado permanece no Notion até entrar no snapshot editorial auxiliar."],
 };
 
 function StaticSection({ route }: { route: string }) {
