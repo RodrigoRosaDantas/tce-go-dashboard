@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
   id-token: write
 
 concurrency:
@@ -161,3 +162,13 @@ jobs:
           git commit -m "chore: sync sanitized TCE-GO snapshot"
           git pull --rebase origin main
           git push origin HEAD:main
+
+      - name: Publish changed snapshot
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh workflow run deploy-pages.yml --ref main
+          echo "Deploy do Pages disparado explicitamente para o snapshot recém-sincronizado."
