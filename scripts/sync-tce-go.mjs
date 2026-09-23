@@ -86,6 +86,8 @@ const pairs = await mapLimit(ready, maxConcurrency, async (item) => {
     && previousQuestion?.lastEdited === questionPage.last_edited_time
     && previousQuestion?.contentHtml
     && Array.isArray(previousQuestion?.sections)
+    && Array.isArray(previousQuestion?.authorialItems)
+    && previousQuestion.authorialItems.length > 0
   );
 
   const [materialBlocks, questionBlocks] = await Promise.all([
