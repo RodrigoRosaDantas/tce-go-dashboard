@@ -28,18 +28,23 @@ jobs:
         run: |
           npm install --no-save --package-lock=false playwright@1.55.0
           npx playwright install --with-deps chromium
-      - name: Start Vite preview
+      - name: Start Vite preview with production base path
+        env:
+          GITHUB_PAGES: "1"
+          GITHUB_PAGES_BASE_PATH: "/tce-go-dashboard"
         run: |
           npm run build
           npm exec vite -- preview --host 127.0.0.1 --port 4173 > /tmp/tce-v3-preview.log 2>&1 &
           echo $! > /tmp/tce-v3-preview.pid
           for i in {1..30}; do
-            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            if curl -fsS http://127.0.0.1:4173/tce-go-dashboard/ >/dev/null; then exit 0; fi
             sleep 1
           done
           cat /tmp/tce-v3-preview.log
           exit 1
       - name: Run geometry and screenshot QA
+        env:
+          V3_VISUAL_BASE_URL: "http://127.0.0.1:4173/tce-go-dashboard"
         run: node scripts/visual-smoke-v3.mjs
       - name: Upload screenshots
         if: always()
