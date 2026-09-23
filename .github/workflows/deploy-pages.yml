@@ -144,12 +144,22 @@ jobs:
           const s = JSON.parse(fs.readFileSync("/tmp/tce-snapshot.json", "utf8"));
           const m = Object.keys(s.materials || {}).length;
           const q = Object.keys(s.questions || {}).length;
-          if (s.contentMode !== "full" || s.publicStats?.totalDays !== 100 || s.publicStats?.activeDays !== 47 || s.publicStats?.protectedDays !== 53 || s.publicStats?.sessions !== 47 || m !== 47 || q !== 47) {
-            throw new Error(`Snapshot público incompleto: mode=${s.contentMode}, days=${s.publicStats?.totalDays}, active=${s.publicStats?.activeDays}, protected=${s.publicStats?.protectedDays}, sessions=${s.publicStats?.sessions}, materials=${m}, questions=${q}`);
+          const r = Array.isArray(s.redactions) ? s.redactions.length : 0;
+          const sim = Array.isArray(s.simulations) ? s.simulations.length : 0;
+          const ed = Array.isArray(s.edital) ? s.edital.length : 0;
+          const leg = Array.isArray(s.legislation) ? s.legislation.length : 0;
+          const rf = Array.isArray(s.finalSprint) ? s.finalSprint.length : 0;
+          if (
+            s.contentMode !== "full" || s.auxiliaryMode !== "full"
+            || s.publicStats?.totalDays !== 100 || s.publicStats?.activeDays !== 47
+            || s.publicStats?.protectedDays !== 53 || s.publicStats?.sessions !== 47
+            || m !== 47 || q !== 47 || r !== 8 || sim !== 6 || ed !== 15 || leg < 1 || rf !== 17
+          ) {
+            throw new Error(`Snapshot público incompleto: mode=${s.contentMode}/${s.auxiliaryMode}, days=${s.publicStats?.totalDays}, active=${s.publicStats?.activeDays}, protected=${s.publicStats?.protectedDays}, sessions=${s.publicStats?.sessions}, materials=${m}, questions=${q}, redactions=${r}, simulations=${sim}, edital=${ed}, legislation=${leg}, finalSprint=${rf}`);
           }
           const protectedWithSession = (s.days || []).filter(d => d.protected && d.session).length;
           if (protectedWithSession !== 0) throw new Error(`Dias protegidos com Sxx: ${protectedWithSession}`);
-          console.log("Snapshot full 47/47 validado no site publicado.");
+          console.log(`Snapshot full validado no site publicado: 47/47 + R1–R8 + 6 marcos + 15 itens de edital + ${leg} fontes legais + 17 dias de reta final.`);
           NODE
 
           fallback_code="$(curl --retry 5 --retry-delay 2 --retry-all-errors -sS -o /tmp/tce-fallback.html -w "%{http_code}" "${base}/rota-inexistente-smoke/")"
@@ -158,4 +168,4 @@ jobs:
             exit 1
           fi
           grep -q '<div id="root"></div>' /tmp/tce-fallback.html
-          echo "Smoke test publicado concluído: 17 rotas + snapshot full 47/47 + PWA + fallback."
+          echo "Smoke test publicado concluído: 17 rotas + snapshot full editorial/auxiliar + PWA + fallback."
