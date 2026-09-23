@@ -210,7 +210,7 @@ test("resumo analítico preserva null e expõe bancos operacionais detalhados", 
   assert.match(edge, /metaQuestions/);
   assert.match(edge, /thematicCut/);
   assert.match(edge, /controlExternalPct/);
-  assert.doesNotMatch(edge, /timeMinutes:nprop\(p,"Tempo real \(min\)"\),questionsDone:nprop\(p,"Questões feitas"\)/);
+  assert.match(edge, /function dayAnalyticsFromPage[\s\S]*timeMinutes:npropNull\(p,"Tempo real \(min\)"\)[\s\S]*questionsDone:npropNull\(p,"Questões feitas"\)[\s\S]*correct:npropNull\(p,"Acertos"\)[\s\S]*errors:npropNull\(p,"Erros"\)[\s\S]*doubts:npropNull\(p,"Acertos com dúvida"\)/);
   assert.match(client, /dayControl: OperationalDay\[\]/);
   assert.match(client, /sessions: OperationalSession\[\]/);
 });
