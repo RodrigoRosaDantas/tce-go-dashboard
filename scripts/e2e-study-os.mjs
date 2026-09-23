@@ -142,6 +142,7 @@ await page.locator(".analytics-tabs-v41 button", { hasText: "Dados" }).click();
 check((await page.locator(".data-issues-v41").innerText()).includes("D005"), "Qualidade de dados não sinalizou D005 incompleto");
 check((await page.locator(".data-issues-v41").innerText()).includes("Tempo real"), "Qualidade de dados não identificou Tempo real ausente");
 check((await page.locator(".data-issues-v41").innerText()).includes("Acertos com dúvida"), "Qualidade de dados não identificou Acertos com dúvida ausente");
+check(!(await page.locator(".data-issues-v41").innerText()).includes("Dxx ativo sem Matéria/foco"), "Cache degradado foi confundido com lacuna canônica de Qxx");
 await page.locator(".analytics-tabs-v41 button", { hasText: "Matérias" }).click();
 check((await page.locator(".subject-cards-v41").innerText()).includes("Controle Externo"), "Matéria/foco do Notion não alimentou agrupamento de Controle Externo");
 check((await page.locator(".subject-cards-v41").innerText()).includes("CASP"), "Matéria/foco do Notion não alimentou agrupamento CASP");
