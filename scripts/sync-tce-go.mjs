@@ -74,29 +74,51 @@ const pairs = await mapLimit(ready, maxConcurrency, async (item) => {
   assertLinkedDxx(item.day.dxx, questionPage, "questões");
 
   const previousMaterial = current.materials?.[item.day.slug];
-  let material;
-  if (
+  const previousQuestion = current.questions?.[item.day.questionSlug];
+  const publishQuestionContent = item.day.dxx === "D001";
+  const canReuseMaterial = Boolean(
     previousMaterial?.lastEdited === materialPage.last_edited_time
     && previousMaterial?.contentHtml
     && Array.isArray(previousMaterial?.sections)
-  ) {
-    material = previousMaterial;
-  } else {
-    const blocks = await getBlockTree(item.materialPageId);
-    material = materialSnapshotFromBlocks({
-      dxx: item.day.dxx,
-      title: pageTitle(materialPage, item.day.focus),
-      focus: propertyText(materialPage.properties, "Foco") || item.day.focus,
-      version: numberProperty(materialPage.properties, "Versão editorial"),
-      lastEdited: materialPage.last_edited_time,
-    }, blocks);
-  }
+  );
+  const canReuseQuestion = Boolean(
+    publishQuestionContent
+    && previousQuestion?.lastEdited === questionPage.last_edited_time
+    && previousQuestion?.contentHtml
+    && Array.isArray(previousQuestion?.sections)
+  );
+
+  const [materialBlocks, questionBlocks] = await Promise.all([
+    canReuseMaterial ? Promise.resolve(null) : getBlockTree(item.materialPageId),
+    !publishQuestionContent || canReuseQuestion ? Promise.resolve(null) : getBlockTree(item.questionPageId),
+  ]);
+
+  const material = canReuseMaterial
+    ? previousMaterial
+    : materialSnapshotFromBlocks({
+        dxx: item.day.dxx,
+        title: pageTitle(materialPage, item.day.focus),
+        focus: propertyText(materialPage.properties, "Foco") || item.day.focus,
+        version: numberProperty(materialPage.properties, "Versão editorial"),
+        lastEdited: materialPage.last_edited_time,
+      }, materialBlocks);
 
   if (stripHtml(material.contentHtml || "").length < 250) {
     throw new Error(`${item.day.dxx}: Material público insuficiente após sanitização.`);
   }
 
-  const question = questionSnapshotFromPage({ dxx: item.day.dxx, page: questionPage });
+  const question = canReuseQuestion
+    ? previousQuestion
+    : questionSnapshotFromPage({
+        dxx: item.day.dxx,
+        page: questionPage,
+        blocks: publishQuestionContent ? questionBlocks : [],
+      });
+
+  if (question.contentHtml && stripHtml(question.contentHtml).length < 120) {
+    throw new Error(`${item.day.dxx}: Qxx público insuficiente após sanitização.`);
+  }
+
   return { materialSlug: item.day.slug, questionSlug: item.day.questionSlug, material, question };
 });
 

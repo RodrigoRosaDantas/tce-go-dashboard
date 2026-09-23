@@ -61,6 +61,22 @@ export function ProgressPanel({ day }: { day: DaySnapshot }) {
   const conflicts = useMemo(() => conflictCount(day.dxx), [day.dxx, queueVersion]);
 
   useEffect(() => {
+    const onStudyTime = (event: Event) => {
+      const detail = (event as CustomEvent<{ dxx?: string; minutes?: number }>).detail;
+      if (detail?.dxx !== day.dxx || !Number.isFinite(detail?.minutes)) return;
+      const minutes = Math.max(0, Math.round(Number(detail.minutes)));
+      setForm((current) => ({
+        ...current,
+        studied: current.studied || minutes > 0,
+        timeMinutes: Math.max(current.timeMinutes, minutes),
+      }));
+      setMessage(`Tempo do cronômetro aplicado ao fechamento: ${minutes} min. Revise antes de salvar.`);
+    };
+    window.addEventListener("tce-study-time", onStudyTime);
+    return () => window.removeEventListener("tce-study-time", onStudyTime);
+  }, [day.dxx]);
+
+  useEffect(() => {
     let alive = true;
     loadProgress(day.dxx).then((state) => {
       if (!alive) return;
@@ -147,6 +163,7 @@ export function ProgressPanel({ day }: { day: DaySnapshot }) {
         setForm(fromProgress(state));
       }
       setMessage("Confirmado no Notion. O cache local foi atualizado depois da confirmação.");
+      window.dispatchEvent(new CustomEvent("tce-progress-confirmed", { detail: { dxx: day.dxx } }));
     } else if (result.status === "conflict") {
       setMessage("Conflito preservado para auditoria. O Notion continua prevalecendo.");
     } else if (!navigator.onLine) {

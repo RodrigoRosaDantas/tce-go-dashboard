@@ -41,6 +41,9 @@ export interface QuestionSnapshot {
   valid: number;
   sourceSummary: string;
   copyrightMode: "metadata-only";
+  contentHtml?: string;
+  sections?: Array<{ heading: string; body: string }>;
+  hash?: string;
   version?: number;
   lastEdited?: string;
   gapDeclared?: boolean;
