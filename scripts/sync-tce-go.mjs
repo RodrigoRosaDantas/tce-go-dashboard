@@ -12,19 +12,20 @@ import {
 } from "./notion-public-content.mjs";
 
 const token = process.env.TCE_GO_NOTION_TOKEN?.trim();
-const dataSourceId = process.env.TCE_GO_DAYS_DATA_SOURCE_ID?.trim();
+const dataSourceOverride = process.env.TCE_GO_DAYS_DATA_SOURCE_ID?.trim();
 const notionVersion = process.env.NOTION_VERSION || "2026-03-11";
+const daysDataSourceTitle = "Estudo dia a dia — D001 a D100 | TCE-GO";
 const notionBase = "https://api.notion.com/v1";
 const maxConcurrency = 3;
 
 if (!token) throw new Error("TCE_GO_NOTION_TOKEN não configurado.");
-if (!dataSourceId) throw new Error("TCE_GO_DAYS_DATA_SOURCE_ID não configurado.");
 
 const currentPath = path.resolve("public/data/tce-go-snapshot.json");
 const current = fs.existsSync(currentPath)
   ? JSON.parse(fs.readFileSync(currentPath, "utf8"))
   : { materials: {}, questions: {} };
 
+const dataSourceId = dataSourceOverride || await discoverDaysDataSourceId();
 const rows = await queryAllDays();
 const links = rows.map(normalizeDayRecord).sort((a, b) => a.day.order - b.day.order);
 const days = links.map((item) => item.day);
@@ -106,6 +107,37 @@ if (current.contentHash === contentHash && current.contentMode === "full") {
 
 writeSnapshot(snapshot);
 console.log(`Sync completo: ${publicStats.materialPages} materiais + ${publicStats.questionPages} cadernos Qxx públicos.`);
+
+async function discoverDaysDataSourceId() {
+  const json = await notionRequest("/search", {
+    method: "POST",
+    body: JSON.stringify({
+      query: "Estudo dia a dia",
+      page_size: 100,
+      filter: { property: "object", value: "data_source" },
+    }),
+  });
+
+  const sources = (json.results || []).filter((item) => item?.object === "data_source");
+  const exact = sources.find((item) => dataSourceTitle(item) === daysDataSourceTitle);
+  if (exact?.id) return exact.id;
+
+  const fallback = sources.filter((item) => {
+    const title = dataSourceTitle(item);
+    return /D001\s*(?:a|–|-)\s*D100/i.test(title) && /TCE-?GO/i.test(title);
+  });
+  if (fallback.length === 1 && fallback[0]?.id) return fallback[0].id;
+
+  const found = sources.map(dataSourceTitle).filter(Boolean).join(" | ");
+  throw new Error(`Data source canônico não localizado por título: "${daysDataSourceTitle}". Encontrados: ${found || "nenhum"}.`);
+}
+
+function dataSourceTitle(item) {
+  if (Array.isArray(item?.title)) {
+    return item.title.map((part) => part?.plain_text || part?.text?.content || "").join("").trim();
+  }
+  return String(item?.name || "").trim();
+}
 
 async function queryAllDays() {
   const pages = [];
