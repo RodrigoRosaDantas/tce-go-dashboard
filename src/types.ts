@@ -19,10 +19,11 @@ export interface MaterialSnapshot {
   dxx: string;
   title: string;
   summary: string;
-  sections?: Array<{ heading: string; body: string }>;
   contentHtml?: string;
+  sections?: Array<{ heading: string; body: string }>;
   version?: number;
   lastEdited?: string;
+  hash?: string;
 }
 
 export interface QuestionSnapshot {
@@ -32,8 +33,7 @@ export interface QuestionSnapshot {
   meta: number;
   valid: number;
   sourceSummary: string;
-  copyrightMode: "metadata-only" | "project-authored" | "sanitized-mixed";
-  contentHtml?: string;
+  copyrightMode: "metadata-only";
   version?: number;
   lastEdited?: string;
   gapDeclared?: boolean;
@@ -54,7 +54,7 @@ export interface Snapshot {
     protectedDays: number;
     sessions: number;
     readyDays: number;
-    materialDays?: number;
-    questionDays?: number;
+    materialPages?: number;
+    questionPages?: number;
   };
 }
