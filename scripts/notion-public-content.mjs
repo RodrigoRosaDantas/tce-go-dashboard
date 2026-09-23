@@ -75,6 +75,17 @@ export function questionSnapshotFromPage({ dxx, page }) {
   const sourceSummary = priority || focus || "Metadados editoriais do caderno canônico.";
   const version = propertyNumber(p, "Versão editorial");
   const gapDeclared = propertyCheckbox(p, "Lacuna declarada");
+  const platformValidated = propertyCheckbox(p, "Plataforma — bateria validada");
+  const platformMateria = sanitizePublicText(propertyText(p, "Plataforma — matéria"));
+  const platformTopico = sanitizePublicText(propertyText(p, "Plataforma — tópico"));
+  const platformSubtopico = sanitizePublicText(propertyText(p, "Plataforma — subtópico"));
+  const platformBattery = platformValidated && platformMateria && platformTopico
+    ? {
+        materia: platformMateria,
+        topico: platformTopico,
+        ...(platformSubtopico ? { subtopico: platformSubtopico } : {}),
+      }
+    : null;
 
   return {
     qxx,
@@ -87,6 +98,7 @@ export function questionSnapshotFromPage({ dxx, page }) {
     ...(version ? { version } : {}),
     ...(page?.last_edited_time ? { lastEdited: page.last_edited_time } : {}),
     ...(gapDeclared ? { gapDeclared: true } : {}),
+    ...(platformBattery ? { platformBattery } : {}),
   };
 }
 
