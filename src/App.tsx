@@ -220,6 +220,7 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
               materia: question.platformBattery.materia,
               topico: question.platformBattery.topico,
               subtopico: question.platformBattery.subtopico,
+              size: question.platformBattery.size,
             })}>Abrir bateria validada na Plataforma</a>
           ) : null}
         </article>
@@ -259,6 +260,7 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
               materia: q.platformBattery.materia,
               topico: q.platformBattery.topico,
               subtopico: q.platformBattery.subtopico,
+              size: q.platformBattery.size,
             })}>Abrir bateria validada na Plataforma</a>
           ) : (
             <div className="notice">Sem bateria externa validada para este Dxx. O Qxx do Notion continua sendo o fallback integral.</div>
