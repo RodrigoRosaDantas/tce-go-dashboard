@@ -182,8 +182,8 @@ export function StudyPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }
             <ProgressPanel day={day} />
             <div className="closing-links-v4">
               <a href={href(`/erros/?dxx=${day.dxx}#error-form`)}>Registrar erro desta sessão →</a>
-              <a href={href(`/revisoes/?dxx=${day.dxx}&type=D7&reason=Erro%20relevante#review-form`)}>Programar D7 →</a>
-              <a href={href(`/revisoes/?dxx=${day.dxx}&type=D20&reason=Conte%C3%BAdo%20novo#review-form`)}>Programar D20 →</a>
+              <a href={href(`/revisoes/?dxx=${day.dxx}&type=D7&reason=Erro%20relevante&status=Pr%C3%B3xima#review-form`)}>Programar D7 →</a>
+              <a href={href(`/revisoes/?dxx=${day.dxx}&type=D20&reason=Conte%C3%BAdo%20novo&status=Pr%C3%B3xima#review-form`)}>Programar D20 →</a>
             </div>
           </section>
 
