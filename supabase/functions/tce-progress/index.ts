@@ -51,8 +51,6 @@ Deno.serve(async req=>{
     await patchEvent(user.id,ev.v.idempotencyKey,{resolved_sxx:day.sxx,notion_day_page_id:day.id});
 
     if(!stateEvent){
-      const metrics=specializedSessionMetrics(ev.v,day);
-      const sid=await ensureSession(user.id,day,ev.v,metrics,nt,cors);
       let target;
       try{target=await writeSpecialized(user.id,day,ev.v,nt);}
       catch(err){
@@ -62,6 +60,8 @@ Deno.serve(async req=>{
         }
         throw err;
       }
+      const metrics=specializedSessionMetrics(ev.v,day);
+      const sid=await ensureSession(user.id,day,ev.v,metrics,nt,cors);
       const confirmedAt=new Date().toISOString();
       const canonicalRevision=day.lastEditedAt||confirmedAt;
       const confirmation={dxx:day.dxx,sxx:day.sxx,eventType:ev.v.eventType,occurredAt:ev.v.occurredAt,confirmedAt,canonicalRevision,canonical:true,target};
