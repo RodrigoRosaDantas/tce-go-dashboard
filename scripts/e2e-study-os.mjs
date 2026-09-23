@@ -120,6 +120,11 @@ await page.evaluate(() => {
     sessions:[
       {id:"s1",title:"D005 · S03",dxx:"D005",sxx:"S03",type:"Questões",eventType:"manual",origin:"manual-notion",date:new Date().toISOString(),timestamp:new Date().toISOString(),timeMinutes:null,questions:10,correct:7,errors:3,doubts:null}
     ],
+    questionMeta:[
+      {id:"q1",dxx:"D001",qxx:"Q001",focus:"Controle Externo I — sistema constitucional de controle",meta:20,valid:20},
+      {id:"q3",dxx:"D003",qxx:"Q003",focus:"CASP I — entrada",meta:15,valid:15},
+      {id:"q5",dxx:"D005",qxx:"Q005",focus:"Legislação Institucional I — Constituição do Estado",meta:15,valid:15}
+    ],
     reviews:[],errors:[],redactions:[],simulations:[]
   }));
 });
@@ -137,6 +142,9 @@ await page.locator(".analytics-tabs-v41 button", { hasText: "Dados" }).click();
 check((await page.locator(".data-issues-v41").innerText()).includes("D005"), "Qualidade de dados não sinalizou D005 incompleto");
 check((await page.locator(".data-issues-v41").innerText()).includes("Tempo real"), "Qualidade de dados não identificou Tempo real ausente");
 check((await page.locator(".data-issues-v41").innerText()).includes("Acertos com dúvida"), "Qualidade de dados não identificou Acertos com dúvida ausente");
+await page.locator(".analytics-tabs-v41 button", { hasText: "Matérias" }).click();
+check((await page.locator(".subject-cards-v41").innerText()).includes("Controle Externo"), "Matéria/foco do Notion não alimentou agrupamento de Controle Externo");
+check((await page.locator(".subject-cards-v41").innerText()).includes("CASP"), "Matéria/foco do Notion não alimentou agrupamento CASP");
 
 // Nenhum evento canônico deve ter sido enfileirado pelo E2E.
 const queued = await page.evaluate(() => localStorage.getItem("tce-go.pending-events.v1"));
