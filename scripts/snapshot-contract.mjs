@@ -10,6 +10,7 @@ export function validateSnapshot(snapshot) {
   if (snapshot.schemaVersion !== "1.0.0") errors.push("schemaVersion inválida");
   if (snapshot.source !== "notion") errors.push("source deve ser notion");
   if (!Array.isArray(snapshot.days)) errors.push("days deve ser array");
+  if (snapshot.contentHash && !/^[a-f0-9]{64}$/.test(snapshot.contentHash)) errors.push("contentHash inválido");
   if (errors.length) return errors;
 
   const days = snapshot.days;
@@ -26,6 +27,7 @@ export function validateSnapshot(snapshot) {
     if (d.protected && d.session) errors.push(`${d.dxx}: protegido não pode ter session`);
     if (!d.protected && !d.session) errors.push(`${d.dxx}: ativo sem session`);
     if (d.protected && d.readyForStudy) errors.push(`${d.dxx}: protegido não pode estar liberado`);
+    if (!d.protected && (!d.slug || !d.questionSlug)) errors.push(`${d.dxx}: ativo sem slug público`);
   }
 
   const active = days.filter((d) => !d.protected);
@@ -58,26 +60,13 @@ export function validateSnapshot(snapshot) {
     const day = ready.find((d) => d.questionSlug === slug);
     if (day && question?.dxx !== day.dxx) errors.push(`questões ${slug}: dxx divergente`);
     if (question?.qxx && question.qxx.toLowerCase() !== slug) errors.push(`questões ${slug}: qxx divergente`);
-    validatePublicHtml(question?.contentHtml, `questions.${slug}.contentHtml`, errors);
+    if (question?.copyrightMode !== "metadata-only") errors.push(`questões ${slug}: modo público deve ser metadata-only no sync automático`);
   }
 
   if (snapshot.contentMode === "full") {
-    if (Object.keys(materials).length !== ready.length) {
-      errors.push(`modo full exige ${ready.length} materiais; recebido ${Object.keys(materials).length}`);
-    }
-    if (Object.keys(questions).length !== ready.length) {
-      errors.push(`modo full exige ${ready.length} Qxx; recebido ${Object.keys(questions).length}`);
-    }
-    for (const day of ready) {
-      if (!day.slug || !materials[day.slug]) errors.push(`${day.dxx}: material ausente no modo full`);
-      if (!day.questionSlug || !questions[day.questionSlug]) errors.push(`${day.dxx}: Qxx ausente no modo full`);
-      const material = day.slug ? materials[day.slug] : null;
-      if (material && (!Array.isArray(material.sections) || material.sections.length === 0)) {
-        errors.push(`${day.dxx}: material sem seções públicas no modo full`);
-      }
-    }
-    if (!/^[a-f0-9]{64}$/i.test(snapshot.contentHash || "")) {
-      errors.push("modo full exige contentHash SHA-256");
+    for (const d of ready) {
+      if (!materials[d.slug]) errors.push(`${d.dxx}: material público ausente em modo full`);
+      if (!questions[d.questionSlug]) errors.push(`${d.dxx}: caderno Qxx ausente em modo full`);
     }
   }
 
@@ -95,14 +84,6 @@ export function validateSnapshot(snapshot) {
       typeof snapshot.publicStats.questionPages === "number"
       && snapshot.publicStats.questionPages !== Object.keys(questions).length
     ) errors.push("publicStats.questionPages inválido");
-    if (
-      typeof snapshot.publicStats.materialDays === "number"
-      && snapshot.publicStats.materialDays !== Object.keys(materials).length
-    ) errors.push("publicStats.materialDays inválido");
-    if (
-      typeof snapshot.publicStats.questionDays === "number"
-      && snapshot.publicStats.questionDays !== Object.keys(questions).length
-    ) errors.push("publicStats.questionDays inválido");
   }
 
   walk(snapshot, [], errors);
