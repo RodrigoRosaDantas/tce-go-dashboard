@@ -139,3 +139,10 @@ test("Dashboard V4.1 cobre execução, matérias, erros, retenção, redação, 
   assert.match(performance, /Sessões detalhadas/);
   assert.match(performance, /Evolução por critério/);
 });
+
+
+test("V4.1 usa cache analítico versionado e não reutiliza contrato V4 antigo", () => {
+  const progressSource = fs.readFileSync("src/progress.ts","utf8");
+  assert.match(progressSource, /tce-go\.operational-summary\.v2/);
+  assert.doesNotMatch(progressSource, /const SUMMARY_CACHE_KEY = "tce-go\.operational-summary\.v1"/);
+});
