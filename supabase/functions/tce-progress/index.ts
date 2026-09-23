@@ -192,8 +192,13 @@ async function writeEssay(day,event,token){
   if(rows.length!==1)throw validation(`Redação canônica de ${day.dxx}: esperado 1 registro; recebido ${rows.length}.`);
   const status=choice(p.status||"Produzida",["Planejada","Em produção","Produzida","Corrigida","Reescrita"],"Status da redação");
   const props={"Status":{select:{name:status}}};
-  optionalNumber(props,"Linhas",p.lines,0,80);
-  optionalNumber(props,"Tempo (min)",p.timeMinutes,0,300);
+  if(["Produzida","Corrigida","Reescrita"].includes(status)){
+    props["Linhas"]={number:bounded(p.lines,1,80,"Linhas")};
+    props["Tempo (min)"]={number:bounded(p.timeMinutes,1,300,"Tempo (min)")};
+  }else{
+    optionalNumber(props,"Linhas",p.lines,0,80);
+    optionalNumber(props,"Tempo (min)",p.timeMinutes,0,300);
+  }
   if(p.mainError!=null)props["Erro principal"]=rich(String(p.mainError).slice(0,1800));
   if(p.rewriteNeeded!=null)props["Reescrita necessária"]={checkbox:Boolean(p.rewriteNeeded)};
   const criteria=[
@@ -220,31 +225,57 @@ async function writeSimulation(day,event,token){
   const p=event.payload||{},rows=await queryDataSource(SIMULATIONS,{property:"Dxx",rich_text:{equals:day.dxx}},token,3);
   if(rows.length!==1)throw validation(`Simulado/checkpoint de ${day.dxx}: esperado 1 registro; recebido ${rows.length}.`);
   const props={};
-  const gt=optionalNumber(props,"Gerais — total",p.generalTotal,0,100),gc=optionalNumber(props,"Gerais — acertos",p.generalCorrect,0,100);
-  const st=optionalNumber(props,"Específicos — total",p.specificTotal,0,100),sc=optionalNumber(props,"Específicos — acertos",p.specificCorrect,0,100);
-  if(gt!=null&&gc!=null&&gc>gt)throw validation("Simulado: acertos gerais excedem total.");
-  if(st!=null&&sc!=null&&sc>st)throw validation("Simulado: acertos específicos excedem total.");
-  optionalNumber(props,"Tempo (min)",p.timeMinutes,0,600);
-  optionalNumber(props,"Cobertura — executados",p.coverageExecuted,0,1000);
-  optionalNumber(props,"Carga — sessões realizadas",p.sessionsCompleted,0,1000);
-  optionalNumber(props,"P1 abertos",p.p1Open,0,1000);
-  optionalNumber(props,"Erros abertos",p.openErrors,0,1000);
-  optionalNumber(props,"Reincidentes",p.recurrent,0,1000);
+
+  const gt=bounded(p.generalTotal,0,100,"Gerais — total");
+  const gc=bounded(p.generalCorrect,0,100,"Gerais — acertos");
+  const st=bounded(p.specificTotal,0,100,"Específicos — total");
+  const sc=bounded(p.specificCorrect,0,100,"Específicos — acertos");
+  if(gt+st<=0)throw validation("Simulado/checkpoint exige ao menos uma questão executada.");
+  if(gc>gt)throw validation("Simulado: acertos gerais excedem total.");
+  if(sc>st)throw validation("Simulado: acertos específicos excedem total.");
+
+  const time=bounded(p.timeMinutes,1,600,"Tempo (min)");
+  const coverage=bounded(p.coverageExecuted,0,1000,"Cobertura — executados");
+  const sessions=bounded(p.sessionsCompleted,0,1000,"Carga — sessões realizadas");
+  const p1=bounded(p.p1Open,0,1000,"P1 abertos");
+  const openErrors=bounded(p.openErrors,0,1000,"Erros abertos");
+  const recurrent=bounded(p.recurrent,0,1000,"Reincidentes");
+  const control=bounded(p.controlPercent,0,100,"Controle Externo %");
+  const casp=bounded(p.caspPercent,0,100,"CASP %");
+  const legislation=bounded(p.legislationPercent,0,100,"Legislação Institucional %");
+  const known=bounded(p.knownPercent,0,100,"Matérias conhecidas %");
+  const timeByBlock=String(p.timeByBlock||"").trim();
+  const weakKnown=String(p.weakKnown||"").trim();
+  if(!timeByBlock)throw validation("Simulado/checkpoint exige tempo por bloco.");
+  if(!weakKnown)throw validation("Simulado/checkpoint exige pontos fracos das matérias conhecidas.");
+
+  props["Gerais — total"]={number:gt};
+  props["Gerais — acertos"]={number:gc};
+  props["Específicos — total"]={number:st};
+  props["Específicos — acertos"]={number:sc};
+  props["Tempo (min)"]={number:time};
+  props["Cobertura — executados"]={number:coverage};
+  props["Carga — sessões realizadas"]={number:sessions};
+  props["P1 abertos"]={number:p1};
+  props["Erros abertos"]={number:openErrors};
+  props["Reincidentes"]={number:recurrent};
+  props["Controle Externo %"]={number:control};
+  props["CASP %"]={number:casp};
+  props["Legislação Institucional %"]={number:legislation};
+  props["Matérias conhecidas %"]={number:known};
+  props["Tempo por bloco"]=rich(timeByBlock);
+  props["Pontos fracos — matérias conhecidas"]=rich(weakKnown);
+  props["IPI interno"]={number:Math.round(((gc+2*sc)/115*100)*100)/100};
+  props["Decisão"]={select:{name:choice(p.decision,["Manter","Ajustar","Reduzir","Ampliar"],"Decisão")}};
+  props["Impactou SEEDF"]={checkbox:Boolean(p.impactedSeedf)};
+  props["Impactou TJDFT"]={checkbox:Boolean(p.impactedTjdft)};
+
   optionalNumber(props,"Redação /100",p.essayScore,0,100);
-  optionalNumber(props,"Controle Externo %",p.controlPercent,0,100);
-  optionalNumber(props,"CASP %",p.caspPercent,0,100);
-  optionalNumber(props,"Legislação Institucional %",p.legislationPercent,0,100);
-  optionalNumber(props,"Matérias conhecidas %",p.knownPercent,0,100);
-  if(gc!=null&&sc!=null)props["IPI interno"]={number:Math.round(((gc+2*sc)/115*100)*100)/100};
-  if(p.decision)props["Decisão"]={select:{name:choice(p.decision,["Manter","Ajustar","Reduzir","Ampliar"],"Decisão")}};
-  if(p.timeByBlock!=null)props["Tempo por bloco"]=rich(String(p.timeByBlock).slice(0,1800));
-  if(p.weakKnown!=null)props["Pontos fracos — matérias conhecidas"]=rich(String(p.weakKnown).slice(0,1800));
   if(p.biggestEssayLoss!=null)props["Maior perda — redação"]=rich(String(p.biggestEssayLoss).slice(0,1800));
   if(p.notes!=null)props["Observações"]=rich(String(p.notes).slice(0,1800));
-  if(p.impactedSeedf!=null)props["Impactou SEEDF"]={checkbox:Boolean(p.impactedSeedf)};
-  if(p.impactedTjdft!=null)props["Impactou TJDFT"]={checkbox:Boolean(p.impactedTjdft)};
+
   const page=await notion(`/pages/${rows[0].id}`,token,{method:"PATCH",body:JSON.stringify({properties:props})});
-  return{kind:"simulation",pageId:page.id};
+  return{kind:"simulation",pageId:page.id,ipi:props["IPI interno"].number};
 }
 
 async function writeError(owner,day,event,token){
