@@ -15,8 +15,8 @@ Deno.serve(async (req) => {
   if (req.method !== "GET") return json({ error: "Método não permitido." }, 405);
   try {
     await authenticateGithub(req);
-    const token = Deno.env.get("TCE_GO_NOTION_TOKEN")?.trim();
-    if (!token) return json({ error: "TCE_GO_NOTION_TOKEN ausente no ambiente server-side.", code: "NOTION_UNCONFIGURED" }, 503);
+    const token = (Deno.env.get("TCE_GO_NOTION_TOKEN") || Deno.env.get("SEEDF") || "").trim();
+    if (!token) return json({ error: "Credencial Notion ausente no ambiente server-side.", code: "NOTION_UNCONFIGURED" }, 503);
 
     const rows = await queryAllDays(token);
     const links = rows.map(normalizeDayRecord).sort((a, b) => a.day.order - b.day.order);
