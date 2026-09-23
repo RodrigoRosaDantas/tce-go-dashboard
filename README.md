@@ -71,3 +71,8 @@ Regras:
 
 A Plataforma de Questões é reutilizada somente por deep-link de lote validado; sem cobertura validada, o Qxx do Notion permanece o fallback integral.
 
+
+
+## Cobertura pública validada
+
+O snapshot público sanitizado exige cobertura integral de D001–D100/S01–S47 e também dos módulos editoriais auxiliares: Redações R1–R8, 6 marcos de simulados/checkpoints, 15 itens do edital verticalizado, legislação oficial e 17 dias da reta final.
