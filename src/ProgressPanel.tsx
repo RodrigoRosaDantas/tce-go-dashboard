@@ -57,13 +57,18 @@ function localQuestionResult(dxx: string): LocalQuestionResult | null {
 
 function applyQuestionResult(base: FormState, result: LocalQuestionResult | null) {
   if (!result) return base;
+  const questionsDone = Math.max(0, Math.round(result.questionsDone || 0));
+  const correct = Math.max(0, Math.round(result.correct || 0));
+  const errors = Math.max(0, Math.round(result.errors || 0));
+  const doubts = Math.max(0, Math.round(result.doubts || 0));
+  if (correct + errors > questionsDone || doubts > correct) return base;
   return {
     ...base,
     studied: true,
-    questionsDone: Math.max(base.questionsDone, Math.max(0, Math.round(result.questionsDone || 0))),
-    correct: Math.max(base.correct, Math.max(0, Math.round(result.correct || 0))),
-    errors: Math.max(base.errors, Math.max(0, Math.round(result.errors || 0))),
-    doubts: Math.max(base.doubts, Math.max(0, Math.round(result.doubts || 0))),
+    questionsDone,
+    correct,
+    errors,
+    doubts,
   };
 }
 
