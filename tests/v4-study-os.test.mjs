@@ -196,3 +196,17 @@ test("auditoria mantém rótulos exatos do edital e reconcilia autenticação", 
   assert.doesNotMatch(performance, /label="FONTES NORMATIVAS"/);
   assert.match(context, /setConnected\(hasConnectedAccount\(\)\)/);
 });
+
+
+test("origem da execução ignora sessões auxiliares sem carga", () => {
+  assert.match(analytics, /const stateEvents = new Set/);
+  assert.match(analytics, /const executionSessions = sessions\.filter/);
+  assert.match(analytics, /if \(!executionSessions\.length\) return "Banco Dxx"/);
+});
+
+test("auditoria manual detecta inconsistências de status e números negativos", () => {
+  assert.match(analytics, /Status está Concluído, mas o checkbox Concluído não está marcado/);
+  assert.match(analytics, /Dxx está concluído sem o checkbox Estudado marcado/);
+  assert.match(analytics, /Há execução registrada, mas o Status continua Não iniciado/);
+  assert.match(analytics, /não pode ser negativo/);
+});
