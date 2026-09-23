@@ -17,7 +17,7 @@ function ReviewCard({ review, bucket }: { review: ReturnType<typeof reviewQueues
       <div className="review-card-data">
         <span><b>Prevista</b>{review.plannedDate?.slice(0,10) || "—"}</span>
         <span><b>Questões</b>{review.questions}</span>
-        <span><b>Resultado</b>{review.correct}/{review.correct + review.errors || 0}</span>
+        <span><b>Resultado</b>{review.correct}/{(review.correct ?? 0) + (review.errors ?? 0) || 0}</span>
       </div>
       {bucket !== "completed" ? <a href={href(target)}>Executar/atualizar →</a> : null}
     </article>
