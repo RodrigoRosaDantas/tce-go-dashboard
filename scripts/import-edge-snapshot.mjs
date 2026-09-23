@@ -10,6 +10,10 @@ const current = fs.existsSync(currentPath) ? JSON.parse(fs.readFileSync(currentP
 
 const errors = validateSnapshot(incoming);
 if (errors.length) throw new Error("Snapshot Edge recusado:\n- " + errors.join("\n- "));
+if (current?.auxiliaryMode === "full" && incoming?.auxiliaryMode !== "full") {
+  console.warn("Snapshot Edge sem cobertura auxiliar full; último snapshot válido preservado.");
+  process.exit(0);
+}
 
 if (current?.contentHash && current.contentHash === incoming.contentHash && current.contentMode === "full") {
   console.log("Sem mudança pública no snapshot Edge.");
@@ -27,4 +31,5 @@ fs.writeFileSync(currentPath, JSON.stringify(snapshot, null, 2) + "\n");
 fs.writeFileSync(path.join(dir, "tce-go-days.json"), JSON.stringify(snapshot.days, null, 2) + "\n");
 fs.writeFileSync(path.join(dir, "tce-go-materials.json"), JSON.stringify(snapshot.materials, null, 2) + "\n");
 fs.writeFileSync(path.join(dir, "tce-go-questions.json"), JSON.stringify(snapshot.questions, null, 2) + "\n");
-console.log(`Snapshot Edge importado: ${snapshot.publicStats.materialPages} materiais + ${snapshot.publicStats.questionPages} Qxx.`);
+fs.writeFileSync(path.join(dir, "tce-go-edital.json"), JSON.stringify(snapshot.edital || [], null, 2) + "\n");
+console.log(`Snapshot Edge importado: ${snapshot.publicStats.materialPages} materiais + ${snapshot.publicStats.questionPages} Qxx + cobertura auxiliar ${snapshot.auxiliaryMode || "legada"}.`);
