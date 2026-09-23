@@ -47,7 +47,7 @@ export function OperationalProvider({
 }) {
   const [summary, setSummary] = useState<OperationalSummary>(() => cachedOperationalSummary() ?? localFallback(snapshot));
   const [loading, setLoading] = useState(false);
-  const connected = hasConnectedAccount();
+  const [connected, setConnected] = useState(() => hasConnectedAccount());
 
   const refresh = useCallback(async () => {
     if (!connected) {
@@ -67,7 +67,11 @@ export function OperationalProvider({
   useEffect(() => {
     const dirty = () => void refresh();
     const storage = (event: StorageEvent) => {
-      if (event.key?.startsWith("tce-go.") || event.key === "plataforma.questoes.supabase.session.v1") void refresh();
+      if (event.key === "plataforma.questoes.supabase.session.v1") {
+        setConnected(hasConnectedAccount());
+        return;
+      }
+      if (event.key?.startsWith("tce-go.")) void refresh();
     };
     window.addEventListener("online", dirty);
     window.addEventListener("tce-operational-dirty", dirty);
