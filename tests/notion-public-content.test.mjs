@@ -60,3 +60,39 @@ test("Qxx público usa somente metadados editoriais", () => {
   assert.ok(!("contentHtml" in question));
   assert.ok(!("items" in question));
 });
+
+test("subseção privada aninhada não vaza conteúdo", () => {
+  const blocks = [
+    { type: "heading_2", heading_2: { rich_text: [{ plain_text: "Teoria pública" }] } },
+    { type: "paragraph", paragraph: { rich_text: [{ plain_text: "Conteúdo permitido." }] } },
+    { type: "heading_2", heading_2: { rich_text: [{ plain_text: "Execução real" }] } },
+    { type: "paragraph", paragraph: { rich_text: [{ plain_text: "Tempo real: 55 min" }] } },
+    { type: "heading_3", heading_3: { rich_text: [{ plain_text: "Métricas" }] } },
+    { type: "paragraph", paragraph: { rich_text: [{ plain_text: "Acertos: 18" }] } },
+    { type: "heading_2", heading_2: { rich_text: [{ plain_text: "Fechamento pedagógico" }] } },
+    { type: "paragraph", paragraph: { rich_text: [{ plain_text: "Conteúdo final permitido." }] } },
+  ];
+  const material = materialSnapshotFromBlocks({
+    dxx: "D001",
+    title: "D001 — Controle",
+    focus: "Controle constitucional",
+    version: 3,
+    lastEdited: "2026-09-23T00:00:00Z",
+  }, blocks);
+  const serialized = JSON.stringify(material);
+  assert.match(serialized, /Conteúdo permitido/);
+  assert.match(serialized, /Conteúdo final permitido/);
+  assert.doesNotMatch(serialized, /Tempo real|Acertos: 18|Métricas/);
+});
+
+test("observações editoriais não viram resumo público do Qxx", () => {
+  const page = {
+    properties: {
+      Qxx: { rich_text: [{ plain_text: "Q002" }] },
+      "Questões do dia": { title: [{ plain_text: "Q002 — Questões" }] },
+      "Observações editoriais": { rich_text: [{ plain_text: "nota interna que não deve sair" }] },
+    },
+  };
+  const question = questionSnapshotFromPage({ dxx: "D002", page });
+  assert.doesNotMatch(question.sourceSummary, /nota interna/i);
+});
