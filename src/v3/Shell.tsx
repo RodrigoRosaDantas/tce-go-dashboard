@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Snapshot } from "../types";
 import { publicRoute } from "../data";
-import { activeDays, href } from "./shared";
+import { href, publishedDays } from "./shared";
 
 const primaryNav = [
   ["/", "Hoje", "⌂"],
@@ -33,7 +33,11 @@ type SearchItem = {
 
 export function Shell({ snapshot, children }: { snapshot: Snapshot; children: React.ReactNode }) {
   const route = publicRoute(window.location.pathname);
-  const isCurrent = (path: string) => path === "/" ? route === "/" : route.startsWith(path);
+  const isCurrent = (path: string) => {
+    if (path === "/") return route === "/";
+    if (path === "/dias/") return route === "/dias/" || route.startsWith("/dia/") || route.startsWith("/questoes/");
+    return route.startsWith(path);
+  };
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -44,7 +48,7 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
       ...studyNav.map(([path, label]) => ({ label, detail: "Treino", href: path, group: "Treino", keywords: label })),
       ...referenceNav.map(([path, label]) => ({ label, detail: "Referência", href: path, group: "Referência", keywords: label })),
     ];
-    const sessions = activeDays(snapshot).map((day) => ({
+    const sessions = publishedDays(snapshot).map((day) => ({
       label: `${day.session ?? "Sessão"} · ${day.dxx}`,
       detail: day.focus,
       href: `/dia/${day.dxx.toLowerCase()}/`,
