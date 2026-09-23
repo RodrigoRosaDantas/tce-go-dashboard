@@ -13,7 +13,7 @@ export function ErrorsPageV4({ snapshot }: { snapshot: Snapshot }) {
   const [filter, setFilter] = useState<ErrorFilter>("open");
   const open = summary.errors.filter(isOpenError);
   const critical = open.filter((item) => item.fatal || item.severity === "P1");
-  const recurrent = open.filter((item) => item.recurrence > 0);
+  const recurrent = open.filter((item) => (item.recurrence ?? 0) > 0);
 
   const visible = useMemo(() => {
     if (filter === "critical") return critical;
