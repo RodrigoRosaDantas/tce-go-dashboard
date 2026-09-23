@@ -65,7 +65,7 @@ jobs:
           node scripts/validate-tce-go-snapshot.mjs
 
       - name: Request GitHub OIDC token
-        if: steps.config.outputs.mode == 'edge'
+        if: steps.config.outputs.mode == 'edge' || github.event_name != 'schedule'
         id: oidc
         shell: bash
         run: |
@@ -93,6 +93,48 @@ jobs:
           fi
           node scripts/import-edge-snapshot.mjs /tmp/tce-go-edge-snapshot.json
           node scripts/validate-tce-go-snapshot.mjs
+
+      - name: Audit Edge fallback health
+        if: steps.config.outputs.mode == 'direct' && github.event_name != 'schedule'
+        env:
+          OIDC_TOKEN: ${{ steps.oidc.outputs.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          code="$(curl -sS --retry 3 --retry-delay 2 -H "Authorization: Bearer $OIDC_TOKEN" -o /tmp/tce-go-edge-health.json -w "%{http_code}" "https://fqqkkyusnzhuuizahkww.supabase.co/functions/v1/tce-public-snapshot?health=1")"
+          if [ "$code" != "200" ]; then
+            echo "::error::Health do fallback Edge retornou HTTP $code."
+            cat /tmp/tce-go-edge-health.json || true
+            exit 1
+          fi
+          node - <<'NODE'
+          const fs = require("fs");
+          const h = JSON.parse(fs.readFileSync("/tmp/tce-go-edge-health.json", "utf8"));
+          const errors = [];
+          const exact = {
+            ok: true,
+            notionConfigured: true,
+            contentMode: "full",
+            auxiliaryMode: "full",
+            totalDays: 100,
+            activeDays: 47,
+            protectedDays: 53,
+            readyDays: 47,
+            sessions: 47,
+            redactionPlans: 8,
+            simulationPlans: 6,
+            editalItems: 15,
+            finalSprintDays: 17,
+          };
+          for (const [key, expected] of Object.entries(exact)) {
+            if (h[key] !== expected) errors.push(`${key}: esperado ${expected}; recebido ${h[key]}`);
+          }
+          if (!Number.isInteger(h.legislationSources) || h.legislationSources < 1) {
+            errors.push(`legislationSources inválido: ${h.legislationSources}`);
+          }
+          if (errors.length) throw new Error("Fallback Edge inconsistente:\n- " + errors.join("\n- "));
+          console.log(`Fallback Edge health validado: 100 dias, 47 sessões, R1–R8, 6 marcos, 15 itens de edital, ${h.legislationSources} fontes legais e 17 dias de reta final.`);
+          NODE
 
       - name: Check diff integrity
         run: git diff --check
