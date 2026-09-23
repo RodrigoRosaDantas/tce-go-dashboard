@@ -51,6 +51,7 @@ export function OperationalProvider({
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(() => hasConnectedAccount());
   const refreshInFlight = useRef<Promise<void> | null>(null);
+  const lastRefreshAt = useRef(0);
 
   const refresh = useCallback(async () => {
     if (!connected) {
@@ -63,6 +64,7 @@ export function OperationalProvider({
       try {
         const next = await loadOperationalSummary();
         setSummary(next ?? cachedOperationalSummary() ?? localFallback(snapshot));
+        lastRefreshAt.current = Date.now();
       } finally {
         setLoading(false);
         refreshInFlight.current = null;
@@ -78,6 +80,9 @@ export function OperationalProvider({
 
   useEffect(() => {
     const dirty = () => void refresh();
+    const visible = () => {
+      if (document.visibilityState === "visible" && Date.now() - lastRefreshAt.current > 60_000) void refresh();
+    };
     const storage = (event: StorageEvent) => {
       if (event.key === "plataforma.questoes.supabase.session.v1") {
         setConnected(hasConnectedAccount());
@@ -86,11 +91,13 @@ export function OperationalProvider({
       if (event.key?.startsWith("tce-go.")) void refresh();
     };
     window.addEventListener("online", dirty);
+    document.addEventListener("visibilitychange", visible);
     window.addEventListener("tce-operational-dirty", dirty);
     window.addEventListener("tce-progress-confirmed", dirty);
     window.addEventListener("storage", storage);
     return () => {
       window.removeEventListener("online", dirty);
+      document.removeEventListener("visibilitychange", visible);
       window.removeEventListener("tce-operational-dirty", dirty);
       window.removeEventListener("tce-progress-confirmed", dirty);
       window.removeEventListener("storage", storage);
