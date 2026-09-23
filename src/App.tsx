@@ -5,18 +5,24 @@ import { ProgressPanel } from "./ProgressPanel";
 import { ErrorWriteback, EssayWriteback, ReviewWriteback, SimulationWriteback } from "./ExecutionForms";
 import { platformBatteryUrl } from "./progress";
 
-const navItems = [
-  ["/", "Hoje"],
-  ["/dias/", "Dias"],
-  ["/revisoes/", "Revisões"],
+const primaryNav = [
+  ["/", "Hoje", "⌂"],
+  ["/dias/", "Trilha", "▤"],
+  ["/revisoes/", "Revisar", "↻"],
+  ["/desempenho/", "Desempenho", "◔"],
+] as const;
+
+const studyNav = [
   ["/redacoes/", "Redações"],
-  ["/erros/", "Erros"],
+  ["/erros/", "Caderno de erros"],
   ["/simulados/", "Simulados"],
-  ["/desempenho/", "Desempenho"],
-  ["/edital/", "Edital"],
+] as const;
+
+const referenceNav = [
+  ["/edital/", "Edital verticalizado"],
   ["/legislacao/", "Legislação"],
   ["/reta-final/", "Reta final"],
-  ["/sync/", "Sync"],
+  ["/sync/", "Sistema e sincronização"],
 ] as const;
 
 function href(path: string) {
@@ -52,6 +58,25 @@ function DayLabel({ day }: { day: DaySnapshot }) {
       {!day.protected && day.session ? <span className="session">· {day.session}</span> : null}
     </span>
   );
+}
+
+function extractStudyToc(html?: string) {
+  if (!html || typeof DOMParser === "undefined") return [] as Array<{ id: string; label: string; level: number }>;
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  return Array.from(doc.querySelectorAll("h2[id], h3[id]"))
+    .slice(0, 18)
+    .map((node) => ({
+      id: node.id,
+      label: node.textContent?.trim() || "Seção",
+      level: node.tagName === "H3" ? 3 : 2,
+    }));
+}
+
+function availabilityLabel(snapshot: Snapshot, day: DaySnapshot) {
+  if (day.protected) return "Dia protegido";
+  if (hasPublicSession(snapshot, day)) return "Disponível";
+  if (day.readyForStudy) return "Publicação pendente";
+  return "Em preparação";
 }
 
 function SessionNavigation({
@@ -96,20 +121,59 @@ function SessionNavigation({
 function Shell({ children, syncTime }: { children: React.ReactNode; syncTime?: string }) {
   return (
     <>
-      <header className="topbar">
-        <a className="brand" href={href("/")}>TCE-GO</a>
-        <span className="source-pill">Notion canônico → snapshot</span>
+      <header className="topbar v2-topbar">
+        <a className="brand v2-brand" href={href("/")}>
+          <span className="brand-mark">TC</span>
+          <span><strong>TCE-GO</strong><small>Plano de estudos</small></span>
+        </a>
+        <div className="top-actions">
+          <a className="top-action-link" href={href("/dias/")}>Trilha S01–S47</a>
+          <a className="top-action-link subtle" href={href("/sync/")} aria-label="Abrir status do sistema">●</a>
+        </div>
       </header>
-      <div className="layout">
-        <aside className="sidebar" aria-label="Navegação principal">
-          {navItems.map(([path, label]) => <a key={path} href={href(path)}>{label}</a>)}
+
+      <div className="layout v2-layout">
+        <aside className="sidebar v2-sidebar" aria-label="Navegação principal">
+          <div className="sidebar-group">
+            <p className="sidebar-label">Estudar</p>
+            {primaryNav.map(([path, label, icon]) => (
+              <a key={path} href={href(path)} className="sidebar-link">
+                <span aria-hidden="true">{icon}</span><span>{label}</span>
+              </a>
+            ))}
+          </div>
+
+          <div className="sidebar-group">
+            <p className="sidebar-label">Treino</p>
+            {studyNav.map(([path, label]) => <a key={path} href={href(path)} className="sidebar-link compact">{label}</a>)}
+          </div>
+
+          <div className="sidebar-group">
+            <p className="sidebar-label">Referência</p>
+            {referenceNav.map(([path, label]) => <a key={path} href={href(path)} className="sidebar-link compact">{label}</a>)}
+          </div>
+
+          <div className="sidebar-system">
+            <span className="system-dot" aria-hidden="true" />
+            <span>Conteúdo sincronizado</span>
+            {syncTime ? <small>{new Date(syncTime).toLocaleString("pt-BR")}</small> : null}
+          </div>
         </aside>
-        <main>{children}</main>
+
+        <main className="v2-main">{children}</main>
       </div>
-      <footer>
-        <span>Snapshot público sanitizado.</span>
-        {syncTime ? <span> Gerado em {new Date(syncTime).toLocaleString("pt-BR")}.</span> : null}
-      </footer>
+
+      <nav className="mobile-bottom-nav" aria-label="Navegação móvel">
+        {primaryNav.map(([path, label, icon]) => (
+          <a key={path} href={href(path)}><span aria-hidden="true">{icon}</span><small>{label}</small></a>
+        ))}
+        <details className="mobile-more">
+          <summary><span aria-hidden="true">•••</span><small>Mais</small></summary>
+          <div className="mobile-more-menu">
+            {[...studyNav, ...referenceNav].map(([path, label]) => <a key={path} href={href(path)}>{label}</a>)}
+          </div>
+        </details>
+      </nav>
     </>
   );
 }
@@ -117,59 +181,128 @@ function Shell({ children, syncTime }: { children: React.ReactNode; syncTime?: s
 function Home({ snapshot }: { snapshot: Snapshot }) {
   const today = currentDateInBrasilia();
   const ordered = [...snapshot.days].sort((a, b) => a.order - b.order);
+  const active = ordered.filter((d) => !d.protected);
+  const published = active.filter((d) => hasPublicSession(snapshot, d));
   const next = ordered.find((d) => hasPublicSession(snapshot, d) && d.date >= today)
     ?? ordered.find((d) => hasPublicSession(snapshot, d));
+  const nextIndex = next ? active.findIndex((d) => d.dxx === next.dxx) : -1;
+  const nextAfter = nextIndex >= 0 ? active[nextIndex + 1] : undefined;
 
   return (
-    <section>
-      <div className="hero">
-        <p className="eyebrow">Projeto 100 Dias · Técnico de Controle Externo</p>
-        <h1>Hoje / próximo passo</h1>
-        <p>O calendário é governado por <strong>Dxx + Ordem</strong>. Sxx apenas identifica a sequência pedagógica dos dias ativos.</p>
+    <section className="home-v2">
+      <div className="home-intro">
+        <div>
+          <p className="eyebrow">Técnico de Controle Externo · TCE-GO</p>
+          <h1>Seu próximo passo.</h1>
+          <p>Abra a sessão, estude o material, faça a bateria e feche o D0. O resto fica fora do caminho.</p>
+        </div>
+        <div className="trail-meter" aria-label="Cobertura editorial da trilha">
+          <div className="trail-meter-head"><span>Trilha pedagógica</span><strong>{published.length}/{active.length}</strong></div>
+          <div className="trail-meter-track"><span style={{ width: `${active.length ? Math.round((published.length / active.length) * 100) : 0}%` }} /></div>
+          <small>Sessões atualmente publicadas no site</small>
+        </div>
       </div>
-      <div className="stats">
-        <article><strong>{snapshot.publicStats.totalDays}</strong><span>Dias no calendário</span></article>
-        <article><strong>{snapshot.publicStats.sessions}</strong><span>Sessões TCE</span></article>
-        <article><strong>{snapshot.publicStats.protectedDays}</strong><span>Dias protegidos</span></article>
-        <article><strong>{snapshot.publicStats.readyDays}</strong><span>Prontos no Notion</span></article>
-      </div>
+
       {next ? (
-        <article className="session-card">
-          <div>
-            <DayLabel day={next} />
+        <article className="focus-card">
+          <div className="focus-card-copy">
+            <div className="focus-kicker">
+              <span className="session-chip">{next.session ?? "Sessão"}</span>
+              <span>{next.dxx}</span>
+              <span>{formatDate(next.date)}</span>
+            </div>
             <h2>{next.focus}</h2>
-            <p>{formatDate(next.date)} · {next.type}</p>
+            <p>{next.type} · Material + {next.questionSlug?.toUpperCase() ?? "Qxx"} + recuperação ativa D0</p>
+            <div className="focus-actions">
+              <a className="primary primary-large" href={href(`/dia/${next.dxx.toLowerCase()}/`)}>Começar sessão →</a>
+              {next.questionSlug ? <a className="ghost-link" href={href(`/questoes/${next.questionSlug}/`)}>Ir direto às questões</a> : null}
+            </div>
           </div>
-          <a className="primary" href={href(`/dia/${next.dxx.toLowerCase()}/`)}>Abrir sessão</a>
+          <div className="focus-sequence" aria-label="Fluxo da sessão">
+            <span className="step active"><b>1</b> Aula</span>
+            <span className="step"><b>2</b> Questões</span>
+            <span className="step"><b>3</b> D0</span>
+          </div>
         </article>
-      ) : <p>Nenhuma sessão liberada no snapshot atual.</p>}
+      ) : <div className="empty-state">Nenhuma sessão está liberada para estudo neste momento.</div>}
+
+      <div className="quick-grid">
+        <a className="quick-card" href={href("/dias/")}>
+          <span className="quick-icon">▤</span>
+          <div><strong>Ver a trilha inteira</strong><small>S01–S47 sem o ruído dos dias protegidos.</small></div>
+          <span>→</span>
+        </a>
+        <a className="quick-card" href={href("/revisoes/")}>
+          <span className="quick-icon">↻</span>
+          <div><strong>Revisar</strong><small>D0, D7, D20 e Fatal Errors no mesmo lugar.</small></div>
+          <span>→</span>
+        </a>
+        <a className="quick-card" href={href("/erros/")}>
+          <span className="quick-icon">!</span>
+          <div><strong>Caderno de erros</strong><small>Registre só o que merece voltar para a prova.</small></div>
+          <span>→</span>
+        </a>
+      </div>
+
+      {nextAfter ? (
+        <div className="up-next">
+          <span>Depois desta</span>
+          <strong>{nextAfter.session} · {nextAfter.dxx}</strong>
+          <p>{nextAfter.focus}</p>
+        </div>
+      ) : null}
     </section>
   );
 }
 
 function Days({ snapshot }: { snapshot: Snapshot }) {
   const days = [...snapshot.days].sort((a, b) => a.order - b.order);
+  const active = days.filter((day) => !day.protected);
+  const protectedDays = days.filter((day) => day.protected);
+
   return (
-    <section>
-      <div className="page-head"><p className="eyebrow">Calendário canônico</p><h1>D001–D100</h1></div>
-      <div className="day-grid">
-        {days.map((day) => (
-          <article key={day.dxx} className={`day-card ${day.protected ? "protected" : ""}`}>
-            <DayLabel day={day} />
-            <time>{formatDate(day.date)}</time>
-            <p>{day.focus}</p>
-            {day.protected ? (
-              <span className="badge muted">Protegido · sem Sxx</span>
-            ) : hasPublicSession(snapshot, day) ? (
-              <a className="secondary" href={href(`/dia/${day.dxx.toLowerCase()}/`)}>Abrir</a>
-            ) : day.readyForStudy ? (
-              <span className="badge ready">Pronto · aguardando sync</span>
-            ) : (
-              <span className="badge">Em preparação</span>
-            )}
-          </article>
-        ))}
+    <section className="trail-page">
+      <div className="page-head v2-page-head">
+        <p className="eyebrow">47 sessões ativas</p>
+        <h1>Trilha de estudo</h1>
+        <p>O calendário de 100 dias continua preservado, mas aqui a prioridade é a sequência que você realmente estuda.</p>
       </div>
+
+      <div className="trail-list">
+        {active.map((day, index) => {
+          const available = hasPublicSession(snapshot, day);
+          return (
+            <article key={day.dxx} className={`trail-row ${available ? "available" : ""}`}>
+              <div className="trail-number">{String(index + 1).padStart(2, "0")}</div>
+              <div className="trail-row-main">
+                <div className="trail-row-meta">
+                  <strong>{day.session ?? "—"} · {day.dxx}</strong>
+                  <span>{formatDate(day.date)}</span>
+                  <span>{day.type}</span>
+                </div>
+                <h2>{day.focus}</h2>
+              </div>
+              <div className="trail-row-status">
+                <span className={`availability ${available ? "ok" : ""}`}>{availabilityLabel(snapshot, day)}</span>
+                {available ? <a className="secondary compact-button" href={href(`/dia/${day.dxx.toLowerCase()}/`)}>Abrir →</a> : null}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <details className="protected-calendar">
+        <summary>Ver calendário completo e {protectedDays.length} dias protegidos</summary>
+        <div className="protected-grid">
+          {days.map((day) => (
+            <div key={day.dxx} className={`protected-mini ${day.protected ? "is-protected" : "is-active"}`}>
+              <strong>{day.dxx}</strong>
+              <span>{formatDate(day.date)}</span>
+              <small>{day.protected ? "Protegido" : day.session}</small>
+            </div>
+          ))}
+        </div>
+      </details>
     </section>
   );
 }
@@ -182,10 +315,10 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
   if (day.protected) {
     return (
       <section>
-        <div className="page-head"><DayLabel day={day} /><h1>Dia protegido</h1></div>
+        <div className="page-head v2-page-head"><DayLabel day={day} /><h1>Dia protegido</h1></div>
         <p>{formatDate(day.date)}</p>
-        <div className="notice">Este dia aparece no calendário, mas não recebe sessão Sxx e não cria dívida pedagógica.</div>
-        <a className="secondary" href={href("/dias/")}>← Voltar ao calendário</a>
+        <div className="notice">Este dia existe no calendário, mas não cria sessão de estudo nem dívida pedagógica.</div>
+        <a className="secondary" href={href("/dias/")}>← Voltar à trilha</a>
       </section>
     );
   }
@@ -197,78 +330,118 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
   if (!material || !question) {
     return (
       <section>
-        <div className="page-head">
+        <div className="page-head v2-page-head">
           <DayLabel day={day} />
           <h1>{day.focus}</h1>
           <p>{formatDate(day.date)} · {day.type}</p>
         </div>
-        <div className="notice">
-          Esta sessão está pronta no Notion, mas o Material + Qxx ainda não chegaram ao snapshot público sanitizado.
-          O site não a trata como sessão publicada até o próximo sync completo.
-        </div>
+        <div className="notice">A sessão está aprovada no planejamento, mas ainda não foi publicada integralmente no site.</div>
         <SessionNavigation snapshot={snapshot} day={day} />
       </section>
     );
   }
 
+  const toc = extractStudyToc(material.contentHtml);
+
   return (
-    <section>
-      <div className="page-head">
-        <DayLabel day={day} />
-        <h1>{day.focus}</h1>
-        <p>{formatDate(day.date)} · {day.type} · versão editorial {day.version ?? "—"}</p>
+    <section className="study-session">
+      <div className="study-session-top">
+        <a href={href("/dias/")} className="back-link">← Trilha</a>
+        <span>{day.session} · {day.dxx}</span>
+        <span>{formatDate(day.date)}</span>
       </div>
-      <div className="status-row">
-        <span className={day.readyForStudy ? "badge ready" : "badge"}>{day.readyForStudy ? "Pronto para estudo" : "Em preparação"}</span>
-        <span className="badge muted">Ordem {day.order}</span>
+
+      <header className="study-hero">
+        <div>
+          <p className="eyebrow">{day.type}</p>
+          <h1>{day.focus}</h1>
+          <p>{material.summary}</p>
+        </div>
+        <div className="study-hero-meta">
+          <span>Material</span>
+          <span>{question.adaptive ? "Bateria adaptativa" : `${question.meta} questões`}</span>
+          <span>D0 no fechamento</span>
+        </div>
+      </header>
+
+      <nav className="study-tabs" aria-label="Etapas da sessão">
+        <a href="#visao-geral">Visão geral</a>
+        <a href="#aula">Aula</a>
+        <a href="#questoes">Questões</a>
+        <a href="#registro">Fechamento</a>
+      </nav>
+
+      <div className="study-layout-v2">
+        <aside className="study-index">
+          <strong>Nesta aula</strong>
+          <a href="#visao-geral">Visão geral</a>
+          {toc.map((item) => <a key={item.id} className={item.level === 3 ? "level-3" : ""} href={`#${item.id}`}>{item.label}</a>)}
+          <a href="#questoes">Questões do dia</a>
+          <a href="#registro">Registro e D0</a>
+        </aside>
+
+        <div className="study-main-column">
+          <section id="visao-geral" className="session-overview-card">
+            <div>
+              <span className="mini-label">Objetivo da sessão</span>
+              <h2>Entender, aplicar e testar.</h2>
+              <p>Estude o material até conseguir explicar os conceitos centrais sem apoio. Em seguida, faça {day.questionSlug?.toUpperCase() ?? "o Qxx"} e feche o aprendizado com recuperação ativa.</p>
+            </div>
+            <ol>
+              <li><strong>1.</strong> Aula</li>
+              <li><strong>2.</strong> Questões</li>
+              <li><strong>3.</strong> Correção + D0</li>
+            </ol>
+          </section>
+
+          <article id="aula" className="panel lesson-panel">
+            <div className="section-title-row">
+              <div><span className="mini-label">Etapa 1</span><h2>Aula</h2></div>
+              <a href="#questoes" className="ghost-link">Pular para questões ↓</a>
+            </div>
+            {material.contentHtml ? (
+              <div className="study-content" dangerouslySetInnerHTML={{ __html: material.contentHtml }} />
+            ) : material.sections?.map((section) => (
+              <section key={section.heading} className="material-section">
+                <h3>{section.heading}</h3>
+                <p>{section.body}</p>
+              </section>
+            ))}
+          </article>
+
+          <section id="questoes" className="panel question-stage">
+            <div className="section-title-row">
+              <div><span className="mini-label">Etapa 2</span><h2>Questões do dia</h2></div>
+              <span className="question-count">{question.adaptive ? "Adaptativa" : `${question.meta} itens`}</span>
+            </div>
+            <p>{question.sourceSummary}</p>
+            <div className="question-actions">
+              {day.questionSlug ? <a className="primary" href={href(`/questoes/${day.questionSlug}/`)}>Abrir {day.questionSlug.toUpperCase()} →</a> : null}
+              {question.platformBattery ? (
+                <a className="secondary" href={platformBatteryUrl({
+                  dxx: day.dxx,
+                  sxx: day.session,
+                  materia: question.platformBattery.materia,
+                  topico: question.platformBattery.topico,
+                  subtopico: question.platformBattery.subtopico,
+                  size: question.platformBattery.size,
+                })}>Abrir bateria na Plataforma</a>
+              ) : null}
+            </div>
+            <p className="small">Quando a questão estiver em fonte externa, o site usa referência e metadados em vez de republicar o enunciado.</p>
+          </section>
+
+          <section id="registro">
+            <div className="section-title-row register-title">
+              <div><span className="mini-label">Etapa 3</span><h2>Fechamento da sessão</h2></div>
+              <span className="availability ok">D0</span>
+            </div>
+            <ProgressPanel day={day} />
+          </section>
+
+          <SessionNavigation snapshot={snapshot} day={day} />
+        </div>
       </div>
-      <div className="content-grid">
-        <article className="panel">
-          <h2>Material</h2>
-          {material ? (
-            <>
-              <p>{material.summary}</p>
-              {material.contentHtml ? (
-                <div className="study-content" dangerouslySetInnerHTML={{ __html: material.contentHtml }} />
-              ) : material.sections?.map((section) => (
-                <section key={section.heading} className="material-section">
-                  <h3>{section.heading}</h3>
-                  <p>{section.body}</p>
-                </section>
-              ))}
-            </>
-          ) : (
-            <p>Metadados editoriais liberados. O conteúdo integral entra somente pelo sincronizador server-side após sanitização.</p>
-          )}
-        </article>
-        <article className="panel">
-          <h2>Questões</h2>
-          {question ? (
-            <>
-              {question.adaptive ? (
-                <p><strong>Adaptativo</strong> · meta {question.meta} equivalentes/retestes definidos pela execução real.</p>
-              ) : (
-                <p><strong>{question.valid}</strong> itens válidos · meta {question.meta}.</p>
-              )}
-              <p>{question.sourceSummary}</p>
-              <p className="small">Questões de terceiros permanecem em modo metadados + referência; não há republicação massiva.</p>
-            </>
-          ) : <p>Qxx vinculado ao dia; detalhes serão publicados pelo snapshot sanitizado.</p>}
-          {day.questionSlug ? <a className="secondary" href={href(`/questoes/${day.questionSlug}/`)}>Abrir Qxx</a> : null}
-          {question?.platformBattery ? (
-            <a className="secondary" href={platformBatteryUrl({
-              dxx: day.dxx,
-              sxx: day.session,
-              materia: question.platformBattery.materia,
-              topico: question.platformBattery.topico,
-              subtopico: question.platformBattery.subtopico,
-              size: question.platformBattery.size,
-            })}>Abrir bateria validada na Plataforma</a>
-          ) : null}
-        </article>
-      </div>
-      <ProgressPanel day={day} />
-      <SessionNavigation snapshot={snapshot} day={day} />
     </section>
   );
 }
@@ -384,7 +557,7 @@ function EditalPage({ snapshot }: { snapshot: Snapshot }) {
   const rows = snapshot.edital ?? [];
   return (
     <section>
-      <div className="page-head"><p className="eyebrow">Notion → snapshot</p><h1>Edital verticalizado</h1></div>
+      <div className="page-head"><p className="eyebrow">Mapa da prova</p><h1>Edital verticalizado</h1></div>
       {rows.length ? (
         <div className="data-table-wrap">
           <table className="data-table">
