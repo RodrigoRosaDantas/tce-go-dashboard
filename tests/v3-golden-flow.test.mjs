@@ -82,10 +82,11 @@ test("Shell V3 agrupa Dxx/Qxx em Trilha e busca apenas sessões publicadas", () 
   assert.doesNotMatch(shell, /const sessions = activeDays\(snapshot\)/);
 });
 
-test("PWA V3 invalida o cache legado da V2", () => {
+test("PWA V4 invalida caches legados V1/V3", () => {
   const sw = fs.readFileSync("public/sw.js", "utf8");
-  assert.match(sw, /tce-go-v3-20260923/);
+  assert.match(sw, /tce-go-v4-20260923/);
   assert.doesNotMatch(sw, /const CACHE = "tce-go-v1"/);
+  assert.doesNotMatch(sw, /const CACHE = "tce-go-v3-20260923"/);
 });
 
 test("Desktop e tablet escondem índice HTML duplicado, mobile preserva o índice interno", () => {
