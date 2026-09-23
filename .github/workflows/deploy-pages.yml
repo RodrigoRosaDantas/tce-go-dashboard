@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows: ["TCE-GO Quality"]
     types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
