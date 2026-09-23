@@ -26,6 +26,17 @@ function formatDate(value: string) {
   );
 }
 
+function currentDateInBrasilia() {
+  const parts = new Intl.DateTimeFormat("pt-BR", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((item) => item.type === type)?.value ?? "";
+  return `${part("year")}-${part("month")}-${part("day")}`;
+}
+
 function hasPublicSession(snapshot: Snapshot, day: DaySnapshot) {
   if (day.protected || !day.readyForStudy || !day.slug || !day.questionSlug) return false;
   return Boolean(snapshot.materials[day.slug] && snapshot.questions[day.questionSlug]);
@@ -62,7 +73,7 @@ function Shell({ children, syncTime }: { children: React.ReactNode; syncTime?: s
 }
 
 function Home({ snapshot }: { snapshot: Snapshot }) {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = currentDateInBrasilia();
   const ordered = [...snapshot.days].sort((a, b) => a.order - b.order);
   const next = ordered.find((d) => hasPublicSession(snapshot, d) && d.date >= today)
     ?? ordered.find((d) => hasPublicSession(snapshot, d));
