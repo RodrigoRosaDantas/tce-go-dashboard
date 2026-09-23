@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T14:01:48.949Z",
+  "generatedAt": "2026-09-23T14:02:27.395Z",
   "days": [
     {
       "dxx": "D001",
@@ -2135,6 +2135,733 @@
       ],
       "version": 2,
       "lastEdited": "2026-09-22T11:04:55.806Z"
+    },
+    "d015": {
+      "dxx": "D015",
+      "title": "D015 — Controle Externo III",
+      "summary": "Controle Externo III — tipos de auditoria — conformidade, operacional e financeira; objetivo, critério, evidência e produto.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D015 — Controle Externo III \\| tipos de auditoria\nSessão técnica — 90 min. Hoje o objetivo é distinguir, sem hesitação, auditoria financeira, operacional e de conformidade pela pergunta central, objeto, critério, evidência e produto. O foco é classificação aplicada — não decorar siglas."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "O D008 ensinou qual instrumento de fiscalização está sendo usado: levantamento, auditoria, inspeção, acompanhamento ou monitoramento.\nO D015 muda a pergunta:\n> Se o instrumento escolhido é auditoria, que tipo de auditoria é essa?\nA sequência fica:\n- D001: sistema constitucional;\n- D008: instrumentos de fiscalização;\n- D015: tipos de auditoria;\n- D022: INTOSAI + NBASP 100;\n- D029 em diante: planejamento, risco, procedimentos, achados, evidências e relatório.\nInstrumento ≠ tipo.\n“Auditoria” é instrumento de fiscalização.\n“Financeira, operacional e conformidade” classificam a auditoria pelo objetivo predominante."
+        },
+        {
+          "heading": "3. Posição no edital e recorte",
+          "body": "B04 — Noções de Controle Externo\n- bloco: Específicos;\n- 4 questões;\n- peso 2;\n- baseline histórico: Misto;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Entra hoje",
+          "body": "- auditoria financeira;\n- auditoria operacional;\n- auditoria de conformidade;\n- objetivo;\n- objeto;\n- critério;\n- evidência;\n- produto/conclusão;\n- diferenças práticas."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- NBASP 100 em profundidade → D022;\n- planejamento, escopo, risco e matriz → D029;\n- procedimentos/técnicas e evidência em profundidade → D052;\n- achados e matriz de achados → sessão própria;\n- responsabilização e débito/multa → sessão própria."
+        },
+        {
+          "heading": "Reaproveitável",
+          "body": "Você já possui base útil em:\n- legalidade e controle;\n- Administração Pública;\n- AFO;\n- contabilidade pública introdutória;\n- sistema constitucional de controle."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "O D008 já apresentou auditoria como instrumento e mostrou que a classificação regimental “programada/especial/de irregularidades” não é a mesma coisa que os tipos do edital."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- classificar a auditoria pelo objetivo predominante;\n- identificar critérios adequados;\n- entender o papel da evidência em cada tipo;\n- reconhecer o produto esperado;\n- separar conformidade × desempenho × informação financeira."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. classificar 10 casos práticos;\n2. formular a pergunta central de cada tipo;\n3. indicar o objeto típico;\n4. identificar o critério adequado;\n5. explicar que tipo de evidência é necessário;\n6. reconhecer o produto/conclusão esperado;\n7. distinguir economicidade, eficiência, eficácia e efetividade;\n8. separar auditoria financeira de CASP;\n9. separar auditoria de conformidade de auditoria operacional;\n10. resolver o Q015 e diagnosticar a causa dos próprios erros."
+        },
+        {
+          "heading": "Base canônica do projeto",
+          "body": "A Base Técnica define o núcleo:\n- conformidade → aderência a critérios;\n- operacional → desempenho;\n- financeira → apresentação adequada da informação financeira."
+        },
+        {
+          "heading": "IRB / NBASP",
+          "body": "- [NBASP 200 — Princípios de Auditoria Financeira](https://nbasp.irbcontas.org.br/nbasp/principios-de-auditoria-financeira/)\n- [NBASP 300 — Princípios de Auditoria Operacional](https://nbasp.irbcontas.org.br/nbasp/principios-de-auditoria-operacional/)\n- [NBASP 400 — Princípios de Auditoria de Conformidade](https://nbasp.irbcontas.org.br/nbasp/principios-de-auditoria-de-conformidade/)\n- [Portal NBASP / IRB](https://nbasp.irbcontas.org.br/)\nCorte técnico do projeto: 25/08/2026, com verificação das páginas oficiais realizada na auditoria editorial."
+        },
+        {
+          "heading": "7. Como estudar os 90 minutos",
+          "body": "1. 10 min — mapa 3 perguntas: conforme? funciona bem? demonstra corretamente?\n2. 35 min — teoria nuclear: 3 tipos + critérios + produtos.\n3. 10 min — quatro Es: economicidade, eficiência, eficácia e efetividade.\n4. 25 min — Q015: 20 itens.\n5. 10 min — D0: quadro em branco + casos errados/dúvidas."
+        },
+        {
+          "heading": "8. Mapa de entrada",
+          "body": "Tipo\nPergunta central\nPalavra-chave\nProduto típico\nConformidade\nO objeto está de acordo com os critérios aplicáveis?\nAderência\nConclusão/opinião e relatório sobre conformidade, conforme o tipo de trabalho.\nOperacional\nA ação pública está produzindo resultados com bom desempenho?\nDesempenho\nAchados, conclusões e, quando cabíveis, recomendações de aperfeiçoamento.\nFinanceira\nAs informações/demonstrações financeiras estão adequadamente apresentadas segundo o referencial aplicável?\nAsseguração\nOpinião e/ou relatório de auditoria com asseguração razoável."
+        },
+        {
+          "heading": "Macete",
+          "body": "C-O-F\n- Conformidade → Cumpriu?\n- Operacional → Otimiza resultados?\n- Financeira → Fidedignidade/apresentação financeira?"
+        },
+        {
+          "heading": "9. A estrutura comum antes das diferenças",
+          "body": "Toda auditoria precisa, em alguma forma, conectar:\nobjeto → critério → evidência → achado/conclusão → relatório"
+        },
+        {
+          "heading": "Objeto",
+          "body": "O que está sendo examinado."
+        },
+        {
+          "heading": "Critério",
+          "body": "O padrão usado para comparar ou avaliar."
+        },
+        {
+          "heading": "Evidência",
+          "body": "Informação suficiente e apropriada para sustentar conclusão."
+        },
+        {
+          "heading": "Achado",
+          "body": "Diferença relevante entre condição encontrada e critério, quando aplicável."
+        },
+        {
+          "heading": "Produto",
+          "body": "A forma de comunicar a conclusão aos usuários previstos.\n> Pegadinha: o tipo de auditoria não é definido pela técnica utilizada. Inspeção documental, entrevista, análise de dados e recálculo podem aparecer em vários tipos."
+        },
+        {
+          "heading": "Pergunta central",
+          "body": "> “Está conforme o quê?”\nA auditoria de conformidade examina se atividades, transações, informações ou situações estão de acordo com critérios aplicáveis."
+        },
+        {
+          "heading": "Critérios típicos",
+          "body": "- Constituição;\n- leis;\n- regulamentos;\n- resoluções;\n- contratos;\n- convênios;\n- políticas;\n- normas;\n- regras orçamentárias;\n- outros referenciais válidos."
+        },
+        {
+          "heading": "Foco",
+          "body": "- legalidade;\n- regularidade;\n- aderência;\n- obrigações;\n- requisitos."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Um contrato exige entrega em 90 dias, garantia mínima e especificação técnica determinada. A auditoria compara o executado com essas exigências.\nTipo: conformidade."
+        },
+        {
+          "heading": "Produto",
+          "body": "Pode envolver conclusão ou opinião sobre a conformidade e relatório dos achados, conforme o desenho do trabalho."
+        },
+        {
+          "heading": "O erro mais comum",
+          "body": "Confundir “houve desperdício?” com “cumpriu a norma?”.\nUm ato pode:\n- ser conforme, mas ter desempenho ruim;\n- ter bom resultado, mas ser não conforme."
+        },
+        {
+          "heading": "Pergunta central",
+          "body": "> “A política/programa/organização está funcionando bem?”\nO foco é desempenho."
+        },
+        {
+          "heading": "Quatro Es",
+          "body": "#### Economicidade\nObter recursos adequados, em quantidade e qualidade apropriadas, pelo menor custo compatível.\n#### Eficiência\nRelação entre recursos empregados e produtos/serviços gerados.\n#### Eficácia\nAlcance de objetivos e metas.\n#### Efetividade\nEfeitos ou impactos produzidos na realidade."
+        },
+        {
+          "heading": "Exemplo integrado",
+          "body": "Programa treinou 10 mil pessoas:\n- cumpriu meta de 10 mil → eficácia;\n- usou menos horas e equipe para produzir o mesmo resultado → eficiência;\n- contratou insumos adequados por custo compatível → economicidade;\n- reduziu de fato o problema social que motivou o programa → efetividade."
+        },
+        {
+          "heading": "Produto",
+          "body": "A auditoria operacional normalmente comunica:\n- achados;\n- causas relevantes;\n- efeitos;\n- conclusões;\n- oportunidades de melhoria;\n- recomendações quando cabíveis."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Operacional não significa “auditar operações contábeis”.\nÉ auditoria de desempenho."
+        },
+        {
+          "heading": "Pergunta central",
+          "body": "> “As demonstrações/informações financeiras estão apresentadas adequadamente, em todos os aspectos relevantes, conforme a estrutura aplicável?”\nA NBASP 200 liga auditoria financeira a:\n- demonstrações financeiras;\n- componentes específicos;\n- estrutura de relatório financeiro;\n- risco de distorção relevante;\n- materialidade;\n- evidência suficiente e apropriada;\n- asseguração razoável;\n- opinião/relatório."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "O auditor examina o Balanço Patrimonial e demais demonstrações para obter evidência suficiente e apropriada sobre se estão adequadamente apresentadas segundo o referencial aplicável.\nTipo: financeira."
+        },
+        {
+          "heading": "Produto",
+          "body": "A finalidade é fornecer asseguração razoável aos usuários, normalmente por opinião e/ou relatório."
+        },
+        {
+          "heading": "CASP × auditoria financeira",
+          "body": "- CASP: como reconhecer, mensurar, registrar e evidenciar a informação pública.\n- Auditoria financeira: como obter evidência para avaliar a informação/demonstração já produzida.\nDistorção relevante não precisa ser fraude. Pode decorrer de erro ou fraude. E asseguração razoável não significa certeza absoluta nem risco zero."
+        },
+        {
+          "heading": "13. Critério: a chave de classificação",
+          "body": "Caso\nCritério predominante\nTipo provável\nContrato cumpriu cláusulas?\nContrato/lei/regulamento\nConformidade\nPrograma atingiu metas com custo adequado?\nMetas, indicadores, benchmarks e padrões de desempenho\nOperacional\nBalanço está adequadamente apresentado?\nEstrutura de relatório financeiro aplicável\nFinanceira\nMacete: antes de classificar, pergunte “qual comparação sustenta a conclusão?”"
+        },
+        {
+          "heading": "O que não muda",
+          "body": "Todo tipo precisa de evidência suficiente e apropriada."
+        },
+        {
+          "heading": "O que muda",
+          "body": "A natureza da evidência acompanha a pergunta.\n#### Conformidade\n- contrato;\n- lei/norma;\n- documentação de execução;\n- registros de cumprimento;\n- atos administrativos.\n#### Operacional\n- indicadores;\n- séries históricas;\n- dados de custo;\n- entrevistas;\n- benchmarks;\n- processos;\n- resultados e impacto.\n#### Financeira\n- registros contábeis;\n- confirmações;\n- conciliações;\n- documentos;\n- testes;\n- evidências sobre estimativas, saldos e divulgações.\n> Não memorize técnica exclusiva. O mesmo procedimento pode apoiar tipos diferentes."
+        },
+        {
+          "heading": "Financeira",
+          "body": "Tende a culminar em opinião/relatório sobre apresentação da informação financeira, dentro de asseguração razoável."
+        },
+        {
+          "heading": "Operacional",
+          "body": "Tende a culminar em conclusões de desempenho, achados e recomendações de aperfeiçoamento quando apropriadas."
+        },
+        {
+          "heading": "Conformidade",
+          "body": "Tende a culminar em conclusão/opinião de conformidade, identificação de desvios e relatório, conforme trabalho de certificação ou relatório direto."
+        },
+        {
+          "heading": "Cuidado",
+          "body": "Não use:\n- “financeira = só conferir números”;\n- “operacional = sempre recomendar”;\n- “conformidade = sempre punição”.\nSão reduções erradas."
+        },
+        {
+          "heading": "16. O mesmo objeto pode receber auditorias diferentes",
+          "body": "Considere um programa de merenda escolar."
+        },
+        {
+          "heading": "Auditoria de conformidade",
+          "body": "As compras obedeceram à lei, ao contrato e às especificações?"
+        },
+        {
+          "heading": "Auditoria operacional",
+          "body": "Os alimentos chegaram com qualidade, custo adequado e contribuíram para a finalidade do programa?"
+        },
+        {
+          "heading": "Auditoria financeira",
+          "body": "Os saldos, despesas e obrigações relacionados foram adequadamente apresentados nas demonstrações?\nObjeto semelhante, perguntas diferentes → tipos diferentes."
+        },
+        {
+          "heading": "17. Trabalhos combinados",
+          "body": "Na prática, uma fiscalização pode reunir objetivos diferentes.\nExemplo:\n- avaliar conformidade de compras;\n- medir eficiência logística;\n- examinar reflexos financeiros.\nIsso não apaga a classificação. O auditor deve deixar claro:\n- objetivos;\n- critérios;\n- escopo;\n- conclusão de cada dimensão."
+        },
+        {
+          "heading": "18. Comparações de alto rendimento",
+          "body": "Confusão\nRegra correta\nConformidade × operacional\ncritério normativo/obrigacional × desempenho.\nOperacional × financeira\nresultado da ação pública × apresentação da informação financeira.\nFinanceira × CASP\nauditar informação × produzir informação contábil.\nEficiência × eficácia\nrelação recursos/produtos × alcance de metas.\nEficácia × efetividade\nalcançou objetivo imediato × produziu impacto real.\nTipo × técnica\ntipo nasce do objetivo; técnica serve para obter evidência."
+        },
+        {
+          "heading": "19. Como a FCC já sinaliza cobrança",
+          "body": "A curadoria encontrou três padrões úteis:\n1. FCC 2026 já cobrou, em uma mesma questão, a sequência financeira → operacional → conformidade.\n2. FCC/TCE-CE 2015 cobrou diretamente economicidade, eficiência, eficácia e efetividade como auditoria operacional.\n3. FCC/TCE-GO 2022 cobrou objetivo, opinião, risco e evidência em auditoria de demonstrações contábeis, úteis para o eixo financeiro."
+        },
+        {
+          "heading": "Trocas previsíveis",
+          "body": "- “legalidade” no lugar de “eficácia”;\n- “economicidade” como sinônimo de eficiência;\n- auditoria operacional como auditoria de lançamentos;\n- auditoria financeira como certeza absoluta;\n- conformidade sem critério;\n- técnica usada para definir o tipo;\n- “produto” de uma auditoria transportado mecanicamente para outra."
+        },
+        {
+          "heading": "20. O que precisa ficar automático",
+          "body": "1. Conformidade = aderência.\n2. Operacional = desempenho.\n3. Financeira = demonstração/informação + asseguração.\n4. Econômico ≠ eficiente ≠ eficaz ≠ efetivo.\n5. Critério define a comparação.\n6. Evidência suficiente e apropriada sustenta conclusão.\n7. Asseguração razoável ≠ absoluta.\n8. Tipo de auditoria ≠ técnica de auditoria."
+        },
+        {
+          "heading": "Caso A",
+          "body": "Verificar se contratação seguiu Lei nº 14.133/2021 e edital.\nConformidade."
+        },
+        {
+          "heading": "Caso B",
+          "body": "Avaliar por que um programa atinge só 60% das metas, apesar de gastar todo o orçamento.\nOperacional."
+        },
+        {
+          "heading": "Caso C",
+          "body": "Emitir opinião sobre demonstrações contábeis.\nFinanceira."
+        },
+        {
+          "heading": "Caso D",
+          "body": "Verificar custo unitário, produtividade e impacto de política pública.\nOperacional."
+        },
+        {
+          "heading": "Caso E",
+          "body": "Examinar se cláusula contratual de garantia foi observada.\nConformidade."
+        },
+        {
+          "heading": "Caso F",
+          "body": "Avaliar distorção relevante em saldo patrimonial.\nFinanceira."
+        },
+        {
+          "heading": "22. Pré-Q015",
+          "body": "Sem consulta:\n1. Qual tipo pergunta “conforme o quê?”?\n2. Qual tipo trabalha os quatro Es?\n3. Qual tipo busca asseguração razoável sobre informação financeira?\n4. Economicidade × eficiência: qual a diferença?\n5. Eficácia × efetividade: qual a diferença?\n6. Entrevista define o tipo de auditoria?\n7. Uma mesma política pode receber os três tipos?\n8. Auditoria financeira e CASP são a mesma coisa?"
+        },
+        {
+          "heading": "23. Pós-Q015 — causa do erro",
+          "body": "Classifique apenas o que realmente ocorrer:\n- T1 — tipo: confundiu financeira/operacional/conformidade;\n- T2 — critério: não identificou o padrão de comparação;\n- T3 — 4 Es: confundiu economicidade/eficiência/eficácia/efetividade;\n- T4 — produto: confundiu opinião, conclusão, achado ou recomendação;\n- T5 — evidência: confundiu suficiência/adequação ou técnica;\n- T6 — leitura FCC: palavra correta em contexto errado."
+        },
+        {
+          "heading": "Severidade",
+          "body": "- P1: confusão entre os três tipos; 4 Es; asseguração razoável; critério.\n- P2: detalhe acessório sem perda da classificação."
+        },
+        {
+          "heading": "24. D0",
+          "body": "Depois do Q015:\n1. desenhe tabela com 3 linhas e 5 colunas: tipo, pergunta, objeto, critério, produto;\n2. escreva os quatro Es sem consulta;\n3. classifique novamente os casos errados;\n4. refaça as P1;\n5. registre somente erros/dúvidas reais."
+        },
+        {
+          "heading": "D7 — acionado",
+          "body": "Motivo: conteúdo técnico novo e alto risco de troca conceitual."
+        },
+        {
+          "heading": "D20 — acionado",
+          "body": "Motivo: tipos de auditoria estão explicitamente no checkpoint de entrada.\n> Acionado ≠ realizado. A revisão só é registrada quando executada de fato."
+        },
+        {
+          "heading": "26. Flashcards candidatos",
+          "body": "Cartões estruturais\n1. Conformidade → aderência a critérios.\n2. Operacional → economicidade, eficiência, eficácia e efetividade.\n3. Financeira → apresentação da informação financeira + asseguração razoável.\n4. Eficiência = recursos × produtos.\n5. Eficácia = metas/objetivos.\n6. Efetividade = impacto.\n7. Economicidade = recursos adequados ao menor custo compatível.\n8. Tipo de auditoria nasce do objetivo, não da técnica."
+        },
+        {
+          "heading": "27. Ponte para D022",
+          "body": "O D015 usa NBASP 200/300/400 apenas para entender os três tipos.\nO D022 volta um nível e estuda:\n- INTOSAI;\n- IFPP;\n- estrutura NBASP;\n- NBASP 100;\n- elementos e princípios fundamentais comuns às auditorias do setor público.\nNão antecipe hoje o estudo completo da NBASP 100."
+        },
+        {
+          "heading": "Editorial",
+          "body": "Material, Q015, fontes técnicas e fronteiras futuras auditados."
+        },
+        {
+          "heading": "Execução do aluno",
+          "body": "Só considerar D015 estudado quando houver:\n- leitura efetiva;\n- 20 questões respondidas;\n- D0 realizado;\n- classificação correta dos três tipos sem consulta;\n- quatro Es recuperados corretamente;\n- erros/dúvidas reais registrados."
+        },
+        {
+          "heading": "29. Fontes efetivamente usadas",
+          "body": "- Fonte-Mestra v1.3 — D015, 20 questões, 90 min, comparativo das três auditorias;\n- Base Técnica v1.3 — seção 05.5 e NBASP 200/300/400;\n- Base Operacional v1.3 — hierarquia FCC e validade;\n- Fonte 04 v1.3 — priorização de Controle/Auditoria;\n- Fonte 05 v1.1 — template técnico e esteira Sxx;\n- Índice v1.4 — governança;\n- IRB/NBASP — páginas oficiais NBASP 200, 300 e 400."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T11:11:23.923Z"
+    },
+    "d017": {
+      "dxx": "D017",
+      "title": "D017 — CASP III",
+      "summary": "CASP III — NBC TSP 01–04 — receitas com/sem contraprestação, provisões/contingências e estoques.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D017 — CASP III \\| NBC TSP 01–04\nSessão técnica — 105 min. Hoje você entra na primeira família temática de NBC TSP: receitas com/sem contraprestação, provisões/contingências e estoques. O objetivo é aprender a decidir qual norma se aplica, quando reconhecer, como mensurar e qual pegadinha evitar."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "O D003 ensinou a linguagem mínima da CASP: ativo, passivo, VPA/VPD e fato gerador patrimonial. O D010 ensinou onde cada assunto mora no MCASP.\nO D017 é a primeira passagem por normas temáticas:\nEstrutura Conceitual → arquitetura MCASP → NBC TSP específicas\nA pergunta deixa de ser “o que é ativo/passivo/VPA/VPD?” e passa a ser:\n> “Diante deste fato, qual NBC TSP se aplica e qual tratamento ela exige?”\nDepois deste dia:\n- D024 avança para NBC TSP 06–10;\n- D031 para 11–13 e 15;\n- D038 para 23, 25 e 34."
+        },
+        {
+          "heading": "3. Posição no edital",
+          "body": "B06 — Contabilidade Aplicada ao Setor Público\n- 5 questões;\n- peso 2;\n- baseline histórico: Novo;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Recorte exato de hoje",
+          "body": "- NBC TSP 01 — Receita de Transação sem Contraprestação;\n- NBC TSP 02 — Receita de Transação com Contraprestação;\n- NBC TSP 03 (R1) — Provisões, Passivos Contingentes e Ativos Contingentes;\n- NBC TSP 04 (R1) — Estoques."
+        },
+        {
+          "heading": "Fora do recorte",
+          "body": "- NBC TSP 06–10 → D024;\n- DCASP → D057;\n- PCASP em profundidade → D050;\n- lançamentos complexos → dias posteriores;\n- demais famílias NBC TSP → sessões próprias."
+        },
+        {
+          "heading": "Já reaproveitável",
+          "body": "AFO ajuda a reconhecer:\n- tributos;\n- transferências;\n- receitas públicas;\n- execução orçamentária."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "D003 e D010 já construíram:\n- regime patrimonial;\n- ativo/passivo;\n- VPA/VPD;\n- reconhecimento × mensuração × evidenciação;\n- mapa do MCASP."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- contraprestação × não contraprestação pela substância da troca;\n- condição × restrição em ativo transferido;\n- provisão × passivo contingente × ativo contingente;\n- regras específicas de mensuração de estoques;\n- versão R1 de NBC TSP 03 e 04.\n> Regra: saber AFO não significa saber o reconhecimento patrimonial das NBC TSP."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. classificar uma receita como com ou sem contraprestação;\n2. distinguir condição × restrição;\n3. reconhecer quando há provisão;\n4. explicar por que passivo contingente normalmente não é reconhecido;\n5. explicar tratamento do ativo contingente conforme probabilidade;\n6. aplicar as três bases principais de mensuração de estoques do D017;\n7. distinguir estoque ainda ativo × consumo que gera VPD;\n8. identificar questão histórica contaminada por versão superada;\n9. resolver Q017 com justificativa conceitual;\n10. reproduzir o quadro das quatro normas sem consulta."
+        },
+        {
+          "heading": "Portal oficial",
+          "body": "[Portal NBC TSP — Conselho Federal de Contabilidade](https://cfc.org.br/tecnica/normas-brasileiras-de-contabilidade/nbc-tsp-do-setor-publico/)"
+        },
+        {
+          "heading": "Normas do D017",
+          "body": "- [NBC TSP 01 — Receita de Transação sem Contraprestação](https://www1.cfc.org.br/sisweb/SRE/docs/NBCTSP01.pdf)\n- [NBC TSP 02 — Receita de Transação com Contraprestação](https://www1.cfc.org.br/sisweb/SRE/docs/NBCTSP02.pdf)\n- [NBC TSP 03 (R1) — Provisões, Passivos Contingentes e Ativos Contingentes](https://www1.cfc.org.br/sisweb/SRE/docs/NBCTSP03(R1).pdf)\n- [NBC TSP 04 (R1) — Estoques](https://www1.cfc.org.br/sisweb/SRE/docs/NBCTSP04(R1).pdf)"
+        },
+        {
+          "heading": "Versão válida no projeto",
+          "body": "- NBC TSP 01: vigente; publicação original de 2016.\n- NBC TSP 02: vigente; publicação original de 2016.\n- NBC TSP 03 (R1): publicada no DOU em 17/03/2026, revogando a NBC TSP 03/2016.\n- NBC TSP 04 (R1): publicada no DOU em 17/03/2026, revogando a NBC TSP 04/2016.\nAs R1 entram em vigor na publicação e têm aplicação aos exercícios iniciados em 01/01/2027, salvo prazo específico definido em norma nacional.\nCorte normativo do projeto: 25/08/2026. As duas R1 estão dentro do corte e, por isso, são a referência normativa do D017.\nControle de versão é conteúdo de prova. Questão anterior à R1 pode continuar válida no conceito, mas precisa ser comparada com a redação atual antes de virar métrica."
+        },
+        {
+          "heading": "7. Como estudar os 105 minutos",
+          "body": "1. 10 min — mapa: 01/02/03/04 em uma folha.\n2. 25 min — NBC 01 × 02: substância da troca + condição/restrição.\n3. 25 min — NBC 03 (R1): árvore provisão/contingente.\n4. 20 min — NBC 04 (R1): três regras de mensuração.\n5. 20 min — Q017: 20 questões, sem abrir correções.\n6. 5 min — D0: recuperar de memória o quadro do dia."
+        },
+        {
+          "heading": "8. Mapa de entrada",
+          "body": "Norma\nObjeto\nPergunta mental\nPegadinha nuclear\n01\nReceita sem contraprestação\nRecebo sem entregar valor aproximadamente equivalente?\ncondição × restrição\n02\nReceita com contraprestação\nHá troca direta de valor aproximadamente equivalente?\nforma jurídica ≠ substância econômica\n03 (R1)\nProvisões e contingências\nHá obrigação presente? saída provável? estimativa confiável?\nreconhecer × divulgar\n04 (R1)\nEstoques\nQue estoque é este e qual base de mensuração se aplica?\nVRL × valor justo × custo corrente de reposição"
+        },
+        {
+          "heading": "Ideia central",
+          "body": "A transação é sem contraprestação quando a entidade recebe recursos:\n- sem entregar valor diretamente em troca; ou\n- entregando valor irrisório/não aproximadamente equivalente.\nExemplos clássicos:\n- tributos;\n- transferências;\n- multas;\n- doações;\n- perdão de dívida;\n- heranças, quando aplicável."
+        },
+        {
+          "heading": "Essência sobre a forma",
+          "body": "Não classifique pela etiqueta “receita pública”.\nPergunte:\n> Existe troca direta de valor aproximadamente equivalente?\nSe a resposta for não, o fato tende ao campo da NBC TSP 01."
+        },
+        {
+          "heading": "Componentes mistos",
+          "body": "Uma transação pode conter componente:\n- com contraprestação; e\n- sem contraprestação.\nCada componente deve ser analisado conforme sua substância."
+        },
+        {
+          "heading": "Condição",
+          "body": "A especificação exige que o recurso seja utilizado conforme determinado ou devolvido ao transferente se a condição não for atendida.\nConsequência:\n- pode surgir obrigação presente;\n- ativo e passivo podem coexistir inicialmente;\n- a receita é reconhecida conforme a obrigação é satisfeita, nos termos aplicáveis."
+        },
+        {
+          "heading": "Restrição",
+          "body": "Limita ou direciona o uso do recurso, mas não traz a obrigação de devolução do recurso ao transferente nos termos da definição de condição."
+        },
+        {
+          "heading": "Macete",
+          "body": "Condição = cumprir ou devolver.\nRestrição = usar conforme, sem a cláusula definidora de devolução."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "União transfere R\\$ 10 milhões ao Estado para construir hospital:\n- se o acordo exige devolução caso a obra não seja realizada → condição;\n- se apenas direciona o uso, sem a obrigação definidora de devolução → restrição."
+        },
+        {
+          "heading": "Ideia central",
+          "body": "Há contraprestação quando a entidade:\n- recebe ativos ou serviços, ou tem passivos extintos;\n- e entrega diretamente em troca valor aproximadamente equivalente.\nExemplos:\n- venda de bens;\n- prestação de serviços;\n- aluguel de ativo a valor de mercado;\n- uso de ativos que gere juros, royalties e distribuições semelhantes dentro do alcance da norma."
+        },
+        {
+          "heading": "Reconhecimento",
+          "body": "O núcleo é:\n- probabilidade de entrada de benefícios econômicos ou potencial de serviços; e\n- mensuração confiável.\nNa venda de bens, a FCC pode explorar critérios como:\n- transferência dos riscos/benefícios significativos;\n- ausência de envolvimento gerencial continuado típico de propriedade;\n- mensuração confiável da receita e dos custos;\n- probabilidade dos benefícios."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Tributo não vira contraprestação porque existe uma prestação estatal genérica. Tributos decorrem do poder soberano e, na NBC TSP 01, aparecem como exemplo de transação sem contraprestação."
+        },
+        {
+          "heading": "12. NBC TSP 01 × NBC TSP 02",
+          "body": "Caso\nClassificação\nTributo\nSem contraprestação\nMulta\nSem contraprestação\nDoação\nSem contraprestação\nVenda a valor aproximadamente equivalente\nCom contraprestação\nAluguel a valor de mercado\nCom contraprestação\nVenda por preço irrisório/subsidiado\nExaminar substância; pode haver componente sem contraprestação"
+        },
+        {
+          "heading": "13. NBC TSP 03 (R1) — provisões e contingências",
+          "body": "A revisão R1 é a referência atual."
+        },
+        {
+          "heading": "Provisão",
+          "body": "É passivo de prazo ou valor incerto.\nA provisão é reconhecida quando os três critérios estão presentes:\n1. há obrigação presente, legal ou não formalizada, decorrente de evento passado;\n2. é provável a saída de recursos que incorporam benefícios econômicos ou potencial de serviços;\n3. o valor pode ser mensurado com suficiente confiabilidade."
+        },
+        {
+          "heading": "Árvore mental",
+          "body": "Obrigação presente?\n- não → em regra, não há provisão;\n- sim → prossiga.\nSaída provável?\n- não → avaliar passivo contingente;\n- sim → prossiga.\nEstimativa confiável?\n- não → avaliar passivo contingente;\n- sim → provisão reconhecida.\nP-O-E: Presente → Outflow provável → Estimativa confiável."
+        },
+        {
+          "heading": "14. Passivo contingente",
+          "body": "Pode ser:\n- obrigação possível, dependente de evento futuro incerto; ou\n- obrigação presente não reconhecida porque:\n- a saída não é provável; ou\n- a mensuração não é suficientemente confiável."
+        },
+        {
+          "heading": "Tratamento-base",
+          "body": "- não reconhecer como passivo;\n- divulgar quando exigido;\n- se a possibilidade de saída for remota, em regra não há divulgação."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "“Existe ação judicial” não basta para reconhecer provisão.\nÉ necessário analisar:\n- obrigação presente;\n- probabilidade;\n- estimativa confiável."
+        },
+        {
+          "heading": "15. Ativo contingente",
+          "body": "Ativo contingente é um ativo possível oriundo de eventos passados, cuja existência depende de eventos futuros incertos fora do controle completo da entidade."
+        },
+        {
+          "heading": "Lógica de probabilidade",
+          "body": "- entrada não provável → não reconhecer;\n- entrada provável → não reconhecer como ativo, mas divulgar quando aplicável;\n- entrada praticamente certa → deixa de ser contingente e o ativo/receita passa a ser reconhecido conforme a norma aplicável."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Prudência impede antecipar ganho incerto."
+        },
+        {
+          "heading": "16. Provisão × passivo contingente × ativo contingente",
+          "body": "Item\nReconhece?\nIdeia central\nProvisão\nSim, se P-O-E atendido\nobrigação presente + saída provável + estimativa confiável\nPassivo contingente\nNormalmente não\nobrigação possível ou presente sem critério de reconhecimento\nAtivo contingente\nNão enquanto contingente\nganho possível; reconhecer só quando deixa de ser contingente"
+        },
+        {
+          "heading": "17. NBC TSP 04 (R1) — estoques",
+          "body": "A R1 reorganiza a norma e é a referência vigente para aplicação a partir dos exercícios de 2027."
+        },
+        {
+          "heading": "O que é estoque",
+          "body": "Inclui ativos:\n- mantidos para venda/distribuição;\n- em processo de produção;\n- na forma de materiais ou suprimentos a serem consumidos;\n- mantidos para distribuição gratuita ou por valor irrisório, quando enquadrados na norma."
+        },
+        {
+          "heading": "Regra geral de mensuração",
+          "body": "Estoques são mensurados pelo menor entre custo e valor realizável líquido (VRL), exceto nas hipóteses específicas das regras seguintes."
+        },
+        {
+          "heading": "Regra 1 — estoque comum",
+          "body": "Menor entre custo e VRL."
+        },
+        {
+          "heading": "Regra 2 — adquirido por transação sem contraprestação",
+          "body": "O custo é mensurado pelo valor justo na data do recebimento/aquisição.\nExemplo:\nmateriais de escritório recebidos em doação → valor justo na data do recebimento."
+        },
+        {
+          "heading": "Regra 3 — mantido para distribuição gratuita ou por valor irrisório",
+          "body": "Mensurar pelo menor entre custo e custo corrente de reposição.\nExemplo:\nalimentos mantidos para merenda distribuída gratuitamente.\nTrinca FCC:\nestoque comum → custo × VRL;\ndoação → valor justo no recebimento;\ndistribuição gratuita → custo × reposição corrente."
+        },
+        {
+          "heading": "19. O que integra o custo",
+          "body": "O custo dos estoques inclui, conforme aplicável:\n- custos de aquisição;\n- custos de transformação;\n- outros custos necessários para trazer os estoques à condição e localização atuais.\nA FCC pode trocar:\n- tributo recuperável × não recuperável;\n- gasto necessário × gasto administrativo/comercial que não compõe custo;\n- desconto comercial × custo bruto."
+        },
+        {
+          "heading": "20. Estoque ainda é ativo",
+          "body": "Material de consumo no almoxarifado continua sendo ativo enquanto:\n- estiver controlado pela entidade;\n- possuir potencial de serviços/benefícios;\n- satisfizer os critérios aplicáveis.\nQuando é consumido/distribuído, ocorre o reconhecimento da despesa/VPD no momento apropriado."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Compra de 100 resmas:\n- chegada ao estoque → ativo;\n- retirada para consumo administrativo → baixa do estoque + VPD, conforme o fato patrimonial."
+        },
+        {
+          "heading": "21. Ponte AFO × CASP",
+          "body": "AFO pergunta:\n- houve empenho?\n- liquidação?\n- pagamento?\n- qual classificação orçamentária?\nCASP pergunta:\n- surgiu ativo?\n- passivo?\n- VPA/VPD?\n- quando reconhecer?\n- por quanto mensurar?\nOs relógios podem ser diferentes.\nEssa separação é crucial para não usar o momento orçamentário como substituto automático do fato gerador patrimonial."
+        },
+        {
+          "heading": "22. Como a FCC vem cobrando",
+          "body": "A curadoria encontrou padrões úteis:"
+        },
+        {
+          "heading": "NBC TSP 01",
+          "body": "FCC já cobrou:\n- condição × restrição em transferência;\n- classificação de transação com/sem contraprestação."
+        },
+        {
+          "heading": "NBC TSP 02",
+          "body": "FCC já cobrou:\n- definição de transação com contraprestação;\n- requisito de mensuração confiável na venda de bens."
+        },
+        {
+          "heading": "NBC TSP 03",
+          "body": "FCC 2026 cobrou:\n- provisão;\n- ativo/passivo contingente;\n- reconhecimento × não reconhecimento."
+        },
+        {
+          "heading": "NBC TSP 04",
+          "body": "FCC 2025 cobrou:\n- doação de estoque → valor justo no recebimento;\n- distribuição gratuita → menor custo × custo corrente de reposição."
+        },
+        {
+          "heading": "Pegadinha transversal",
+          "body": "A banca oferece uma regra verdadeira da norma errada."
+        },
+        {
+          "heading": "23. Questão antiga × norma atual",
+          "body": "Para 01/02, questões FCC antigas podem permanecer V1 se o dispositivo estiver vigente e inalterado.\nPara 03/04:\n- questão anterior à R1 exige comparação explícita;\n- se o conceito permaneceu igual, pode continuar utilizável;\n- se a revisão mudou a regra relevante, deve virar V2/V3/V4 conforme o caso.\nNo Q017, a validade de cada questão está marcada individualmente."
+        },
+        {
+          "heading": "24. Pré-Q017",
+          "body": "Sem consulta:\n1. Tributo: com ou sem contraprestação?\n2. Condição × restrição: qual palavra decide?\n3. Venda a valor de mercado: 01 ou 02?\n4. Quais os três critérios P-O-E da provisão?\n5. Passivo contingente é reconhecido?\n6. Ativo contingente com entrada provável é reconhecido?\n7. Estoque comum: quais duas bases comparar?\n8. Doação de estoque: qual base inicial?\n9. Estoque para distribuição gratuita: quais duas bases comparar?\n10. Estoque no almoxarifado já é VPD?"
+        },
+        {
+          "heading": "25. Pós-Q017 — causa do erro",
+          "body": "Classifique somente erros/dúvidas reais:\n- C1 — norma errada: confundiu 01/02/03/04;\n- C2 — contraprestação: errou substância da troca;\n- C3 — contingência: reconheceu/divulgou incorretamente;\n- C4 — probabilidade: possível × provável × praticamente certa;\n- C5 — mensuração: VRL × valor justo × reposição corrente;\n- C6 — orçamento × patrimônio: usou etapa orçamentária como fato patrimonial;\n- C7 — versão: usou regra anterior à R1 sem validação."
+        },
+        {
+          "heading": "Severidade",
+          "body": "- P1: 01 × 02; provisão × contingente; três regras de estoque; versão R1.\n- P2: detalhe periférico sem perda da árvore decisória."
+        },
+        {
+          "heading": "26. D0",
+          "body": "Depois do Q017:\n1. desenhe quatro caixas: 01 / 02 / 03 / 04;\n2. escreva uma frase por norma;\n3. recite P-O-E;\n4. recite a trinca dos estoques;\n5. refaça erradas + acertos com dúvida;\n6. registre no Caderno de Erros apenas falha real."
+        },
+        {
+          "heading": "D7 — acionado",
+          "body": "Motivo:\n- CASP é núcleo novo;\n- quatro normas na mesma sessão;\n- duas normas tiveram R1 em 2026;\n- alto risco de troca reconhecimento × divulgação × mensuração."
+        },
+        {
+          "heading": "D20 — acionado",
+          "body": "Motivo:\no D020 é o primeiro checkpoint cumulativo e precisa testar:\n- 01 × 02;\n- provisão × contingente;\n- regra de mensuração de estoques.\n> Acionado ≠ realizado. Nenhuma revisão é marcada como executada editorialmente."
+        },
+        {
+          "heading": "28. Flashcards candidatos",
+          "body": "Cartões de alto rendimento\n1. NBC TSP 01 → sem contraprestação.\n2. NBC TSP 02 → com contraprestação.\n3. Condição = cumprir ou devolver.\n4. Provisão = obrigação presente + saída provável + estimativa confiável.\n5. Passivo contingente → normalmente não reconhece.\n6. Ativo contingente provável → divulgar; praticamente certo → deixa de ser contingente.\n7. Estoque comum → menor custo × VRL.\n8. Estoque recebido sem contraprestação → valor justo no recebimento.\n9. Distribuição gratuita → menor custo × custo corrente de reposição.\n10. NBC 03/04 R1 → DOU 17/03/2026; aplicação exercícios desde 01/01/2027."
+        },
+        {
+          "heading": "29. Ponte para D024",
+          "body": "A próxima família patrimonial será:\n- propriedade para investimento;\n- imobilizado;\n- intangível;\n- impairment.\nO D017 deve deixar automático como ler uma NBC TSP:\nobjeto → reconhecimento → mensuração → evidenciação → pegadinha."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- quatro normas vigentes/versionadas;\n- teoria suficiente;\n- Q017 auditado;\n- fronteiras futuras preservadas;\n- D0/D7/D20 configurados."
+        },
+        {
+          "heading": "Execução do aluno",
+          "body": "Só considerar D017 estudado quando houver:\n- leitura efetiva;\n- 20 questões respondidas;\n- correção;\n- D0;\n- recuperação sem consulta do quadro 01–04;\n- erros/dúvidas reais registrados."
+        },
+        {
+          "heading": "31. Fontes efetivamente usadas",
+          "body": "- Fonte-Mestra v1.3 — D017, 20 questões, 105 min;\n- Base Técnica v1.3 — estrutura 01–04 e pegadinhas;\n- Base Operacional v1.3 — hierarquia e validade de questões CASP;\n- Fonte 04 v1.3 — prioridade CASP;\n- Fonte 05 v1.1 — Template Técnico/CASP e esteira Sxx;\n- Índice v1.4 — governança;\n- Conselho Federal de Contabilidade — NBC TSP 01, NBC TSP 02, NBC TSP 03 (R1) e NBC TSP 04 (R1);\n- MCASP 11ª edição como fonte de integração, sem antecipar PCASP/DCASP em profundidade."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T11:25:04.868Z"
+    },
+    "d019": {
+      "dxx": "D019",
+      "title": "D019 — Redação R1",
+      "summary": "Redação R1 — calibração FCC + bateria curta — primeira redação TCE após auditoria do histórico discursivo; tema geral em 20–30 linhas + 20 questões cumulativas dos três eixos novos.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D019 — Redação R1 \\| calibração FCC + bateria cumulativa\nSessão de calibração — 120 a 135 min. O D019 não pergunta se você “sabe escrever”. O histórico já comprova experiência discursiva. Hoje a meta é medir adaptação ao padrão FCC e, em paralelo, fazer uma bateria cumulativa curta dos três eixos técnicos construídos até aqui."
+        },
+        {
+          "heading": "1. Função da R1",
+          "body": "- Dxx: D019\n- Tipo: Redação + bateria cumulativa\n- Redação: R1 — Calibração FCC\n- Tempo planejado total: 120–135 min\n- Objetiva: 20 questões cumulativas\n- Produção: 1 redação de 20–30 linhas\n- Entregável: correção pela rubrica FCC + 5 ajustes concretos para R2\nA R1 mede:\n- adaptação à rubrica FCC;\n- capacidade de responder exatamente ao recorte;\n- leitura crítica de textos de apoio;\n- progressão;\n- coesão;\n- precisão vocabular;\n- morfossintaxe;\n- gestão de espaço e tempo.\nEla não transporta nota do TDAS e não redefine, sozinha, a trajetória discursiva anterior."
+        },
+        {
+          "heading": "2. Ponto de partida histórico",
+          "body": "O histórico auditado registra:\n- 33 produções discursivas;\n- 13 efetivamente avaliadas/corrigidas.\nIsso é evidência de experiência de produção, não nota FCC."
+        },
+        {
+          "heading": "O que reaproveitar",
+          "body": "- experiência com planejamento;\n- hábito de formular tese;\n- construção de parágrafos;\n- revisão textual;\n- repertório já acumulado."
+        },
+        {
+          "heading": "O que precisa ser calibrado",
+          "body": "- tema de interesse geral;\n- recorte do comando;\n- textos de apoio;\n- rubrica específica da FCC;\n- 20–30 linhas;\n- progressão como maior critério;\n- escrita dentro de prova integrada a 70 objetivas."
+        },
+        {
+          "heading": "3. Regra oficial que governa o treino",
+          "body": "Para o A01:\n- texto dissertativo-argumentativo autoral;\n- tema único de interesse geral;\n- norma-padrão;\n- 20 a 30 linhas;\n- nota de 0 a 100;\n- habilitação com 50 pontos ou mais, desde que a redação seja corrigida após a barreira objetiva."
+        },
+        {
+          "heading": "Rubrica usada no projeto",
+          "body": "Critério\nMáximo\nRecorte temático\n20\nInterpretação crítica dos textos de apoio\n20\nProgressão textual\n30\nPropriedade vocabular\n8\nCoesão textual\n16\nMorfossintaxe\n6\nTotal\n100\nPeso estratégico: 70% da rubrica está no tratamento do tema. Um texto quase sem erro gramatical pode perder muito se for genérico, circular ou apenas parafrasear os textos de apoio."
+        },
+        {
+          "heading": "4. Condições de risco",
+          "body": "Antes de escrever, lembrar:\n- não fugir do tema;\n- não trocar o gênero;\n- não identificar a folha/texto indevidamente;\n- não produzir texto predominantemente ilegível;\n- não ficar com até 7 linhas;\n- não copiar/modelizar texto alheio;\n- respeitar rigorosamente 20–30 linhas."
+        },
+        {
+          "heading": "Zona operacional do projeto",
+          "body": "Alvo interno: 24–27 linhas.\nNão é regra oficial; é margem de segurança para evitar texto curto e preservar espaço para conclusão."
+        },
+        {
+          "heading": "Tema",
+          "body": "Responsabilidade humana diante do uso crescente de ferramentas de inteligência artificial no cotidiano"
+        },
+        {
+          "heading": "Texto de apoio I — autoral do projeto",
+          "body": "Ferramentas de inteligência artificial podem ampliar acesso a informação, automatizar tarefas e reduzir tempo gasto em atividades repetitivas. Essa utilidade, porém, não elimina a possibilidade de respostas imprecisas, decisões automatizadas inadequadas ou uso acrítico de conteúdos produzidos por sistemas."
+        },
+        {
+          "heading": "Texto de apoio II — autoral do projeto",
+          "body": "Quanto maior a conveniência oferecida por uma tecnologia, maior pode ser a tentação de transferir a ela escolhas que exigem julgamento, contexto e responsabilidade. O uso consciente pressupõe compreender que apoio tecnológico não equivale à substituição integral da decisão humana."
+        },
+        {
+          "heading": "Comando",
+          "body": "Com base nos textos de apoio e em sua reflexão, redija um texto dissertativo-argumentativo, em norma-padrão da língua portuguesa e com 20 a 30 linhas, sobre o seguinte recorte:\n> Como conciliar os benefícios do uso de ferramentas de inteligência artificial com a preservação da responsabilidade humana nas decisões cotidianas?\nNão é necessário citar lei, estatística ou autor. O foco é responder ao recorte com tese própria e progressão."
+        },
+        {
+          "heading": "Tema amplo",
+          "body": "Inteligência artificial."
+        },
+        {
+          "heading": "Recorte",
+          "body": "benefícios da IA × responsabilidade humana nas decisões."
+        },
+        {
+          "heading": "Pergunta real",
+          "body": "Como usufruir ganhos tecnológicos sem terceirizar indevidamente julgamento e responsabilidade?"
+        },
+        {
+          "heading": "Duas linhas argumentativas possíveis",
+          "body": "Você não é obrigado a usar estas, mas elas demonstram um recorte funcional:\n1. ganhos de eficiência/acesso justificam o uso da tecnologia;\n2. verificação crítica, limites de delegação e responsabilização humana evitam dependência acrítica."
+        },
+        {
+          "heading": "7. Planejamento obrigatório — 5 a 8 minutos",
+          "body": "Antes do primeiro período, preencher no rascunho:\n- Tema: IA no cotidiano\n- Recorte: benefícios × responsabilidade humana\n- Tese: __\n- Argumento 1: __\n- Argumento 2: __\n- Repertório útil, se houver: __\n- Fechamento: __"
+        },
+        {
+          "heading": "Teste de tese",
+          "body": "A tese funciona se:\n- responde à pergunta;\n- não serve para qualquer tema;\n- abre duas linhas de desenvolvimento;\n- não apenas repete o comando."
+        },
+        {
+          "heading": "Parágrafo 1 — Introdução",
+          "body": "- enquadrar;\n- delimitar;\n- apresentar tese;\n- antecipar eixos."
+        },
+        {
+          "heading": "Parágrafo 2 — Desenvolvimento 1",
+          "body": "afirmação → explicação → consequência/exemplo → ligação com tese"
+        },
+        {
+          "heading": "Parágrafo 3 — Desenvolvimento 2",
+          "body": "- segundo eixo;\n- aprofundamento/contraste;\n- consequência;\n- retorno ao recorte."
+        },
+        {
+          "heading": "Parágrafo 4 — Conclusão",
+          "body": "- síntese da tese;\n- fechamento coerente;\n- consequência, condição ou encaminhamento.\n> A FCC não exige proposta de intervenção nos moldes do ENEM."
+        },
+        {
+          "heading": "9. Interpretação dos textos de apoio",
+          "body": "Não:\n- copie;\n- resuma mecanicamente;\n- ignore.\nFaça:\n1. identifique a ideia central do texto I;\n2. identifique a tensão do texto II;\n3. formule posição própria;\n4. use apenas o que fortalece sua tese."
+        },
+        {
+          "heading": "Checagem",
+          "body": "Se o texto apenas repetir “IA tem benefícios e riscos”, faltará progressão."
+        },
+        {
+          "heading": "10. Progressão — maior critério",
+          "body": "Cada período deve fazer o texto avançar por:\n- causa;\n- consequência;\n- contraste;\n- condição;\n- exemplo;\n- aprofundamento."
+        },
+        {
+          "heading": "Teste prático",
+          "body": "Se os dois desenvolvimentos puderem trocar de lugar sem qualquer efeito, pergunte se existe encadeamento suficiente."
+        },
+        {
+          "heading": "Coesão",
+          "body": "Use relações, não uma lista decorada de conectivos:\n- adição;\n- contraste;\n- causa;\n- consequência;\n- concessão;\n- condição;\n- conclusão."
+        },
+        {
+          "heading": "Vocabulário",
+          "body": "Precisão \\> ornamentação.\nEvite:\n- “coisa”;\n- “muito importante” sem conteúdo;\n- termos técnicos usados sem domínio;\n- repetição excessiva de “tecnologia”, “sociedade”, “IA”."
+        },
+        {
+          "heading": "12. Revisão morfossintática",
+          "body": "Na revisão final, procure:\n- concordância;\n- regência;\n- crase;\n- pronomes;\n- pontuação;\n- períodos truncados;\n- paralelismo;\n- referência ambígua.\nNão gaste a revisão procurando apenas “erro de português”: confirme primeiro se o texto respondeu ao comando."
+        },
+        {
+          "heading": "Etapa A — R1",
+          "body": "Sugestão operacional, ajustável:\n1. planejamento: 5–8 min;\n2. escrita: sem tempo rígido pré-fixado;\n3. revisão: obrigatória;"
+        },
+        {
+          "heading": "Etapa B — Q019",
+          "body": "A bateria tem 20 itens:\n- Controle Externo/Auditoria;\n- CASP;\n- Legislação Institucional.\nO objetivo é preparar o terreno para o Checkpoint D20, não substituí-lo."
+        },
+        {
+          "heading": "14. Folha de correção da R1",
+          "body": "Somente depois da produção real:\nCritério\nMáximo\nNota simulada\nRecorte temático\n20\n—\nInterpretação crítica\n20\n—\nProgressão textual\n30\n—\nPropriedade vocabular\n8\n—\nCoesão textual\n16\n—\nMorfossintaxe\n6\n—\nTotal\n100\n—\nImportante: a nota do projeto é simulação pela rubrica, não nota oficial da FCC."
+        },
+        {
+          "heading": "15. Diagnóstico após a correção",
+          "body": "Preencher somente com o texto real:\n- principal força;\n- maior perda;\n- erro estrutural;\n- erro linguístico recorrente;\n- impacto do tempo;\n- ação prioritária para R2."
+        },
+        {
+          "heading": "16. Cinco ajustes para R2",
+          "body": "Depois da correção, produzir exatamente cinco ações, nesta ordem:\n1. Recorte: uma correção concreta.\n2. Progressão: uma correção concreta.\n3. Interpretação/repertório: uma correção concreta.\n4. Coesão/linguagem: uma correção concreta.\n5. Tempo/linhas: uma correção concreta.\nNão preencher antes da R1 existir."
+        },
+        {
+          "heading": "Reescrita total",
+          "body": "Se houver:\n- fuga/erro de recorte;\n- estrutura comprometida;\n- tese incapaz de sustentar o texto;\n- nota interna abaixo de 50."
+        },
+        {
+          "heading": "Reescrita parcial",
+          "body": "Se a falha for localizada:\n- introdução;\n- um desenvolvimento;\n- conclusão;\n- coesão de trecho."
+        },
+        {
+          "heading": "Sem reescrita",
+          "body": "Se houver apenas erro pontual já compreendido."
+        },
+        {
+          "heading": "18. D0 da redação",
+          "body": "No mesmo dia, depois da correção:\n1. reescrever de memória apenas a tese em versão melhor;\n2. registrar a maior perda;\n3. registrar a ação prioritária para R2;\n4. revisar um trecho problemático, se houver.\nO D0 da objetiva permanece no Q019."
+        },
+        {
+          "heading": "D7",
+          "body": "Não pré-acionado editorialmente.\nSó entra se a correção real revelar:\n- erro estrutural relevante;\n- erro linguístico recorrente;\n- nota vulnerável por causa reaplicável."
+        },
+        {
+          "heading": "D20",
+          "body": "Não pré-acionado para a R1.\nO dia seguinte já é o Checkpoint D20, que cumpre função cumulativa própria. Erros objetivos do Q019 serão observados novamente no checkpoint sem marcar artificialmente uma revisão “realizada”."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- tema/comando definidos;\n- textos de apoio prontos;\n- rubrica FCC incorporada;\n- R1 canônica vinculada;\n- Q019 cumulativo pronto;\n- campos de execução vazios."
+        },
+        {
+          "heading": "Execução do aluno",
+          "body": "Só considerar D019 concluído quando houver:\n- redação efetivamente produzida;\n- 20–30 linhas;\n- tempo e linhas reais registrados;\n- correção pela rubrica;\n- cinco ajustes para R2;\n- 20 questões respondidas e corrigidas;\n- D0 realizado."
+        },
+        {
+          "heading": "21. Fontes efetivamente usadas",
+          "body": "- Fonte-Mestra v1.3 — regras oficiais da redação e D019;\n- Base Operacional v1.3 — método FCC, histórico discursivo, rubrica e cronograma R1–R8;\n- Fonte 04 v1.3 — estabilidade de redação na reta final;\n- Fonte 05 v1.1 — Template Redação Rxx;\n- Índice v1.4 — governança do bundle;\n- conteúdos já validados nas sessões S01–S08 para a bateria cumulativa."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T11:32:56.141Z"
     }
   },
   "questions": {
@@ -2203,6 +2930,39 @@
       "copyrightMode": "metadata-only",
       "version": 2,
       "lastEdited": "2026-09-22T11:04:57.519Z"
+    },
+    "q015": {
+      "qxx": "Q015",
+      "dxx": "D015",
+      "title": "Q015 — Questões \\| Controle Externo III",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "7 FCC reais de nível superior (5 do próprio TCE-GO/2022, 1 TJ-CE/FCC 2026 direta sobre os três tipos e 1 TCE-CE/FCC 2015 operacional) + 13 autorais técnicas NBASP identificadas.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T11:11:26.618Z"
+    },
+    "q017": {
+      "qxx": "Q017",
+      "dxx": "D017",
+      "title": "Q017 — Questões \\| CASP III",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "6 FCC reais de nível superior + 14 autorais normativas atuais. FCC: Q970184, Q995161, Q869681, Q4066851, Q3508636 e Q3538538; 19 V1 + 1 V2 controlado.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T11:25:06.852Z"
+    },
+    "q019": {
+      "qxx": "Q019",
+      "dxx": "D019",
+      "title": "Q019 — Questões \\| Redação R1",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "9 FCC reais de nível superior, já validadas nas sessões anteriores e reexpostas deliberadamente para retenção, + 11 autorais cumulativas novas dos três eixos.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T11:32:57.841Z"
     }
   },
   "publicStats": {
@@ -2211,7 +2971,7 @@
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 6,
-    "questionPages": 6
+    "materialPages": 9,
+    "questionPages": 9
   }
 }
