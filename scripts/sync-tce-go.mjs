@@ -75,20 +75,22 @@ const pairs = await mapLimit(ready, maxConcurrency, async (item) => {
 
   const previousMaterial = current.materials?.[item.day.slug];
   const previousQuestion = current.questions?.[item.day.questionSlug];
+  const publishQuestionContent = item.day.dxx === "D001";
   const canReuseMaterial = Boolean(
     previousMaterial?.lastEdited === materialPage.last_edited_time
     && previousMaterial?.contentHtml
     && Array.isArray(previousMaterial?.sections)
   );
   const canReuseQuestion = Boolean(
-    previousQuestion?.lastEdited === questionPage.last_edited_time
+    publishQuestionContent
+    && previousQuestion?.lastEdited === questionPage.last_edited_time
     && previousQuestion?.contentHtml
     && Array.isArray(previousQuestion?.sections)
   );
 
   const [materialBlocks, questionBlocks] = await Promise.all([
     canReuseMaterial ? Promise.resolve(null) : getBlockTree(item.materialPageId),
-    canReuseQuestion ? Promise.resolve(null) : getBlockTree(item.questionPageId),
+    !publishQuestionContent || canReuseQuestion ? Promise.resolve(null) : getBlockTree(item.questionPageId),
   ]);
 
   const material = canReuseMaterial
@@ -110,7 +112,7 @@ const pairs = await mapLimit(ready, maxConcurrency, async (item) => {
     : questionSnapshotFromPage({
         dxx: item.day.dxx,
         page: questionPage,
-        blocks: questionBlocks,
+        blocks: publishQuestionContent ? questionBlocks : [],
       });
 
   if (question.contentHtml && stripHtml(question.contentHtml).length < 120) {
