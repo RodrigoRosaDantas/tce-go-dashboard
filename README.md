@@ -50,3 +50,5 @@ Em **Settings → Secrets and variables → Actions**:
 - Variable opcional: `TCE_GO_DAYS_DATA_SOURCE_ID` — somente como override. Sem ela, o sincronizador descobre o data source canônico pelo título `Estudo dia a dia — D001 a D100 | TCE-GO`.
 
 Sem o secret, o workflow periódico continua instalado, mas fica inativo com aviso. O snapshot público versionado permanece utilizável e nenhuma credencial é enviada ao navegador.
+
+<!-- QA final: validação do sync completo e contrato de privacidade. -->
