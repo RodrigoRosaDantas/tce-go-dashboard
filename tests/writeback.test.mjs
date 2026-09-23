@@ -104,3 +104,38 @@ test("fallback Edge publica o mesmo núcleo auxiliar do sync direto", () => {
     assert.ok(publicEdge.includes(marker), `payload auxiliar ausente no fallback: ${marker}`);
   }
 });
+
+
+test("painel mínimo canônico de checkpoint é exigido no frontend e no endpoint", () => {
+  for (const marker of [
+    "coverageExecuted",
+    "sessionsCompleted",
+    "knownPercent",
+    "timeByBlock",
+    "weakKnown",
+    "p1Open",
+    "openErrors",
+    "recurrent",
+    "impactedSeedf",
+    "impactedTjdft",
+  ]) {
+    assert.ok(executionForms.includes(marker), `campo do painel mínimo ausente na UI: ${marker}`);
+    assert.ok(edge.includes(marker), `campo do painel mínimo ausente no endpoint: ${marker}`);
+  }
+  assert.match(edge, /\(gc\+2\*sc\)\/115\*100/);
+  assert.match(edge, /Simulado\/checkpoint exige ao menos uma questão executada/);
+  assert.match(edge, /Simulado\/checkpoint exige tempo por bloco/);
+  assert.match(edge, /Simulado\/checkpoint exige pontos fracos das matérias conhecidas/);
+});
+
+test("redação produzida ou corrigida exige linhas e tempo e mantém rubrica FCC 100", () => {
+  assert.match(edge, /\["Produzida","Corrigida","Reescrita"\]\.includes\(status\)/);
+  for (const marker of [
+    "Recorte temático /20",
+    "Interpretação crítica /20",
+    "Progressão /30",
+    "Vocabulário /8",
+    "Coesão /16",
+    "Morfossintaxe /6",
+  ]) assert.ok(edge.includes(marker), `critério FCC ausente: ${marker}`);
+});
