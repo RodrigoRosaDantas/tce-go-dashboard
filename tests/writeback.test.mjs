@@ -39,6 +39,12 @@ test("função exige autenticação e não transforma Supabase em fonte canônic
   assert.match(edge, /canonical:true/);
 });
 
+test("leitura inicial de progresso não cria estado vazio no Supabase", () => {
+  assert.match(edge, /const cached=await one\("tce_progress_state"/);
+  assert.match(edge, /const hasRealProgress=/);
+  assert.match(edge, /if\(cached\|\|hasRealProgress\)await stateWrite\(s\)/);
+});
+
 test("frontend preserva fila offline e só confirma cache após resposta do Notion", () => {
   assert.match(client, /tce-go\.pending-events\.v1/);
   assert.match(client, /tce-go\.confirmed-progress\.v1/);
