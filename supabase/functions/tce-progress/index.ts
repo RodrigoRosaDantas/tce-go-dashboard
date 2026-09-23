@@ -12,7 +12,9 @@ Deno.serve(async req=>{
     const user=await currentUser(req);
     if(!user||!(await allowedUser(user.id)))return json({error:"Acesso não autorizado."},403,cors);
     if(req.method==="GET"){
-      const dxx=normDxx(new URL(req.url).searchParams.get("dxx"));
+      const url=new URL(req.url);
+      if(url.searchParams.get("mode")==="summary")return await readOperationalSummary(user.id,cors);
+      const dxx=normDxx(url.searchParams.get("dxx"));
       if(!dxx)return json({error:"Dxx inválido."},400,cors);
       return await readState(user.id,dxx,cors);
     }
@@ -122,6 +124,148 @@ async function readState(owner,dxx,cors){
   if(nt){const d=await resolveDay(dxx,nt);if(!d)return json({error:"Dxx não existe no Notion."},404,cors);if(d.protected)return json({dxx,sxx:null,protected:true,canonical:true,source:"notion"},200,cors);const s={owner_id:owner,dxx:d.dxx,resolved_sxx:d.sxx,studied:d.studied,completed:d.completed,time_minutes:d.timeMinutes,questions_done:d.questionsDone,correct:d.correct,errors:d.errors,doubts:d.doubts,canonical_status:d.status,last_event_key:"notion-read",confirmed_at:new Date().toISOString(),event_occurred_at:d.lastEditedAt||new Date().toISOString(),canonical_revision:d.lastEditedAt||null,updated_at:new Date().toISOString()};const cached=await one("tce_progress_state",`owner_id=eq.${enc(owner)}&dxx=eq.${enc(dxx)}`);const hasRealProgress=d.studied||d.completed||d.timeMinutes>0||d.questionsDone>0||d.correct>0||d.errors>0||d.doubts>0;if(cached||hasRealProgress)await stateWrite(s);return json({...pub(s,true),protected:false},200,cors);}
   const s=await one("tce_progress_state",`owner_id=eq.${enc(owner)}&dxx=eq.${enc(dxx)}`);return json(s?pub(s,false):{dxx,canonical:false,source:"cache",state:null},200,cors);
 }
+
+
+async function readOperationalSummary(owner,cors){
+  const nt=await resolveNotionToken();
+  if(!nt){
+    const states=await db(`tce_progress_state?owner_id=eq.${enc(owner)}&select=*&order=dxx.asc`);
+    return json({
+      generatedAt:new Date().toISOString(),
+      canonical:false,
+      source:"cache",
+      degraded:true,
+      progress:(states||[]).map(row=>pub(row,false)),
+      reviews:[],errors:[],redactions:[],simulations:[],
+    },200,cors);
+  }
+
+  const [dayPages,reviewPages,errorPages,redactionPages,simulationPages]=await Promise.all([
+    queryAllDataSource(DAYS,null,nt),
+    queryAllDataSource(REVIEWS,null,nt),
+    queryAllDataSource(ERRORS_BANK,null,nt),
+    queryAllDataSource(REDACTIONS,null,nt),
+    queryAllDataSource(SIMULATIONS,null,nt),
+  ]);
+
+  const progress=dayPages.map(page=>dayFromPage(page)).filter(day=>day&&!day.protected&&day.sxx).sort((a,b)=>a.dxx.localeCompare(b.dxx)).map(day=>({
+    dxx:day.dxx,sxx:day.sxx,studied:day.studied,completed:day.completed,timeMinutes:day.timeMinutes,
+    questionsDone:day.questionsDone,correct:day.correct,errors:day.errors,doubts:day.doubts,status:day.status,
+    confirmedAt:new Date().toISOString(),eventOccurredAt:day.lastEditedAt,canonicalRevision:day.lastEditedAt,
+    canonical:true,source:"notion",
+  }));
+
+  const reviews=reviewPages.map(page=>{
+    const p=page.properties||{};
+    return {
+      id:page.id,
+      title:txt(p,"Revisão")||"Revisão",
+      dxx:txt(p,"Dxx origem"),
+      type:txt(p,"Tipo"),
+      status:txt(p,"Status")||"Pendente",
+      reason:txt(p,"Motivo"),
+      plannedDate:dateVal(p,"Data prevista"),
+      performedDate:dateVal(p,"Data realizada"),
+      questions:nprop(p,"Questões de revisão"),
+      correct:nprop(p,"Acertos"),
+      errors:nprop(p,"Erros"),
+      notes:txt(p,"Observações"),
+      lastEditedAt:page.last_edited_time||null,
+    };
+  }).filter(item=>item.dxx&&item.type);
+
+  const errors=errorPages.map(page=>{
+    const p=page.properties||{};
+    return {
+      id:page.id,
+      errorId:txt(p,"ID erro"),
+      dxx:txt(p,"Dxx"),
+      date:dateVal(p,"Data"),
+      status:txt(p,"Status")||"Aberto",
+      error:txt(p,"Erro"),
+      questionId:txt(p,"ID questão"),
+      subject:txt(p,"Matéria"),
+      topic:txt(p,"Tópico"),
+      source:txt(p,"Fonte"),
+      reason:txt(p,"Motivo do erro"),
+      severity:txt(p,"Severidade"),
+      recurrence:nprop(p,"Reincidência"),
+      doubt:check(p,"Acerto com dúvida?"),
+      fatal:check(p,"Fatal Error?"),
+      nextCheck:txt(p,"Próxima checagem"),
+      action:txt(p,"Ação"),
+      lastEditedAt:page.last_edited_time||null,
+    };
+  }).filter(item=>item.dxx||item.errorId);
+
+  const redactions=redactionPages.map(page=>{
+    const p=page.properties||{};
+    return {
+      id:page.id,
+      dxx:txt(p,"Dxx"),
+      title:txt(p,"Redação")||txt(p,"Título")||"Redação",
+      status:txt(p,"Status")||"Planejada",
+      score:nprop(p,"Nota simulada /100"),
+      rewriteNeeded:check(p,"Reescrita necessária"),
+      lastEditedAt:page.last_edited_time||null,
+    };
+  }).filter(item=>item.dxx);
+
+  const simulations=simulationPages.map(page=>{
+    const p=page.properties||{};
+    return {
+      id:page.id,
+      dxx:txt(p,"Dxx"),
+      title:txt(p,"Simulado")||txt(p,"Título")||"Simulado",
+      decision:txt(p,"Decisão"),
+      ipi:nprop(p,"IPI interno"),
+      generalTotal:nprop(p,"Gerais — total"),
+      generalCorrect:nprop(p,"Gerais — acertos"),
+      specificTotal:nprop(p,"Específicos — total"),
+      specificCorrect:nprop(p,"Específicos — acertos"),
+      openErrors:nprop(p,"Erros abertos"),
+      p1Open:nprop(p,"P1 abertos"),
+      recurrent:nprop(p,"Reincidentes"),
+      lastEditedAt:page.last_edited_time||null,
+    };
+  }).filter(item=>item.dxx);
+
+  return json({
+    generatedAt:new Date().toISOString(),
+    canonical:true,
+    source:"notion",
+    degraded:false,
+    progress,reviews,errors,redactions,simulations,
+  },200,cors);
+}
+
+function dayFromPage(page){
+  if(!page)return null;
+  const p=page.properties||{};
+  const dxx=(txt(p,"Dxx")||txt(p,"Slug")).toUpperCase();
+  if(!/^D(?:00[1-9]|0[1-9]\d|100)$/.test(dxx))return null;
+  const type=txt(p,"Tipo");
+  return {
+    id:page.id,dxx,sxx:txt(p,"Sessão TCE")||null,type,protected:type==="Protegido",
+    studied:check(p,"Estudado"),completed:check(p,"Concluído"),
+    timeMinutes:nprop(p,"Tempo real (min)"),questionsDone:nprop(p,"Questões feitas"),
+    correct:nprop(p,"Acertos"),errors:nprop(p,"Erros"),doubts:nprop(p,"Acertos com dúvida"),
+    status:txt(p,"Status")||"Não iniciado",lastEditedAt:page.last_edited_time||null,
+  };
+}
+
+async function queryAllDataSource(id,filter,token){
+  const rows=[];let cursor=null;
+  do{
+    const body={page_size:100,...(filter?{filter}:{}),...(cursor?{start_cursor:cursor}:{})};
+    const r=await notion(`/data_sources/${id}/query`,token,{method:"POST",body:JSON.stringify(body)});
+    if(Array.isArray(r.results))rows.push(...r.results);
+    cursor=r.has_more?r.next_cursor:null;
+  }while(cursor&&rows.length<1000);
+  return rows;
+}
+
+function dateVal(p,n){const value=p?.[n]?.date?.start;return value?String(value):null;}
 
 async function resolveDay(dxx,token){const r=await notion(`/data_sources/${DAYS}/query`,token,{method:"POST",body:JSON.stringify({page_size:2,filter:{property:"Slug",rich_text:{equals:dxx.toLowerCase()}}})});const page=r.results?.[0];if(!page)return null;const p=page.properties||{},type=txt(p,"Tipo");return{id:page.id,dxx,sxx:txt(p,"Sessão TCE")||null,type,protected:type==="Protegido",studied:check(p,"Estudado"),completed:check(p,"Concluído"),timeMinutes:nprop(p,"Tempo real (min)"),questionsDone:nprop(p,"Questões feitas"),correct:nprop(p,"Acertos"),errors:nprop(p,"Erros"),doubts:nprop(p,"Acertos com dúvida"),status:txt(p,"Status")||"Não iniciado",lastEditedAt:page.last_edited_time||null};}
 async function findNotionSessions(key,token){const r=await notion(`/data_sources/${SESSIONS}/query`,token,{method:"POST",body:JSON.stringify({page_size:3,filter:{property:"Idempotency key",rich_text:{equals:key}}})});return Array.isArray(r.results)?r.results:[];}
