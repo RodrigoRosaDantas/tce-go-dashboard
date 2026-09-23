@@ -9,7 +9,7 @@ import type {
 
 export type DataIssue = {
   level: "error" | "warning" | "info";
-  source: "Dxx" | "Sessões" | "Revisões" | "Erros" | "Redações" | "Checkpoints";
+  source: "Dxx" | "Qxx" | "Sessões" | "Revisões" | "Erros" | "Redações" | "Checkpoints";
   key: string;
   message: string;
   fields?: string[];
@@ -103,6 +103,10 @@ export function buildDataIssues(summary: OperationalSummary, snapshot: Snapshot)
   const issues: DataIssue[] = [];
   const active = new Set(snapshot.days.filter((day) => !day.protected).map((day) => day.dxx));
   const sessionMap = sessionRowsByDay(summary);
+  const questionDays = new Set(summary.questionMeta.map((item) => String(item.dxx || "").toUpperCase()).filter(Boolean));
+  for (const dxx of active) {
+    if (!questionDays.has(dxx)) issues.push({ level:"warning", source:"Qxx", key:dxx, message:"Dxx ativo sem Matéria/foco no resumo do Banco de Questões." });
+  }
 
   for (const day of summary.dayControl.filter((item) => !item.protected && hasExecution(item))) {
     const missing: string[] = [];
@@ -157,19 +161,31 @@ export function buildDataIssues(summary: OperationalSummary, snapshot: Snapshot)
   return issues;
 }
 
+export function canonicalSubjectLabel(focus?: string | null) {
+  if (!focus) return "Sem Matéria/foco";
+  const head = focus.split(" — ")[0].trim();
+  return head.replace(/\s+(?:I|II|III|IV|V|VI|VII|VIII|IX|X)$/i, "").trim() || "Sem Matéria/foco";
+}
+
+export function subjectForDay(summary: OperationalSummary, dxx: string) {
+  const meta = summary.questionMeta.find((item) => String(item.dxx || "").toUpperCase() === dxx.toUpperCase());
+  return canonicalSubjectLabel(meta?.focus);
+}
+
 export function disciplineRows(summary: OperationalSummary, snapshot: Snapshot) {
   const dayMap = new Map(summary.dayControl.map((day) => [day.dxx, day]));
+  const metaMap = new Map(summary.questionMeta.map((item) => [String(item.dxx || "").toUpperCase(), item]));
   const groups = new Map<string, {
     discipline:string; sessions:number; planned:number; done:number; correct:number; errors:number; doubts:number; minutes:number; execution:number;
   }>();
 
-  for (const day of snapshot.days.filter((item) => !item.protected)) {
-    const question = day.questionSlug ? snapshot.questions[day.questionSlug] : undefined;
-    const discipline = question?.platformBattery?.materia || "Sem disciplina estruturada";
+  for (const day of snapshot.days.filter((item) => !item.protected && item.type === "Estudo")) {
+    const meta = metaMap.get(day.dxx);
+    const discipline = canonicalSubjectLabel(meta?.focus);
     const row = dayMap.get(day.dxx);
     const group = groups.get(discipline) ?? { discipline,sessions:0,planned:0,done:0,correct:0,errors:0,doubts:0,minutes:0,execution:0 };
     group.sessions += 1;
-    group.planned += row?.metaQuestions ?? question?.valid ?? 0;
+    group.planned += row?.metaQuestions ?? meta?.meta ?? 0;
     if (row && hasExecution(row)) {
       group.execution += 1;
       group.done += row.questionsDone ?? 0;
