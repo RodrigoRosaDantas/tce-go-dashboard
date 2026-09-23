@@ -10,8 +10,16 @@ const staticRoutes = [
   "dias","revisoes","redacoes","erros","simulados","desempenho",
   "edital","legislacao","reta-final","sync"
 ];
+const hasPublicPayload = (d) => (
+  !d.protected
+  && d.readyForStudy
+  && d.slug
+  && d.questionSlug
+  && snapshot.materials?.[d.slug]
+  && snapshot.questions?.[d.questionSlug]
+);
 const dynamicRoutes = snapshot.days
-  .filter((d) => !d.protected && d.readyForStudy)
+  .filter(hasPublicPayload)
   .flatMap((d) => [`dia/${d.dxx.toLowerCase()}`, `questoes/${d.questionSlug}`]);
 const routes = [...staticRoutes, ...dynamicRoutes];
 
