@@ -244,7 +244,11 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
           <h2>Questões</h2>
           {question ? (
             <>
-              <p><strong>{question.valid}</strong> itens válidos · meta {question.meta}.</p>
+              {question.adaptive ? (
+                <p><strong>Adaptativo</strong> · meta {question.meta} equivalentes/retestes definidos pela execução real.</p>
+              ) : (
+                <p><strong>{question.valid}</strong> itens válidos · meta {question.meta}.</p>
+              )}
               <p>{question.sourceSummary}</p>
               <p className="small">Questões de terceiros permanecem em modo metadados + referência; não há republicação massiva.</p>
             </>
@@ -279,7 +283,11 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
       <p><DayLabel day={day} /> · {day.focus}</p>
       {q ? (
         <div className="panel">
-          <p><strong>Meta:</strong> {q.meta} · <strong>válidas:</strong> {q.valid}</p>
+          {q.adaptive ? (
+            <p><strong>Modo:</strong> adaptativo · <strong>meta:</strong> {q.meta} equivalentes/retestes, preenchidos somente com evidência da execução real.</p>
+          ) : (
+            <p><strong>Meta:</strong> {q.meta} · <strong>válidas:</strong> {q.valid}</p>
+          )}
           <p><strong>Origem:</strong> {q.sourceSummary}</p>
           <div className="notice">Questões externas permanecem em metadados/referência; conteúdo autoral e comentários pedagógicos são publicados somente após sanitização server-side.</div>
           <p className="small">O sincronizador automático não publica enunciados externos; o Qxx público permanece em metadados e referência.</p>
