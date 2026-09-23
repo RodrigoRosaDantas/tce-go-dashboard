@@ -34,6 +34,7 @@ export function AuthorialTrainer({ question, day }: { question: QuestionSnapshot
   const [fccCorrect, setFccCorrect] = useState("");
   const [fccDoubts, setFccDoubts] = useState("");
   const [message, setMessage] = useState("");
+  const externalMax = Math.max(0, question.valid - items.length);
 
   const authorial = useMemo(() => items.map((item) => {
     const answer = answers[item.id];
