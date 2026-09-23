@@ -151,7 +151,7 @@ test("resumo operacional privado agrega estado canônico e degrada sem Notion", 
   assert.match(edge, /mode\"\)==\=\"summary\"/);
   assert.match(edge, /readOperationalSummary/);
   assert.match(edge, /queryAllDataSource\(DAYS/);
-  assert.match(edge, /queryAllDataSource\(REVIEWS/);
+  assert.match(edge, /queryAllDataSource\(SESSIONS/);\n  assert.match(edge, /queryAllDataSource\(REVIEWS/);
   assert.match(edge, /queryAllDataSource\(ERRORS_BANK/);
   assert.match(edge, /queryAllDataSource\(REDACTIONS/);
   assert.match(edge, /queryAllDataSource\(SIMULATIONS/);
@@ -198,4 +198,18 @@ test("sync alterado dispara explicitamente o deploy do Pages", () => {
   assert.match(workflow, /Publish changed snapshot/);
   assert.match(workflow, /gh workflow run deploy-pages\.yml --ref main/);
   assert.match(workflow, /if: steps\.diff\.outputs\.changed == 'true'/);
+});
+
+
+test("resumo analítico preserva null e expõe bancos operacionais detalhados", () => {
+  assert.match(edge, /npropNull/);
+  assert.match(edge, /dayControl/);
+  assert.match(edge, /sessions/);
+  assert.match(edge, /plannedTime/);
+  assert.match(edge, /metaQuestions/);
+  assert.match(edge, /thematicCut/);
+  assert.match(edge, /controlExternalPct/);
+  assert.doesNotMatch(edge, /timeMinutes:nprop\(p,"Tempo real \(min\)"\),questionsDone:nprop\(p,"Questões feitas"\)/);
+  assert.match(client, /dayControl: OperationalDay\[\]/);
+  assert.match(client, /sessions: OperationalSession\[\]/);
 });
