@@ -72,12 +72,12 @@ for (const viewport of viewports) {
     if (geometry.scrollWidth > geometry.innerWidth + 3) {
       issues.push(`overflow horizontal: ${geometry.scrollWidth}px > ${geometry.innerWidth}px`);
     }
-    if (viewport.width <= 820 && geometry.sidebarVisible) issues.push("sidebar desktop visível no mobile/tablet estreito");
-    if (viewport.width <= 820 && !geometry.bottomNavVisible) issues.push("bottom nav ausente no mobile/tablet estreito");
-    if (viewport.width > 820 && geometry.bottomNavVisible) issues.push("bottom nav móvel visível no desktop/tablet amplo");
-    if (viewport.width > 820 && !geometry.sidebarVisible) issues.push("sidebar desktop ausente acima de 820px");
+    if (viewport.width <= 1050 && geometry.sidebarVisible) issues.push("sidebar desktop visível no mobile/tablet estreito");
+    if (viewport.width <= 1050 && !geometry.bottomNavVisible) issues.push("bottom nav ausente no mobile/tablet estreito");
+    if (viewport.width > 1050 && geometry.bottomNavVisible) issues.push("bottom nav móvel visível no desktop/tablet amplo");
+    if (viewport.width > 1050 && !geometry.sidebarVisible) issues.push("sidebar desktop ausente acima de 820px");
     if (geometry.topbar && geometry.main && geometry.main.top < geometry.topbar.bottom - 1) issues.push("conteúdo inicia sob a topbar");
-    if (geometry.bottomNav && viewport.width <= 820) {
+    if (geometry.bottomNav && viewport.width <= 1050) {
       const bodyPadding = await page.evaluate(() => parseFloat(getComputedStyle(document.body).paddingBottom) || 0);
       if (bodyPadding + 4 < geometry.bottomNav.height) issues.push("padding inferior insuficiente para bottom nav");
     }
