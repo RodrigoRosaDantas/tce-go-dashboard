@@ -3,7 +3,7 @@ import type { Snapshot } from "../types";
 import { conflictCount, pendingCount, platformAccountUrl } from "../progress";
 import { useOperational } from "./OperationalContext";
 import { DataNotice, EmptyState, MetricCard, PageHeader, SectionHeader, StatusPill } from "./ui";
-import { accuracy, buildDataIssues, dataOrigin, disciplineRows, errorRows, hasExecution, pct, plannedTimeRange, reviewStats, sessionRowsByDay } from "./analytics";
+import { accuracy, buildDataIssues, dataOrigin, disciplineRows, errorRows, hasExecution, pct, plannedTimeRange, reviewStats, sessionRowsByDay, subjectForDay } from "./analytics";
 import { href } from "../v3/shared";
 
 type Tab = "overview" | "execution" | "subjects" | "errors" | "reviews" | "writing" | "checkpoints" | "quality";
@@ -72,7 +72,7 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
     if (statusFilter === "completed" && !raw?.completed) return false;
     if (typeFilter !== "all" && day.type !== typeFilter) return false;
     if (disciplineFilter !== "all") {
-      const discipline = day.questionSlug ? snapshot.questions[day.questionSlug]?.platformBattery?.materia || "Sem disciplina estruturada" : "Sem disciplina estruturada";
+      const discipline = subjectForDay(summary, day.dxx);
       if (discipline !== disciplineFilter) return false;
     }
     return true;
@@ -148,7 +148,7 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
       })}</tbody></table></div></section>
     </> : null}
 
-    {tab === "subjects" ? <section className="analytics-panel-v41"><SectionHeader eyebrow="MATÉRIAS" title="Carga e desempenho por disciplina" detail="Disciplina vem do Qxx estruturado; sem metadata, o Dashboard mostra Sem disciplina estruturada." /><div className="subject-cards-v41">{disciplines.map((row) => <article key={row.discipline}><header><strong>{row.discipline}</strong><StatusPill>{row.execution}/{row.sessions} sessões</StatusPill></header><div className="subject-kpis-v41"><span><b>{row.planned}</b> previstas</span><span><b>{row.done}</b> feitas</span><span><b>{pct(accuracy(row.correct, row.errors), 1)}</b> precisão</span><span><b>{formatMinutes(row.minutes)}</b> tempo</span></div><AnalyticsBar value={row.done} max={row.planned} /></article>)}</div></section> : null}
+    {tab === "subjects" ? <section className="analytics-panel-v41"><SectionHeader eyebrow="MATÉRIAS" title="Carga e desempenho por disciplina" detail="O agrupamento vem de Matéria/foco no Banco de Questões do Notion; checkpoints, redações e correções não entram na estatística por matéria." /><div className="subject-cards-v41">{disciplines.map((row) => <article key={row.discipline}><header><strong>{row.discipline}</strong><StatusPill>{row.execution}/{row.sessions} sessões</StatusPill></header><div className="subject-kpis-v41"><span><b>{row.planned}</b> previstas</span><span><b>{row.done}</b> feitas</span><span><b>{pct(accuracy(row.correct, row.errors), 1)}</b> precisão</span><span><b>{formatMinutes(row.minutes)}</b> tempo</span></div><AnalyticsBar value={row.done} max={row.planned} /></article>)}</div></section> : null}
 
     {tab === "errors" ? <section className="analytics-panel-v41"><SectionHeader eyebrow="CLÍNICA DE ERROS" title="Matéria × tópico" action={<a href={href("/erros/")}>Abrir Caderno →</a>} />{errorsByTopic.length ? <div className="analytics-table-wrap-v41"><table className="analytics-table-v41"><thead><tr><th>Matéria</th><th>Tópico</th><th>Abertos</th><th>P1/Fatal</th><th>Reincidências</th><th>Dúvidas</th></tr></thead><tbody>{errorsByTopic.map((row) => <tr key={row.label}><td><strong>{row.subject}</strong></td><td>{row.topic}</td><td>{row.open}</td><td>{row.critical}</td><td>{row.recurrent}</td><td>{row.doubts}</td></tr>)}</tbody></table></div> : <EmptyState title="Sem dados de erro." description="Preencha o Caderno de Erros no Notion ou registre pelo site." />}</section> : null}
 
@@ -161,7 +161,7 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
     {tab === "quality" ? <>
       <div className="analytics-kpis-v41 compact"><MetricCard label="INCONSISTÊNCIAS" value={issues.filter((x) => x.level === "error").length} tone={issues.some((x) => x.level === "error") ? "danger" : "default"}/><MetricCard label="CAMPOS INCOMPLETOS" value={issues.filter((x) => x.level === "warning").length} tone={issues.some((x) => x.level === "warning") ? "warning" : "default"}/><MetricCard label="AVISOS" value={issues.filter((x) => x.level === "info").length}/><MetricCard label="SESSÕES DETALHADAS" value={summary.sessions.length}/></div>
       <section className="analytics-panel-v41"><SectionHeader eyebrow="QUALIDADE DOS DADOS" title="O que precisa ser preenchido no Notion" detail="Campo ausente não é convertido em zero." />{issues.length ? <div className="data-issues-v41">{issues.map((issue, index) => <article key={issue.source + "-" + issue.key + "-" + index} className={"level-" + issue.level}><StatusPill tone={issue.level === "error" ? "danger" : issue.level === "warning" ? "warning" : "neutral"}>{issue.source}</StatusPill><div><strong>{issue.key}</strong><p>{issue.message}</p>{issue.fields?.length ? <small>Campos: {issue.fields.join(" · ")}</small> : null}</div></article>)}</div> : <EmptyState title="Nenhuma inconsistência detectada." description="Os registros operacionais disponíveis estão coerentes." />}</section>
-      <section className="analytics-panel-v41"><SectionHeader eyebrow="FONTES LIDAS" title="Cobertura do resumo canônico" /><div className="quality-summary-v41 wide"><div><strong>{summary.dayControl.length}</strong><span>Dxx</span></div><div><strong>{summary.sessions.length}</strong><span>Sessões</span></div><div><strong>{summary.reviews.length}</strong><span>Revisões</span></div><div><strong>{summary.errors.length}</strong><span>Erros</span></div><div><strong>{summary.redactions.length}</strong><span>Redações</span></div><div><strong>{summary.simulations.length}</strong><span>Checkpoints</span></div></div></section>
+      <section className="analytics-panel-v41"><SectionHeader eyebrow="FONTES LIDAS" title="Cobertura do resumo canônico" /><div className="quality-summary-v41 wide"><div><strong>{summary.dayControl.length}</strong><span>Dxx</span></div><div><strong>{summary.questionMeta.length}</strong><span>Qxx mapeados</span></div><div><strong>{summary.sessions.length}</strong><span>Sessões</span></div><div><strong>{summary.reviews.length}</strong><span>Revisões</span></div><div><strong>{summary.errors.length}</strong><span>Erros</span></div><div><strong>{summary.redactions.length}</strong><span>Redações</span></div><div><strong>{summary.simulations.length}</strong><span>Checkpoints</span></div></div></section>
     </> : null}
   </section>;
 }
