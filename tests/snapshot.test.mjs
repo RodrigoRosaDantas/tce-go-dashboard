@@ -58,3 +58,24 @@ test("snapshot não expõe referência interna do Notion nem HTML ativo", () => 
     assert.doesNotMatch(entry.contentHtml, /<script\b|javascript:|\son[a-z]+\s*=/i);
   }
 });
+
+
+test("cobertura editorial auxiliar full é derivada sem execução pessoal", () => {
+  if (snapshot.auxiliaryMode !== "full") return;
+  assert.equal(snapshot.redactions?.length, 8);
+  assert.deepEqual(snapshot.redactions.map((item) => item.code), ["R1","R2","R3","R4","R5","R6","R7","R8"]);
+  assert.deepEqual(snapshot.simulations?.map((item) => item.dxx), ["D020","D045","D070","D090","D096","D100"]);
+  assert.equal(snapshot.edital?.length, 15);
+  assert.ok((snapshot.legislation?.length || 0) > 0);
+  assert.equal(snapshot.finalSprint?.length, 17);
+
+  const auxiliary = JSON.stringify({
+    redactions: snapshot.redactions,
+    simulations: snapshot.simulations,
+    edital: snapshot.edital,
+    legislation: snapshot.legislation,
+    finalSprint: snapshot.finalSprint,
+  });
+  assert.doesNotMatch(auxiliary, /app\.notion\.com|notion\.so|collection:\/\//i);
+  assert.doesNotMatch(auxiliary, /"acertos"|"erros"|"tempoReal"|"nota simulada"|"recalibrado pelo d100"/i);
+});
