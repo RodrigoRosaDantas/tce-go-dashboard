@@ -64,7 +64,7 @@ export function materialSnapshotFromBlocks({ dxx, title, focus, version, lastEdi
   };
 }
 
-export function questionSnapshotFromPage({ dxx, page }) {
+export function questionSnapshotFromPage({ dxx, page, blocks = [] }) {
   const p = page?.properties || {};
   const qxx = propertyText(p, "Qxx") || `Q${dxx.slice(1)}`;
   const title = propertyText(p, "Questões do dia") || `Questões | ${dxx}`;
@@ -90,6 +90,15 @@ export function questionSnapshotFromPage({ dxx, page }) {
       }
     : null;
 
+  // O Qxx continua em modo metadata-only para questões de terceiros. O HTML abaixo
+  // é derivado do próprio caderno canônico, que registra referências/metadados das
+  // questões FCC e só reproduz integralmente itens autorais permitidos.
+  const publicBlocks = Array.isArray(blocks) ? filterPublicBlocks(blocks) : [];
+  const contentHtml = publicBlocks.length
+    ? withStudyIndex(sanitizeMaterialHtml(renderBlocks(publicBlocks)), qxx.toLowerCase())
+    : "";
+  const sections = publicBlocks.length ? extractTextSections(publicBlocks) : [];
+
   return {
     qxx,
     dxx,
@@ -103,6 +112,7 @@ export function questionSnapshotFromPage({ dxx, page }) {
     ...(gapDeclared ? { gapDeclared: true } : {}),
     ...(adaptive ? { adaptive: true } : {}),
     ...(platformBattery ? { platformBattery } : {}),
+    ...(contentHtml ? { contentHtml, sections, hash: sha256(contentHtml) } : {}),
   };
 }
 
