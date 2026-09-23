@@ -10,6 +10,7 @@ export function validateSnapshot(snapshot) {
   if (snapshot.schemaVersion !== "1.0.0") errors.push("schemaVersion inválida");
   if (snapshot.source !== "notion") errors.push("source deve ser notion");
   if (!Array.isArray(snapshot.days)) errors.push("days deve ser array");
+  if (snapshot.contentHash && !/^[a-f0-9]{64}$/.test(snapshot.contentHash)) errors.push("contentHash inválido");
   if (errors.length) return errors;
 
   const days = snapshot.days;
@@ -26,6 +27,7 @@ export function validateSnapshot(snapshot) {
     if (d.protected && d.session) errors.push(`${d.dxx}: protegido não pode ter session`);
     if (!d.protected && !d.session) errors.push(`${d.dxx}: ativo sem session`);
     if (d.protected && d.readyForStudy) errors.push(`${d.dxx}: protegido não pode estar liberado`);
+    if (!d.protected && (!d.slug || !d.questionSlug)) errors.push(`${d.dxx}: ativo sem slug público`);
   }
 
   const active = days.filter((d) => !d.protected);
@@ -45,6 +47,16 @@ export function validateSnapshot(snapshot) {
     if (snapshot.publicStats.activeDays !== 47) errors.push("publicStats.activeDays inválido");
     if (snapshot.publicStats.protectedDays !== 53) errors.push("publicStats.protectedDays inválido");
     if (snapshot.publicStats.sessions !== 47) errors.push("publicStats.sessions inválido");
+  }
+
+  if (snapshot.contentMode === "full") {
+    const ready = days.filter((d) => !d.protected && d.readyForStudy);
+    for (const d of ready) {
+      if (!snapshot.materials?.[d.slug]) errors.push(`${d.dxx}: material público ausente em modo full`);
+      if (!snapshot.questions?.[d.questionSlug]) errors.push(`${d.dxx}: caderno público ausente em modo full`);
+    }
+    if (snapshot.publicStats?.materialDays !== ready.length) errors.push("publicStats.materialDays inválido");
+    if (snapshot.publicStats?.questionDays !== ready.length) errors.push("publicStats.questionDays inválido");
   }
 
   walk(snapshot, [], errors);
