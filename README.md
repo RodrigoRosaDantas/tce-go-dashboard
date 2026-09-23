@@ -33,3 +33,5 @@ O workflow usa:
 - Notion API version: `2026-03-11`
 
 Nenhum token é enviado ao navegador ou gravado no snapshot.
+
+<!-- QA bootstrap: validação técnica sem efeito pedagógico. -->
