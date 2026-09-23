@@ -145,6 +145,8 @@ check((await page.locator(".data-issues-v41").innerText()).includes("Acertos com
 await page.locator(".analytics-tabs-v41 button", { hasText: "Matérias" }).click();
 check((await page.locator(".subject-cards-v41").innerText()).includes("Controle Externo"), "Matéria/foco do Notion não alimentou agrupamento de Controle Externo");
 check((await page.locator(".subject-cards-v41").innerText()).includes("CASP"), "Matéria/foco do Notion não alimentou agrupamento CASP");
+await page.locator(".analytics-tabs-v41 button", { hasText: "Edital" }).click();
+check((await page.locator(".model-gap-v41").innerText()).includes("não fabrica percentual"), "Dashboard não declarou a ausência de relação Dxx/Qxx no edital");
 
 // Nenhum evento canônico deve ter sido enfileirado pelo E2E.
 const queued = await page.evaluate(() => localStorage.getItem("tce-go.pending-events.v1"));
