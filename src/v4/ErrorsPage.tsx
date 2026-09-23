@@ -72,7 +72,7 @@ export function ErrorsPageV4({ snapshot }: { snapshot: Snapshot }) {
               {item.action ? <div className="error-action-v4"><b>Ação</b><p>{item.action}</p></div> : null}
               <div className="error-links-v4">
                 {item.dxx ? <a href={href(`/dia/${item.dxx.toLowerCase()}/`)}>Voltar à sessão →</a> : null}
-                {item.dxx ? <a href={href(`/revisoes/?dxx=${item.dxx}&type=${encodeURIComponent(item.fatal ? "Fatal Error" : "D7")}&reason=${encodeURIComponent(item.recurrence ? "Reincidência" : "Erro relevante")}#review-form`)}>Criar/atualizar revisão →</a> : null}
+                {item.dxx ? <a href={href(`/revisoes/?dxx=${item.dxx}&type=${encodeURIComponent(item.fatal ? "Fatal Error" : "D7")}&reason=${encodeURIComponent(item.recurrence ? "Reincidência" : "Erro relevante")}&status=${encodeURIComponent("Próxima")}#review-form`)}>Criar/atualizar revisão →</a> : null}
               </div>
             </article>
           ))}

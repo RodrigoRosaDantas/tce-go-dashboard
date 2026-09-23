@@ -174,3 +174,28 @@ test("revisões podem ser programadas e erros carregam reincidência e próxima 
   assert.match(executionForms, /option>Pendente<\/option>/);
   assert.match(executionForms, /option>Próxima<\/option>/);
 });
+
+
+test("agendamento de revisão não é registrado como sessão executada", () => {
+  assert.match(edge, /shouldLogSpecializedSession/);
+  assert.match(edge, /review\.snapshot/);
+  assert.match(edge, /\(p\.status\|\|\"Concluída\"\)===\"Concluída\"/);
+  assert.match(edge, /sessionLogged:Boolean\(sid\)/);
+  assert.match(edge, /\{date:null\}/);
+});
+
+test("deep-links de programação abrem revisão como Próxima", () => {
+  const study = fs.readFileSync("src/v3/StudyPage.tsx", "utf8");
+  const errorsPage = fs.readFileSync("src/v4/ErrorsPage.tsx", "utf8");
+  assert.match(study, /status=Pr%C3%B3xima/);
+  assert.match(errorsPage, /encodeURIComponent\(\"Próxima\"\)/);
+  assert.match(executionForms, /params\.get\(\"status\"\)/);
+});
+
+test("sync alterado dispara explicitamente o deploy do Pages", () => {
+  const workflow = fs.readFileSync(".github/workflows/sync-notion.yml", "utf8");
+  assert.match(workflow, /actions: write/);
+  assert.match(workflow, /Publish changed snapshot/);
+  assert.match(workflow, /gh workflow run deploy-pages\.yml --ref main/);
+  assert.match(workflow, /if: steps\.diff\.outputs\.changed == 'true'/);
+});

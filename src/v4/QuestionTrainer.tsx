@@ -34,7 +34,6 @@ export function AuthorialTrainer({ question, day }: { question: QuestionSnapshot
   const [fccCorrect, setFccCorrect] = useState("");
   const [fccDoubts, setFccDoubts] = useState("");
   const [message, setMessage] = useState("");
-
   const authorial = useMemo(() => items.map((item) => {
     const answer = answers[item.id];
     const correct = Boolean(reveal && answer?.answer && item.answer && answer.answer === item.answer);

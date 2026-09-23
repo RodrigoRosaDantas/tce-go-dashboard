@@ -68,7 +68,10 @@ export function ReviewWriteback({ snapshot }: { snapshot: Snapshot }) {
   const [dxx, setDxx] = useState(() => active.some((d) => d.dxx === requestedDxx) ? String(requestedDxx) : active[0]?.dxx ?? "D001");
   const [reviewType, setReviewType] = useState(() => params.get("type") || "D0");
   const [reason, setReason] = useState(() => params.get("reason") || "Conteúdo novo");
-  const [status, setStatus] = useState("Concluída");
+  const [status, setStatus] = useState(() => {
+    const requested = params.get("status");
+    return ["Pendente","Próxima","Concluída","Cancelada por domínio"].includes(String(requested)) ? String(requested) : "Concluída";
+  });
   const [plannedDate, setPlannedDate] = useState("");
   const [questions, setQuestions] = useState("");
   const [correct, setCorrect] = useState("");

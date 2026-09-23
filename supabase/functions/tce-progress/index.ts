@@ -63,10 +63,11 @@ Deno.serve(async req=>{
         throw err;
       }
       const metrics=specializedSessionMetrics(ev.v,day);
-      const sid=await ensureSession(user.id,day,ev.v,metrics,nt,cors);
+      const logSession=shouldLogSpecializedSession(ev.v);
+      const sid=logSession?await ensureSession(user.id,day,ev.v,metrics,nt,cors):null;
       const confirmedAt=new Date().toISOString();
       const canonicalRevision=day.lastEditedAt||confirmedAt;
-      const confirmation={dxx:day.dxx,sxx:day.sxx,eventType:ev.v.eventType,occurredAt:ev.v.occurredAt,confirmedAt,canonicalRevision,canonical:true,target};
+      const confirmation={dxx:day.dxx,sxx:day.sxx,eventType:ev.v.eventType,occurredAt:ev.v.occurredAt,confirmedAt,canonicalRevision,canonical:true,target,sessionLogged:Boolean(sid)};
       await patchEvent(user.id,ev.v.idempotencyKey,{status:"confirmed",resolved_sxx:day.sxx,notion_session_page_id:sid,notion_day_page_id:day.id,confirmation,confirmed_at:confirmedAt,error_code:null,error_message:null});
       return json({status:"confirmed",canonical:true,dxx:day.dxx,sxx:day.sxx,idempotencyKey:ev.v.idempotencyKey,confirmation,target},200,cors);
     }
@@ -285,6 +286,12 @@ async function ensureSession(owner,day,event,metrics,token,cors){
   return sid;
 }
 
+function shouldLogSpecializedSession(event){
+  const p=event.payload||{};
+  if(event.eventType==="review.snapshot")return (p.status||"Concluída")==="Concluída";
+  return true;
+}
+
 function specializedSessionMetrics(event,day){
   const p=event.payload||{};
   if(event.eventType==="review.snapshot")return{timeMinutes:num(p.timeMinutes,0),questionsDone:num(p.questions,0),correct:num(p.correct,0),errors:num(p.errors,0),doubts:0};
@@ -324,7 +331,9 @@ async function writeReview(day,event,token){
   };
   if(p.reason)props["Motivo"]={select:{name:choice(p.reason,["Conteúdo novo","Erro relevante","Legislação","Reincidência","Calibração"],"Motivo da revisão")}};
   if(p.plannedDate)props["Data prevista"]={date:{start:isoDate(p.plannedDate,"Data prevista")}};
-  if(status==="Concluída")props["Data realizada"]={date:{start:isoDate(p.performedDate||event.occurredAt,"Data realizada")}};
+  props["Data realizada"]=status==="Concluída"
+    ?{date:{start:isoDate(p.performedDate||event.occurredAt,"Data realizada")}}
+    :{date:null};
   let page=rows[0];
   if(page)page=await notion(`/pages/${page.id}`,token,{method:"PATCH",body:JSON.stringify({properties:props})});
   else page=await notion("/pages",token,{method:"POST",body:JSON.stringify({parent:{data_source_id:REVIEWS},properties:{"Revisão":title(`${type} — ${day.dxx}`),...props}})});
