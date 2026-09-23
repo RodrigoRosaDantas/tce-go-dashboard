@@ -315,3 +315,178 @@ export function ReadingProgress({ dxx, targetId = "aula" }: { dxx: string; targe
     </div>
   );
 }
+
+
+export type StudyTocItem = { id: string; label: string; level: number };
+
+type SectionState = {
+  completed: string[];
+  bookmark: string | null;
+};
+
+function sectionKey(dxx: string) {
+  return `tce-go.v4.sections.${dxx}`;
+}
+
+export function SessionIndex({ dxx, toc }: { dxx: string; toc: StudyTocItem[] }) {
+  const [state, setState] = useState<SectionState>({ completed: [], bookmark: null });
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  useEffect(() => {
+    setState(readJson<SectionState>(sectionKey(dxx), { completed: [], bookmark: null }));
+  }, [dxx]);
+
+  useEffect(() => {
+    if (!toc.length) return;
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible[0]?.target?.id) setActiveId(visible[0].target.id);
+    }, { rootMargin: "-22% 0px -66% 0px", threshold: [0, 1] });
+    for (const item of toc) {
+      const node = document.getElementById(item.id);
+      if (node) observer.observe(node);
+    }
+    return () => observer.disconnect();
+  }, [toc]);
+
+  function update(next: SectionState) {
+    setState(next);
+    writeJson(sectionKey(dxx), next);
+  }
+
+  function toggleCompleted(id: string) {
+    const completed = state.completed.includes(id)
+      ? state.completed.filter((value) => value !== id)
+      : [...state.completed, id];
+    update({ ...state, completed });
+  }
+
+  function toggleBookmark(id: string) {
+    update({ ...state, bookmark: state.bookmark === id ? null : id });
+  }
+
+  const done = toc.filter((item) => state.completed.includes(item.id)).length;
+
+  return (
+    <aside className="lesson-index lesson-index-v4">
+      <div className="index-head"><span>ÍNDICE</span><strong>{done}/{toc.length}</strong></div>
+      <a href="#visao-geral">Visão geral</a>
+      {toc.map((item) => {
+        const completed = state.completed.includes(item.id);
+        const bookmarked = state.bookmark === item.id;
+        return (
+          <div className={`index-item-v4 ${activeId === item.id ? "active" : ""} ${completed ? "completed" : ""}`} key={item.id}>
+            <a className={item.level === 3 ? "level-3" : ""} href={`#${item.id}`}>{item.label}</a>
+            <div>
+              <button type="button" title={completed ? "Desmarcar seção" : "Marcar seção lida"} onClick={() => toggleCompleted(item.id)}>{completed ? "✓" : "○"}</button>
+              <button type="button" title={bookmarked ? "Remover bookmark" : "Salvar bookmark"} onClick={() => toggleBookmark(item.id)}>{bookmarked ? "★" : "☆"}</button>
+            </div>
+          </div>
+        );
+      })}
+      {state.bookmark ? <button type="button" className="index-resume-v4" onClick={() => document.getElementById(state.bookmark || "")?.scrollIntoView({ behavior: "smooth", block: "start" })}>Ir ao bookmark ★</button> : null}
+      <a href="#questoes">Questões</a>
+      <a href="#registro">Fechamento + D0</a>
+      <small className="index-local-note-v4">✓/★ ficam somente neste aparelho.</small>
+    </aside>
+  );
+}
+
+function noteKey(dxx: string) {
+  return `tce-go.v4.notes.${dxx}`;
+}
+
+export function StudyNotebook({ dxx }: { dxx: string }) {
+  const [open, setOpen] = useState(false);
+  const [note, setNote] = useState("");
+
+  useEffect(() => {
+    setNote(readJson<string>(noteKey(dxx), ""));
+  }, [dxx]);
+
+  function change(value: string) {
+    setNote(value);
+    writeJson(noteKey(dxx), value);
+  }
+
+  return (
+    <div className="study-notebook-v4">
+      <button type="button" className="tool-button" aria-expanded={open} onClick={() => setOpen((value) => !value)}>
+        <span aria-hidden="true">✎</span><span>Notas</span>
+      </button>
+      {open ? (
+        <div className="notebook-panel-v4">
+          <div className="settings-head"><div><strong>Notas privadas da sessão</strong><small>Salvas somente neste aparelho; não são enviadas ao Notion.</small></div><button type="button" onClick={() => setOpen(false)}>×</button></div>
+          <textarea value={note} onChange={(event) => change(event.target.value)} placeholder="Anote contraste, dúvida, referência ou lembrete…" />
+          <small>{note.length} caracteres</small>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+type RevisionPoint = { kind: "heading" | "callout" | "table"; label: string };
+
+function revisionPoints(html?: string) {
+  if (!html || typeof DOMParser === "undefined") return [] as RevisionPoint[];
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const nodes = Array.from(doc.querySelectorAll("h2, h3, .study-callout, blockquote, table"));
+  return nodes.slice(0, 40).map((node) => {
+    const tag = node.tagName.toLowerCase();
+    const kind: RevisionPoint["kind"] = tag === "table" ? "table" : tag.startsWith("h") ? "heading" : "callout";
+    const text = (node.textContent || "").replace(/\s+/g, " ").trim();
+    return { kind, label: text.slice(0, kind === "table" ? 420 : 520) };
+  }).filter((item) => item.label);
+}
+
+export function RevisionLens({ html }: { html?: string }) {
+  const [open, setOpen] = useState(false);
+  const points = useMemo(() => revisionPoints(html), [html]);
+
+  if (!points.length) return null;
+
+  return (
+    <section className={`revision-lens-v4 ${open ? "open" : ""}`}>
+      <button type="button" className="revision-lens-trigger-v4" onClick={() => setOpen((value) => !value)}>
+        <span>↻</span><div><strong>Modo revisão</strong><small>Somente estrutura, contrastes, callouts e tabelas do material publicado.</small></div><b>{open ? "Fechar" : "Abrir"}</b>
+      </button>
+      {open ? <div className="revision-lens-body-v4">
+        {points.map((point,index) => <article className={`revision-point-v4 ${point.kind}`} key={`${point.kind}-${index}`}>
+          <b>{String(index + 1).padStart(2,"0")}</b><p>{point.label}</p>
+        </article>)}
+      </div> : null}
+    </section>
+  );
+}
+
+export function SectionNavigator({ toc }: { toc: StudyTocItem[] }) {
+  const [activeId,setActiveId] = useState<string | null>(toc[0]?.id ?? null);
+
+  useEffect(() => {
+    if (!toc.length) return;
+    const onScroll = () => {
+      const y = window.scrollY + 190;
+      let current = toc[0]?.id ?? null;
+      for (const item of toc) {
+        const node = document.getElementById(item.id);
+        if (node && node.offsetTop <= y) current = item.id;
+      }
+      setActiveId(current);
+    };
+    onScroll();
+    window.addEventListener("scroll",onScroll,{passive:true});
+    return () => window.removeEventListener("scroll",onScroll);
+  }, [toc]);
+
+  if (!toc.length) return null;
+  const index = Math.max(0,toc.findIndex((item)=>item.id===activeId));
+  const prev=toc[index-1], next=toc[index+1];
+
+  return (
+    <nav className="section-nav-v4" aria-label="Navegação entre seções do material">
+      <button type="button" disabled={!prev} onClick={() => prev && document.getElementById(prev.id)?.scrollIntoView({behavior:"smooth",block:"start"})}>← {prev?.label || "Início"}</button>
+      <span>{index+1}/{toc.length}</span>
+      <button type="button" disabled={!next} onClick={() => next && document.getElementById(next.id)?.scrollIntoView({behavior:"smooth",block:"start"})}>{next?.label || "Fim"} →</button>
+    </nav>
+  );
+}
