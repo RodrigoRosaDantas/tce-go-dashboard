@@ -14,6 +14,7 @@ page.on("pageerror", (error) => failures.push(`pageerror: ${error.message}`));
 
 await page.goto(baseUrl + "/", { waitUntil: "domcontentloaded" });
 await page.waitForSelector(".app-v3");
+check((await page.locator(".sidebar-v3").innerText()).includes("Dashboard"), "Navegação desktop ainda exibe Desempenho em vez de Dashboard");
 
 // 1) Busca local por conteúdo do material.
 await page.keyboard.press("Control+K");
@@ -131,6 +132,7 @@ await page.evaluate(() => {
 await page.goto(baseUrl + "/desempenho/", { waitUntil: "domcontentloaded" });
 await page.waitForSelector(".data-dashboard-v41");
 check((await page.locator(".analytics-tabs-v41 button").allTextContents()).includes("Dados"), "Dashboard V4.1 não exibiu aba Dados");
+check((await page.locator(".big-comparison-v41").innerText()).includes("1380"), "Planejamento total degradado não preservou Meta dos Qxx adaptativos");
 await page.locator(".analytics-tabs-v41 button", { hasText: "Execução" }).click();
 await page.waitForSelector(".analytics-table-v41");
 const d003Row = page.locator(".analytics-table-v41 tbody tr", { hasText: "D003" });

@@ -65,6 +65,7 @@ export function OperationalProvider({
       try {
         const next = await loadOperationalSummary();
         setSummary(next ?? cachedOperationalSummary() ?? localFallback(snapshot));
+        setConnected(hasConnectedAccount());
         lastRefreshAt.current = Date.now();
       } finally {
         setLoading(false);

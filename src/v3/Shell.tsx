@@ -7,7 +7,7 @@ const primaryNav = [
   ["/", "Hoje", "⌂"],
   ["/dias/", "Trilha", "▤"],
   ["/revisoes/", "Revisar", "↻"],
-  ["/desempenho/", "Desempenho", "◔"],
+  ["/desempenho/", "Dashboard", "◔"],
 ] as const;
 
 const studyNav = [

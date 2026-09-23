@@ -158,3 +158,55 @@ test("Dashboard usa Matéria/foco canônica e declara lacuna de cobertura do edi
   assert.match(performance, /Lacuna estrutural declarada/);
   assert.match(performance, /não fabrica percentual de cobertura executada por item/);
 });
+
+
+test("auditoria V4.1 protege rótulo Dashboard e meta adaptativa", () => {
+  assert.match(shell, /\["\/desempenho\/", "Dashboard", "◔"\]/);
+  assert.match(performance, /snapshot\.questions\[day\.questionSlug\]\?\.meta \?\? snapshot\.questions\[day\.questionSlug\]\?\.valid/);
+  assert.match(performance, /summary\.questionMeta\.map\(\(x\) => x\.lastEditedAt\)/);
+});
+
+test("auditoria estrutural valida Matéria\/foco, metas, duplicidades e Sxx", () => {
+  assert.match(analytics, /Qxx existe, mas Matéria\/foco não está preenchida/);
+  assert.match(analytics, /Meta divergente entre Dxx/);
+  assert.match(analytics, /Dxx duplicado no resumo canônico/);
+  assert.match(analytics, /Mais de um Qxx associado ao mesmo Dxx/);
+  assert.match(analytics, /Sessão detalhada usa/);
+});
+
+test("retenção soma desempenho somente de revisões concluídas", () => {
+  const completedBlock = analytics.match(/if \(review\.status === "Concluída"\) \{[\s\S]*?\} else if/);
+  assert.ok(completedBlock);
+  assert.match(completedBlock[0], /result\.questions \+=/);
+  assert.match(completedBlock[0], /result\.correct \+=/);
+  assert.match(completedBlock[0], /result\.errors \+=/);
+});
+
+test("summary lê Notion em lotes para reduzir burst de rate limit", () => {
+  const edgeSource = fs.readFileSync("supabase/functions/tce-progress/index.ts","utf8");
+  assert.match(edgeSource, /const \[dayPages,sessionPages,questionPages\]=await Promise\.all/);
+  assert.match(edgeSource, /const \[reviewPages,errorPages,redactionPages\]=await Promise\.all/);
+  assert.match(edgeSource, /const simulationPages=await queryAllDataSource\(SIMULATIONS/);
+});
+
+
+test("auditoria mantém rótulos exatos do edital e reconcilia autenticação", () => {
+  assert.match(performance, /label="ITENS ATIVOS"/);
+  assert.match(performance, /label="ITENS COM FONTE"/);
+  assert.doesNotMatch(performance, /label="FONTES NORMATIVAS"/);
+  assert.match(context, /setConnected\(hasConnectedAccount\(\)\)/);
+});
+
+
+test("origem da execução ignora sessões auxiliares sem carga", () => {
+  assert.match(analytics, /const stateEvents = new Set/);
+  assert.match(analytics, /const executionSessions = sessions\.filter/);
+  assert.match(analytics, /if \(!executionSessions\.length\) return "Banco Dxx"/);
+});
+
+test("auditoria manual detecta inconsistências de status e números negativos", () => {
+  assert.match(analytics, /Status está Concluído, mas o checkbox Concluído não está marcado/);
+  assert.match(analytics, /Dxx está concluído sem o checkbox Estudado marcado/);
+  assert.match(analytics, /Há execução registrada, mas o Status continua Não iniciado/);
+  assert.match(analytics, /não pode ser negativo/);
+});
