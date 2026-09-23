@@ -741,3 +741,6 @@ html[data-tce-focus="true"] .lesson-card{border:0;box-shadow:none;background:tra
   .writing-criteria-v41,.checkpoint-kpis-v41{grid-template-columns:repeat(2,1fr)}
   .checkpoint-domains-v41{grid-template-columns:repeat(2,1fr)}
 }
+
+.model-gap-v41{display:flex;align-items:flex-start;gap:10px;border:1px solid color-mix(in srgb,var(--warning) 30%,var(--line));border-radius:12px;background:var(--warning-soft);padding:11px 12px;margin-bottom:12px}
+.model-gap-v41 p{margin:0;color:var(--ink-2);font-size:8px;line-height:1.5}
