@@ -1,4 +1,4 @@
-const PRIVATE_SECTION = /(?:execução real|registro de execução|folha de resposta|respostas pessoais|tempo real|desempenho pessoal|caderno de erros pessoal)/i;
+const PRIVATE_SECTION = /(?:navega[çc][ãa]o|controle operacional|execução real|registro de execução|folha de resposta|respostas pessoais|tempo real|desempenho pessoal|caderno de erros pessoal|hist[óo]rico pessoal|hist[óo]rico reaproveitado|baseline pessoal)/i;
 const NOTION_INTERNAL_URL = /https?:\/\/(?:www\.)?(?:app\.)?notion\.(?:so|com)\/[^\s)\]}]+/gi;
 const NOTION_INTERNAL_REF = /collection:\/\/[-a-z0-9]+/gi;
 
@@ -61,6 +61,7 @@ export function materialSnapshotFromBlocks({ dxx, title, focus, version, lastEdi
   const flat = flatten(blocks);
   const sections = [];
   let current = { heading: "Visão geral", lines: [] };
+  let privateLevel = 0;
 
   const flush = () => {
     const body = sanitizePublicText(current.lines.join("\n"));
@@ -75,12 +76,26 @@ export function materialSnapshotFromBlocks({ dxx, title, focus, version, lastEdi
     const type = block.type || "";
     const text = blockText(block);
     if (!text) continue;
-    if (/^heading_[123]$/.test(type)) {
+
+    const headingMatch = type.match(/^heading_([123])$/);
+    if (headingMatch) {
+      const level = Number(headingMatch[1]);
+
+      if (privateLevel && level <= privateLevel) privateLevel = 0;
+      if (privateLevel) continue;
+
       flush();
+      if (PRIVATE_SECTION.test(text)) {
+        privateLevel = level;
+        current = { heading: text, lines: [] };
+        continue;
+      }
+
       current = { heading: text, lines: [] };
       continue;
     }
-    if (PRIVATE_SECTION.test(current.heading)) continue;
+
+    if (privateLevel || PRIVATE_SECTION.test(current.heading)) continue;
     if (type === "bulleted_list_item") current.lines.push(`• ${text}`);
     else if (type === "numbered_list_item") current.lines.push(`• ${text}`);
     else if (type === "to_do") current.lines.push(`• ${text}`);
@@ -89,9 +104,7 @@ export function materialSnapshotFromBlocks({ dxx, title, focus, version, lastEdi
   }
   flush();
 
-  const safeSections = sections
-    .map((section) => ({ ...section, body: section.body.slice(0, 18000) }))
-    .filter((section) => section.body.length > 0);
+  const safeSections = sections.filter((section) => section.body.length > 0);
   const firstBody = safeSections[0]?.body || sanitizePublicText(focus);
   const summary = sanitizePublicText(focus) || firstBody.slice(0, 420);
 
@@ -113,8 +126,7 @@ export function questionSnapshotFromPage({ dxx, page }) {
   const valid = propertyNumber(p, "Questões válidas");
   const priority = propertyText(p, "Origem prioritária");
   const focus = propertyText(p, "Matéria/foco");
-  const notes = propertyText(p, "Observações editoriais");
-  const sourceSummary = priority || focus || notes || "Metadados editoriais do caderno canônico.";
+  const sourceSummary = priority || focus || "Metadados editoriais do caderno canônico.";
   const version = propertyNumber(p, "Versão editorial");
   const gapDeclared = propertyCheckbox(p, "Lacuna declarada");
 
