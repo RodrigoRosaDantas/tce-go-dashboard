@@ -24,6 +24,49 @@ export type ProgressState = {
   source: "notion" | "cache";
 };
 
+export type OperationalDay = {
+  id: string;
+  dxx: string;
+  sxx?: string | null;
+  order: number;
+  type?: string | null;
+  protected: boolean;
+  status?: string | null;
+  focus?: string | null;
+  studied: boolean;
+  completed: boolean;
+  plannedTime?: string | null;
+  metaQuestions: number | null;
+  timeMinutes: number | null;
+  questionsDone: number | null;
+  correct: number | null;
+  errors: number | null;
+  doubts: number | null;
+  d7Triggered: boolean;
+  d20Triggered: boolean;
+  lastEditedAt?: string | null;
+};
+
+export type OperationalSession = {
+  id: string;
+  title: string;
+  dxx?: string | null;
+  sxx?: string | null;
+  type?: string | null;
+  eventType?: string | null;
+  origin?: string | null;
+  date?: string | null;
+  timestamp?: string | null;
+  timeMinutes: number | null;
+  questions: number | null;
+  correct: number | null;
+  errors: number | null;
+  doubts: number | null;
+  sourceUrl?: string | null;
+  notes?: string | null;
+  lastEditedAt?: string | null;
+};
+
 export type OperationalReview = {
   id: string;
   title: string;
@@ -33,9 +76,9 @@ export type OperationalReview = {
   reason?: string | null;
   plannedDate?: string | null;
   performedDate?: string | null;
-  questions: number;
-  correct: number;
-  errors: number;
+  questions: number | null;
+  correct: number | null;
+  errors: number | null;
   notes?: string | null;
   lastEditedAt?: string | null;
 };
@@ -53,7 +96,7 @@ export type OperationalError = {
   source?: string | null;
   reason?: string | null;
   severity?: string | null;
-  recurrence: number;
+  recurrence: number | null;
   doubt: boolean;
   fatal: boolean;
   nextCheck?: string | null;
@@ -66,7 +109,18 @@ export type OperationalRedaction = {
   dxx: string;
   title: string;
   status: string;
-  score: number;
+  score: number | null;
+  timeMinutes: number | null;
+  lines: number | null;
+  thematicCut: number | null;
+  criticalInterpretation: number | null;
+  progression: number | null;
+  cohesion: number | null;
+  morphosyntax: number | null;
+  vocabulary: number | null;
+  mainError?: string | null;
+  theme?: string | null;
+  date?: string | null;
   rewriteNeeded: boolean;
   lastEditedAt?: string | null;
 };
@@ -76,14 +130,30 @@ export type OperationalSimulation = {
   dxx: string;
   title: string;
   decision?: string | null;
-  ipi: number;
-  generalTotal: number;
-  generalCorrect: number;
-  specificTotal: number;
-  specificCorrect: number;
-  openErrors: number;
-  p1Open: number;
-  recurrent: number;
+  type?: string | null;
+  date?: string | null;
+  ipi: number | null;
+  generalTotal: number | null;
+  generalCorrect: number | null;
+  specificTotal: number | null;
+  specificCorrect: number | null;
+  openErrors: number | null;
+  p1Open: number | null;
+  recurrent: number | null;
+  timeMinutes: number | null;
+  coveragePlanned: number | null;
+  coverageExecuted: number | null;
+  sessionsPlanned: number | null;
+  sessionsExecuted: number | null;
+  controlExternalPct: number | null;
+  caspPct: number | null;
+  legislationPct: number | null;
+  knownSubjectsPct: number | null;
+  writingScore: number | null;
+  weakKnownSubjects?: string | null;
+  writingLoss?: string | null;
+  timePerBlock?: string | null;
+  notes?: string | null;
   lastEditedAt?: string | null;
 };
 
@@ -93,6 +163,8 @@ export type OperationalSummary = {
   source: "notion" | "cache";
   degraded?: boolean;
   progress: ProgressState[];
+  dayControl: OperationalDay[];
+  sessions: OperationalSession[];
   reviews: OperationalReview[];
   errors: OperationalError[];
   redactions: OperationalRedaction[];
@@ -226,6 +298,8 @@ export async function loadOperationalSummary() {
       source: data.source === "notion" ? "notion" : "cache",
       degraded: data.degraded === true,
       progress: Array.isArray(data.progress) ? data.progress as ProgressState[] : [],
+      dayControl: Array.isArray(data.dayControl) ? data.dayControl as OperationalDay[] : [],
+      sessions: Array.isArray(data.sessions) ? data.sessions as OperationalSession[] : [],
       reviews: Array.isArray(data.reviews) ? data.reviews as OperationalReview[] : [],
       errors: Array.isArray(data.errors) ? data.errors as OperationalError[] : [],
       redactions: Array.isArray(data.redactions) ? data.redactions as OperationalRedaction[] : [],
