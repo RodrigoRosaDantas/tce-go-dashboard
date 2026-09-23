@@ -162,15 +162,13 @@ function clock(seconds: number) {
 }
 
 export function StudyTimer({ dxx }: { dxx: string }) {
-  const [timer, setTimer] = useState<TimerState>({ elapsedSeconds: 0, runningSince: null });
+  const [timer, setTimer] = useState<TimerState>(() => normalizedTimer(readJson<TimerState>(timerKey(dxx), { elapsedSeconds: 0, runningSince: null })));
   const [now, setNow] = useState(Date.now());
-  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     const stored = normalizedTimer(readJson<TimerState>(timerKey(dxx), { elapsedSeconds: 0, runningSince: null }));
     setTimer(stored);
     setNow(Date.now());
-    setHydrated(true);
   }, [dxx]);
 
   useEffect(() => {
@@ -180,9 +178,8 @@ export function StudyTimer({ dxx }: { dxx: string }) {
   }, [timer.runningSince]);
 
   useEffect(() => {
-    if (!hydrated) return;
     writeJson(timerKey(dxx), timer);
-  }, [dxx, hydrated, timer]);
+  }, [dxx, timer]);
 
   const seconds = currentElapsed(timer, now);
 
@@ -339,7 +336,7 @@ function sectionKey(dxx: string) {
 }
 
 export function SessionIndex({ dxx, toc }: { dxx: string; toc: StudyTocItem[] }) {
-  const [state, setState] = useState<SectionState>({ completed: [], bookmark: null });
+  const [state, setState] = useState<SectionState>(() => readJson<SectionState>(sectionKey(dxx), { completed: [], bookmark: null }));
   const [activeId, setActiveId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -408,7 +405,7 @@ function noteKey(dxx: string) {
 
 export function StudyNotebook({ dxx }: { dxx: string }) {
   const [open, setOpen] = useState(false);
-  const [note, setNote] = useState("");
+  const [note, setNote] = useState(() => readJson<string>(noteKey(dxx), ""));
 
   useEffect(() => {
     setNote(readJson<string>(noteKey(dxx), ""));
