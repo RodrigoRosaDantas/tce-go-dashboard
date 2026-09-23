@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T14:06:34.011Z",
+  "generatedAt": "2026-09-23T14:07:21.554Z",
   "days": [
     {
       "dxx": "D001",
@@ -9731,6 +9731,579 @@
       ],
       "version": 2,
       "lastEdited": "2026-09-22T20:29:42.314Z"
+    },
+    "d075": {
+      "dxx": "D075",
+      "title": "D075 — Administrativo + Constitucional",
+      "summary": "Administrativo + Constitucional — calibração FCC — foco nos recortes amarelos, controle/fiscalização e normas novas já estudadas no projeto.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D075 — Administrativo + Constitucional \\| calibração FCC\nS35 / D075 — 90 min · 30 questões. Esta sessão cruza Direito Administrativo (baseline Misto / tratamento Complemento) e Direito Constitucional (baseline Forte / tratamento Calibração). O objetivo é localizar complementos objetivos, não reabrir duas disciplinas inteiras."
+        },
+        {
+          "heading": "2. Por que este dia existe",
+          "body": "O projeto já tratou:\n- o núcleo constitucional de controle nos D001/D005 e checkpoints;\n- as quatro normas especiais de Administrativo no D064;\n- questões reais FCC dessas normas no Q064;\n- matérias históricas de Administrativo e Constitucional em projetos anteriores.\nD075 pergunta:\n> o que continua disponível sob cobrança FCC e qual complemento ainda merece tempo?"
+        },
+        {
+          "heading": "Trava anti-reestudo",
+          "body": "É proibido usar D075 para:\n- rever curso inteiro de Administrativo;\n- rever Constituição inteira;\n- reler integralmente as quatro normas do D064;\n- abrir teoria por um erro isolado;\n- transformar insegurança subjetiva em “lacuna”."
+        },
+        {
+          "heading": "B01 — Noções de Direito Administrativo",
+          "body": "- Específicos;\n- 5 questões;\n- peso 2;\n- 10 pontos ponderados internos;\n- baseline histórico: Misto;\n- tratamento: Complemento."
+        },
+        {
+          "heading": "B03 — Noções de Direito Constitucional",
+          "body": "- Específicos;\n- 3 questões;\n- peso 2;\n- 6 pontos ponderados internos;\n- baseline histórico: Forte;\n- tratamento: Calibração."
+        },
+        {
+          "heading": "Consequência",
+          "body": "Administrativo recebe atenção especial para:\n- controle/fiscalização;\n- processo administrativo;\n- LINDB aplicada ao Direito Público;\n- normas especiais estudadas no D064.\nConstitucional recebe:\n- direitos e garantias;\n- princípios fundamentais;\n- Administração Pública;\n- organização do Estado/Poderes;\n- processo legislativo;\n- fiscalização/controle constitucional, Tribunais de Contas e Ministério Público de Contas."
+        },
+        {
+          "heading": "Administrativo",
+          "body": "Já conhecido / histórico útil\n- princípios;\n- organização administrativa;\n- atos;\n- poderes;\n- controle;\n- autotutela;\n- processo administrativo geral;\n- licitações em disciplina própria.\nComplementado no D064\n- Lei GO nº 13.800/2001;\n- Decreto nº 9.830/2019;\n- Lei nº 12.232/2010;\n- Lei GO nº 18.025/2013.\nHipótese D075\n> a base clássica deve estar funcional e as quatro normas novas precisam ser recuperáveis sem releitura extensa."
+        },
+        {
+          "heading": "Constitucional",
+          "body": "Baseline Forte.\nHipótese D075\n> o núcleo geral deve permanecer em manutenção; teoria só se a FCC revelar perda localizada ou atualização constitucional relevante."
+        },
+        {
+          "heading": "5. Distribuição do Q075",
+          "body": "Subbloco\nQuestões\nFunção\nA1 — Administrativo: processo/normas especiais\n10\nretenção do D064\nA2 — Administrativo: controle/atos/organização\n5\ncalibração clássica\nC1 — Constitucional: direitos/princípios/Administração Pública\n8\nretenção\nC2 — Constitucional: Poderes/controle/fiscalização\n7\nrecorte dirigido\nTotal\n30\n20 FCC reais + 10 autorais controladas"
+        },
+        {
+          "heading": "6. Objetivos mensuráveis",
+          "body": "Ao final da execução real:\n1. obter resultado separado de Administrativo e Constitucional;\n2. localizar perda em A1, A2, C1 ou C2;\n3. diferenciar erro de literalidade de erro conceitual;\n4. reconhecer se D064 foi retido;\n5. reconhecer se Constitucional continua em manutenção;\n6. produzir uma lista de complementos objetivos, não uma lista genérica de matérias;\n7. decidir manutenção, revisão curta, complemento ou reabertura localizada;\n8. executar D0 dos erros prioritários;\n9. decidir D7/D20 somente pela evidência."
+        },
+        {
+          "heading": "Constituição Federal",
+          "body": "- fonte oficial Planalto;\n- usar redação vigente no corte;\n- fonte do banco já controla atualização constitucional."
+        },
+        {
+          "heading": "Controle de versão",
+          "body": "No D075 continuam indispensáveis:\n- Lei 13.800: prazos em dias úteis + suspensão 20/12–20/01 + redação atual de intimação;\n- Decreto 9.830: art. 18 revogado;\n- Lei 12.232: natureza especial preservada;\n- Lei 18.025: alteração de 2023 + Decreto 10.306/2023;\n- Constituição: sempre texto compilado vigente."
+        },
+        {
+          "heading": "8. Roteiro de 90 minutos",
+          "body": "1. 5 min — reativação curta das seções 9–13;\n2. 50 min — Q075 sem consulta;\n3. 20 min — correção e causa;\n4. 10 min — matriz e lista de complementos;\n5. 5 min — D0.\n---\n# REATIVAÇÃO CURTA"
+        },
+        {
+          "heading": "9. Administrativo — mapa mínimo",
+          "body": "Perguntas que precisam continuar automáticas:\n- órgão × entidade;\n- descentralização × desconcentração;\n- anulação × revogação;\n- delegação × avocação;\n- poder regulamentar não cria obrigação sem base legal;\n- controle interno × externo;\n- controle administrativo, legislativo e judicial;\n- mérito administrativo não é sinônimo de ilegalidade."
+        },
+        {
+          "heading": "Macete",
+          "body": "> Ilegal → anulação. Conveniência/oportunidade → revogação."
+        },
+        {
+          "heading": "10. Processo administrativo GO",
+          "body": "Do D064, recuperar sem consultar:\n- competência = irrenunciável, salvo delegação/avocação admitidas;\n- não delegáveis:\n1. ato normativo;\n2. decisão de recurso;\n3. competência exclusiva;\n- recurso geral: 10 dias;\n- até 3 instâncias;\n- prazos processuais em dias úteis;\n- suspensão 20/12–20/01.\nSe isso não vier de memória, registrar dúvida — não reler a lei antes da bateria."
+        },
+        {
+          "heading": "11. LINDB / Decreto nº 9.830",
+          "body": "Quatro âncoras:\n- consequências práticas;\n- invalidação motivada;\n- transição;\n- dolo ou erro grosseiro."
+        },
+        {
+          "heading": "Atualização",
+          "body": "> Art. 18 do Decreto nº 9.830/2019 está revogado."
+        },
+        {
+          "heading": "Direitos fundamentais",
+          "body": "Cuidado com absolutos:\n- manifestação ≠ anonimato;\n- inviolabilidade domiciliar tem exceções;\n- associação tem regime próprio;\n- remédios constitucionais têm legitimidade/objeto próprios."
+        },
+        {
+          "heading": "Administração Pública",
+          "body": "Art. 37:\n- legalidade;\n- impessoalidade;\n- moralidade;\n- publicidade;\n- eficiência;\n- concurso;\n- cargos/funções;\n- responsabilidade."
+        },
+        {
+          "heading": "Poderes e controle",
+          "body": "- separação e harmonia;\n- controles recíprocos;\n- fiscalização contábil, financeira, orçamentária, operacional e patrimonial;\n- controle externo + sistema de controle interno."
+        },
+        {
+          "heading": "Em Administrativo",
+          "body": "Pergunta:\n> quem controla a Administração e por qual modalidade?"
+        },
+        {
+          "heading": "Em Constitucional",
+          "body": "Pergunta:\n> qual competência de controle a Constituição atribui a cada órgão/Poder?"
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Tribunal de Contas exerce controle externo técnico, mas não integra o Poder Judiciário e não transforma suas decisões em exercício de jurisdição judicial.\n---\n# DIAGNÓSTICO"
+        },
+        {
+          "heading": "14. Matriz de retenção",
+          "body": "Bloco\nAcertos\nErros\nDúvidas\n%\nDecisão\nA1 — normas/processo\n—\n—\n—\n—\n—\nA2 — clássico/controle\n—\n—\n—\n—\n—\nC1 — direitos/administração\n—\n—\n—\n—\n—\nC2 — poderes/controle\n—\n—\n—\n—\n—"
+        },
+        {
+          "heading": "15. Faixas internas",
+          "body": "- ≥85%: manutenção;\n- 75–84%: revisão curta;\n- 60–74%: complemento dirigido;\n- \\<60%: reabrir somente o subbloco."
+        },
+        {
+          "heading": "Regra superior",
+          "body": "Erro conceitual central ou reincidente pode justificar complemento mesmo com percentual agregado alto."
+        },
+        {
+          "heading": "16. Lista de complementos objetivos",
+          "body": "Preencher apenas depois:\nPrioridade\nDisciplina\nSubtema exato\nEvidência\nAção mínima\n1\n—\n—\n—\n—\n2\n—\n—\n—\n—\n3\n—\n—\n—\n—\n4\n—\n—\n—\n—\n5\n—\n—\n—\n—\nNão escrever:\n> “revisar Direito Administrativo”.\nEscrever:\n> “delegação × avocação — 2 erros — quadro comparativo + 4 FCC”.\n---\n# TEORIA DE RESGATE — SOMENTE SE AUTORIZADA\nNão estudar preventivamente. Use apenas o módulo correspondente à lacuna demonstrada.\nA1 — Processo administrativo / normas especiais\nVoltar somente ao dispositivo que causou erro. Prioridade: indelegáveis, recurso/prazos, LINDB consequencialista, objeto da Lei 12.232 e LAI Goiás.\nA2 — Administrativo clássico / controle\nReabrir apenas a distinção falha: organização; ato; poder; autotutela; controle administrativo/judicial/legislativo.\nC1 — Direitos / Administração Pública\nRetomar apenas o artigo/garantia envolvida. Rejeitar afirmações absolutas sem conferir exceções constitucionais.\nC2 — Poderes / controle / fiscalização\nReconstruir competência constitucional, órgão competente e natureza do controle. Evitar chamar Tribunal de Contas de órgão jurisdicional."
+        },
+        {
+          "heading": "17. Q075",
+          "body": "Composição editorial:\n- 20 FCC reais;\n- 10 autorais controladas;\n- 15 Administrativo;\n- 15 Constitucional."
+        },
+        {
+          "heading": "18. Causa do erro",
+          "body": "Usar:\n- E1: desconhecimento;\n- E2: confusão;\n- E3: norma/literalidade;\n- E4: memória;\n- E5: interpretação;\n- E7: distração;\n- E8: tempo/processo."
+        },
+        {
+          "heading": "19. D0",
+          "body": "Depois da correção:\n1. refazer erros e dúvidas;\n2. recitar três matérias indelegáveis;\n3. recitar dias úteis + 20/12–20/01;\n4. explicar anulação × revogação;\n5. explicar controle interno × externo;\n6. recuperar duas garantias constitucionais erradas;\n7. registrar no Caderno de Erros somente o que tiver valor futuro.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "20. D7 / D20",
+          "body": "Não pré-acionar.\nAcionar somente se houver:\n- P1;\n- reincidência;\n- subbloco abaixo de 75%;\n- norma atualizada esquecida;\n- erro central de controle/fiscalização."
+        },
+        {
+          "heading": "21. Critério editorial",
+          "body": "Liberar quando:\n- Q075 tiver 30 válidas;\n- distribuição 15/15 estiver correta;\n- FCC real e autoral estiverem separadas;\n- fontes oficiais estiverem vigentes;\n- matriz e complementos continuarem vazios;\n- correções estiverem recolhíveis;\n- execução real estiver vazia."
+        },
+        {
+          "heading": "22. Critério real",
+          "body": "Concluir somente após:\n- 30 respostas;\n- correção;\n- matriz A1/A2/C1/C2;\n- lista de complementos;\n- D0;\n- Caderno de Erros quando necessário;\n- decisão real de D7/D20.\nPronto para estudo ≠ calibrado. A hipótese histórica só é confirmada ou derrubada pela execução."
+        }
+      ],
+      "version": 3,
+      "lastEdited": "2026-09-22T22:27:25.397Z"
+    },
+    "d078": {
+      "dxx": "D078",
+      "title": "D078 — Administração",
+      "summary": "Administração — calibração integrada — Administração Pública/Geral, Gestão de Pessoas e Comportamento Organizacional.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D078 — Administração \\| calibração integrada FCC\nS36 / D078 — 105 min · 40 questões. Calibração integrada de Administração Pública (B07), Administração Geral (B08), Comportamento Organizacional (B10) e Gestão de Pessoas (B11). O entregável é um ranking interno de retenção; esta sessão não reabre curso completo."
+        },
+        {
+          "heading": "2. Por que este dia existe",
+          "body": "O histórico do projeto não justifica quatro reestudos integrais. A hipótese é mais específica:\n- B07 Administração Pública: base histórica forte → manutenção;\n- B08 Administração Geral: base histórica forte → manutenção;\n- B10 Comportamento Organizacional: base real, porém com profundidade desigual → calibração;\n- B11 Gestão de Pessoas: base histórica forte → manutenção, com atenção à política institucional já trabalhada no projeto.\nA pergunta de D078 é:\n> qual dos quatro blocos perdeu retenção suficiente para merecer intervenção objetiva?"
+        },
+        {
+          "heading": "Trava anti-reestudo",
+          "body": "Não usar D078 para:\n- rever toda Administração;\n- transformar um erro isolado em “matéria fraca”;\n- abrir teoria longa antes da bateria;\n- importar desempenho antigo como se fosse desempenho TCE-GO atual;\n- preencher ranking antes dos 40 itens."
+        },
+        {
+          "heading": "3. Posição no edital e hipótese",
+          "body": "Bloco\nQuestões no edital\nPeso\nBaseline\nTratamento D078\nB07 — Administração Pública\n5\n2\nForte\nManutenção\nB08 — Administração Geral\n4\n2\nForte\nManutenção\nB10 — Comportamento Organizacional\n3\n2\nParcial\nCalibração\nB11 — Gestão de Pessoas\n3\n2\nForte\nManutenção\nCorreção de governança nesta execução: B11 estava operacionalmente marcado como “Misto/Complemento”, mas a Fonte-Mestra vigente o classifica como base forte / manutenção. Propriedade e corpo do registro B11 foram alinhados ao canônico sem promover seu status editorial de “Em migração”."
+        },
+        {
+          "heading": "B07 — Administração Pública",
+          "body": "Testar:\n- modelos patrimonial, burocrático e gerencial;\n- governança, governabilidade, accountability e transparência;\n- eficiência, eficácia e efetividade;\n- processo organizacional;\n- gestão por processos e projetos;\n- indicadores e avaliação de desempenho;\n- BSC;\n- simplificação/racionalização do atendimento público."
+        },
+        {
+          "heading": "B08 — Administração Geral",
+          "body": "Testar:\n- escolas e funções administrativas;\n- estrutura formal e informal;\n- centralização/descentralização;\n- departamentalização;\n- processo decisório e racionalidade limitada;\n- sistemas/ambiente organizacional;\n- noções de projetos."
+        },
+        {
+          "heading": "B10 — Comportamento Organizacional",
+          "body": "Testar:\n- motivação;\n- liderança;\n- cultura e clima;\n- comunicação;\n- conflito e negociação;\n- comportamento individual e de grupos."
+        },
+        {
+          "heading": "B11 — Gestão de Pessoas",
+          "body": "Testar:\n- evolução e papel estratégico da área;\n- recrutamento e seleção;\n- treinamento, desenvolvimento e capacitação;\n- avaliação de desempenho;\n- gestão por competências;\n- retenção, alocação e desenvolvimento;\n- conexão com a Política de Gestão de Pessoas do TCE-GO."
+        },
+        {
+          "heading": "5. Distribuição do Q078",
+          "body": "Bloco\nItens\nFCC reais\nAutorais\nB07 — Administração Pública\n13\n5\n8\nB08 — Administração Geral\n11\n5\n6\nB10 — Comportamento Organizacional\n8\n5\n3\nB11 — Gestão de Pessoas\n8\n5\n3\nTotal\n40\n20\n20\nA distribuição aproxima o peso relativo 5:4:3:3 do edital sem fingir precisão estatística."
+        },
+        {
+          "heading": "6. Objetivos mensuráveis",
+          "body": "Ao final da execução real:\n1. obter percentual separado de B07, B08, B10 e B11;\n2. registrar erros e acertos com dúvida por subtema;\n3. identificar erro conceitual central ou P1 reincidente;\n4. produzir ranking interno de retenção;\n5. apontar apenas os subtemas que exigem intervenção;\n6. executar D0 nos erros prioritários;\n7. decidir D7/D20 somente pela evidência."
+        },
+        {
+          "heading": "Fonte canônica",
+          "body": "- Fonte-Mestra v1.3;\n- Base Técnica v1.3;\n- Base Operacional v1.3;\n- Template Calibração de matéria histórica."
+        },
+        {
+          "heading": "Administração Pública — simplificação",
+          "body": "Decreto nº 9.094/2017, texto oficial compilado:\n- boa-fé;\n- compartilhamento de informações;\n- atuação integrada;\n- racionalização;\n- eliminação de formalidades desproporcionais ao risco;\n- soluções tecnológicas;\n- linguagem clara;\n- Carta de Serviços;\n- Simplifique!."
+        },
+        {
+          "heading": "Gestão de Pessoas — fonte institucional",
+          "body": "Âncoras:\n- política orientada aos objetivos estratégicos;\n- responsabilidade de servidores e gestores;\n- desenvolvimento de competências;\n- gestão do desempenho;\n- alocação por perfil;\n- retenção de talentos;\n- ambiente livre de assédio/discriminação;\n- competências técnicas, gerenciais e comportamentais."
+        },
+        {
+          "heading": "8. Roteiro de 105 minutos",
+          "body": "1. 7 min — reativação curta das seções 9–12;\n2. 65 min — Q078, sem consulta;\n3. 20 min — correção + causa do erro;\n4. 8 min — matriz + ranking interno;\n5. 5 min — D0.\n---\n# REATIVAÇÃO CURTA"
+        },
+        {
+          "heading": "9. Administração Pública — mapa mínimo",
+          "body": "- governabilidade: condições políticas para governar;\n- governança: direção, avaliação, monitoramento e capacidade institucional;\n- accountability: dever de explicar/justificar com possibilidade de consequência;\n- eficiência: relação recursos × produtos;\n- eficácia: alcance de metas/objetivos;\n- efetividade: efeito/impacto produzido na realidade;\n- processo: fluxo recorrente que entrega valor;\n- projeto: esforço temporário com entrega específica;\n- BSC: tradução da estratégia em objetivos/indicadores sob múltiplas perspectivas."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "> “Atingiu a meta” prova eficácia, não prova automaticamente eficiência nem efetividade."
+        },
+        {
+          "heading": "10. Administração Geral — mapa mínimo",
+          "body": "- planejar → organizar → dirigir → controlar;\n- estrutura formal nasce do desenho oficial; a informal emerge das relações;\n- centralização concentra autoridade; descentralização distribui decisão;\n- departamentalização funcional agrupa especialidades;\n- matriz combina eixos e pode produzir dupla autoridade;\n- racionalidade limitada trabalha com informação incompleta e solução satisfatória;\n- visão sistêmica rejeita organização fechada ao ambiente."
+        },
+        {
+          "heading": "11. Comportamento Organizacional — mapa mínimo",
+          "body": "- clima = percepção mais conjuntural do ambiente;\n- cultura = valores e pressupostos mais profundos;\n- Herzberg: motivacionais ≠ higiênicos;\n- liderança situacional varia com o nível de desenvolvimento/maturidade;\n- conflito pode ser administrado por competição, colaboração, acomodação, evitação ou compromisso;\n- comunicação tem emissor, codificação, canal, decodificação, receptor e feedback."
+        },
+        {
+          "heading": "12. Gestão de Pessoas — mapa mínimo",
+          "body": "- GP estratégica alinha pessoas e objetivos institucionais;\n- recrutamento atrai; seleção escolhe;\n- T&D reduz lacunas e desenvolve capacidades;\n- avaliação de desempenho precisa de critérios e feedback;\n- competência = conhecimentos + habilidades + atitudes mobilizados para entrega;\n- lacuna de competência = requerido − disponível;\n- na RA nº 5/2024, gestão de pessoas conecta competência, desempenho, motivação, comprometimento e resultados.\n---\n# DIAGNÓSTICO"
+        },
+        {
+          "heading": "13. Matriz de retenção",
+          "body": "Bloco\nAcertos\nErros\nDúvidas\n%\nCor\nDecisão\nB07 — Administração Pública\n—\n—\n—\n—\n—\n—\nB08 — Administração Geral\n—\n—\n—\n—\n—\n—\nB10 — Comportamento Organizacional\n—\n—\n—\n—\n—\n—\nB11 — Gestão de Pessoas\n—\n—\n—\n—\n—\n—"
+        },
+        {
+          "heading": "14. Faixas internas",
+          "body": "- verde: ≥85%, sem erro estrutural e sem P1 reincidente;\n- amarelo: 75–84% ou acerto alto com dúvida;\n- laranja: 60–74% ou lacuna concentrada;\n- vermelho: \\<60% ou erro conceitual central/P1 reincidente.\nAs faixas são internas; não equivalem a corte oficial."
+        },
+        {
+          "heading": "15. Ranking interno de retenção",
+          "body": "Preencher somente após a execução:\nPosição\nBloco\n%\nP1\nDúvidas\nAção\n1º\n—\n—\n—\n—\n—\n2º\n—\n—\n—\n—\n—\n3º\n—\n—\n—\n—\n—\n4º\n—\n—\n—\n—\n—\nDesempate: maior percentual → menos P1 → menos dúvidas. Não inventar posição sem respostas.\n# TEORIA DE RESGATE — SOMENTE SE AUTORIZADA\nNão estudar preventivamente. Abra apenas o módulo do bloco que demonstrar lacuna.\nB07 — Administração Pública\nReabrir somente o contraste que falhou: modelos de Administração, governança/governabilidade/accountability, eficiência/eficácia/efetividade, processos/projetos, indicadores, BSC ou simplificação.\nB08 — Administração Geral\nRetomar somente a distinção errada: escolas/funções, estrutura, centralização, departamentalização, decisão, sistemas ou projeto.\nB10 — Comportamento Organizacional\nReabrir somente o tópico que revelou profundidade insuficiente: motivação, liderança, cultura/clima, comunicação ou conflito.\nB11 — Gestão de Pessoas\nRetomar apenas recrutamento/seleção, T&D, avaliação, competências ou o recorte institucional da RA nº 5/2024 que tiver gerado erro."
+        },
+        {
+          "heading": "16. Causa do erro",
+          "body": "Usar:\n- E1: desconhecimento;\n- E2: confusão;\n- E3: norma/literalidade;\n- E4: memória;\n- E5: interpretação;\n- E7: distração;\n- E8: tempo/processo."
+        },
+        {
+          "heading": "17. D0",
+          "body": "Depois da correção:\n1. refazer erradas e dúvidas;\n2. verbalizar o contraste decisivo de cada erro;\n3. separar erro conceitual de erro de leitura;\n4. registrar no Caderno de Erros apenas o que tiver valor futuro.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "18. D7 / D20",
+          "body": "Não pré-acionar.\nAcionar somente se houver:\n- P1;\n- reincidência;\n- bloco abaixo de 75%;\n- erro central de conceito;\n- esquecimento de norma atual relevante.\nAcionamento editorial ≠ revisão realizada."
+        },
+        {
+          "heading": "19. Critério editorial",
+          "body": "Liberar quando:\n- Q078 tiver 40 válidas;\n- distribuição 13/11/8/8 estiver íntegra;\n- FCC e autorais estiverem separadas;\n- correções estiverem recolhíveis;\n- fontes atuais estiverem identificadas;\n- matriz e ranking estiverem vazios;\n- execução real estiver vazia."
+        },
+        {
+          "heading": "20. Critério real",
+          "body": "Concluir somente após:\n- 40 respostas;\n- correção;\n- matriz B07/B08/B10/B11;\n- ranking interno de retenção;\n- D0;\n- Caderno de Erros quando cabível;\n- decisão real de D7/D20.\nPronto para estudo ≠ calibrado. O ranking nasce da execução, não da preparação editorial."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T23:22:57.335Z"
+    },
+    "d080": {
+      "dxx": "D080",
+      "title": "D080 — AFO + Licitações",
+      "summary": "AFO + Licitações — calibração integrada — verificar LRF/MCASP Parte I, Lei 14.133 e instrumentos avançados após os complementos dirigidos.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D080 — AFO + Licitações \\| calibração integrada FCC\nS37 / D080 — 105 min · 40 questões. Calibração integrada de AFO e Licitações, com foco em LRF/MCASP Parte I e gestão/instrumentos avançados da Lei nº 14.133/2021. O entregável é o top 10 riscos remanescentes; esta sessão não reabre cursos completos."
+        },
+        {
+          "heading": "2. Hipótese de calibração",
+          "body": "A Fonte-Mestra e a Base Técnica não tratam AFO nem Licitações como matérias novas."
+        },
+        {
+          "heading": "AFO",
+          "body": "- baseline histórico: base forte e comprovada;\n- tratamento: LRF/MCASP/complementos;\n- D043 já desenvolveu editorialmente o bloco LRF de alto risco;\n- MCASP Parte I funciona como ponte AFO ↔ CASP, não como uma matéria nova."
+        },
+        {
+          "heading": "Licitações",
+          "body": "- baseline: núcleo forte; instrumentos avançados parciais;\n- D047 já desenvolveu governança, PCA, ETP, TR e matriz de riscos;\n- D080 mede se esse complemento foi suficiente e avança para gestão/instrumentos.\nTrava anti-reestudo: não usar D080 para reaprender PPA/LDO/LOA, princípios orçamentários, modalidades, dispensa ou inexigibilidade sem evidência de perda real. Questões primeiro; teoria apenas da lacuna."
+        },
+        {
+          "heading": "3. Evidência anterior e limite",
+          "body": "D043 e D047 estão editorialmente auditados, mas ainda não foram executados pelo candidato. Portanto:\n- eles autorizam reaproveitar o conteúdo e as questões já validadas;\n- eles não autorizam inferir retenção real;\n- não existe dado legítimo para alterar a proporção canônica 22 AFO / 18 Licitações;\n- D7/D20 eventualmente configurados em dias anteriores não equivalem a revisão realizada."
+        },
+        {
+          "heading": "AFO — 22 itens",
+          "body": "A1 — LRF e controle fiscal\n- despesa total com pessoal;\n- escada 90% → 95% → 100%;\n- recondução do excesso;\n- dívida consolidada e limites;\n- operações de crédito;\n- ARO;\n- RGF;\n- alertas e fiscalização dos Tribunais de Contas.\nA2 — MCASP Parte I / ponte AFO-CASP\n- Parte I = Procedimentos Contábeis Orçamentários;\n- integração Lei nº 4.320/1964 + LRF + MCASP;\n- enfoque orçamentário não se confunde com fato gerador patrimonial;\n- estágios orçamentários e leitura integrada de receita/despesa."
+        },
+        {
+          "heading": "Licitações — 18 itens",
+          "body": "L1 — verificação do complemento D047\n- governança;\n- PCA;\n- ETP;\n- TR;\n- análise de riscos;\n- matriz de alocação de riscos.\nL2 — gestão e instrumentos avançados\n- Sistema de Registro de Preços (SRP);\n- credenciamento;\n- pré-qualificação;\n- formalização contratual;\n- execução;\n- fiscalização e gestão;\n- recebimento;\n- alterações;\n- equilíbrio econômico-financeiro;\n- sanções e processo sancionador;\n- Portal Nacional de Contratações Públicas (PNCP)."
+        },
+        {
+          "heading": "5. Distribuição do Q080",
+          "body": "Subbloco\nItens\nQuantidade\nFunção\nA1 — LRF/fiscal\n1–19\n19\nretenção após D043\nA2 — MCASP Parte I\n20–22\n3\nponte AFO-CASP\nL1 — planejamento D047\n23–29\n7\nverificar complemento\nL2 — gestão/instrumentos\n30–40\n11\nlacuna avançada\nTotal AFO\n1–22\n22\n—\nTotal Licitações\n23–40\n18\n—"
+        },
+        {
+          "heading": "AFO",
+          "body": "- Lei nº 4.320/1964, nos pontos de integração orçamentária.\nCorte do edital: 25/08/2026.\nA LRF foi revalidada no projeto em 22/09/2026. O art. 35 já incorpora a LC nº 212/2025. Alterações posteriores ao corte não devem contaminar a métrica do edital."
+        },
+        {
+          "heading": "Licitações",
+          "body": "- D047/Q047 para o complemento já desenvolvido;\n- questões FCC recentes para instrumentos e gestão.\nA Lei nº 15.471/2026, anterior ao corte, não altera o núcleo liberado para esta calibração. O Decreto nº 10.947/2022 permanece apenas referência federal para PCA, não regra automática do TCE-GO."
+        },
+        {
+          "heading": "7. Roteiro de 105 minutos",
+          "body": "1. 8 min — reativação curta das seções 8–9;\n2. 62 min — Q080, sem consulta;\n3. 20 min — correção + causa do erro;\n4. 10 min — matriz + top 10 riscos;\n5. 5 min — D0.\nSe a retenção estiver alta, o tempo economizado não vira releitura geral.\n---\n# REATIVAÇÃO CURTA"
+        },
+        {
+          "heading": "LRF",
+          "body": "- pessoal: alerta do TC acima de 90% do limite;\n- prudencial: ao exceder 95%;\n- excesso: retorno em 2 quadrimestres, ao menos 1/3 no primeiro;\n- dívida: retorno em 3 quadrimestres, redução de ao menos 25% do excedente no primeiro;\n- DCL: Estados/DF 2 × RCL; Municípios 1,2 × RCL;\n- operações de crédito: 16% da RCL;\n- serviço da dívida: 11,5% da RCL;\n- ARO: saldo até 7% da RCL;\n- ARO: após o 10º dia do exercício e liquidação até 10 de dezembro;\n- RGF: quadrimestral; publicação em até 30 dias após o período."
+        },
+        {
+          "heading": "MCASP Parte I",
+          "body": "> Parte I = orçamento. Parte II = patrimônio. Parte IV = PCASP. Parte V = DCASP.\nA Parte I organiza procedimentos contábeis orçamentários e faz a ponte entre a legislação orçamentária e os registros contábeis. Não confunda:\n- execução orçamentária com\n- reconhecimento patrimonial pelo fato gerador."
+        },
+        {
+          "heading": "Planejamento",
+          "body": "necessidade → ETP → solução viável → TR → edital/contratação\n- governança = responsabilidade da alta administração;\n- PCA = instrumento de planejamento quando adotado/regulamentado;\n- ETP = problema, alternativas e viabilidade;\n- TR = detalhamento do objeto e da execução;\n- análise de riscos ≠ matriz de alocação de riscos."
+        },
+        {
+          "heading": "Gestão/instrumentos",
+          "body": "- SRP não se confunde com contrato já celebrado;\n- credenciamento é procedimento auxiliar, não modalidade;\n- pré-qualificação é procedimento seletivo anterior à licitação;\n- fiscalização acompanha a execução; apoio de terceiros não elimina a responsabilidade do fiscal;\n- recebimento provisório e definitivo têm funções próprias;\n- matriz de riscos influencia a equação econômico-financeira;\n- sanções exigem enquadramento e processo compatível;\n- PNCP é eixo de publicidade e eficácia nos casos previstos em lei."
+        },
+        {
+          "heading": "10. Pegadinhas FCC prioritárias",
+          "body": "1. 90 / 95 / 100 trocados.\n2. 2 quadrimestres + 1/3 de pessoal trocados por 3 quadrimestres + 25% da dívida.\n3. ARO tratada como solução estrutural de déficit.\n4. MCASP Parte I confundida com PCASP ou DCASP.\n5. ETP confundido com TR.\n6. análise de riscos confundida com matriz.\n7. credenciamento tratado como modalidade.\n8. ata de registro de preços tratada automaticamente como contrato.\n9. alteração contratual usada como sinônimo de reequilíbrio.\n10. publicidade no PNCP confundida com mera formalidade sem efeito jurídico.\n---\n# DIAGNÓSTICO"
+        },
+        {
+          "heading": "11. Matriz de retenção",
+          "body": "Subbloco\nAcertos\nErros\nDúvidas\n%\nCor\nDecisão\nA1 — LRF/fiscal\n—\n—\n—\n—\n—\n—\nA2 — MCASP Parte I\n—\n—\n—\n—\n—\n—\nL1 — planejamento\n—\n—\n—\n—\n—\n—\nL2 — gestão/instrumentos\n—\n—\n—\n—\n—\n—"
+        },
+        {
+          "heading": "Faixas internas",
+          "body": "- verde: ≥85%, sem erro estrutural/P1;\n- amarelo: 75–84% ou acerto alto com dúvida;\n- laranja: 60–74% ou lacuna concentrada;\n- vermelho: \\<60% ou erro conceitual central/P1 reincidente."
+        },
+        {
+          "heading": "12. Top 10 riscos remanescentes",
+          "body": "Preencher somente após a execução real.\n#\nMatéria/subtema\nEvidência\nSeveridade\nAção\n1\n—\n—\n—\n—\n2\n—\n—\n—\n—\n3\n—\n—\n—\n—\n4\n—\n—\n—\n—\n5\n—\n—\n—\n—\n6\n—\n—\n—\n—\n7\n—\n—\n—\n—\n8\n—\n—\n—\n—\n9\n—\n—\n—\n—\n10\n—\n—\n—\n—\n# TEORIA DE RESGATE — SOMENTE SE A BATERIA AUTORIZAR\nA1 — LRF/fiscal\nRetomar somente o contraste que falhou: pessoal, dívida, crédito/ARO, RGF ou fiscalização/alertas.\nA2 — MCASP Parte I\nRetomar apenas arquitetura da Parte I, estágios orçamentários ou contraste orçamento × patrimônio.\nL1 — planejamento\nRetomar apenas governança/PCA, ETP/TR ou análise × matriz.\nL2 — gestão/instrumentos\nRetomar somente SRP, credenciamento, pré-qualificação, formalização, fiscalização, recebimento, alteração/equilíbrio, sanções ou PNCP conforme o erro."
+        },
+        {
+          "heading": "13. Classificação da causa",
+          "body": "- E1: desconhecimento;\n- E2: confusão conceitual;\n- E3: norma/literalidade;\n- E4: memória;\n- E5: interpretação;\n- E7: distração;\n- E8: tempo/processo."
+        },
+        {
+          "heading": "14. D0",
+          "body": "Depois da correção:\n1. refazer erradas e acertos com dúvida;\n2. verbalizar o contraste decisivo;\n3. recuperar de memória os números LRF errados;\n4. desenhar ETP → TR e análise → matriz quando houver erro;\n5. registrar no Caderno de Erros apenas o que tiver valor futuro.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "15. D7 / D20",
+          "body": "Não pré-acionar pela S37.\nAcionar apenas se a execução revelar:\n- P1;\n- reincidência;\n- subbloco abaixo de 75%;\n- erro central de literalidade vigente;\n- confusão normativa com alto potencial de repetição."
+        },
+        {
+          "heading": "16. Critério editorial",
+          "body": "Liberar D080 somente quando:\n- Q080 tiver 40 questões válidas;\n- distribuição 22 AFO / 18 Licitações estiver íntegra;\n- A1/A2/L1/L2 estiverem rastreáveis;\n- FCC e autorais estiverem separados;\n- correções estiverem recolhíveis;\n- vigência estiver controlada;\n- matriz e top 10 estiverem vazios;\n- execução real continuar vazia."
+        },
+        {
+          "heading": "17. Critério real de conclusão",
+          "body": "Concluir somente após:\n- 40 respostas;\n- correção integral;\n- matriz A1/A2/L1/L2;\n- top 10 riscos remanescentes;\n- D0;\n- Caderno de Erros quando cabível;\n- decisão real de D7/D20.\nPronto para estudo ≠ calibrado. D080 só produzirá diagnóstico quando for realmente executado."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T23:44:46.688Z"
+    },
+    "d082": {
+      "dxx": "D082",
+      "title": "D082 — Bloco aplicado FCC + Redação R4",
+      "summary": "Bloco aplicado FCC + Redação R4 — 50 questões de prova/bloco comparável, sem consulta e com tempo, seguidas de redação FCC para testar escrita após carga objetiva intermediária.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D082 — Bloco aplicado FCC + Redação R4\nS38 / D082 — até 3h30 · 50 questões + R4. Sessão aplicada de transição entre calibrações e consolidação: resolver um bloco FCC comparável, sem consulta e com tempo, e depois produzir a R4 sob fadiga objetiva intermediária."
+        },
+        {
+          "heading": "2. Função do D082",
+          "body": "O D082 não é o Simulado 2 e não substitui D090.\nEle serve para testar:\n- troca rápida entre matérias;\n- retenção do conteúdo já construído/calibrado;\n- adaptação ao estilo FCC;\n- tempo sob bloco heterogêneo;\n- fadiga antes da escrita;\n- capacidade de manter qualidade discursiva depois de 50 objetivas."
+        },
+        {
+          "heading": "O que o D082 não faz",
+          "body": "- não reproduz as 70 questões oficiais;\n- não gera IPI de simulado integral;\n- não autoriza reforma estratégica por resultado isolado;\n- não abre teoria antes da bateria;\n- não transforma a prova TCE-GO/2022 em prova do cargo atual."
+        },
+        {
+          "heading": "3. Fonte-base e curadoria",
+          "body": "A Base Operacional define como fonte-base:\nTCE-GO 2022 — Analista de Controle Externo / FCC.\nRegra aplicada no Q082:\n- 15 itens TCE-GO/2022 já auditados e com sobreposição real;\n- 35 FCC recentes/compatíveis para completar matérias ausentes ou insuficientes;\n- 0 autorais;\n- 100% do lote já passou por curadoria editorial no projeto.\nReexposição editorial não significa questão já respondida. O projeto ainda está em preparação: Material pronto ≠ estudado e Questões prontas ≠ respondidas. Portanto, reaproveitar itens auditados não cria desempenho fictício nem pressupõe memória do candidato."
+        },
+        {
+          "heading": "Gerais — 18",
+          "body": "- Português: 7;\n- Matemática/RLM: 7;\n- Legislação Institucional: 4."
+        },
+        {
+          "heading": "Específicas — 32",
+          "body": "- Direito Administrativo: 4;\n- Licitações: 4;\n- Direito Constitucional: 2;\n- Controle Externo/Auditoria: 3;\n- AFO: 4;\n- CASP: 4;\n- Administração Pública: 3;\n- Administração Geral: 3;\n- Administração Estratégica: 2;\n- Comportamento Organizacional: 1;\n- Gestão de Pessoas: 2.\nEssa distribuição mantém uma aproximação útil de Gerais × Específicas, mas não deve ser confundida com a distribuição oficial integral de 70 questões."
+        },
+        {
+          "heading": "Primeira passada",
+          "body": "- resolver o que estiver claro;\n- sinalizar questão travada;\n- não abrir correção;\n- não pesquisar norma;\n- não transformar uma questão difícil em gargalo de toda a sessão."
+        },
+        {
+          "heading": "Segunda passada",
+          "body": "Voltar apenas às marcadas:\n- dúvida entre duas;\n- cálculo incompleto;\n- literalidade normativa recuperável;\n- questão deixada por tempo."
+        },
+        {
+          "heading": "Política de retorno",
+          "body": "Registrar depois:\n- quantas foram deixadas para retorno;\n- quantos chutes;\n- quantos acertos com dúvida;\n- qual matéria mais consumiu tempo."
+        },
+        {
+          "heading": "R4",
+          "body": "A R4 começa depois das 50 objetivas, salvo se a execução real demonstrar que outra ordem funciona melhor.\nNão fixar antecipadamente um tempo rígido. O dado útil é:\n- tempo restante ao iniciar R4;\n- fadiga;\n- planejamento;\n- escrita;\n- revisão;\n- conclusão dentro das 20–30 linhas."
+        },
+        {
+          "heading": "6. Referência interna de fluxo — não é regra oficial",
+          "body": "Dentro das até 3h30:\n1. resolver Q082 sem consulta;\n2. produzir R4;\n3. corrigir as objetivas;\n4. corrigir R4 pela rubrica;\n5. classificar erros;\n6. executar D0.\nA ordem da correção pode ser ajustada depois da produção, mas a objetiva e a redação devem ser tentadas antes de consultar os gabaritos."
+        },
+        {
+          "heading": "7. Painel de execução — preencher depois",
+          "body": "- Início: —\n- Fim: —\n- Tempo total: —\n- Tempo das 50 objetivas: —\n- Tempo restante ao iniciar R4: —\n- Questões para retorno: —\n- Chutes: —\n- Acertos com dúvida: —\n- Fadiga antes da R4: —\n- A ordem escolhida ajudou/prejudicou: —"
+        },
+        {
+          "heading": "8. Resultado objetivo por matéria",
+          "body": "Matéria\nAcertos\nTotal\n%\nErros dominantes\nPortuguês\n—\n7\n—\n—\nMatemática/RLM\n—\n7\n—\n—\nLegislação Institucional\n—\n4\n—\n—\nDireito Administrativo\n—\n4\n—\n—\nLicitações\n—\n4\n—\n—\nDireito Constitucional\n—\n2\n—\n—\nControle Externo/Auditoria\n—\n3\n—\n—\nAFO\n—\n4\n—\n—\nCASP\n—\n4\n—\n—\nAdministração Pública\n—\n3\n—\n—\nAdministração Geral\n—\n3\n—\n—\nAdministração Estratégica\n—\n2\n—\n—\nComportamento Organizacional\n—\n1\n—\n—\nGestão de Pessoas\n—\n2\n—\n—"
+        },
+        {
+          "heading": "9. Resultado agregado — sem IPI",
+          "body": "- Gerais: — / 18\n- Específicas: — / 32\n- Total bruto: — / 50\n- Aproveitamento bruto: —%\n- P1: —\n- Reincidentes: —\n- Top 5 perdas: —\nNão calcular IPI do D082. O IPI canônico do projeto pressupõe o formato integral de 25 Gerais + 45 Específicas."
+        },
+        {
+          "heading": "10. Motivo dos erros",
+          "body": "- E1: desconhecimento;\n- E2: confusão conceitual;\n- E3: norma/literalidade;\n- E4: memória;\n- E5: interpretação;\n- E6: cálculo/procedimento;\n- E7: distração;\n- E8: tempo/processo."
+        },
+        {
+          "heading": "11. Redação R4",
+          "body": "A R4 mede estabilidade discursiva após carga objetiva intermediária.\nTema preparado:\nEficiência administrativa e qualidade dos serviços públicos: os limites de reduzir resultados a indicadores numéricos."
+        },
+        {
+          "heading": "Histórico longitudinal",
+          "body": "- R1 = Planejada;\n- R2 = Planejada;\n- R3 = Planejada;\n- portanto, R4 não presume evolução nem regressão."
+        },
+        {
+          "heading": "12. Pós-bloco",
+          "body": "Somente depois da correção:\n1. identificar as 5 maiores perdas objetivas;\n2. separar erro novo × reincidente;\n3. registrar P1;\n4. registrar impacto de tempo/fadiga;\n5. corrigir R4;\n6. definir até 3 ações para o próximo bloco;\n7. não reabrir matéria inteira por um erro isolado."
+        },
+        {
+          "heading": "13. D0",
+          "body": "D0 configurado, não realizado.\n- refazer erradas + acertos com dúvida;\n- corrigir uma causa dominante;\n- revisar a tese/maior perda da R4;\n- registrar apenas erros reutilizáveis no Caderno."
+        },
+        {
+          "heading": "14. D7 / D20",
+          "body": "Não pré-acionar.\nAcionar somente se a execução mostrar:\n- P1;\n- reincidência;\n- desempenho baixo em conjunto minimamente representativo;\n- erro normativo central;\n- problema de tempo que comprometa objetiva ou R4;\n- falha discursiva reaplicável."
+        },
+        {
+          "heading": "15. Critério editorial",
+          "body": "D082 pode ser liberado quando:\n- Q082 = 50/50;\n- origem e validade rastreáveis;\n- R4 vinculada;\n- Material/Q/R4 coerentes;\n- gabaritos ocultos em toggles;\n- campos reais vazios;\n- D7/D20 não falseados;\n- Site = não."
+        },
+        {
+          "heading": "16. Critério real de conclusão",
+          "body": "D082 só termina depois de:\n- 50 respostas;\n- correção das 50;\n- resultado por matéria;\n- erros por motivo;\n- R4 produzida em 20–30 linhas;\n- R4 corrigida pela rubrica;\n- maior perda objetiva e discursiva identificadas;\n- D0;\n- decisão real sobre D7/D20.\nEstado editorial ≠ execução. Nada desta página marca estudo, prova, redação ou revisão como realizados."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-23T00:17:59.665Z"
+    },
+    "d085": {
+      "dxx": "D085",
+      "title": "D085 — Controle + CASP",
+      "summary": "Controle + CASP — bateria de consolidação — Mistura dos dois maiores blocos novos, com consulta apenas na correção.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D085 — Controle + CASP \\| bateria de consolidação\nS39 / D085 — 40 questões em 120 min. Mistura dos dois maiores blocos técnicos novos do projeto: Controle/Auditoria + CASP. Regra central: questões primeiro; consulta somente na correção."
+        },
+        {
+          "heading": "2. Por que este dia existe",
+          "body": "D085 não introduz uma nova camada extensa de teoria. Ele aparece depois de:\n- construção progressiva de Controle Externo e Auditoria;\n- construção progressiva de CASP;\n- calibrações das matérias históricas;\n- bloco aplicado D082.\nA função agora é responder: o conhecimento técnico construído consegue sobreviver misturado, sem consulta e com limite de tempo?\nIsso importa antes de R5/D087 e do Simulado 2/D090, porque uma fragilidade em Controle ou CASP precisa aparecer antes do próximo checkpoint integral."
+        },
+        {
+          "heading": "Controle/Auditoria",
+          "body": "É conteúdo majoritariamente novo/aprofundado no projeto, construído em camadas:\n- D001 — sistema constitucional de controle;\n- D008 — instrumentos de fiscalização;\n- D015 — tipos de auditoria;\n- D022 — NBASP 100;\n- D029 — planejamento, risco e materialidade;\n- D036 — programa, amostragem e papéis;\n- D052 — técnicas e evidências;\n- D059 — achados e responsabilização."
+        },
+        {
+          "heading": "CASP",
+          "body": "É o maior bloco técnico novo do projeto. O histórico anterior em AFO e Lei nº 4.320/1964 ajuda, mas não prova domínio de NBC TSP, PCASP e DCASP.\nCamadas construídas:\n- D003/D010 — fundamentos, MCASP e arquitetura;\n- D017/D024/D031/D038 — NBC TSP;\n- D050 — PCASP;\n- D057 — DCASP;\n- D061 — integração e prestação/controle.\nConsequência metodológica: D085 não reabre os cursos antes da bateria. Primeiro mede; depois revisa somente o que ficar abaixo da meta."
+        },
+        {
+          "heading": "Controle/Auditoria",
+          "body": "Reativar:\n- controle interno × externo;\n- competências e natureza dos Tribunais de Contas;\n- instrumentos de fiscalização;\n- auditoria financeira, operacional e conformidade;\n- NBASP 100/200/300/400;\n- planejamento, risco e materialidade;\n- evidência e técnicas;\n- achado: critério, condição, causa e efeito;\n- matriz de achados e matriz de responsabilização;\n- relatório, monitoramento e cadeia de responsabilização."
+        },
+        {
+          "heading": "CASP",
+          "body": "Reativar:\n- orçamento × patrimônio;\n- reconhecimento de VPA/VPD;\n- MCASP 11ª edição;\n- NBC TSP previstas no recorte editalício;\n- PCASP e naturezas patrimonial/orçamentária/controle;\n- leitura de lançamentos;\n- Balanço Orçamentário;\n- Balanço Financeiro;\n- Balanço Patrimonial;\n- DVP;\n- DFC;\n- integração com prestação e controle."
+        },
+        {
+          "heading": "Controle/Auditoria",
+          "body": "- [Constituição Federal compilada](https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm)\n- [EC nº 139/2026](https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc139.htm)\n- [Regimento Interno do TCE-GO — Resolução nº 22/2008 consolidada](https://gnoi.tce.go.gov.br/atoNormativo/Publicado?id=9544)\n- [Portal NBASP/IRB](https://nbasp.irbcontas.org.br/)"
+        },
+        {
+          "heading": "CASP",
+          "body": "- [STN — MCASP, 11ª edição](https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/manuais/manual-de-contabilidade-aplicada-ao-setor-publico-mcasp-1)\n- normas NBC TSP indicadas no edital, dentro do corte normativo do projeto.\nCorte editalício: alterações vigentes até 25/08/2026. Conferência editorial atual de links não autoriza importar mudança posterior ao corte sem nova retificação/comunicado."
+        },
+        {
+          "heading": "Passo 1 — bateria cega",
+          "body": "- sem Material;\n- sem lei/norma;\n- sem abrir correção;\n- marcando retorno quando necessário."
+        },
+        {
+          "heading": "Passo 2 — corrigir",
+          "body": "Depois das 40:\n- abrir os toggles;\n- conferir fundamento;\n- classificar erro;\n- separar acerto limpo de acerto com dúvida."
+        },
+        {
+          "heading": "Passo 3 — calcular dois percentuais",
+          "body": "- Controle/Auditoria: acertos ÷ 20;\n- CASP: acertos ÷ 20.\nNão esconder fragilidade de um bloco atrás da média total."
+        },
+        {
+          "heading": "Passo 4 — decidir o tamanho da revisão",
+          "body": "Resultado do bloco\nTratamento\n≥ 85%\nmanutenção; D0 das perdas, sem reestudo amplo\n75–84%\nrevisão curta e específica\n60–74%\ncomplemento dirigido + reaplicação\n&lt; 60%\nreabrir somente o subbloco efetivamente fragilizado"
+        },
+        {
+          "heading": "7. Mapa de diagnóstico — Controle/Auditoria",
+          "body": "Código\nSubbloco\nQuestões D085\nC1\ninstrumentos de fiscalização\n1–3\nC2\ntipos de auditoria + NBASP\n4–10\nC3\nplanejamento, risco e materialidade\n11–14\nC4\nevidência e técnicas\n15–17\nC5\nachados e responsabilização\n18–20"
+        },
+        {
+          "heading": "Fichas de recuperação — abrir somente se o bloco correspondente falhar",
+          "body": "C1 — instrumentos\n- levantamento: conhecer/mapejar e subsidiar planejamento;\n- auditoria: examinar legalidade, legitimidade, economicidade e/ou desempenho conforme escopo;\n- inspeção: esclarecer/apurar ponto concreto;\n- acompanhamento: observar ao longo de período predeterminado;\n- monitoramento: verificar cumprimento e efeitos de decisões/recomendações.\nPegadinha: acompanhamento ≠ monitoramento.\nC2 — tipos/NBASP\n- financeira: informação financeira + asseguração/opinião;\n- operacional: economicidade, eficiência, eficácia e efetividade;\n- conformidade: aderência a critérios normativos/obrigacionais;\n- auditor, parte responsável e usuários previstos formam a relação básica da auditoria pública;\n- asseguração razoável ≠ certeza absoluta.\nC3 — planejamento/risco\nPlanejamento é processo iterativo. Materialidade não é só valor: pode haver componente qualitativo. Risco identificado deve gerar resposta/procedimento; não vira achado automaticamente.\nC4 — evidência/técnicas\nSuficiência = quantidade. Adequação = qualidade. Inspeção, observação, confirmação, recálculo, reexecução, indagação e procedimentos analíticos respondem a perguntas distintas.\nC5 — achado/responsabilização\nCritério = padrão; condição = situação encontrada; causa = razão; efeito = consequência. Matriz de responsabilização individualiza conduta e nexo; não substitui contraditório, ampla defesa nem juízo final."
+        },
+        {
+          "heading": "8. Mapa de diagnóstico — CASP",
+          "body": "Código\nSubbloco\nQuestões D085\nP1\nfundamentos / orçamento × patrimônio\n21–24\nP2\nNBC TSP 01–04\n25–28\nP3\nNBC TSP 06–10\n29–32\nP4\nNBC TSP 11–13/15\n33–35\nP5\nPCASP / lançamentos\n36–37\nP6\nDCASP\n38–40"
+        },
+        {
+          "heading": "Fichas de recuperação — abrir somente se o bloco correspondente falhar",
+          "body": "P1 — fundamentos\nAFO acompanha o orçamento; CASP acompanha o patrimônio sem abandonar o orçamento. Entrada de caixa não é automaticamente receita; pagamento não é automaticamente VPD; fato gerador patrimonial pode ocorrer em momento diferente do estágio orçamentário.\nP2 — NBC TSP 01–04\nRecuperar: transação com/sem contraprestação; condição × restrição; provisão × contingência; estoques para distribuição gratuita. Evite decorar palavra isolada sem reconhecer o fato econômico.\nP3 — NBC TSP 06–10\nRecuperar a classificação do ativo pela finalidade: propriedade para investimento × imobilizado × intangível; software integral ao hardware acompanha o imobilizado; impairment exige identificar se o ativo gera ou não caixa.\nP4 — NBC TSP 11–13/15\nReativar apresentação das informações orçamentárias e DFC. Na DFC, classifique o fluxo pelo fato econômico; aquisição de imobilizado e certos empréstimos/adiantamentos a terceiros pertencem a investimento.\nP5 — PCASP\n1–4 patrimônio · 5–6 orçamento · 7–8 controle. Antes de julgar o nome da conta, confira natureza e estágio. Um mesmo fato pode gerar lançamentos em naturezas diferentes.\nP6 — DCASP\n- BO: previsão/dotação × execução;\n- BF: ingressos/dispêndios e variação financeira;\n- BP: posição patrimonial + financeiro/permanente;\n- DVP: alterações patrimoniais e resultado patrimonial;\n- DFC: fluxos operacionais, investimento e financiamento.\nPegadinha: resultado financeiro do BF ≠ superávit financeiro do BP."
+        },
+        {
+          "heading": "Controle",
+          "body": "- instrumento adequado à finalidade;\n- financeira × operacional × conformidade;\n- suficiência × adequação;\n- critério × condição × causa × efeito;\n- risco → resposta de auditoria."
+        },
+        {
+          "heading": "CASP",
+          "body": "- orçamento × patrimônio;\n- receita/VPA e despesa/VPD não são sinônimos;\n- classes 1–8 do PCASP;\n- BP financeiro/permanente ≠ circulante/não circulante;\n- BO × BF × BP × DVP × DFC."
+        },
+        {
+          "heading": "10. Como a FCC tende a pressionar",
+          "body": "A bateria reúne padrões já vistos nas questões auditadas:\n- trocar conceitos próximos por uma palavra;\n- usar alternativa tecnicamente verdadeira, mas em camada errada;\n- misturar norma/estrutura histórica com regra atual;\n- oferecer valor de pagamento quando a pergunta pede empenho;\n- oferecer classe de natureza diferente da solicitada;\n- confundir quantidade de evidência com qualidade;\n- confundir instrumento de fiscalização com tipo de auditoria."
+        },
+        {
+          "heading": "11. Pós-Q085",
+          "body": "Depois da correção, preencher:\n- % Controle/Auditoria;\n- % CASP;\n- subblocos abaixo da meta;\n- acertos com dúvida;\n- P1;\n- reincidências;\n- top 5 perdas;\n- revisão curta realmente necessária."
+        },
+        {
+          "heading": "Limite de intervenção",
+          "body": "Não transformar:\n- 1 erro isolado em reestudo de 8 dias;\n- 1 acerto com dúvida em “domínio”;\n- média total boa em desculpa para esconder um dos dois blocos abaixo da meta."
+        },
+        {
+          "heading": "12. D0",
+          "body": "Configurado, não realizado.\n1. refazer erradas + acertos com dúvida;\n2. verbalizar o fundamento;\n3. abrir somente as fichas/submateriais do subbloco fraco;\n4. registrar erro reutilizável no Caderno;\n5. se necessário, separar 5–10 itens para reaplicação futura."
+        },
+        {
+          "heading": "13. D7 / D20",
+          "body": "Não pré-acionados.\nAcionar depois da execução apenas quando houver:\n- erro P1;\n- reincidência;\n- conceito crítico abaixo da meta;\n- acerto com dúvida relevante;\n- necessidade de estabilizar bloco novo antes do D090."
+        },
+        {
+          "heading": "14. Critério editorial de liberação",
+          "body": "- Material coerente com D085;\n- Q085 = 40/40;\n- distribuição = 20/20;\n- fonte/validade rastreável;\n- correções ocultas;\n- campos pessoais vazios;\n- revisão condicionada ao resultado;\n- D7/D20 sem falseamento;\n- Site = não."
+        },
+        {
+          "heading": "15. Critério real de conclusão",
+          "body": "D085 só termina quando houver:\n- 40 respostas;\n- correção integral;\n- % separado Controle/CASP;\n- conceitos abaixo da meta identificados;\n- D0;\n- decisão real sobre D7/D20;\n- revisão final apenas do que realmente precisar.\nEstado editorial ≠ execução. Material/Q085 podem ficar prontos sem marcar estudo, revisão ou desempenho como realizados."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-23T00:30:43.743Z"
     }
   },
   "questions": {
@@ -10107,6 +10680,61 @@
       "copyrightMode": "metadata-only",
       "version": 2,
       "lastEdited": "2026-09-22T20:29:44.224Z"
+    },
+    "q075": {
+      "qxx": "Q075",
+      "dxx": "D075",
+      "title": "Q075 — Questões \\| Administrativo + Constitucional",
+      "meta": 30,
+      "valid": 30,
+      "sourceSummary": "20 FCC reais + 10 autorais controladas; 15 Administrativo + 15 Constitucional. Reexposições identificadas.",
+      "copyrightMode": "metadata-only",
+      "version": 3,
+      "lastEdited": "2026-09-22T22:27:23.327Z"
+    },
+    "q078": {
+      "qxx": "Q078",
+      "dxx": "D078",
+      "title": "Q078 — Questões \\| Administração",
+      "meta": 40,
+      "valid": 40,
+      "sourceSummary": "20 FCC reais + 20 autorais controladas; B07 13, B08 11, B10 8, B11 8. FCC reexpostas identificadas e separadas de incidência nova.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T23:22:59.203Z"
+    },
+    "q080": {
+      "qxx": "Q080",
+      "dxx": "D080",
+      "title": "Q080 — Questões \\| AFO + Licitações",
+      "meta": 40,
+      "valid": 40,
+      "sourceSummary": "30 FCC reais + 10 autorais controladas; 22 AFO + 18 Licitações; A1 19 / A2 3 / L1 7 / L2 11. 26 FCC reexpostas de Q043/Q047 + 4 FCC novas recentes.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T23:44:48.627Z"
+    },
+    "q082": {
+      "qxx": "Q082",
+      "dxx": "D082",
+      "title": "Q082 — Questões \\| Bloco aplicado FCC + Redação R4",
+      "meta": 50,
+      "valid": 50,
+      "sourceSummary": "50 FCC reais / 0 autorais. Fonte-base: 15 TCE-GO/2022 + 35 FCC complementares auditadas. Distribuição aplicada: 18 Gerais + 32 Específicas.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-23T00:18:01.562Z"
+    },
+    "q085": {
+      "qxx": "Q085",
+      "dxx": "D085",
+      "title": "Q085 — Questões \\| Controle + CASP",
+      "meta": 40,
+      "valid": 40,
+      "sourceSummary": "40 FCC reais / 0 autorais. Distribuição: 20 Controle/Auditoria + 20 CASP. Reexposições de baterias já auditadas, com fonte/localizador, validade e correção preservados; repetição não conta como incidência inédita.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-23T00:30:46.162Z"
     }
   },
   "publicStats": {
@@ -10115,7 +10743,7 @@
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 34,
-    "questionPages": 34
+    "materialPages": 39,
+    "questionPages": 39
   }
 }
