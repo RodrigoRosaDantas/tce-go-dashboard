@@ -19,11 +19,9 @@ export interface MaterialSnapshot {
   dxx: string;
   title: string;
   summary: string;
-  contentHtml?: string;
   sections?: Array<{ heading: string; body: string }>;
   version?: number;
-  lastEdited?: string | null;
-  hash?: string;
+  lastEdited?: string;
 }
 
 export interface QuestionSnapshot {
@@ -33,17 +31,18 @@ export interface QuestionSnapshot {
   meta: number;
   valid: number;
   sourceSummary: string;
-  copyrightMode: "metadata-only" | "project-authored" | "sanitized-mixed";
-  contentHtml?: string;
+  copyrightMode: "metadata-only" | "project-authored";
   version?: number;
-  lastEdited?: string | null;
-  hash?: string;
+  lastEdited?: string;
+  gapDeclared?: boolean;
 }
 
 export interface Snapshot {
   schemaVersion: string;
   generatedAt: string;
   source: "notion";
+  contentMode?: "bootstrap" | "full";
+  contentHash?: string;
   days: DaySnapshot[];
   materials: Record<string, MaterialSnapshot>;
   questions: Record<string, QuestionSnapshot>;
@@ -53,7 +52,7 @@ export interface Snapshot {
     protectedDays: number;
     sessions: number;
     readyDays: number;
-    materialPages?: number;
-    questionPages?: number;
+    materialDays?: number;
+    questionDays?: number;
   };
 }
