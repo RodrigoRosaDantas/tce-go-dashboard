@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T14:05:09.145Z",
+  "generatedAt": "2026-09-23T14:05:53.363Z",
   "days": [
     {
       "dxx": "D001",
@@ -6929,6 +6929,1803 @@
       ],
       "version": 2,
       "lastEdited": "2026-09-22T18:13:10.830Z"
+    },
+    "d054": {
+      "dxx": "D054",
+      "title": "D054 — Legislação Institucional VI",
+      "summary": "Legislação Institucional VI — políticas TCE-GO — RA 5/2024; RA 19/2024; RA 15/2024 — pessoas, comunicação e planejamento/gestão.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D054 — Legislação Institucional VI \\| pessoas, comunicação e planejamento/gestão\nS25 / D054 — 90 min · 20 questões. Esta sessão fecha o bloco de políticas institucionais do TCE-GO com três atos complementares: quem desenvolve pessoas, como o Tribunal se comunica e como transforma estratégia em planos e fiscalização."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "As sessões anteriores construíram:\n- D005/D012/D026: arquitetura, competências, LOTCE/RITCE;\n- D033: servidor, carreira e ética;\n- D040: estrutura, segurança, dados e IA.\nO D054 fecha a leitura institucional por três perspectivas:\n1. pessoas — RA 5/2024;\n2. comunicação — RA 19/2024;\n3. planejamento e gestão — RA 15/2024.\nA pergunta-guia é:\n> quem é responsável, qual é o instrumento e qual é o efeito institucional?"
+        },
+        {
+          "heading": "3. Posição no edital",
+          "body": "- A03 — Legislação Institucional;\n- Gerais;\n- 5 questões;\n- peso 1;\n- baseline: Novo;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Controle temporal",
+          "body": "- corte do edital: 25/08/2026;\n- textos oficiais GNOI revalidados em 22/09/2026;\n- nenhum dos três atos foi tratado como revogado no recorte liberado;\n- nenhuma alteração posterior ao corte foi incorporada como conteúdo exigível desta sessão."
+        },
+        {
+          "heading": "5. Como estudar os 90 minutos",
+          "body": "1. 20 min — RA 5/2024: conceitos + responsabilidades.\n2. 20 min — RA 19/2024: competência + diretrizes + vedações.\n3. 25 min — RA 15/2024: planos + instâncias + prazos.\n4. 20 min — Q054.\n5. 5 min — D0.\nNão decorar todos os incisos em bloco. Fixar sujeito → verbo → objeto → prazo/exceção.\n---\n# PARTE I — RA 5/2024 \\| GESTÃO DE PESSOAS"
+        },
+        {
+          "heading": "6. Finalidade e responsabilidade",
+          "body": "A Política de Gestão de Pessoas estabelece diretrizes e responsabilidades para auxiliar o cumprimento dos objetivos estratégicos."
+        },
+        {
+          "heading": "Quem implementa?",
+          "body": "A implementação é responsabilidade de:\n- todos os servidores;\n- todos os gestores."
+        },
+        {
+          "heading": "Papel da ESCOEX",
+          "body": "A Escola Superior de Controle Externo Aélson Nascimento é vetor essencial para:\n- desenvolvimento profissional;\n- capacitação de servidores e membros."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "A implementação não é responsabilidade exclusiva da Gerência de Gestão de Pessoas."
+        },
+        {
+          "heading": "Gestão de pessoas",
+          "body": "Práticas gerenciais/institucionais para:\n- competências;\n- desempenho;\n- motivação;\n- comprometimento."
+        },
+        {
+          "heading": "Gestor",
+          "body": "Servidor que gerencia, supervisiona ou coordena o trabalho da equipe para entregar resultados."
+        },
+        {
+          "heading": "Liderança",
+          "body": "Capacidade de conduzir, motivar e influenciar de forma:\n- ética;\n- positiva."
+        },
+        {
+          "heading": "Competências profissionais",
+          "body": "Três espécies:\n1. técnicas — específicas da área/processo;\n2. gerenciais — liderança e gestão;\n3. comportamentais — habilidades mentais/inteligência emocional e relacionamento."
+        },
+        {
+          "heading": "Gestão por competências",
+          "body": "Mapeia competências e detecta lacunas para orientar:\n- capacitação;\n- desenvolvimento."
+        },
+        {
+          "heading": "Gestão do desempenho",
+          "body": "Processo:\n- planejado;\n- direcionado;\n- acompanhado continuamente;\n- avaliado e registrado."
+        },
+        {
+          "heading": "8. Diretrizes — art. 4º",
+          "body": "São 25 diretrizes. Em vez de decorar uma sequência cega, agrupe:"
+        },
+        {
+          "heading": "A. Planejamento e mérito",
+          "body": "- acompanhar planos/programas;\n- carreira por desempenho e mérito;\n- dimensionar/distribuir/avaliar força de trabalho."
+        },
+        {
+          "heading": "B. Talentos e alocação",
+          "body": "- desenvolver e reter talentos;\n- selecionar/alocar por perfil;\n- movimentação interna por perfil;\n- banco de talentos;\n- sucessão gerencial."
+        },
+        {
+          "heading": "C. Desenvolvimento",
+          "body": "- ambientação;\n- competências;\n- plano de desenvolvimento individual;\n- capacitação;\n- desenvolvimento de gestores."
+        },
+        {
+          "heading": "D. Desempenho e clima",
+          "body": "- avaliação clara/objetiva;\n- feedback;\n- pesquisa de clima;\n- cultura organizacional."
+        },
+        {
+          "heading": "E. Tecnologia e formas de trabalho",
+          "body": "- TIC adequada;\n- automação de serviços de pessoal;\n- teletrabalho e semipresencial quando alinhados ao objetivo de produtividade/motivação/qualidade."
+        },
+        {
+          "heading": "F. Bem-estar e integridade",
+          "body": "- prevenção de acidentes/doenças;\n- saúde biopsicossocial;\n- combate a assédio, discriminação e corrupção;\n- disseminação do Código de Ética;\n- preparação para aposentadoria;\n- valorização da história institucional."
+        },
+        {
+          "heading": "9. Responsabilidades do gestor — art. 5º",
+          "body": "O gestor deve, entre outros:\n- construir objetivos/metas com a equipe;\n- promover ambiente sem assédio/discriminação;\n- apoiar bem-estar;\n- desenvolver equipe;\n- aproveitar competências;\n- atuar com gestão transparente e participativa;\n- desenvolver liderança;\n- buscar recursos/condições;\n- ser exemplo ético;\n- estabelecer acordo de trabalho com cada servidor;\n- colaborar com seleção, integração, movimentação, desenvolvimento e desempenho."
+        },
+        {
+          "heading": "Macete",
+          "body": "Gestor = alinhar + desenvolver + proteger + cobrar + dar exemplo."
+        },
+        {
+          "heading": "10. Responsabilidades do servidor — art. 6º",
+          "body": "O servidor deve:\n- contribuir para objetivos/metas;\n- aprimorar continuamente seu perfil;\n- contribuir para ambiente sem assédio/discriminação;\n- zelar pelo próprio bem-estar e apoiar a equipe;\n- adotar postura ética;\n- contribuir para implementação da política."
+        },
+        {
+          "heading": "Contraste",
+          "body": "O gestor tem responsabilidades de liderança da equipe.\nO servidor tem responsabilidades de desempenho, desenvolvimento e convivência."
+        },
+        {
+          "heading": "11. Quem gerencia a política?",
+          "body": "A efetiva implementação e o gerenciamento do ato ficam a cargo da Gerência de Gestão de Pessoas, que pode solicitar à Presidência comitês/comissões para temas transversais."
+        },
+        {
+          "heading": "Não confundir",
+          "body": "- implementação institucional: todos os servidores/gestores;\n- gerenciamento operacional da política: Gerência de Gestão de Pessoas.\n---\n# PARTE II — RA 19/2024 \\| POLÍTICA DE COMUNICAÇÃO"
+        },
+        {
+          "heading": "12. Alinhamento e competência",
+          "body": "A comunicação deve guardar alinhamento com:\n- missão;\n- visão;\n- valores;\n- Plano Estratégico."
+        },
+        {
+          "heading": "Quem gere a política?",
+          "body": "Diretoria de Comunicação:\n- gestão;\n- implementação;\n- desenvolvimento;\n- revisão."
+        },
+        {
+          "heading": "Marca",
+          "body": "A área de comunicação é a unidade gestora da marca do TCE-GO."
+        },
+        {
+          "heading": "13. Revisão da política",
+          "body": "A revisão ocorrerá:\n- sempre que for aprovado novo Plano Estratégico.\nTambém:\n- podem ocorrer revisões intermediárias;\n- sempre por ato normativo;\n- mediante proposta da Diretoria de Comunicação à Presidência."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Novo Plano Estratégico = revisão obrigatória.\nIsso não impede revisão intermediária."
+        },
+        {
+          "heading": "14. Objetivos",
+          "body": "Três objetivos nucleares:\n1. estabelecer diretrizes para comunicação com públicos de interesse;\n2. fortalecer a imagem institucional;\n3. conferir maior transparência à atuação perante a sociedade."
+        },
+        {
+          "heading": "15. Princípios — art. 9º",
+          "body": "Prioridades de prova:\n- acesso amplo à informação;\n- meios plurais;\n- linguagem simples;\n- informação e diálogo como direitos;\n- participação cidadã;\n- combate à desinformação;\n- foco no cidadão;\n- comunicação como política de Estado;\n- impessoalidade;\n- verdade e ética;\n- eficácia."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Comunicação pública não é promoção pessoal."
+        },
+        {
+          "heading": "16. Diretrizes — art. 10",
+          "body": "Entre as mais cobradas:\n- comunicação alinhada ao Plano Estratégico;\n- conteúdo didático, objetivo, sem opiniões e legalmente embasado;\n- padronização de linguagem, identidade visual e mensagens;\n- acesso a informação de relevância social;\n- divulgação das ações/decisões, ressalvado sigilo;\n- contato com imprensa intermediado pela área de Comunicação ou com conhecimento desta, conforme a norma;\n- linguagem simples e direito visual;\n- monitoramento de redes;\n- transparência no uso de IA."
+        },
+        {
+          "heading": "Eixos de comunicação",
+          "body": "A produção é pautada por eixos definidos em matriz alinhada ao Plano Estratégico."
+        },
+        {
+          "heading": "Valor-notícia",
+          "body": "Critérios:\n- relevância;\n- amplitude;\n- novidade/atualidade;\n- proximidade."
+        },
+        {
+          "heading": "IA generativa",
+          "body": "É permitida como suporte para:\n- pesquisas;\n- áudios;\n- vídeos;\n- textos;\n- infográficos.\nSempre observando a política específica de IA do TCE-GO."
+        },
+        {
+          "heading": "Contraste com D040",
+          "body": "D040 ensinou como usar IA.\nD054 ensina como comunicar o uso de IA."
+        },
+        {
+          "heading": "18. Vedações — art. 14",
+          "body": "É vedado:\n- conteúdo que agrida direitos humanos/civis;\n- conteúdo preconceituoso/discriminatório;\n- promoção/favorecimento pessoal;\n- omitir, manipular ou falsear informação;\n- divulgar informação sigilosa indevidamente;\n- divulgar conteúdo protegido por lei;\n- divulgar dados sem base consistente, fonte oficial ou possibilidade de checagem;\n- deixar de informar ao público o uso de IA;\n- usar IA contra a política institucional."
+        },
+        {
+          "heading": "Macete",
+          "body": "Comunicação = verdade + fonte + impessoalidade + transparência.\n---\n# PARTE III — RA 15/2024 \\| PLANEJAMENTO E GESTÃO"
+        },
+        {
+          "heading": "19. O sistema",
+          "body": "O sistema reúne práticas gerenciais, especialmente planos institucionais, para:\n- estabelecer;\n- executar;\n- acompanhar metas, iniciativas e tarefas;\n- cumprir missão;\n- alcançar visão de futuro.\nPrincípios:\n- eficiência;\n- responsabilidade;\n- transparência;\n- comunicação;\n- flexibilidade;\n- accountability;\n- cultura de resultados."
+        },
+        {
+          "heading": "20. Os planos por nível",
+          "body": "Nível\nPlano\nPeriodicidade\nEstratégico\nPlano Estratégico — PET\nmínima de 6 anos\nTático\nPlano de Controle Externo — PCE\n2 anos\nTático\nPlano de Gestão\n2 anos\nOperacional\nPlanos Diretores\n2 anos"
+        },
+        {
+          "heading": "Macete",
+          "body": "E = PET\nT = PCE + Gestão\nO = Diretores"
+        },
+        {
+          "heading": "PET",
+          "body": "- principais diretrizes de controle externo e gestão;\n- norteia ação institucional;\n- orienta demais planos;\n- identifica oportunidades de inovação."
+        },
+        {
+          "heading": "PCE",
+          "body": "- orienta ações de controle externo;\n- contém Plano de Fiscalização;\n- deve alinhar-se aos objetivos estratégicos de controle externo."
+        },
+        {
+          "heading": "Plano de Gestão",
+          "body": "- alinha institucionalmente;\n- orienta/direciona iniciativas operacionais;\n- desdobra objetivos do PET."
+        },
+        {
+          "heading": "Planos Diretores",
+          "body": "- desdobramento operacional do Plano de Gestão;\n- podem definir prioridades setoriais."
+        },
+        {
+          "heading": "22. Instâncias de governança",
+          "body": "São:\n1. Plenário;\n2. alta administração;\n3. instâncias internas de apoio à governança."
+        },
+        {
+          "heading": "Alta administração",
+          "body": "Composta por:\n- Presidente;\n- chefe de gabinete do Presidente;\n- dirigentes das unidades vinculadas à Presidência."
+        },
+        {
+          "heading": "DI-PLAN",
+          "body": "A Diretoria de Governança, Planejamento e Gestão:\n- fomenta;\n- coordena;\n- aprimora o sistema;\n- garante alinhamento/integração;\n- apoia formulação, acompanhamento e revisão;\n- estabelece calendário único."
+        },
+        {
+          "heading": "23. Aprovação e prazos — art. 12",
+          "body": "Plano\nQuem aprova\nInstrumento/prazo\nPET\nPlenário, por iniciativa do Presidente\nresolução; até a última sessão plenária de setembro do último ano de vigência\nPCE\nPlenário, iniciativa do Presidente + apoio SEC-CEXTERNO\nresolução; até 28 de fevereiro do ano de entrada em vigor\nPlano de Gestão\nPresidente\nportaria; até último dia útil de fevereiro\nPlano Diretor\ngestor da unidade vinculada à Presidência\nordem de serviço; até último dia útil de março, após análise DI-PLAN e aprovação da Presidência\nPlano Diretor Temático\ninstância indicada na norma\nata/ordem de serviço/RAE; até 15 de abril"
+        },
+        {
+          "heading": "Exceção",
+          "body": "Os prazos podem ser excepcionalizados por portaria do Presidente diante de fato superveniente justificável."
+        },
+        {
+          "heading": "Transparência",
+          "body": "Planos aprovados e alterações devem ficar disponíveis no Portal do TCE-GO."
+        },
+        {
+          "heading": "DI-PLAN",
+          "body": "Promove:\n- acompanhamento;\n- avaliação dos resultados.\nO acompanhamento é:\n- permanente."
+        },
+        {
+          "heading": "Revisão dos planos",
+          "body": "Pode ocorrer:\n- a qualquer momento;\n- para antecipar estratégias/necessidades;\n- ou ajustar a fato/cenário superveniente."
+        },
+        {
+          "heading": "Regra",
+          "body": "A revisão segue o mesmo rito da aprovação, inclusive instância e meio."
+        },
+        {
+          "heading": "Proposição",
+          "body": "Pode ser feita:\n- pelo relator;\n- pela SEC-CEXTERNO, condicionada à aprovação do relator."
+        },
+        {
+          "heading": "Critérios",
+          "body": "A proposta deve considerar:\n- risco;\n- materialidade;\n- relevância;\n- oportunidade.\nE demonstrar alinhamento ao PCE vigente."
+        },
+        {
+          "heading": "Competência decisória",
+          "body": "O relator pode deliberar monocraticamente, nas hipóteses normativas, sobre:\n- acompanhamento;\n- auditoria;\n- monitoramento alinhados às diretrizes do PCE;\n- levantamento;\n- inspeção.\nCertas proposições vão ao Plenário, como as não enquadradas nas diretrizes do PCE ou nas demais hipóteses do art. 18."
+        },
+        {
+          "heading": "Antes de iniciar",
+          "body": "Fiscalização aprovada que não puder ser realizada deve ser cancelada pela mesma instância responsável pela aprovação, com manifestação da SEC-CEXTERNO."
+        },
+        {
+          "heading": "Depois de iniciada",
+          "body": "Não poderá ser cancelada, salvo autorização do Tribunal Pleno.\nSe depois do início houver:\n- perda de objeto;\n- inoportunidade;\no relatório deve:\n- explicitar os motivos;\n- propor encerramento."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Iniciou → cancelamento só com Pleno.\n---\n# PARTE IV — QUADRO COMPARATIVO FINAL"
+        },
+        {
+          "heading": "27. Três políticas, três perguntas",
+          "body": "Ato\nPergunta central\nSujeito-chave\nObjeto\nRA 5/2024\nComo desenvolver e gerir pessoas?\ngestores + servidores + GGP/ESCOEX\ncompetências, desempenho, alocação, desenvolvimento, bem-estar\nRA 19/2024\nComo o TCE se comunica?\nDiretoria/área de Comunicação\ninformação, marca, públicos, transparência, mídia, IA\nRA 15/2024\nComo estratégia vira ação e controle?\nPlenário + alta administração + DI-PLAN + SEC-CEXTERNO\nplanos, metas, acompanhamento, fiscalização"
+        },
+        {
+          "heading": "28. Quem faz o quê",
+          "body": "- GGP: implementação/gerenciamento da política de pessoas.\n- ESCOEX: desenvolvimento/capacitação.\n- gestor: lidera, desenvolve, protege ambiente e pactua resultados.\n- servidor: desenvolve-se, atua eticamente e contribui com ambiente/política.\n- Diretoria de Comunicação: gere/revisa a política de comunicação.\n- área de Comunicação: gere a marca e intermedeia comunicação institucional.\n- Plenário: aprova PET/PCE e delibera hipóteses estratégicas previstas.\n- Presidente: aprova Plano de Gestão e exerce competências de regulamentação.\n- DI-PLAN: coordena e integra o sistema de planejamento.\n- SEC-CEXTERNO: apoio técnico no PCE e papel próprio nas fiscalizações."
+        },
+        {
+          "heading": "Prioridade A",
+          "body": "- RA5: todos os gestores/servidores; ESCOEX; 3 tipos de competências; gestor × servidor; GGP.\n- RA19: Diretoria de Comunicação; revisão; 3 objetivos; IA; vedações.\n- RA15: níveis/planos; periodicidade; aprovação/prazos; DI-PLAN; PCE/fiscalizações; cancelamento após início."
+        },
+        {
+          "heading": "Prioridade B",
+          "body": "- 25 diretrizes de pessoas por grupos;\n- princípios/diretrizes de comunicação;\n- princípios do sistema de planejamento;\n- valor-notícia."
+        },
+        {
+          "heading": "Prioridade C",
+          "body": "- referências dos considerandos;\n- detalhes acessórios que não mudam competência/prazo/vedação."
+        },
+        {
+          "heading": "30. Como a FCC pode cobrar",
+          "body": "1. trocar GGP por ESCOEX;\n2. dizer que política de pessoas é implementada só pela área de RH;\n3. trocar competência técnica por comportamental;\n4. dizer que a Política de Comunicação só é revisada se houver necessidade;\n5. trocar Diretoria de Comunicação por Presidência;\n6. permitir promoção pessoal;\n7. retirar transparência sobre uso de IA;\n8. trocar PET/PCE/Plano de Gestão entre níveis;\n9. trocar 6 anos por 2 anos;\n10. trocar Plenário por Presidente;\n11. trocar fevereiro/março/abril;\n12. dizer que revisão do plano tem rito diferente;\n13. permitir cancelamento unilateral de fiscalização já iniciada."
+        },
+        {
+          "heading": "Pessoas",
+          "body": "T-G-C = técnica, gerencial, comportamental."
+        },
+        {
+          "heading": "Planos",
+          "body": "E-T-O:\n- Estratégico = PET;\n- Tático = PCE + Gestão;\n- Operacional = Diretores."
+        },
+        {
+          "heading": "Calendário",
+          "body": "F-F-M-A\n- PCE: 28 Fev;\n- Gestão: último útil Fev;\n- Diretor: último útil Mar;\n- Temático: 15 Abr."
+        },
+        {
+          "heading": "32. Pré-Q054",
+          "body": "Sem consultar:\n1. quem implementa a Política de Gestão de Pessoas?\n2. qual o papel da ESCOEX?\n3. quais são os 3 tipos de competências?\n4. qual a diferença entre responsabilidade do gestor e do servidor?\n5. quem gere a Política de Comunicação?\n6. quando a política deve ser revisada obrigatoriamente?\n7. quais são os 3 objetivos da comunicação?\n8. quais são os quatro critérios valor-notícia?\n9. quais planos são estratégicos/táticos/operacionais?\n10. qual a periodicidade do PET?\n11. quem aprova PCE e Plano de Gestão?\n12. quais os prazos F-F-M-A?\n13. quem coordena o sistema de planejamento?\n14. quais quatro critérios orientam proposta de fiscalização?\n15. quem pode autorizar cancelamento de fiscalização já iniciada?"
+        },
+        {
+          "heading": "33. Q054",
+          "body": "Meta: 20 questões."
+        },
+        {
+          "heading": "Curadoria",
+          "body": "Não foi localizada bateria FCC específica sobre as três RAs de 2024. Como são normas locais do TCE-GO, a sessão não usa questão análoga de outro ente para ensinar literalidade.\nQ054 = 20 autorais normativas, construídas diretamente sobre os três textos oficiais."
+        },
+        {
+          "heading": "34. Pós-Q054",
+          "body": "Classifique erro:\n- P — pessoas;\n- C — comunicação;\n- G — planejamento/gestão;\n- S — sujeito/competência;\n- R — prazo/revisão;\n- V — vedação;\n- E — enumeração."
+        },
+        {
+          "heading": "P1",
+          "body": "- gestor × servidor;\n- Diretoria de Comunicação × outras unidades;\n- PET/PCE/Gestão/Diretores;\n- prazo do art. 12;\n- fiscalização já iniciada;\n- vedação de comunicação/IA."
+        },
+        {
+          "heading": "35. D0",
+          "body": "Depois da tentativa real:\n1. desenhar o quadro das três políticas;\n2. recuperar T-G-C;\n3. recuperar E-T-O;\n4. recuperar F-F-M-A;\n5. recitar as vedações prioritárias da comunicação;\n6. explicar gestor × servidor;\n7. refazer erradas + acertos com dúvida.\nD0 configurado ≠ realizado."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionado editorialmente:\n- legislação institucional nova;\n- muitos sujeitos/competências/prazos."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionado editorialmente:\n- D054 consolida a arquitetura institucional;\n- alta reutilização em checkpoints e reta final.\nD7/D20 acionados ≠ revisões realizadas."
+        },
+        {
+          "heading": "37. Flashcards candidatos",
+          "body": "- T-G-C;\n- gestor × servidor;\n- Diretoria de Comunicação;\n- revisão da Política de Comunicação;\n- critérios valor-notícia;\n- E-T-O;\n- periodicidades;\n- F-F-M-A;\n- DI-PLAN;\n- cancelamento de fiscalização já iniciada.\nCriar somente se houver utilidade após a execução."
+        },
+        {
+          "heading": "Editorial",
+          "body": "- três fontes oficiais validadas;\n- versão/corte controlados;\n- quadro comparativo entregue;\n- Q054 com 20 válidas;\n- D0/D7/D20 configurados."
+        },
+        {
+          "heading": "39. Ponte",
+          "body": "O D054 fecha o bloco atual de políticas institucionais. Sessões posteriores passam a integrar:\n- controle;\n- auditoria;\n- CASP;\n- AFO/licitações;\n- legislação institucional já construída.\nSaída esperada: ao ler uma regra, identificar imediatamente se ela pertence a pessoas, comunicação ou planejamento/gestão, e qual sujeito institucional responde por ela."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T18:22:23.697Z"
+    },
+    "d057": {
+      "dxx": "D057",
+      "title": "D057 — CASP VIII",
+      "summary": "CASP VIII — DCASP / MCASP V — BO, BF, BP, DVP, DFC, DMPL e Notas Explicativas.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D057 — CASP VIII \\| DCASP / MCASP V\nS26 / D057 — 120 min · 25 questões. Este é o ponto em que a trilha fecha o circuito fenômeno contábil → reconhecimento/mensuração → PCASP/registro → DCASP/leitura. O objetivo não é decorar sete nomes: é olhar uma informação e saber em qual demonstração ela aparece, o que ela significa e qual resultado ela não pode ser confundida com."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A trilha chegou às DCASP depois de construir as peças que as alimentam:\n- D031: apresentação, DFC, informação orçamentária e diferenças entre orçamento, patrimônio e caixa;\n- D038: políticas, estimativas, erros, eventos subsequentes, custos e mapa dos procedimentos patrimoniais;\n- D050: PCASP, três naturezas da informação, oito classes e leitura dos registros.\nA progressão é deliberada:\n> fenômeno contábil → PCASP/registro → demonstração → interpretação.\nNo D050 você aprendeu a ler o registro. No D057 você aprende a enxergar onde esse registro termina sendo evidenciado e como as demonstrações conversam entre si."
+        },
+        {
+          "heading": "3. Posição no edital e recorte verticalizado",
+          "body": "B06 — Contabilidade Aplicada ao Setor Público\n- bloco: Específicos;\n- 5 questões;\n- peso: 2;\n- baseline histórico: Novo;\n- tratamento no projeto: Construção."
+        },
+        {
+          "heading": "Entra hoje",
+          "body": "1. Balanço Orçamentário — BO;\n2. Balanço Financeiro — BF;\n3. Balanço Patrimonial — BP;\n4. Demonstração das Variações Patrimoniais — DVP;\n5. Demonstração dos Fluxos de Caixa — DFC;\n6. Demonstração das Mutações do Patrimônio Líquido — DMPL, quando aplicável;\n7. Notas Explicativas;\n8. relações entre demonstrações;\n9. origem dos dados no PCASP;\n10. leitura e interpretação;\n11. pegadinhas FCC."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- decorar o catálogo analítico inteiro do PCASP;\n- reestudar integralmente NBC TSP 11–13;\n- cálculos atuariais;\n- consolidação avançada;\n- encerramento completo de contas;\n- temas de CASP IX reservados para sessões posteriores."
+        },
+        {
+          "heading": "Já conhecido e reaproveitável",
+          "body": "- ativo, passivo, patrimônio líquido;\n- VPA e VPD;\n- competência patrimonial;\n- receita e despesa orçamentárias;\n- previsão, dotação, empenho, liquidação e pagamento;\n- orçamento × patrimônio × caixa;\n- classes 1–8 do PCASP;\n- naturezas patrimonial, orçamentária e de controle;\n- DFC em nível introdutório no D031."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- leitura isolada de BO, BP e DVP;\n- restos a pagar;\n- ativos/passivos financeiros e permanentes;\n- saldo de caixa;\n- notas explicativas."
+        },
+        {
+          "heading": "Realmente novo no D057",
+          "body": "- arquitetura integrada das DCASP;\n- quadro principal e lógica de leitura de cada demonstração;\n- resultado orçamentário × resultado financeiro × superávit financeiro × resultado patrimonial;\n- relação demonstração ↔ natureza da informação ↔ classes do PCASP;\n- leitura cruzada BO/BF/BP/DVP/DFC;\n- papel da DMPL;\n- função das Notas Explicativas como parte integrante da evidenciação."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. identificar a demonstração correta a partir de uma informação;\n2. calcular e interpretar um resultado orçamentário simples;\n3. distinguir previsão inicial, previsão atualizada e receita realizada;\n4. distinguir dotação inicial, dotação atualizada, despesa empenhada, liquidada e paga;\n5. reconhecer os ingressos e dispêndios próprios do BF;\n6. explicar por que resultado financeiro do BF não é sinônimo de superávit financeiro do BP;\n7. ler a estrutura básica do BP e localizar ativo, passivo e PL;\n8. calcular um superávit financeiro simples a partir de ativo e passivo financeiros;\n9. calcular resultado patrimonial a partir de VPA e VPD;\n10. classificar fluxos da DFC em operacional, investimento e financiamento;\n11. reconhecer transação sem caixa que não integra o fluxo de caixa do período;\n12. explicar a função da DMPL;\n13. justificar por que Notas Explicativas são parte integrante das demonstrações;\n14. relacionar BO às classes 5/6, BP às classes 1/2 e DVP às classes 3/4;\n15. resolver Q057 sem trocar orçamento, patrimônio e caixa."
+        },
+        {
+          "heading": "Fonte principal",
+          "body": "- MCASP — 11ª edição;\n- foco: Parte V — Demonstrações Contábeis Aplicadas ao Setor Público;\n- apoio: Parte IV — PCASP;\n- corte do edital: 25/08/2026;\n- revalidação editorial: 22/09/2026."
+        },
+        {
+          "heading": "NBC TSP pertinente",
+          "body": "Para apresentação, DFC e informação orçamentária, a trilha já trabalhou NBC TSP 11, 12 e 13 no D031. As revisões R1 publicadas em 2026 exigem controle temporal: o projeto registra a redação atual do portal CFC, mas não transporta automaticamente para fatos de 2026 regra específica cuja aplicação normativa tenha sido estabelecida para exercícios iniciados em 2027."
+        },
+        {
+          "heading": "Links oficiais",
+          "body": "- [STN — MCASP](https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/manuais/manual-de-contabilidade-aplicado-ao-setor-publico-mcasp-1)\n- [CFC — NBC TSP](https://cfc.org.br/tecnica/normas-brasileiras-de-contabilidade/nbc-tsp-do-setor-publico/)\nRegra de versão: o D057 aprende a arquitetura nacional vigente no recorte do projeto. Questão antiga só entra no Q057 quando o conceito continua válido ou quando a atualização fica explicitamente marcada como V2."
+        },
+        {
+          "heading": "7. Como estudar os 120 minutos",
+          "body": "1. 10 min — mapa geral das sete áreas.\n2. 20 min — BO + resultado orçamentário.\n3. 15 min — BF + contraste com BP.\n4. 20 min — BP + superávit/déficit financeiro.\n5. 15 min — DVP + resultado patrimonial.\n6. 15 min — DFC + DMPL + Notas.\n7. 20 min — Q057.\n8. 5 min — D0.\nRegra de consulta: durante a teoria, consulte o quadro comparativo; durante Q057, tente primeiro sem voltar ao material.\n---\n# PARTE I — ARQUITETURA DAS DCASP"
+        },
+        {
+          "heading": "8. Mapa de entrada: qual pergunta cada demonstração responde?",
+          "body": "Demonstração\nPergunta central\nPalavra de decisão\nBO\no orçamento previsto/fixado foi executado como?\norçamento\nBF\nquais ingressos e dispêndios explicam a movimentação financeira do período?\nmovimento financeiro\nBP\nqual é a posição patrimonial em determinada data?\nestoque patrimonial\nDVP\nquais VPA/VPD alteraram o patrimônio e qual foi o resultado patrimonial?\ncompetência patrimonial\nDFC\nde onde veio e para onde foi o caixa, por atividade?\ncaixa\nDMPL\ncomo se moveram os componentes do patrimônio líquido?\nPL\nNotas\no que precisa ser explicado para compreender adequadamente os quadros?\ncontexto"
+        },
+        {
+          "heading": "Macete funcional",
+          "body": "BO executa orçamento · BF explica ingressos/dispêndios · BP fotografa patrimônio · DVP mede variação patrimonial · DFC segue caixa · DMPL segue PL · Notas explicam.\n---\n# PARTE II — BALANÇO ORÇAMENTÁRIO"
+        },
+        {
+          "heading": "9. O que o BO evidencia",
+          "body": "O BO confronta planejamento orçamentário e execução.\nNo lado da receita, pense em:\n- previsão inicial;\n- previsão atualizada;\n- receita realizada;\n- diferença entre o que se estimava e o que se arrecadou.\nNo lado da despesa, pense em:\n- dotação inicial;\n- dotação atualizada;\n- despesa empenhada;\n- despesa liquidada;\n- despesa paga;\n- saldo da dotação."
+        },
+        {
+          "heading": "A chave do resultado orçamentário",
+          "body": "Para leitura do resultado da execução:\n> resultado orçamentário = receita realizada − despesa empenhada.\nA FCC tenta deslocar o candidato para a despesa paga. Esse é um dos erros clássicos."
+        },
+        {
+          "heading": "10. Previsão × realização da receita",
+          "body": "Exemplo:\n- previsão atualizada: R\\$ 1.000.000;\n- receita realizada: R\\$ 1.080.000.\nHá R\\$ 80.000 de excesso de arrecadação em relação à previsão atualizada.\nIsso não responde, sozinho, qual é o resultado orçamentário, porque ainda falta comparar a receita realizada com a despesa empenhada."
+        },
+        {
+          "heading": "11. Dotação × execução da despesa",
+          "body": "Exemplo:\n- dotação atualizada: R\\$ 1.100.000;\n- despesa empenhada: R\\$ 1.020.000;\n- despesa liquidada: R\\$ 980.000;\n- despesa paga: R\\$ 940.000.\nSaldo da dotação:\n> R\\$ 1.100.000 − R\\$ 1.020.000 = R\\$ 80.000.\nSe a receita realizada foi R\\$ 1.080.000:\n> resultado orçamentário = 1.080.000 − 1.020.000 = superávit de R\\$ 60.000."
+        },
+        {
+          "heading": "Três contas, três perguntas",
+          "body": "- previsão atualizada × realizada → desempenho da arrecadação;\n- dotação atualizada × empenhada → saldo da dotação;\n- receita realizada × despesa empenhada → resultado orçamentário."
+        },
+        {
+          "heading": "12. Restos a pagar e quadros complementares",
+          "body": "A execução de restos a pagar possui evidenciação própria nos quadros previstos pelo MCASP.\nPegadinha: não jogue automaticamente restos a pagar no quadro principal como se fossem uma nova despesa empenhada do exercício corrente. A leitura deve respeitar o período e o quadro correspondente."
+        },
+        {
+          "heading": "Origem dos dados",
+          "body": "No mapa do PCASP:\n- classes 5 e 6 concentram a informação de natureza orçamentária;\n- classe 5: aprovação do planejamento/orçamento;\n- classe 6: execução do planejamento/orçamento.\nAtalho FCC: BO → olhe primeiro para 5/6.\n---\n# PARTE III — BALANÇO FINANCEIRO"
+        },
+        {
+          "heading": "13. O que entra no BF",
+          "body": "O BF organiza os ingressos e dispêndios do período, incluindo:"
+        },
+        {
+          "heading": "Ingressos",
+          "body": "- receitas orçamentárias;\n- transferências financeiras recebidas;\n- recebimentos extraorçamentários;\n- saldo de caixa e equivalentes do exercício anterior."
+        },
+        {
+          "heading": "Dispêndios",
+          "body": "- despesas orçamentárias;\n- transferências financeiras concedidas;\n- pagamentos extraorçamentários;\n- saldo de caixa e equivalentes para o exercício seguinte.\nO BF é mais amplo que uma simples lista de receitas e despesas orçamentárias."
+        },
+        {
+          "heading": "14. Exemplo resolvido de fechamento financeiro",
+          "body": "Considere:\n- caixa inicial: R\\$ 100;\n- receitas orçamentárias: R\\$ 700;\n- transferências recebidas: R\\$ 50;\n- recebimentos extraorçamentários: R\\$ 30;\n- despesas orçamentárias: R\\$ 650;\n- transferências concedidas: R\\$ 40;\n- pagamentos extraorçamentários: R\\$ 20.\nCaixa final:\n> 100 + 700 + 50 + 30 − 650 − 40 − 20 = R\\$ 170.\nA variação do caixa foi positiva em R\\$ 70."
+        },
+        {
+          "heading": "Pegadinha central",
+          "body": "> resultado financeiro do BF ≠ superávit/déficit financeiro do BP.\nNo BF, a leitura gira em torno dos ingressos/dispêndios e da variação financeira do período.\nNo BP, o superávit financeiro é apurado pela relação entre ativo financeiro e passivo financeiro.\nNão troque uma fotografia patrimonial por um fluxo do período.\n---\n# PARTE IV — BALANÇO PATRIMONIAL"
+        },
+        {
+          "heading": "15. O quadro principal",
+          "body": "O BP mostra a posição patrimonial em determinada data.\nNúcleo:\n- Ativo;\n- Passivo;\n- Patrimônio Líquido.\nPelo PCASP:\n- classe 1 → Ativo;\n- classe 2 → Passivo e Patrimônio Líquido."
+        },
+        {
+          "heading": "Equação patrimonial",
+          "body": "> Ativo = Passivo + Patrimônio Líquido.\nA equação não transforma o BP em demonstração de resultado. O BP é essencialmente uma posição."
+        },
+        {
+          "heading": "16. Circulante/não circulante × financeiro/permanente",
+          "body": "São cortes diferentes."
+        },
+        {
+          "heading": "Circulante × não circulante",
+          "body": "É uma classificação do quadro patrimonial principal, ligada à realização/liquidação e ao ciclo/prazo conforme as regras aplicáveis."
+        },
+        {
+          "heading": "Financeiro × permanente",
+          "body": "É uma ótica específica do setor público vinculada às regras legais e orçamentárias para ativos e passivos financeiros/permanentes.\nNunca faça equivalência automática: “financeiro = circulante” ou “permanente = não circulante”. As classificações respondem a critérios diferentes."
+        },
+        {
+          "heading": "17. Superávit ou déficit financeiro",
+          "body": "Em exercício simples:\n> superávit financeiro = ativo financeiro − passivo financeiro, quando a diferença é positiva.\nExemplo:\n- ativo financeiro: R\\$ 300;\n- passivo financeiro: R\\$ 250.\nDiferença:\n> R\\$ 50 de superávit financeiro.\nIsso não é:\n- resultado orçamentário;\n- resultado patrimonial;\n- resultado financeiro do BF.\nSão quatro conceitos diferentes."
+        },
+        {
+          "heading": "18. Contas de compensação/controle",
+          "body": "Os controles de atos potenciais e outros controles não são misturados ao ativo/passivo patrimonial como se fossem direitos/obrigações reconhecidos.\nNo PCASP, a lógica de controle está nas classes 7 e 8, e os quadros próprios preservam essa separação.\n---\n# PARTE V — DEMONSTRAÇÃO DAS VARIAÇÕES PATRIMONIAIS"
+        },
+        {
+          "heading": "19. A pergunta da DVP",
+          "body": "A DVP evidencia as alterações verificadas no patrimônio e permite chegar ao resultado patrimonial do exercício.\nNúcleo:\n- Variações Patrimoniais Aumentativas — VPA;\n- Variações Patrimoniais Diminutivas — VPD;\n- resultado patrimonial."
+        },
+        {
+          "heading": "Fórmula nuclear",
+          "body": "> resultado patrimonial = VPA − VPD.\nExemplo:\n- VPA = R\\$ 500;\n- VPD = R\\$ 470.\nResultado patrimonial:\n> R\\$ 30 positivo."
+        },
+        {
+          "heading": "Origem no PCASP",
+          "body": "- classe 3 → VPD;\n- classe 4 → VPA."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "A DVP não mede execução orçamentária. Um ente pode ter resultado orçamentário positivo e resultado patrimonial negativo, ou o inverso, porque os critérios e fatos considerados não são os mesmos.\n---\n# PARTE VI — DEMONSTRAÇÃO DOS FLUXOS DE CAIXA"
+        },
+        {
+          "heading": "20. O que a DFC mede",
+          "body": "A DFC segue entradas e saídas efetivas de caixa e equivalentes de caixa e organiza os fluxos por atividade."
+        },
+        {
+          "heading": "Operacionais",
+          "body": "Fluxos ligados às atividades principais de prestação de serviços e demais transações que não sejam classificadas como investimento ou financiamento."
+        },
+        {
+          "heading": "Investimento",
+          "body": "Relacionados, em essência, à aquisição/alienação de ativos de longo prazo e outros investimentos que não sejam equivalentes de caixa."
+        },
+        {
+          "heading": "Financiamento",
+          "body": "Relacionados a mudanças na dimensão e composição do capital e do endividamento de financiamento, conforme o enquadramento normativo."
+        },
+        {
+          "heading": "21. Caixa não é competência",
+          "body": "Uma despesa reconhecida por competência, mas ainda não paga, pode afetar a DVP e o BP sem gerar, naquele momento, fluxo de caixa.\nDa mesma forma:\n- aquisição a prazo sem pagamento → não é saída de caixa naquele instante;\n- depreciação → VPD sem saída de caixa;\n- reconhecimento de provisão → pode alterar resultado patrimonial sem fluxo imediato."
+        },
+        {
+          "heading": "Pegadinha FCC",
+          "body": "> fato patrimonial ≠ fluxo de caixa automático."
+        },
+        {
+          "heading": "22. DFC × BF",
+          "body": "Ambas lidam com dimensão financeira, mas não são a mesma demonstração."
+        },
+        {
+          "heading": "BF",
+          "body": "- receitas/despesas orçamentárias;\n- transferências financeiras;\n- extraorçamentários;\n- caixa inicial/final."
+        },
+        {
+          "heading": "DFC",
+          "body": "- fluxos efetivos de caixa;\n- classificação em operacional, investimento e financiamento;\n- leitura da geração/consumo de caixa por atividade.\nMacete: BF pergunta “quais ingressos/dispêndios compuseram a movimentação?”; DFC pergunta “qual atividade gerou ou consumiu caixa?”\n---\n# PARTE VII — DMPL"
+        },
+        {
+          "heading": "23. O que a DMPL evidencia",
+          "body": "A DMPL acompanha a movimentação nos componentes do patrimônio líquido, quando aplicável.\nPode evidenciar, conforme o caso:\n- saldo inicial;\n- alterações de capital;\n- reservas e outros componentes;\n- resultado do período;\n- ajustes que afetem diretamente componentes do PL;\n- efeitos de alterações de políticas e correções de erros conforme o tratamento normativo;\n- saldo final."
+        },
+        {
+          "heading": "Leitura correta",
+          "body": "Não use a DMPL como substituta da DVP.\n- DVP → VPA/VPD e resultado patrimonial;\n- DMPL → movimentação dos componentes do PL.\n---\n# PARTE VIII — NOTAS EXPLICATIVAS"
+        },
+        {
+          "heading": "24. Parte integrante, não rodapé decorativo",
+          "body": "Notas Explicativas complementam e explicam os quadros.\nElas podem trazer:\n- políticas contábeis relevantes;\n- bases de mensuração;\n- julgamentos e estimativas;\n- detalhamento de saldos;\n- riscos e incertezas;\n- informações exigidas por normas;\n- informação relevante que não esteja suficientemente exposta nos quadros.\nPegadinha clássica: tratar Notas Explicativas como facultativas ou “informação extra sem vínculo com as demonstrações”. Elas são parte integrante da evidenciação."
+        },
+        {
+          "heading": "25. Exemplo de decisão",
+          "body": "Se o BP mostra uma provisão relevante, mas o usuário precisa entender:\n- natureza da obrigação;\n- incerteza;\n- premissas;\n- riscos;\n- mudanças relevantes;\no quadro principal sozinho pode não bastar. A nota fornece o contexto necessário para interpretação adequada.\n---\n# PARTE IX — RELAÇÕES ENTRE AS DEMONSTRAÇÕES"
+        },
+        {
+          "heading": "26. Quatro resultados que não podem se misturar",
+          "body": "Resultado\nOrigem\nLógica\nOrçamentário\nBO\nreceita realizada × despesa empenhada\nFinanceiro do período\nBF\nmovimentação financeira e variação do saldo\nSuperávit/déficit financeiro\nBP\nativo financeiro × passivo financeiro\nPatrimonial\nDVP\nVPA × VPD"
+        },
+        {
+          "heading": "FCC adora trocar o substantivo",
+          "body": "Se a questão diz:\n- “orçamentário” → pense BO;\n- “financeiro do BF” → pense ingressos/dispêndios/caixa;\n- “superávit financeiro” → pense BP e AF/PF;\n- “patrimonial” → pense DVP."
+        },
+        {
+          "heading": "27. Da conta à demonstração",
+          "body": "Classes / informação\nLeitura principal\nReflexo\n1 — Ativo\nbens e direitos\nBP\n2 — Passivo e PL\nobrigações e situação líquida\nBP / DMPL\n3 — VPD\ndiminuições patrimoniais\nDVP\n4 — VPA\naumentos patrimoniais\nDVP\n5–6 — Orçamentária\naprovação e execução do orçamento\nBO\n7–8 — Controle\natos potenciais e demais controles\nquadros/controles próprios\nMovimentos de caixa\nentrada/saída efetiva\nDFC e leitura financeira\nO BF cruza informações de diferentes naturezas para explicar ingressos e dispêndios; por isso, não procure uma única classe que “seja o BF”."
+        },
+        {
+          "heading": "28. Exemplo integrado",
+          "body": "Uma entidade:\n1. empenha despesa de R\\$ 100;\n2. recebe o bem e reconhece obrigação;\n3. paga R\\$ 100;\n4. o bem permanece no ativo."
+        },
+        {
+          "heading": "Efeito mental",
+          "body": "- BO: enxerga a execução da despesa, desde o empenho;\n- BP: pode enxergar o ativo adquirido e, antes do pagamento, a obrigação;\n- DVP: depende da natureza econômica do fato — adquirir ativo não significa automaticamente VPD integral;\n- DFC: só registra saída quando há pagamento em caixa;\n- BF: incorpora a despesa/dispêndio e o efeito financeiro conforme sua estrutura;\n- Notas: podem detalhar o saldo ou política se relevante.\nEssa leitura integrada é mais importante do que decorar um lançamento isolado.\n---\n# PARTE X — COMO A FCC TENDE A COBRAR"
+        },
+        {
+          "heading": "29. Padrões previsíveis",
+          "body": "A FCC costuma transformar DCASP em cinco tipos de armadilha:\n1. troca de demonstração: atribui ao BP função da DVP ou ao BO função do BP;\n2. troca de estágio: usa despesa paga para calcular resultado orçamentário;\n3. troca de resultado: chama superávit financeiro de resultado financeiro do BF;\n4. troca de regime: trata reconhecimento por competência como fluxo de caixa;\n5. troca de classificação: usa classes patrimoniais onde a pergunta é orçamentária."
+        },
+        {
+          "heading": "Evidência FCC mapeada para Q057",
+          "body": "A bateria separada contém:\n- FCC do próprio TCE-GO;\n- FCC recente de 2025/2026 sobre BO, BF, BP, DVP e DFC;\n- itens históricos mantidos somente quando o núcleo continua válido;\n- autorais técnicas apenas para fechar lacunas de DMPL, Notas e integração entre demonstrações."
+        },
+        {
+          "heading": "30. Pegadinhas que precisam ficar automáticas",
+          "body": "- BO: resultado usa realizada − empenhada, não paga;\n- BF: inclui transferências e extraorçamentários;\n- BP: financeiro/permanente não é sinônimo de circulante/não circulante;\n- BP: superávit financeiro não é resultado orçamentário;\n- DVP: resultado patrimonial = VPA − VPD;\n- DFC: sem caixa, sem fluxo naquele instante;\n- DMPL: acompanha componentes do PL, não substitui DVP;\n- Notas: parte integrante;\n- PCASP: BO 5/6; BP 1/2; DVP 3/4."
+        },
+        {
+          "heading": "31. O que precisa ficar automático antes do Q057",
+          "body": "Sem consulta, diga:\n1. a pergunta central de cada demonstração;\n2. a fórmula do resultado orçamentário;\n3. os quatro componentes básicos do BF;\n4. a diferença BF × BP;\n5. as classes 1/2, 3/4 e 5/6;\n6. a fórmula do resultado patrimonial;\n7. as três atividades da DFC;\n8. o papel da DMPL;\n9. por que Notas são parte integrante.\n---\n# PARTE XI — PRÉ-Q057, Q057 E PÓS-Q057"
+        },
+        {
+          "heading": "32. Pré-Q057",
+          "body": "Responda oralmente, sem consulta:\n1. receita realizada = 500 e despesa empenhada = 470: qual resultado?\n2. caixa inicial/final mede superávit financeiro do BP?\n3. ativo financeiro 200 e passivo financeiro 170: qual diferença?\n4. VPA 330 e VPD 350: qual resultado patrimonial?\n5. compra a prazo sem pagamento entra imediatamente na DFC?\n6. qual demonstração acompanha movimentos do PL?\n7. qual é a função das Notas?\nSe errar três ou mais, volte às seções 26–30 antes da bateria."
+        },
+        {
+          "heading": "33. Q057 — bateria de 25 questões",
+          "body": "A bateria foi construída para cobrir as sete áreas do dia sem concentrar tudo em uma única demonstração."
+        },
+        {
+          "heading": "34. Pós-Q057 — diagnóstico",
+          "body": "Classifique cada erro pela causa:\n- C1: BO — previsão/dotação/execução;\n- C2: BF — ingressos/dispêndios;\n- C3: BP — posição/financeiro-permanente;\n- C4: DVP — VPA/VPD;\n- C5: DFC — O/I/F ou caixa × competência;\n- C6: DMPL;\n- C7: Notas;\n- C8: troca entre resultados;\n- C9: PCASP → demonstração;\n- C10: leitura FCC/atenção.\nAção mínima: reabrir apenas a seção que causou o erro e explicar a regra em uma frase antes de refazer o item.\n---\n# PARTE XII — D0, D7 E D20"
+        },
+        {
+          "heading": "35. D0 — recuperação ativa",
+          "body": "Depois da execução real e da correção do Q057, sem olhar:\n1. desenhe as sete caixas BO/BF/BP/DVP/DFC/DMPL/Notas;\n2. escreva uma pergunta que cada uma responde;\n3. reconstrua os quatro resultados da seção 26;\n4. associe 1/2, 3/4 e 5/6 às demonstrações;\n5. explique BF × DFC;\n6. explique BF × superávit financeiro do BP;\n7. dê um exemplo de VPD sem saída de caixa;\n8. dê um exemplo de informação que exige Nota.\nD0 está configurado, não realizado."
+        },
+        {
+          "heading": "D7",
+          "body": "Acionar editorialmente. O conteúdo é novo, integrador e central para B06."
+        },
+        {
+          "heading": "D20",
+          "body": "Acionar editorialmente. DCASP tem alta reutilização, cruza PCASP, NBC TSP, AFO e aparecerá em consolidação/simulados. O custo de esquecer a fronteira entre os quatro resultados é alto.\n> D7/D20 acionados ≠ revisões realizadas. A realização só existe depois da execução real."
+        },
+        {
+          "heading": "37. Flashcards candidatos",
+          "body": "Criar apenas se houver erro/dúvida real em:\n- resultado orçamentário = realizada − empenhada;\n- BF ≠ superávit financeiro do BP;\n- BP: financeiro/permanente ≠ circulante/não circulante;\n- DVP = VPA − VPD;\n- DFC = operacional/investimento/financiamento;\n- Notas = parte integrante.\nSem meta artificial de quantidade.\n---\n# PARTE XIII — QUADRO FINAL"
+        },
+        {
+          "heading": "38. Demonstração → pergunta → informação → contas → pegadinha FCC",
+          "body": "Demonstração\nPergunta que responde\nInformação principal\nClasses/contas relacionadas\nPegadinha FCC\nBO\ncomo o orçamento foi executado?\nprevisão/fixação × execução; resultado orçamentário\n5 e 6\nusar paga em vez de empenhada\nBF\nquais ingressos/dispêndios explicam a movimentação financeira?\norçamentário + transferências + extraorçamentário + caixas\nmúltiplas naturezas/contas\nconfundir com superávit financeiro do BP\nBP\nqual a posição patrimonial na data?\nativo, passivo, PL; financeiro/permanente\n1 e 2; controles próprios\nfinanceiro = circulante\nDVP\ncomo o patrimônio variou?\nVPA, VPD e resultado patrimonial\n3 e 4\nconfundir com resultado orçamentário\nDFC\nqual atividade gerou/consumiu caixa?\noperacional, investimento, financiamento\nmovimentos de caixa/equivalentes\ncompetência sem caixa\nDMPL\ncomo mudaram os componentes do PL?\nmovimentos no patrimônio líquido\ncomponentes do PL — classe 2\ntratar como substituta da DVP\nNotas\no que falta para compreender adequadamente?\npolíticas, julgamentos, riscos e detalhes\ntransversal\ntratar como facultativa"
+        },
+        {
+          "heading": "40. Ponte para frente",
+          "body": "O D057 fecha a primeira leitura integrada das DCASP.\nA próxima sessão ativa é S27 / D059 — Auditoria IV, que muda de disciplina e trabalha achados/responsabilização. A trilha CASP retornará depois para integração e consolidação."
+        },
+        {
+          "heading": "41. Notas editoriais e fontes",
+          "body": "- Fonte-Mestra v1.3 — posição D057 e tempo/meta;\n- Base Técnica v1.3 — núcleo de DCASP;\n- Base Operacional v1.3 — validade V1–V4, Qxx e D0/D7/D20;\n- Fonte 05 v1.1 — Template Técnico/CASP e autonomia do Notion;\n- STN — MCASP 11ª edição, especialmente Partes IV e V;\n- CFC — NBC TSP 11/12/13 no controle de versão já estabelecido no D031;\n- corte normativo do projeto: 25/08/2026;\n- revalidação editorial: 22/09/2026;\n- desenvolvimento real desta estrutura: v2;\n- execução real: não preenchida."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T18:48:15.496Z"
+    },
+    "d059": {
+      "dxx": "D059",
+      "title": "D059 — Auditoria IV",
+      "summary": "Auditoria IV — achados e responsabilização — Achado; condição, critério, causa, efeito; matriz de achados; matriz de responsabilização.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D059 — Auditoria IV \\| achados e responsabilização\nS27 / D059 — 105 min · 25 questões. O D029 planejou, o D036 organizou a execução e a documentação, e o D052 ensinou a obter evidência. Agora a auditoria precisa transformar evidência em achado tecnicamente demonstrável e, quando houver base jurídica, separar isso da individualização de responsabilidade."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A trilha de Auditoria foi construída como uma cadeia:\n1. D029 — planejamento: objetivo, escopo, critério, risco e materialidade;\n2. D036 — operacionalização: programa, amostragem, papéis e rastreabilidade;\n3. D052 — execução: procedimento → evidência;\n4. D059 — conclusão estruturada: evidência → achado → encaminhamento e, quando cabível, responsabilização.\nA pergunta do D059 é:\n> Como demonstrar tecnicamente uma diferença relevante entre o que deveria ocorrer e o que efetivamente ocorreu — e como evitar pular daí diretamente para “culpado e multa”?"
+        },
+        {
+          "heading": "3. Posição no edital e recorte verticalizado",
+          "body": "B04 — Noções de Controle Externo\n- bloco: Específicos;\n- 4 questões;\n- peso 2;\n- baseline histórico: Misto;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Entra hoje",
+          "body": "- conceito de achado;\n- critério;\n- condição;\n- evidência;\n- causa;\n- efeito;\n- matriz de achados;\n- diferença entre achado e irregularidade;\n- matriz de risco × matriz de achados × matriz de responsabilização;\n- individualização da conduta;\n- nexo causal;\n- elemento subjetivo/culpabilidade quando juridicamente pertinente;\n- dano/resultado quando pertinente;\n- contraditório e ampla defesa;\n- proposta de encaminhamento;\n- construção de dois achados completos."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- planejamento e matriz de risco em profundidade → D029;\n- amostragem e documentação → D036;\n- técnicas de obtenção de evidência → D052;\n- sanções locais em leitura legislativa exaustiva → já tratadas nas sessões de Lei Orgânica/Regimento;\n- relatório final e monitoramento em profundidade → sessões futuras;\n- responsabilização automática por mera posição hierárquica → não é método válido."
+        },
+        {
+          "heading": "Já conhecido",
+          "body": "- objetivo × escopo;\n- critério de auditoria;\n- risco e materialidade;\n- programa de auditoria;\n- papéis de trabalho;\n- evidência suficiente × apropriada;\n- inspeção, observação, recálculo, confirmação e procedimentos analíticos;\n- rastreabilidade."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- condição × critério;\n- causa;\n- efeito;\n- proposta de encaminhamento;\n- relação entre evidência e conclusão."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- montar um achado completo;\n- separar fato constatado de explicação causal;\n- separar efeito comprovado de risco potencial;\n- distinguir achado de irregularidade;\n- matriz de achados;\n- matriz de responsabilização;\n- individualizar conduta e nexo;\n- perceber quando ainda falta base para responsabilizar."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. definir critério, condição, causa e efeito;\n2. explicar o papel da evidência dentro do achado;\n3. identificar erro de troca entre condição e critério;\n4. construir um achado a partir de um caso;\n5. distinguir causa de mera opinião;\n6. distinguir efeito real de risco potencial;\n7. explicar por que achado não é sinônimo de irregularidade;\n8. separar matriz de risco, matriz de achados e matriz de responsabilização;\n9. identificar conduta individualizada;\n10. formular um nexo causal coerente;\n11. reconhecer quando elemento subjetivo deve ser analisado;\n12. explicar por que cargo ou função, isoladamente, não basta para responsabilizar;\n13. associar proposta de encaminhamento à causa/efeito do achado;\n14. resolver Q059 justificando cada elemento antes de olhar o gabarito."
+        },
+        {
+          "heading": "TCU — matriz de achados e responsabilização",
+          "body": "Uso metodológico:\n- estrutura do achado;\n- matriz de achados;\n- individualização de conduta;\n- nexo de causalidade;\n- matriz de responsabilização."
+        },
+        {
+          "heading": "NBASP / IRB — evidência",
+          "body": "A evidência é a base que sustenta o achado e a conclusão. O D059 reaproveita o D052: sem evidência suficiente e apropriada, não existe achado robusto."
+        },
+        {
+          "heading": "TCE-GO — fundamento jurídico local",
+          "body": "- Lei Orgânica e Regimento disciplinam competência, processo, decisões e sanções no TCE-GO;\n- corte do edital: 25/08/2026;\n- a metodologia do TCU é usada como referência técnica;\n- não se transporta automaticamente regra sancionadora de outro tribunal para o TCE-GO.\nSeparação obrigatória: metodologia de auditoria pode vir de referência técnica nacional; fundamento de sanção/rito precisa respeitar a legislação do TCE-GO aplicável ao caso."
+        },
+        {
+          "heading": "7. Como estudar os 105 minutos",
+          "body": "1. 10 min — mapa D029 → D036 → D052 → D059.\n2. 25 min — critério, condição, evidência, causa e efeito.\n3. 20 min — matriz de achados + diferenças entre matrizes.\n4. 15 min — responsabilização: conduta, nexo e limites.\n5. 15 min — construir os 2 achados completos.\n6. 15 min — Q059.\n7. 5 min — D0.\n---\n# PARTE I — DA EVIDÊNCIA AO ACHADO"
+        },
+        {
+          "heading": "8. A cadeia completa",
+          "body": "> questão de auditoria → critério → procedimento → evidência → achado → conclusão → recomendação/determinação\nCada elo responde a uma pergunta diferente:\nElemento\nPergunta\nQuestão\no que preciso responder?\nCritério\ncomparar com qual padrão?\nProcedimento\ncomo obter a informação necessária?\nEvidência\no que sustenta a constatação?\nAchado\nqual diferença relevante foi demonstrada?\nConclusão\no que a evidência permite afirmar?\nEncaminhamento\no que deve ser corrigido, apurado ou monitorado?"
+        },
+        {
+          "heading": "Erro fatal",
+          "body": "Começar pela conclusão e depois procurar evidência para confirmá-la.\nAuditoria funciona no sentido inverso: evidência primeiro; conclusão depois."
+        },
+        {
+          "heading": "9. Achado: conceito funcional",
+          "body": "Achado é uma constatação relevante resultante da comparação estruturada entre:\n- critério — o padrão esperado;\n- condição — a realidade encontrada;\napoiada por evidência e analisada quanto a causa e efeito."
+        },
+        {
+          "heading": "Fórmula mental",
+          "body": "> Achado = condição comparada ao critério + evidência + explicação causal + consequência.\nEssa fórmula é didática, não uma equação jurídica."
+        },
+        {
+          "heading": "10. Critério — “como deveria ser?”",
+          "body": "Critério é o padrão usado para avaliar a condição.\nPode derivar, conforme o trabalho, de:\n- lei;\n- regulamento;\n- contrato;\n- política;\n- meta;\n- indicador;\n- norma técnica;\n- boa prática legitimamente adotada como referência;\n- especificação do objeto."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Contrato exige entrega em até 5 dias úteis.\nEsse prazo é o critério."
+        },
+        {
+          "heading": "Pegadinha FCC",
+          "body": "Descrever “37% das entregas ocorreram após 10 dias” como critério.\nNão. Isso é condição."
+        },
+        {
+          "heading": "11. Condição — “como está de fato?”",
+          "body": "Condição é a situação encontrada pelo auditor.\nDeve ser:\n- concreta;\n- delimitada;\n- sustentada por evidência;\n- relacionada ao critério."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Em amostra válida, 37% das entregas foram realizadas após 10 dias úteis.\nIsso é a condição."
+        },
+        {
+          "heading": "Regra",
+          "body": "Critério = deveria ser.\nCondição = foi encontrado.\nSe essa diferença não estiver clara, o restante do achado fica torto."
+        },
+        {
+          "heading": "12. Evidência — “como sei?”",
+          "body": "Evidência é o suporte do que o auditor afirma.\nPode envolver:\n- documentos;\n- registros de sistema;\n- inspeção;\n- confirmação;\n- observação;\n- recálculo;\n- reexecução;\n- dados e análises;\n- combinação de fontes."
+        },
+        {
+          "heading": "Não confundir",
+          "body": "Evidência não é:\n- mera impressão;\n- narrativa sem fonte;\n- causa presumida;\n- opinião pessoal do auditor."
+        },
+        {
+          "heading": "Ponte com D052",
+          "body": "Suficiência trata da quantidade.\nAdequação trata da qualidade/relevância/confiabilidade.\nO D059 presume que essa base já foi construída."
+        },
+        {
+          "heading": "13. Causa — “por que aconteceu?”",
+          "body": "Causa explica a razão da diferença entre critério e condição.\nExemplos:\n- controle inexistente;\n- desenho inadequado do processo;\n- ausência de segregação;\n- parametrização incorreta;\n- falha de supervisão;\n- treinamento insuficiente;\n- planejamento deficiente."
+        },
+        {
+          "heading": "Atenção",
+          "body": "> Causa não pode ser chutada.\nSe a auditoria ainda não reuniu suporte suficiente, registre a necessidade de aprofundamento em vez de declarar uma causa como fato."
+        },
+        {
+          "heading": "Causa raiz × sintoma",
+          "body": "“Servidor não conferiu” pode ser só o sintoma.\nPergunte:\n- por que não conferiu?\n- havia regra?\n- sistema bloqueava?\n- supervisão funcionava?\n- carga de trabalho era compatível?\nO objetivo é evitar encaminhamento cosmético."
+        },
+        {
+          "heading": "14. Efeito — “o que isso produz?”",
+          "body": "Efeito é a consequência da diferença encontrada.\nPode ser:\n- financeira;\n- operacional;\n- social;\n- legal;\n- reputacional;\n- de desempenho;\n- de controle."
+        },
+        {
+          "heading": "Real × potencial",
+          "body": "- real: já ocorreu e pode ser demonstrado;\n- potencial: risco plausível decorrente da condição.\nNão apresente efeito potencial como dano consumado."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Atrasos de entrega podem produzir:\n- interrupção de atendimento;\n- compras emergenciais;\n- aumento de custo;\n- descumprimento de metas.\nA auditoria deve diferenciar o que ocorreu do que pode ocorrer.\n---\n# PARTE II — MATRIZ DE ACHADOS"
+        },
+        {
+          "heading": "15. Estrutura nuclear",
+          "body": "Campo\nFunção\nQuestão\nqual pergunta da auditoria o achado responde?\nCritério\nqual padrão deveria ser observado?\nCondição\no que foi encontrado?\nEvidência\no que sustenta a condição/conclusão?\nCausa\npor que ocorreu?\nEfeito\nqual consequência real/potencial?\nContexto/responsável\nquem/unidade se relaciona ao fato, sem antecipar culpa?\nProposta\nqual resposta técnica decorre do achado?"
+        },
+        {
+          "heading": "16. O que uma boa matriz evita",
+          "body": "Ela reduz quatro erros:\n1. constatação sem padrão — “está ruim”;\n2. padrão sem evidência — existe regra, mas não há prova da violação;\n3. causa inventada — auditor assume motivo não demonstrado;\n4. recomendação genérica — “melhorar controles” sem atacar a causa."
+        },
+        {
+          "heading": "17. Achado não é sinônimo de irregularidade",
+          "body": "“Achado” é categoria técnica de auditoria.\nO exame pode:\n- confirmar conformidade;\n- revelar deficiência;\n- apontar oportunidade de melhoria;\n- sustentar irregularidade;\n- indicar necessidade de apuração adicional.\nPortanto:\n> achado ≠ automaticamente ilícito ≠ automaticamente responsável ≠ automaticamente sanção.\n---\n# PARTE III — TRÊS MATRIZES QUE A FCC PODE TROCAR"
+        },
+        {
+          "heading": "18. Risco × achados × responsabilização",
+          "body": "Matriz\nMomento\nPergunta\nProduto\nRisco\nplanejamento\no que pode dar errado e merece prioridade?\nriscos + respostas\nAchados\nexecução/conclusão\no que foi encontrado em comparação ao critério?\ncondição + evidência + causa + efeito\nResponsabilização\nfase própria, quando cabível\nqual conduta individual se liga ao fato e com que fundamento?\nagente + conduta + nexo + demais pressupostos"
+        },
+        {
+          "heading": "Macete",
+          "body": "Risco prevê.\nAchado demonstra.\nResponsabilização individualiza."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Matriz de risco não é uma matriz de achados antecipada.\n---\n# PARTE IV — RESPONSABILIZAÇÃO SEM ATALHOS"
+        },
+        {
+          "heading": "19. Primeiro o fato; depois a pessoa",
+          "body": "O raciocínio técnico começa pelo fato demonstrado.\nSó depois se pergunta:\n1. quem tinha atribuição relevante?\n2. o que essa pessoa efetivamente fez ou deixou de fazer?\n3. em qual período?\n4. existe nexo entre conduta e resultado/irregularidade?\n5. quais pressupostos jurídicos precisam ser demonstrados?\n6. houve contraditório e ampla defesa?"
+        },
+        {
+          "heading": "Regra de ouro",
+          "body": "> “Era o chefe” não é conduta.\nCargo, assinatura ou posição hierárquica podem ser elementos do contexto, mas não substituem a individualização do comportamento."
+        },
+        {
+          "heading": "20. Elementos da matriz de responsabilização",
+          "body": "Um modelo técnico pode organizar:\n- fato/irregularidade;\n- agente;\n- período de exercício;\n- conduta — ação ou omissão concretamente descrita;\n- nexo causal — ligação entre conduta e resultado/fato;\n- dano/resultado, quando pertinente;\n- elemento subjetivo/culpabilidade, quando juridicamente exigido;\n- fundamento;\n- proposta de encaminhamento."
+        },
+        {
+          "heading": "Não confundir",
+          "body": "- responsável pelo processo ≠ automaticamente responsável pela irregularidade;\n- causa do achado ≠ automaticamente conduta pessoal;\n- nexo ≠ mera proximidade temporal;\n- dano ≠ requisito de todo achado;\n- sanção ≠ consequência automática do achado."
+        },
+        {
+          "heading": "21. Conduta",
+          "body": "Conduta deve ser descrita com verbo e objeto.\nFraco:\n> “Gestor responsável pela irregularidade.”\nMelhor:\n> “Autorizou o pagamento X sem a comprovação Y exigida no procedimento.”\nOu:\n> “Deixou de executar a conferência prevista no controle Z, apesar de possuir atribuição e informação necessárias.”\nA redação da conduta já deve permitir testar o nexo."
+        },
+        {
+          "heading": "22. Nexo causal",
+          "body": "Nexo responde:\n> de que modo esta ação ou omissão contribuiu para o fato ou resultado?"
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Se a liberação do pagamento dependia de uma validação do agente e ele autorizou sem essa validação, pode existir conexão causal a investigar.\nSe o agente entrou no cargo depois de todos os atos relevantes, a mera titularidade posterior não cria nexo com o fato passado."
+        },
+        {
+          "heading": "23. Elemento subjetivo e culpabilidade",
+          "body": "Não trate culpabilidade como palavra decorativa.\nQuando juridicamente pertinente, a análise deve observar:\n- o que se podia exigir do agente;\n- informações disponíveis;\n- atribuições;\n- circunstâncias concretas;\n- previsibilidade;\n- regras aplicáveis.\nO D059 não cria uma teoria geral de sanções. O fundamento jurídico concreto permanece na Lei Orgânica, Regimento e demais normas aplicáveis."
+        },
+        {
+          "heading": "24. Contraditório e ampla defesa",
+          "body": "A matriz é ferramenta de análise; não é sentença.\nO processo de responsabilização deve preservar:\n- ciência adequada;\n- oportunidade de manifestação;\n- exame das alegações;\n- fundamentação da decisão.\nAchado bem montado não elimina devido processo. A força da evidência melhora a análise, mas não autoriza pular a defesa.\n---\n# PARTE V — DOIS ACHADOS COMPLETOS"
+        },
+        {
+          "heading": "25. Caso 1 — entregas atrasadas de medicamentos",
+          "body": "Caso didático fictício."
+        },
+        {
+          "heading": "Questão",
+          "body": "As entregas estão ocorrendo no prazo contratual?"
+        },
+        {
+          "heading": "Critério",
+          "body": "Contrato: entrega em até 5 dias úteis após a solicitação."
+        },
+        {
+          "heading": "Condição",
+          "body": "Na amostra examinada, 37% das entregas ocorreram após 10 dias úteis."
+        },
+        {
+          "heading": "Evidência",
+          "body": "- ordens de fornecimento;\n- registros de recebimento;\n- notas fiscais;\n- extração do sistema;\n- confirmação das datas."
+        },
+        {
+          "heading": "Causa",
+          "body": "A análise adicional demonstrou:\n- ausência de alerta para atraso;\n- acompanhamento manual fragmentado;\n- inexistência de escalonamento formal para cobrança."
+        },
+        {
+          "heading": "Efeito",
+          "body": "Real: atrasos documentados.\nPotencial: risco de desabastecimento e necessidade de contratação emergencial."
+        },
+        {
+          "heading": "Proposta",
+          "body": "Implantar monitoramento de prazo com alerta e regra de escalonamento, além de tratar os atrasos já identificados conforme o contrato."
+        },
+        {
+          "heading": "Matriz resumida",
+          "body": "Critério\nCondição\nCausa\nEfeito\nentrega ≤ 5 dias\n37% \\> 10 dias\nmonitoramento insuficiente\natraso real + risco de desabastecimento"
+        },
+        {
+          "heading": "26. Caso 2 — pagamento sem comprovação suficiente",
+          "body": "Caso didático fictício."
+        },
+        {
+          "heading": "Questão",
+          "body": "Os pagamentos foram efetuados somente após a comprovação exigida da execução?"
+        },
+        {
+          "heading": "Critério",
+          "body": "Procedimento aplicável exige comprovação/atesto antes da liberação do pagamento."
+        },
+        {
+          "heading": "Condição",
+          "body": "Foram identificados pagamentos em que o processo não continha a comprovação exigida no momento da autorização."
+        },
+        {
+          "heading": "Evidência",
+          "body": "- processos de pagamento;\n- registros de aprovação;\n- documentos de atesto;\n- trilha do sistema;\n- comprovantes financeiros."
+        },
+        {
+          "heading": "Causa",
+          "body": "A investigação mostrou controle preventivo configurado como etapa apenas formal, sem bloqueio quando faltava o documento obrigatório."
+        },
+        {
+          "heading": "Efeito",
+          "body": "Real: pagamentos foram processados sem evidência documental suficiente no fluxo de autorização.\nPotencial: elevação do risco de pagamento por objeto não comprovado."
+        },
+        {
+          "heading": "Proposta",
+          "body": "Criar validação impeditiva e revisar pagamentos do recorte de risco para verificar eventual dano concreto."
+        },
+        {
+          "heading": "O que ainda não pode ser afirmado",
+          "body": "Só a ausência documental não permite concluir automaticamente:\n- que houve desvio;\n- que houve dano;\n- quem agiu com culpa;\n- que determinado gestor deve ser sancionado.\nPara isso, a apuração precisa avançar.\n---\n# PARTE VI — MATRIZ SIMPLES DE RESPONSABILIZAÇÃO"
+        },
+        {
+          "heading": "27. Exemplo didático",
+          "body": "Considere o Caso 2 e suponha que a apuração posterior demonstre que um agente específico liberou determinado pagamento apesar de alerta bloqueante conhecido.\nElemento\nRegistro didático\nFato\npagamento liberado sem comprovação obrigatória\nAgente\nagente X, no período do ato\nConduta\nliberou o pagamento apesar do alerta/documento ausente\nNexo\na liberação permitiu a saída de recursos naquele processo\nResultado\ndepende da prova do caso; não presumir dano\nElemento subjetivo\navaliar segundo a norma e circunstâncias aplicáveis\nEncaminhamento\ndepende da legislação e do contraditório"
+        },
+        {
+          "heading": "O aprendizado",
+          "body": "A matriz serve para testar a hipótese de responsabilidade.\nEla também pode mostrar que falta elemento e que responsabilizar seria prematuro.\n---\n# PARTE VII — COMO A FCC TENDE A COBRAR"
+        },
+        {
+          "heading": "28. Padrões de prova",
+          "body": "Na curadoria do Q059, os itens FCC mapeados trabalham especialmente:\n- atributos do achado;\n- critério × condição × causa × efeito;\n- evidência suficiente/apropriada;\n- conteúdo do relatório;\n- matriz de responsabilização;\n- individualização de conduta e nexo."
+        },
+        {
+          "heading": "Trocas previsíveis",
+          "body": "1. critério ↔ condição;\n2. causa ↔ efeito;\n3. opinião ↔ evidência;\n4. matriz de risco ↔ achados;\n5. matriz de achados ↔ responsabilização;\n6. chefia ↔ conduta;\n7. correlação ↔ nexo causal;\n8. achado ↔ irregularidade;\n9. irregularidade ↔ sanção automática;\n10. quantidade de evidência ↔ qualidade da evidência."
+        },
+        {
+          "heading": "29. O que precisa ficar automático",
+          "body": "1. Critério = deveria ser.\n2. Condição = encontrado.\n3. Evidência = como sei.\n4. Causa = por que ocorreu.\n5. Efeito = o que produziu/pode produzir.\n6. Risco prevê.\n7. Achado demonstra.\n8. Responsabilização individualiza.\n9. Cargo ≠ conduta.\n10. Nexo precisa ser explicado.\n11. Achado ≠ sanção automática.\n12. Evidência antes da conclusão.\n---\n# PARTE VIII — PRÉ-Q059, Q059 E PÓS-Q059"
+        },
+        {
+          "heading": "30. Pré-Q059",
+          "body": "Sem consulta, responda:\n1. Qual a diferença entre critério e condição?\n2. Evidência é elemento de suporte ou opinião?\n3. Uma causa pode ser presumida?\n4. Qual a diferença entre efeito real e potencial?\n5. Matriz de risco pertence a qual fase?\n6. Matriz de responsabilização serve para quê?\n7. “Era o chefe” descreve uma conduta?\n8. Achado sempre é irregularidade?\n9. Irregularidade implica automaticamente sanção?\n10. Qual a cadeia completa da questão à proposta?\nSe errar três ou mais, volte às seções 8–24."
+        },
+        {
+          "heading": "31. Q059 — bateria de 25 questões",
+          "body": "A bateria combina FCC real com autorais técnicas para cobrir o núcleo sem forçar questões externas pouco aderentes."
+        },
+        {
+          "heading": "32. Pós-Q059 — causa do erro",
+          "body": "Classifique:\n- A1: critério × condição;\n- A2: evidência;\n- A3: causa;\n- A4: efeito;\n- A5: matriz de risco × achados;\n- A6: matriz de responsabilização;\n- A7: conduta;\n- A8: nexo;\n- A9: achado × irregularidade;\n- A10: automatismo sancionador;\n- A11: leitura FCC."
+        },
+        {
+          "heading": "P1",
+          "body": "Trate como crítico se houver erro em:\n- critério × condição;\n- evidência × opinião;\n- conduta × cargo;\n- nexo;\n- matriz de achados × responsabilização.\n---\n# PARTE IX — D0, D7 E D20"
+        },
+        {
+          "heading": "33. D0",
+          "body": "Após a execução real:\n1. escreva C-C-C-E sem olhar: critério, condição, causa e efeito;\n2. acrescente onde entra a evidência;\n3. monte uma matriz de achados com o Caso 1;\n4. explique risco × achado × responsabilização;\n5. redija uma conduta com verbo + objeto;\n6. explique o nexo;\n7. refaça erradas + acertos com dúvida.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "34. D7",
+          "body": "Acionar editorialmente.\nJustificativa:\n- achado completo é conteúdo central e novo;\n- os pares critério/condição e causa/efeito são altamente confundíveis;\n- o tema reaparece em relatórios e simulados."
+        },
+        {
+          "heading": "35. D20",
+          "body": "Acionar editorialmente.\nJustificativa:\n- responsabilização exige cadeia lógica reutilizável;\n- um erro aqui contamina conclusão, encaminhamento e análise de responsabilidade;\n- alto custo de esquecimento em Controle/Auditoria.\n> D7/D20 acionados ≠ revisões realizadas."
+        },
+        {
+          "heading": "36. Flashcards candidatos",
+          "body": "Somente se houver erro/dúvida real:\n- critério = deveria ser;\n- condição = encontrado;\n- causa = por quê;\n- efeito = consequência;\n- risco prevê / achado demonstra / responsabilização individualiza;\n- cargo ≠ conduta;\n- nexo = ligação explicada entre conduta e fato/resultado.\nSem meta de quantidade.\n---\n# PARTE X — CRITÉRIO DE CONCLUSÃO E PONTE"
+        },
+        {
+          "heading": "37. Critério editorial",
+          "body": "A sessão só pode ser liberada quando:\n- Material estiver completo e auditado;\n- Q059 tiver 25 questões válidas;\n- fonte metodológica e fontes locais estiverem registradas;\n- os dois achados completos estiverem construídos;\n- matriz simples de responsabilização estiver presente;\n- 25 correções recolhíveis estiverem íntegras;\n- nenhuma métrica real tiver sido preenchida."
+        },
+        {
+          "heading": "38. Critério de execução do aluno",
+          "body": "Só considerar estudado após:\n- leitura real;\n- 25 respostas;\n- correção;\n- classificação das causas de erro;\n- construção de pelo menos um achado sem consulta;\n- D0;\n- registro das métricas reais.\nMaterial pronto ≠ estudado."
+        },
+        {
+          "heading": "39. Ponte para a próxima sessão",
+          "body": "A próxima sessão ativa é S28 / D061 — CASP IX, que integra Lei nº 4.320/1964, MCASP, PCASP, DCASP e prestação de contas.\nD059 encerra este bloco de Auditoria sem processar D061."
+        },
+        {
+          "heading": "40. Notas editoriais e fontes",
+          "body": "- seis Fontes canônicas vigentes do TCE-GO;\n- Fonte-Mestra v1.3 — posição, tempo e entregável do D059;\n- Base Técnica v1.3 — achado, matrizes e responsabilização;\n- Base Operacional v1.3 — Qxx, validade V1–V4 e D0/D7/D20;\n- Fonte 05 v1.1 — Template Técnico/Auditoria;\n- TCU — Matriz de Achados e Matriz de Responsabilização;\n- IRB/NBASP — evidência;\n- Lei Estadual nº 16.168/2007 — Lei Orgânica do TCE-GO;\n- Resolução nº 22/2008 — Regimento Interno do TCE-GO;\n- corte normativo do projeto: 25/08/2026;\n- revalidação editorial: 22/09/2026;\n- desenvolvimento da estrutura: v2;\n- execução real: não preenchida."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T18:59:53.559Z"
+    },
+    "d061": {
+      "dxx": "D061",
+      "title": "D061 — CASP IX",
+      "summary": "CASP IX — integração Lei 4.320 + MCASP + prestação de contas — conectar orçamento, fato patrimonial, PCASP, DCASP e accountability.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D061 — CASP IX \\| integração Lei nº 4.320/1964 + MCASP + prestação de contas\nS28 / D061 — 120 min · 25 questões. Esta é a sessão de integração da primeira grande trilha CASP. O objetivo não é aprender outra camada isolada, mas conseguir percorrer o caminho completo: orçamento → fato patrimonial → PCASP → DCASP → prestação de contas → controle."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A trilha CASP foi construída em camadas:\n1. D003 — CASP I: Estrutura Conceitual, ativo, passivo, VPA/VPD e AFO × CASP;\n2. D010 — CASP II: arquitetura do MCASP;\n3. D017/D024/D031/D038: NBC TSP e procedimentos patrimoniais;\n4. D050 — CASP VII: PCASP e lógica dos registros;\n5. D057 — CASP VIII: DCASP e leitura das demonstrações;\n6. D061 — CASP IX: integração e accountability.\nAté aqui, você aprendeu as peças. Agora precisa enxergar o sistema.\n> Uma mesma transação pública pode gerar efeitos orçamentários, patrimoniais, financeiros e de controle em momentos diferentes — e todos precisam chegar de forma coerente à prestação de contas."
+        },
+        {
+          "heading": "3. Posição no edital e recorte verticalizado",
+          "body": "B06 — Contabilidade Aplicada ao Setor Público\n- bloco: Específicos;\n- 5 questões;\n- peso 2;\n- baseline histórico: Novo;\n- tratamento: Construção."
+        },
+        {
+          "heading": "Entra hoje",
+          "body": "- Lei nº 4.320/1964 como ponte AFO ↔ CASP;\n- art. 35 — pertencimento ao exercício;\n- art. 58 — empenho;\n- arts. 62–63 — pagamento e liquidação;\n- art. 92 — dívida flutuante;\n- arts. 101–105 — resultados gerais e demonstrações clássicas;\n- MCASP 11ª edição;\n- PCASP — classes e naturezas;\n- DCASP;\n- orçamento × patrimônio × caixa;\n- restos a pagar;\n- integração de fatos típicos;\n- prestação de contas/accountability;\n- ligação entre informação contábil e controle externo."
+        },
+        {
+          "heading": "Fica fora",
+          "body": "- releitura integral da Lei nº 4.320/1964;\n- decorar todo o PCASP analítico;\n- reconstruir do zero BO/BF/BP/DVP/DFC/DMPL;\n- rito completo de prestação/tomada de contas do TCE-GO;\n- sanções e recursos em profundidade;\n- consolidação avançada e custos em profundidade."
+        },
+        {
+          "heading": "Já conhecido",
+          "body": "- receita e despesa orçamentárias;\n- empenho, liquidação e pagamento;\n- restos a pagar;\n- ativo, passivo, VPA e VPD;\n- regime orçamentário × competência patrimonial;\n- classes 1–8 do PCASP;\n- naturezas patrimonial, orçamentária e de controle;\n- BO, BF, BP, DVP, DFC, DMPL e Notas;\n- resultado orçamentário × patrimonial × financeiro."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- relação entre os arts. 35/58/62–63 e o reconhecimento patrimonial;\n- trânsito de um mesmo fato pelas três naturezas do PCASP;\n- como DCASP se torna insumo da prestação de contas."
+        },
+        {
+          "heading": "Realmente novo",
+          "body": "- percorrer uma transação do orçamento à accountability;\n- explicar por que um único “momento contábil” não resolve todos os efeitos;\n- identificar qual informação vai para qual demonstração;\n- separar registro contábil de julgamento de contas;\n- usar a Lei nº 4.320/1964 como ponte, não como concorrente do MCASP."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. explicar o art. 35 sem confundi-lo com competência patrimonial;\n2. distinguir empenho, liquidação e pagamento;\n3. explicar por que empenho não implica automaticamente VPD;\n4. explicar por que pagamento não é o único momento relevante da contabilidade;\n5. classificar um fato em natureza patrimonial, orçamentária e/ou de controle;\n6. relacionar classes 1–4, 5–6 e 7–8 às naturezas;\n7. apontar em qual DCASP um efeito é evidenciado;\n8. explicar o papel de restos a pagar no fluxo integrado;\n9. distinguir resultado orçamentário, patrimonial, financeiro do BF e superávit financeiro do BP;\n10. explicar como a informação contábil alimenta prestação de contas;\n11. explicar por que prestação de contas não se confunde com julgamento de contas;\n12. resolver casos integrados FCC sem fundir orçamento, patrimônio e caixa."
+        },
+        {
+          "heading": "Lei nº 4.320/1964",
+          "body": "Recorte D061:\n- art. 35;\n- art. 58;\n- arts. 62–63;\n- art. 92;\n- arts. 101–105."
+        },
+        {
+          "heading": "MCASP — 11ª edição",
+          "body": "Partes usadas:\n- Parte I — procedimentos orçamentários;\n- Parte II — procedimentos patrimoniais;\n- Parte IV — PCASP;\n- Parte V — DCASP."
+        },
+        {
+          "heading": "PCASP",
+          "body": "- estrutura conceitual do MCASP 11ª;\n- PCASP 2026 para fatos de 2026;\n- PCASP 2027 não retroage para fatos de 2026."
+        },
+        {
+          "heading": "TCE-GO — prestação/controle",
+          "body": "A Lei Orgânica entra apenas como ponte institucional: informação contábil e prestação de contas chegam ao controle externo, que possui competências próprias de apreciação/julgamento conforme o caso."
+        },
+        {
+          "heading": "Controle temporal",
+          "body": "- corte do edital: 25/08/2026;\n- revalidação editorial: 22/09/2026;\n- MCASP vigente no projeto: 11ª edição."
+        },
+        {
+          "heading": "7. Como estudar os 120 minutos",
+          "body": "1. 10 min — mapa completo CASP.\n2. 20 min — Lei 4.320 como ponte.\n3. 25 min — orçamento × patrimônio × caixa.\n4. 20 min — PCASP → DCASP.\n5. 20 min — três casos integrados.\n6. 20 min — Q061.\n7. 5 min — D0.\nRegra: não volte para decorar detalhes antigos. Use D061 para conectar o que já foi construído.\n---\n# PARTE I — LEI Nº 4.320/1964 COMO PONTE"
+        },
+        {
+          "heading": "8. O art. 35 e os dois relógios",
+          "body": "A Lei nº 4.320/1964 estabelece, para o exercício financeiro:\n- receita pertencente ao exercício → arrecadada;\n- despesa pertencente ao exercício → legalmente empenhada.\nIsso organiza o recorte orçamentário."
+        },
+        {
+          "heading": "O que o art. 35 não diz",
+          "body": "Ele não transforma automaticamente:\n- arrecadação em VPA;\n- empenho em VPD;\n- pagamento em fato gerador patrimonial.\nDois relógios: orçamento acompanha a execução orçamentária; patrimônio acompanha o fenômeno econômico pelo regime patrimonial aplicável."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Tributo cujo fato gerador patrimonial foi reconhecido antes da arrecadação:\n- patrimônio pode reconhecer direito/VPA no momento cabível;\n- orçamento reconhece receita na arrecadação.\nA FCC explora exatamente essa defasagem."
+        },
+        {
+          "heading": "9. Art. 58 — empenho",
+          "body": "Empenho é ato da autoridade competente que cria para o Estado obrigação de pagamento, pendente ou não de implemento de condição."
+        },
+        {
+          "heading": "Função no fluxo",
+          "body": "> dotação → empenho → liquidação → pagamento."
+        },
+        {
+          "heading": "Erro clássico",
+          "body": "“Empenhou = consumiu recurso patrimonial.”\nNão necessariamente.\nExemplo:\n- empenho para compra de equipamento;\n- o bem ainda não foi entregue.\nHá execução orçamentária, mas o fato patrimonial principal ainda não se completou como aquisição/entrada do ativo."
+        },
+        {
+          "heading": "Pagamento",
+          "body": "O pagamento da despesa ocorre após sua regular liquidação."
+        },
+        {
+          "heading": "Liquidação",
+          "body": "Liquidação verifica o direito adquirido pelo credor com base em títulos e documentos comprobatórios.\nEla busca confirmar elementos como:\n- origem e objeto;\n- importância exata;\n- a quem pagar."
+        },
+        {
+          "heading": "Integração patrimonial",
+          "body": "Liquidação é estágio orçamentário importante, mas o reconhecimento patrimonial depende do fato econômico.\nEm muitos casos, entrega/prestação e liquidação ficam próximos. Em outros, o tratamento exige leitura técnica do fenômeno."
+        },
+        {
+          "heading": "11. Art. 92 — dívida flutuante",
+          "body": "A Lei nº 4.320/1964 inclui na dívida flutuante categorias como:\n- restos a pagar;\n- serviços da dívida a pagar;\n- depósitos;\n- débitos de tesouraria."
+        },
+        {
+          "heading": "Ponte com CASP",
+          "body": "A classificação legal precisa dialogar com:\n- passivos patrimoniais;\n- controles orçamentários;\n- restos a pagar;\n- demonstrações.\nA conta correta depende da natureza da informação que está sendo registrada."
+        },
+        {
+          "heading": "12. Arts. 101–105 — demonstrações clássicas",
+          "body": "A Lei nº 4.320/1964 organiza os resultados gerais por meio de demonstrações como:\n- Balanço Orçamentário;\n- Balanço Financeiro;\n- Balanço Patrimonial;\n- Demonstração das Variações Patrimoniais.\nO MCASP/NBC TSP estrutura a evidenciação atual e amplia a arquitetura estudada no D057, incluindo DFC, DMPL quando aplicável e Notas."
+        },
+        {
+          "heading": "Macete",
+          "body": "Lei 4.320 = espinha legal histórica.\nMCASP/NBC TSP = arquitetura técnico-contábil atual.\nNão trate um como se anulasse o outro.\n---\n# PARTE II — TRÊS DIMENSÕES DO MESMO FATO"
+        },
+        {
+          "heading": "13. Dimensão orçamentária",
+          "body": "Pergunta:\n> o que aconteceu com autorização e execução do orçamento?\nExemplos:\n- previsão;\n- arrecadação;\n- dotação;\n- empenho;\n- liquidação;\n- pagamento;\n- restos a pagar.\nPCASP:\n- classes 5 e 6.\nDemonstração principal:\n- Balanço Orçamentário."
+        },
+        {
+          "heading": "14. Dimensão patrimonial",
+          "body": "Pergunta:\n> o que mudou em ativos, passivos, VPA, VPD e PL?\nPCASP:\n- classes 1 a 4.\nDemonstrações principais:\n- BP;\n- DVP;\n- DMPL, quando aplicável;\n- reflexos também em DFC/Notas conforme o caso."
+        },
+        {
+          "heading": "15. Dimensão de controle",
+          "body": "Pergunta:\n> qual ato, compromisso ou controle precisa ser acompanhado sem ser confundido com ativo/passivo/VPA/VPD?\nPCASP:\n- classes 7 e 8.\nExemplos:\n- controles de atos potenciais;\n- controles específicos de execução;\n- DDR e demais controles tratados no D050."
+        },
+        {
+          "heading": "16. Caixa",
+          "body": "Caixa não é uma “quarta natureza do PCASP” paralela às três naturezas.\nEle é uma dimensão financeira concreta do fato, relevante para:\n- DFC;\n- BF;\n- caixa e equivalentes;\n- pagamentos/recebimentos."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Patrimonial ≠ caixa.\nDepreciação é patrimonial sem saída de caixa.\nAquisição a prazo pode alterar patrimônio antes do pagamento.\n---\n# PARTE III — PCASP COMO PONTE DE REGISTRO"
+        },
+        {
+          "heading": "17. Mapa das classes",
+          "body": "Classes\nNatureza\nPergunta\n1–2\npatrimonial\no que tenho/devo e qual o PL?\n3–4\npatrimonial\nqual VPD/VPA ocorreu?\n5–6\norçamentária\no que foi aprovado/executado no orçamento?\n7–8\ncontrole\no que precisa ser acompanhado/controlado?"
+        },
+        {
+          "heading": "18. Um fato pode gerar várias partidas",
+          "body": "Um mesmo evento pode exigir registros diferentes porque responde a perguntas diferentes.\nExemplo: prestação de serviço.\n- orçamento → execução da despesa;\n- patrimônio → reconhecimento de VPD/passivo, conforme o fato;\n- controle → registros próprios quando cabíveis;\n- caixa → saída somente no pagamento."
+        },
+        {
+          "heading": "Regra",
+          "body": "> Não procure uma única conta “que represente tudo”.\nO sistema funciona justamente porque separa as naturezas."
+        },
+        {
+          "heading": "19. Integridade por natureza",
+          "body": "O D050 já ensinou:\n- débito/crédito de uma partida preservam a natureza;\n- não se mistura classe patrimonial com orçamentária dentro da mesma partida como atalho;\n- o mesmo fato pode gerar partidas distintas em naturezas distintas.\nD061 usa essa regra para reconstruir o fluxo inteiro.\n---\n# PARTE IV — DO REGISTRO ÀS DCASP"
+        },
+        {
+          "heading": "20. PCASP → demonstrações",
+          "body": "Informação\nOrigem estrutural\nDemonstração\nexecução orçamentária\n5–6\nBO\nposição patrimonial\n1–2\nBP\nVPA/VPD\n3–4\nDVP\nmovimentos do PL\ncomponentes do PL\nDMPL\ncaixa por atividade\nmovimentos de caixa\nDFC\ningressos/dispêndios financeiros\nmúltiplas naturezas\nBF\ndetalhamento/contexto\ntransversal\nNotas"
+        },
+        {
+          "heading": "21. Quatro resultados que continuam separados",
+          "body": "Resultado\nDemonstração\nNúcleo\norçamentário\nBO\nreceita realizada × despesa empenhada\nfinanceiro do período\nBF\nmovimentação financeira\nsuperávit/déficit financeiro\nBP\nativo financeiro × passivo financeiro\npatrimonial\nDVP\nVPA × VPD"
+        },
+        {
+          "heading": "Regra",
+          "body": "Um ente pode ter resultados diferentes em cada ótica porque cada um mede coisa diferente.\n---\n# PARTE V — RESTOS A PAGAR COMO TESTE DE INTEGRAÇÃO"
+        },
+        {
+          "heading": "22. Por que restos a pagar são didaticamente importantes",
+          "body": "Restos a pagar obrigam você a separar:\n- exercício orçamentário;\n- estágio da despesa;\n- obrigação patrimonial;\n- fluxo financeiro;\n- evidenciação."
+        },
+        {
+          "heading": "Art. 35",
+          "body": "Despesa legalmente empenhada pertence ao exercício orçamentário."
+        },
+        {
+          "heading": "Encerramento",
+          "body": "Se não paga até o encerramento, pode haver inscrição em restos a pagar conforme a situação aplicável."
+        },
+        {
+          "heading": "PCASP",
+          "body": "- inscrição/aprovação → lógica das classes 5;\n- execução → classes 6;\n- controles associados → classes 7/8 quando aplicáveis;\n- obrigação patrimonial → classes 1/2 conforme o fato."
+        },
+        {
+          "heading": "BF",
+          "body": "A Lei nº 4.320/1964 prevê tratamento extraorçamentário dos restos a pagar do exercício para compensar sua inclusão na despesa orçamentária.\nPegadinha: “extraorçamentário no BF” não significa que a despesa original deixou de ser orçamentária.\n---\n# PARTE VI — TRÊS CASOS INTEGRADOS"
+        },
+        {
+          "heading": "23. Caso 1 — serviço contratado e pago depois",
+          "body": "Caso didático.\nSituação:\n1. dotação disponível;\n2. empenho de R\\$ 100;\n3. serviço prestado;\n4. liquidação;\n5. pagamento no mês seguinte."
+        },
+        {
+          "heading": "Orçamento",
+          "body": "- empenho → execução orçamentária;\n- liquidação → verificação do direito do credor;\n- pagamento → quitação financeira."
+        },
+        {
+          "heading": "Patrimônio",
+          "body": "Quando o serviço é efetivamente recebido e a obrigação nasce:\n- reconhece-se o efeito patrimonial correspondente;\n- pode surgir VPD + passivo."
+        },
+        {
+          "heading": "PCASP",
+          "body": "Há partidas:\n- orçamentárias;\n- patrimoniais;\n- eventualmente de controle."
+        },
+        {
+          "heading": "DCASP",
+          "body": "- BO → execução da despesa;\n- BP → obrigação enquanto não paga;\n- DVP → VPD quando reconhecida;\n- DFC/BF → saída quando houver pagamento."
+        },
+        {
+          "heading": "Moral",
+          "body": "Empenho, VPD e pagamento podem ocorrer em momentos diferentes."
+        },
+        {
+          "heading": "24. Caso 2 — compra de equipamento",
+          "body": "Situação:\n1. empenho de R\\$ 500;\n2. equipamento entregue;\n3. liquidação;\n4. pagamento."
+        },
+        {
+          "heading": "Orçamento",
+          "body": "Há despesa orçamentária executada."
+        },
+        {
+          "heading": "Patrimônio",
+          "body": "A entrega de equipamento não significa VPD integral imediata.\nEm regra, ocorre:\n- entrada de ativo imobilizado;\n- reconhecimento de passivo enquanto não pago.\nDepois, ao longo da vida útil, podem surgir VPDs como depreciação."
+        },
+        {
+          "heading": "DCASP",
+          "body": "- BO → despesa;\n- BP → ativo + eventual passivo;\n- DVP → não confundir compra do ativo com VPD integral;\n- DFC → saída no pagamento."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "> Despesa orçamentária ≠ VPD automática."
+        },
+        {
+          "heading": "25. Caso 3 — ARO",
+          "body": "Operação de crédito por antecipação da receita orçamentária gera entrada de recursos."
+        },
+        {
+          "heading": "Não conclua automaticamente",
+          "body": "“Entrou caixa = receita efetiva.”\nA FCC/TCE-GO já explorou esse ponto."
+        },
+        {
+          "heading": "Integração",
+          "body": "- há ingresso financeiro;\n- surge obrigação/passivo;\n- a Lei nº 4.320/1964 trata a ARO no campo extraorçamentário;\n- o BP evidencia a obrigação;\n- BF/DFC refletem a dimensão financeira segundo sua estrutura."
+        },
+        {
+          "heading": "Moral",
+          "body": "Entrada de caixa pode ser dívida, não enriquecimento patrimonial.\n---\n# PARTE VII — RECEITA ORÇAMENTÁRIA × VPA"
+        },
+        {
+          "heading": "26. Dois momentos possíveis",
+          "body": "Exemplo didático:\n1. ocorre fato gerador que cria direito;\n2. patrimônio reconhece direito/VPA conforme o caso;\n3. arrecadação ocorre depois;\n4. orçamento reconhece receita na arrecadação.\nA ordem pode variar conforme o fenômeno, mas a regra mental permanece:\n> receita orçamentária e VPA não são sinônimos nem precisam nascer no mesmo instante."
+        },
+        {
+          "heading": "27. O inverso também importa",
+          "body": "Pode existir ingresso de caixa que:\n- não é VPA;\n- não é receita orçamentária efetiva;\n- representa obrigação.\nExemplo clássico:\n- operação de crédito.\n---\n# PARTE VIII — DA DCASP À PRESTAÇÃO DE CONTAS"
+        },
+        {
+          "heading": "28. O que a contabilidade entrega",
+          "body": "A contabilidade organiza e evidencia:\n- execução orçamentária;\n- posição patrimonial;\n- desempenho patrimonial;\n- fluxos financeiros;\n- mutações do PL;\n- políticas e informações explicativas.\nEsse conjunto permite que diferentes usuários avaliem:\n- uso de recursos;\n- sustentabilidade;\n- cumprimento do orçamento;\n- patrimônio;\n- desempenho;\n- riscos e obrigações."
+        },
+        {
+          "heading": "29. Prestação de contas",
+          "body": "No projeto, visualize:\n> fato público → registro contábil → demonstrações → prestação de contas → fiscalização/auditoria → apreciação/julgamento"
+        },
+        {
+          "heading": "Atenção",
+          "body": "A demonstração contábil não é o julgamento.\nEla é informação e evidência organizada que alimenta o processo de accountability."
+        },
+        {
+          "heading": "30. Accountability",
+          "body": "Para o D061, accountability significa a conexão entre:\n- dever de informar;\n- transparência;\n- prestação de contas;\n- possibilidade de controle;\n- responsabilização nos termos jurídicos aplicáveis.\nNão é uma nova conta do PCASP nem uma nova demonstração.\nÉ o sentido institucional do fluxo de informação."
+        },
+        {
+          "heading": "31. Onde entra o TCE-GO",
+          "body": "A contabilidade produz informação sobre o ente.\nA prestação de contas leva essa informação ao ambiente de controle.\nO Tribunal:\n- fiscaliza;\n- audita;\n- aprecia ou julga contas conforme sua competência;\n- pode exigir correções e aplicar consequências segundo o regime jurídico aplicável."
+        },
+        {
+          "heading": "Limite do D061",
+          "body": "Ritos, prazos, responsáveis e espécies processuais pertencem às sessões de legislação institucional. Aqui interessa a ponte contábil → controle.\n---\n# PARTE IX — MAPA INTEGRADO FINAL"
+        },
+        {
+          "heading": "32. Fluxo de uma despesa",
+          "body": "> LOA/dotação → empenho → fato patrimonial/entrega → liquidação → pagamento → registros PCASP → DCASP → prestação de contas → controle\nNem todas as etapas patrimoniais coincidem exatamente com o estágio orçamentário."
+        },
+        {
+          "heading": "33. Fluxo de uma receita",
+          "body": "> fato econômico/direito quando aplicável → registro patrimonial → arrecadação → registro orçamentário/financeiro → DCASP → prestação → controle"
+        },
+        {
+          "heading": "34. O quadro-mestre",
+          "body": "Etapa\nPergunta\nFonte/conceito\norçamento\nhá autorização e execução?\nLei 4.320 + MCASP Parte I\nfato patrimonial\nativo/passivo/VPA/VPD mudou?\nNBC TSP + MCASP Parte II\nregistro\nem qual natureza/classe?\nPCASP / Parte IV\nevidenciação\nonde aparece?\nDCASP / Parte V\nprestação\ncomo a informação chega ao controle?\ncontas + demonstrativos + notas\ncontrole\nquem fiscaliza/aprecia/julga?\nConstituição + LOTCE/RITCE\n---\n# PARTE X — PEGADINHAS FCC"
+        },
+        {
+          "heading": "35. Trocas prioritárias",
+          "body": "1. receita orçamentária = VPA;\n2. despesa orçamentária = VPD;\n3. empenho = consumo patrimonial;\n4. pagamento = único momento contábil;\n5. entrada de caixa = receita;\n6. classes 5/6 = patrimônio;\n7. classes 1/2 = orçamento;\n8. BO = DVP;\n9. BF = DFC;\n10. resultado orçamentário = patrimonial;\n11. resultado financeiro = superávit financeiro;\n12. restos a pagar “extraorçamentário no BF” = despesa nunca foi orçamentária;\n13. Lei 4.320 substitui MCASP;\n14. MCASP revoga Lei 4.320;\n15. demonstrações = julgamento das contas;\n16. PCASP 2027 = aplicável automaticamente a fato de 2026."
+        },
+        {
+          "heading": "36. O que precisa ficar automático",
+          "body": "1. art. 35 = arrecadada / empenhada no recorte orçamentário;\n2. 58 = empenho;\n3. 62–63 = pagamento depois da liquidação / verificação do direito;\n4. 1–4 patrimônio; 5–6 orçamento; 7–8 controle;\n5. BO orçamento; BP posição; DVP patrimônio; DFC caixa;\n6. despesa orçamentária ≠ VPD;\n7. receita orçamentária ≠ VPA;\n8. registro → demonstração → prestação → controle.\n---\n# PARTE XI — PRÉ-Q061, Q061 E PÓS-Q061"
+        },
+        {
+          "heading": "37. Pré-Q061",
+          "body": "Sem consulta:\n1. O art. 35 define qual recorte?\n2. Empenho significa VPD automática?\n3. Liquidação verifica o quê?\n4. Qual classe concentra execução orçamentária?\n5. Onde VPA/VPD aparecem estruturalmente?\n6. Qual demonstração mostra posição patrimonial?\n7. Qual a diferença BO × DVP?\n8. Restos a pagar deixam de ser despesa orçamentária porque aparecem como extraorçamentário no BF?\n9. Prestação de contas = julgamento?\n10. Complete: orçamento → fato patrimonial → *_ → *_ → prestação → controle.\nSe errar três ou mais, retorne às seções 8–36."
+        },
+        {
+          "heading": "38. Q061 — bateria de 25 questões",
+          "body": "A bateria usa FCC real já validada como reaplicação integradora e autorais para exigir a conexão entre camadas."
+        },
+        {
+          "heading": "39. Pós-Q061 — causa do erro",
+          "body": "Classifique:\n- C1: art. 35;\n- C2: empenho/liquidação/pagamento;\n- C3: orçamento × patrimônio;\n- C4: patrimônio × caixa;\n- C5: PCASP/classes;\n- C6: DCASP;\n- C7: restos a pagar;\n- C8: resultados;\n- C9: prestação/accountability;\n- C10: versão 2026/2027;\n- C11: leitura FCC."
+        },
+        {
+          "heading": "P1",
+          "body": "Trate como crítico:\n- despesa orçamentária × VPD;\n- receita orçamentária × VPA;\n- PCASP 1–4 × 5–6 × 7–8;\n- BO × BP × DVP × DFC;\n- prestação × julgamento.\n---\n# PARTE XII — D0, D7 E D20"
+        },
+        {
+          "heading": "40. D0",
+          "body": "Após a execução real:\n1. desenhe o fluxo completo sem consulta;\n2. escreva os artigos 35, 58, 62–63 e 101–105 por função;\n3. classifique os três casos integrados;\n4. recite as classes PCASP;\n5. associe os quatro resultados;\n6. explique prestação ≠ julgamento;\n7. refaça erros + acertos com dúvida.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "41. D7",
+          "body": "Acionar editorialmente.\nMotivo:\n- D061 é a consolidação estrutural do maior bloco técnico novo;\n- integração é mais fácil de esquecer do que conceitos isolados;\n- erro aqui revela fragmentação do conhecimento."
+        },
+        {
+          "heading": "42. D20",
+          "body": "Acionar editorialmente.\nMotivo:\n- fluxo CASP → prestação/controle será reutilizado em D70, D85, D90, D96 e D100;\n- é núcleo de transferência para questão FCC.\n> D7/D20 acionados ≠ revisões realizadas."
+        },
+        {
+          "heading": "43. Flashcards candidatos",
+          "body": "Somente se houver erro/dúvida real:\n- art. 35;\n- empenho ≠ VPD;\n- receita orçamentária ≠ VPA;\n- 1–4 / 5–6 / 7–8;\n- quatro resultados;\n- prestação ≠ julgamento.\nSem meta artificial.\n---\n# PARTE XIII — CRITÉRIO DE CONCLUSÃO"
+        },
+        {
+          "heading": "44. Critério editorial",
+          "body": "A sessão só pode ser liberada quando:\n- Material estiver completo;\n- fluxo integrado estiver explícito;\n- Q061 tiver 25 válidas;\n- Lei 4.320, MCASP e PCASP estiverem com fonte/corte;\n- questões reais estiverem rastreáveis;\n- correções estiverem recolhíveis;\n- execução real permanecer vazia."
+        },
+        {
+          "heading": "45. Critério do aluno",
+          "body": "Só considerar estudado após:\n- leitura real;\n- 25 respostas;\n- correção;\n- explicar pelo menos dois casos integrados sem consulta;\n- executar D0;\n- registrar métricas reais.\nPronto para estudo ≠ estudado."
+        },
+        {
+          "heading": "46. Ponte para frente",
+          "body": "A próxima sessão ativa é S29 / D064 — Direito Administrativo — normas novas.\nD061 fecha a primeira construção sistemática de CASP antes dos blocos de calibração e dos simulados."
+        },
+        {
+          "heading": "47. Notas editoriais e fontes",
+          "body": "- seis Fontes canônicas TCE-GO;\n- Fonte-Mestra v1.3 — D061, 120 min, 25 questões e entregável;\n- Base Técnica v1.3 — seções 06.33–06.37;\n- Base Operacional v1.3 — hierarquia FCC, validade e D0/D7/D20;\n- Fonte 05 v1.1 — Template Técnico/CASP;\n- Lei nº 4.320/1964 — fonte oficial;\n- MCASP 11ª edição;\n- PCASP/STN;\n- Lei Orgânica do TCE-GO apenas como ponte institucional;\n- corte: 25/08/2026;\n- revalidação editorial: 22/09/2026;\n- desenvolvimento: v2;\n- execução real: não preenchida."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T19:14:44.243Z"
+    },
+    "d064": {
+      "dxx": "D064",
+      "title": "D064 — Direito Administrativo",
+      "summary": "Direito Administrativo — normas novas — Lei GO 13.800/2001; Decreto 9.830/2019; Lei 12.232/2010; Lei GO 18.025/2013 — recortes do edital.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D064 — Direito Administrativo \\| normas novas do edital\nS29 / D064 — 105 min · 25 questões. Esta sessão não reabre Direito Administrativo inteiro. O foco é fechar quatro normas específicas do edital que não podem ficar diluídas no conhecimento geral: Lei GO nº 13.800/2001, Decreto nº 9.830/2019, Lei nº 12.232/2010 e Lei GO nº 18.025/2013."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "O edital de B01 mistura núcleo clássico de Direito Administrativo com normas especiais.\nO histórico do projeto permite reaproveitar:\n- princípios;\n- processo administrativo em linhas gerais;\n- LINDB aplicada ao Direito Público;\n- acesso à informação;\n- licitações.\nMas isso não elimina a necessidade de estudar a literalidade e as particularidades das quatro normas expressamente cobradas."
+        },
+        {
+          "heading": "Estratégia do D064",
+          "body": "> conhecimento geral já existente + norma específica + pegadinha FCC = domínio transferível.\nA sessão é de construção dirigida, não de reestudo integral da disciplina."
+        },
+        {
+          "heading": "3. Posição no edital e recorte verticalizado",
+          "body": "B01 — Noções de Direito Administrativo\n- 5 questões;\n- peso 2;\n- tratamento do D064: normas novas/específicas."
+        },
+        {
+          "heading": "Recorte canônico",
+          "body": "1. Lei Estadual nº 13.800/2001 e alterações — processo administrativo em Goiás;\n2. Decreto Federal nº 9.830/2019 — regulamentação dos arts. 20–30 da LINDB;\n3. Lei Federal nº 12.232/2010 — contratação de serviços de publicidade;\n4. Lei Estadual nº 18.025/2013 — acesso à informação em Goiás."
+        },
+        {
+          "heading": "Fora do D064",
+          "body": "- atos e poderes administrativos em teoria geral;\n- agentes públicos em profundidade;\n- improbidade;\n- Lei nº 14.133/2021 em estudo geral;\n- processo disciplinar;\n- legislação institucional do TCE-GO;\n- LINDB inteira fora do recorte Direito Público;\n- LAI federal inteira fora da ponte necessária para a lei goiana."
+        },
+        {
+          "heading": "Já conhecido",
+          "body": "- legalidade, finalidade, motivação, razoabilidade e proporcionalidade;\n- contraditório e ampla defesa;\n- autotutela;\n- anulação × revogação;\n- recursos administrativos em conceito geral;\n- segurança jurídica;\n- publicidade/transparência;\n- licitação e contratação pública;\n- noções dos arts. 20–30 da LINDB."
+        },
+        {
+          "heading": "Parcialmente conhecido",
+          "body": "- competência/delegação/avocação;\n- decadência administrativa;\n- erro grosseiro;\n- transparência ativa × passiva;\n- contratação de publicidade."
+        },
+        {
+          "heading": "Realmente novo ou que exige atualização",
+          "body": "- peculiaridades da Lei GO nº 13.800/2001;\n- alterações estaduais de 2018–2023;\n- contagem em dias úteis e suspensão 20/12–20/01;\n- intimação também de advogado constituído;\n- estrutura vigente do Decreto nº 9.830/2019 após revogação de seu art. 18;\n- procedimento especial da Lei nº 12.232/2010;\n- Lei GO nº 18.025/2013 após Lei nº 22.060/2023;\n- regulamentação atual pelo Decreto nº 10.306/2023."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. reconhecer o alcance da Lei nº 13.800/2001;\n2. distinguir competência, delegação e avocação;\n3. apontar matérias não delegáveis;\n4. diferenciar impedimento de suspeição;\n5. identificar dever de decidir e requisitos de motivação;\n6. diferenciar anulação, revogação e convalidação;\n7. aplicar decadência de cinco anos;\n8. resolver questões sobre recursos e prazos;\n9. explicar consequências práticas no Decreto nº 9.830/2019;\n10. reconhecer invalidação, transição e mudança de orientação;\n11. explicar dolo × erro grosseiro;\n12. delimitar o objeto da Lei nº 12.232/2010;\n13. identificar atividades excluídas da contratação de publicidade;\n14. reconhecer anonimato e subcomissão técnica;\n15. distinguir transparência ativa × passiva em Goiás;\n16. aplicar o prazo 20 + 10 da LAI estadual;\n17. identificar armadilhas de atualização normativa."
+        },
+        {
+          "heading": "ADM01 — Lei GO nº 13.800/2001",
+          "body": "Texto consolidado da Casa Civil de Goiás."
+        },
+        {
+          "heading": "ADM02 — Decreto nº 9.830/2019",
+          "body": "Texto oficial Planalto."
+        },
+        {
+          "heading": "ADM03 — Lei nº 12.232/2010",
+          "body": "Texto oficial Planalto."
+        },
+        {
+          "heading": "ADM04 — Lei GO nº 18.025/2013",
+          "body": "Texto consolidado da Casa Civil de Goiás."
+        },
+        {
+          "heading": "Controle temporal",
+          "body": "- corte do edital: 25/08/2026;\n- revalidação: 22/09/2026;\n- usar redação consolidada no corte;\n- não retroagir norma posterior;\n- não preservar regra revogada porque apareceu em apostila antiga."
+        },
+        {
+          "heading": "7. Como estudar os 105 minutos",
+          "body": "1. 35 min — Lei nº 13.800/2001.\n2. 25 min — Decreto nº 9.830/2019.\n3. 15 min — Lei nº 12.232/2010.\n4. 15 min — Lei nº 18.025/2013.\n5. 12 min — Q064.\n6. 3 min — D0 inicial.\nA proporção acompanha edital + disponibilidade FCC + risco de literalidade.\n---\n# PARTE I — LEI GO Nº 13.800/2001"
+        },
+        {
+          "heading": "8. Alcance e finalidade",
+          "body": "A Lei nº 13.800/2001 estabelece normas básicas do processo administrativo na Administração Estadual direta e indireta.\nAplica-se, no que couber, aos órgãos dos Poderes Legislativo e Judiciário e ao Ministério Público quando desempenham função administrativa."
+        },
+        {
+          "heading": "Finalidade",
+          "body": "- proteger direitos dos administrados;\n- melhorar o cumprimento dos fins da Administração."
+        },
+        {
+          "heading": "9. Princípios do art. 2º",
+          "body": "A lei lista, entre outros:\n- legalidade;\n- finalidade;\n- motivação;\n- razoabilidade;\n- proporcionalidade;\n- moralidade;\n- ampla defesa;\n- contraditório;\n- segurança jurídica;\n- interesse público;\n- eficiência."
+        },
+        {
+          "heading": "FCC",
+          "body": "A banca tende a misturar:\n- princípio existente;\n- regra processual;\n- afirmação absoluta.\nExemplo:\n> “Todos os atos devem ser divulgados oficialmente, sem exceção.”\nErrado. Há hipóteses legítimas de sigilo."
+        },
+        {
+          "heading": "Direitos",
+          "body": "Entre os eixos:\n- tratamento respeitoso;\n- ciência da tramitação;\n- acesso aos autos conforme regime jurídico;\n- formulação de alegações/documentos;\n- assistência por advogado quando desejada, ressalvadas hipóteses legais de representação obrigatória."
+        },
+        {
+          "heading": "Deveres",
+          "body": "- expor fatos conforme a verdade;\n- lealdade, urbanidade e boa-fé;\n- não agir temerariamente;\n- prestar informações solicitadas;\n- colaborar com esclarecimento dos fatos."
+        },
+        {
+          "heading": "11. Início e impulso",
+          "body": "O processo pode iniciar:\n- de ofício;\n- a pedido do interessado."
+        },
+        {
+          "heading": "Regra importante",
+          "body": "A Administração impulsiona o processo de ofício, sem prejuízo da atuação dos interessados."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "“Se o interessado parar de peticionar, o processo necessariamente morre.”\nNão é a lógica geral do processo administrativo.\n---\n# PARTE II — COMPETÊNCIA, DELEGAÇÃO E AVOCAÇÃO"
+        },
+        {
+          "heading": "12. Competência",
+          "body": "A competência é irrenunciável e deve ser exercida pelo órgão a que foi atribuída, salvo delegação e avocação legalmente admitidas."
+        },
+        {
+          "heading": "13. Delegação",
+          "body": "Parte da competência pode ser delegada quando conveniente, inclusive a órgãos ou titulares não subordinados hierarquicamente, nos limites legais."
+        },
+        {
+          "heading": "Não podem ser delegados",
+          "body": "Grave o núcleo:\n- edição de atos de caráter normativo;\n- decisão de recursos administrativos;\n- matérias de competência exclusiva."
+        },
+        {
+          "heading": "Efeito da delegação",
+          "body": "A decisão adotada por delegação:\n- deve mencionar expressamente essa qualidade;\n- considera-se editada pelo delegado."
+        },
+        {
+          "heading": "Revogabilidade",
+          "body": "A delegação pode ser revogada a qualquer tempo pela autoridade delegante."
+        },
+        {
+          "heading": "14. Avocação",
+          "body": "Avocação temporária:\n- é admitida;\n- deve ser excepcional;\n- exige motivos relevantes devidamente justificados;\n- recai sobre competência atribuída a órgão hierarquicamente inferior."
+        },
+        {
+          "heading": "Macete",
+          "body": "Delegação desce/compartilha.\nAvocação sobe excepcionalmente."
+        },
+        {
+          "heading": "Pegadinha FCC",
+          "body": "“Avocação é absolutamente vedada.”\nFalso.\n---\n# PARTE III — IMPEDIMENTO E SUSPEIÇÃO"
+        },
+        {
+          "heading": "15. Impedimento",
+          "body": "O impedimento trabalha situações objetivas previstas na lei.\nExemplos do núcleo:\n- interesse direto ou indireto na matéria;\n- participação própria ou de cônjuge/companheiro/parente em situação definida pela lei;\n- litígio com interessado, conforme o recorte legal.\nQuem incorre em impedimento deve comunicar o fato e se abster de atuar."
+        },
+        {
+          "heading": "16. Suspeição",
+          "body": "Suspeição envolve vínculos subjetivos relevantes, como amizade íntima ou inimizade notória, nos termos da lei."
+        },
+        {
+          "heading": "Contraste",
+          "body": "Impedimento → hipótese objetiva.\nSuspeição → relação pessoal subjetiva relevante.\n---\n# PARTE IV — FORMA, INTIMAÇÃO E PRAZOS"
+        },
+        {
+          "heading": "17. Forma dos atos",
+          "body": "Em regra, atos do processo não dependem de forma determinada, salvo exigência legal.\nDevem ser produzidos de modo:\n- escrito quando necessário;\n- identificado;\n- datado;\n- assinado conforme o caso."
+        },
+        {
+          "heading": "Atualização",
+          "body": "A legislação atual admite autenticação por órgão administrativo ou advogado constituído no recorte alterado pela Lei nº 20.293/2018."
+        },
+        {
+          "heading": "18. Intimação — atualização 2023",
+          "body": "A redação vigente do art. 26 exige atenção.\nA intimação deve permitir ciência do interessado e, no recorte atual, contempla também advogado constituído."
+        },
+        {
+          "heading": "Regra operacional",
+          "body": "Não use questões históricas sobre intimação sem validar a redação pós-Lei nº 22.416/2023."
+        },
+        {
+          "heading": "19. Contagem em dias úteis",
+          "body": "A alteração de 2018 tornou expressa a contagem dos prazos em dias úteis no art. 66 §2."
+        },
+        {
+          "heading": "Armadilha histórica",
+          "body": "Material antigo pode ensinar “dias corridos”.\nPara o D064, isso está desatualizado."
+        },
+        {
+          "heading": "20. Suspensão 20/12–20/01",
+          "body": "A Lei nº 20.471/2019 inseriu regra específica:\n> suspensão do curso dos prazos processuais entre 20 de dezembro e 20 de janeiro, inclusive.\nNão confundir:\n- suspensão;\n- interrupção;\n- inexistência de expediente.\n---\n# PARTE V — INSTRUÇÃO, DECISÃO E MOTIVAÇÃO"
+        },
+        {
+          "heading": "21. Instrução",
+          "body": "A instrução busca:\n- averiguar e comprovar dados necessários à decisão;\n- admitir produção probatória pertinente;\n- rejeitar prova ilícita, impertinente, desnecessária ou protelatória conforme o regime legal.\nA Administração também pode determinar diligências necessárias."
+        },
+        {
+          "heading": "22. Dever de decidir",
+          "body": "Concluída a instrução, a Administração tem dever de decidir.\nA lei prevê prazo de até 30 dias, prorrogável por igual período mediante motivação expressa."
+        },
+        {
+          "heading": "23. Motivação",
+          "body": "Decisões devem ser motivadas especialmente nas hipóteses legais relevantes.\nMotivação deve ser:\n- explícita;\n- clara;\n- congruente.\nPode consistir em concordância com fundamentos de pareceres/informações anteriores, quando incorporados à decisão."
+        },
+        {
+          "heading": "FCC",
+          "body": "“Motivação implícita” e “porque a autoridade quis” são sinais de alternativa errada.\n---\n# PARTE VI — AUTOTUTELA: ANULAR, REVOGAR, CONVALIDAR"
+        },
+        {
+          "heading": "24. Anulação",
+          "body": "A Administração deve anular atos com vício de legalidade."
+        },
+        {
+          "heading": "Palavra-chave",
+          "body": "ilegalidade."
+        },
+        {
+          "heading": "25. Revogação",
+          "body": "A Administração pode revogar ato válido por conveniência ou oportunidade, respeitados direitos adquiridos."
+        },
+        {
+          "heading": "Palavra-chave",
+          "body": "mérito administrativo."
+        },
+        {
+          "heading": "26. Decadência",
+          "body": "Direito de anular atos administrativos que produziram efeitos favoráveis decai em 5 anos, salvo comprovada má-fé."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Não confundir:\n- prazo recursal de 10 dias;\n- prazo decisório de 30 dias;\n- decadência de 5 anos."
+        },
+        {
+          "heading": "27. Convalidação",
+          "body": "Defeitos sanáveis podem ser convalidados se:\n- não houver lesão ao interesse público;\n- não houver prejuízo a terceiros."
+        },
+        {
+          "heading": "Quadro",
+          "body": "Instituto\nProblema\nEfeito\nAnulação\nilegalidade\nretira ato inválido\nRevogação\nmérito\nretira ato válido inconveniente/inadequado\nConvalidação\nvício sanável\npreserva/corrige ato\n---\n# PARTE VII — RECURSOS E REVISÃO"
+        },
+        {
+          "heading": "28. Recurso administrativo",
+          "body": "Cabe recurso por razões de:\n- legalidade;\n- mérito."
+        },
+        {
+          "heading": "Tramitação",
+          "body": "O recurso é dirigido à autoridade que proferiu a decisão.\nSe não reconsiderar em 5 dias, encaminha à autoridade superior."
+        },
+        {
+          "heading": "29. Instâncias e prazo",
+          "body": "- máximo de 3 instâncias administrativas, salvo disposição legal diversa;\n- prazo recursal geral: 10 dias, salvo lei específica."
+        },
+        {
+          "heading": "Efeito",
+          "body": "Como regra, recurso não tem efeito suspensivo, salvo disposição legal ou concessão conforme o regime aplicável."
+        },
+        {
+          "heading": "30. Legitimidade",
+          "body": "Não apenas o destinatário direto pode recorrer.\nA lei contempla interessados cujos direitos/interesses sejam afetados, inclusive nas hipóteses previstas de efeito indireto."
+        },
+        {
+          "heading": "31. Revisão de processo sancionador",
+          "body": "Processo administrativo que resultou em sanção pode ser revisto quando surgirem fatos novos ou circunstâncias relevantes."
+        },
+        {
+          "heading": "Regra crítica",
+          "body": "Da revisão não pode resultar agravamento da sanção.\n---\n# PARTE VIII — DECRETO Nº 9.830/2019"
+        },
+        {
+          "heading": "32. Função",
+          "body": "O Decreto regulamenta os arts. 20 a 30 da LINDB.\nA lógica central é substituir decisão abstrata por decisão:\n- motivada;\n- contextualizada;\n- consciente das consequências;\n- juridicamente segura."
+        },
+        {
+          "heading": "33. Consequências práticas",
+          "body": "Decisão baseada em valores jurídicos abstratos deve considerar consequências práticas.\nA motivação deve demonstrar:\n- necessidade;\n- adequação;\n- alternativas consideradas;\n- proporcionalidade."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "“Consequencialismo = decidir apenas pelo resultado conveniente.”\nErrado.\nConsequências entram dentro da legalidade, não no lugar dela."
+        },
+        {
+          "heading": "34. Invalidação",
+          "body": "Decisão que invalida ato/contrato/ajuste/processo/norma administrativa deve indicar consequências jurídicas e administrativas.\nQuando possível, deve preservar:\n- proporcionalidade;\n- equidade;\n- ausência de prejuízo anormal ou excessivo."
+        },
+        {
+          "heading": "35. Mudança de orientação e segurança jurídica",
+          "body": "Na revisão da validade de situação plenamente constituída, deve-se considerar orientação geral existente à época."
+        },
+        {
+          "heading": "Regime de transição",
+          "body": "Nova interpretação de norma de conteúdo indeterminado que imponha novo dever ou condicionamento pode exigir regime de transição quando indispensável para cumprimento proporcional e eficiente."
+        },
+        {
+          "heading": "36. Dificuldades reais do gestor",
+          "body": "Na interpretação de normas de gestão pública, consideram-se:\n- obstáculos;\n- dificuldades reais;\n- exigências das políticas públicas;\nsem prejuízo dos direitos dos administrados."
+        },
+        {
+          "heading": "Não significa",
+          "body": "“Gestor alegou dificuldade, então legalidade desaparece.”\nNão."
+        },
+        {
+          "heading": "37. Compromisso",
+          "body": "Autoridade pode celebrar compromisso com interessados para eliminar:\n- irregularidade;\n- incerteza jurídica;\n- situação contenciosa;\ndesde que presentes os requisitos legais."
+        },
+        {
+          "heading": "Limite",
+          "body": "Não pode gerar desoneração permanente de dever reconhecido por orientação geral."
+        },
+        {
+          "heading": "38. Responsabilidade do agente",
+          "body": "O art. 12 é núcleo de prova:\n> responsabilidade pessoal por decisão/opinião técnica exige dolo ou erro grosseiro."
+        },
+        {
+          "heading": "Erro grosseiro",
+          "body": "O Decreto trabalha culpa grave, caracterizada por erro manifesto, evidente e inescusável no recorte normativo."
+        },
+        {
+          "heading": "Não basta",
+          "body": "- mero nexo causal;\n- simples divergência interpretativa;\n- valor alto do dano isoladamente."
+        },
+        {
+          "heading": "39. Prevenção e sanção",
+          "body": "O controle deve privilegiar orientação e prevenção antes da sanção quando cabível.\nNa sanção, considerar elementos como:\n- natureza e gravidade;\n- danos;\n- agravantes/atenuantes;\n- antecedentes;\n- nexo;\n- culpabilidade."
+        },
+        {
+          "heading": "40. Armadilha de versão — art. 18",
+          "body": "O art. 18 do Decreto nº 9.830/2019 foi revogado pelo Decreto nº 12.002/2024.\nSe questão antiga cobrar sua literalidade:\n- não trate como regra vigente;\n- classifique como V2 ou descarte conforme o objetivo.\n---\n# PARTE IX — LEI Nº 12.232/2010"
+        },
+        {
+          "heading": "41. O que ela regula",
+          "body": "Normas gerais sobre licitação/contratação de serviços de publicidade prestados necessariamente por intermédio de agências de propaganda.\nAlcança:\n- União;\n- Estados;\n- DF;\n- Municípios;\n- Poderes;\n- administração indireta;\n- entidades controladas."
+        },
+        {
+          "heading": "42. Objeto da contratação",
+          "body": "Serviços de publicidade envolvem atividades integradas voltadas a:\n- estudo;\n- planejamento;\n- conceituação;\n- concepção;\n- criação;\n- execução/intermediação/supervisão;\n- distribuição de publicidade."
+        },
+        {
+          "heading": "43. Atividades complementares",
+          "body": "A lei admite atividades complementares específicas ligadas ao objeto."
+        },
+        {
+          "heading": "Não entram no objeto",
+          "body": "Grave porque a FCC cobra:\n- assessoria de imprensa;\n- comunicação e relações públicas;\n- eventos festivos.\nEsses serviços devem ter contratação própria conforme o regime aplicável."
+        },
+        {
+          "heading": "44. Mais de uma agência",
+          "body": "Pode haver adjudicação a mais de uma agência, sem segregação em itens/contas, se houver justificativa.\nDepois, a Administração deve adotar procedimento interno para seleção da agência responsável por cada ação, segundo metodologia prevista/publicizada."
+        },
+        {
+          "heading": "45. Proposta técnica e anonimato",
+          "body": "A proposta técnica envolve plano de comunicação e componentes previstos na lei/editais.\nO plano não identificado protege a imparcialidade da avaliação."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "“Plano técnico deve trazer o nome da agência para garantir autenticidade.”\nErrado."
+        },
+        {
+          "heading": "46. Subcomissão técnica",
+          "body": "Julgamento técnico é feito por subcomissão:\n- ao menos 3 membros;\n- pelo menos 1/3 sem vínculo funcional ou contratual com o órgão responsável pela licitação.\nA seleção ocorre por sorteio público dentre relação previamente formada e divulgada."
+        },
+        {
+          "heading": "47. Habilitação",
+          "body": "No procedimento especial da Lei nº 12.232/2010, os documentos de habilitação são apresentados apenas pelos licitantes classificados no julgamento final das propostas, no recorte clássico cobrado pela FCC."
+        },
+        {
+          "heading": "48. Lei especial × Lei nº 14.133/2021",
+          "body": "Não caia em extremos:\n- “Lei 12.232 acabou” → errado;\n- “Lei 14.133 não dialoga com publicidade” → errado.\nPara o D064:\n> Lei 12.232 = norma especial do serviço de publicidade; Lei 14.133 = regime geral atual, aplicável no diálogo normativo cabível.\n---\n# PARTE X — LEI GO Nº 18.025/2013"
+        },
+        {
+          "heading": "49. Atualização obrigatória",
+          "body": "A Lei nº 18.025/2013 foi significativamente alterada pela Lei nº 22.060/2023.\nA regulamentação atual indicada pela Casa Civil é o:\n> Decreto nº 10.306/2023."
+        },
+        {
+          "heading": "Regra editorial",
+          "body": "Não usar material baseado apenas no antigo Decreto nº 7.904/2013 como se fosse vigente."
+        },
+        {
+          "heading": "50. Alcance",
+          "body": "A lei disciplina o acesso à informação em Goiás e alcança o conjunto de órgãos e entidades definidos na redação atual, incluindo Poderes e órgãos de controle no recorte legal."
+        },
+        {
+          "heading": "51. Transparência ativa",
+          "body": "Transparência ativa = Administração divulga sem pedido individual.\nExemplos:\n- estrutura e competências;\n- programas, projetos, ações e obras;\n- transferências;\n- execução orçamentária/financeira;\n- licitações e contratos;\n- perguntas frequentes;\n- contatos do SIC;\n- informações remuneratórias no recorte legal."
+        },
+        {
+          "heading": "Macete",
+          "body": "Ativa = Administração age primeiro."
+        },
+        {
+          "heading": "52. Transparência passiva e SIC",
+          "body": "O Serviço de Informação ao Cidadão:\n- orienta;\n- informa tramitação/localização;\n- recebe e registra pedidos;\n- fornece protocolo."
+        },
+        {
+          "heading": "Macete",
+          "body": "Passiva = cidadão provoca."
+        },
+        {
+          "heading": "53. Pedido de acesso",
+          "body": "No regime atual:\n- não se exige motivação do pedido;\n- deve haver clareza suficiente para identificar a informação;\n- dados de contato permitem resposta;\n- regras específicas protegem informação pessoal."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "“Só pode pedir se justificar interesse jurídico.”\nErrado."
+        },
+        {
+          "heading": "54. Resposta",
+          "body": "Quando possível:\n- acesso deve ser imediato.\nNão sendo possível:\n- prazo de até 20 dias;\n- prorrogável por mais 10 dias;\n- exige justificativa."
+        },
+        {
+          "heading": "Automatize",
+          "body": "> LAI GO = imediato se possível; senão 20 + 10."
+        },
+        {
+          "heading": "55. Recursos",
+          "body": "O regime atual deve ser lido em conjunto com o Decreto nº 10.306/2023.\nPara D064, memorize a lógica:\n- decisão sobre acesso é recorrível;\n- há escalonamento administrativo próprio;\n- não inventar prazos/instâncias com base em versão de regulamento revogada."
+        },
+        {
+          "heading": "56. Sigilo não é regra",
+          "body": "Acesso é regra; restrição depende de base legal.\nInformação protegida deve obedecer:\n- hipótese legal;\n- grau/prazo quando aplicável;\n- proteção de dados/informações pessoais;\n- procedimentos do regime vigente.\n---\n# PARTE XI — QUADRO NORMA → TEMA → DISPOSITIVOS"
+        },
+        {
+          "heading": "57. Entregável do dia",
+          "body": "Norma\nTema\nDispositivos/eixos prioritários\nPegadinha\nLei GO 13.800/2001\nprocesso administrativo\n1–4; 11–21; 26; 48–67\n3 instâncias; 10 dias; dias úteis; avocação possível\nDecreto 9.830/2019\nLINDB/Direito Público\n2–13; 16\ndolo/erro grosseiro; consequência não substitui legalidade; art. 18 revogado\nLei 12.232/2010\npublicidade\n1–10 + habilitação\nassessoria/PR/evento fora; subcomissão 1/3 externo; plano anônimo\nLei GO 18.025/2013\nLAI Goiás\nalcance; arts. 6–7; pedido/resposta/recursos\nLei 22.060/2023; Decreto 10.306/2023; 20+10\n---\n# PARTE XII — COMO A FCC TENDE A COBRAR"
+        },
+        {
+          "heading": "58. Lei nº 13.800/2001",
+          "body": "Há evidência direta:\n- TCE-GO/FCC 2014;\n- PGE-GO/FCC 2021;\n- DPE-GO/FCC 2021;\n- TCE-GO/FCC 2022.\nPadrões:\n- trocar 3 por 2 instâncias;\n- trocar 10 por 5 dias;\n- dizer que recurso tem suspensivo automático;\n- dizer que avocação é proibida;\n- confundir delegado × delegante;\n- transformar reconsideração em delegação de recurso."
+        },
+        {
+          "heading": "59. Decreto nº 9.830/2019",
+          "body": "FCC recente cobra:\n- consequências;\n- invalidação;\n- orientação da época;\n- regime de transição;\n- dificuldades reais;\n- dolo/erro grosseiro."
+        },
+        {
+          "heading": "60. Lei nº 12.232/2010",
+          "body": "FCC já cobrou:\n- objeto e exclusões;\n- habilitação;\n- subcomissão;\n- procedimento especial."
+        },
+        {
+          "heading": "61. Lei nº 18.025/2013",
+          "body": "Massa FCC específica é pequena.\nAqui a hierarquia da Base Operacional manda:\n- usar autoral controlada;\n- derivar diretamente do texto consolidado;\n- não preencher volume com questão “parecida” de outro Estado.\n---\n# PARTE XIII — PRÉ-Q064, Q064 E PÓS-Q064"
+        },
+        {
+          "heading": "62. Pré-Q064",
+          "body": "Sem consulta, responda:\n1. Quais matérias são indelegáveis?\n2. Avocação é admitida?\n3. Quantas instâncias administrativas?\n4. Prazo geral de recurso?\n5. Como contam os prazos processuais?\n6. Qual período suspende prazos?\n7. Dolo ou erro grosseiro aparece em qual norma?\n8. Assessoria de imprensa integra publicidade da Lei 12.232?\n9. Quanto da subcomissão deve não ter vínculo?\n10. LAI GO: prazo de resposta?\n11. Regulamento atual da LAI GO?\n12. Transparência ativa × passiva?\nSe errar 4 ou mais, retorne ao bloco correspondente antes de Q064."
+        },
+        {
+          "heading": "63. Q064",
+          "body": "A bateria prioriza FCC real nas normas com massa crítica e autorais para lacunas locais/atualizadas."
+        },
+        {
+          "heading": "64. Pós-Q064",
+          "body": "Classifique o erro:\n- A1: princípios/processo;\n- A2: competência/delegação/avocação;\n- A3: impedimento/suspeição;\n- A4: decisão/motivação;\n- A5: anulação/revogação/convalidação;\n- A6: recurso/prazos;\n- A7: LINDB/Decreto 9.830;\n- A8: publicidade/Lei 12.232;\n- A9: LAI GO;\n- A10: versão normativa;\n- A11: leitura FCC.\n---\n# PARTE XIV — D0, D7 E D20"
+        },
+        {
+          "heading": "65. D0",
+          "body": "Depois da execução real:\n1. reconstrua o quadro das quatro normas;\n2. escreva: 3 instâncias / 10 dias / dias úteis / 20-12 a 20-01;\n3. liste 3 matérias indelegáveis;\n4. explique dolo × erro grosseiro;\n5. liste 3 serviços fora da Lei 12.232;\n6. escreva: subcomissão ≥3 e 1/3 sem vínculo;\n7. escreva: LAI GO 20 + 10 e Decreto 10.306/2023;\n8. refaça erros + acertos com dúvida.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "66. D7",
+          "body": "Acionar editorialmente.\nRazão:\n- quatro normas específicas;\n- alta carga de literalidade;\n- atualizações estaduais fáceis de perder;\n- FCC já cobrou diretamente Lei 13.800 no TCE-GO."
+        },
+        {
+          "heading": "67. D20",
+          "body": "Acionar editorialmente.\nRazão:\n- D075 fará calibração Administrativo + Constitucional;\n- normas novas precisam sobreviver além da primeira leitura.\n> D7/D20 acionados ≠ revisões realizadas."
+        },
+        {
+          "heading": "68. Flashcards candidatos",
+          "body": "Somente se houver erro/dúvida:\n- indelegáveis;\n- 3 instâncias;\n- recurso 10 dias;\n- prazo em dias úteis;\n- suspensão 20/12–20/01;\n- dolo/erro grosseiro;\n- 3 exclusões da Lei 12.232;\n- subcomissão;\n- LAI 20+10;\n- Decreto 10.306/2023.\n---\n# PARTE XV — CRITÉRIO DE CONCLUSÃO E PONTE"
+        },
+        {
+          "heading": "69. Critério editorial",
+          "body": "Só liberar se:\n- quatro fontes oficiais estiverem registradas;\n- versão/corte conferidos;\n- Material completo;\n- Q064 com 25 válidas;\n- FCC externas rastreáveis;\n- autorais identificadas;\n- correções recolhíveis;\n- execução real vazia."
+        },
+        {
+          "heading": "70. Critério do aluno",
+          "body": "Só considerar estudado depois de:\n- leitura real;\n- 25 respostas;\n- correção;\n- D0;\n- registro de erros;\n- métricas reais.\nMaterial pronto ≠ estudado."
+        },
+        {
+          "heading": "71. Ponte",
+          "body": "A próxima sessão ativa é S30 / D066 — Administração Estratégica — lacunas, após o dia protegido D065.\nD064 termina aqui sem processar D066."
+        },
+        {
+          "heading": "72. Notas editoriais",
+          "body": "- Fonte-Mestra v1.3 — B01 e D064;\n- Base Técnica v1.3 — normas novas D64;\n- Base Operacional v1.3 — hierarquia FCC e validade normativa;\n- ADM01 — Lei GO 13.800/2001 consolidada;\n- ADM02 — Decreto 9.830/2019 vigente no corte;\n- ADM03 — Lei 12.232/2010 vigente no corte;\n- ADM04 — Lei GO 18.025/2013 após Lei 22.060/2023 e Decreto 10.306/2023;\n- corte: 25/08/2026;\n- revalidação: 22/09/2026;\n- desenvolvimento: v2;\n- execução real: não preenchida."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T19:30:49.355Z"
     }
   },
   "questions": {
@@ -7195,6 +8992,61 @@
       "copyrightMode": "metadata-only",
       "version": 2,
       "lastEdited": "2026-09-22T18:13:12.734Z"
+    },
+    "q054": {
+      "qxx": "Q054",
+      "dxx": "D054",
+      "title": "Q054 — Questões \\| Legislação Institucional VI",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "20 autorais normativas V1 sobre RA 5/2024, RA 19/2024 e RA 15/2024. Não foi localizada FCC específica desses atos locais de 2024; evitada analogia de outro ente.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T18:22:25.616Z"
+    },
+    "q057": {
+      "qxx": "Q057",
+      "dxx": "D057",
+      "title": "Q057 — Questões \\| CASP VIII",
+      "meta": 25,
+      "valid": 25,
+      "sourceSummary": "13 FCC reais + 12 autorais técnicas. FCC do TCE-GO: Q1982523 e Q477605; FCC 2025/2026 e demais históricas validadas por conceito.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T18:49:49.977Z"
+    },
+    "q059": {
+      "qxx": "Q059",
+      "dxx": "D059",
+      "title": "Q059 — Questões \\| Auditoria IV",
+      "meta": 25,
+      "valid": 25,
+      "sourceSummary": "7 FCC reais + 18 autorais técnicas. FCC: Q4643607, Q2705713, Q2093111, Q514740, Q3288601, Q3288600, Q4643598.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T18:59:55.652Z"
+    },
+    "q061": {
+      "qxx": "Q061",
+      "dxx": "D061",
+      "title": "Q061 — Questões \\| CASP IX",
+      "meta": 25,
+      "valid": 25,
+      "sourceSummary": "8 FCC reais reaplicadas de forma integradora (5 TCE-GO) + 17 autorais técnicas; repetição controlada e explicitamente não tratada como primeira exposição.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T19:14:46.127Z"
+    },
+    "q064": {
+      "qxx": "Q064",
+      "dxx": "D064",
+      "title": "Q064 — Questões \\| Direito Administrativo",
+      "meta": 25,
+      "valid": 25,
+      "sourceSummary": "10 FCC reais (4 TCE-GO) + 15 autorais técnicas. FCC concentrada em Lei 13.800, LINDB/Decreto 9.830 e Lei 12.232; autorais cobrem atualizações e LAI GO.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T19:28:59.577Z"
     }
   },
   "publicStats": {
@@ -7203,7 +9055,7 @@
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 24,
-    "questionPages": 24
+    "materialPages": 29,
+    "questionPages": 29
   }
 }
