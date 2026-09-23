@@ -26,6 +26,11 @@ function formatDate(value: string) {
   );
 }
 
+function hasPublicSession(snapshot: Snapshot, day: DaySnapshot) {
+  if (day.protected || !day.readyForStudy || !day.slug || !day.questionSlug) return false;
+  return Boolean(snapshot.materials[day.slug] && snapshot.questions[day.questionSlug]);
+}
+
 function DayLabel({ day }: { day: DaySnapshot }) {
   return (
     <span className="day-label">
@@ -59,8 +64,8 @@ function Shell({ children, syncTime }: { children: React.ReactNode; syncTime?: s
 function Home({ snapshot }: { snapshot: Snapshot }) {
   const today = new Date().toISOString().slice(0, 10);
   const ordered = [...snapshot.days].sort((a, b) => a.order - b.order);
-  const next = ordered.find((d) => !d.protected && d.readyForStudy && d.date >= today)
-    ?? ordered.find((d) => !d.protected && d.readyForStudy);
+  const next = ordered.find((d) => hasPublicSession(snapshot, d) && d.date >= today)
+    ?? ordered.find((d) => hasPublicSession(snapshot, d));
 
   return (
     <section>
@@ -73,7 +78,7 @@ function Home({ snapshot }: { snapshot: Snapshot }) {
         <article><strong>{snapshot.publicStats.totalDays}</strong><span>Dias no calendário</span></article>
         <article><strong>{snapshot.publicStats.sessions}</strong><span>Sessões TCE</span></article>
         <article><strong>{snapshot.publicStats.protectedDays}</strong><span>Dias protegidos</span></article>
-        <article><strong>{snapshot.publicStats.readyDays}</strong><span>Liberados editorialmente</span></article>
+        <article><strong>{snapshot.publicStats.readyDays}</strong><span>Prontos no Notion</span></article>
       </div>
       {next ? (
         <article className="session-card">
@@ -102,8 +107,10 @@ function Days({ snapshot }: { snapshot: Snapshot }) {
             <p>{day.focus}</p>
             {day.protected ? (
               <span className="badge muted">Protegido · sem Sxx</span>
-            ) : day.readyForStudy ? (
+            ) : hasPublicSession(snapshot, day) ? (
               <a className="secondary" href={href(`/dia/${day.dxx.toLowerCase()}/`)}>Abrir</a>
+            ) : day.readyForStudy ? (
+              <span className="badge ready">Pronto · aguardando sync</span>
             ) : (
               <span className="badge">Em preparação</span>
             )}
@@ -129,10 +136,29 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
     );
   }
 
+  if (!day.readyForStudy) return <NotFound />;
+
   const material = snapshot.materials[day.slug ?? ""];
   const question = snapshot.questions[day.questionSlug ?? ""];
   const currentIndex = days.findIndex((d) => d.dxx === day.dxx);
   const nextActive = days.slice(currentIndex + 1).find((d) => !d.protected);
+  const nextActivePublic = nextActive ? hasPublicSession(snapshot, nextActive) : false;
+
+  if (!material || !question) {
+    return (
+      <section>
+        <div className="page-head">
+          <DayLabel day={day} />
+          <h1>{day.focus}</h1>
+          <p>{formatDate(day.date)} · {day.type}</p>
+        </div>
+        <div className="notice">
+          Esta sessão está pronta no Notion, mas o Material + Qxx ainda não chegaram ao snapshot público sanitizado.
+          O site não a trata como sessão publicada até o próximo sync completo.
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section>
@@ -178,7 +204,11 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
       </div>
       <div className="next-card">
         <span>Próxima sessão ativa</span>
-        {nextActive ? <a href={href(`/dia/${nextActive.dxx.toLowerCase()}/`)}><DayLabel day={nextActive} /> — {nextActive.focus}</a> : <strong>Fim da esteira D001–D100</strong>}
+        {nextActive ? (
+          nextActivePublic
+            ? <a href={href(`/dia/${nextActive.dxx.toLowerCase()}/`)}><DayLabel day={nextActive} /> — {nextActive.focus}</a>
+            : <span><DayLabel day={nextActive} /> — {nextActive.focus} · aguardando sync</span>
+        ) : <strong>Fim da esteira D001–D100</strong>}
       </div>
     </section>
   );
@@ -188,7 +218,7 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
   const q = snapshot.questions[qxx.toLowerCase()];
   const dxx = q?.dxx ?? `D${qxx.slice(1)}`;
   const day = snapshot.days.find((d) => d.dxx === dxx);
-  if (!day || !day.readyForStudy) return <NotFound />;
+  if (!day || !day.readyForStudy || !q) return <NotFound />;
   return (
     <section>
       <div className="page-head"><p className="eyebrow">{qxx.toUpperCase()}</p><h1>{q?.title ?? `Questões de ${day.dxx}`}</h1></div>
