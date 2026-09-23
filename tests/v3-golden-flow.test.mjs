@@ -52,8 +52,9 @@ test("Command palette cobre navegação e sessões Sxx", () => {
 test("Qxx seguro continua metadata-only mas pode carregar HTML derivado do Notion", () => {
   assert.match(publicContent, /copyrightMode: "metadata-only"/);
   assert.match(publicContent, /contentHtml, sections, hash: sha256\(contentHtml\)/);
+  assert.match(sync, /publishQuestionContent = item\.day\.dxx === "D001"/);
   assert.match(sync, /getBlockTree\(item\.questionPageId\)/);
-  assert.match(sync, /questionSnapshotFromPage\([\s\S]*blocks: questionBlocks/);
+  assert.match(sync, /blocks: publishQuestionContent \? questionBlocks : \[\]/);
 });
 
 test("CSS V3 é independente da pilha V2 e cobre foco + mobile", () => {
