@@ -75,11 +75,28 @@ for (const viewport of viewports) {
     if (viewport.width <= 1050 && geometry.sidebarVisible) issues.push("sidebar desktop visível no mobile/tablet estreito");
     if (viewport.width <= 1050 && !geometry.bottomNavVisible) issues.push("bottom nav ausente no mobile/tablet estreito");
     if (viewport.width > 1050 && geometry.bottomNavVisible) issues.push("bottom nav móvel visível no desktop/tablet amplo");
-    if (viewport.width > 1050 && !geometry.sidebarVisible) issues.push("sidebar desktop ausente acima de 820px");
+    if (viewport.width > 1050 && !geometry.sidebarVisible) issues.push("sidebar desktop ausente acima de 1050px");
     if (geometry.topbar && geometry.main && geometry.main.top < geometry.topbar.bottom - 1) issues.push("conteúdo inicia sob a topbar");
     if (geometry.bottomNav && viewport.width <= 1050) {
       const bodyPadding = await page.evaluate(() => parseFloat(getComputedStyle(document.body).paddingBottom) || 0);
       if (bodyPadding + 4 < geometry.bottomNav.height) issues.push("padding inferior insuficiente para bottom nav");
+    }
+
+    if (route.name === "d001" || route.name === "q001") {
+      const navState = await page.evaluate(() => {
+        const activeDesktop = document.querySelector(".sidebar-v3 .nav-group a.active")?.textContent?.trim() || "";
+        const activeMobile = document.querySelector(".bottom-nav-v3 > a.active")?.textContent?.trim() || "";
+        const duplicateIndex = Array.from(document.querySelectorAll(".study-content > .study-index")).some((el) => {
+          const style = getComputedStyle(el);
+          const rect = el.getBoundingClientRect();
+          return style.display !== "none" && rect.width > 0 && rect.height > 0;
+        });
+        return { activeDesktop, activeMobile, duplicateIndex };
+      });
+      const activeLabel = viewport.width > 1050 ? navState.activeDesktop : navState.activeMobile;
+      if (!activeLabel.includes("Trilha")) issues.push(`Trilha não está ativa em ${route.path}: "${activeLabel}"`);
+      if (viewport.width > 820 && navState.duplicateIndex) issues.push(`índice interno duplicado visível em ${route.path}`);
+      if (viewport.width <= 820 && !navState.duplicateIndex) issues.push(`índice interno ausente no mobile em ${route.path}`);
     }
 
     if (route.name === "q001") {

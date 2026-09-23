@@ -43,9 +43,9 @@ test("Leitor V3 oferece tema, escala, largura, foco e retomada", () => {
   assert.match(tools, /tce-study-time/);
 });
 
-test("Command palette cobre navegação e sessões Sxx", () => {
+test("Command palette cobre navegação e somente sessões Sxx publicadas", () => {
   assert.match(shell, /Ctrl K/);
-  assert.match(shell, /activeDays\(snapshot\)/);
+  assert.match(shell, /publishedDays\(snapshot\)/);
   assert.match(shell, /command-palette/);
 });
 
@@ -71,4 +71,29 @@ test("Router V3 mantém rotas públicas críticas", () => {
   }
   assert.match(app, /\/dia\\\/\(d\\d\{3\}\)/);
   assert.match(app, /\/questoes\\\/\(q\\d\{3\}\)/);
+});
+
+
+test("Shell V3 agrupa Dxx/Qxx em Trilha e busca apenas sessões publicadas", () => {
+  assert.match(shell, /route\.startsWith\("\/dia\/"\)/);
+  assert.match(shell, /route\.startsWith\("\/questoes\/"\)/);
+  assert.match(shell, /publishedDays\(snapshot\)/);
+  assert.doesNotMatch(shell, /const sessions = activeDays\(snapshot\)/);
+});
+
+test("PWA V3 invalida o cache legado da V2", () => {
+  const sw = fs.readFileSync("public/sw.js", "utf8");
+  assert.match(sw, /tce-go-v3-20260923/);
+  assert.doesNotMatch(sw, /const CACHE = "tce-go-v1"/);
+});
+
+test("Desktop e tablet escondem índice HTML duplicado, mobile preserva o índice interno", () => {
+  assert.match(css, /@media\(min-width:821px\)/);
+  assert.match(css, /\.question-content-card \.study-content > \.study-index\{display:none\}/);
+});
+
+test("QA visual usa o mesmo base path do GitHub Pages", () => {
+  const workflow = fs.readFileSync(".github/workflows/v3-visual.yml", "utf8");
+  assert.match(workflow, /GITHUB_PAGES_BASE_PATH: "\/tce-go-dashboard"/);
+  assert.match(workflow, /V3_VISUAL_BASE_URL: "http:\/\/127\.0\.0\.1:4173\/tce-go-dashboard"/);
 });
