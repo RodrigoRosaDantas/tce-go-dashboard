@@ -131,6 +131,7 @@ test("analytics preserva ausência de dado e audita inconsistências", () => {
   assert.match(analytics, /Acertos \+ erros/);
   assert.match(analytics, /Banco Dxx/);
   assert.match(analytics, /Sessão no Notion/);
+  assert.match(analytics, /Banco Dxx não registra execução/);
 });
 
 test("Dashboard V4.1 cobre execução, matérias, erros, retenção, redação, checkpoints e dados", () => {
