@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import type { Snapshot } from "../types";
 import {
   cachedOperationalSummary,
@@ -48,16 +48,26 @@ export function OperationalProvider({
   const [summary, setSummary] = useState<OperationalSummary>(() => cachedOperationalSummary() ?? localFallback(snapshot));
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(() => hasConnectedAccount());
+  const refreshInFlight = useRef<Promise<void> | null>(null);
 
   const refresh = useCallback(async () => {
     if (!connected) {
       setSummary(cachedOperationalSummary() ?? localFallback(snapshot));
       return;
     }
-    setLoading(true);
-    const next = await loadOperationalSummary();
-    setSummary(next ?? cachedOperationalSummary() ?? localFallback(snapshot));
-    setLoading(false);
+    if (refreshInFlight.current) return refreshInFlight.current;
+    const task = (async () => {
+      setLoading(true);
+      try {
+        const next = await loadOperationalSummary();
+        setSummary(next ?? cachedOperationalSummary() ?? localFallback(snapshot));
+      } finally {
+        setLoading(false);
+        refreshInFlight.current = null;
+      }
+    })();
+    refreshInFlight.current = task;
+    return task;
   }, [connected, snapshot]);
 
   useEffect(() => {
