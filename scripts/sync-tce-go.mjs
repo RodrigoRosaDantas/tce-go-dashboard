@@ -8,6 +8,7 @@ import {
   propertyText,
   questionSnapshotFromPage,
   relationIds,
+  stripHtml,
 } from "./notion-public-content.mjs";
 
 const token = process.env.TCE_GO_NOTION_TOKEN?.trim();
@@ -43,7 +44,11 @@ const pairs = await mapLimit(ready, maxConcurrency, async (item) => {
 
   const previousMaterial = current.materials?.[item.day.slug];
   let material;
-  if (previousMaterial?.lastEdited === materialPage.last_edited_time && Array.isArray(previousMaterial?.sections)) {
+  if (
+    previousMaterial?.lastEdited === materialPage.last_edited_time
+    && previousMaterial?.contentHtml
+    && Array.isArray(previousMaterial?.sections)
+  ) {
     material = previousMaterial;
   } else {
     const blocks = await getBlockTree(item.materialPageId);
@@ -54,6 +59,10 @@ const pairs = await mapLimit(ready, maxConcurrency, async (item) => {
       version: numberProperty(materialPage.properties, "Versão editorial"),
       lastEdited: materialPage.last_edited_time,
     }, blocks);
+  }
+
+  if (stripHtml(material.contentHtml || "").length < 250) {
+    throw new Error(`${item.day.dxx}: Material público insuficiente após sanitização.`);
   }
 
   const question = questionSnapshotFromPage({ dxx: item.day.dxx, page: questionPage });
@@ -68,8 +77,8 @@ const publicStats = {
   protectedDays: days.filter((d) => d.protected).length,
   sessions: days.filter((d) => d.session).length,
   readyDays: ready.length,
-  materialDays: Object.keys(materials).length,
-  questionDays: Object.keys(questions).length,
+  materialPages: Object.keys(materials).length,
+  questionPages: Object.keys(questions).length,
 };
 
 const stablePayload = {
@@ -96,7 +105,7 @@ if (current.contentHash === contentHash && current.contentMode === "full") {
 }
 
 writeSnapshot(snapshot);
-console.log(`Sync completo: ${publicStats.materialDays} materiais + ${publicStats.questionDays} cadernos públicos sanitizados.`);
+console.log(`Sync completo: ${publicStats.materialPages} materiais + ${publicStats.questionPages} cadernos Qxx públicos.`);
 
 async function queryAllDays() {
   const pages = [];
@@ -111,7 +120,7 @@ async function queryAllDays() {
     pages.push(...(json.results || []));
     cursor = json.has_more ? json.next_cursor : undefined;
   } while (cursor);
-  return pages;
+  return pages.filter((page) => !page.archived);
 }
 
 function normalizeDayRecord(page) {
@@ -155,7 +164,9 @@ async function getBlockTree(blockId, depth = 0) {
     const json = await notionRequest(`/blocks/${blockId}/children?${query}`);
     for (const block of json.results || []) {
       const item = { ...block };
-      if (block.has_children) item.children = await getBlockTree(block.id, depth + 1);
+      if (block.has_children && !["child_page", "child_database"].includes(block.type)) {
+        item.children = await getBlockTree(block.id, depth + 1);
+      }
       blocks.push(item);
     }
     cursor = json.has_more ? json.next_cursor : undefined;
@@ -176,7 +187,7 @@ async function notionRequest(endpoint, init = {}, attempt = 1) {
 
   if ((response.status === 429 || response.status >= 500) && attempt < 5) {
     const retryAfter = Number(response.headers.get("retry-after") || 0);
-    await sleep(Math.max(retryAfter * 1000, 350 * 2 ** (attempt - 1)));
+    await sleep(Math.max(retryAfter * 1000, 500 * 2 ** (attempt - 1)));
     return notionRequest(endpoint, init, attempt + 1);
   }
 
