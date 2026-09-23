@@ -236,8 +236,6 @@ function normalizeEditalItem(page) {
     questions: numberProperty(p, "Questões"),
     weight: numberProperty(p, "Peso"),
     weightedPoints: numberProperty(p, "Pontos ponderados"),
-    baseline: propertyText(p, "Baseline histórico"),
-    treatment: propertyText(p, "Tratamento"),
     editorialStatus: propertyText(p, "Status editorial"),
     normativeSource: propertyText(p, "Fonte normativa"),
   };
