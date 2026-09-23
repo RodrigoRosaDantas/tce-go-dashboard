@@ -94,11 +94,12 @@ export function questionSnapshotFromPage({ dxx, page, blocks = [] }) {
   // é derivado do próprio caderno canônico, que registra referências/metadados das
   // questões FCC e só reproduz integralmente itens autorais permitidos.
   const publicBlocks = Array.isArray(blocks) ? filterPublicBlocks(blocks) : [];
-  const contentHtml = publicBlocks.length
-    ? withStudyIndex(sanitizeMaterialHtml(renderBlocks(publicBlocks)), qxx.toLowerCase())
-    : "";
-  const sections = publicBlocks.length ? extractTextSections(publicBlocks) : [];
   const authorialItems = Array.isArray(blocks) ? extractAuthorialTraining(blocks) : [];
+  const displayBlocks = authorialItems.length ? filterStructuredAuthorialSection(publicBlocks) : publicBlocks;
+  const contentHtml = displayBlocks.length
+    ? withStudyIndex(sanitizeMaterialHtml(renderBlocks(displayBlocks)), qxx.toLowerCase())
+    : "";
+  const sections = displayBlocks.length ? extractTextSections(displayBlocks) : [];
 
   return {
     qxx,
@@ -118,6 +119,23 @@ export function questionSnapshotFromPage({ dxx, page, blocks = [] }) {
   };
 }
 
+
+function filterStructuredAuthorialSection(blocks) {
+  const output = [];
+  let skipping = false;
+  for (const block of blocks || []) {
+    const type = block?.type || "";
+    const text = blockPlainText(block);
+    if (type === "heading_2" && /quest[õo]es\s+autorais/i.test(text)) {
+      skipping = true;
+      continue;
+    }
+    if (skipping && type === "heading_2") skipping = false;
+    if (skipping) continue;
+    output.push(block);
+  }
+  return output;
+}
 
 function extractAuthorialTraining(blocks) {
   const items = [];
