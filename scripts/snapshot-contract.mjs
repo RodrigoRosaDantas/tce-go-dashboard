@@ -1,7 +1,9 @@
 export const FORBIDDEN_PUBLIC_KEYS = new Set([
   "estudado","concluido","concluído","tempoReal","tempo real","tempo real (min)",
   "acertos","erros","respostas","resposta","confidence","confiança","questões feitas",
-  "observações","observacoes","notionUrl","notionId","url"
+  "observações","observacoes","notionUrl","notionId","url",
+  "linhas","nota","nota simulada","score","tempo","tempo (min)","tempo real",
+  "recalibrado pelo d100","decisão","reincidentes","p1 abertos"
 ]);
 
 export function validateSnapshot(snapshot) {
@@ -83,6 +85,8 @@ export function validateSnapshot(snapshot) {
     }
   }
 
+  validateAuxiliary(snapshot, errors);
+
   if (snapshot.publicStats) {
     if (snapshot.publicStats.totalDays !== 100) errors.push("publicStats.totalDays inválido");
     if (snapshot.publicStats.activeDays !== 47) errors.push("publicStats.activeDays inválido");
@@ -97,10 +101,64 @@ export function validateSnapshot(snapshot) {
       typeof snapshot.publicStats.questionPages === "number"
       && snapshot.publicStats.questionPages !== Object.keys(questions).length
     ) errors.push("publicStats.questionPages inválido");
+    if (snapshot.auxiliaryMode === "full") {
+      const expectedAux = {
+        redactionPlans: snapshot.redactions?.length,
+        simulationPlans: snapshot.simulations?.length,
+        editalItems: snapshot.edital?.length,
+        legislationSources: snapshot.legislation?.length,
+        finalSprintDays: snapshot.finalSprint?.length,
+      };
+      for (const [key, expected] of Object.entries(expectedAux)) {
+        if (snapshot.publicStats[key] !== expected) errors.push(`publicStats.${key} inválido`);
+      }
+    }
   }
 
   walk(snapshot, [], errors);
   return errors;
+}
+
+function validateAuxiliary(snapshot, errors) {
+  if (snapshot.auxiliaryMode !== "full") return;
+  for (const key of ["redactions", "simulations", "edital", "legislation", "finalSprint"]) {
+    if (!Array.isArray(snapshot[key])) errors.push(`${key} deve ser array em auxiliaryMode=full`);
+  }
+  if (errors.length) return;
+
+  if (snapshot.redactions.length !== 8) errors.push(`esperadas 8 redações R1–R8; recebido ${snapshot.redactions.length}`);
+  const redactionCodes = snapshot.redactions.map((item) => item.code);
+  if (JSON.stringify(redactionCodes) !== JSON.stringify(["R1","R2","R3","R4","R5","R6","R7","R8"])) {
+    errors.push("redações públicas devem ser R1–R8 sem lacuna");
+  }
+
+  const expectedSimulationDays = ["D020","D045","D070","D090","D096","D100"];
+  const simulationDays = snapshot.simulations.map((item) => item.dxx);
+  if (JSON.stringify(simulationDays) !== JSON.stringify(expectedSimulationDays)) {
+    errors.push(`simulados/checkpoints divergentes: ${simulationDays.join(", ")}`);
+  }
+
+  if (snapshot.edital.length !== 15) errors.push(`esperados 15 itens no edital verticalizado; recebido ${snapshot.edital.length}`);
+  if (!snapshot.edital.every((item) => item.code && item.discipline && Number.isFinite(item.order))) {
+    errors.push("edital verticalizado contém item público incompleto");
+  }
+
+  if (!snapshot.legislation.length) errors.push("legislação pública vazia");
+  for (const item of snapshot.legislation) {
+    if (!item.code || !item.title || !item.category || !/^https?:\/\//i.test(item.officialUrl || "")) {
+      errors.push("fonte de legislação pública incompleta");
+      break;
+    }
+    if (/app\.notion\.com|notion\.so|collection:\/\//i.test(item.officialUrl || "")) {
+      errors.push("legislação contém URL interna do Notion");
+      break;
+    }
+  }
+
+  if (snapshot.finalSprint.length !== 17) errors.push(`esperados 17 dias de reta final; recebido ${snapshot.finalSprint.length}`);
+  if (!snapshot.finalSprint.every((item) => item.code && item.date && item.title && item.type)) {
+    errors.push("reta final pública contém item incompleto");
+  }
 }
 
 function validatePublicHtml(value, path, errors) {
