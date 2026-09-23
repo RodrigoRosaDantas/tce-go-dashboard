@@ -188,3 +188,11 @@ test("summary lê Notion em lotes para reduzir burst de rate limit", () => {
   assert.match(edgeSource, /const \[reviewPages,errorPages,redactionPages\]=await Promise\.all/);
   assert.match(edgeSource, /const simulationPages=await queryAllDataSource\(SIMULATIONS/);
 });
+
+
+test("auditoria mantém rótulos exatos do edital e reconcilia autenticação", () => {
+  assert.match(performance, /label="ITENS ATIVOS"/);
+  assert.match(performance, /label="ITENS COM FONTE"/);
+  assert.doesNotMatch(performance, /label="FONTES NORMATIVAS"/);
+  assert.match(context, /setConnected\(hasConnectedAccount\(\)\)/);
+});
