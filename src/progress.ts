@@ -281,8 +281,23 @@ export function cachedProgress(dxx: string) {
   return cacheMap()[dxx] ?? null;
 }
 
+function normalizeOperationalSummary(value: OperationalSummary | null) {
+  if (!value || typeof value !== "object") return null;
+  return {
+    ...value,
+    progress: Array.isArray(value.progress) ? value.progress : [],
+    dayControl: Array.isArray(value.dayControl) ? value.dayControl : [],
+    sessions: Array.isArray(value.sessions) ? value.sessions : [],
+    questionMeta: Array.isArray(value.questionMeta) ? value.questionMeta : [],
+    reviews: Array.isArray(value.reviews) ? value.reviews : [],
+    errors: Array.isArray(value.errors) ? value.errors : [],
+    redactions: Array.isArray(value.redactions) ? value.redactions : [],
+    simulations: Array.isArray(value.simulations) ? value.simulations : [],
+  };
+}
+
 export function cachedOperationalSummary() {
-  return readJson<OperationalSummary | null>(SUMMARY_CACHE_KEY, null);
+  return normalizeOperationalSummary(readJson<OperationalSummary | null>(SUMMARY_CACHE_KEY, null));
 }
 
 function saveOperationalSummary(summary: OperationalSummary) {
