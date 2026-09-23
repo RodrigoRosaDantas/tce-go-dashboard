@@ -1,5 +1,5 @@
 const NAPI="https://api.notion.com/v1",NVER="2026-03-11";
-const DAYS="a1075521-857b-4e1e-8fb2-849b51fdccc0",SESSIONS="f70b8e2d-31cc-4a26-9c06-9d0a9fe69de0";
+const DAYS="a1075521-857b-4e1e-8fb2-849b51fdccc0",SESSIONS="f70b8e2d-31cc-4a26-9c06-9d0a9fe69de0",QUESTIONS="b699f09b-8dc2-4da6-8cd5-668dc15088f9";
 const REVIEWS="d4733b43-6f1c-41ff-a066-ddc7a13f9d44",REDACTIONS="d837d3d6-7646-4f41-888a-ed8b48f94c9d",ERRORS_BANK="c0d696b3-99de-4d20-ae0e-a3324b74e038",SIMULATIONS="6deb1496-01ae-4a2d-8b38-5e99423410ee";
 const ORIGINS=new Set(["https://rodrigorosadantas.github.io","http://localhost:3000","http://localhost:4173"]);
 const STATE_TYPES=new Set(["progress.snapshot","questions.result","day.completed","day.reopened"]);
@@ -137,14 +137,15 @@ async function readOperationalSummary(owner,cors){
       source:"cache",
       degraded:true,
       progress:(states||[]).map(row=>pub(row,false)),
-      dayControl:[],sessions:[],
+      dayControl:[],sessions:[],questionMeta:[],
       reviews:[],errors:[],redactions:[],simulations:[],
     },200,cors);
   }
 
-  const [dayPages,sessionPages,reviewPages,errorPages,redactionPages,simulationPages]=await Promise.all([
+  const [dayPages,sessionPages,questionPages,reviewPages,errorPages,redactionPages,simulationPages]=await Promise.all([
     queryAllDataSource(DAYS,null,nt),
     queryAllDataSource(SESSIONS,null,nt),
+    queryAllDataSource(QUESTIONS,null,nt),
     queryAllDataSource(REVIEWS,null,nt),
     queryAllDataSource(ERRORS_BANK,null,nt),
     queryAllDataSource(REDACTIONS,null,nt),
@@ -182,6 +183,23 @@ async function readOperationalSummary(owner,cors){
       lastEditedAt:page.last_edited_time||null,
     };
   }).filter(item=>item.dxx||item.sxx||item.timestamp);
+
+  const questionMeta=questionPages.map(page=>{
+    const p=page.properties||{};
+    const dxx=normDxx(txt(p,"Dxx"))||txt(p,"Dxx");
+    return {
+      id:page.id,
+      dxx,
+      qxx:txt(p,"Qxx")||null,
+      focus:txt(p,"Matéria/foco")||null,
+      meta:npropNull(p,"Meta"),
+      valid:npropNull(p,"Questões válidas"),
+      prioritySource:txt(p,"Origem prioritária")||null,
+      platformMatter:txt(p,"Plataforma — matéria")||null,
+      platformTopic:txt(p,"Plataforma — tópico")||null,
+      lastEditedAt:page.last_edited_time||null,
+    };
+  }).filter(item=>item.dxx||item.qxx);
 
   const reviews=reviewPages.map(page=>{
     const p=page.properties||{};
@@ -290,7 +308,7 @@ async function readOperationalSummary(owner,cors){
     canonical:true,
     source:"notion",
     degraded:false,
-    progress,dayControl,sessions,reviews,errors,redactions,simulations,
+    progress,dayControl,sessions,questionMeta,reviews,errors,redactions,simulations,
   },200,cors);
 }
 
