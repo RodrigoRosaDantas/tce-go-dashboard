@@ -4,6 +4,7 @@ import {
   materialSnapshotFromBlocks,
   questionSnapshotFromPage,
   sanitizePublicText,
+  stripHtml,
 } from "../scripts/notion-public-content.mjs";
 
 test("sanitização remove referências internas do Notion", () => {
@@ -13,10 +14,14 @@ test("sanitização remove referências internas do Notion", () => {
   assert.match(clean, /planalto\.gov\.br/);
 });
 
-test("material público conserva pedagogia e remove seção privada", () => {
+test("material público conserva pedagogia, tabela e remove seção privada", () => {
   const blocks = [
     { type: "heading_2", heading_2: { rich_text: [{ plain_text: "Teoria nuclear" }] } },
     { type: "paragraph", paragraph: { rich_text: [{ plain_text: "Conteúdo pedagógico." }] } },
+    { type: "table", table: { has_column_header: true }, children: [
+      { type: "table_row", table_row: { cells: [[{ plain_text: "Artigo" }],[{ plain_text: "Núcleo" }]] } },
+      { type: "table_row", table_row: { cells: [[{ plain_text: "70" }],[{ plain_text: "Fiscalização" }]] } },
+    ]},
     { type: "heading_2", heading_2: { rich_text: [{ plain_text: "Execução real" }] } },
     { type: "paragraph", paragraph: { rich_text: [{ plain_text: "Tempo real: __" }] } },
   ];
@@ -27,9 +32,12 @@ test("material público conserva pedagogia e remove seção privada", () => {
     version: 3,
     lastEdited: "2026-09-23T00:00:00Z",
   }, blocks);
-  assert.equal(material.sections.length, 1);
-  assert.equal(material.sections[0].heading, "Teoria nuclear");
-  assert.doesNotMatch(JSON.stringify(material), /Tempo real/);
+
+  assert.match(material.contentHtml, /Teoria nuclear/);
+  assert.match(material.contentHtml, /<table>/);
+  assert.doesNotMatch(material.contentHtml, /Execução real|Tempo real/);
+  assert.ok(stripHtml(material.contentHtml).length > 20);
+  assert.match(material.hash, /^[a-f0-9]{64}$/);
 });
 
 test("Qxx público usa somente metadados editoriais", () => {
@@ -49,5 +57,6 @@ test("Qxx público usa somente metadados editoriais", () => {
   assert.equal(question.meta, 20);
   assert.equal(question.valid, 20);
   assert.equal(question.copyrightMode, "metadata-only");
+  assert.ok(!("contentHtml" in question));
   assert.ok(!("items" in question));
 });
