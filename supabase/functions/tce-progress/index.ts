@@ -142,15 +142,19 @@ async function readOperationalSummary(owner,cors){
     },200,cors);
   }
 
-  const [dayPages,sessionPages,questionPages,reviewPages,errorPages,redactionPages,simulationPages]=await Promise.all([
+  // Notion aplica rate limit por integração. Lemos em lotes pequenos para evitar
+  // um burst de sete queries simultâneas; o retry 429 continua como segunda defesa.
+  const [dayPages,sessionPages,questionPages]=await Promise.all([
     queryAllDataSource(DAYS,null,nt),
     queryAllDataSource(SESSIONS,null,nt),
     queryAllDataSource(QUESTIONS,null,nt),
+  ]);
+  const [reviewPages,errorPages,redactionPages]=await Promise.all([
     queryAllDataSource(REVIEWS,null,nt),
     queryAllDataSource(ERRORS_BANK,null,nt),
     queryAllDataSource(REDACTIONS,null,nt),
-    queryAllDataSource(SIMULATIONS,null,nt),
   ]);
+  const simulationPages=await queryAllDataSource(SIMULATIONS,null,nt);
 
   const progress=dayPages.map(page=>dayFromPage(page)).filter(day=>day&&!day.protected&&day.sxx).sort((a,b)=>a.dxx.localeCompare(b.dxx)).map(day=>({
     dxx:day.dxx,sxx:day.sxx,studied:day.studied,completed:day.completed,timeMinutes:day.timeMinutes,
