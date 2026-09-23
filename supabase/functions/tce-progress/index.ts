@@ -28,7 +28,7 @@ Deno.serve(async req=>{
     if(old&&!old.request_hash)await patchEvent(user.id,ev.v.idempotencyKey,{request_hash:requestHash});
     if(!old)await insertEvent(user.id,ev.v,requestHash);
 
-    const nt=Deno.env.get("TCE_GO_NOTION_TOKEN")?.trim();
+    const nt=await resolveNotionToken();
     if(!nt)return json({status:"pending",canonical:false,dxx:ev.v.dxx,idempotencyKey:ev.v.idempotencyKey,message:"Pendente de sincronização com o Notion.",reason:"notion_unconfigured"},202,cors);
 
     const day=await resolveDay(ev.v.dxx,nt);
@@ -118,7 +118,7 @@ const bool=(v,f=false)=>typeof v==="boolean"?v:f;
 function progress(p,d){const q=num(p.questionsDone,d.questionsDone),c=num(p.correct,d.correct),e=num(p.errors,d.errors),u=num(p.doubts,d.doubts);if(c+e>q)throw new Error("Acertos + erros excedem questões feitas.");if(u>c)throw new Error("Acertos com dúvida excedem acertos.");const completed=bool(p.completed,d.completed),time=num(p.timeMinutes,d.timeMinutes),studied=completed||bool(p.studied,d.studied)||time>0||q>0;return{studied,completed,timeMinutes:time,questionsDone:q,correct:c,errors:e,doubts:u,status:completed?"Concluído":studied?"Em andamento":"Não iniciado"};}
 
 async function readState(owner,dxx,cors){
-  const nt=Deno.env.get("TCE_GO_NOTION_TOKEN")?.trim();
+  const nt=await resolveNotionToken();
   if(nt){const d=await resolveDay(dxx,nt);if(!d)return json({error:"Dxx não existe no Notion."},404,cors);if(d.protected)return json({dxx,sxx:null,protected:true,canonical:true,source:"notion"},200,cors);const s={owner_id:owner,dxx:d.dxx,resolved_sxx:d.sxx,studied:d.studied,completed:d.completed,time_minutes:d.timeMinutes,questions_done:d.questionsDone,correct:d.correct,errors:d.errors,doubts:d.doubts,canonical_status:d.status,last_event_key:"notion-read",confirmed_at:new Date().toISOString(),event_occurred_at:d.lastEditedAt||new Date().toISOString(),canonical_revision:d.lastEditedAt||null,updated_at:new Date().toISOString()};await stateWrite(s);return json({...pub(s,true),protected:false},200,cors);}
   const s=await one("tce_progress_state",`owner_id=eq.${enc(owner)}&dxx=eq.${enc(dxx)}`);return json(s?pub(s,false):{dxx,canonical:false,source:"cache",state:null},200,cors);
 }
@@ -295,6 +295,22 @@ function choice(value,allowed,label){const v=String(value||"").trim();if(!allowe
 function bounded(value,min,max,label){const n=Number(value);if(!Number.isFinite(n)||n<min||n>max)throw validation(`${label} inválido.`);return Math.round(n*100)/100;}
 function optionalNumber(props,name,value,min,max){if(value==null||value==="")return null;const n=bounded(value,min,max,name);props[name]={number:n};return n;}
 function isoDate(value,label){const d=new Date(String(value));if(Number.isNaN(d.getTime()))throw validation(`${label} inválida.`);return d.toISOString();}
+
+async function resolveNotionToken(){
+  const candidates=[...new Set([
+    (Deno.env.get("TCE_GO_NOTION_TOKEN")||"").trim(),
+    (Deno.env.get("SEEDF")||"").trim(),
+  ].filter(Boolean))];
+  for(const token of candidates){
+    try{
+      await notion(`/data_sources/${DAYS}/query`,token,{method:"POST",body:JSON.stringify({page_size:1})});
+      return token;
+    }catch(error){
+      console.warn("Credencial Notion server-side recusada; tentando alternativa configurada.",error instanceof Error?error.message.replace(/:.*/,""):"erro");
+    }
+  }
+  return "";
+}
 
 async function notion(path,token,init={}){const h=new Headers(init.headers);h.set("Authorization",`Bearer ${token}`);h.set("Notion-Version",NVER);h.set("Content-Type","application/json");const r=await fetch(NAPI+path,{...init,headers:h});const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(`Notion ${r.status}: ${data?.message||"erro"}`);return data;}
 function txt(p,n){const x=p?.[n];if(!x)return"";if(x.title)return x.title.map(y=>y.plain_text||"").join("").trim();if(x.rich_text)return x.rich_text.map(y=>y.plain_text||"").join("").trim();return x.select?.name||x.status?.name||"";}
