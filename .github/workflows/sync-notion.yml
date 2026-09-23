@@ -1,0 +1,76 @@
+name: Sync TCE-GO from Notion
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tce-go-notion-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate server-side Notion configuration
+        env:
+          TCE_GO_NOTION_TOKEN: ${{ secrets.TCE_GO_NOTION_TOKEN }}
+          TCE_GO_DAYS_DATA_SOURCE_ID: ${{ vars.TCE_GO_DAYS_DATA_SOURCE_ID }}
+        run: |
+          test -n "$TCE_GO_NOTION_TOKEN" || { echo "::error::Configure TCE_GO_NOTION_TOKEN as a repository secret."; exit 1; }
+          test -n "$TCE_GO_DAYS_DATA_SOURCE_ID" || { echo "::error::Configure TCE_GO_DAYS_DATA_SOURCE_ID as a repository variable."; exit 1; }
+
+      - name: Extract, normalize, validate and sanitize
+        env:
+          TCE_GO_NOTION_TOKEN: ${{ secrets.TCE_GO_NOTION_TOKEN }}
+          TCE_GO_DAYS_DATA_SOURCE_ID: ${{ vars.TCE_GO_DAYS_DATA_SOURCE_ID }}
+          NOTION_VERSION: "2026-03-11"
+        run: |
+          node scripts/sync-tce-go.mjs
+          node scripts/validate-tce-go-snapshot.mjs
+
+      - name: Check diff integrity
+        run: git diff --check
+
+      - name: Detect real snapshot changes
+        id: diff
+        shell: bash
+        run: |
+          if [ -z "$(git status --porcelain -- public/data)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No public snapshot changes detected."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit snapshot only when changed
+        if: steps.diff.outputs.changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data
+          git commit -m "chore: sync sanitized TCE-GO snapshot"
+          git pull --rebase origin main
+          git push origin HEAD:main
