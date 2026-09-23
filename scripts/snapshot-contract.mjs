@@ -63,6 +63,8 @@ export function validateSnapshot(snapshot) {
     if (day && question?.dxx !== day.dxx) errors.push(`questões ${slug}: dxx divergente`);
     if (question?.qxx && question.qxx.toLowerCase() !== slug) errors.push(`questões ${slug}: qxx divergente`);
     if (question?.copyrightMode !== "metadata-only") errors.push(`questões ${slug}: modo público deve ser metadata-only no sync automático`);
+    if (question?.contentHtml) validatePublicHtml(question.contentHtml, `questions.${slug}.contentHtml`, errors);
+    if (question?.contentHtml && !Array.isArray(question?.sections)) errors.push(`questões ${slug}: sections ausente com contentHtml`);
     if (question?.platformBattery) {
       if (!question.platformBattery.materia || !question.platformBattery.topico) {
         errors.push(`questões ${slug}: plataforma exige matéria + tópico validados`);
