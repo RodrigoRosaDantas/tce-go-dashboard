@@ -94,10 +94,12 @@ export function questionSnapshotFromPage({ dxx, page, blocks = [] }) {
   // é derivado do próprio caderno canônico, que registra referências/metadados das
   // questões FCC e só reproduz integralmente itens autorais permitidos.
   const publicBlocks = Array.isArray(blocks) ? filterPublicBlocks(blocks) : [];
-  const contentHtml = publicBlocks.length
-    ? withStudyIndex(sanitizeMaterialHtml(renderBlocks(publicBlocks)), qxx.toLowerCase())
+  const authorialItems = Array.isArray(blocks) ? extractAuthorialTraining(blocks) : [];
+  const displayBlocks = authorialItems.length ? filterStructuredAuthorialSection(publicBlocks) : publicBlocks;
+  const contentHtml = displayBlocks.length
+    ? withStudyIndex(sanitizeMaterialHtml(renderBlocks(displayBlocks)), qxx.toLowerCase())
     : "";
-  const sections = publicBlocks.length ? extractTextSections(publicBlocks) : [];
+  const sections = displayBlocks.length ? extractTextSections(displayBlocks) : [];
 
   return {
     qxx,
@@ -112,8 +114,91 @@ export function questionSnapshotFromPage({ dxx, page, blocks = [] }) {
     ...(gapDeclared ? { gapDeclared: true } : {}),
     ...(adaptive ? { adaptive: true } : {}),
     ...(platformBattery ? { platformBattery } : {}),
+    ...(authorialItems.length ? { authorialItems } : {}),
     ...(contentHtml ? { contentHtml, sections, hash: sha256(contentHtml) } : {}),
   };
+}
+
+
+function filterStructuredAuthorialSection(blocks) {
+  const output = [];
+  let skipping = false;
+  for (const block of blocks || []) {
+    const type = block?.type || "";
+    const text = blockPlainText(block);
+    if (type === "heading_2" && /quest[õo]es\s+autorais/i.test(text)) {
+      skipping = true;
+      continue;
+    }
+    if (skipping && type === "heading_2") skipping = false;
+    if (skipping) continue;
+    output.push(block);
+  }
+  return output;
+}
+
+function extractAuthorialTraining(blocks) {
+  const items = [];
+  let current = null;
+
+  const finish = () => {
+    if (!current) return;
+    current.prompt = sanitizePublicText(current.prompt);
+    current.choices = current.choices
+      .map((choice) => ({ key: choice.key.toUpperCase(), text: sanitizePublicText(choice.text) }))
+      .filter((choice) => /^[A-E]$/.test(choice.key) && choice.text);
+    if (current.prompt && current.choices.length >= 2) items.push(current);
+    current = null;
+  };
+
+  for (const block of blocks || []) {
+    const type = block?.type || "";
+    const text = blockPlainText(block);
+
+    if (type === "heading_3") {
+      const match = text.match(/^(\d+)\s*[·.-]\s*(AUT-[A-Z0-9-]+)/i);
+      if (match) {
+        finish();
+        current = {
+          number: Number(match[1]),
+          id: match[2].toUpperCase(),
+          title: sanitizePublicText(text),
+          prompt: "",
+          choices: [],
+        };
+        continue;
+      }
+      if (current) finish();
+      continue;
+    }
+
+    if (current && /^heading_[12]$/.test(type)) {
+      finish();
+      continue;
+    }
+
+    if (!current || type !== "paragraph" || !text) continue;
+    const choice = text.match(/^([A-E])\)\s*(.+)$/i);
+    if (choice) current.choices.push({ key: choice[1], text: choice[2] });
+    else current.prompt = [current.prompt, text].filter(Boolean).join(" ");
+  }
+  finish();
+
+  const answers = new Map();
+  const visit = (list) => {
+    for (const block of list || []) {
+      const text = blockPlainText(block);
+      const match = text.match(/^(\d+)\s*[—-]\s*([A-E])\.\s*(.+)$/i);
+      if (match) answers.set(Number(match[1]), { answer: match[2].toUpperCase(), rationale: sanitizePublicText(match[3]) });
+      if (Array.isArray(block.children)) visit(block.children);
+    }
+  };
+  visit(blocks);
+
+  return items.map((item) => {
+    const answer = answers.get(item.number);
+    return answer ? { ...item, ...answer } : item;
+  });
 }
 
 export function pageTitle(page, fallback = "") {

@@ -96,3 +96,51 @@ test("observações editoriais não viram resumo público do Qxx", () => {
   const question = questionSnapshotFromPage({ dxx: "D002", page });
   assert.doesNotMatch(question.sourceSummary, /nota interna/i);
 });
+
+
+test("Qxx extrai somente itens autorais estruturados com gabarito canônico e evita duplicidade no HTML", () => {
+  const page = {
+    last_edited_time: "2026-09-23T00:00:00Z",
+    properties: {
+      Qxx: { rich_text: [{ plain_text: "Q001" }] },
+      "Questões do dia": { title: [{ plain_text: "Q001 — Questões" }] },
+      Meta: { number: 20 },
+      "Questões válidas": { number: 20 },
+    },
+  };
+  const blocks = [
+    { type:"heading_2", heading_2:{rich_text:[{plain_text:"5. FCC reais — resolver pela referência"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"Q1982532 · metadados apenas"}]} },
+    { type:"heading_2", heading_2:{rich_text:[{plain_text:"6. Questões autorais — métrica separada"}]} },
+    { type:"heading_3", heading_3:{rich_text:[{plain_text:"19 · AUT-Q001-01 · atualização"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"Pergunta autoral 19?"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"A) alternativa A"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"B) alternativa B"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"C) alternativa C"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"D) alternativa D"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"E) alternativa E"}]} },
+    { type:"heading_3", heading_3:{rich_text:[{plain_text:"20 · AUT-Q001-02 · modelo"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"Pergunta autoral 20?"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"A) alternativa A"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"B) alternativa B"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"C) alternativa C"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"D) alternativa D"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"E) alternativa E"}]} },
+    { type:"toggle", toggle:{rich_text:[{plain_text:"Correção"}]}, children:[
+      { type:"bulleted_list_item", bulleted_list_item:{rich_text:[{plain_text:"19 — D. fundamento dezenove."}]} },
+      { type:"bulleted_list_item", bulleted_list_item:{rich_text:[{plain_text:"20 — B. fundamento vinte."}]} },
+    ]},
+    { type:"heading_2", heading_2:{rich_text:[{plain_text:"8. Pós-bateria"}]} },
+    { type:"paragraph", paragraph:{rich_text:[{plain_text:"Registrar resultado real somente depois."}]} },
+  ];
+  const question = questionSnapshotFromPage({ dxx:"D001", page, blocks });
+  assert.equal(question.copyrightMode, "metadata-only");
+  assert.equal(question.authorialItems.length, 2);
+  assert.deepEqual(question.authorialItems.map((item) => [item.id,item.answer]), [
+    ["AUT-Q001-01","D"],
+    ["AUT-Q001-02","B"],
+  ]);
+  assert.match(question.authorialItems[0].rationale, /fundamento dezenove/);
+  assert.doesNotMatch(question.contentHtml, /Pergunta autoral 19|AUT-Q001-01|Questões autorais/);
+  assert.match(question.contentHtml, /FCC reais|Pós-bateria/);
+});

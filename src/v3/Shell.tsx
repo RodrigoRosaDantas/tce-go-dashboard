@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Snapshot } from "../types";
 import { publicRoute } from "../data";
-import { href, publishedDays } from "./shared";
+import { extractStudyToc, href, publishedDays } from "./shared";
 
 const primaryNav = [
   ["/", "Hoje", "⌂"],
@@ -48,14 +48,69 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
       ...studyNav.map(([path, label]) => ({ label, detail: "Treino", href: path, group: "Treino", keywords: label })),
       ...referenceNav.map(([path, label]) => ({ label, detail: "Referência", href: path, group: "Referência", keywords: label })),
     ];
-    const sessions = publishedDays(snapshot).map((day) => ({
+    const published = publishedDays(snapshot);
+    const sessions = published.map((day) => ({
       label: `${day.session ?? "Sessão"} · ${day.dxx}`,
       detail: day.focus,
       href: `/dia/${day.dxx.toLowerCase()}/`,
       group: "Sessões",
       keywords: `${day.session} ${day.dxx} ${day.focus} ${day.type}`,
     }));
-    return [...routes, ...sessions];
+
+    const content: SearchItem[] = [];
+    for (const day of published) {
+      if (!day.slug) continue;
+      const material = snapshot.materials[day.slug];
+      if (!material?.contentHtml) continue;
+      const toc = extractStudyToc(material.contentHtml);
+      const sections = material.sections ?? [];
+      for (const item of toc) {
+        const section = sections.find((candidate) => candidate.heading.trim().toLocaleLowerCase("pt-BR") === item.label.trim().toLocaleLowerCase("pt-BR"));
+        content.push({
+          label: item.label,
+          detail: `${day.session} · ${day.dxx} · Material`,
+          href: `/dia/${day.dxx.toLowerCase()}/#${item.id}`,
+          group: "Conteúdo",
+          keywords: `${day.focus} ${item.label} ${section?.body || ""}`.slice(0, 12000),
+        });
+      }
+
+      if (day.questionSlug) {
+        const question = snapshot.questions[day.questionSlug];
+        if (question?.contentHtml) {
+          const qtoc = extractStudyToc(question.contentHtml);
+          const qsections = question.sections ?? [];
+          for (const item of qtoc) {
+            const section = qsections.find((candidate) => candidate.heading.trim().toLocaleLowerCase("pt-BR") === item.label.trim().toLocaleLowerCase("pt-BR"));
+            content.push({
+              label: item.label,
+              detail: `${question.qxx} · ${day.dxx} · Questões`,
+              href: `/questoes/${day.questionSlug}/#${item.id}`,
+              group: "Questões",
+              keywords: `${question.title} ${item.label} ${section?.body || ""}`.slice(0, 12000),
+            });
+          }
+        }
+      }
+    }
+
+    const edital: SearchItem[] = (snapshot.edital ?? []).map((item) => ({
+      label: `${item.code} · ${item.discipline}`,
+      detail: `${item.block} · ${item.questions} questão(ões) · peso ${item.weight}`,
+      href: "/edital/",
+      group: "Edital",
+      keywords: `${item.code} ${item.discipline} ${item.block} ${item.normativeSource}`,
+    }));
+
+    const legislation: SearchItem[] = (snapshot.legislation ?? []).map((item) => ({
+      label: item.title,
+      detail: `${item.code} · ${item.category}${item.dxx ? ` · ${item.dxx}` : ""}`,
+      href: "/legislacao/",
+      group: "Legislação",
+      keywords: `${item.code} ${item.title} ${item.category} ${item.cutoff} ${item.use} ${item.dxx}`,
+    }));
+
+    return [...routes, ...sessions, ...content, ...edital, ...legislation];
   }, [snapshot]);
 
   const results = useMemo(() => {
@@ -64,13 +119,18 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
     const terms = normalized.split(/\s+/).filter(Boolean);
     return searchItems
       .map((item) => {
-        const haystack = `${item.label} ${item.detail} ${item.keywords}`.toLocaleLowerCase("pt-BR");
-        const score = terms.reduce((sum, term) => sum + (haystack.includes(term) ? 1 : -10), 0);
+        const label = item.label.toLocaleLowerCase("pt-BR");
+        const detail = item.detail.toLocaleLowerCase("pt-BR");
+        const keywords = item.keywords.toLocaleLowerCase("pt-BR");
+        const matched = terms.every((term) => label.includes(term) || detail.includes(term) || keywords.includes(term));
+        const score = matched ? terms.reduce((sum, term) => (
+          sum + (label.includes(term) ? 8 : 0) + (detail.includes(term) ? 4 : 0) + (keywords.includes(term) ? 1 : 0)
+        ), 0) : -1;
         return { item, score };
       })
-      .filter((entry) => entry.score >= terms.length)
+      .filter((entry) => entry.score >= 0)
       .sort((a, b) => b.score - a.score || a.item.label.localeCompare(b.item.label, "pt-BR"))
-      .slice(0, 14)
+      .slice(0, 18)
       .map((entry) => entry.item);
   }, [query, searchItems]);
 
@@ -175,7 +235,7 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
           <section className="command-palette" role="dialog" aria-modal="true" aria-label="Busca e navegação">
             <header>
               <span>⌕</span>
-              <input ref={inputRef} value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Busque D001, Controle Externo, revisão…" />
+              <input ref={inputRef} value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Busque art. 71, apreciar × julgar, D001, revisão…" />
               <button type="button" onClick={() => setSearchOpen(false)}>Esc</button>
             </header>
             <div className="command-results">
@@ -187,7 +247,7 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
                 </a>
               )) : <div className="command-empty">Nenhum resultado para “{query}”.</div>}
             </div>
-            <footer><span><kbd>Ctrl K</kbd> abrir</span><span><kbd>Esc</kbd> fechar</span><span>Busca local no snapshot publicado</span></footer>
+            <footer><span><kbd>Ctrl K</kbd> abrir</span><span><kbd>Esc</kbd> fechar</span><span>Busca local em aulas, Qxx, edital e legislação</span></footer>
           </section>
         </div>
       ) : null}

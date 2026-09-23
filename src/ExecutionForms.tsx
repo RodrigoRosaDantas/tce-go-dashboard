@@ -63,9 +63,13 @@ function PrivateWritebackIntro() {
 
 export function ReviewWriteback({ snapshot }: { snapshot: Snapshot }) {
   const active = useMemo(() => snapshot.days.filter((d) => !d.protected && d.session), [snapshot]);
-  const [dxx, setDxx] = useState(active[0]?.dxx ?? "D001");
-  const [reviewType, setReviewType] = useState("D0");
-  const [reason, setReason] = useState("Conteúdo novo");
+  const params = useMemo(() => new URLSearchParams(window.location.search), []);
+  const requestedDxx = params.get("dxx");
+  const [dxx, setDxx] = useState(() => active.some((d) => d.dxx === requestedDxx) ? String(requestedDxx) : active[0]?.dxx ?? "D001");
+  const [reviewType, setReviewType] = useState(() => params.get("type") || "D0");
+  const [reason, setReason] = useState(() => params.get("reason") || "Conteúdo novo");
+  const [status, setStatus] = useState("Concluída");
+  const [plannedDate, setPlannedDate] = useState("");
   const [questions, setQuestions] = useState("");
   const [correct, setCorrect] = useState("");
   const [errors, setErrors] = useState("");
@@ -80,12 +84,13 @@ export function ReviewWriteback({ snapshot }: { snapshot: Snapshot }) {
     const result = await submitSpecialized(snapshot, dxx, "review.snapshot", {
       reviewType,
       reason,
-      status: "Concluída",
+      status,
+      plannedDate: plannedDate || undefined,
       questions: numberOrUndefined(questions) ?? 0,
       correct: numberOrUndefined(correct) ?? 0,
       errors: numberOrUndefined(errors) ?? 0,
       timeMinutes: numberOrUndefined(time) ?? 0,
-      performedDate: new Date().toISOString(),
+      performedDate: status === "Concluída" ? new Date().toISOString() : undefined,
       notes,
     });
     setMessage(result.message);
@@ -94,13 +99,15 @@ export function ReviewWriteback({ snapshot }: { snapshot: Snapshot }) {
 
   return (
     <article className="panel execution-module">
-      <h2>Registrar revisão executada</h2>
+      <h2>Programar ou registrar revisão</h2>
       <PrivateWritebackIntro />
       <form className="progress-form" onSubmit={save}>
         <div className="progress-fields">
           <label>Dxx origem<select value={dxx} onChange={(e) => setDxx(e.target.value)}>{active.map((d) => <option key={d.dxx} value={d.dxx}>{d.dxx} · {d.session}</option>)}</select></label>
           <label>Tipo<select value={reviewType} onChange={(e) => setReviewType(e.target.value)}><option>D0</option><option>D7</option><option>D20</option><option>Fatal Error</option></select></label>
           <label>Motivo<select value={reason} onChange={(e) => setReason(e.target.value)}><option>Conteúdo novo</option><option>Erro relevante</option><option>Legislação</option><option>Reincidência</option><option>Calibração</option></select></label>
+          <label>Status<select value={status} onChange={(e) => setStatus(e.target.value)}><option>Pendente</option><option>Próxima</option><option>Concluída</option><option>Cancelada por domínio</option></select></label>
+          <label>Data prevista<input type="date" value={plannedDate} onChange={(e) => setPlannedDate(e.target.value)} /></label>
           <label>Questões<input type="number" min="0" value={questions} onChange={(e) => setQuestions(e.target.value)} /></label>
           <label>Acertos<input type="number" min="0" value={correct} onChange={(e) => setCorrect(e.target.value)} /></label>
           <label>Erros<input type="number" min="0" value={errors} onChange={(e) => setErrors(e.target.value)} /></label>
@@ -115,7 +122,9 @@ export function ReviewWriteback({ snapshot }: { snapshot: Snapshot }) {
 
 export function EssayWriteback({ snapshot }: { snapshot: Snapshot }) {
   const plans = snapshot.redactions ?? [];
-  const [dxx, setDxx] = useState(plans[0]?.dxx ?? "D019");
+  const params = useMemo(() => new URLSearchParams(window.location.search), []);
+  const requestedDxx = params.get("dxx");
+  const [dxx, setDxx] = useState(() => plans.some((p) => p.dxx === requestedDxx) ? String(requestedDxx) : plans[0]?.dxx ?? "D019");
   const [status, setStatus] = useState("Produzida");
   const [lines, setLines] = useState("");
   const [time, setTime] = useState("");
@@ -180,7 +189,9 @@ export function EssayWriteback({ snapshot }: { snapshot: Snapshot }) {
 
 export function SimulationWriteback({ snapshot }: { snapshot: Snapshot }) {
   const plans = snapshot.simulations ?? [];
-  const [dxx, setDxx] = useState(plans[0]?.dxx ?? "D020");
+  const params = useMemo(() => new URLSearchParams(window.location.search), []);
+  const requestedDxx = params.get("dxx");
+  const [dxx, setDxx] = useState(() => plans.some((p) => p.dxx === requestedDxx) ? String(requestedDxx) : plans[0]?.dxx ?? "D020");
   const [generalTotal, setGeneralTotal] = useState("");
   const [generalCorrect, setGeneralCorrect] = useState("");
   const [specificTotal, setSpecificTotal] = useState("");
@@ -276,7 +287,9 @@ export function SimulationWriteback({ snapshot }: { snapshot: Snapshot }) {
 
 export function ErrorWriteback({ snapshot }: { snapshot: Snapshot }) {
   const active = useMemo(() => snapshot.days.filter((d) => !d.protected && d.session), [snapshot]);
-  const [dxx, setDxx] = useState(active[0]?.dxx ?? "D001");
+  const params = useMemo(() => new URLSearchParams(window.location.search), []);
+  const requestedDxx = params.get("dxx");
+  const [dxx, setDxx] = useState(() => active.some((d) => d.dxx === requestedDxx) ? String(requestedDxx) : active[0]?.dxx ?? "D001");
   const [errorText, setErrorText] = useState("");
   const [questionId, setQuestionId] = useState("");
   const [subject, setSubject] = useState("");
@@ -290,6 +303,9 @@ export function ErrorWriteback({ snapshot }: { snapshot: Snapshot }) {
   const [action, setAction] = useState("");
   const [fatal, setFatal] = useState(false);
   const [doubt, setDoubt] = useState(false);
+  const [recurrence, setRecurrence] = useState("");
+  const [nextCheck, setNextCheck] = useState("");
+  const [notes, setNotes] = useState("");
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
 
@@ -311,6 +327,9 @@ export function ErrorWriteback({ snapshot }: { snapshot: Snapshot }) {
       action,
       fatal,
       doubt,
+      recurrence: numberOrUndefined(recurrence) ?? 0,
+      nextCheck,
+      notes,
       status: "Aberto",
     });
     setMessage(result.message);
@@ -332,10 +351,13 @@ export function ErrorWriteback({ snapshot }: { snapshot: Snapshot }) {
           <label>Severidade<select value={severity} onChange={(e) => setSeverity(e.target.value)}><option>P1</option><option>P2</option><option>P3</option></select></label>
           <label>Resposta marcada<input value={marked} onChange={(e) => setMarked(e.target.value)} /></label>
           <label>Gabarito<input value={answerKey} onChange={(e) => setAnswerKey(e.target.value)} /></label>
+          <label>Reincidência<input type="number" min="0" value={recurrence} onChange={(e) => setRecurrence(e.target.value)} /></label>
+          <label>Próxima checagem<input placeholder="D7, D20 ou data" value={nextCheck} onChange={(e) => setNextCheck(e.target.value)} /></label>
         </div>
         <label className="notes-field">Erro<textarea required value={errorText} onChange={(e) => setErrorText(e.target.value)} /></label>
         <label className="notes-field">Regra correta<textarea value={correctRule} onChange={(e) => setCorrectRule(e.target.value)} /></label>
         <label className="notes-field">Ação<textarea value={action} onChange={(e) => setAction(e.target.value)} /></label>
+        <label className="notes-field">Observação<textarea value={notes} onChange={(e) => setNotes(e.target.value)} /></label>
         <label className="check-field"><input type="checkbox" checked={fatal} onChange={(e) => setFatal(e.target.checked)} /> Fatal Error</label>
         <label className="check-field"><input type="checkbox" checked={doubt} onChange={(e) => setDoubt(e.target.checked)} /> Acerto com dúvida</label>
         <div className="progress-actions"><button className="primary button" type="submit" disabled={busy}>{busy ? "Sincronizando…" : "Salvar erro"}</button><span className="small">{message}</span></div>

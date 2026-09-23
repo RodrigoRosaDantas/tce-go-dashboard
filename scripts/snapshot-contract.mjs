@@ -65,6 +65,18 @@ export function validateSnapshot(snapshot) {
     if (question?.copyrightMode !== "metadata-only") errors.push(`questões ${slug}: modo público deve ser metadata-only no sync automático`);
     if (question?.contentHtml) validatePublicHtml(question.contentHtml, `questions.${slug}.contentHtml`, errors);
     if (question?.contentHtml && !Array.isArray(question?.sections)) errors.push(`questões ${slug}: sections ausente com contentHtml`);
+    if (question?.authorialItems) {
+      if (!Array.isArray(question.authorialItems)) errors.push(`questões ${slug}: authorialItems deve ser array`);
+      else for (const item of question.authorialItems) {
+        if (!/^AUT-[A-Z0-9-]+$/.test(item?.id || "")) errors.push(`questões ${slug}: item autoral sem ID AUT válido`);
+        if (!Number.isInteger(item?.number) || item.number < 1) errors.push(`questões ${slug}: item autoral sem número válido`);
+        if (!item?.prompt || !Array.isArray(item?.choices) || item.choices.length < 2) errors.push(`questões ${slug}: item autoral incompleto`);
+        if (item?.answer && !/^[A-E]$/.test(item.answer)) errors.push(`questões ${slug}: gabarito autoral inválido`);
+        if (Array.isArray(item?.choices) && item.choices.some((choice) => !/^[A-E]$/.test(choice?.key || "") || !choice?.text)) {
+          errors.push(`questões ${slug}: alternativa autoral inválida`);
+        }
+      }
+    }
     if (question?.platformBattery) {
       if (!question.platformBattery.materia || !question.platformBattery.topico) {
         errors.push(`questões ${slug}: plataforma exige matéria + tópico validados`);

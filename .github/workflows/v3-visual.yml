@@ -7,11 +7,16 @@ on:
       - "src/**"
       - "public/data/**"
       - "scripts/visual-smoke-v3.mjs"
+      - "scripts/e2e-study-os.mjs"
       - ".github/workflows/v3-visual.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: tce-go-visual-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   visual:
@@ -46,6 +51,10 @@ jobs:
         env:
           V3_VISUAL_BASE_URL: "http://127.0.0.1:4173/tce-go-dashboard"
         run: node scripts/visual-smoke-v3.mjs
+      - name: Run Study OS interaction E2E
+        env:
+          V4_E2E_BASE_URL: "http://127.0.0.1:4173/tce-go-dashboard"
+        run: node scripts/e2e-study-os.mjs
       - name: Upload screenshots
         if: always()
         uses: actions/upload-artifact@v6

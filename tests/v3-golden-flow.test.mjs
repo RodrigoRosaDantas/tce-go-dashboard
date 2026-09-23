@@ -19,8 +19,9 @@ test("V3 é a aplicação ativa e a V2 continua preservada", () => {
   assert.ok(fs.existsSync("src/styles.css"));
 });
 
-test("Home V3 escolhe a próxima sessão pela ordem pedagógica e progresso real", () => {
-  assert.match(home, /nextStudyDay\(snapshot\)/);
+test("Home mantém sequência pedagógica dentro do orquestrador operacional", () => {
+  assert.match(home, /deriveDecision\(snapshot, summary\)/);
+  assert.match(home, /nextSession = published\.find/);
   assert.doesNotMatch(home, /date >= today/);
 });
 

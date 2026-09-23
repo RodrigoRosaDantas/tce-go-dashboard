@@ -2,7 +2,11 @@ import type { DaySnapshot, Snapshot } from "../types";
 import { ProgressPanel } from "../ProgressPanel";
 import { platformBatteryUrl } from "../progress";
 import { DayLabel, activeDays, extractStudyToc, formatDate, hasPublicSession, href } from "./shared";
-import { ReadingControls, ReadingProgress, SessionChecklist, StudyTimer } from "./StudyTools";
+import { ReadingControls, ReadingProgress, RevisionLens, SectionNavigator, SessionChecklist, SessionIndex, StudyNotebook, StudyTimer } from "./StudyTools";
+import { useOperational } from "../v4/OperationalContext";
+import { errorsForDay, reviewBucket, reviewsForDay } from "../v4/operations";
+import { StatusPill } from "../v4/ui";
+import { AuthorialTrainer } from "../v4/QuestionTrainer";
 
 function SessionNavigation({ snapshot, day }: { snapshot: Snapshot; day: DaySnapshot }) {
   const active = activeDays(snapshot);
@@ -51,6 +55,7 @@ function SessionHero({ day, questionMeta }: { day: DaySnapshot; questionMeta: nu
 }
 
 export function StudyPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
+  const { summary } = useOperational();
   const day = [...snapshot.days].sort((a, b) => a.order - b.order)
     .find((item) => item.dxx.toLowerCase() === dxx.toLowerCase());
   if (!day) return <MissingStudy />;
@@ -70,6 +75,10 @@ export function StudyPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }
   if (!material || !question) return <MissingStudy day={day} snapshot={snapshot} />;
 
   const toc = extractStudyToc(material.contentHtml);
+  const dayErrors = errorsForDay(summary, day.dxx);
+  const dayReviews = reviewsForDay(summary, day.dxx);
+  const urgentReviews = dayReviews.filter((review) => ["overdue","today"].includes(reviewBucket(review)));
+  const criticalErrors = dayErrors.filter((error) => error.fatal || error.severity === "P1");
 
   return (
     <section className="study-player">
@@ -79,9 +88,25 @@ export function StudyPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }
         <ReadingProgress dxx={day.dxx} />
         <StudyTimer dxx={day.dxx} />
         <ReadingControls />
+        <StudyNotebook dxx={day.dxx} />
       </div>
 
       <SessionChecklist dxx={day.dxx} />
+
+      {dayErrors.length || dayReviews.length ? (
+        <section className="session-signals-v4">
+          <div>
+            <span className="eyebrow">HISTÓRICO DESTA SESSÃO</span>
+            <strong>O que merece atenção antes de avançar</strong>
+          </div>
+          <div className="session-signal-pills-v4">
+            {criticalErrors.length ? <a href={href(`/erros/?dxx=${day.dxx}`)}><StatusPill tone="danger">{criticalErrors.length} erro(s) P1/Fatal</StatusPill></a> : null}
+            {dayErrors.length && !criticalErrors.length ? <a href={href(`/erros/?dxx=${day.dxx}`)}><StatusPill>{dayErrors.length} erro(s) aberto(s)</StatusPill></a> : null}
+            {urgentReviews.length ? <a href={href(`/revisoes/?dxx=${day.dxx}`)}><StatusPill tone="warning">{urgentReviews.length} revisão(ões) agora</StatusPill></a> : null}
+            {dayReviews.length && !urgentReviews.length ? <a href={href(`/revisoes/?dxx=${day.dxx}`)}><StatusPill>{dayReviews.length} revisão(ões) futura(s)</StatusPill></a> : null}
+          </div>
+        </section>
+      ) : null}
 
       <nav className="stage-tabs" aria-label="Etapas da sessão">
         <a href="#visao-geral">Visão geral</a>
@@ -91,15 +116,7 @@ export function StudyPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }
       </nav>
 
       <div className="study-workspace">
-        <aside className="lesson-index">
-          <div className="index-head"><span>ÍNDICE</span><strong>{day.session}</strong></div>
-          <a href="#visao-geral">Visão geral</a>
-          {toc.map((item) => (
-            <a key={item.id} className={item.level === 3 ? "level-3" : ""} href={`#${item.id}`}>{item.label}</a>
-          ))}
-          <a href="#questoes">Questões</a>
-          <a href="#registro">Fechamento + D0</a>
-        </aside>
+        <SessionIndex dxx={day.dxx} toc={toc} />
 
         <div className="study-flow">
           <section id="visao-geral" className="session-brief">
@@ -120,6 +137,7 @@ export function StudyPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }
               <div><span className="eyebrow">ETAPA 1</span><h2>Material</h2></div>
               <div className="content-head-actions"><a href="#questoes">Ir às questões ↓</a></div>
             </header>
+            <RevisionLens html={material.contentHtml} />
             {material.contentHtml ? (
               <div className="study-content" dangerouslySetInnerHTML={{ __html: material.contentHtml }} />
             ) : (
@@ -127,6 +145,7 @@ export function StudyPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }
                 {material.sections?.map((section) => <section key={section.heading}><h2>{section.heading}</h2><p>{section.body}</p></section>)}
               </div>
             )}
+            <SectionNavigator toc={toc} />
           </article>
 
           <section id="questoes" className="question-bridge">
@@ -161,6 +180,11 @@ export function StudyPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }
               <span className="status-chip success">D0</span>
             </header>
             <ProgressPanel day={day} />
+            <div className="closing-links-v4">
+              <a href={href(`/erros/?dxx=${day.dxx}#error-form`)}>Registrar erro desta sessão →</a>
+              <a href={href(`/revisoes/?dxx=${day.dxx}&type=D7&reason=Erro%20relevante#review-form`)}>Programar D7 →</a>
+              <a href={href(`/revisoes/?dxx=${day.dxx}&type=D20&reason=Conte%C3%BAdo%20novo#review-form`)}>Programar D20 →</a>
+            </div>
           </section>
 
           <SessionNavigation snapshot={snapshot} day={day} />
@@ -219,6 +243,8 @@ export function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: strin
           })}>Resolver na Plataforma →</a>
         </div>
       ) : null}
+
+      {question.authorialItems?.length ? <AuthorialTrainer question={question} day={day} /> : null}
 
       {question.contentHtml ? (
         <div className="question-workspace">
