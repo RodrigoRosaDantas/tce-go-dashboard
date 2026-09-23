@@ -52,7 +52,7 @@ export function isOpenError(error: OperationalError) {
 export function criticalErrors(summary: OperationalSummary) {
   return summary.errors
     .filter((error) => isOpenError(error) && (error.fatal || error.severity === "P1"))
-    .sort((a, b) => Number(b.fatal) - Number(a.fatal) || b.recurrence - a.recurrence);
+    .sort((a, b) => Number(b.fatal) - Number(a.fatal) || (b.recurrence ?? 0) - (a.recurrence ?? 0));
 }
 
 export function errorsForDay(summary: OperationalSummary, dxx: string) {
@@ -143,7 +143,7 @@ export function deriveDecision(snapshot: Snapshot, summary: OperationalSummary):
   }
 
   const simulations = snapshot.simulations ?? [];
-  const simDone = new Set(summary.simulations.filter((item) => item.generalTotal + item.specificTotal > 0).map((item) => item.dxx));
+  const simDone = new Set(summary.simulations.filter((item) => (item.generalTotal ?? 0) + (item.specificTotal ?? 0) > 0).map((item) => item.dxx));
   const pendingSimulation = simulations.find((plan) => plan.date <= today && !simDone.has(plan.dxx));
   if (pendingSimulation) {
     return {
