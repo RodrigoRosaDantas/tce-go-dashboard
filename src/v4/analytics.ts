@@ -9,7 +9,7 @@ import type {
 
 export type DataIssue = {
   level: "error" | "warning" | "info";
-  source: "Dxx" | "Qxx" | "Sessões" | "Revisões" | "Erros" | "Redações" | "Checkpoints";
+  source: "Estrutura" | "Dxx" | "Qxx" | "Sessões" | "Revisões" | "Erros" | "Redações" | "Checkpoints";
   key: string;
   message: string;
   fields?: string[];
@@ -103,11 +103,43 @@ export function buildDataIssues(summary: OperationalSummary, snapshot: Snapshot)
   const issues: DataIssue[] = [];
   const active = new Set(snapshot.days.filter((day) => !day.protected).map((day) => day.dxx));
   const sessionMap = sessionRowsByDay(summary);
+  const dayRowsByDxx = new Map<string, OperationalDay[]>();
+  for (const day of summary.dayControl) {
+    const list = dayRowsByDxx.get(day.dxx) ?? [];
+    list.push(day);
+    dayRowsByDxx.set(day.dxx, list);
+  }
   const dayControlMap = new Map(summary.dayControl.map((day) => [day.dxx, day]));
-  const questionDays = new Set(summary.questionMeta.map((item) => String(item.dxx || "").toUpperCase()).filter(Boolean));
+  const questionRowsByDxx = new Map<string, typeof summary.questionMeta>();
+  for (const item of summary.questionMeta) {
+    const dxx = String(item.dxx || "").toUpperCase();
+    if (!dxx) continue;
+    const list = questionRowsByDxx.get(dxx) ?? [];
+    list.push(item);
+    questionRowsByDxx.set(dxx, list);
+  }
+
   if (summary.canonical) {
     for (const dxx of active) {
-      if (!questionDays.has(dxx)) issues.push({ level:"warning", source:"Qxx", key:dxx, message:"Dxx ativo sem Matéria/foco no resumo do Banco de Questões." });
+      const dayRows = dayRowsByDxx.get(dxx) ?? [];
+      const questionRows = questionRowsByDxx.get(dxx) ?? [];
+      if (!dayRows.length) issues.push({ level:"error", source:"Estrutura", key:dxx, message:"Dxx ativo ausente do resumo canônico do Banco D001–D100." });
+      if (dayRows.length > 1) issues.push({ level:"error", source:"Estrutura", key:dxx, message:`Dxx duplicado no resumo canônico: ${dayRows.length} registros.` });
+      if (!questionRows.length) {
+        issues.push({ level:"warning", source:"Qxx", key:dxx, message:"Dxx ativo sem Qxx correspondente no Banco de Questões." });
+      } else {
+        if (questionRows.length > 1) issues.push({ level:"error", source:"Qxx", key:dxx, message:`Mais de um Qxx associado ao mesmo Dxx: ${questionRows.length} registros.` });
+        const q = questionRows[0];
+        if (!q.focus?.trim()) issues.push({ level:"warning", source:"Qxx", key:dxx, fields:["Matéria/foco"], message:"Qxx existe, mas Matéria/foco não está preenchida." });
+        const day = dayRows[0];
+        if (day?.metaQuestions != null && q.meta != null && day.metaQuestions !== q.meta) {
+          issues.push({ level:"error", source:"Qxx", key:dxx, fields:["Meta de questões","Meta"], message:`Meta divergente entre Dxx (${day.metaQuestions}) e Qxx (${q.meta}).` });
+        }
+      }
+    }
+    for (const item of summary.questionMeta) {
+      const dxx = String(item.dxx || "").toUpperCase();
+      if (dxx && !active.has(dxx)) issues.push({ level:"warning", source:"Qxx", key:item.qxx || dxx, message:`Qxx aponta para ${dxx}, que não é Dxx ativo.` });
     }
   }
 
@@ -143,6 +175,9 @@ export function buildDataIssues(summary: OperationalSummary, snapshot: Snapshot)
     }
     if (dxx && active.has(dxx)) {
       const canonicalDay = dayControlMap.get(dxx);
+      if (row.sxx && canonicalDay?.sxx && row.sxx !== canonicalDay.sxx) {
+        issues.push({ level:"error", source:"Sessões", key:row.title, fields:["Dxx","Sessão TCE"], message:`Sessão detalhada usa ${row.sxx}, mas ${dxx} está ligado a ${canonicalDay.sxx}.` });
+      }
       const detailedExecution = (row.timeMinutes ?? 0) > 0 || (row.questions ?? 0) > 0 || (row.correct ?? 0) > 0 || (row.errors ?? 0) > 0 || (row.doubts ?? 0) > 0;
       if (detailedExecution && (!canonicalDay || !hasExecution(canonicalDay))) {
         issues.push({ level:"warning", source:"Sessões", key:row.title, message:`Há execução detalhada para ${dxx}, mas o Banco Dxx não registra execução. Atualize o Dxx para os totais do Dashboard refletirem esta sessão.` });
@@ -183,6 +218,7 @@ export function subjectForDay(summary: OperationalSummary, dxx: string) {
 }
 
 export function disciplineRows(summary: OperationalSummary, snapshot: Snapshot) {
+  if (!summary.questionMeta.length) return [];
   const dayMap = new Map(summary.dayControl.map((day) => [day.dxx, day]));
   const metaMap = new Map(summary.questionMeta.map((item) => [String(item.dxx || "").toUpperCase(), item]));
   const groups = new Map<string, {
@@ -228,11 +264,14 @@ export function errorRows(errors: OperationalError[]) {
 export function reviewStats(reviews: OperationalReview[]) {
   const result = { total:reviews.length, completed:0, pending:0, questions:0, correct:0, errors:0 };
   for (const review of reviews) {
-    if (review.status === "Concluída") result.completed += 1;
-    else if (review.status !== "Cancelada por domínio") result.pending += 1;
-    result.questions += review.questions ?? 0;
-    result.correct += review.correct ?? 0;
-    result.errors += review.errors ?? 0;
+    if (review.status === "Concluída") {
+      result.completed += 1;
+      result.questions += review.questions ?? 0;
+      result.correct += review.correct ?? 0;
+      result.errors += review.errors ?? 0;
+    } else if (review.status !== "Cancelada por domínio") {
+      result.pending += 1;
+    }
   }
   return result;
 }
