@@ -20,6 +20,7 @@ test("endpoint protege duplicidade, replay e revisão canônica", () => {
     "STALE_REPLAY",
     "CANONICAL_REVISION_CHANGED",
     "CANONICAL_REVISION_UNKNOWN",
+    "SUPERSEDED_BY_NEWER_EVENT",
     "NOTION_DUPLICATE_IDEMPOTENCY",
   ]) {
     assert.ok(edge.includes(code), `proteção ausente: ${code}`);
