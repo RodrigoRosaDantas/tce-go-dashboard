@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T13:59:39.243Z",
+  "generatedAt": "2026-09-23T14:01:14.636Z",
   "days": [
     {
       "dxx": "D001",
@@ -1193,15 +1193,485 @@
       "version": 2
     }
   ],
-  "materials": {},
-  "questions": {},
+  "materials": {
+    "d001": {
+      "dxx": "D001",
+      "title": "D001 — Controle Externo I \\| Sistema constitucional de controle",
+      "summary": "CF/88 arts. 70–75; controle interno × externo; apreciar × julgar; atualização constitucional de 2026.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "D001 · 22/09/2026 · Estudo novo · 90–105 min. Fundação constitucional do bloco B04. Este dia é aprendizagem/reativação dirigida, não diagnóstico global e não transporta métricas de outros projetos."
+        },
+        {
+          "heading": "1. Por que começar por aqui",
+          "body": "Controle Externo é matéria de construção no projeto, embora exista histórico útil. O sistema constitucional dos arts. 70–75 é a linguagem-base para entender tudo o que vem depois: instrumentos de fiscalização, tipos de auditoria, NBASP/INTOSAI, planejamento, achados, processo de controle e legislação institucional.\nA ordem é intencional:\n- D001: quem controla, o que controla e com quais verbos constitucionais;\n- D008: instrumentos de fiscalização;\n- D015: tipos de auditoria;\n- D022: INTOSAI/NBASP 100;\n- os dias institucionais posteriores aplicam essa matriz ao TCE-GO.\nSe “apreciar”, “julgar”, “sustar”, “apoiar” e “auxiliar” não estiverem separados desde agora, o erro reaparece em quase todo o bloco."
+        },
+        {
+          "heading": "2. Posição no edital",
+          "body": "No edital verticalizado, B04 — Noções de Controle Externo está no bloco de Específicos, com 4 questões, peso 2 e 8 pontos ponderados internos. O tratamento definido no projeto é Construção e o baseline é Misto.\nRecorte verticalizado deste D001:\n1. sistema constitucional de controle;\n2. controle interno;\n3. controle externo;\n4. competências constitucionais dos Tribunais de Contas;\n5. posição constitucional dos Tribunais de Contas;\n6. CF/88, arts. 70–75, inclusive redação vigente do art. 75.\nFora do recorte de hoje: instrumentos de auditoria em profundidade, NBASP, processo no TCE-GO e detalhamento da Lei Orgânica/Regimento. Eles terão dias próprios."
+        },
+        {
+          "heading": "4. Objetivos mensuráveis",
+          "body": "Ao final da sessão, sem consultar o material, você deve conseguir:\n1. listar as cinco dimensões de fiscalização do art. 70;\n2. distinguir objeto/dimensão de parâmetro de controle;\n3. explicar em uma frase a relação Congresso Nacional ↔ TCU;\n4. diferenciar apreciar contas do chefe do Executivo de julgar contas de administradores/responsáveis;\n5. classificar corretamente pelo menos 8 verbos do art. 71;\n6. explicar as quatro finalidades constitucionais do controle interno;\n7. dizer o que mudou no art. 75 em 2026;\n8. resolver o Q001 usando a norma vigente, sem aprender redação superada."
+        },
+        {
+          "heading": "5. Fontes oficiais e vigência",
+          "body": "Corte de vigência deste material: 22/09/2026.\n- [Constituição Federal de 1988 — texto compilado vigente](https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm)\n- [Emenda Constitucional nº 139, de 5 de maio de 2026](https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc139.htm)\n- [FCC — concurso TCE-GO 2022](https://www.concursosfcc.com.br/concursos/tcego122/index.html)\n- [FCC — arquivo de concursos](https://www.concursosfcc.com.br/concursoOutraSituacao.html)\nValidade normativa: questões históricas sobre o art. 75 exigem triagem. A EC 139/2026 alterou o caput; portanto, alternativa baseada na redação anterior pode ser útil para estilo, mas não pode ensinar norma revogada."
+        },
+        {
+          "heading": "6. Método de estudo desta sessão",
+          "body": "1. 5 min — mapa: leia o quadro dos arts. 70–75.\n2. 25–30 min — teoria nuclear: arts. 70, 71 e 74.\n3. 10–15 min — literalidade seletiva: verbos e sujeitos constitucionais.\n4. 10 min — atualização 2026: art. 75.\n5. 25–30 min — Q001: resolver sem gabarito aberto.\n6. 10 min — correção + D0: registrar causa do erro, não só alternativa.\nRegra: se uma dúvida puder ser resolvida pelo texto constitucional, volte primeiro à fonte oficial; comentário de questão é secundário."
+        },
+        {
+          "heading": "7. Mapa inicial — arts. 70 a 75",
+          "body": "Artigo\nPergunta que responde\nNúcleo para automatizar\n70\nO que e como se fiscaliza?\nCOFOP + legalidade, legitimidade, economicidade + subvenções/renúncia + dever de prestar contas\n71\nO que o Tribunal faz?\nCompetências e verbos: apreciar, julgar, registrar, fiscalizar, informar, sancionar, assinar prazo, sustar, representar\n72\nE a despesa não autorizada?\nComissão mista → esclarecimentos → pronunciamento do Tribunal → possível sustação\n73\nComo a Constituição estrutura o TCU?\n9 Ministros, requisitos, escolha e garantias — matriz constitucional\n74\nO que faz o controle interno?\nquatro finalidades + dever de ciência + legitimados para denúncia\n75\nComo o modelo alcança os demais TCs?\nsimetria no que couber + permanência/essencialidade + vedação nova de 2026 + 7 Conselheiros nos TCEs\nMacete de entrada: 70 = campo; 71 = verbos; 74 = interno; 75 = espelho federativo."
+        },
+        {
+          "heading": "8.1 O sistema constitucional não é “TC contra controle interno”",
+          "body": "O art. 70 constrói dois eixos simultâneos:\n- controle externo, exercido pelo Congresso Nacional no plano federal;\n- sistema de controle interno de cada Poder.\nO art. 71 completa a arquitetura: o controle externo do Congresso é exercido com o auxílio do TCU.\nIsso gera duas conclusões de prova:\n- Tribunal de Contas não substitui o titular legislativo do controle externo;\n- “auxílio” não significa subordinação hierárquica. O Tribunal recebe competências diretamente da Constituição."
+        },
+        {
+          "heading": "8.2 Art. 70 — dimensões, parâmetros e responsáveis",
+          "body": "As cinco dimensões são:\nContábil · Orçamentária · Financeira · Operacional · Patrimonial.\n> COFOP é um mnemônico útil: Contábil, Orçamentária, Financeira, Operacional, Patrimonial.\nNão confunda dimensão com parâmetro. A fiscalização ocorre, entre outros pontos, quanto a:\n- legalidade — conformidade jurídica;\n- legitimidade — compatibilidade da atuação com a finalidade pública e os parâmetros legítimos de gestão;\n- economicidade — relação racional entre meios, custos e resultados;\n- aplicação das subvenções;\n- renúncia de receitas.\n#### Quem deve prestar contas?\nA obrigação alcança pessoa física ou jurídica, pública ou privada, que utilize, arrecade, guarde, gerencie ou administre dinheiros, bens e valores públicos, ou assuma obrigações pecuniárias em nome da União.\nPegadinha FCC: reduzir o dever de prestar contas a “servidor público” ou “órgão público” torna a assertiva estreita demais."
+        },
+        {
+          "heading": "8.3 Art. 71 — aprenda pelos verbos",
+          "body": "O art. 71 funciona melhor como mapa de ações do que como parágrafo decorado.\nVerbo\nObjeto nuclear\nRisco de confusão\napreciar\ncontas anuais do Presidente + parecer prévio\ntrocar por “julgar”\njulgar\ncontas de administradores e demais responsáveis\ntratar todo agente como chefe do Executivo\napreciar para registro\nadmissões e concessões indicadas no inciso III\nachar que é julgamento de contas\nrealizar\ninspeções e auditorias\nsupor que só age provocado\nfiscalizar\nempresas supranacionais e recursos transferidos, nos casos constitucionais\nestreitar a fiscalização\nprestar informações\nao Congresso/Casas/Comissões\nconfundir com subordinação\naplicar sanções\nilegalidade de despesa/irregularidade de contas, conforme lei\nachar que apenas o Judiciário sanciona\nassinar prazo\nprovidências para exato cumprimento da lei\npular direto para sustação\nsustar ato\nato impugnado, se não atendido\nconfundir com contrato\nrepresentar\nirregularidades ou abusos ao Poder competente\nreduzir tudo a multa"
+        },
+        {
+          "heading": "8.4 Apreciar × julgar — distinção que precisa ficar automática",
+          "body": "Chefe do Executivo → Tribunal aprecia → parecer prévio.\nAdministrador/responsável → Tribunal julga contas.\nIsso não é detalhe terminológico. A FCC troca o verbo, o sujeito ou o objeto para fabricar alternativas plausíveis.\nMacete: GOVERNO ganha PARECER; GESTOR recebe JULGAMENTO.\n#### Caso aplicado\nUma secretária de Estado administra recursos e presta contas da gestão. Ela não se transforma em “chefe do Executivo” por ocupar cargo político. A lógica constitucional do julgamento das contas de administradores/responsáveis continua distinta da apreciação das contas anuais do chefe do Executivo."
+        },
+        {
+          "heading": "8.5 Ato × contrato na sustação",
+          "body": "- Art. 71, X: o Tribunal pode sustar a execução do ato impugnado, se não atendida a determinação de correção.\n- Art. 71, §1º: no caso de contrato, o ato de sustação é adotado diretamente pelo Congresso Nacional, que solicita ao Poder Executivo as medidas cabíveis.\n- Se Congresso ou Executivo não efetivarem as medidas em 90 dias, o Tribunal decide a respeito (§2º).\nPegadinha clássica: “TCU susta diretamente qualquer contrato”. Falso pela arquitetura constitucional."
+        },
+        {
+          "heading": "8.6 Título executivo",
+          "body": "Decisão do Tribunal que resulte em imputação de débito ou multa tem eficácia de título executivo.\nNão acrescente “judicial”: a Constituição diz título executivo; a cobrança segue a via própria."
+        },
+        {
+          "heading": "8.7 Art. 72 — despesa não autorizada",
+          "body": "Diante de indícios de despesa não autorizada:\n1. a comissão mista permanente pode pedir esclarecimentos à autoridade responsável;\n2. a autoridade tem 5 dias;\n3. se não houver resposta suficiente, a comissão solicita pronunciamento conclusivo do Tribunal, em 30 dias;\n4. se o Tribunal entender a despesa irregular e houver risco de dano irreparável ou grave lesão à economia pública, a comissão pode propor ao Congresso a sustação.\nMacete: 5 → 30 → possível sustação."
+        },
+        {
+          "heading": "8.8 Art. 73 — estrutura do TCU como matriz",
+          "body": "Para hoje, memorize apenas o que sustenta o sistema:\n- TCU = 9 Ministros;\n- sede no Distrito Federal;\n- quadro próprio;\n- jurisdição em todo o território nacional;\n- requisitos e forma constitucional de escolha;\n- garantias/prerrogativas/impedimentos dos Ministros.\nDetalhes de composição que não gerem erro no Q001 podem ser aprofundados na legislação/estrutura quando o ciclo exigir."
+        },
+        {
+          "heading": "8.9 Art. 74 — controle interno com missão própria",
+          "body": "Os Poderes Legislativo, Executivo e Judiciário mantêm, de forma integrada, sistema de controle interno para:\n1. avaliar metas do PPA, programas de governo e orçamentos;\n2. comprovar legalidade e avaliar resultados quanto à eficácia e eficiência da gestão orçamentária, financeira e patrimonial, inclusive aplicação de recursos públicos por entidades privadas;\n3. controlar operações de crédito, avais, garantias, direitos e haveres;\n4. apoiar o controle externo.\nAlém disso:\n- quem atua no controle interno e toma conhecimento de irregularidade/ilegalidade deve dar ciência ao Tribunal de Contas, sob pena de responsabilidade solidária;\n- cidadão, partido político, associação ou sindicato pode denunciar irregularidade/ilegalidade, na forma da lei.\nContraste: controle interno não é “auditoria interna” em sentido estreito e não existe apenas no Executivo."
+        },
+        {
+          "heading": "8.10 Art. 75 — o ponto novo de 2026",
+          "body": "A EC 139/2026 modificou o caput do art. 75.\nNa redação vigente:\n- os Tribunais de Contas são instituições permanentes;\n- são essenciais ao exercício do controle externo;\n- as normas da Seção aplicam-se, no que couber, aos TCs estaduais, distrital e municipais;\n- ficou vedada sua extinção, criação ou instalação;\n- as Constituições estaduais dispõem sobre seus TCs, integrados por sete Conselheiros.\nAtualização crítica: questão anterior a 05/05/2026 que reproduza a redação velha do art. 75 deve ser tratada com etiqueta de validade. O estilo da FCC pode continuar útil; a literalidade superada, não."
+        },
+        {
+          "heading": "9.1 Controle interno × controle externo",
+          "body": "Ponto\nControle interno\nControle externo\nBase nuclear\narts. 70 e 74\narts. 70 e 71\nEstrutura\nsistema de cada Poder, de forma integrada\nLegislativo, com auxílio do Tribunal de Contas\nMissão\navaliar, comprovar, controlar e apoiar\nfiscalizar e exercer competências constitucionais\nRelação\napoia o externo; comunica irregularidades\nnão “absorve” o controle interno\nErro típico\ntratá-lo como mera auditoria interna\ntratar TC como subordinado ou como titular isolado"
+        },
+        {
+          "heading": "9.2 Ato × contrato",
+          "body": "Situação\nRegra constitucional\nAto impugnado, após descumprimento\nTribunal pode sustar e comunicar às Casas\nContrato\nsustação direta pelo Congresso Nacional\nInércia por 90 dias\nTribunal decide a respeito"
+        },
+        {
+          "heading": "10. Como a FCC tende a cobrar este núcleo",
+          "body": "A amostra do próprio projeto mostra um padrão claro:\n- verbo constitucional trocado: apreciar ↔ julgar;\n- sujeito trocado: Congresso ↔ Tribunal;\n- hierarquia inventada: auxílio = subordinação;\n- objeto estreitado: fiscalização apenas financeira;\n- finalidade deslocada: competência do art. 71 apresentada como finalidade do art. 74;\n- literalidade temporal: alternativa usa redação constitucional antiga;\n- caso aplicado: contrato, contas de órgão legislativo ou coexistência entre controles para exigir classificação jurídica.\nEvidências curadas para Q001 incluem FCC/TCE-GO 2022, outros Tribunais de Contas FCC (TCE-AP, TCE-AM, TCE-RS, TCE-SP e TCE-PR) e FCC recente por assunto em 2025. O texto integral de questões públicas protegidas não é reproduzido aqui."
+        },
+        {
+          "heading": "11. Pegadinhas de alto retorno",
+          "body": "- “O TCU exerce o controle externo, auxiliado pelo Congresso.” → inverteu a arquitetura.\n- “TCU é subordinado ao Congresso.” → hierarquia inexistente.\n- “O controle interno existe só no Executivo.” → art. 74 fala Legislativo, Executivo e Judiciário.\n- “TCU julga contas anuais do Presidente.” → aprecia e emite parecer prévio.\n- “TCU susta diretamente contrato.” → regra do §1º atribui a sustação direta ao Congresso.\n- “A fiscalização constitucional é só contábil/financeira.” → faltam orçamentária, operacional e patrimonial.\n- “Só pessoa pública presta contas.” → art. 70, parágrafo único, alcança pessoa física/jurídica, pública/privada nas hipóteses constitucionais.\n- “O art. 75 continua apenas reproduzindo o modelo federativo.” → desde 2026 também afirma permanência/essencialidade e veda extinção, criação ou instalação."
+        },
+        {
+          "heading": "12. Macetes que valem espaço na memória",
+          "body": "- COFOP = dimensões do art. 70.\n- 70 campo / 71 verbos / 74 interno / 75 espelho.\n- Governo → parecer; gestor → julgamento.\n- Ato: TC pode sustar. Contrato: Congresso primeiro.\n- 74 = M-L-C-A: Metas, Legalidade/resultados, Crédito/garantias, Apoio ao externo.\n- 72 = 5 → 30 → sustação possível."
+        },
+        {
+          "heading": "13. O que precisa ficar automático",
+          "body": "Antes de abrir o Q001, você não deve hesitar em:\n1. COFOP;\n2. legalidade × legitimidade × economicidade;\n3. Congresso titular / TCU auxilia;\n4. apreciar chefe do Executivo × julgar gestor;\n5. admissão/concessões = apreciar para registro;\n6. ato × contrato;\n7. quatro finalidades do art. 74;\n8. responsabilidade solidária por omissão do controle interno;\n9. EC 139/2026 no art. 75."
+        },
+        {
+          "heading": "14. Pontes com os próximos Dxx",
+          "body": "- D008 — Controle Externo II: instrumentos de fiscalização; o art. 71, IV é a ponte.\n- D015 — Controle Externo III: tipos de auditoria; parte da dimensão operacional ganha técnica.\n- D022 — Controle Externo IV: INTOSAI/NBASP 100; o “por que auditar” vira princípios de auditoria pública.\n- Legislação Institucional: a matriz CF/88 será projetada sobre Constituição de Goiás, Lei Orgânica e Regimento do TCE-GO."
+        },
+        {
+          "heading": "15. Pré-Q001 — teste de prontidão",
+          "body": "Responda oralmente, sem consulta:\n1. Quem é titular do controle externo federal e quem o auxilia?\n2. Quais são as cinco dimensões do art. 70?\n3. Qual é o verbo para contas anuais do Presidente?\n4. Qual é o verbo para contas dos administradores?\n5. Quem susta diretamente um contrato na regra do art. 71, §1º?\n6. Qual a finalidade IV do controle interno?\n7. Qual a consequência constitucional para o responsável pelo controle interno que silencia diante de irregularidade/ilegalidade?\n8. O que a EC 139/2026 acrescentou ao art. 75?\nSe travar em 3 ou mais, releia apenas os blocos correspondentes antes das questões — não reinicie a página inteira."
+        },
+        {
+          "heading": "16. Q001",
+          "body": "Regra de execução: itens FCC reais são resolvidos pela referência/link indicado no Q001; itens autorais estão integralmente no Q001. Não abrir a correção antes da tentativa."
+        },
+        {
+          "heading": "17. Pós-Q001 — o que fazer com o resultado",
+          "body": "Depois da bateria:\n- classifique erro, acerto com dúvida e acerto seguro separadamente;\n- para cada erro/dúvida, registre a causa: conceito, literalidade, atenção, confusão entre verbos, norma desatualizada ou outro motivo real;\n- envie ao Caderno de Erros apenas o que tiver valor de revisão;\n- volte ao trecho mínimo do D001 que resolve a causa;\n- só então faça D0.\nNão preencher percentual, tempo ou quantidade respondida antes da execução real."
+        },
+        {
+          "heading": "18. Recuperação ativa D0",
+          "body": "Feche a página e produza, de memória:\n1. o mapa 70–75 em uma linha por artigo;\n2. COFOP + três parâmetros centrais do art. 70;\n3. frase “Congresso + TCU” sem inverter sujeito;\n4. diferença apreciar × julgar;\n5. regra ato × contrato;\n6. M-L-C-A do art. 74;\n7. responsabilidade solidária do §1º;\n8. três novidades literais do art. 75 após EC 139/2026.\nSó consulte depois de tentar."
+        },
+        {
+          "heading": "19. Cartões candidatos",
+          "body": "Crie/importe apenas se a execução mostrar utilidade. Candidatos:\n- Frente: Cinco dimensões do art. 70? Verso: COFOP.\n- Frente: Titular do controle externo federal? Verso: Congresso Nacional; TCU auxilia.\n- Frente: Contas do chefe do Executivo? Verso: apreciar + parecer prévio.\n- Frente: Contas de administradores/responsáveis? Verso: julgar.\n- Frente: Sustação direta de contrato? Verso: Congresso Nacional; após 90 dias de inércia, Tribunal decide a respeito.\n- Frente: Finalidade IV do art. 74? Verso: apoiar o controle externo.\n- Frente: Omissão do controle interno diante de irregularidade? Verso: responsabilidade solidária.\n- Frente: Art. 75 após EC 139/2026? Verso: TCs permanentes e essenciais; vedada extinção, criação ou instalação."
+        },
+        {
+          "heading": "20. Gatilhos D7/D20",
+          "body": "Acionar D7 se ocorrer qualquer um:\n- erro em apreciar × julgar;\n- erro em controle interno × externo;\n- erro na atualização do art. 75;\n- 2 ou mais acertos com dúvida em conceitos nucleares;\n- erro normativo provocado por memória de redação antiga.\nEscalar para D20 se:\n- a mesma lacuna reaparecer no D7;\n- houver reincidência em competência constitucional;\n- o checkpoint revelar que o mapa 70–75 não está recuperável sem consulta."
+        },
+        {
+          "heading": "Editorial — para este material ser considerado pronto",
+          "body": "- edital/Fonte-Mestra compatíveis;\n- Base Técnica compatível;\n- Constituição e EC 139/2026 verificadas;\n- Q001 vinculado e auditado;\n- links funcionais;\n- nenhuma seção vazia/instrucional;\n- nenhuma métrica de execução inventada."
+        },
+        {
+          "heading": "Execução do aluno — para D001 ser concluído depois",
+          "body": "- Material estudado;\n- Q001 efetivamente resolvido e corrigido;\n- erros/dúvidas classificados;\n- D0 realizado;\n- gatilhos D7/D20 avaliados.\nBase editorial: Fonte 01 — Fonte-Mestra; Fonte 02 — Base Técnica; Fonte 03 — Base Operacional; Fonte 05 — Plano de Implantação/Golden Template. Fontes oficiais prevalecem em matéria normativa."
+        }
+      ],
+      "version": 3,
+      "lastEdited": "2026-09-22T04:32:50.332Z"
+    },
+    "d003": {
+      "dxx": "D003",
+      "title": "D003 — CASP I",
+      "summary": "CASP I — entrada + Estrutura Conceitual — AFO × CASP; patrimônio público; ativo, passivo, VPA/VPD; enfoque orçamentário × patrimonial; NBC TSP Estrutura Conceitual.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D003 — CASP I \\| Entrada + Estrutura Conceitual\nSessão de construção técnica. Tempo planejado: 90 min. Meta posterior: 15 questões no Q003. Entregável do dia: sair sabendo explicar, sem consulta, AFO × CASP, patrimônio público, ativo, passivo, VPA/VPD e as diferenças entre enfoque orçamentário e patrimonial."
+        },
+        {
+          "heading": "2. Por que CASP entra agora",
+          "body": "O histórico reaproveitado mostra base forte em AFO, Lei nº 4.320/1964, orçamento e prestação de contas. A lacuna relevante é outra: CASP como linguagem patrimonial própria, especialmente NBC TSP, MCASP, PCASP e DCASP.\nPor isso, o D003 não reestuda AFO. Ele usa AFO como ponte cognitiva para construir CASP. A pergunta-guia é:\n> O que muda quando eu deixo de olhar apenas para autorização e execução do orçamento e passo a olhar também para o que aconteceu com o patrimônio?\nEsse deslocamento é central porque a contabilidade pública não substitui o orçamento; ela o integra a uma leitura patrimonial."
+        },
+        {
+          "heading": "3. Posição no edital e recorte verticalizado",
+          "body": "Bloco B06 — Contabilidade Aplicada ao Setor Público. Planejamento canônico: 5 questões, peso 2.\nO bloco completo alcança NBC TSP, MCASP 11ª edição, PCASP, Lei nº 4.320/1964, demonstrações e prestação de contas. O D003 cobre somente a fundação conceitual:\n1. finalidade e alcance da CASP;\n2. AFO × CASP;\n3. orçamento × patrimônio;\n4. ativo, passivo e situação patrimonial líquida;\n5. receita/despesa na Estrutura Conceitual e VPA/VPD na linguagem do MCASP;\n6. reconhecimento por competência;\n7. características qualitativas e restrições da informação;\n8. transição normativa da NBC TSP Estrutura Conceitual (R1).\nFora do recorte hoje: arquitetura completa do PCASP, DCASP, lançamentos detalhados, consolidação e as NBC TSP específicas. Esses assuntos têm dias próprios. Não abra vinte abas: hoje a missão é aprender o idioma."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final da sessão, você deve conseguir, sem consultar o material:\n1. explicar em até 30 segundos a diferença entre AFO e CASP;\n2. apontar cinco diferenças entre enfoque orçamentário e patrimonial;\n3. definir ativo, passivo, VPA e VPD com suas palavras;\n4. explicar por que receita orçamentária não é sinônimo de VPA;\n5. explicar por que despesa orçamentária não é sinônimo de VPD;\n6. resolver um caso simples de compra de bem permanente sem transformar automaticamente toda despesa orçamentária em VPD;\n7. reconhecer as seis características qualitativas e as três restrições centrais;\n8. identificar a pegadinha temporal da NBC TSP Estrutura Conceitual (R1)."
+        },
+        {
+          "heading": "Fontes canônicas internas",
+          "body": "- Fonte-Mestra v1.3: estratégia, edital, peso e histórico do bloco B06.\n- Base Técnica v1.3: núcleo CASP, MCASP, NBC TSP e distinções patrimoniais.\n- Base Operacional v1.3: curadoria de questões, validade V1–V4 e regra D0/D7/D20."
+        },
+        {
+          "heading": "Fontes oficiais externas",
+          "body": "- [NBC TSP — página oficial do CFC](https://cfc.org.br/tecnica/normas-brasileiras-de-contabilidade/nbc-tsp-do-setor-publico/)\n- [NBC TSP Estrutura Conceitual (R1) — PDF oficial](https://www1.cfc.org.br/sisweb/SRE/docs/NBCTSP_Estrutura(R1).pdf)\n- [Lei nº 4.320/1964 — Planalto](https://www.planalto.gov.br/ccivil_03/leis/l4320.htm)"
+        },
+        {
+          "heading": "Atenção: transição da Estrutura Conceitual em 2026",
+          "body": "O CFC publicou a NBC TSP Estrutura Conceitual (R1) no DOU de 07/04/2026. A própria norma informa que entra em vigor na publicação, mas se aplica aos exercícios iniciados a partir de 01/01/2027, ressalvado normativo nacional específico.\nPara este projeto, cujo corte normativo do edital é 25/08/2026:\n- a R1 já existia oficialmente no corte;\n- sua cláusula de aplicação a 2027 precisa ser conhecida;\n- questões FCC anteriores a essa mudança podem continuar úteis para conceitos estáveis, mas recebem V2 — válida após atualização/ressalva quando a literalidade antiga divergir;\n- nunca misture, na mesma resposta, a redação literal antiga e a nova sem sinalizar a versão.\nPegadinha temporal: “publicada/em vigor” e “aplicável aos exercícios iniciados em 2027” são informações que coexistem. A banca pode trocar uma pela outra."
+        },
+        {
+          "heading": "7. Sequência de estudo — 90 minutos",
+          "body": "1. 5 min — ativação: leia o mapa de cinco distinções e tente explicá-lo antes da teoria.\n2. 35 min — núcleo teórico: Estrutura Conceitual, elementos, VPA/VPD, orçamento × patrimônio.\n3. 10 min — casos e pegadinhas: percorra os exemplos desta página e verbalize o efeito orçamentário e patrimonial.\n4. 30 min — Q003: faça as 15 questões sem consultar o gabarito.\n5. 10 min — D0: corrija, recite o núcleo automático e registre somente os erros/dúvidas que realmente ocorrerem."
+        },
+        {
+          "heading": "8. Mapa de entrada: as duas lentes",
+          "body": "Pense no mesmo fato por duas lentes simultâneas.\nPergunta\nLente orçamentária\nLente patrimonial\nO que observo?\nPrevisão, autorização e execução do orçamento.\nRecursos, obrigações e alterações na situação patrimonial.\nReceita\nPertence ao exercício quando arrecadada, na lógica da Lei nº 4.320/1964.\nVPA segue o fato gerador/competência quando houver aumento patrimonial reconhecível.\nDespesa\nPertence ao exercício quando legalmente empenhada, na lógica da Lei nº 4.320/1964.\nVPD segue o fato gerador/competência quando houver diminuição patrimonial reconhecível.\nCompra de bem\nPode haver despesa orçamentária.\nPode haver entrada de ativo sem VPD imediata equivalente.\nEmpréstimo\nPode gerar ingresso orçamentário ou extraorçamentário conforme a operação.\nGera obrigação/passivo quando nasce dever presente de transferir recursos."
+        },
+        {
+          "heading": "As cinco distinções que devem ficar automáticas",
+          "body": "1. Objeto: orçamento acompanha autorização/execução; patrimônio acompanha recursos e obrigações.\n2. Receita orçamentária ≠ VPA: arrecadar e aumentar patrimônio podem ocorrer em momentos distintos.\n3. Despesa orçamentária ≠ VPD: empenhar e consumir recursos patrimoniais podem ocorrer em momentos distintos.\n4. Comprar ativo ≠ “virar despesa patrimonial inteira”: pode ocorrer troca entre ativos/assunção de passivo; o consumo do potencial de serviço pode aparecer depois.\n5. Fato patrimonial não depende sempre de caixa: competência olha o fato gerador, não apenas recebimento/pagamento."
+        },
+        {
+          "heading": "Glossário-base CASP",
+          "body": "Termo\nLeitura operacional para o D003\nCASP\nContabilidade Aplicada ao Setor Público; registra, mensura e evidencia fenômenos contábeis do setor público, integrando dimensões patrimoniais e orçamentárias.\nPatrimônio público\nConjunto de recursos, obrigações e posição patrimonial da entidade pública que precisa ser reconhecido, mensurado e evidenciado conforme as normas aplicáveis.\nRCPG\nRelatório Contábil de Propósito Geral; informação voltada à prestação de contas/responsabilização e à tomada de decisão.\nAtivo\nRecurso controlado no presente pela entidade como resultado de evento passado.\nPassivo\nObrigação presente de transferir recursos, derivada de evento passado.\nVPA\nVariação Patrimonial Aumentativa; aumento patrimonial reconhecido segundo o enfoque patrimonial.\nVPD\nVariação Patrimonial Diminutiva; diminuição patrimonial reconhecida segundo o enfoque patrimonial.\nCompetência\nReconhecimento do efeito patrimonial quando ocorre o fato gerador, e não necessariamente quando entra ou sai caixa.\nPCASP\nPlano de Contas Aplicado ao Setor Público; estrutura padronizada para os registros contábeis. Será aprofundado em D050.\nDCASP\nDemonstrações Contábeis Aplicadas ao Setor Público; produtos contábeis de apresentação/evidenciação. Serão aprofundadas em D057."
+        },
+        {
+          "heading": "9. Estrutura Conceitual: para que serve",
+          "body": "A Estrutura Conceitual organiza as ideias que sustentam a informação contábil de propósito geral no setor público. Os relatórios contábeis de propósito geral — RCPGs — existem para fornecer informação útil à:\n- prestação de contas e responsabilização (accountability);\n- tomada de decisão.\nOs usuários primários incluem, em essência, usuários dos serviços e seus representantes, além dos provedores de recursos e seus representantes. Membros do Legislativo aparecem como representantes desses interesses.\nNo setor público, lucro não é a régua soberana. Um hospital, uma estrada ou um sistema público pode ser relevante porque entrega potencial de serviços, ainda que não exista fluxo de caixa positivo associado."
+        },
+        {
+          "heading": "Alcance",
+          "body": "Na R1, governos federal, estaduais, distrital e municipais, seus poderes, órgãos autônomos e diversas entidades da administração direta e indireta — inclusive estatais dependentes — estão no alcance obrigatório para elaboração e divulgação dos RCPGs.\nEmpresas estatais independentes, em princípio fora desse alcance obrigatório, podem aplicar a Estrutura Conceitual e as NBC TSP facultativamente ou por determinação do regulador/fiscalizador.\nPegadinha FCC: tribunal de contas não é “opção facultativa” por ser órgão de controle; integra o setor público alcançado pela norma."
+        },
+        {
+          "heading": "10.1 Ativo",
+          "body": "Na R1, ativo é, em essência, recurso controlado no presente pela entidade como resultado de evento passado.\nO ponto novo é entender “recurso”: não precisa ser uma coisa física nem uma máquina de produzir dinheiro. Ele se conecta a um direito capaz de gerar potencial de serviços, benefícios econômicos ou ambos.\nNão confunda propriedade jurídica com controle. A propriedade legal pode ser indício de controle, mas não é requisito absoluto para existir ativo.\nExemplo: equipamento usado por hospital público. Seu valor para a entidade está principalmente no potencial de prestar serviços à população."
+        },
+        {
+          "heading": "10.2 Passivo",
+          "body": "Na R1, passivo é, em essência, obrigação presente de transferir recursos, derivada de evento passado.\nTrês perguntas ajudam:\n1. existe uma obrigação presente?\n2. ela nasceu de evento passado?\n3. exige transferência de recursos para ser liquidada?\nEmpenho sozinho não cria automaticamente passivo patrimonial. É preciso olhar se o fato gerador da obrigação já ocorreu."
+        },
+        {
+          "heading": "10.3 Situação patrimonial líquida",
+          "body": "É a posição residual depois de confrontar ativos e passivos, observando ainda os demais recursos e obrigações previstos na Estrutura Conceitual."
+        },
+        {
+          "heading": "10.4 Receita e despesa na Estrutura Conceitual",
+          "body": "A Estrutura Conceitual trabalha com aumentos e diminuições da situação patrimonial líquida, excluídas contribuições e distribuições dos proprietários conforme o caso.\nNo MCASP, para a execução prática patrimonial, você verá com frequência:\n- VPA — Variação Patrimonial Aumentativa: aumenta a situação patrimonial líquida;\n- VPD — Variação Patrimonial Diminutiva: diminui a situação patrimonial líquida.\nTradução para prova: VPA/VPD pertencem ao mundo patrimonial. Receita/despesa orçamentária pertencem ao mundo orçamentário. Os mundos conversam; não são gêmeos siameses."
+        },
+        {
+          "heading": "11. Reconhecimento × mensuração × evidenciação",
+          "body": "Essa tríade costuma virar alternativa maliciosa.\n- Reconhecimento: decidir se o item entra nas demonstrações como elemento reconhecido.\n- Mensuração: atribuir valor segundo a base adequada.\n- Evidenciação/apresentação: comunicar a informação nos relatórios e notas, inclusive quando algo relevante não está reconhecido da forma esperada no quadro principal.\nMacete: primeiro pergunte “entra?” (reconhecimento); depois “por quanto?” (mensuração); depois “como e onde aparece?” (apresentação/evidenciação).\nHoje basta dominar a lógica. Bases de mensuração em profundidade ficam para sessão posterior."
+        },
+        {
+          "heading": "12. Características qualitativas e restrições",
+          "body": "As seis características qualitativas da informação nos RCPGs são:\n- relevância;\n- representação fidedigna;\n- compreensibilidade;\n- tempestividade;\n- comparabilidade;\n- verificabilidade.\nAs restrições centrais são:\n- materialidade;\n- custo-benefício;\n- equilíbrio apropriado entre as características qualitativas."
+        },
+        {
+          "heading": "Pegadinhas clássicas",
+          "body": "- Materialidade não é uma sétima característica qualitativa na estrutura usada aqui; é restrição.\n- Consistência ajuda comparabilidade, mas não é sinônimo perfeito de comparabilidade.\n- Verificabilidade não exige um único valor exato: estimativas e intervalos podem ser verificáveis.\n- Livre de erro material não significa exatidão matemática absoluta em todos os aspectos."
+        },
+        {
+          "heading": "Caso A — compra de veículo à vista",
+          "body": "Um órgão adquire veículo para uso administrativo.\nOrçamentário: há execução de despesa, respeitadas as etapas orçamentárias.\nPatrimonial: entra um ativo com potencial de serviços. Se a contraprestação e o reconhecimento ocorrerem adequadamente, não conclua que o valor inteiro da compra é VPD imediata apenas porque houve despesa orçamentária.\nDepois, ao longo do uso, a perda do potencial de serviço pode produzir VPD por depreciação, conforme as normas aplicáveis.\nPegadinha: “pagou = VPD” é raciocínio de caixa disfarçado."
+        },
+        {
+          "heading": "Caso B — tributo: fato gerador antes da arrecadação",
+          "body": "Se o fato gerador patrimonial ocorre antes do recebimento:\n- a VPA pode ser reconhecida por competência;\n- a receita orçamentária segue a regra orçamentária de arrecadação.\nLogo, os momentos podem divergir."
+        },
+        {
+          "heading": "Caso C — adiantamento a servidor",
+          "body": "Conceder adiantamento pode inicialmente gerar ativo em vez de VPD imediata. A VPD aparece quando o recurso é efetivamente utilizado/consumido conforme o fato gerador.\nIsso explica por que questões do TCE-GO/FCC gostam de separar liquidação/pagamento do momento patrimonial."
+        },
+        {
+          "heading": "Caso D — recebimento antecipado",
+          "body": "Receber caixa antes de satisfazer a obrigação correspondente não é passe livre para reconhecer receita patrimonial. Pode surgir passivo, porque a entidade ainda deve entregar/prestar algo ou cumprir condição pertinente."
+        },
+        {
+          "heading": "14. Como a FCC costuma atacar este recorte",
+          "body": "A FCC tende a transformar conceitos em troca de uma palavra:\n- “recebimento” no lugar de “fato gerador”;\n- “propriedade legal essencial” no lugar de “indicador de controle”;\n- “materialidade é característica qualitativa”;\n- “empenho gera passivo patrimonial automaticamente”;\n- “despesa orçamentária sempre gera VPD”;\n- “gestor público é usuário primário” quando a estrutura prioriza usuários dos serviços/provedores de recursos e representantes;\n- “estatal independente aplica obrigatoriamente” versus aplicação facultativa/regulatória;\n- confusão entre a literalidade pré-R1 e a R1."
+        },
+        {
+          "heading": "Regra de leitura FCC",
+          "body": "Quando vir alternativa sobre CASP, sublinhe mentalmente quatro palavras:\nmomento · natureza · controle · obrigação\nSe uma delas estiver errada, a alternativa costuma tombar inteira."
+        },
+        {
+          "heading": "Antes do Q003 — 2 minutos",
+          "body": "Responda oralmente:\n1. Qual é a frase-mãe AFO × CASP?\n2. Receita orçamentária e VPA são sinônimos?\n3. Empenho cria passivo patrimonial automaticamente?\n4. Qual é o coração do ativo no setor público?\n5. Quais são as seis características qualitativas?"
+        },
+        {
+          "heading": "Depois do Q003",
+          "body": "Para cada erro real, classifique a causa:\n- conceito;\n- literalidade/versão;\n- confusão AFO × CASP;\n- leitura da alternativa;\n- aplicação ao caso.\nNão crie erro “decorativo”. Só registre o que efetivamente aconteceu na execução."
+        },
+        {
+          "heading": "16. D0 — consolidação obrigatória do mesmo dia",
+          "body": "O D0 do D003 só é feito depois de estudar e responder o Q003."
+        },
+        {
+          "heading": "Roteiro D0 — 10 minutos",
+          "body": "1. reveja apenas questões erradas ou acertadas com dúvida;\n2. explique em voz alta as cinco distinções AFO × CASP;\n3. faça o teste relâmpago abaixo;\n4. transforme apenas erros relevantes em flashcards/caderno de erros;\n5. registre o gatilho de D7/D20 quando aplicável."
+        },
+        {
+          "heading": "Teste relâmpago sem consulta",
+          "body": "- “Despesa empenhada” responde qual lente?\n- “VPD por consumo de material” responde qual lente?\n- Ativo exige propriedade jurídica?\n- Passivo nasce só porque houve empenho?\n- Verificabilidade exige valor único?\n- Qual é a peculiaridade de vigência/aplicação da R1?\nSe você travar em AFO × CASP, ativo/passivo ou VPA/VPD, o núcleo ainda não fechou."
+        },
+        {
+          "heading": "17. D7 e D20 — gatilhos justificados",
+          "body": "D003 é conteúdo genuinamente novo e crítico no diagnóstico do projeto. Por isso, a regra editorial justifica acionar os dois ciclos."
+        },
+        {
+          "heading": "D7",
+          "body": "Revisar o núcleo se houver qualquer um destes sinais:\n- erro em receita orçamentária × VPA;\n- erro em despesa orçamentária × VPD;\n- dúvida em ativo/passivo;\n- confusão de literalidade R1;\n- erro em questão FCC recente sobre Estrutura Conceitual."
+        },
+        {
+          "heading": "D20",
+          "body": "Manter se o D7 mostrar fragilidade, reincidência ou se surgir erro P1 em CASP. Como CASP é a maior lacuna técnica histórica, o D20 permanece programado como proteção do núcleo.\nDatas relativas: D+7 e D+20 contam da data real de estudo. Se o D003 for executado na data planejada de 24/09/2026, correspondem a 01/10/2026 e 14/10/2026."
+        },
+        {
+          "heading": "18. Flashcards candidatos",
+          "body": "8 cartões nucleares — abrir só depois da primeira leitura\n1. AFO × CASP: AFO acompanha o orçamento; CASP acompanha o patrimônio sem abandonar o orçamento.\n2. Ativo: recurso controlado no presente pela entidade, decorrente de evento passado.\n3. Passivo: obrigação presente de transferir recursos, decorrente de evento passado.\n4. VPA: aumento da situação patrimonial líquida no enfoque patrimonial.\n5. VPD: diminuição da situação patrimonial líquida no enfoque patrimonial.\n6. Receita orçamentária ≠ VPA: os momentos de reconhecimento podem divergir.\n7. Despesa orçamentária ≠ VPD: os momentos de reconhecimento podem divergir.\n8. R1: publicada em 2026; cláusula de aplicação aos exercícios iniciados em 01/01/2027."
+        },
+        {
+          "heading": "19. Critério de conclusão da sessão",
+          "body": "Considere o D003 estudado pelo usuário somente quando, em execução real:\n- o material tiver sido lido/estudado;\n- as 15 questões tiverem sido respondidas;\n- a correção D0 tiver sido feita;\n- você conseguir verbalizar as cinco distinções;\n- o registro de tempo/acertos/erros for preenchido com dados reais.\nEditorialmente pronto é outra coisa: significa apenas que o material e a bateria foram preparados e auditados."
+        },
+        {
+          "heading": "20. Núcleo automático de prova",
+          "body": "Se houver 30 segundos antes de uma questão, recupere:\n> Orçamento: arrecadação/execução/empenho.\n> Patrimônio: fato gerador/competência/ativo/passivo/VPA/VPD.\n> Ativo: controle + recurso + evento passado.\n> Passivo: obrigação presente + transferência de recursos + evento passado.\n> FCC: trocou o momento ou a natureza? desconfie."
+        },
+        {
+          "heading": "21. Notas editoriais e de fonte",
+          "body": "- Recorte construído a partir da Fonte-Mestra v1.3, Base Técnica v1.3 e Base Operacional v1.3.\n- MCASP validado na 11ª edição, vigente para o projeto.\n- NBC TSP Estrutura Conceitual atualizada para R1, publicada em 07/04/2026, com alerta explícito de aplicação a exercícios iniciados em 01/01/2027.\n- Questões antigas que dependem de literalidade pré-R1 não são tratadas silenciosamente como atuais; no Q003 recebem ressalva de validade.\n- Página desenhada em uma coluna, com tabelas curtas, índice nativo e conteúdo crítico visível para celular/iPad/desktop."
+        }
+      ],
+      "version": 3,
+      "lastEdited": "2026-09-22T04:32:59.022Z"
+    },
+    "d005": {
+      "dxx": "D005",
+      "title": "D005 — Legislação Institucional I",
+      "summary": "Legislação Institucional I — Constituição do Estado de Goiás no recorte TCE-GO + mapa da Lei Orgânica nº 16.168/2007.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D005 — Legislação Institucional I \\| Constituição de Goiás + mapa da Lei Orgânica\nSessão de construção legislativa — 90 min. Hoje você aprende o núcleo constitucional estadual do TCE-GO e constrói o mapa da Lei Orgânica. A meta posterior é 15 questões no Q005. O objetivo não é decorar a Lei nº 16.168/2007 inteira: a leitura detalhada dela fica para o D012."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "O D001 já construiu a matriz federal do controle externo. Agora o projeto desce um nível: como essa matriz aparece no Estado de Goiás e como ela se conecta à Lei Orgânica do TCE-GO.\nO histórico reaproveitável ajuda apenas na linguagem geral de controle e Administração Pública. O que é realmente novo aqui é:\n- a literalidade da Constituição goiana;\n- a distribuição estadual de competências;\n- a composição constitucional do TCE-GO;\n- a arquitetura própria da Lei Orgânica.\nPonte mental: CF/88 dá a matriz → Constituição de Goiás estadualiza a matriz → Lei Orgânica detalha competência, jurisdição e funcionamento → Regimento operacionaliza o Tribunal."
+        },
+        {
+          "heading": "3. Posição no edital",
+          "body": "A03 — Legislação Institucional: 5 questões, peso 1, baseline histórico Novo, tratamento Construção.\nO edital retificado inclui 21 microitens de legislação institucional. O D005 trabalha apenas:\n1. Constituição do Estado de Goiás — disposições relativas ao TCE-GO;\n2. Lei Estadual nº 16.168/2007 — primeira visão estrutural, sem antecipar o estudo detalhado do D012.\nFora do recorte hoje: Regimento Interno, carreira, regime jurídico dos servidores, Código de Ética, estrutura organizacional e políticas institucionais específicas. Também ficam para depois processos, sanções, recursos e jurisdição em profundidade da Lei Orgânica."
+        },
+        {
+          "heading": "Constituição do Estado de Goiás",
+          "body": "- [Texto consolidado oficial — Casa Civil de Goiás](https://legisla.casacivil.go.gov.br/constituicao-estadual)"
+        },
+        {
+          "heading": "Lei Orgânica do TCE-GO",
+          "body": "- [Lei nº 16.168/2007 — texto oficial consolidado da Casa Civil](https://legisla.casacivil.go.gov.br/api/v2/pesquisa/legislacoes/86708/pdf)\nCorte normativo do projeto: alterações vigentes até 25/08/2026, conforme regra canônica do edital.\nO texto consolidado da Lei Orgânica já registra alterações posteriores à redação original, inclusive a Lei nº 23.413/2025, que modificou o art. 84. Portanto, PDF histórico isolado não substitui o consolidado oficial."
+        },
+        {
+          "heading": "5. Como estudar os 90 minutos",
+          "body": "1. 5 min — mapa: memorize a cadeia CF → Constituição GO → Lei Orgânica → Regimento.\n2. 30 min — art. 25 + art. 26: leia as competências agrupando-as por verbo.\n3. 15 min — art. 28: composição e forma de escolha.\n4. 10 min — mapa da Lei Orgânica: só arquitetura, sem mergulho em processo/sanção.\n5. 20 min — Q005: faça as 15 questões sem abrir as correções.\n6. 10 min — D0: recupere de memória verbos, sujeitos e exceções."
+        },
+        {
+          "heading": "6. Mapa normativo antes da literalidade",
+          "body": "Camada\nFunção\nD005\nCF/88\nMatriz nacional dos Tribunais de Contas\nReaproveitamento do D001\nConstituição de Goiás\nFiscalização estadual, competências e estrutura constitucional do TCE-GO\nNúcleo de hoje\nLei nº 16.168/2007\nCompetência, jurisdição, organização, processos, decisões, sanções e recursos\nMapa de hoje; profundidade no D012\nResolução nº 22/2008\nRegimento Interno e funcionamento concreto\nDia posterior"
+        },
+        {
+          "heading": "7. Art. 25 — quem fiscaliza, o quê e com quais critérios",
+          "body": "A Constituição estadual organiza a fiscalização em cinco dimensões:\n- contábil;\n- financeira;\n- orçamentária;\n- operacional;\n- patrimonial.\nE explicita critérios que a FCC pode trocar entre si:\n- legalidade;\n- legitimidade;\n- economicidade;\n- aplicação das subvenções;\n- renúncia de receitas."
+        },
+        {
+          "heading": "Sujeitos do controle",
+          "body": "- Assembleia Legislativa: titular do controle externo estadual;\n- TCE-GO: auxilia a Assembleia no exercício desse controle;\n- cada Poder: mantém seu sistema de controle interno.\n> Pegadinha: “auxílio” não significa subordinação hierárquica do TCE-GO à Assembleia."
+        },
+        {
+          "heading": "Quem deve prestar contas",
+          "body": "A obrigação é ampla. Alcança pessoa física ou jurídica, pública ou privada, sempre que utilize, arrecade, guarde, gerencie ou administre dinheiro, bens ou valores públicos, responda por eles ou assuma obrigação pecuniária em nome do Estado.\nMacete: o critério não é “ser órgão público”; é entrar na cadeia de responsabilidade por recurso público."
+        },
+        {
+          "heading": "8. Art. 26 — leia por verbos",
+          "body": "A FCC já cobrou este artigo no próprio TCE-GO. Em vez de decorar uma lista plana, organize as competências por verbo."
+        },
+        {
+          "heading": "APRECIAR",
+          "body": "- contas anuais do Governador, com parecer prévio;\n- legalidade de admissões para fins de registro, com a exceção constitucional das nomeações para cargo em comissão;\n- concessões sujeitas a registro, com as ressalvas constitucionais."
+        },
+        {
+          "heading": "JULGAR",
+          "body": "- contas de administradores e demais responsáveis;\n- contas de quem causar perda, extravio ou irregularidade com prejuízo ao erário.\nGovernador → APRECIAR + PARECER PRÉVIO. Administrador/responsável → JULGAR."
+        },
+        {
+          "heading": "FISCALIZAR / REALIZAR",
+          "body": "- inspeções e auditorias;\n- recursos estaduais repassados por convênios e instrumentos congêneres;\n- empresas ou consórcios interestaduais quando houver participação estadual nos termos constitucionais;\n- realização de concursos públicos no âmbito definido pela Constituição estadual."
+        },
+        {
+          "heading": "INFORMAR / SANCIONAR / CORRIGIR",
+          "body": "O Tribunal também:\n- presta informações à Assembleia;\n- aplica sanções previstas em lei;\n- assina prazo para correção de ilegalidade;\n- susta ato impugnado se a providência não for atendida;\n- representa ao poder competente sobre irregularidade ou abuso."
+        },
+        {
+          "heading": "Ato × contrato",
+          "body": "A troca clássica de sujeito aparece aqui:\n- para ato impugnado, o Tribunal possui a dinâmica constitucional de assinar prazo e, se necessário, sustar;\n- para contrato, a sustação é adotada diretamente pela Assembleia;\n- se Assembleia ou Executivo não tomarem as medidas cabíveis no prazo constitucional de 90 dias, o Tribunal decide a respeito."
+        },
+        {
+          "heading": "Eficácia executiva",
+          "body": "Decisões de que resulte imputação de débito ou multa têm eficácia de título executivo.\nPegadinha: o Tribunal forma o título; isso não transforma o TCE em órgão do Poder Judiciário."
+        },
+        {
+          "heading": "9. Art. 28 — composição e escolha",
+          "body": "O TCE-GO é integrado por 7 Conselheiros, tem sede na Capital, quadro próprio de pessoal e jurisdição em todo o território estadual."
+        },
+        {
+          "heading": "Requisitos constitucionais",
+          "body": "O candidato a Conselheiro deve observar, entre outros requisitos constitucionais:\n- nacionalidade brasileira;\n- faixa etária constitucional;\n- idoneidade moral e reputação ilibada;\n- conhecimentos jurídicos, contábeis, econômicos e financeiros ou de Administração Pública;\n- experiência profissional exigida constitucionalmente."
+        },
+        {
+          "heading": "Quem escolhe",
+          "body": "Memorize a divisão:\n- 4 Conselheiros escolhidos pela Assembleia Legislativa;\n- 3 escolhidos pelo Governador, com aprovação da Assembleia, observadas as vagas e listas previstas constitucionalmente.\nMacete: 7 = 4 ALEGO + 3 Governador."
+        },
+        {
+          "heading": "Ponto já cobrado pela FCC",
+          "body": "A prova TCE-GO/2022 explorou garantias e prerrogativas dos Conselheiros. Isso mostra que a banca não se limita à competência: estrutura constitucional também é matéria de questão."
+        },
+        {
+          "heading": "10. Lei nº 16.168/2007 — mapa, não mergulho",
+          "body": "Hoje você só precisa conseguir localizar a Lei Orgânica em dez blocos:\n1. competência;\n2. jurisdição;\n3. organização;\n4. fiscalização;\n5. contas;\n6. processos;\n7. decisões;\n8. sanções;\n9. recursos;\n10. disposições institucionais."
+        },
+        {
+          "heading": "Três ideias para sair do D005",
+          "body": "1. A Lei Orgânica não substitui a Constituição. Ela detalha a atuação institucional dentro da matriz constitucional.\n2. O TCE-GO tem poder regulamentar. A Lei Orgânica autoriza expedir atos normativos sobre matérias de sua atribuição e organização dos processos submetidos ao Tribunal.\n3. Texto consolidado é obrigatório. A Lei nº 16.168/2007 sofreu alterações posteriores; uma delas, a Lei nº 23.413/2025, alterou o art. 84 antes do corte normativo do projeto.\nNão avance hoje para rito de contas, jurisdição detalhada, espécies de decisão, sanções, recursos ou prazos processuais. Isso pertence ao D012 — Legislação Institucional II."
+        },
+        {
+          "heading": "11. Quadro de prioridade",
+          "body": "Prioridade\nO que deve ficar\nA — automático\nArt. 25; apreciar × julgar; competências centrais do art. 26; ato × contrato; título executivo; 7 = 4 + 3.\nB — reconhecer\nDemais competências do art. 26; requisitos dos Conselheiros; garantias/prerrogativas; poder regulamentar.\nC — localizar hoje\nArquitetura da Lei Orgânica e existência de alterações consolidadas.\nFuturo\nJurisdição fina, processos, decisões, sanções, recursos e Regimento."
+        },
+        {
+          "heading": "12. Como a FCC tende a atacar",
+          "body": "No próprio TCE-GO/2022, a FCC cobrou:\n- Q2109584: conjunto de competências do art. 26;\n- Q2109585: estrutura constitucional e garantias dos membros;\n- Q2109620: poder regulamentar previsto na Lei Orgânica.\nEspere trocas como:\n- “Assembleia com auxílio do TCE” → inverter titular e auxiliar;\n- “apreciar” → trocar por “julgar”;\n- excluir fundações do controle de admissões;\n- afirmar fiscalização de empresa interestadual sem participação estadual;\n- trocar sustação de ato pela de contrato;\n- trocar 4 + 3 na escolha dos Conselheiros;\n- chamar o poder do art. 2º da Lei Orgânica de hierárquico, tutelar ou executivo."
+        },
+        {
+          "heading": "13. Pré-Q005",
+          "body": "Antes de abrir a bateria, responda sem consulta:\n1. Quem é o titular do controle externo estadual?\n2. Quem auxilia?\n3. Governador: apreciar ou julgar?\n4. Administradores: apreciar ou julgar?\n5. Nomeação para cargo em comissão entra no registro de admissão?\n6. Quem susta contrato?\n7. O que ocorre se não houver providência em 90 dias?\n8. Quantos Conselheiros e quem escolhe?\n9. Qual poder permite ao TCE-GO expedir atos normativos em sua esfera?"
+        },
+        {
+          "heading": "14. D0 — recuperação ativa",
+          "body": "Após o Q005:\n1. reveja somente erradas e acertos com dúvida;\n2. escreva de memória Art. 25 → Art. 26 → Art. 28 em três linhas;\n3. recite o par Governador/apreciar × responsável/julgar;\n4. recite ato/TCE × contrato/Assembleia × 90 dias;\n5. recite 7 = 4 + 3;\n6. transforme apenas erro real de competência, prazo, exceção ou sujeito em flashcard/caderno de erros."
+        },
+        {
+          "heading": "D7 — acionado",
+          "body": "A legislação institucional local é nova e possui literalidade de alto risco. No D7, priorize:\n- competências confundidas;\n- exceções;\n- ato × contrato;\n- 7 = 4 + 3;\n- qualquer acerto com dúvida."
+        },
+        {
+          "heading": "D20 — acionado como proteção",
+          "body": "O núcleo constitucional estadual reaparece no primeiro checkpoint cumulativo de Legislação Institucional. O acionamento não significa revisão realizada."
+        },
+        {
+          "heading": "16. Flashcards candidatos",
+          "body": "Cartões nucleares\n1. Controle externo em Goiás: Assembleia Legislativa, com auxílio do TCE-GO.\n2. Governador: contas anuais → TCE aprecia e emite parecer prévio.\n3. Administradores/responsáveis: TCE julga.\n4. Admissão: cargo em comissão é exceção ao registro.\n5. Ato impugnado: dinâmica de correção/sustação pelo TCE.\n6. Contrato: sustação pela Assembleia; inércia constitucional de 90 dias devolve decisão ao Tribunal.\n7. Título executivo: decisão com débito ou multa.\n8. Composição: 7 Conselheiros = 4 Assembleia + 3 Governador.\n9. Lei Orgânica: competência/jurisdição/organização/fiscalização/contas/processos/decisões/sanções/recursos.\n10. Poder regulamentar: art. 2º da Lei nº 16.168/2007."
+        },
+        {
+          "heading": "17. Ponte para o próximo estudo legislativo",
+          "body": "D012 — Legislação Institucional II retomará a Lei nº 16.168/2007 para leitura dirigida de organização, competências, jurisdição, processos e sanções. O D005 deve deixar a “prateleira mental” pronta; o D012 preencherá as gavetas."
+        },
+        {
+          "heading": "18. Critério de conclusão",
+          "body": "O D005 só pode ser considerado estudado pelo usuário quando, na execução real:\n- o recorte tiver sido lido;\n- as 15 questões tiverem sido respondidas;\n- o D0 tiver sido realizado;\n- os contrastes centrais puderem ser recuperados sem consulta;\n- tempo/acertos/erros/dúvidas tiverem dados reais.\nEditorialmente pronto significa apenas que Material e Q005 foram preparados e auditados."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T10:31:01.074Z"
+    }
+  },
+  "questions": {
+    "q001": {
+      "qxx": "Q001",
+      "dxx": "D001",
+      "title": "Q001 — Questões \\| Controle Externo I",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "FCC — TCE-GO 2022; outros TCs FCC; FCC recente por assunto.",
+      "copyrightMode": "metadata-only",
+      "version": 4,
+      "lastEdited": "2026-09-22T09:25:32.366Z"
+    },
+    "q003": {
+      "qxx": "Q003",
+      "dxx": "D003",
+      "title": "Q003 — Questões \\| CASP I",
+      "meta": 15,
+      "valid": 15,
+      "sourceSummary": "FCC real: 3 TCE-GO/2022 + 9 FCC 2025–2026 + 2 FCC históricas válidas; 1 autoral apenas para a atualização normativa da NBC TSP Estrutura Conceitual (R1).",
+      "copyrightMode": "metadata-only",
+      "version": 6,
+      "lastEdited": "2026-09-22T10:12:22.946Z"
+    },
+    "q005": {
+      "qxx": "Q005",
+      "dxx": "D005",
+      "title": "Q005 — Questões \\| Legislação Institucional I",
+      "meta": 15,
+      "valid": 15,
+      "sourceSummary": "3 FCC reais do próprio TCE-GO/2022 + 12 autorais normativas locais, conforme regra de legislação institucional; nenhum item de outro Estado usado para decorar competência local.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T10:31:03.134Z"
+    }
+  },
   "publicStats": {
     "totalDays": 100,
     "activeDays": 47,
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 0,
-    "questionPages": 0
+    "materialPages": 3,
+    "questionPages": 3
   }
 }
