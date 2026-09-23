@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACESS_TOKEN }}
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN || secrets.SUPABASE_ACESS_TOKEN }}
       SUPABASE_PROJECT_ID: fqqkkyusnzhuuizahkww
     steps:
       - name: Checkout
@@ -44,6 +44,18 @@ jobs:
         uses: supabase/setup-cli@v1
         with:
           version: latest
+
+      - name: Check TCE-GO runtime secrets
+        if: steps.config.outputs.ready == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          supabase secrets list --project-ref "$SUPABASE_PROJECT_ID" > /tmp/tce-go-secrets.txt
+          if ! grep -Eq '(^|[[:space:]|])TCE_GO_NOTION_TOKEN([[:space:]|]|$)' /tmp/tce-go-secrets.txt; then
+            echo "::error::Secret TCE_GO_NOTION_TOKEN não está configurado no Supabase."
+            exit 1
+          fi
+          echo "Secret TCE_GO_NOTION_TOKEN confirmado no Supabase (valor não exposto)."
 
       - name: Deploy tce-progress
         if: steps.config.outputs.ready == 'true'
