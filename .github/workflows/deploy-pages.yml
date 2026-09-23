@@ -150,7 +150,7 @@ jobs:
           const protectedWithSession = (s.days || []).filter(d => d.protected && d.session).length;
           if (protectedWithSession !== 0) throw new Error(`Dias protegidos com Sxx: ${protectedWithSession}`);
           console.log("Snapshot full 47/47 validado no site publicado.");
-NODE
+          NODE
 
           fallback_code="$(curl --retry 5 --retry-delay 2 --retry-all-errors -sS -o /tmp/tce-fallback.html -w "%{http_code}" "${base}/rota-inexistente-smoke/")"
           if [ "$fallback_code" != "404" ]; then
