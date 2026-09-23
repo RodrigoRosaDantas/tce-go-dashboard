@@ -48,15 +48,72 @@ export interface QuestionSnapshot {
   platformBattery?: PlatformBattery;
 }
 
+export interface RedactionPlanSnapshot {
+  code: string;
+  title: string;
+  dxx: string;
+  date: string;
+  theme: string;
+}
+
+export interface SimulationPlanSnapshot {
+  title: string;
+  dxx: string;
+  date: string;
+  type: string;
+  plannedCoverage: number;
+  plannedSessions: number;
+}
+
+export interface EditalItemSnapshot {
+  code: string;
+  order: number;
+  discipline: string;
+  active: boolean;
+  block: string;
+  questions: number;
+  weight: number;
+  weightedPoints: number;
+  baseline: string;
+  treatment: string;
+  editorialStatus: string;
+  normativeSource: string;
+}
+
+export interface LegislationSourceSnapshot {
+  code: string;
+  title: string;
+  category: string;
+  cutoff: string;
+  dxx: string;
+  use: string;
+  status: string;
+  officialUrl: string;
+}
+
+export interface FinalSprintDaySnapshot {
+  code: string;
+  order: number;
+  date: string;
+  title: string;
+  type: string;
+}
+
 export interface Snapshot {
   schemaVersion: string;
   generatedAt: string;
   source: "notion";
   contentMode?: "bootstrap" | "full";
+  auxiliaryMode?: "full";
   contentHash?: string;
   days: DaySnapshot[];
   materials: Record<string, MaterialSnapshot>;
   questions: Record<string, QuestionSnapshot>;
+  redactions?: RedactionPlanSnapshot[];
+  simulations?: SimulationPlanSnapshot[];
+  edital?: EditalItemSnapshot[];
+  legislation?: LegislationSourceSnapshot[];
+  finalSprint?: FinalSprintDaySnapshot[];
   publicStats: {
     totalDays: number;
     activeDays: number;
@@ -65,5 +122,10 @@ export interface Snapshot {
     readyDays: number;
     materialPages?: number;
     questionPages?: number;
+    redactionPlans?: number;
+    simulationPlans?: number;
+    editalItems?: number;
+    legislationSources?: number;
+    finalSprintDays?: number;
   };
 }
