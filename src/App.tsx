@@ -229,6 +229,9 @@ function SyncPage({ snapshot }: { snapshot: Snapshot }) {
       <div className="panel">
         <p><strong>Origem:</strong> Notion canônico.</p>
         <p><strong>Último snapshot:</strong> {new Date(snapshot.generatedAt).toLocaleString("pt-BR")}.</p>
+        <p><strong>Modo de conteúdo:</strong> {snapshot.contentMode === "full" ? "completo e sincronizado" : "bootstrap versionado"}.</p>
+        <p><strong>Cobertura pública:</strong> {snapshot.publicStats.materialDays ?? Object.keys(snapshot.materials).length} materiais · {snapshot.publicStats.questionDays ?? Object.keys(snapshot.questions).length} cadernos Qxx.</p>
+        {snapshot.contentHash ? <p><strong>Hash:</strong> <code>{snapshot.contentHash.slice(0, 12)}</code>.</p> : null}
         <p><strong>Fluxo:</strong> extração server-side → normalização → validação → sanitização → snapshot → quality → Pages/PWA.</p>
         <p><strong>Privacidade:</strong> respostas, notas, tempo real, Caderno de Erros detalhado e URLs internas não são publicados.</p>
       </div>
