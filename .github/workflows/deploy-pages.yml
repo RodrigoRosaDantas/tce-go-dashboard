@@ -79,6 +79,8 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -86,3 +88,56 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  smoke:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Smoke test published site
+        env:
+          PAGE_URL: ${{ needs.deploy.outputs.page_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="${PAGE_URL%/}"
+          routes=(
+            ""
+            "dias/"
+            "dia/d001/"
+            "questoes/q001/"
+            "revisoes/"
+            "redacoes/"
+            "erros/"
+            "simulados/"
+            "desempenho/"
+            "edital/"
+            "legislacao/"
+            "reta-final/"
+            "sync/"
+          )
+          for route in "${routes[@]}"; do
+            url="${base}/${route}"
+            code="$(curl --retry 5 --retry-delay 2 --retry-all-errors -sS -o /tmp/tce-page.html -w "%{http_code}" "$url")"
+            if [ "$code" != "200" ]; then
+              echo "::error::Smoke test falhou em $url (HTTP $code)"
+              exit 1
+            fi
+          done
+
+          for asset in "manifest.webmanifest" "sw.js" "data/tce-go-snapshot.json"; do
+            url="${base}/${asset}"
+            code="$(curl --retry 5 --retry-delay 2 --retry-all-errors -sS -o /tmp/tce-asset -w "%{http_code}" "$url")"
+            if [ "$code" != "200" ]; then
+              echo "::error::Asset público indisponível: $url (HTTP $code)"
+              exit 1
+            fi
+          done
+
+          fallback_code="$(curl --retry 5 --retry-delay 2 --retry-all-errors -sS -o /tmp/tce-fallback.html -w "%{http_code}" "${base}/rota-inexistente-smoke/")"
+          if [ "$fallback_code" != "404" ]; then
+            echo "::error::Fallback esperado HTTP 404; recebido $fallback_code"
+            exit 1
+          fi
+          grep -q '<div id="root"></div>' /tmp/tce-fallback.html
+          echo "Smoke test publicado concluído: 13 rotas + PWA/snapshot + fallback."
