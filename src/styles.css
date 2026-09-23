@@ -133,3 +133,16 @@ footer { max-width: 1440px; margin: 0 auto; padding: 1rem 1.25rem 2rem; color: #
   .progress-fields { grid-template-columns: 1fr 1fr; }
   .progress-actions .button { width: 100%; }
 }
+
+
+.aux-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .8rem; }
+.aux-card h2 { margin: .25rem 0 .55rem; font-size: 1.08rem; }
+.aux-card p { overflow-wrap: anywhere; }
+.data-table-wrap { overflow-x: auto; border: 1px solid #334155; border-radius: .85rem; background: rgba(15,23,42,.6); }
+.data-table { width: 100%; min-width: 860px; border-collapse: collapse; }
+.data-table th, .data-table td { padding: .7rem .8rem; border-bottom: 1px solid #334155; text-align: left; vertical-align: top; }
+.data-table th { position: sticky; top: 0; background: #111827; z-index: 1; font-size: .78rem; color: #cbd5e1; }
+.data-table td { color: #dbe4f0; font-size: .88rem; }
+@media (max-width: 640px) {
+  .aux-grid { grid-template-columns: 1fr; }
+}
