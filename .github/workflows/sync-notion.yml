@@ -32,15 +32,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate server-side Notion configuration
+      - name: Check server-side Notion configuration
+        id: config
         env:
           TCE_GO_NOTION_TOKEN: ${{ secrets.TCE_GO_NOTION_TOKEN }}
           TCE_GO_DAYS_DATA_SOURCE_ID: ${{ vars.TCE_GO_DAYS_DATA_SOURCE_ID }}
+        shell: bash
         run: |
-          test -n "$TCE_GO_NOTION_TOKEN" || { echo "::error::Configure TCE_GO_NOTION_TOKEN as a repository secret."; exit 1; }
-          test -n "$TCE_GO_DAYS_DATA_SOURCE_ID" || { echo "::error::Configure TCE_GO_DAYS_DATA_SOURCE_ID as a repository variable."; exit 1; }
+          if [ -n "$TCE_GO_NOTION_TOKEN" ] && [ -n "$TCE_GO_DAYS_DATA_SOURCE_ID" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Notion sync is configured but inactive until TCE_GO_NOTION_TOKEN and TCE_GO_DAYS_DATA_SOURCE_ID are set."
+          fi
 
       - name: Extract, normalize, validate and sanitize
+        if: steps.config.outputs.ready == 'true'
         env:
           TCE_GO_NOTION_TOKEN: ${{ secrets.TCE_GO_NOTION_TOKEN }}
           TCE_GO_DAYS_DATA_SOURCE_ID: ${{ vars.TCE_GO_DAYS_DATA_SOURCE_ID }}
@@ -50,9 +57,11 @@ jobs:
           node scripts/validate-tce-go-snapshot.mjs
 
       - name: Check diff integrity
+        if: steps.config.outputs.ready == 'true'
         run: git diff --check
 
       - name: Detect real snapshot changes
+        if: steps.config.outputs.ready == 'true'
         id: diff
         shell: bash
         run: |
