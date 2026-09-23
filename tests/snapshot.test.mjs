@@ -31,3 +31,30 @@ test("somente dias prontos podem ser tratados como liberados", () => {
   assert.equal(released.length, snapshot.publicStats.readyDays);
   assert.ok(released.every((d) => !d.protected && d.editorialStatus === "ready"));
 });
+
+test("conteúdo público pertence somente a dias liberados", () => {
+  const released = snapshot.days.filter((d) => d.readyForStudy && !d.protected);
+  const materialSlugs = new Set(released.map((d) => d.slug).filter(Boolean));
+  const questionSlugs = new Set(released.map((d) => d.questionSlug).filter(Boolean));
+
+  for (const [slug, material] of Object.entries(snapshot.materials || {})) {
+    assert.ok(materialSlugs.has(slug), `material indevido: ${slug}`);
+    assert.equal(material.dxx, released.find((d) => d.slug === slug)?.dxx);
+  }
+  for (const [slug, question] of Object.entries(snapshot.questions || {})) {
+    assert.ok(questionSlugs.has(slug), `Qxx indevido: ${slug}`);
+    assert.equal(question.dxx, released.find((d) => d.questionSlug === slug)?.dxx);
+  }
+});
+
+test("snapshot não expõe referência interna do Notion nem HTML ativo", () => {
+  const serialized = JSON.stringify(snapshot);
+  assert.doesNotMatch(serialized, /app\.notion\.com|notion\.so|collection:\/\//i);
+  for (const entry of [
+    ...Object.values(snapshot.materials || {}),
+    ...Object.values(snapshot.questions || {}),
+  ]) {
+    if (!entry.contentHtml) continue;
+    assert.doesNotMatch(entry.contentHtml, /<script\b|javascript:|\son[a-z]+\s*=/i);
+  }
+});
