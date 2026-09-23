@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { loadSnapshot, publicRoute } from "./data";
 import type { DaySnapshot, Snapshot } from "./types";
 import { ProgressPanel } from "./ProgressPanel";
+import { ErrorWriteback, EssayWriteback, ReviewWriteback, SimulationWriteback } from "./ExecutionForms";
 import { platformBatteryUrl } from "./progress";
 
 const navItems = [
@@ -314,10 +315,28 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
 }
 
 const sectionCopy: Record<string, [string, string]> = {
-  "/revisoes/": ["Revisões", "D0 é parte do próprio dia; D7 e D20 entram somente por gatilho real. A agenda executada é dado privado, por isso esta rota pública não expõe revisões pessoais."],
-  "/erros/": ["Caderno de Erros", "Respostas pessoais, reincidências, fundamentos associados a erros reais e diagnósticos são privados. A rota pública não simula um caderno que ainda não foi executado."],
   "/desempenho/": ["Desempenho", "Tempo, acertos, erros, dúvidas e sessões são privados. O registro operacional acontece na sessão autenticada e só vira canônico após confirmação do Notion."],
 };
+
+function RevisionsPage({ snapshot }: { snapshot: Snapshot }) {
+  return (
+    <section>
+      <div className="page-head"><p className="eyebrow">D0 · D7 · D20 · Fatal Error</p><h1>Revisões</h1></div>
+      <div className="notice">D0 integra o próprio dia; D7 e D20 só devem ser registrados quando o gatilho real ocorrer. O histórico de execução permanece privado.</div>
+      <ReviewWriteback snapshot={snapshot} />
+    </section>
+  );
+}
+
+function ErrorsPage({ snapshot }: { snapshot: Snapshot }) {
+  return (
+    <section>
+      <div className="page-head"><p className="eyebrow">Caderno privado</p><h1>Caderno de Erros</h1></div>
+      <div className="notice">Somente erros reais, dúvidas relevantes e reincidências devem entrar aqui. O registro é enviado ao banco canônico privado do Notion.</div>
+      <ErrorWriteback snapshot={snapshot} />
+    </section>
+  );
+}
 
 function EmptyAux({ label }: { label: string }) {
   return <div className="notice">{label} ainda não está disponível no snapshot público validado.</div>;
@@ -337,6 +356,7 @@ function RedactionsPage({ snapshot }: { snapshot: Snapshot }) {
           <p>{item.theme || "Tema editorial ainda sem descrição pública."}</p>
         </article>
       ))}</div> : <EmptyAux label="Plano R1–R8" />}
+      <EssayWriteback snapshot={snapshot} />
     </section>
   );
 }
@@ -355,6 +375,7 @@ function SimulationsPage({ snapshot }: { snapshot: Snapshot }) {
           <p className="small">Cobertura prevista: {item.plannedCoverage || "—"} · sessões previstas: {item.plannedSessions || "—"}</p>
         </article>
       ))}</div> : <EmptyAux label="Plano de simulados/checkpoints" />}
+      <SimulationWriteback snapshot={snapshot} />
     </section>
   );
 }
@@ -463,7 +484,9 @@ export default function App() {
   else if (route === "/dias/") page = <Days snapshot={snapshot} />;
   else if (dayMatch) page = <DayPage snapshot={snapshot} dxx={dayMatch[1]} />;
   else if (questionMatch) page = <QuestionPage snapshot={snapshot} qxx={questionMatch[1]} />;
+  else if (route === "/revisoes/") page = <RevisionsPage snapshot={snapshot} />;
   else if (route === "/redacoes/") page = <RedactionsPage snapshot={snapshot} />;
+  else if (route === "/erros/") page = <ErrorsPage snapshot={snapshot} />;
   else if (route === "/simulados/") page = <SimulationsPage snapshot={snapshot} />;
   else if (route === "/edital/") page = <EditalPage snapshot={snapshot} />;
   else if (route === "/legislacao/") page = <LegislationPage snapshot={snapshot} />;

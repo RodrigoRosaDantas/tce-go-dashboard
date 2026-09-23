@@ -1,7 +1,9 @@
 const NAPI="https://api.notion.com/v1",NVER="2026-03-11";
 const DAYS="a1075521-857b-4e1e-8fb2-849b51fdccc0",SESSIONS="f70b8e2d-31cc-4a26-9c06-9d0a9fe69de0";
+const REVIEWS="d4733b43-6f1c-41ff-a066-ddc7a13f9d44",REDACTIONS="d837d3d6-7646-4f41-888a-ed8b48f94c9d",ERRORS_BANK="c0d696b3-99de-4d20-ae0e-a3324b74e038",SIMULATIONS="6deb1496-01ae-4a2d-8b38-5e99423410ee";
 const ORIGINS=new Set(["https://rodrigorosadantas.github.io","http://localhost:3000","http://localhost:4173"]);
-const TYPES=new Set(["progress.snapshot","questions.result","day.completed","day.reopened","review.snapshot","simulation.result","essay.result"]);
+const STATE_TYPES=new Set(["progress.snapshot","questions.result","day.completed","day.reopened"]);
+const TYPES=new Set([...STATE_TYPES,"review.snapshot","simulation.result","essay.result","error.capture"]);
 
 Deno.serve(async req=>{
   const cors=corsHeaders(req);
@@ -33,17 +35,39 @@ Deno.serve(async req=>{
     if(!day){await conflict(user.id,ev.v.idempotencyKey,"DXX_NOT_FOUND","Dxx não existe no Notion.");return json({status:"conflict",error:"Dxx não existe no Notion."},409,cors);}
     if(day.protected||!day.sxx){await conflict(user.id,ev.v.idempotencyKey,"PROTECTED_DAY","Dia protegido não aceita execução TCE.",day);return json({status:"conflict",error:"Dia protegido não aceita execução TCE."},409,cors);}
     if(ev.v.sxx&&ev.v.sxx!==day.sxx){await conflict(user.id,ev.v.idempotencyKey,"DXX_SXX_CONFLICT",`Frontend enviou ${ev.v.sxx}; Notion resolve ${day.sxx}.`,day);return json({status:"conflict",error:"Conflito Dxx/Sxx. O Notion prevalece.",dxx:day.dxx,submittedSxx:ev.v.sxx,canonicalSxx:day.sxx},409,cors);}
-    const refreshedBeforeRevision=old||await one("tce_progress_events",`owner_id=eq.${enc(user.id)}&idempotency_key=eq.${enc(ev.v.idempotencyKey)}`);
-    const recoverablePartial=Boolean(refreshedBeforeRevision?.notion_session_page_id)&&payloadMatchesDay(ev.v.payload,day);
-    if(ev.v.baseCanonicalRevision&&day.lastEditedAt&&ev.v.baseCanonicalRevision!==day.lastEditedAt&&!recoverablePartial){
-      await conflict(user.id,ev.v.idempotencyKey,"CANONICAL_REVISION_CHANGED","O Dia controle mudou no Notion desde a última confirmação conhecida.",day);
-      return json({status:"conflict",error:"O estado canônico mudou no Notion. Recarregue antes de salvar novamente.",dxx:day.dxx,sxx:day.sxx,canonicalRevision:day.lastEditedAt},409,cors);
-    }
-    if(!ev.v.baseCanonicalRevision&&day.lastEditedAt&&Date.parse(ev.v.occurredAt)<Date.parse(day.lastEditedAt)&&!recoverablePartial){
-      await conflict(user.id,ev.v.idempotencyKey,"CANONICAL_REVISION_UNKNOWN","Evento offline anterior à revisão canônica atual do Notion.",day);
-      return json({status:"conflict",error:"O Notion mudou depois que este evento foi criado. O evento foi preservado sem sobrescrever o estado canônico.",dxx:day.dxx,sxx:day.sxx,canonicalRevision:day.lastEditedAt},409,cors);
+    const stateEvent=STATE_TYPES.has(ev.v.eventType);
+    if(stateEvent){
+      const refreshedBeforeRevision=old||await one("tce_progress_events",`owner_id=eq.${enc(user.id)}&idempotency_key=eq.${enc(ev.v.idempotencyKey)}`);
+      const recoverablePartial=Boolean(refreshedBeforeRevision?.notion_session_page_id)&&payloadMatchesDay(ev.v.payload,day);
+      if(ev.v.baseCanonicalRevision&&day.lastEditedAt&&ev.v.baseCanonicalRevision!==day.lastEditedAt&&!recoverablePartial){
+        await conflict(user.id,ev.v.idempotencyKey,"CANONICAL_REVISION_CHANGED","O Dia controle mudou no Notion desde a última confirmação conhecida.",day);
+        return json({status:"conflict",error:"O estado canônico mudou no Notion. Recarregue antes de salvar novamente.",dxx:day.dxx,sxx:day.sxx,canonicalRevision:day.lastEditedAt},409,cors);
+      }
+      if(!ev.v.baseCanonicalRevision&&day.lastEditedAt&&Date.parse(ev.v.occurredAt)<Date.parse(day.lastEditedAt)&&!recoverablePartial){
+        await conflict(user.id,ev.v.idempotencyKey,"CANONICAL_REVISION_UNKNOWN","Evento offline anterior à revisão canônica atual do Notion.",day);
+        return json({status:"conflict",error:"O Notion mudou depois que este evento foi criado. O evento foi preservado sem sobrescrever o estado canônico.",dxx:day.dxx,sxx:day.sxx,canonicalRevision:day.lastEditedAt},409,cors);
+      }
     }
     await patchEvent(user.id,ev.v.idempotencyKey,{resolved_sxx:day.sxx,notion_day_page_id:day.id});
+
+    if(!stateEvent){
+      let target;
+      try{target=await writeSpecialized(user.id,day,ev.v,nt);}
+      catch(err){
+        if(err instanceof Error&&err.name==="ValidationError"){
+          await conflict(user.id,ev.v.idempotencyKey,"SPECIALIZED_PAYLOAD_INVALID",err.message,day);
+          return json({status:"conflict",error:err.message,code:"SPECIALIZED_PAYLOAD_INVALID",dxx:day.dxx,sxx:day.sxx},409,cors);
+        }
+        throw err;
+      }
+      const metrics=specializedSessionMetrics(ev.v,day);
+      const sid=await ensureSession(user.id,day,ev.v,metrics,nt,cors);
+      const confirmedAt=new Date().toISOString();
+      const canonicalRevision=day.lastEditedAt||confirmedAt;
+      const confirmation={dxx:day.dxx,sxx:day.sxx,eventType:ev.v.eventType,occurredAt:ev.v.occurredAt,confirmedAt,canonicalRevision,canonical:true,target};
+      await patchEvent(user.id,ev.v.idempotencyKey,{status:"confirmed",resolved_sxx:day.sxx,notion_session_page_id:sid,notion_day_page_id:day.id,confirmation,confirmed_at:confirmedAt,error_code:null,error_message:null});
+      return json({status:"confirmed",canonical:true,dxx:day.dxx,sxx:day.sxx,idempotencyKey:ev.v.idempotencyKey,confirmation,target},200,cors);
+    }
 
     const newer=await one("tce_progress_events",`owner_id=eq.${enc(user.id)}&dxx=eq.${enc(day.dxx)}&idempotency_key=neq.${enc(ev.v.idempotencyKey)}&occurred_at=gt.${enc(ev.v.occurredAt)}&status=in.(pending,confirmed)&order=occurred_at.desc&limit=1`);
     if(newer){
@@ -58,18 +82,7 @@ Deno.serve(async req=>{
     }
 
     const next=progress(ev.v.payload,day);
-    const refreshed=await one("tce_progress_events",`owner_id=eq.${enc(user.id)}&idempotency_key=eq.${enc(ev.v.idempotencyKey)}`);
-    let sid=refreshed?.notion_session_page_id||null;
-    if(!sid){
-      const existingSessions=await findNotionSessions(ev.v.idempotencyKey,nt);
-      if(existingSessions.length>1){
-        await conflict(user.id,ev.v.idempotencyKey,"NOTION_DUPLICATE_IDEMPOTENCY","Mais de uma sessão Notion usa a mesma idempotency key.",day);
-        return json({status:"conflict",error:"Duplicidade detectada no Notion; gravação interrompida para auditoria."},409,cors);
-      }
-      if(existingSessions.length===1)sid=existingSessions[0].id;
-      else {const created=await createSession(day,ev.v,next,nt);sid=created.id;}
-      await patchEvent(user.id,ev.v.idempotencyKey,{notion_session_page_id:sid});
-    }
+    const sid=await ensureSession(user.id,day,ev.v,next,nt,cors);
     const updatedPage=await updateDay(day,next,nt);
     const confirmedAt=new Date().toISOString();
     const canonicalRevision=updatedPage?.last_edited_time||confirmedAt;
@@ -77,7 +90,7 @@ Deno.serve(async req=>{
     await patchEvent(user.id,ev.v.idempotencyKey,{status:"confirmed",resolved_sxx:day.sxx,notion_session_page_id:sid,notion_day_page_id:day.id,confirmation,confirmed_at:confirmedAt,error_code:null,error_message:null});
     await upsertState(user.id,day,next,ev.v.idempotencyKey,ev.v.occurredAt,confirmedAt,canonicalRevision);
     return json({status:"confirmed",canonical:true,dxx:day.dxx,sxx:day.sxx,idempotencyKey:ev.v.idempotencyKey,confirmation,state:next},200,cors);
-  }catch(e){console.error("tce-progress",e instanceof Error?e.message:e);return json({error:"Falha segura no writeback TCE-GO."},502,cors);}
+  }catch(e){if(e instanceof Response)return e;console.error("tce-progress",e instanceof Error?e.message:e);return json({error:"Falha segura no writeback TCE-GO."},502,cors);}
 });
 
 async function currentUser(req){
@@ -114,7 +127,174 @@ async function resolveDay(dxx,token){const r=await notion(`/data_sources/${DAYS}
 async function findNotionSessions(key,token){const r=await notion(`/data_sources/${SESSIONS}/query`,token,{method:"POST",body:JSON.stringify({page_size:3,filter:{property:"Idempotency key",rich_text:{equals:key}}})});return Array.isArray(r.results)?r.results:[];}
 async function createSession(d,e,p,token){const props={"Sessão":title(`${d.dxx} · ${d.sxx} · ${e.eventType}`),"Dxx":rich(d.dxx),"Sessão TCE":rich(d.sxx),"Tipo de evento":rich(e.eventType),"Timestamp":{date:{start:e.occurredAt}},"Data":{date:{start:e.occurredAt}},"Origem":rich(e.origin),"Idempotency key":rich(e.idempotencyKey),"Tipo":{select:{name:sessionType(d.type,e.eventType)}},"Tempo (min)":{number:p.timeMinutes},"Questões":{number:p.questionsDone},"Acertos":{number:p.correct},"Erros":{number:p.errors},"Acertos com dúvida":{number:p.doubts},"Observações":rich(("Evento confirmado pelo endpoint TCE-GO. "+String(e.payload.notes||"")).trim().slice(0,1200))};return notion("/pages",token,{method:"POST",body:JSON.stringify({parent:{data_source_id:SESSIONS},properties:props})});}
 async function updateDay(d,p,token){return notion(`/pages/${d.id}`,token,{method:"PATCH",body:JSON.stringify({properties:{"Estudado":{checkbox:p.studied},"Concluído":{checkbox:p.completed},"Tempo real (min)":{number:p.timeMinutes},"Questões feitas":{number:p.questionsDone},"Acertos":{number:p.correct},"Erros":{number:p.errors},"Acertos com dúvida":{number:p.doubts},"Status":{select:{name:p.status}}}})});}
-function sessionType(day,event){if(event==="questions.result")return"Questões";if(event==="review.snapshot")return"Revisão";if(event==="simulation.result"||day==="Simulado"||day==="Checkpoint")return"Simulado";if(event==="essay.result"||day==="Redação")return"Redação";if(day==="Correção")return"Correção";return"Teoria";}
+function sessionType(day,event){if(event==="questions.result")return"Questões";if(event==="review.snapshot")return"Revisão";if(event==="simulation.result"||day==="Simulado"||day==="Checkpoint")return"Simulado";if(event==="essay.result"||day==="Redação")return"Redação";if(event==="error.capture")return"Correção";if(day==="Correção")return"Correção";return"Teoria";}
+
+async function ensureSession(owner,day,event,metrics,token,cors){
+  const refreshed=await one("tce_progress_events",`owner_id=eq.${enc(owner)}&idempotency_key=eq.${enc(event.idempotencyKey)}`);
+  let sid=refreshed?.notion_session_page_id||null;
+  if(sid)return sid;
+  const existing=await findNotionSessions(event.idempotencyKey,token);
+  if(existing.length>1){await conflict(owner,event.idempotencyKey,"NOTION_DUPLICATE_IDEMPOTENCY","Mais de uma sessão Notion usa a mesma idempotency key.",day);throw json({status:"conflict",error:"Duplicidade detectada no Notion; gravação interrompida para auditoria.",code:"NOTION_DUPLICATE_IDEMPOTENCY"},409,cors);}
+  if(existing.length===1)sid=existing[0].id;
+  else sid=(await createSession(day,event,metrics,token)).id;
+  await patchEvent(owner,event.idempotencyKey,{notion_session_page_id:sid});
+  return sid;
+}
+
+function specializedSessionMetrics(event,day){
+  const p=event.payload||{};
+  if(event.eventType==="review.snapshot")return{timeMinutes:num(p.timeMinutes,0),questionsDone:num(p.questions,0),correct:num(p.correct,0),errors:num(p.errors,0),doubts:0};
+  if(event.eventType==="essay.result")return{timeMinutes:num(p.timeMinutes,0),questionsDone:0,correct:0,errors:0,doubts:0};
+  if(event.eventType==="simulation.result"){
+    const questions=num(p.generalTotal,0)+num(p.specificTotal,0);
+    const correct=num(p.generalCorrect,0)+num(p.specificCorrect,0);
+    return{timeMinutes:num(p.timeMinutes,0),questionsDone:questions,correct,errors:Math.max(0,questions-correct),doubts:0};
+  }
+  return{timeMinutes:0,questionsDone:0,correct:0,errors:0,doubts:0};
+}
+
+async function writeSpecialized(owner,day,event,token){
+  if(event.eventType==="review.snapshot")return writeReview(day,event,token);
+  if(event.eventType==="essay.result")return writeEssay(day,event,token);
+  if(event.eventType==="simulation.result")return writeSimulation(day,event,token);
+  if(event.eventType==="error.capture")return writeError(owner,day,event,token);
+  throw new Error("Evento especializado não suportado.");
+}
+
+async function writeReview(day,event,token){
+  const p=event.payload||{},type=choice(p.reviewType,["D0","D7","D20","Fatal Error"],"Tipo de revisão");
+  const status=choice(p.status||"Concluída",["Pendente","Próxima","Concluída","Cancelada por domínio"],"Status da revisão");
+  const q=num(p.questions,0),c=num(p.correct,0),e=num(p.errors,0);
+  if(c+e>q)throw validation("Revisão: acertos + erros excedem questões.");
+  const filter={and:[{property:"Dxx origem",rich_text:{equals:day.dxx}},{property:"Tipo",select:{equals:type}}]};
+  const rows=await queryDataSource(REVIEWS,filter,token,3);
+  if(rows.length>1)throw validation(`Revisão duplicada para ${day.dxx}/${type}.`);
+  const props={
+    "Dxx origem":rich(day.dxx),
+    "Tipo":{select:{name:type}},
+    "Status":{select:{name:status}},
+    "Questões de revisão":{number:q},
+    "Acertos":{number:c},
+    "Erros":{number:e},
+    "Observações":rich(String(p.notes||"").slice(0,1800)),
+  };
+  if(p.reason)props["Motivo"]={select:{name:choice(p.reason,["Conteúdo novo","Erro relevante","Legislação","Reincidência","Calibração"],"Motivo da revisão")}};
+  if(p.plannedDate)props["Data prevista"]={date:{start:isoDate(p.plannedDate,"Data prevista")}};
+  if(status==="Concluída")props["Data realizada"]={date:{start:isoDate(p.performedDate||event.occurredAt,"Data realizada")}};
+  let page=rows[0];
+  if(page)page=await notion(`/pages/${page.id}`,token,{method:"PATCH",body:JSON.stringify({properties:props})});
+  else page=await notion("/pages",token,{method:"POST",body:JSON.stringify({parent:{data_source_id:REVIEWS},properties:{"Revisão":title(`${type} — ${day.dxx}`),...props}})});
+  return{kind:"review",pageId:page.id};
+}
+
+async function writeEssay(day,event,token){
+  const p=event.payload||{},rows=await queryDataSource(REDACTIONS,{property:"Dxx",rich_text:{equals:day.dxx}},token,3);
+  if(rows.length!==1)throw validation(`Redação canônica de ${day.dxx}: esperado 1 registro; recebido ${rows.length}.`);
+  const status=choice(p.status||"Produzida",["Planejada","Em produção","Produzida","Corrigida","Reescrita"],"Status da redação");
+  const props={"Status":{select:{name:status}}};
+  optionalNumber(props,"Linhas",p.lines,0,80);
+  optionalNumber(props,"Tempo (min)",p.timeMinutes,0,300);
+  if(p.mainError!=null)props["Erro principal"]=rich(String(p.mainError).slice(0,1800));
+  if(p.rewriteNeeded!=null)props["Reescrita necessária"]={checkbox:Boolean(p.rewriteNeeded)};
+  const criteria=[
+    ["Recorte temático /20","recorte",20],
+    ["Interpretação crítica /20","interpretacao",20],
+    ["Progressão /30","progressao",30],
+    ["Vocabulário /8","vocabulario",8],
+    ["Coesão /16","coesao",16],
+    ["Morfossintaxe /6","morfossintaxe",6],
+  ];
+  const given=criteria.filter(([,key])=>p[key]!=null&&p[key]!=="");
+  if(["Corrigida","Reescrita"].includes(status)&&given.length!==criteria.length)throw validation("Redação corrigida exige os 6 critérios FCC.");
+  let total=0;
+  for(const [prop,key,max] of criteria){
+    if(p[key]==null||p[key]==="")continue;
+    const value=bounded(p[key],0,max,String(prop));total+=value;props[prop]={number:value};
+  }
+  if(given.length===criteria.length)props["Nota simulada /100"]={number:total};
+  const page=await notion(`/pages/${rows[0].id}`,token,{method:"PATCH",body:JSON.stringify({properties:props})});
+  return{kind:"essay",pageId:page.id,score:given.length===criteria.length?total:null};
+}
+
+async function writeSimulation(day,event,token){
+  const p=event.payload||{},rows=await queryDataSource(SIMULATIONS,{property:"Dxx",rich_text:{equals:day.dxx}},token,3);
+  if(rows.length!==1)throw validation(`Simulado/checkpoint de ${day.dxx}: esperado 1 registro; recebido ${rows.length}.`);
+  const props={};
+  const gt=optionalNumber(props,"Gerais — total",p.generalTotal,0,100),gc=optionalNumber(props,"Gerais — acertos",p.generalCorrect,0,100);
+  const st=optionalNumber(props,"Específicos — total",p.specificTotal,0,100),sc=optionalNumber(props,"Específicos — acertos",p.specificCorrect,0,100);
+  if(gt!=null&&gc!=null&&gc>gt)throw validation("Simulado: acertos gerais excedem total.");
+  if(st!=null&&sc!=null&&sc>st)throw validation("Simulado: acertos específicos excedem total.");
+  optionalNumber(props,"Tempo (min)",p.timeMinutes,0,600);
+  optionalNumber(props,"Cobertura — executados",p.coverageExecuted,0,1000);
+  optionalNumber(props,"Carga — sessões realizadas",p.sessionsCompleted,0,1000);
+  optionalNumber(props,"P1 abertos",p.p1Open,0,1000);
+  optionalNumber(props,"Erros abertos",p.openErrors,0,1000);
+  optionalNumber(props,"Reincidentes",p.recurrent,0,1000);
+  optionalNumber(props,"Redação /100",p.essayScore,0,100);
+  optionalNumber(props,"Controle Externo %",p.controlPercent,0,100);
+  optionalNumber(props,"CASP %",p.caspPercent,0,100);
+  optionalNumber(props,"Legislação Institucional %",p.legislationPercent,0,100);
+  optionalNumber(props,"Matérias conhecidas %",p.knownPercent,0,100);
+  if(gc!=null&&sc!=null)props["IPI interno"]={number:Math.round(((gc+2*sc)/115*100)*100)/100};
+  if(p.decision)props["Decisão"]={select:{name:choice(p.decision,["Manter","Ajustar","Reduzir","Ampliar"],"Decisão")}};
+  if(p.timeByBlock!=null)props["Tempo por bloco"]=rich(String(p.timeByBlock).slice(0,1800));
+  if(p.weakKnown!=null)props["Pontos fracos — matérias conhecidas"]=rich(String(p.weakKnown).slice(0,1800));
+  if(p.biggestEssayLoss!=null)props["Maior perda — redação"]=rich(String(p.biggestEssayLoss).slice(0,1800));
+  if(p.notes!=null)props["Observações"]=rich(String(p.notes).slice(0,1800));
+  if(p.impactedSeedf!=null)props["Impactou SEEDF"]={checkbox:Boolean(p.impactedSeedf)};
+  if(p.impactedTjdft!=null)props["Impactou TJDFT"]={checkbox:Boolean(p.impactedTjdft)};
+  const page=await notion(`/pages/${rows[0].id}`,token,{method:"PATCH",body:JSON.stringify({properties:props})});
+  return{kind:"simulation",pageId:page.id};
+}
+
+async function writeError(owner,day,event,token){
+  const p=event.payload||{};
+  const stored=await one("tce_progress_events",`owner_id=eq.${enc(owner)}&idempotency_key=eq.${enc(event.idempotencyKey)}`);
+  let errorId=String(stored?.payload?.errorId||p.errorId||"").trim();
+  if(!errorId){
+    errorId=`TCE-E-${event.idempotencyKey.replace(/-/g,"").slice(0,12).toUpperCase()}`;
+    await patchEvent(owner,event.idempotencyKey,{payload:{...event.payload,errorId}});
+  }
+  const rows=await queryDataSource(ERRORS_BANK,{property:"ID erro",rich_text:{equals:errorId}},token,3);
+  if(rows.length>1)throw validation(`Caderno de Erros duplicado para ${errorId}.`);
+  const props={
+    "ID erro":rich(errorId),
+    "Dxx":rich(day.dxx),
+    "Data":{date:{start:event.occurredAt}},
+    "Status":{select:{name:choice(p.status||"Aberto",["Aberto","Em tratamento","Validado","Encerrado"],"Status do erro")}},
+    "Erro":title(String(p.error||"Erro capturado pelo site").slice(0,180)),
+  };
+  if(p.questionId!=null)props["ID questão"]=rich(String(p.questionId).slice(0,300));
+  if(p.subject!=null)props["Matéria"]=rich(String(p.subject).slice(0,300));
+  if(p.topic!=null)props["Tópico"]=rich(String(p.topic).slice(0,500));
+  if(p.source)props["Fonte"]={select:{name:choice(p.source,["FCC","Autoral","Outra"],"Fonte do erro")}};
+  optionalNumber(props,"Peso",p.weight,0,10);
+  if(p.markedAnswer!=null)props["Resposta marcada"]=rich(String(p.markedAnswer).slice(0,500));
+  if(p.answerKey!=null)props["Gabarito"]=rich(String(p.answerKey).slice(0,500));
+  if(p.reason)props["Motivo do erro"]={select:{name:choice(p.reason,["Desconhecimento","Confusão conceitual","Lei/norma","Memória","Interpretação","Cálculo","Distração","Gestão do tempo"],"Motivo do erro")}};
+  if(p.correctRule!=null)props["Regra correta"]=rich(String(p.correctRule).slice(0,1800));
+  if(p.action!=null)props["Ação"]=rich(String(p.action).slice(0,1800));
+  if(p.severity)props["Severidade"]={select:{name:choice(p.severity,["P1","P2","P3"],"Severidade")}};
+  optionalNumber(props,"Reincidência",p.recurrence,0,100);
+  if(p.doubt!=null)props["Acerto com dúvida?"]={checkbox:Boolean(p.doubt)};
+  if(p.fatal!=null)props["Fatal Error?"]={checkbox:Boolean(p.fatal)};
+  if(p.nextCheck!=null)props["Próxima checagem"]=rich(String(p.nextCheck).slice(0,500));
+  if(p.notes!=null)props["Observação"]=rich(String(p.notes).slice(0,1800));
+  let page=rows[0];
+  if(page)page=await notion(`/pages/${page.id}`,token,{method:"PATCH",body:JSON.stringify({properties:props})});
+  else page=await notion("/pages",token,{method:"POST",body:JSON.stringify({parent:{data_source_id:ERRORS_BANK},properties:props})});
+  return{kind:"error",pageId:page.id,errorId};
+}
+
+async function queryDataSource(id,filter,token,pageSize=3){
+  const r=await notion(`/data_sources/${id}/query`,token,{method:"POST",body:JSON.stringify({page_size:pageSize,filter})});
+  return Array.isArray(r.results)?r.results:[];
+}
+function validation(message){const e=new Error(message);e.name="ValidationError";return e;}
+function choice(value,allowed,label){const v=String(value||"").trim();if(!allowed.includes(v))throw validation(`${label} inválido.`);return v;}
+function bounded(value,min,max,label){const n=Number(value);if(!Number.isFinite(n)||n<min||n>max)throw validation(`${label} inválido.`);return Math.round(n*100)/100;}
+function optionalNumber(props,name,value,min,max){if(value==null||value==="")return null;const n=bounded(value,min,max,name);props[name]={number:n};return n;}
+function isoDate(value,label){const d=new Date(String(value));if(Number.isNaN(d.getTime()))throw validation(`${label} inválida.`);return d.toISOString();}
 
 async function notion(path,token,init={}){const h=new Headers(init.headers);h.set("Authorization",`Bearer ${token}`);h.set("Notion-Version",NVER);h.set("Content-Type","application/json");const r=await fetch(NAPI+path,{...init,headers:h});const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(`Notion ${r.status}: ${data?.message||"erro"}`);return data;}
 function txt(p,n){const x=p?.[n];if(!x)return"";if(x.title)return x.title.map(y=>y.plain_text||"").join("").trim();if(x.rich_text)return x.rich_text.map(y=>y.plain_text||"").join("").trim();return x.select?.name||x.status?.name||"";}
