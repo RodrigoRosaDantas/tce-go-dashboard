@@ -2,6 +2,13 @@ name: Sync TCE-GO from Notion
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/sync-tce-go.mjs"
+      - "scripts/notion-public-content.mjs"
+      - "scripts/snapshot-contract.mjs"
+      - ".github/workflows/sync-notion.yml"
   schedule:
     - cron: "*/15 * * * *"
 
@@ -36,14 +43,13 @@ jobs:
         id: config
         env:
           TCE_GO_NOTION_TOKEN: ${{ secrets.TCE_GO_NOTION_TOKEN }}
-          TCE_GO_DAYS_DATA_SOURCE_ID: ${{ vars.TCE_GO_DAYS_DATA_SOURCE_ID }}
         shell: bash
         run: |
-          if [ -n "$TCE_GO_NOTION_TOKEN" ] && [ -n "$TCE_GO_DAYS_DATA_SOURCE_ID" ]; then
+          if [ -n "$TCE_GO_NOTION_TOKEN" ]; then
             echo "ready=true" >> "$GITHUB_OUTPUT"
           else
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::Notion sync is configured but inactive until TCE_GO_NOTION_TOKEN and TCE_GO_DAYS_DATA_SOURCE_ID are set."
+            echo "::warning::Notion sync is configured but inactive until TCE_GO_NOTION_TOKEN is set."
           fi
 
       - name: Extract, normalize, validate and sanitize
