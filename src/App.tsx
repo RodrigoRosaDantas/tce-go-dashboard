@@ -197,8 +197,8 @@ function Home({ snapshot }: { snapshot: Snapshot }) {
   const ordered = [...snapshot.days].sort((a, b) => a.order - b.order);
   const active = ordered.filter((d) => !d.protected);
   const published = active.filter((d) => hasPublicSession(snapshot, d));
-  const next = published.find((d) => !cachedProgress(d.dxx)?.completed)
-    ?? published.at(-1);
+  const next = published.find((d) => !cachedProgress(d.dxx)?.completed);
+  const allPublishedCompleted = published.length > 0 && !next;
   const nextIndex = next ? active.findIndex((d) => d.dxx === next.dxx) : -1;
   const nextAfter = nextIndex >= 0 ? active[nextIndex + 1] : undefined;
 
@@ -208,7 +208,7 @@ function Home({ snapshot }: { snapshot: Snapshot }) {
         <div>
           <p className="eyebrow">Técnico de Controle Externo · TCE-GO</p>
           <h1>Seu próximo passo.</h1>
-          <p>Sequência pedagógica primeiro, calendário depois. Hoje é ${formatDate(today)}; a home não pula sessão só porque a data virou.</p>
+          <p>Sequência pedagógica primeiro, calendário depois. Hoje é {formatDate(today)}; a home não pula sessão só porque a data virou.</p>
         </div>
         <div className="trail-meter" aria-label="Cobertura editorial da trilha">
           <div className="trail-meter-head"><span>Trilha pedagógica</span><strong>{published.length}/{active.length}</strong></div>
@@ -238,7 +238,7 @@ function Home({ snapshot }: { snapshot: Snapshot }) {
             <span className="step"><b>3</b> D0</span>
           </div>
         </article>
-      ) : <div className="empty-state">Nenhuma sessão está liberada para estudo neste momento.</div>}
+      ) : <div className="empty-state">{allPublishedCompleted ? "Todas as sessões publicadas estão concluídas neste dispositivo." : "Nenhuma sessão está liberada para estudo neste momento."}</div>}
 
       <div className="quick-grid">
         <a className="quick-card" href={href("/dias/")}>
