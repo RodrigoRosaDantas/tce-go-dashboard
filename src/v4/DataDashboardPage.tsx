@@ -36,11 +36,14 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
   const retention = useMemo(() => reviewStats(summary.reviews), [summary.reviews]);
 
   const activeDays = snapshot.days.filter((day) => !day.protected);
+  const questionMetaMap = useMemo(() => new Map(summary.questionMeta.map((item) => [String(item.dxx || "").toUpperCase(), item])), [summary.questionMeta]);
   const executionDays = summary.dayControl.filter((day) => !day.protected && hasExecution(day));
   const completed = executionDays.filter((day) => day.completed).length;
-  const plannedQuestions = summary.dayControl.length
-    ? summary.dayControl.filter((day) => !day.protected).reduce((sum, day) => sum + (day.metaQuestions ?? 0), 0)
-    : activeDays.reduce((sum, day) => sum + (day.questionSlug ? snapshot.questions[day.questionSlug]?.valid ?? 0 : 0), 0);
+  const plannedQuestions = activeDays.reduce((sum, day) => {
+    const canonicalMeta = dayMap.get(day.dxx)?.metaQuestions ?? questionMetaMap.get(day.dxx)?.meta;
+    const publicFallback = day.questionSlug ? snapshot.questions[day.questionSlug]?.valid ?? 0 : 0;
+    return sum + (canonicalMeta ?? publicFallback);
+  }, 0);
   const questions = executionDays.reduce((sum, day) => sum + (day.questionsDone ?? 0), 0);
   const correct = executionDays.reduce((sum, day) => sum + (day.correct ?? 0), 0);
   const errors = executionDays.reduce((sum, day) => sum + (day.errors ?? 0), 0);
