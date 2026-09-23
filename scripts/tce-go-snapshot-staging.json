@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T14:05:53.363Z",
+  "generatedAt": "2026-09-23T14:06:34.011Z",
   "days": [
     {
       "dxx": "D001",
@@ -8726,6 +8726,1011 @@
       ],
       "version": 2,
       "lastEdited": "2026-09-22T19:30:49.355Z"
+    },
+    "d066": {
+      "dxx": "D066",
+      "title": "D066 — Administração Estratégica",
+      "summary": "Administração Estratégica — lacunas — Cinco Forças; RBV; Business Model Canvas; Cadeia de Valor; revisão curta de SWOT/BSC.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D066 — Administração Estratégica \\| lacunas dirigidas\nS30 / D066 — 105 min · 30 questões. O objetivo é completar as lacunas de Administração Estratégica sem reestudar o que já está estável. Cinco Forças, RBV, Business Model Canvas e Cadeia de Valor recebem construção; SWOT e BSC entram apenas como revisão curta e contraste."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "A Base Técnica classifica Administração Estratégica como a disciplina administrativa com maior necessidade de complemento específico."
+        },
+        {
+          "heading": "Capital parcial já existente",
+          "body": "- planejamento;\n- missão;\n- visão;\n- valores;\n- diagnóstico externo/interno;\n- formulação;\n- implementação;\n- controle;\n- SWOT;\n- escolas de estratégia;\n- BSC."
+        },
+        {
+          "heading": "Conteúdo novo ou menos comprovado",
+          "body": "- Cinco Forças Competitivas;\n- RBV — Resource-Based View;\n- Business Model Canvas;\n- Cadeia de Valor.\nA sessão, portanto, não deve gastar metade do tempo reaprendendo SWOT e BSC.\nRegra do D066: construir o novo, conectar ao já conhecido e testar por FCC."
+        },
+        {
+          "heading": "3. Posição no edital",
+          "body": "B09 — Noções de Administração Estratégica\n- bloco: Específicos;\n- questões objetivas: 3;\n- peso: 2;\n- pontos ponderados: 6;\n- baseline histórico: Parcial;\n- tratamento: Complemento."
+        },
+        {
+          "heading": "Microitens do edital",
+          "body": "1. Planejamento Estratégico;\n2. missão;\n3. visão;\n4. valores;\n5. diagnóstico externo;\n6. diagnóstico interno;\n7. formulação;\n8. implementação;\n9. controle;\n10. SWOT;\n11. Cinco Forças;\n12. RBV;\n13. Business Model Canvas;\n14. escolas;\n15. BSC;\n16. Cadeia de Valor."
+        },
+        {
+          "heading": "4. Objetivos mensuráveis",
+          "body": "Ao final, você deve conseguir:\n1. listar as cinco forças sem consulta;\n2. reconhecer fatores que aumentam/diminuem cada força;\n3. separar análise externa setorial de análise interna de recursos;\n4. explicar RBV e VRIO;\n5. distinguir recurso de capacidade;\n6. explicar os nove blocos do BMC;\n7. identificar o bloco do Canvas a partir de perguntas típicas;\n8. separar BMC de Canvas da Proposta de Valor;\n9. listar atividades primárias da Cadeia de Valor;\n10. listar atividades de apoio;\n11. distinguir Cadeia de Valor de cadeia de suprimentos e fluxograma;\n12. conectar SWOT ↔ Cinco Forças ↔ RBV;\n13. conectar BSC à implementação/controle da estratégia;\n14. resolver pelo menos 18 questões nos quatro conteúdos novos;\n15. montar o quadro final dos seis modelos."
+        },
+        {
+          "heading": "Fonte canônica interna",
+          "body": "- Fonte-Mestra TCE-GO v1.3 — B09 e D066;\n- Base Técnica v1.3 — seção 08.11;\n- Base Operacional v1.3 — curadoria FCC e validade;\n- Template Técnico/Calibração do projeto."
+        },
+        {
+          "heading": "Referências conceituais",
+          "body": "- Michael Porter — estrutura competitiva e Cadeia de Valor;\n- Jay Barney — Resource-Based View / recursos estratégicos;\n- Osterwalder & Pigneur — Business Model Canvas;\n- Kaplan & Norton — Balanced Scorecard.\n> Estes modelos são referências gerenciais, não normas jurídicas. Portanto, não há “vigência normativa” como em legislação. O controle editorial recai sobre conceito, autoria, uso correto e aderência ao edital."
+        },
+        {
+          "heading": "6. Roteiro de 105 minutos",
+          "body": "1. 20 min — Cinco Forças.\n2. 18 min — RBV/VRIO.\n3. 18 min — Business Model Canvas.\n4. 18 min — Cadeia de Valor.\n5. 8 min — revisão SWOT/BSC.\n6. 20 min — Q066.\n7. 3 min — D0 inicial.\n---\n# PARTE I — VISÃO GERAL DOS MODELOS"
+        },
+        {
+          "heading": "7. A pergunta certa antes do modelo",
+          "body": "A maior pegadinha é aplicar o modelo certo à pergunta errada.\nModelo\nPergunta que responde\nSWOT\nquais fatores internos e externos favorecem ou dificultam a estratégia?\nCinco Forças\ncomo está a estrutura competitiva do setor/ambiente de negócios?\nRBV/VRIO\nquais recursos e capacidades internos podem sustentar vantagem?\nBMC\ncomo a organização cria, entrega e captura valor?\nBSC\ncomo traduzir a estratégia em objetivos, indicadores, metas e iniciativas?\nCadeia de Valor\nquais atividades contribuem para gerar valor e vantagem?"
+        },
+        {
+          "heading": "Macete",
+          "body": "SWOT fotografa.\nPorter olha o setor.\nRBV olha para dentro.\nCanvas desenha o modelo.\nCadeia disseca atividades.\nBSC executa e mede.\n---\n# PARTE II — CINCO FORÇAS DE PORTER"
+        },
+        {
+          "heading": "8. Para que serve",
+          "body": "O modelo analisa a estrutura competitiva de um setor.\nNão é:\n- análise puramente interna;\n- organograma;\n- ferramenta de execução de projetos;\n- BSC.\nAs cinco forças influenciam a atratividade econômica e a intensidade da competição."
+        },
+        {
+          "heading": "9. As cinco forças",
+          "body": "1. rivalidade entre concorrentes existentes;\n2. ameaça de novos entrantes;\n3. ameaça de produtos/serviços substitutos;\n4. poder de negociação dos compradores;\n5. poder de negociação dos fornecedores."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "“Concorrentes” são apenas uma das forças."
+        },
+        {
+          "heading": "10. Rivalidade entre concorrentes",
+          "body": "Tende a aumentar quando:\n- há muitos concorrentes equilibrados;\n- crescimento do setor é lento;\n- custos fixos são relevantes;\n- diferenciação é baixa;\n- barreiras de saída são altas."
+        },
+        {
+          "heading": "Consequência",
+          "body": "Pode pressionar:\n- preço;\n- margem;\n- gasto comercial;\n- inovação;\n- investimento."
+        },
+        {
+          "heading": "11. Ameaça de novos entrantes",
+          "body": "Pergunta:\n> quão fácil é para um novo competidor entrar?\nA ameaça tende a cair quando existem barreiras de entrada altas.\nExemplos:\n- economias de escala;\n- capital necessário;\n- diferenciação/marca;\n- acesso a canais;\n- vantagens de custo;\n- regulação;\n- efeitos de rede, conforme o contexto."
+        },
+        {
+          "heading": "FCC",
+          "body": "Se o caso falar em “possibilidade de novos competidores ingressarem”, pense primeiro em novos entrantes."
+        },
+        {
+          "heading": "12. Poder dos compradores",
+          "body": "Compradores tendem a ter mais poder quando:\n- são concentrados;\n- compram grande volume;\n- têm alternativas;\n- o produto é pouco diferenciado;\n- custo de troca é baixo;\n- podem integrar para trás."
+        },
+        {
+          "heading": "Custos de mudança",
+          "body": "Baixo custo de troca para o comprador → tende a aumentar seu poder.\nEsse é um ponto típico de prova."
+        },
+        {
+          "heading": "13. Poder dos fornecedores",
+          "body": "Fornecedores tendem a ter mais poder quando:\n- são concentrados;\n- há poucos substitutos de insumo;\n- trocar de fornecedor é caro;\n- o insumo é crítico;\n- existe possibilidade de integração para frente."
+        },
+        {
+          "heading": "14. Substitutos",
+          "body": "Substituto não precisa ser produto idêntico.\nÉ solução diferente que atende à mesma necessidade.\nExemplo:\n- videoconferência pode substituir parte das viagens;\n- streaming substitui parte da mídia física."
+        },
+        {
+          "heading": "Efeito",
+          "body": "Substitutos limitam preço e rentabilidade porque ampliam alternativas do usuário."
+        },
+        {
+          "heading": "15. Cinco Forças × SWOT",
+          "body": "Cinco Forças\n- foco externo;\n- foco setorial;\n- estrutura competitiva.\nSWOT\n- combina interno + externo;\n- sintetiza posição estratégica;\n- não detalha sozinha a estrutura competitiva."
+        },
+        {
+          "heading": "Ponte",
+          "body": "Resultado de Cinco Forças pode alimentar:\n- oportunidades;\n- ameaças;\n- decisões estratégicas.\n---\n# PARTE III — RBV E VRIO"
+        },
+        {
+          "heading": "16. Ideia central da RBV",
+          "body": "A Resource-Based View desloca a pergunta:\n> de “como é o setor?” para “o que a organização possui ou sabe fazer que outros não replicam facilmente?”\nO foco é interno."
+        },
+        {
+          "heading": "Recursos",
+          "body": "Ativos controlados ou acessíveis à organização.\nPodem ser:\n- físicos;\n- financeiros;\n- humanos;\n- tecnológicos;\n- informacionais;\n- reputacionais;\n- organizacionais."
+        },
+        {
+          "heading": "Capacidades",
+          "body": "Habilidade de combinar recursos e executar atividades de forma consistente.\nExemplo:\n- possuir sistema = recurso;\n- conseguir integrar dados e tomar decisão melhor = capacidade."
+        },
+        {
+          "heading": "18. VRIO",
+          "body": "Um recurso/capacidade pode gerar vantagem sustentável quando é:\n- V — Valuable / Valioso\n- R — Rare / Raro\n- I — Inimitable / difícil ou custoso de imitar\n- O — Organized / organização preparada para explorá-lo"
+        },
+        {
+          "heading": "Automação",
+          "body": "> VRIO = Valioso + Raro + difícil de Imitar + Organização."
+        },
+        {
+          "heading": "19. Lógica do VRIO",
+          "body": "Condição\nResultado típico\nnão valioso\ndesvantagem/irrelevância estratégica\nvalioso, mas comum\nparidade competitiva\nvalioso + raro, mas imitável\nvantagem temporária\nVRIO completo\npotencial de vantagem sustentável"
+        },
+        {
+          "heading": "20. Por que recursos podem ser difíceis de imitar",
+          "body": "Exemplos clássicos:\n- dependência de trajetória;\n- ambiguidade causal;\n- complexidade social;\n- conhecimento tácito;\n- reputação construída ao longo do tempo."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "“Raro” sozinho não basta."
+        },
+        {
+          "heading": "21. RBV no setor público",
+          "body": "Em organização pública, o modelo não precisa ser lido como busca de lucro.\nPode ajudar a analisar:\n- capacidade institucional;\n- competências;\n- conhecimento;\n- tecnologia;\n- dados;\n- reputação;\n- coordenação.\nMas cuidado:\n> adaptação ao setor público não altera o núcleo conceitual da RBV."
+        },
+        {
+          "heading": "22. RBV × Cinco Forças",
+          "body": "Modelo\nOlhar\nUnidade de análise\nCinco Forças\nexterno\nsetor/estrutura competitiva\nRBV\ninterno\nrecursos/capacidades"
+        },
+        {
+          "heading": "Macete",
+          "body": "Porter pergunta “contra quem e sob quais pressões?”.\nRBV pergunta “com o quê e com quais capacidades?”.\n---\n# PARTE IV — BUSINESS MODEL CANVAS"
+        },
+        {
+          "heading": "23. O que é",
+          "body": "O Business Model Canvas — BMC representa, em nove blocos, a lógica de como uma organização:\n- cria valor;\n- entrega valor;\n- captura valor.\nÉ visual e integrador.\nNão é:\n- organograma;\n- cronograma;\n- plano estratégico inteiro;\n- BSC;\n- Canvas da Proposta de Valor isoladamente."
+        },
+        {
+          "heading": "Lado de valor/cliente",
+          "body": "1. Segmentos de Clientes\n2. Proposta de Valor\n3. Canais\n4. Relacionamento com Clientes\n5. Fontes de Receita"
+        },
+        {
+          "heading": "Lado operacional",
+          "body": "1. Recursos-Chave\n2. Atividades-Chave\n3. Parcerias-Chave"
+        },
+        {
+          "heading": "Base econômica",
+          "body": "1. Estrutura de Custos"
+        },
+        {
+          "heading": "25. Segmentos de Clientes",
+          "body": "Pergunta:\n> para quem estamos criando valor?\nPode haver:\n- mercado de massa;\n- nicho;\n- segmentado;\n- diversificado;\n- plataforma multilateral."
+        },
+        {
+          "heading": "26. Proposta de Valor",
+          "body": "Perguntas típicas:\n- que valor entregamos?\n- que problema resolvemos?\n- que necessidade atendemos?\n- que combinação de produtos/serviços oferecemos?\nElementos possíveis:\n- novidade;\n- desempenho;\n- personalização;\n- redução de custo;\n- redução de risco;\n- acessibilidade;\n- conveniência."
+        },
+        {
+          "heading": "FCC clássica",
+          "body": "Perguntas “qual valor?”, “qual problema?” e “qual necessidade?” apontam para Proposta de Valor."
+        },
+        {
+          "heading": "27. Canais",
+          "body": "Pergunta:\n> por onde o valor chega ao segmento?\nExemplos:\n- atendimento presencial;\n- aplicativo;\n- portal;\n- parceiros;\n- comunicação institucional."
+        },
+        {
+          "heading": "28. Relacionamento com Clientes",
+          "body": "Pergunta:\n> que tipo de relação mantemos com cada segmento?\nExemplos:\n- atendimento pessoal;\n- autoatendimento;\n- serviço automatizado;\n- comunidades;\n- cocriação."
+        },
+        {
+          "heading": "29. Fontes de Receita",
+          "body": "Pergunta:\n> como o modelo captura receita/retorno econômico?\nNo setor público, cuidado com adaptação:\n- nem toda entrega pública gera receita de cliente;\n- o bloco pode exigir leitura de financiamento/fonte de recursos conforme o uso adaptado;\n- não transforme cidadão em “cliente pagante” artificialmente."
+        },
+        {
+          "heading": "30. Recursos-Chave",
+          "body": "Pergunta:\n> o que precisamos possuir/controlar para o modelo funcionar?\nExemplos:\n- pessoas;\n- tecnologia;\n- instalações;\n- dados;\n- marca;\n- capital."
+        },
+        {
+          "heading": "31. Atividades-Chave",
+          "body": "Pergunta:\n> o que precisamos fazer excepcionalmente bem?\nExemplos:\n- produzir;\n- resolver problemas;\n- operar plataforma;\n- gerenciar rede."
+        },
+        {
+          "heading": "32. Parcerias-Chave",
+          "body": "Pergunta:\n> quem precisa atuar conosco?\nExemplos:\n- fornecedores;\n- alianças;\n- parceiros de tecnologia;\n- redes institucionais."
+        },
+        {
+          "heading": "33. Estrutura de Custos",
+          "body": "Pergunta:\n> quais custos dominam o modelo?\nRelaciona-se fortemente a:\n- recursos-chave;\n- atividades-chave;\n- parcerias."
+        },
+        {
+          "heading": "BMC",
+          "body": "Modelo inteiro com 9 blocos."
+        },
+        {
+          "heading": "Value Proposition Canvas",
+          "body": "Aprofunda:\n- perfil do cliente;\n- tarefas;\n- dores;\n- ganhos;\n- produtos/serviços;\n- aliviadores de dores;\n- criadores de ganhos."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Proposta de Valor é um bloco do BMC.\nCanvas da Proposta de Valor é outra ferramenta, complementar.\n---\n# PARTE V — CADEIA DE VALOR DE PORTER"
+        },
+        {
+          "heading": "35. Ideia central",
+          "body": "A Cadeia de Valor decompõe a organização em atividades para entender:\n- como valor é criado;\n- onde existem custos;\n- onde pode surgir diferenciação;\n- como atividades se articulam.\nNão é sinônimo de:\n- cadeia de suprimentos;\n- fluxograma;\n- organograma;\n- BSC."
+        },
+        {
+          "heading": "36. Atividades primárias",
+          "body": "Na formulação clássica:\n1. logística interna;\n2. operações;\n3. logística externa;\n4. marketing e vendas;\n5. serviço/pós-venda."
+        },
+        {
+          "heading": "37. Logística interna",
+          "body": "Relaciona-se ao recebimento, armazenagem e movimentação de insumos.\nExemplo FCC:\n- recebimento e amostragem de grãos vindos dos fornecedores → logística interna."
+        },
+        {
+          "heading": "38. Operações",
+          "body": "Transformação dos insumos no produto/serviço principal.\nExemplos:\n- processamento;\n- montagem;\n- execução técnica central."
+        },
+        {
+          "heading": "39. Logística externa",
+          "body": "Distribuição/entrega da saída ao cliente.\nExemplo:\n- armazenagem de produto acabado e distribuição."
+        },
+        {
+          "heading": "40. Marketing e vendas",
+          "body": "Atividades que:\n- comunicam;\n- promovem;\n- posicionam;\n- viabilizam a aquisição pelo cliente."
+        },
+        {
+          "heading": "41. Serviço",
+          "body": "Atividades que preservam/ampliam valor após a entrega.\nExemplos:\n- suporte;\n- manutenção;\n- assistência;\n- pós-venda."
+        },
+        {
+          "heading": "42. Atividades de apoio",
+          "body": "Na Cadeia de Valor clássica:\n- infraestrutura da empresa;\n- gestão de recursos humanos;\n- desenvolvimento de tecnologia;\n- aquisição/procurement."
+        },
+        {
+          "heading": "Atenção",
+          "body": "“Compras/aquisição” é atividade de apoio no modelo clássico.\nNão confundir com logística interna, que recebe e movimenta insumos."
+        },
+        {
+          "heading": "43. Margem",
+          "body": "A cadeia busca entender a diferença entre:\n- valor percebido/gerado;\n- custos das atividades.\nNo setor público, “valor” pode ser adaptado para:\n- valor público;\n- qualidade;\n- efetividade;\n- entrega ao cidadão.\nMas o modelo original é competitivo/empresarial."
+        },
+        {
+          "heading": "44. Cadeia de Valor × Gestão por Processos",
+          "body": "Em gestão pública moderna, “cadeia de valor institucional” também pode aparecer como mapa de macroprocessos:\n- finalísticos;\n- suporte;\n- estratégicos/gerenciais, conforme a metodologia adotada."
+        },
+        {
+          "heading": "Não misture conceitos",
+          "body": "A prova pode usar:\n- Porter clássico, ou\n- cadeia de valor institucional/processual.\nLeia o comando.\nD066 prioriza Porter, porque o edital coloca o tema em Administração Estratégica.\n---\n# PARTE VI — REVISÃO CURTA DE SWOT"
+        },
+        {
+          "heading": "Interno",
+          "body": "- Strengths — Forças\n- Weaknesses — Fraquezas"
+        },
+        {
+          "heading": "Externo",
+          "body": "- Opportunities — Oportunidades\n- Threats — Ameaças"
+        },
+        {
+          "heading": "Regra automática",
+          "body": "> controlável/organizacional → tende a interno.\nfora da organização → externo."
+        },
+        {
+          "heading": "46. SWOT × Porter × RBV",
+          "body": "Imagine uma organização:\n- SWOT mostra visão sintética;\n- Cinco Forças aprofunda parte do ambiente externo/setorial;\n- RBV aprofunda parte do ambiente interno, especialmente recursos/capacidades.\nEles podem se complementar.\n---\n# PARTE VII — REVISÃO CURTA DE BSC"
+        },
+        {
+          "heading": "47. BSC",
+          "body": "O Balanced Scorecard traduz estratégia em:\n- objetivos;\n- indicadores;\n- metas;\n- iniciativas.\nPerspectivas clássicas:\n1. financeira;\n2. clientes;\n3. processos internos;\n4. aprendizado e crescimento."
+        },
+        {
+          "heading": "48. Mapa estratégico",
+          "body": "Mostra relações de causa e efeito entre objetivos.\nExemplo:\n> capacitação → processo melhor → serviço melhor → resultado institucional melhor."
+        },
+        {
+          "heading": "FCC",
+          "body": "Mapa estratégico não é:\n- organograma;\n- fluxograma de processo;\n- SWOT;\n- desenho de apenas duas perspectivas."
+        },
+        {
+          "heading": "49. BSC no setor público",
+          "body": "A arquitetura pode ser adaptada.\nFrequentemente:\n- missão/cidadão assume centralidade;\n- perspectiva financeira passa a ser meio/restrição, não “lucro final”."
+        },
+        {
+          "heading": "Pegadinha",
+          "body": "Não afirmar:\n> “BSC não se aplica ao setor público.”\nAplica-se, com adaptações.\n---\n# PARTE VIII — MAPA-MESTRE DOS SEIS MODELOS"
+        },
+        {
+          "heading": "50. Entregável canônico",
+          "body": "Modelo\nPergunta que responde\nUnidade de análise\nUso\nPegadinha FCC\nSWOT\nonde estamos?\ninterno + externo\ndiagnóstico sintético\nforça/fraqueza como externo\nCinco Forças\ncomo é a pressão competitiva?\nsetor\nanálise estrutural externa\nconfundir concorrente com todas as forças\nRBV/VRIO\no que temos/sabemos fazer?\nrecursos/capacidades\nvantagem interna\nraro sozinho = sustentável\nBMC\ncomo criamos/entregamos/capturamos valor?\nmodelo de negócio\narquitetura do modelo\nconfundir proposta de valor com Canvas inteiro\nBSC\ncomo executar e medir estratégia?\nobjetivos e desempenho\ntradução/controle estratégico\nreduzir a financeiro\nCadeia de Valor\nonde valor/custo nasce nas atividades?\natividades\nanálise de criação de valor\naquisição ≠ logística interna\n---\n# PARTE IX — PEGADINHAS DE ALTA PRIORIDADE"
+        },
+        {
+          "heading": "51. Trocas clássicas",
+          "body": "1. Cinco Forças = ambiente interno.\n2. Rivalidade = única força.\n3. Substituto = concorrente idêntico.\n4. RBV = análise do setor.\n5. Valioso + raro = vantagem sustentável automaticamente.\n6. Organização não integra VRIO.\n7. BMC possui 4 perspectivas.\n8. BSC possui 9 blocos.\n9. Proposta de Valor = Canvas inteiro.\n10. Canais = relacionamento.\n11. Recursos-chave = atividades-chave.\n12. logística interna = compras/procurement.\n13. RH = atividade primária de Porter.\n14. marketing e vendas = apoio.\n15. SWOT oportunidade = interno.\n16. BSC = indicadores financeiros apenas."
+        },
+        {
+          "heading": "52. Teste de 20 segundos",
+          "body": "Se o enunciado perguntar:\n- forças do setor? → Porter;\n- recursos raros? → RBV;\n- nove blocos? → BMC;\n- atividades primárias? → Cadeia de Valor;\n- forças/fraquezas/oportunidades/ameaças? → SWOT;\n- perspectivas/indicadores/mapa estratégico? → BSC.\n---\n# PARTE X — PRÉ-Q066"
+        },
+        {
+          "heading": "53. Antes da bateria",
+          "body": "Sem consulta:\n1. liste as cinco forças;\n2. diga o que reduz ameaça de entrantes;\n3. explique substituto;\n4. recite VRIO;\n5. recurso × capacidade;\n6. liste os 9 blocos do BMC;\n7. diferencie canal × relacionamento;\n8. liste atividades primárias;\n9. liste atividades de apoio;\n10. SWOT: interno × externo;\n11. BSC: quatro perspectivas;\n12. qual modelo responde “onde o valor é criado nas atividades?”.\nSe errar 4 ou mais, volte às seções correspondentes."
+        },
+        {
+          "heading": "Regra da Base Técnica",
+          "body": "Das 30 questões:\n- pelo menos 18 devem incidir nos quatro conteúdos novos/menos comprovados.\nO Q066 foi desenhado acima desse piso.\n---\n# PARTE XI — PÓS-Q066"
+        },
+        {
+          "heading": "55. Classificação da causa do erro",
+          "body": "- E1: Cinco Forças;\n- E2: RBV/VRIO;\n- E3: BMC;\n- E4: Cadeia de Valor;\n- E5: SWOT;\n- E6: BSC;\n- E7: modelo errado para a pergunta;\n- E8: confusão entre conceitos vizinhos;\n- E9: leitura FCC."
+        },
+        {
+          "heading": "Erros críticos",
+          "body": "- não listar as cinco forças;\n- errar VRIO;\n- não conhecer os 9 blocos;\n- confundir primárias × apoio;\n- confundir SWOT interno × externo;\n- confundir BMC × BSC.\n---\n# PARTE XII — D0, D7 E D20"
+        },
+        {
+          "heading": "56. D0",
+          "body": "Após execução real:\n1. refaça erradas e acertos com dúvida;\n2. desenhe o quadro dos 6 modelos sem consulta;\n3. recite 5 forças;\n4. recite VRIO;\n5. escreva 9 blocos BMC;\n6. escreva 5 primárias + 4 apoios da Cadeia de Valor;\n7. explique SWOT × Porter × RBV;\n8. explique BMC × BSC.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "57. D7",
+          "body": "Acionar editorialmente.\nMotivo:\n- quatro modelos novos/menos comprovados;\n- alto risco de troca conceitual;\n- FCC recente cobra diretamente os modelos."
+        },
+        {
+          "heading": "58. D20",
+          "body": "Acionar editorialmente.\nMotivo:\n- conteúdo retorna no D078 e nos simulados;\n- transferência exige manutenção do mapa comparativo.\n> D7/D20 acionados ≠ revisões realizadas."
+        },
+        {
+          "heading": "59. Flashcards candidatos",
+          "body": "Somente após erro/dúvida real:\n- cinco forças;\n- VRIO;\n- 9 blocos BMC;\n- primárias × apoio;\n- SWOT interno/externo;\n- 4 perspectivas BSC.\nSem meta artificial.\n---\n# PARTE XIII — CRITÉRIOS DE CONCLUSÃO"
+        },
+        {
+          "heading": "60. Critério editorial",
+          "body": "Liberar somente se:\n- mapa de modelos estiver completo;\n- Q066 tiver 30 válidas;\n- pelo menos 18 incidirem nos quatro conteúdos novos;\n- FCC real estiver rastreável;\n- questão autoral estiver identificada;\n- correções estiverem recolhíveis;\n- execução real estiver vazia."
+        },
+        {
+          "heading": "61. Critério do aluno",
+          "body": "Só considerar estudado após:\n- estudo real;\n- 30 respostas;\n- correção;\n- mapa dos modelos sem consulta;\n- D0;\n- registro dos erros reais.\nPronto para estudo ≠ estudado."
+        },
+        {
+          "heading": "62. Ponte",
+          "body": "- D067 é protegido / Sem TCE.\n- a próxima sessão ativa é S31 / D068 — Matemática/RLM — calibração FCC.\nD066 termina aqui."
+        },
+        {
+          "heading": "63. Notas editoriais",
+          "body": "- Fonte-Mestra v1.3 — B09/D066;\n- Base Técnica v1.3 — seção 08.11;\n- Base Operacional v1.3 — curadoria/validade;\n- referências conceituais: Porter, Barney, Osterwalder & Pigneur, Kaplan & Norton;\n- desenvolvimento: v2;\n- execução real: não preenchida."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T19:40:01.987Z"
+    },
+    "d068": {
+      "dxx": "D068",
+      "title": "D068 — Matemática/RLM",
+      "summary": "Matemática/RLM — calibração FCC — verificar retenção por subbloco: aritmética, proporcionalidade, porcentagem, lógica e sequências; teoria apenas onde o histórico não se sustentar.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D068 — Matemática/RLM \\| calibração FCC\nS31 / D068 — 105 min · 30 questões FCC. Esta sessão é uma calibração de retenção, não uma aula ampla de Matemática/RLM. A ordem é obrigatória: FCC → classificar erros → decidir intervenção → teoria somente no ponto necessário."
+        },
+        {
+          "heading": "2. Por que D068 não vira apostila",
+          "body": "A Base Técnica classifica os 26 microitens do edital de Matemática/RLM como parcialmente estudados, não como conteúdo sem base.\nO problema é outro:\n- existe histórico real de estudo;\n- a retenção atual no padrão FCC ainda não está granularmente comprovada;\n- teoria ampla consumiria tempo sem mostrar onde está a lacuna;\n- uma bateria dirigida fornece evidência para decidir o que merece reabertura."
+        },
+        {
+          "heading": "Regra-mãe",
+          "body": "> Primeiro medir. Depois ensinar apenas o que a medição justificar."
+        },
+        {
+          "heading": "3. Evidência histórica reaproveitada",
+          "body": "O projeto parte de conhecimento prévio em:\n- operações e expressões;\n- frações;\n- múltiplos/divisores;\n- razão e proporção;\n- regra de três;\n- porcentagem;\n- relações e deduções lógicas;\n- condições e conclusões;\n- sequências;\n- orientação espacial/temporal.\nIsso não significa domínio atual.\nSignifica apenas que D068 não começa pela teoria."
+        },
+        {
+          "heading": "4. Os quatro subblocos canônicos",
+          "body": "Código\nSubbloco\nConteúdo\nQuestões\nM1\nAritmética\ninteiros, racionais, operações, expressões, múltiplos/divisores, frações, problemas aritméticos\n8\nM2\nProporcionalidade\nrazão, proporção, divisão proporcional, regra de três, porcentagem, aumentos/descontos\n8\nM3\nRaciocínio lógico aplicado\nrelações, dedução, condições, hipóteses/conclusões, problemas lógicos\n7\nM4\nSequencial/espacial/temporal\nsequências, padrões, posição, ciclos, discriminação e organização de elementos\n7\n\\Total\\\n\\30\\"
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final da execução real, você deve conseguir:\n1. obter um resultado separado para M1–M4;\n2. distinguir erro conceitual de erro operacional;\n3. identificar subblocos realmente preservados;\n4. apontar quais exigem revisão curta;\n5. apontar quais exigem teoria dirigida;\n6. apontar se algum bloco precisa ser reaberto;\n7. não confundir acerto familiar com domínio comprovado;\n8. registrar a matriz retenção × complemento;\n9. executar D0 sobre erros/dúvidas;\n10. deixar D7/D20 condicionados à evidência real."
+        },
+        {
+          "heading": "Fonte canônica",
+          "body": "- Fonte-Mestra v1.3 — D068;\n- Base Técnica v1.3 — seção 08.4;\n- Base Operacional v1.3 — questão, erro e revisão;\n- Template de Calibração de Matéria Histórica."
+        },
+        {
+          "heading": "Questões",
+          "body": "O Q068 usa 30 questões FCC reais, com metadados/localizadores e correção em paráfrase.\nNão há item autoral no lote inicial.\n---\n# PARTE I — EXECUÇÃO DA CALIBRAÇÃO"
+        },
+        {
+          "heading": "Fase A — tentativa sem consulta · 65 min",
+          "body": "- resolver Q01–Q30;\n- não abrir correções;\n- não consultar resumo;\n- registrar resposta;\n- confiança;\n- tempo aproximado quando útil."
+        },
+        {
+          "heading": "Fase B — correção e causa do erro · 25 min",
+          "body": "Para cada erro ou acerto com dúvida:\n- abrir correção;\n- classificar a causa;\n- vincular ao subbloco;\n- evitar escrever resumo longo."
+        },
+        {
+          "heading": "Fase C — matriz e D0 · 15 min",
+          "body": "- contar acertos M1–M4;\n- calcular percentual;\n- definir ação;\n- fazer recuperação ativa dos erros centrais."
+        },
+        {
+          "heading": "8. Ordem da bateria",
+          "body": "> M1 → M2 → M3 → M4\nIsso permite perceber se o problema nasce na base numérica antes de aparecer em problemas abstratos."
+        },
+        {
+          "heading": "Gatilho especial da Base Técnica",
+          "body": "Se M1 ou M2 mostrar fragilidade, priorizar recuperação de base aritmética/proporcional antes de tentar ganhar velocidade em lógica abstrata.\n---\n# PARTE II — COMO CLASSIFICAR O RESULTADO"
+        },
+        {
+          "heading": "9. Faixas operacionais internas",
+          "body": "Estas faixas são regra do projeto, não critério oficial da FCC.\nResultado do subbloco\nDecisão\n≥ 85%\npreservar; manutenção por questões; sem teoria ampla\n75–84%\nrevisão curta de erros + nova bateria\n60–74%\nteoria dirigida no ponto frágil + questões\n&lt; 60%\nreabrir o subbloco específico"
+        },
+        {
+          "heading": "Regra superior às porcentagens",
+          "body": "> Erro conceitual em conteúdo realmente novo ou esquecido pode exigir teoria mesmo com percentual global alto."
+        },
+        {
+          "heading": "10. Cuidado com amostra pequena",
+          "body": "M1/M2 têm 8 questões; M3/M4 têm 7.\nLogo, o percentual do dia é evidência de calibração, não prova definitiva de domínio global.\nExemplo:\n- 6/7 = 85,7%;\n- 5/7 = 71,4%.\nUma única questão muda bastante a faixa."
+        },
+        {
+          "heading": "Regra de estabilidade",
+          "body": "Matéria historicamente forte só deve ser tratada como manutenção estável após:\n- dois contatos em momentos diferentes; ou\n- uma bateria maior + checkpoint/simulado consistente."
+        },
+        {
+          "heading": "11. Matriz retenção × complemento",
+          "body": "Preencher somente após a execução real:\nSubbloco\nAcertos\nErros\n%\nMotivo predominante\nAção\nM1 — Aritmética\n—\n—\n—\n—\n—\nM2 — Proporcionalidade\n—\n—\n—\n—\n—\nM3 — Lógica aplicada\n—\n—\n—\n—\n—\nM4 — Sequências\n—\n—\n—\n—\n—\n---\n# PARTE III — TAXONOMIA DE ERROS"
+        },
+        {
+          "heading": "12. Código da causa",
+          "body": "Use uma causa principal:\n- C1 — conceito: regra/fundamento esquecido;\n- C2 — modelagem: não traduziu o enunciado;\n- C3 — operação: conta, sinal, fração, simplificação;\n- C4 — leitura: informação ignorada ou invertida;\n- C5 — estratégia: método excessivamente longo/ruim;\n- C6 — tempo: sabia, mas não concluiu;\n- C7 — dúvida: acertou sem segurança;\n- C8 — padrão: não identificou regularidade/sequência."
+        },
+        {
+          "heading": "P1",
+          "body": "- erro conceitual básico;\n- reincidência;\n- erro que contamina vários tópicos;\n- falha grave em proporção/porcentagem;\n- lógica fundamental quebrada."
+        },
+        {
+          "heading": "P2",
+          "body": "- método inadequado;\n- leitura;\n- erro isolado relevante."
+        },
+        {
+          "heading": "P3",
+          "body": "- distração sem recorrência;\n- aritmética casual;\n- lapso sem perda de conceito.\n---\n# PARTE IV — MENU DE RESGATE PÓS-BATERIA\nNão estudar esta parte antes de responder Q068. Ela existe apenas para a intervenção que a bateria autorizar."
+        },
+        {
+          "heading": "14. M1 — resgate mínimo",
+          "body": "Se M1 exigir intervenção, revisar somente o ponto correspondente:\n- prioridade das operações;\n- sinais;\n- frações e denominador comum;\n- fatoração/divisibilidade;\n- média;\n- equação aritmética simples;\n- tradução de problema em expressão."
+        },
+        {
+          "heading": "Macete",
+          "body": "> Antes de calcular, escreva a relação.\nErro de modelagem não se corrige fazendo a mesma conta mais rápido."
+        },
+        {
+          "heading": "15. M2 — resgate mínimo",
+          "body": "Revisar conforme o erro:\n- razão = comparação;\n- proporção = igualdade entre razões;\n- grandezas direta/inversamente proporcionais;\n- divisão proporcional;\n- regra de três;\n- porcentagem;\n- aumento: valor × (1 + taxa);\n- desconto: valor × (1 − taxa)."
+        },
+        {
+          "heading": "Armadilha",
+          "body": "Aumentar de 1/3 para 1/2 de uma referência fixa é aumento de 50% sobre o valor inicial, não de 1/6 = 16,7%."
+        },
+        {
+          "heading": "16. M3 — resgate mínimo",
+          "body": "Revisar apenas a estrutura que falhou:\n- condicional;\n- contrapositiva;\n- negação;\n- “e” × “ou”;\n- bicondicional;\n- hipótese → consequência;\n- dedução por restrições;\n- suficiência das informações."
+        },
+        {
+          "heading": "Regra",
+          "body": "Não “chute cenário plausível”.\nListe as restrições e elimine incompatibilidades."
+        },
+        {
+          "heading": "17. M4 — resgate mínimo",
+          "body": "Antes de procurar fórmula complexa:\n1. separar subsequências intercaladas;\n2. observar diferenças;\n3. observar ciclos;\n4. identificar índice/posição;\n5. usar resto da divisão quando houver periodicidade;\n6. distinguir valor do termo de posição do termo."
+        },
+        {
+          "heading": "FCC",
+          "body": "Em sequência longa, quase sempre a economia vem de enxergar estrutura, não de gerar centenas de termos.\n---\n# PARTE V — DECISÃO PÓS-D068"
+        },
+        {
+          "heading": "Se todos os M1–M4 ≥ 85%",
+          "body": "- não reabrir teoria;\n- manter por questões;\n- observar estabilidade em checkpoint/simulado."
+        },
+        {
+          "heading": "Se algum subbloco estiver 75–84%",
+          "body": "- revisar apenas os erros;\n- nova bateria curta;\n- sem aula integral."
+        },
+        {
+          "heading": "Se algum estiver 60–74%",
+          "body": "- abrir teoria dirigida;\n- resolver exemplos;\n- nova bateria específica."
+        },
+        {
+          "heading": "Se algum estiver \\< 60%",
+          "body": "- reabrir aquele subbloco;\n- criar trilha curta de recuperação;\n- não reabrir automaticamente os demais."
+        },
+        {
+          "heading": "19. Se M1/M2 estiverem fracos",
+          "body": "Prioridade:\n> base aritmética/proporcional → depois velocidade em RLM abstrato.\nNão compensa sofisticar lógica se operações, frações ou proporções ainda geram erro recorrente.\n---\n# PARTE VI — D0, D7 E D20"
+        },
+        {
+          "heading": "20. D0",
+          "body": "Sempre configurado.\nApós correção real:\n1. refaça erros sem olhar solução;\n2. refaça acertos com dúvida;\n3. explique em uma frase a causa;\n4. registre o método correto;\n5. resolva mentalmente um exemplo equivalente simples.\nD0 ainda não realizado."
+        },
+        {
+          "heading": "21. D7 — condicional",
+          "body": "D7 não é acionado preventivamente nesta preparação.\nAcionar depois da execução se houver:\n- conteúdo realmente novo;\n- erro conceitual importante;\n- acerto com dúvida em conceito central;\n- fragilidade confirmada;\n- subbloco que necessite teoria dirigida/reabertura."
+        },
+        {
+          "heading": "22. D20 — condicional",
+          "body": "D20 também não é acionado preventivamente.\nAcionar se houver:\n- erro P1;\n- reincidência;\n- subbloco reaberto;\n- fragilidade que reapareça em nova bateria/checkpoint.\nCalibração sem resultado real não justifica marcar D7/D20 por burocracia.\n---\n# PARTE VII — CRITÉRIOS"
+        },
+        {
+          "heading": "23. Critério editorial",
+          "body": "D068 pode ficar Pronto para estudo quando:\n- protocolo de calibração estiver claro;\n- Q068 tiver 30 FCC reais;\n- distribuição M1–M4 estiver correta;\n- todos os gabaritos/correções estiverem auditados;\n- matriz pós-bateria estiver vazia;\n- D7/D20 não forem falseados como realizados/acionados sem evidência."
+        },
+        {
+          "heading": "24. Critério do aluno",
+          "body": "A sessão só estará executada quando houver:\n- 30 respostas;\n- correção;\n- acertos/erros por M1–M4;\n- causa predominante;\n- ação por subbloco;\n- D0;\n- decisão sobre necessidade real de D7/D20."
+        },
+        {
+          "heading": "25. Ponte",
+          "body": "- D069 = protegido / Sem TCE.\n- próxima sessão ativa: S32 / D070 — CHECKPOINT D70 — SIMULADO 1 + Redação R3.\nD068 não processa D070."
+        },
+        {
+          "heading": "26. Notas editoriais",
+          "body": "- sessão de calibração, não construção ampla;\n- 30 FCC reais;\n- nenhuma questão autoral no lote inicial;\n- teoria de resgate fica condicionada ao desempenho;\n- versão editorial: v2;\n- execução real: não preenchida."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T19:52:09.751Z"
+    },
+    "d070": {
+      "dxx": "D070",
+      "title": "D070 — CHECKPOINT D70",
+      "summary": "CHECKPOINT D70 — SIMULADO 1 — 70 objetivas + Redação R3, em 4h30.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D070 — CHECKPOINT D70 \\| Simulado 1 + Redação R3\nS32 / D070 — 4h30 · 70 objetivas + Redação R3. Primeiro simulado integral do projeto. Não introduz teoria: mede integração, retenção, gestão de tempo, ordem de resolução, fadiga e estabilidade da escrita no formato completo."
+        },
+        {
+          "heading": "1. Função do marco",
+          "body": "O D70 responde quatro perguntas:\n1. o conteúdo construído até D068 é recuperável em prova integral?\n2. a distribuição entre Gerais e Específicos revela desequilíbrio?\n3. a gestão de tempo deixa espaço para R3 com qualidade?\n4. quais são os 15 erros mais informativos para a clínica do D071?"
+        },
+        {
+          "heading": "Não é",
+          "body": "- aula;\n- “reta final” antecipada;\n- previsão de classificação;\n- justificativa automática para reformar a trilha;\n- substituto da correção profunda do D071."
+        },
+        {
+          "heading": "D20 / D45",
+          "body": "Ambos possuem estrutura editorial pronta, mas continuam sem execução real. Logo:\n- nenhuma taxa de acerto anterior pode ser inventada;\n- nenhuma tendência D20→D45→D70 pode ser afirmada;\n- o D70 será o primeiro marco integral com potencial de gerar baseline real."
+        },
+        {
+          "heading": "R1 / R2",
+          "body": "R1 e R2 seguem planejadas, sem produção real. R3 não pode presumir evolução.\nIntegridade: painel vazio continua vazio. Preparado ≠ realizado."
+        },
+        {
+          "heading": "3. Configuração oficial simulada",
+          "body": "Bloco\nMatéria\nQuestões\nPeso\nGerais\nPortuguês\n10\n1\nGerais\nMatemática/RLM\n10\n1\nGerais\nLegislação Institucional\n5\n1\nEspecíficos\nDireito Administrativo\n5\n2\nEspecíficos\nLicitações e Contratos\n5\n2\nEspecíficos\nDireito Constitucional\n3\n2\nEspecíficos\nControle Externo\n4\n2\nEspecíficos\nAFO\n5\n2\nEspecíficos\nCASP\n5\n2\nEspecíficos\nAdministração Pública\n5\n2\nEspecíficos\nAdministração Geral\n4\n2\nEspecíficos\nAdministração Estratégica\n3\n2\nEspecíficos\nComportamento Organizacional\n3\n2\nEspecíficos\nGestão de Pessoas\n3\n2\nTotal\n70\n25 pts Gerais + 90 pts Específicos"
+        },
+        {
+          "heading": "Redação",
+          "body": "- R3;\n- tema de interesse geral;\n- texto dissertativo-argumentativo;\n- 20–30 linhas;\n- integrada às mesmas 4h30."
+        },
+        {
+          "heading": "4. Origem do Q070",
+          "body": "O caderno combina:\n- FCC real já auditada, usada como reexposição cumulativa;\n- FCC real nova localizada para completar disciplinas sem bateria prévia;\n- autorais controladas onde o projeto ainda não possui massa FCC suficiente no recorte."
+        },
+        {
+          "heading": "Regra de interpretação",
+          "body": "Questão reexposta:\n- continua sendo FCC real;\n- não é tratada como inédita;\n- pode sofrer efeito de familiaridade;\n- deve ser considerada com cautela ao interpretar o resultado."
+        },
+        {
+          "heading": "Consulta",
+          "body": "Nenhuma."
+        },
+        {
+          "heading": "Ordem-base do primeiro simulado",
+          "body": "Para criar baseline comparável e evitar otimização sem evidência:\n1. Gerais 1–25;\n2. Específicos 26–70;\n3. retorno às marcadas;\n4. R3;\n5. revisão final possível.\nA ordem real pode ser diferente, mas deve ser registrada depois."
+        },
+        {
+          "heading": "Primeira passada",
+          "body": "- responder o recuperável;\n- marcar dúvida;\n- se uma questão consumir tempo sem progresso, seguir;\n- não abrir correção/localizador-resposta durante a tentativa."
+        },
+        {
+          "heading": "Segunda passada",
+          "body": "Prioridade:\n1. questão com duas alternativas plausíveis;\n2. item de peso 2 reconhecido mas travado;\n3. literalidade em que a dúvida é localizada;\n4. cálculo em que o método foi identificado."
+        },
+        {
+          "heading": "Chute",
+          "body": "Se ainda travada:\n- eliminar alternativas;\n- escolher a melhor;\n- registrar depois apenas se realmente houve chute."
+        },
+        {
+          "heading": "6. Gestão das 4h30",
+          "body": "O projeto não fixa divisão rígida antes do primeiro simulado integral.\nO que precisa acontecer:\n- 70 objetivas;\n- retorno possível;\n- R3 com planejamento, escrita e revisão;\n- margem final quando houver."
+        },
+        {
+          "heading": "Registre depois",
+          "body": "- início/fim;\n- tempo total;\n- tempo de Gerais;\n- tempo de Específicos;\n- tempo de retorno;\n- tempo de R3;\n- tempo restante ao iniciar R3;\n- questões para retorno;\n- chutes;\n- acertos com dúvida;\n- sinais de fadiga."
+        },
+        {
+          "heading": "7. Q070",
+          "body": "O Q070 deve ser executado como caderno único. Correções ficam recolhidas e só são abertas após a tentativa."
+        },
+        {
+          "heading": "8. R3",
+          "body": "Tema:\nDigitalização dos serviços públicos e o desafio de não ampliar desigualdades de acesso.\nA R3 mede especialmente:\n- qualidade sob fadiga;\n- tempo restante;\n- manutenção de tese/estrutura;\n- revisão final."
+        },
+        {
+          "heading": "9. Painel de resultado — vazio até executar",
+          "body": "Bloco\nQuestões\nAcertos\nErros\nDúvidas\nTempo\nGerais\n25\n—\n—\n—\n—\nEspecíficos\n45\n—\n—\n—\n—\nTotal\n70\n—\n—\n—\n—"
+        },
+        {
+          "heading": "10. Painel por matéria",
+          "body": "Matéria\nMeta\nAcertos\nErros\nDúvidas\nPortuguês\n10\n—\n—\n—\nMatemática/RLM\n10\n—\n—\n—\nLegislação Institucional\n5\n—\n—\n—\nDireito Administrativo\n5\n—\n—\n—\nLicitações\n5\n—\n—\n—\nDireito Constitucional\n3\n—\n—\n—\nControle Externo\n4\n—\n—\n—\nAFO\n5\n—\n—\n—\nCASP\n5\n—\n—\n—\nAdministração Pública\n5\n—\n—\n—\nAdministração Geral\n4\n—\n—\n—\nAdministração Estratégica\n3\n—\n—\n—\nComportamento Organizacional\n3\n—\n—\n—\nGestão de Pessoas\n3\n—\n—\n—"
+        },
+        {
+          "heading": "11. IPI interno",
+          "body": "Somente após execução:\nIPI = ((acertos Gerais × 1) + (acertos Específicos × 2)) / 115 × 100\nO IPI:\n- é métrica interna do projeto;\n- não é nota padronizada FCC;\n- não é corte;\n- não é previsão de classificação."
+        },
+        {
+          "heading": "12. Painel técnico prioritário",
+          "body": "Preencher depois:\nEixo\nAcertos\nErros\nDiagnóstico\nControle Externo\n—\n—\n—\nCASP\n—\n—\n—\nLegislação Institucional\n—\n—\n—\nMatérias históricas\n—\n—\n—"
+        },
+        {
+          "heading": "13. Top 15 erros — não preencher antes",
+          "body": "1. —\n2. —\n3. —\n4. —\n5. —\n6. —\n7. —\n8. —\n9. —\n10. —\n11. —\n12. —\n13. —\n14. —\n15. —"
+        },
+        {
+          "heading": "Classificação",
+          "body": "Para cada erro relevante, registrar depois:\n- matéria;\n- questão;\n- causa;\n- severidade P1/P2/P3;\n- reincidência;\n- ação."
+        },
+        {
+          "heading": "14. Resultado da R3",
+          "body": "- nota simulada: —\n- linhas: —\n- tempo: —\n- principal força: —\n- maior perda: —\n- impacto da fadiga: —\n- ação para R4: —"
+        },
+        {
+          "heading": "15. Comparação longitudinal",
+          "body": "Indicador\nD20\nD45\nD70\nTendência\nAcerto geral\n—\n—\n—\n—\nGerais\n—\n—\n—\n—\nEspecíficos\n—\n—\n—\n—\nIPI interno\n—\n—\n—\n—\nControle\n—\n—\n—\n—\nCASP\n—\n—\n—\n—\nInstitucional\n—\n—\n—\n—\nTempo\n—\n—\n—\n—\nNo estado atual, D20/D45 não possuem execução real."
+        },
+        {
+          "heading": "16. Pós-simulado imediato",
+          "body": "Depois da correção inicial:\n1. calcular Gerais/Específicos;\n2. calcular IPI interno;\n3. preencher matéria por matéria;\n4. identificar top 15;\n5. marcar P1/reincidência;\n6. registrar R3;\n7. registrar estratégia/tempo/fadiga;\n8. não reabrir teoria ainda."
+        },
+        {
+          "heading": "17. D071 — clínica profunda",
+          "body": "A correção profunda do D70 ocorre no D071.\nD071 deve:\n- revisar todas as erradas e dúvidas;\n- abrir teoria somente onde o erro provar lacuna;\n- construir caderno de erros D70;\n- fechar 5 ações obrigatórias.\nD70 apenas produz o diagnóstico bruto e o material para essa clínica."
+        },
+        {
+          "heading": "18. D0",
+          "body": "Depois da correção imediata:\n- refazer 5 erros prioritários sem consulta;\n- verbalizar 5 regras;\n- rever acertos com dúvida de peso 2;\n- registrar a maior perda da R3.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "19. D7 / D20",
+          "body": "Nesta preparação:\n- D7 não é pré-acionado;\n- D20 não é pré-acionado.\nSomente o resultado real pode justificar:\n- erro P1;\n- reincidência;\n- conceito instável;\n- falha estrutural da R3;\n- fragilidade confirmada na clínica D071."
+        },
+        {
+          "heading": "20. Registro canônico do simulado",
+          "body": "Usar esse registro após a execução para consolidar:\n- Gerais;\n- Específicos;\n- IPI;\n- Controle;\n- CASP;\n- Legislação;\n- tempo;\n- P1;\n- redação;\n- impacto qualitativo sobre SEEDF/TJDFT;\n- decisão de rota."
+        },
+        {
+          "heading": "21. Critério editorial",
+          "body": "Liberar o D70 somente quando:\n- distribuição 25/45 estiver exata;\n- Q070 tiver 70/70;\n- origem real/autoral estiver identificada;\n- correção recolhível estiver funcional;\n- R3 estiver preparada;\n- registro de Simulado D70 existir;\n- campos reais permanecerem vazios."
+        },
+        {
+          "heading": "23. Fontes e componentes",
+          "body": "- seis Fontes canônicas TCE-GO;\n- Template Checkpoint/Simulado;\n- Template Redação Rxx;\n- baterias auditadas S01–S31;\n- distribuição oficial do edital;\n- R3 canônica;\n- registro D70 — Simulado 1.\nExecução real: não preenchida."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T20:08:20.689Z"
+    },
+    "d071": {
+      "dxx": "D071",
+      "title": "D071 — Correção profunda do D70",
+      "summary": "Correção profunda do D70 — Revisar todos os erros/dúvidas do Simulado 1. Teoria somente onde o erro revelar lacuna.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D071 — Correção profunda do D70 \\| clínica de erros\nS33 / D071 — 120 min · 30 equivalentes de correção intensiva. Este dia não é uma nova bateria. A unidade de trabalho é a causa do erro ou da dúvida real do D70. Sem D70 executado, a página está editorialmente pronta, mas a clínica real permanece sem dados."
+        },
+        {
+          "heading": "1. Função do D071",
+          "body": "O D070 mede. O D071 explica por que houve perda e decide a menor intervenção suficiente.\nO produto do dia é:\n- todos os erros e acertos com dúvida relevantes do D70 capturados;\n- causa E1–E8 definida;\n- severidade P1/P2/P3 definida;\n- reincidência R0–R3+ definida;\n- regra correta registrada;\n- microação proporcional escolhida;\n- reaplicação programada;\n- Fatal Errors atualizados quando cabível;\n- no máximo 5 ações obrigatórias de maior retorno."
+        },
+        {
+          "heading": "Não é",
+          "body": "- “mais 30 questões”;\n- revisão integral do edital;\n- releitura completa de matéria conhecida;\n- correção baseada apenas em acerto/erro;\n- sessão para preencher números fictícios antes do D70;\n- justificativa automática para abrir D7/D20."
+        },
+        {
+          "heading": "2. Pré-requisito de execução",
+          "body": "Antes de iniciar a clínica real, o D70 precisa ter:\n- 70 respostas encerradas;\n- correção inicial;\n- erros identificados;\n- acertos com dúvida identificados;\n- top 15 preliminar;\n- tempo/fadiga registrados quando disponíveis.\nSe esses dados ainda não existem:\n> não simular erro, resposta, gabarito pessoal, reincidência, IPI ou Fatal Error.\nA preparação editorial do D071 pode estar pronta; a execução pedagógica depende da evidência do D70."
+        },
+        {
+          "heading": "3. O que significam “30 equivalentes”",
+          "body": "A Fonte canônica define o D71 como 30 equivalentes de correção intensiva, e não 30 questões novas."
+        },
+        {
+          "heading": "Convenção operacional deste material",
+          "body": "Um equivalente representa uma unidade real de trabalho de correção, por exemplo:\n- diagnosticar integralmente um erro;\n- tratar um acerto com dúvida relevante;\n- executar uma microação;\n- fazer uma reaplicação vinculada ao erro;\n- validar um conceito em novo contato."
+        },
+        {
+          "heading": "Regra",
+          "body": "- não inventar questões para “bater 30”;\n- não abandonar erro real apenas para respeitar um contador;\n- usar 30 como referência de carga;\n- P1 \\> P2 \\> P3 na alocação do tempo;\n- todos os erros/dúvidas do D70 devem ao menos ser capturados e classificados."
+        },
+        {
+          "heading": "4. Objetivos mensuráveis",
+          "body": "Ao terminar a execução real, ser capaz de:\n1. explicar a causa de cada erro relevante;\n2. separar erro de conteúdo de erro de processo;\n3. classificar cada caso em E1–E8;\n4. classificar severidade P1/P2/P3;\n5. reconhecer reincidência R0–R3+;\n6. escrever a regra correta em linguagem curta;\n7. escolher microação proporcional;\n8. programar reaplicação;\n9. atualizar o Caderno de Erros sem burocracia desnecessária;\n10. selecionar no máximo 5 ações de maior retorno;\n11. identificar Fatal Errors cabíveis;\n12. dizer o que não será reaberto."
+        },
+        {
+          "heading": "5. Roteiro de 120 minutos",
+          "body": "Referência flexível:\n- 0–15 min: importar/capturar erros e dúvidas do D70;\n- 15–45 min: classificar causa, severidade e reincidência;\n- 45–80 min: corrigir fundamento/regra correta;\n- 80–100 min: microações + reaplicações prioritárias;\n- 100–115 min: Fatal Errors + 5 ações obrigatórias;\n- 115–120 min: fechamento e próximas checagens.\nSe houver muitos P1, o tempo deve migrar para eles. P3 não recebe o mesmo custo de P1."
+        },
+        {
+          "heading": "6. Captura inicial do D70",
+          "body": "Preencher somente depois do simulado:\n- Erros totais: —\n- Acertos com dúvida relevantes: —\n- Questões abandonadas/travadas: —\n- Erros de peso 2: —\n- Erros em Controle: —\n- Erros em CASP: —\n- Erros em Legislação Institucional: —\n- Erros em matérias históricas: —\n- Falhas de tempo/processo: —\n- Maior perda da R3 com natureza reutilizável: —"
+        },
+        {
+          "heading": "E1 — Desconhecimento",
+          "body": "O conteúdo necessário não estava disponível na memória/compreensão.\nIntervenção: teoria mínima necessária + exemplo + reaplicação."
+        },
+        {
+          "heading": "E2 — Confusão conceitual",
+          "body": "Dois conceitos foram misturados.\nIntervenção: contraste explícito, quadro curto, exemplo positivo/negativo."
+        },
+        {
+          "heading": "E3 — Lei/norma",
+          "body": "Erro de competência, prazo, exceção, literalidade ou vigência.\nIntervenção: fonte oficial vigente + dispositivo exato + reaplicação."
+        },
+        {
+          "heading": "E4 — Memória",
+          "body": "O conceito era conhecido, mas não foi recuperado.\nIntervenção: recuperação ativa; flashcard curto somente se reutilizável."
+        },
+        {
+          "heading": "E5 — Interpretação",
+          "body": "O conhecimento existia, mas o comando/enunciado foi lido de forma inadequada.\nIntervenção: reconstruir a leitura e identificar palavra/estrutura que mudou a resposta."
+        },
+        {
+          "heading": "E6 — Cálculo",
+          "body": "Método, operação, modelagem ou execução numérica falhou.\nIntervenção: refazer sem olhar + localizar o passo quebrado + item análogo."
+        },
+        {
+          "heading": "E7 — Distração",
+          "body": "Troca isolada, marcação, leitura parcial ou erro de processo simples.\nIntervenção: corrigir o processo; não abrir teoria por reflexo."
+        },
+        {
+          "heading": "E8 — Gestão do tempo",
+          "body": "Pressa, permanência excessiva, abandono ou má ordem alterou a resposta.\nIntervenção: ajustar estratégia, limite de permanência, retorno e ordem."
+        },
+        {
+          "heading": "P1 — Crítico",
+          "body": "Prioridade máxima quando houver:\n- fundamento central;\n- peso alto;\n- matéria nova central;\n- erro em simulado;\n- repetição;\n- regra cuja troca contamina várias questões;\n- estrutura central de Controle/CASP/Legislação."
+        },
+        {
+          "heading": "P2 — Relevante",
+          "body": "Erro pontual que exige correção, mas não ameaça um bloco inteiro."
+        },
+        {
+          "heading": "P3 — Isolado",
+          "body": "Baixo risco:\n- distração única;\n- detalhe periférico;\n- falha não recorrente e já compreendida.\n> P3 não consome o mesmo tempo de P1."
+        },
+        {
+          "heading": "9. Reincidência — R0 a R3+",
+          "body": "Contar o mesmo erro conceitual, não apenas a mesma questão.\n- R0: primeiro contato;\n- R1: reapareceu uma vez;\n- R2: segundo reaparecimento;\n- R3+: padrão consolidado.\nEm R2:\n- revisar não apenas o conteúdo;\n- revisar a estratégia de correção, recuperação e reteste."
+        },
+        {
+          "heading": "Conteúdo novo do projeto",
+          "body": "Controle, CASP e Legislação Institucional:\n- erro inicial pode fazer parte da construção;\n- prioridade é formar estrutura correta;\n- não punir percentuais precoces sem contexto."
+        },
+        {
+          "heading": "Matéria histórica",
+          "body": "Português, Administração, Direito, AFO etc.:\n- erro conceitual é mais informativo;\n- pode revelar perda de retenção ou lacuna histórica;\n- reabrir somente o subtema, nunca a disciplina inteira por padrão."
+        },
+        {
+          "heading": "11. Regra correta",
+          "body": "A correção deve caber em poucas linhas.\nBoa regra correta:\n- resolve o motivo da escolha errada;\n- diferencia o conceito confundido;\n- registra exceção quando decisiva;\n- não vira miniapostila.\nExemplo de forma:\n> Regra correta: BO confronta receita realizada com despesa empenhada; despesa paga não substitui empenhada no resultado orçamentário."
+        },
+        {
+          "heading": "12. Microação proporcional",
+          "body": "Escolher a menor intervenção suficiente:\nCausa\nMicroação preferencial\nE1\nteoria mínima + exemplo + reteste\nE2\nquadro comparativo + 2 contrastes\nE3\nfonte oficial + dispositivo + reteste\nE4\nrecuperação ativa / flashcard curto se útil\nE5\nreleitura guiada do comando + regra de leitura\nE6\nrefazer cálculo + item análogo\nE7\najuste de processo\nE8\najuste de tempo/ordem/retorno"
+        },
+        {
+          "heading": "13. Reaplicação",
+          "body": "Todo erro relevante precisa de novo teste."
+        },
+        {
+          "heading": "Validação padrão",
+          "body": "Encerrar conceitualmente somente após:\n- 2 acertos em questões inéditas do mesmo conceito, em contatos separados;\n- ou validação equivalente em checkpoint, conforme protocolo.\nCorreção sem reaplicação não prova aprendizagem."
+        },
+        {
+          "heading": "14. Fatal Errors",
+          "body": "Um erro pode entrar na lista Fatal Errors se:\n- P1 + R1 ou mais;\n- apareceu em simulado;\n- envolve conteúdo de alto peso/alta incidência;\n- troca uma regra básica que destrói várias questões;\n- envolve estrutura central de Controle/CASP/Legislação."
+        },
+        {
+          "heading": "Limite",
+          "body": "Máximo de 20 itens no projeto."
+        },
+        {
+          "heading": "Saída",
+          "body": "Somente após:\n- validação em pelo menos 2 contatos;\n- e ausência de reaparecimento no checkpoint seguinte."
+        },
+        {
+          "heading": "15. Integração com o Caderno de Erros",
+          "body": "Criar linha somente para erro/dúvida real que mereça persistência.\nCampos canônicos:\n- ID erro;\n- ID questão;\n- Dxx;\n- matéria;\n- tópico;\n- fonte;\n- peso;\n- resposta marcada;\n- gabarito;\n- motivo do erro;\n- regra correta;\n- ação;\n- severidade;\n- reincidência;\n- acerto com dúvida?;\n- Fatal Error?;\n- próxima checagem;\n- status;\n- observação."
+        },
+        {
+          "heading": "Não criar linha se",
+          "body": "- dúvida pequena já resolvida;\n- P3 isolado sem valor futuro;\n- correção mostrou domínio;\n- não há recorrência nem risco."
+        },
+        {
+          "heading": "16. Q071 — instrumento de clínica",
+          "body": "O Q071 contém 30 unidades equivalentes editáveis.\nCada unidade registra:\n- questão/origem;\n- resposta;\n- gabarito;\n- causa;\n- severidade;\n- reincidência;\n- fundamento;\n- regra correta;\n- microação;\n- reaplicação;\n- Fatal Error;\n- próxima checagem.\nQuestões válidas = 0 antes do D70 é intencional: nenhuma nova questão deve ser inventada para uma clínica que depende dos erros reais do simulado."
+        },
+        {
+          "heading": "17. As 5 ações obrigatórias",
+          "body": "Ao final, escolher no máximo cinco ações com maior retorno.\nAção\nEvidência do D70\nAlvo\nComo executar\nPróxima checagem\n1\n—\n—\n—\n—\n2\n—\n—\n—\n—\n3\n—\n—\n—\n—\n4\n—\n—\n—\n—\n5\n—\n—\n—\n—"
+        },
+        {
+          "heading": "Critério",
+          "body": "Não escolher ação por ansiedade ou sensação geral. Cada ação precisa apontar para uma evidência concreta do D70."
+        },
+        {
+          "heading": "18. O que não será reaberto",
+          "body": "Preencher depois da clínica:\n- matéria estável que não merece nova aula: —\n- erro P3 já resolvido: —\n- conteúdo conhecido sem evidência de perda: —\n- tópico que seguirá apenas em manutenção: —"
+        },
+        {
+          "heading": "19. D0 do D071",
+          "body": "No mesmo dia, depois da clínica:\n1. recuperar de memória as 5 regras mais críticas;\n2. refazer/reaplicar os P1 possíveis;\n3. verificar se a microação realmente mudou a resposta;\n4. registrar a próxima checagem;\n5. não marcar validação sem novo contato.\nD0 configurado ≠ realizado."
+        },
+        {
+          "heading": "20. D7 / D20",
+          "body": "Não pré-acionar editorialmente.\nAcionar após a clínica real quando houver:\n- P1;\n- reincidência;\n- conceito central instável;\n- erro normativo de alto risco;\n- falha que reapareceu no D70;\n- reaplicação insuficiente."
+        },
+        {
+          "heading": "21. Resultado da clínica — preencher depois",
+          "body": "- Equivalentes realmente trabalhados: —\n- Erros capturados: —\n- Acertos com dúvida tratados: —\n- P1: —\n- P2: —\n- P3: —\n- R1+: —\n- Fatal Errors adicionados/reabertos: —\n- Erros encerrados: —\n- Reaplicações programadas: —\n- 5 ações definidas: —"
+        },
+        {
+          "heading": "22. Critério editorial de liberação",
+          "body": "Antes de liberar:\n- Material D071 completo;\n- Q071 estruturado em 30 equivalentes;\n- regra “não são 30 questões” explícita;\n- Caderno de Erros vinculado;\n- E1–E8 definidos;\n- P1–P3 definidos;\n- R0–R3+ definidos;\n- Fatal Errors definidos;\n- 5 ações estruturadas;\n- D0/D7/D20 definidos;\n- execução real vazia."
+        },
+        {
+          "heading": "23. Critério de conclusão real",
+          "body": "D071 só termina pedagogicamente quando:\n1. D70 tiver sido executado;\n2. todos os erros/dúvidas relevantes forem capturados;\n3. causas e severidades forem classificadas;\n4. regra correta e microação forem registradas;\n5. Caderno de Erros for atualizado quando cabível;\n6. reaplicações forem programadas/realizadas;\n7. Fatal Errors forem atualizados;\n8. até 5 ações obrigatórias forem fechadas;\n9. D0 for realizado;\n10. resultado da clínica for registrado."
+        },
+        {
+          "heading": "24. Fontes",
+          "body": "- Fonte-Mestra v1.3 — D071 e entregável;\n- Base Operacional v1.3 — Caderno de Erros, E1–E8, P1–P3, reincidência, Fatal Errors e D71;\n- Fonte 05 v1.1 — Correção pós-simulado;\n- Template Correção / Clínica de Erros;\n- D070/Q070/R3/registro D70 como origem da evidência futura.\nEstado de execução: nenhum erro, resposta, severidade, reincidência, Fatal Error, ação ou reteste real foi preenchido nesta preparação editorial."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T20:15:15.177Z"
+    },
+    "d073": {
+      "dxx": "D073",
+      "title": "D073 — Português",
+      "summary": "Português — calibração FCC — bateria nos recortes menos comprovados e nos erros históricos; nenhum reestudo integral.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D073 — Português \\| calibração FCC\nS34 / D073 — 90 min · 30 questões FCC. Português entra aqui como calibração de matéria histórica: questões primeiro, teoria apenas da lacuna. É proibido transformar esta sessão em reestudo integral da disciplina."
+        },
+        {
+          "heading": "2. Hipótese de calibração",
+          "body": "A Base Técnica registra 27 de 37 microitens de Português já estudados/comprovados historicamente.\nIsso produz uma hipótese, não uma conclusão:\n- há capital relevante já construído;\n- não há justificativa para “Português do zero”;\n- existem dez recortes com evidência menor ou que merecem teste dirigido;\n- o formato FCC atual precisa confirmar retenção."
+        },
+        {
+          "heading": "Regra-mãe",
+          "body": "FCC primeiro → matriz de retenção → teoria somente da lacuna → reteste se necessário."
+        },
+        {
+          "heading": "3. Recortes menos comprovados",
+          "body": "A bateria deve testar com maior intencionalidade:\n1. Redação Oficial;\n2. relação texto/contexto histórico;\n3. discurso direto;\n4. discurso indireto;\n5. discurso indireto livre;\n6. intertextualidade;\n7. figuras de linguagem;\n8. vozes verbais;\n9. correlação de tempos;\n10. correlação de modos.\nAlém disso, uma amostra de morfossintaxe funciona como controle de retenção do conteúdo historicamente mais conhecido."
+        },
+        {
+          "heading": "4. O que não será reestudado preventivamente",
+          "body": "Antes do Q073, não abrir aula ampla de:\n- ortografia;\n- acentuação;\n- classes de palavras;\n- sintaxe completa;\n- concordância completa;\n- regência completa;\n- crase completa;\n- pontuação completa.\nUm erro isolado não autoriza reabertura geral."
+        },
+        {
+          "heading": "5. Distribuição canônica do Q073",
+          "body": "Subbloco\nQuestões\nFunção\nP1 — Interpretação/reescrita\n10\nretenção + estilo FCC\nP2 — Redação Oficial\n5\nrecorte menos comprovado\nP3 — Semântica/intertextualidade/figuras\n5\nrecorte menos comprovado\nP4 — Vozes/tempos/modos/discurso\n5\nrecorte menos comprovado\nP5 — Morfossintaxe de controle\n5\nverificar estabilidade histórica\nTotal\n30\n30 FCC reais"
+        },
+        {
+          "heading": "Fontes internas",
+          "body": "- Fonte-Mestra v1.3 — D073;\n- Base Técnica v1.3 — Português/calibração;\n- Base Operacional v1.3;\n- Template Calibração de Matéria Histórica."
+        },
+        {
+          "heading": "Redação Oficial",
+          "body": "Referência oficial vigente de consulta:\n- Manual de Redação da Presidência da República — 3ª edição, aprovado pela Portaria nº 1.369/2018;\n- serviço oficial atual: [https://www.gov.br/pt-br/servicos/consultar-o-manual-de-redacao-da-presidencia-da-republica](https://www.gov.br/pt-br/servicos/consultar-o-manual-de-redacao-da-presidencia-da-republica)\n- referência revalidada editorialmente em 22/09/2026."
+        },
+        {
+          "heading": "Questões",
+          "body": "FCC reais identificadas por ID e localizador no Q073. Enunciados externos não são reproduzidos integralmente."
+        },
+        {
+          "heading": "0–5 min — reativação estrutural",
+          "body": "Ler somente as seções 8–12 abaixo."
+        },
+        {
+          "heading": "5–55 min — Q073",
+          "body": "Resolver 30 FCC sem abrir correções."
+        },
+        {
+          "heading": "55–75 min — correção",
+          "body": "- abrir correções;\n- registrar erro/dúvida;\n- classificar causa;\n- separar lacuna conceitual de distração/leitura."
+        },
+        {
+          "heading": "75–85 min — matriz de retenção",
+          "body": "Calcular P1–P5."
+        },
+        {
+          "heading": "85–90 min — D0",
+          "body": "Recuperar regras dos erros prioritários.\n---\n# REATIVAÇÃO CURTA — NÃO É AULA"
+        },
+        {
+          "heading": "8. Interpretação e reescrita",
+          "body": "Na FCC, verificar:\n- o que o texto afirma;\n- o que permite inferir;\n- relação entre segmentos;\n- referente de pronomes/expressões;\n- equivalência semântica;\n- preservação de sentido em reescrita."
+        },
+        {
+          "heading": "Macete",
+          "body": "> Não escolher a alternativa “plausível”; escolher a que o texto autoriza."
+        },
+        {
+          "heading": "9. Redação Oficial",
+          "body": "Quatro âncoras para a bateria:\n- impessoalidade;\n- clareza/precisão;\n- padronização e correção;\n- orientações específicas do MRPR, inclusive e-mail, citações, destaques e formas de redação.\nSe houver erro normativo:\n> voltar ao MRPR oficial, não a resumo de cursinho."
+        },
+        {
+          "heading": "10. Semântica, intertextualidade e figuras",
+          "body": "Pergunta operacional:\n- a palavra mudou de sentido pelo contexto?\n- existe aproximação entre textos/vozes?\n- a construção é literal ou figurada?\n- qual efeito a figura produz?\nNão decorar lista de figuras sem observar o efeito contextual."
+        },
+        {
+          "heading": "Voz",
+          "body": "- ativa: sujeito pratica;\n- passiva: sujeito recebe;\n- transformação preserva sentido e relações sintáticas essenciais."
+        },
+        {
+          "heading": "Tempo/modo",
+          "body": "Olhar:\n- anterioridade;\n- simultaneidade;\n- hipótese;\n- condição;\n- certeza;\n- possibilidade;\n- correlação entre orações."
+        },
+        {
+          "heading": "Discurso",
+          "body": "Na passagem direto ↔ indireto, ajustar:\n- pessoa;\n- pronomes;\n- tempo verbal;\n- advérbios/referências de espaço e tempo;\n- pontuação."
+        },
+        {
+          "heading": "12. Morfossintaxe de controle",
+          "body": "Não revisar tudo antes.\nDurante a bateria, observar:\n- concordância;\n- regência;\n- crase;\n- pontuação;\n- pronomes;\n- correlação sintática.\nA função é verificar se o capital histórico permanece disponível.\n---\n# DIAGNÓSTICO"
+        },
+        {
+          "heading": "13. Matriz de retenção",
+          "body": "Preencher somente após o Q073:\nSubbloco\nAcertos\nErros\nDúvidas\n%\nCor\nDecisão\nP1 — Interpretação/reescrita\n—\n—\n—\n—\n—\n—\nP2 — Redação Oficial\n—\n—\n—\n—\n—\n—\nP3 — Semântica/figuras\n—\n—\n—\n—\n—\n—\nP4 — Vozes/tempos/modos\n—\n—\n—\n—\n—\n—\nP5 — Morfossintaxe\n—\n—\n—\n—\n—\n—"
+        },
+        {
+          "heading": "14. Faixas internas",
+          "body": "- verde — ≥85%, sem erro estrutural/P1 reincidente: manutenção;\n- amarelo — 75–84% ou acerto alto com dúvida: revisão curta;\n- laranja — 60–74% ou lacuna concentrada: teoria dirigida;\n- vermelho — \\<60% ou erro conceitual central/P1 reincidente: reabrir apenas o subbloco.\nEstas faixas são internas e não equivalem a corte FCC."
+        },
+        {
+          "heading": "15. Gatilho canônico de teoria",
+          "body": "A Base Técnica impõe:\n> abrir teoria somente se o subtema ficar abaixo de 75% OU se houver erro conceitual repetido em dois contatos.\nLogo:\n- 1 erro isolado não reabre aula;\n- sensação de insegurança não reabre aula;\n- porcentagem alta com dúvida pode pedir revisão curta;\n- erro repetido pode justificar intervenção mesmo com percentual agregado alto."
+        },
+        {
+          "heading": "16. Causa do erro",
+          "body": "Registrar quando necessário:\n- desconhecimento;\n- confusão conceitual;\n- norma;\n- memória;\n- interpretação;\n- distração;\n- gestão do tempo.\nPara Português, distinguir especialmente:\n- não sabia a regra;\n- sabia, mas não recuperou;\n- leu o comando errado;\n- foi atraído por alternativa semanticamente próxima.\n---\n# TEORIA DE RESGATE — SOMENTE APÓS A BATERIA\nNão estudar esta seção preventivamente. Abra apenas o subbloco autorizado pelo diagnóstico.\nP1 — Interpretação/reescrita\n1. localizar tese/ideia central;\n2. separar fato textual de inferência;\n3. rastrear referentes;\n4. testar cada reescrita por sentido + sintaxe;\n5. rejeitar alternativa que amplia/restringe sem autorização.\nP2 — Redação Oficial\nConsultar o MRPR oficial no ponto exato do erro. Priorizar impessoalidade, clareza, formas de comunicação, e-mail, citações, sinais/destaques e redação correta. Não reler o manual inteiro por um erro.\nP3 — Semântica/intertextualidade/figuras\nReconstituir sentido contextual; identificar comparação implícita, substituição, exagero, oposição ou personificação; explicar o efeito da figura em uma frase.\nP4 — Vozes/tempos/modos/discurso\nMarcar sujeito, verbo e complemento; identificar relação temporal/modal; ao converter discurso, revisar pessoa, tempo, pronomes e advérbios. Fazer 2 exemplos contrastivos.\nP5 — Morfossintaxe\nReabrir somente a regra que falhou — concordância, regência, crase, pontuação ou pronome — e testar imediatamente em itens FCC."
+        },
+        {
+          "heading": "17. Q073",
+          "body": "Meta: 30 FCC reais / 0 autorais."
+        },
+        {
+          "heading": "18. D0",
+          "body": "Depois da execução:\n1. refazer erros sem olhar;\n2. explicar a regra/razão em uma frase;\n3. refazer acertos com dúvida;\n4. separar erro de conteúdo de erro de leitura;\n5. registrar somente erros com valor futuro no Caderno de Erros.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "19. D7 / D20",
+          "body": "Não pré-acionar.\nAcionar depois se houver:\n- subbloco laranja/vermelho;\n- P1;\n- erro conceitual repetido;\n- fragilidade normativa de Redação Oficial;\n- reincidência."
+        },
+        {
+          "heading": "20. Critério editorial",
+          "body": "Liberar quando:\n- recorte histórico estiver explícito;\n- Q073 tiver 30 FCC reais;\n- distribuição 10/5/5/5/5 estiver correta;\n- correções estiverem recolhíveis;\n- MRPR oficial estiver indicado para o bloco normativo;\n- matriz permanecer vazia antes da execução;\n- D7/D20 não forem acionados sem evidência."
+        },
+        {
+          "heading": "21. Critério de conclusão real",
+          "body": "Somente após:\n- 30 respostas;\n- correção;\n- matriz P1–P5;\n- identificação de causas;\n- D0;\n- decisão manutenção/complemento/reabertura/segunda bateria;\n- Caderno de Erros atualizado quando cabível;\n- decisão real de D7/D20."
+        },
+        {
+          "heading": "22. Ponte",
+          "body": "O próximo dia só será determinado pela Ordem do banco D001–D100 após o fechamento editorial desta sessão.\nExecução real: vazia. Material pronto não significa Português calibrado."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T20:29:42.314Z"
     }
   },
   "questions": {
@@ -9047,6 +10052,61 @@
       "copyrightMode": "metadata-only",
       "version": 2,
       "lastEdited": "2026-09-22T19:28:59.577Z"
+    },
+    "q066": {
+      "qxx": "Q066",
+      "dxx": "D066",
+      "title": "Q066 — Questões \\| Administração Estratégica",
+      "meta": 30,
+      "valid": 30,
+      "sourceSummary": "10 FCC reais + 20 autorais técnicas; 22/30 em Cinco Forças, RBV, BMC e Cadeia de Valor; 8/30 revisão SWOT/BSC.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T19:40:03.803Z"
+    },
+    "q068": {
+      "qxx": "Q068",
+      "dxx": "D068",
+      "title": "Q068 — Questões \\| Matemática/RLM",
+      "meta": 30,
+      "valid": 30,
+      "sourceSummary": "30 FCC reais / 0 autorais. Distribuição canônica: M1 8, M2 8, M3 7, M4 7. Recência: 22 de 2026, 5 de 2025, 1 de 2024 e 2 de 2022.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T19:52:11.773Z"
+    },
+    "q070": {
+      "qxx": "Q070",
+      "dxx": "D070",
+      "title": "Q070 — Questões \\| CHECKPOINT D70",
+      "meta": 70,
+      "valid": 70,
+      "sourceSummary": "53 FCC reais + 17 autorais controladas. Distribuição oficial 25 Gerais/45 Específicos; reexposições identificadas e não tratadas como inéditas.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T20:08:28.958Z"
+    },
+    "q071": {
+      "qxx": "Q071",
+      "dxx": "D071",
+      "title": "Q071 — Questões \\| Correção profunda do D70",
+      "meta": 30,
+      "valid": 0,
+      "sourceSummary": "30 equivalentes adaptativos derivados dos erros/dúvidas reais do D70; não são 30 questões novas.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T20:15:17.251Z"
+    },
+    "q073": {
+      "qxx": "Q073",
+      "dxx": "D073",
+      "title": "Q073 — Questões \\| Português",
+      "meta": 30,
+      "valid": 30,
+      "sourceSummary": "30 FCC reais / 0 autorais. Distribuição canônica 10/5/5/5/5: interpretação/reescrita; Redação Oficial; semântica/intertextualidade/figuras; vozes/tempos/modos/discurso; morfossintaxe.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T20:29:44.224Z"
     }
   },
   "publicStats": {
@@ -9055,7 +10115,7 @@
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 29,
-    "questionPages": 29
+    "materialPages": 34,
+    "questionPages": 34
   }
 }
