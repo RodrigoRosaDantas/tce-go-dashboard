@@ -44,6 +44,7 @@ export function AuthorialTrainer({ question, day }: { question: QuestionSnapshot
   if (!items.length) return null;
 
   const allAnswered = items.every((item) => Boolean(answers[item.id]?.answer));
+  const fccMax = Math.max(0, question.valid - items.length);
   const authorialCorrect = reveal ? authorial.filter((entry) => entry.correct).length : 0;
   const authorialDoubts = reveal ? authorial.filter((entry) => entry.correct && entry.answer?.confidence !== "certeza").length : 0;
 
@@ -60,6 +61,10 @@ export function AuthorialTrainer({ question, day }: { question: QuestionSnapshot
     const doubts = Number(fccDoubts || 0);
     if (!Number.isFinite(attempted) || !Number.isFinite(correct) || !Number.isFinite(doubts) || attempted < 0 || correct < 0 || doubts < 0) {
       setMessage("Preencha a métrica FCC com números válidos.");
+      return;
+    }
+    if (attempted > fccMax) {
+      setMessage(`A métrica FCC deste Qxx comporta no máximo ${fccMax} item(ns); os ${items.length} autorais são contados separadamente.`);
       return;
     }
     if (correct > attempted) {
@@ -139,9 +144,9 @@ export function AuthorialTrainer({ question, day }: { question: QuestionSnapshot
       </div>
 
       <section className="fcc-summary-v4">
-        <div><span className="eyebrow">FCC POR REFERÊNCIA</span><h3>Resumo da execução externa</h3><p>Não reproduzimos os enunciados. Informe apenas sua métrica depois de resolver pelos links/localizadores.</p></div>
+        <div><span className="eyebrow">FCC POR REFERÊNCIA</span><h3>Resumo da execução externa</h3><p>Não reproduzimos os enunciados. Informe apenas sua métrica depois de resolver pelos links/localizadores. Máximo neste caderno: {fccMax} FCC.</p></div>
         <div className="fcc-summary-fields-v4">
-          <label>Respondidas<input type="number" min="0" max={question.valid} value={fccAttempted} onChange={(event)=>setFccAttempted(event.target.value)} /></label>
+          <label>Respondidas<input type="number" min="0" max={fccMax} value={fccAttempted} onChange={(event)=>setFccAttempted(event.target.value)} /></label>
           <label>Acertos<input type="number" min="0" value={fccCorrect} onChange={(event)=>setFccCorrect(event.target.value)} /></label>
           <label>Acertos com dúvida<input type="number" min="0" value={fccDoubts} onChange={(event)=>setFccDoubts(event.target.value)} /></label>
         </div>
