@@ -82,6 +82,29 @@ for (const viewport of viewports) {
       if (bodyPadding + 4 < geometry.bottomNav.height) issues.push("padding inferior insuficiente para bottom nav");
     }
 
+    if (route.name === "q001") {
+      const q001 = await page.evaluate(() => {
+        const visible = (selector) => {
+          const el = document.querySelector(selector);
+          if (!el) return false;
+          const style = getComputedStyle(el);
+          const rect = el.getBoundingClientRect();
+          return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
+        };
+        return {
+          detailed: visible(".question-content-card"),
+          fallback: visible(".question-fallback"),
+          hasReferenceHeading: document.body.textContent?.includes("FCC reais — resolver pela referência") ?? false,
+          hasAuthorial19: document.body.textContent?.includes("AUT-Q001-01") ?? false,
+          hasAuthorial20: document.body.textContent?.includes("AUT-Q001-02") ?? false,
+        };
+      });
+      if (!q001.detailed) issues.push("Q001 detalhado não renderizado");
+      if (q001.fallback) issues.push("fallback do Q001 ainda visível após sync");
+      if (!q001.hasReferenceHeading) issues.push("Q001 sem bloco de referências FCC");
+      if (!q001.hasAuthorial19 || !q001.hasAuthorial20) issues.push("Q001 sem os dois itens autorais previstos");
+    }
+
     if (consoleErrors.length) issues.push(`console/page errors: ${consoleErrors.join(" | ")}`);
 
     const shot = `${outDir}/${viewport.name}-${route.name}.png`;
