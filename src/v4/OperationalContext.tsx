@@ -31,6 +31,8 @@ function localFallback(snapshot: Snapshot): OperationalSummary {
     source: "cache",
     degraded: true,
     progress,
+    dayControl: [],
+    sessions: [],
     reviews: [],
     errors: [],
     redactions: [],
