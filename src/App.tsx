@@ -314,15 +314,106 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
 }
 
 const sectionCopy: Record<string, [string, string]> = {
-  "/revisoes/": ["Revisões", "D0 é parte do próprio dia; D7 e D20 entram apenas quando houver gatilho real. Resultados e revisões executadas são dados privados e não entram no snapshot público."],
-  "/redacoes/": ["Redações", "R1–R8 estão modeladas no Notion e seguem a rubrica FCC. O snapshot público atual ainda não carrega o banco editorial de redações; nenhuma produção pessoal é publicada."],
+  "/revisoes/": ["Revisões", "D0 é parte do próprio dia; D7 e D20 entram somente por gatilho real. A agenda executada é dado privado, por isso esta rota pública não expõe revisões pessoais."],
   "/erros/": ["Caderno de Erros", "Respostas pessoais, reincidências, fundamentos associados a erros reais e diagnósticos são privados. A rota pública não simula um caderno que ainda não foi executado."],
-  "/simulados/": ["Simulados e checkpoints", "D20, D45, D70, D90, D96 e D100 estão modelados no Notion. O calendário público preserva esses Dxx; resultados só existirão após execução real."],
-  "/desempenho/": ["Desempenho", "Tempo, acertos, erros, dúvidas e sessões são privados. O snapshot editorial público não publica métricas pessoais."],
-  "/edital/": ["Edital verticalizado", "O banco canônico está no Notion. A extração editorial auxiliar ainda não está presente no snapshot bootstrap; esta rota não inventa conteúdo para preencher a lacuna."],
-  "/legislacao/": ["Legislação", "Fontes e vigência permanecem canônicas no Notion. A extração editorial auxiliar ainda não está presente no snapshot bootstrap; nenhuma norma é mantida apenas no frontend."],
-  "/reta-final/": ["Reta final", "A fase 31/12/2026–16/01/2027 não é D101–D117 e será recalibrada pelo D100 real. O calendário detalhado permanece no Notion até entrar no snapshot editorial auxiliar."],
+  "/desempenho/": ["Desempenho", "Tempo, acertos, erros, dúvidas e sessões são privados. O registro operacional acontece na sessão autenticada e só vira canônico após confirmação do Notion."],
 };
+
+function EmptyAux({ label }: { label: string }) {
+  return <div className="notice">{label} ainda não está disponível no snapshot público validado.</div>;
+}
+
+function RedactionsPage({ snapshot }: { snapshot: Snapshot }) {
+  const rows = snapshot.redactions ?? [];
+  return (
+    <section>
+      <div className="page-head"><p className="eyebrow">Plano editorial público</p><h1>Redações R1–R8</h1></div>
+      <div className="notice">Tema e agenda vêm do Notion. Texto produzido, tempo, correção, notas e reescrita permanecem privados.</div>
+      {rows.length ? <div className="aux-grid">{rows.map((item) => (
+        <article className="panel aux-card" key={item.code}>
+          <p className="eyebrow">{item.code} · {item.dxx}</p>
+          <h2>{item.title}</h2>
+          <p><strong>{item.date ? formatDate(item.date) : "Data não definida"}</strong></p>
+          <p>{item.theme || "Tema editorial ainda sem descrição pública."}</p>
+        </article>
+      ))}</div> : <EmptyAux label="Plano R1–R8" />}
+    </section>
+  );
+}
+
+function SimulationsPage({ snapshot }: { snapshot: Snapshot }) {
+  const rows = snapshot.simulations ?? [];
+  return (
+    <section>
+      <div className="page-head"><p className="eyebrow">Marcos canônicos</p><h1>Simulados e checkpoints</h1></div>
+      <div className="notice">O site publica somente o plano. Acertos, tempo, decisão, fragilidades e impactos pessoais ficam fora do snapshot público.</div>
+      {rows.length ? <div className="aux-grid">{rows.map((item) => (
+        <article className="panel aux-card" key={item.dxx}>
+          <p className="eyebrow">{item.dxx}</p>
+          <h2>{item.title}</h2>
+          <p>{item.date ? formatDate(item.date) : "Data não definida"} · {item.type}</p>
+          <p className="small">Cobertura prevista: {item.plannedCoverage || "—"} · sessões previstas: {item.plannedSessions || "—"}</p>
+        </article>
+      ))}</div> : <EmptyAux label="Plano de simulados/checkpoints" />}
+    </section>
+  );
+}
+
+function EditalPage({ snapshot }: { snapshot: Snapshot }) {
+  const rows = snapshot.edital ?? [];
+  return (
+    <section>
+      <div className="page-head"><p className="eyebrow">Notion → snapshot</p><h1>Edital verticalizado</h1></div>
+      {rows.length ? (
+        <div className="data-table-wrap">
+          <table className="data-table">
+            <thead><tr><th>Código</th><th>Disciplina</th><th>Bloco</th><th>Questões</th><th>Peso</th><th>Baseline</th><th>Tratamento</th><th>Status editorial</th></tr></thead>
+            <tbody>{rows.map((item) => <tr key={item.code}>
+              <td><strong>{item.code}</strong></td><td>{item.discipline}</td><td>{item.block}</td><td>{item.questions}</td><td>{item.weight}</td><td>{item.baseline}</td><td>{item.treatment}</td><td>{item.editorialStatus}</td>
+            </tr>)}</tbody>
+          </table>
+        </div>
+      ) : <EmptyAux label="Edital verticalizado" />}
+    </section>
+  );
+}
+
+function LegislationPage({ snapshot }: { snapshot: Snapshot }) {
+  const rows = snapshot.legislation ?? [];
+  return (
+    <section>
+      <div className="page-head"><p className="eyebrow">Fontes oficiais externas</p><h1>Legislação</h1></div>
+      <div className="notice">A lista é derivada do banco canônico de Fontes. URLs internas do Notion e fontes não oficiais não entram no snapshot público.</div>
+      {rows.length ? <div className="aux-grid">{rows.map((item) => (
+        <article className="panel aux-card" key={item.code}>
+          <p className="eyebrow">{item.code} · {item.category}</p>
+          <h2>{item.title}</h2>
+          <p>{item.cutoff || "Corte/vigência não informado"}{item.dxx ? " · " + item.dxx : ""}</p>
+          {item.use ? <p className="small">{item.use}</p> : null}
+          <a className="secondary" href={item.officialUrl} target="_blank" rel="noreferrer">Abrir fonte oficial ↗</a>
+        </article>
+      ))}</div> : <EmptyAux label="Fontes oficiais de legislação" />}
+    </section>
+  );
+}
+
+function FinalSprintPage({ snapshot }: { snapshot: Snapshot }) {
+  const rows = snapshot.finalSprint ?? [];
+  return (
+    <section>
+      <div className="page-head"><p className="eyebrow">31/12/2026–16/01/2027</p><h1>Reta final</h1></div>
+      <div className="notice">A reta final não cria D101–D117. O snapshot expõe somente o calendário estrutural; recalibração, carga e desempenho pós-D100 permanecem privados.</div>
+      {rows.length ? <div className="day-grid">{rows.map((item) => (
+        <article className="day-card" key={item.code}>
+          <p className="eyebrow">{item.code}</p>
+          <strong>{item.title}</strong>
+          <time>{formatDate(item.date)}</time>
+          <p>{item.type}</p>
+        </article>
+      ))}</div> : <EmptyAux label="Calendário da reta final" />}
+    </section>
+  );
+}
 
 function StaticSection({ route }: { route: string }) {
   const [title, body] = sectionCopy[route] ?? ["Página", "Conteúdo não encontrado."];
@@ -372,6 +463,11 @@ export default function App() {
   else if (route === "/dias/") page = <Days snapshot={snapshot} />;
   else if (dayMatch) page = <DayPage snapshot={snapshot} dxx={dayMatch[1]} />;
   else if (questionMatch) page = <QuestionPage snapshot={snapshot} qxx={questionMatch[1]} />;
+  else if (route === "/redacoes/") page = <RedactionsPage snapshot={snapshot} />;
+  else if (route === "/simulados/") page = <SimulationsPage snapshot={snapshot} />;
+  else if (route === "/edital/") page = <EditalPage snapshot={snapshot} />;
+  else if (route === "/legislacao/") page = <LegislationPage snapshot={snapshot} />;
+  else if (route === "/reta-final/") page = <FinalSprintPage snapshot={snapshot} />;
   else if (route === "/sync/") page = <SyncPage snapshot={snapshot} />;
   else if (sectionCopy[route]) page = <StaticSection route={route} />;
   else page = <NotFound />;
