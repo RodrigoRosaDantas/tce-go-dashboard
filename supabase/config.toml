@@ -1,2 +1,5 @@
 [functions.tce-progress]
 verify_jwt = true
+
+[functions.tce-public-snapshot]
+verify_jwt = false
