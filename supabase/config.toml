@@ -1,0 +1,2 @@
+[functions.tce-progress]
+verify_jwt = true
