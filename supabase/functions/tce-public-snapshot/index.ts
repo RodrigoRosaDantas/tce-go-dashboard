@@ -87,8 +87,15 @@ Deno.serve(async (req) => {
     const contentHash = await sha256(JSON.stringify(stable(stablePayload)));
     return json({ ...stablePayload, generatedAt: new Date().toISOString(), contentHash });
   } catch (error) {
-    console.error("tce-public-snapshot", error instanceof Error ? error.message : error);
-    return json({ error: "Falha segura no snapshot público TCE-GO.", detail: error instanceof Error ? error.message : String(error) }, 502);
+    const detail = error instanceof Error ? error.message : String(error);
+    console.error("tce-public-snapshot", detail);
+    if (/Notion 404: Could not find data_source/i.test(detail)) {
+      return json({
+        error: "Integração Notion sem acesso ao banco canônico TCE-GO.",
+        code: "NOTION_ACCESS_REQUIRED",
+      }, 503);
+    }
+    return json({ error: "Falha segura no snapshot público TCE-GO.", detail }, 502);
   }
 });
 
