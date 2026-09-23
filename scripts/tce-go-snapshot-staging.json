@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T14:08:03.655Z",
+  "generatedAt": "2026-09-23T14:08:44.627Z",
   "days": [
     {
       "dxx": "D001",
@@ -11037,6 +11037,433 @@
       ],
       "version": 2,
       "lastEdited": "2026-09-23T02:48:50.789Z"
+    },
+    "d096": {
+      "dxx": "D096",
+      "title": "D096 — SIMULADO 3",
+      "summary": "SIMULADO 3 — validação — 70 objetivas + Redação R7, formato integral e tempo real.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D096 — SIMULADO 3 \\| validação + Redação R7\nS45 / D096 — 4h30 · 70 objetivas + R7. Terceiro simulado integral do projeto e primeiro marco de validação pós-D90/D92. A função não é aumentar conteúdo: é verificar, sob formato completo, o que permaneceu estável, o que voltou e o que ainda precisa sobreviver até D100/reta final."
+        },
+        {
+          "heading": "1. Função do D096",
+          "body": "O D096 é Simulado 3 — validação.\nEle deve permitir responder, somente depois da execução real:\n- a correção D90 → D92 funcionou?\n- erros P1 e Fatal Errors diminuíram, persistiram ou reapareceram?\n- Controle Externo e CASP estão mais recuperáveis?\n- Legislação Institucional permaneceu estável após D094?\n- matérias históricas foram preservadas sem reestudo integral?\n- o tempo melhorou?\n- a estratégia de primeira/segunda passada funcionou?\n- a R7 manteve qualidade sob fadiga?\n- a reincidência caiu?"
+        },
+        {
+          "heading": "O D096 não é",
+          "body": "- aula nova;\n- clínica de erros;\n- justificativa para preencher dados de D90/D92 que não existem;\n- bateria livre sem distribuição oficial;\n- pretexto para pré-acionar D7/D20;\n- previsão de classificação."
+        },
+        {
+          "heading": "2. Estado longitudinal real antes da execução",
+          "body": "No estado editorial atual:\n- D070 está preparado, mas sem resultado real;\n- D090 está preparado, mas sem resultado real;\n- D092 está preparado, mas sem clínica real;\n- D094 está preparado, mas sem execução real;\n- R3 e R6 não têm produção real;\n- Caderno de Erros não recebeu evidência de D90/D92.\nConsequência: D096 é estruturalmente comparável, mas nenhuma tendência D70 → D90 → D96 pode ser afirmada hoje.\nComparação preparada ≠ evolução comprovada. Todas as células de desempenho abaixo permanecem vazias até a execução."
+        },
+        {
+          "heading": "Conhecimentos Gerais — 25",
+          "body": "- Língua Portuguesa: 10\n- Matemática/RLM: 10\n- Legislação Institucional: 5"
+        },
+        {
+          "heading": "Conhecimentos Específicos — 45",
+          "body": "- Direito Administrativo: 5\n- Licitações e Contratos: 5\n- Direito Constitucional: 3\n- Controle Externo: 4\n- AFO: 5\n- CASP: 5\n- Administração Pública: 5\n- Administração Geral: 4\n- Administração Estratégica: 3\n- Comportamento Organizacional: 3\n- Gestão de Pessoas: 3\nTotal = 70."
+        },
+        {
+          "heading": "Pesos",
+          "body": "- Gerais: peso 1\n- Específicos: peso 2"
+        },
+        {
+          "heading": "Redação",
+          "body": "- R7;\n- texto dissertativo-argumentativo;\n- 20–30 linhas;\n- integrada às mesmas 4h30."
+        },
+        {
+          "heading": "Composição",
+          "body": "- 45 FCC reais frescas no projeto;\n- 25 autorais controladas V1;\n- 70/70 com validade declarada;\n- nenhuma FCC externa integral republicada;\n- FCC registrada por ID/localizador + banca/órgão/ano/cargo + tópico + gabarito + correção própria."
+        },
+        {
+          "heading": "Frescor interno",
+          "body": "Os 45 IDs FCC foram pesquisados por correspondência exata no workspace antes da montagem do Q096 e apresentaram zero colisão exata em páginas anteriores.\n“Fresca no projeto” = não localizada por ID exato anteriormente.\nIsso não significa ineditismo absoluto fora do projeto."
+        },
+        {
+          "heading": "Por que 45 + 25",
+          "body": "O projeto não força quantidade artificial de FCC quando a cobertura real segura não é suficiente. Autorais entram apenas nos espaços necessários para:\n- Português com texto próprio;\n- literalidade institucional local;\n- Controle Externo específico;\n- lacunas pontuais de Administração;\n- Gestão de Pessoas."
+        },
+        {
+          "heading": "Validação 1 — D90/D92",
+          "body": "Quando existirem dados:\n- erro tratado reapareceu?\n- erro encerrado voltou?\n- reincidência caiu?\n- microação funcionou?\n- Fatal Error continuou fatal?\nHoje: —"
+        },
+        {
+          "heading": "Validação 2 — D094",
+          "body": "Quando D094 for executado:\n- Lei Orgânica estabilizou?\n- Regimento estabilizou?\n- ética atualizada ficou recuperável?\n- políticas institucionais se mantiveram diferenciadas?\nHoje: —"
+        },
+        {
+          "heading": "Validação 3 — matérias abaixo da mediana pessoal",
+          "body": "A Fonte Operacional manda usar D096 para retestar matérias que ficaram abaixo da mediana pessoal.\nComo ainda não há resultado real de D90:\n- matérias abaixo da mediana: —\n- nenhuma matéria será inventada como fraca;\n- a distribuição oficial permanece intacta."
+        },
+        {
+          "heading": "Consulta",
+          "body": "Sem consulta durante as 70 objetivas e a R7."
+        },
+        {
+          "heading": "Ordem-base",
+          "body": "Para preservar comparabilidade:\n1. Conhecimentos Gerais;\n2. Específicos;\n3. R7.\nSe, na execução real, a ordem for diferente, registrar a ordem real."
+        },
+        {
+          "heading": "Primeira passada",
+          "body": "- resolver itens com rota clara;\n- marcar dúvida sem abrir correção;\n- não transformar uma questão em “projeto paralelo”;\n- registrar retorno."
+        },
+        {
+          "heading": "Segunda passada",
+          "body": "- voltar aos itens marcados;\n- priorizar peso 2;\n- eliminar alternativas;\n- evitar trocar resposta apenas por ansiedade."
+        },
+        {
+          "heading": "Chute",
+          "body": "Se for necessário:\n- registrar o chute;\n- separar chute racional de puro acaso;\n- não tratar acerto por chute como domínio."
+        },
+        {
+          "heading": "7. Gestão das 4h30",
+          "body": "Tempo total = 270 min.\nNão há divisão rígida obrigatória entre objetiva e R7. A estratégia deve preservar:\n- tempo suficiente para 70 itens;\n- segunda passada;\n- transcrição/revisão;\n- redação de 20–30 linhas;\n- margem final."
+        },
+        {
+          "heading": "Registro posterior",
+          "body": "- início: —\n- fim: —\n- tempo total: —\n- tempo objetiva: —\n- tempo R7: —\n- tempo restante ao iniciar R7: —\n- tempo por bloco: —\n- fadiga percebida: —"
+        },
+        {
+          "heading": "8. R7",
+          "body": "A R7 mede:\n- manutenção do recorte sob fadiga;\n- tese clara;\n- progressão;\n- controle de coesão;\n- acabamento dentro do tempo;\n- reincidência discursiva.\nNão recebe nota, texto, linhas ou tempo antes da execução."
+        },
+        {
+          "heading": "9. Resultado global — preencher depois",
+          "body": "- Gerais: —\n- Específicos: —\n- Total bruto: —\n- IPI interno: —\n- Acertos com dúvida: —\n- Chutes: —\n- Questões para retorno: —\n- P1: —\n- P2: —\n- P3: —\n- Reincidentes: —\n- Reabertos: —\n- Fatal Errors: —"
+        },
+        {
+          "heading": "10. Painel por matéria",
+          "body": "Matéria\nQuestões\nAcertos\nErros\nDúvidas\nPortuguês\n10\n—\n—\n—\nMatemática/RLM\n10\n—\n—\n—\nLegislação Institucional\n5\n—\n—\n—\nDireito Administrativo\n5\n—\n—\n—\nLicitações e Contratos\n5\n—\n—\n—\nDireito Constitucional\n3\n—\n—\n—\nControle Externo\n4\n—\n—\n—\nAFO\n5\n—\n—\n—\nCASP\n5\n—\n—\n—\nAdministração Pública\n5\n—\n—\n—\nAdministração Geral\n4\n—\n—\n—\nAdministração Estratégica\n3\n—\n—\n—\nComportamento Organizacional\n3\n—\n—\n—\nGestão de Pessoas\n3\n—\n—\n—"
+        },
+        {
+          "heading": "11. IPI interno",
+          "body": "O IPI é indicador interno do projeto para comparação longitudinal.\n- não é nota oficial FCC;\n- não é corte;\n- não prevê classificação;\n- só deve ser calculado após execução real;\n- deve usar a mesma regra em D70, D90 e D96.\nIPI D96: —"
+        },
+        {
+          "heading": "12. Comparação D70 × D90 × D96",
+          "body": "Indicador\nD70\nD90\nD96\nLeitura\nGerais\n—\n—\n—\n—\nEspecíficos\n—\n—\n—\n—\nIPI interno\n—\n—\n—\n—\nControle Externo\n—\n—\n—\n—\nCASP\n—\n—\n—\n—\nLegislação Institucional\n—\n—\n—\n—\nP1\n—\n—\n—\n—\nReincidência\n—\n—\n—\n—\nFatal Errors\n—\n—\n—\n—\nTempo objetiva\n—\n—\n—\n—\nRedação\n—\n—\n—\n—"
+        },
+        {
+          "heading": "Regra",
+          "body": "Não escrever “subiu”, “caiu”, “estabilizou” ou “melhorou” enquanto os marcos comparados não tiverem execução real."
+        },
+        {
+          "heading": "13. Painel de validação D90 → D96",
+          "body": "- erro tratado e não reapareceu: —\n- erro tratado e reapareceu: —\n- erro encerrado e reaberto: —\n- P1 ainda ativo: —\n- Fatal Error ainda ativo: —\n- matéria abaixo da mediana que reagiu: —\n- matéria abaixo da mediana que permaneceu fraca: —\n- ajuste de tempo que funcionou: —\n- ajuste de tempo que falhou: —"
+        },
+        {
+          "heading": "14. R7 — comparação longitudinal",
+          "body": "Indicador\nR3/D70\nR6/D90\nR7/D96\nLeitura\nRecorte\n—\n—\n—\n—\nProgressão\n—\n—\n—\n—\nCoesão\n—\n—\n—\n—\nMorfossintaxe\n—\n—\n—\n—\nNota simulada\n—\n—\n—\n—\nTempo\n—\n—\n—\n—"
+        },
+        {
+          "heading": "15. Pós-prova",
+          "body": "Somente depois de corrigir:\n- top erros: —\n- causa dominante: —\n- maior perda em peso 2: —\n- maior perda em matéria nova: —\n- maior perda em matéria histórica: —\n- maior perda da R7: —\n- reincidências: —\n- Fatal Errors: —\n- conteúdo vivo para D099/D100: —"
+        },
+        {
+          "heading": "16. Decisão de rota",
+          "body": "Somente com evidência:\n- manter: —\n- ajustar: —\n- reduzir: —\n- ampliar: —\n- motivo: —\nUma prova isolada não autoriza reforma ampla sem coerência com D70/D90 e histórico de erros."
+        },
+        {
+          "heading": "17. Impacto SEEDF/TJDFT",
+          "body": "- Impactou SEEDF: —\n- Impactou TJDFT: —\n- natureza do impacto: —\nNão marcar impacto só porque os projetos coexistem."
+        },
+        {
+          "heading": "18. D0",
+          "body": "Depois da correção real:\n1. recuperar de memória até 5 regras P1;\n2. refazer até 5 itens de maior valor;\n3. revisar erro novo × reincidente × reaberto;\n4. separar acerto sólido × acerto com dúvida × chute;\n5. registrar conteúdos vivos para D099/D100.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "19. D7 / D20",
+          "body": "Na preparação:\n- D7 acionado = não;\n- D20 acionado = não.\nDepois do D096:\n- D7 apenas para erro importante, legislação, dúvida relevante ou conceito central;\n- D20 para P1/reincidência que efetivamente sobreviva;\n- reta final próxima exige intervenção mínima, não agenda automática."
+        },
+        {
+          "heading": "20. Registro canônico",
+          "body": "O registro recebe os dados depois da execução e correção."
+        },
+        {
+          "heading": "21. Critério editorial de liberação",
+          "body": "- Material D096 integral;\n- Q096 = 70/70;\n- distribuição oficial 25 + 45;\n- R7 preparada;\n- registro D96 preparado;\n- origem/validade/frescor das questões identificados;\n- respostas/confiança/tempo vazios;\n- D0 e D7/D20 configurados;\n- comparação longitudinal vazia;\n- nenhuma execução inventada."
+        },
+        {
+          "heading": "22. Critério real de conclusão",
+          "body": "D096 só termina quando:\n1. 70 objetivas forem tentadas;\n2. R7 for produzida;\n3. prova for corrigida;\n4. tempos forem registrados;\n5. erros/dúvidas forem classificados;\n6. comparação D70/D90/D96 for preenchida com dados reais;\n7. D0 for realizado;\n8. conteúdos vivos para D099/D100 forem definidos.\nEditorialmente pronto não significa simulado realizado."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-23T05:31:58.061Z"
+    },
+    "d099": {
+      "dxx": "D099",
+      "title": "D099 — Redação R8 + erros fatais",
+      "summary": "Redação R8 + erros fatais — redação final do Projeto 100 Dias + 20 questões dos erros mais recorrentes.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D099 — Redação R8 + erros fatais \\| fechamento pré-D100\nS46 / D099 — 120 min · R8 + meta de 20 questões vinculadas aos erros mais perigosos. Este é o último dia de intervenção seletiva antes do benchmark D100. O objetivo não é abrir matéria: é produzir a redação final do Projeto 100 Dias, retestar Fatal Errors reais e reduzir o Caderno a uma folha operacional com no máximo 20 alertas."
+        },
+        {
+          "heading": "2. Função do D099",
+          "body": "O D099 é o filtro final antes do D100.\nEle executa quatro tarefas:\n1. R8: última redação do Projeto 100 Dias;\n2. Fatal Errors: revisar somente erros reais de alto risco;\n3. 20 questões de reteste: reaplicar os erros mais perigosos;\n4. compressão: reduzir o Caderno a uma folha de prova útil."
+        },
+        {
+          "heading": "O D099 não faz",
+          "body": "- não reabre curso completo;\n- não cria “top 20 fraquezas” sem evidência;\n- não usa matéria aleatória para preencher meta;\n- não transforma P3 isolado em Fatal Error;\n- não substitui o benchmark D100;\n- não presume que D96 foi executado."
+        },
+        {
+          "heading": "3. Base canônica",
+          "body": "A Base Operacional determina:\n- revisar a lista Fatal Errors;\n- resolver 20 questões vinculadas aos erros mais perigosos;\n- produzir a Redação 8;\n- reduzir a lista ao essencial;\n- gerar uma folha de prova com no máximo 20 alertas."
+        },
+        {
+          "heading": "Estado atual auditado",
+          "body": "No momento desta preparação editorial:\n- D096 não possui execução real;\n- registro D96 permanece vazio;\n- R7 permanece Planejada;\n- Caderno de Erros TCE-GO possui 0 registros reais localizados;\n- portanto Fatal Errors reais = 0 no estado atual.\nConsequência:\n- o Material pode ser liberado;\n- o Q099 pode ser liberado como estrutura adaptativa de 20 slots;\n- o conteúdo literal dos 20 retestes só nasce quando houver erros reais;\n- nenhum Fatal Error será fabricado."
+        },
+        {
+          "heading": "4. Fontes de entrada no dia real",
+          "body": "A seleção deve consultar, nesta ordem:\n1. Caderno de Erros TCE-GO;\n2. registro D96;\n3. D092;\n4. registro D90;\n5. D071/D70, se ainda houver erro vivo;\n6. erros relevantes de sessões posteriores;\n7. acertos com dúvida críticos ainda abertos."
+        },
+        {
+          "heading": "Não importar",
+          "body": "Erros de SEEDF, TJDFT ou outros projetos não entram como se fossem erros TCE-GO."
+        },
+        {
+          "heading": "5. O que é um Fatal Error",
+          "body": "Fatal Error é etiqueta operacional de alta prioridade, não sinônimo de qualquer erro.\nPode receber Fatal Error quando houver combinação relevante de:\n- severidade P1;\n- reincidência R2/R3+;\n- erro reaberto;\n- peso 2;\n- conceito central;\n- literalidade institucional crítica;\n- erro que produz perda em cadeia;\n- falha de tempo/estratégia que compromete bloco inteiro;\n- padrão repetido apesar de intervenção anterior."
+        },
+        {
+          "heading": "Não marcar como Fatal Error",
+          "body": "- erro isolado P3;\n- mero lapso já corrigido;\n- questão ambígua sem falha conceitual;\n- tópico periférico sem recorrência;\n- erro imaginado para completar lista."
+        },
+        {
+          "heading": "6. Regra de priorização",
+          "body": "Se houver mais de 20 raízes de erro:\n1. P1;\n2. Fatal Error já marcado;\n3. reaberto;\n4. R3+;\n5. R2;\n6. peso 2;\n7. Controle Externo;\n8. CASP;\n9. Legislação Institucional;\n10. erro que contaminou mais de um tópico.\nSe houver menos de 20 raízes:\n- não inventar raízes novas;\n- usar mais de uma questão inédita para retestar a mesma raiz quando isso for pedagogicamente útil;\n- manter cada questão claramente vinculada ao erro que pretende testar.\nSe houver zero erros reais:\n- Q099 permanece com slots vazios;\n- não completar com bateria genérica;\n- executar R8 e registrar que não havia Fatal Error ativo, se essa for a realidade do dia."
+        },
+        {
+          "heading": "7. Compressão do Caderno",
+          "body": "O D099 deve produzir uma lista curta, não um arquivo morto.\nPara cada alerta final:\n- ID do erro;\n- matéria/tópico;\n- regra correta em 1–3 linhas;\n- gatilho de prova;\n- armadilha;\n- status;\n- última evidência;\n- ação de prova."
+        },
+        {
+          "heading": "Folha final — máximo 20",
+          "body": "1. —\n2. —\n3. —\n4. —\n5. —\n6. —\n7. —\n8. —\n9. —\n10. —\n11. —\n12. —\n13. —\n14. —\n15. —\n16. —\n17. —\n18. —\n19. —\n20. —"
+        },
+        {
+          "heading": "8. R8",
+          "body": "A R8 é a redação de fechamento do Projeto 100 Dias.\nEla deve medir:\n- recorte;\n- tese;\n- interpretação crítica;\n- progressão;\n- vocabulário;\n- coesão;\n- morfossintaxe;\n- tempo;\n- capacidade de revisão;\n- estabilidade comparada à redação anterior somente se houver dados reais."
+        },
+        {
+          "heading": "9. Tema da R8",
+          "body": "O valor social de preservar espaços de escuta em uma cultura marcada pela resposta imediata.\nA redação não exige posição previamente definida. O candidato deve decidir:\n- por que a escuta pode ter valor;\n- quais limites ela possui;\n- quando rapidez é necessária;\n- como evitar que “escutar” se transforme em passividade;\n- qual responsabilidade cabe a indivíduos e instituições."
+        },
+        {
+          "heading": "10. Roteiro de 120 minutos",
+          "body": "Estratégia-base:\n1. 0–5 min: abrir Caderno/D96 e identificar erros vivos;\n2. 5–15 min: selecionar até 20 alertas + distribuir 20 retestes;\n3. 15–65 min: R8;\n4. 65–110 min: Q099 — 20 retestes;\n5. 110–120 min: correção rápida, D0 e folha Fatal Errors.\nA ordem pode ser ajustada no dia real, mas deve ser registrada."
+        },
+        {
+          "heading": "Natureza",
+          "body": "- meta canônica: 20 retestes;\n- unidade de seleção: erro real;\n- prioridade: Fatal Error / P1 / reincidente / reaberto;\n- questões devem ser novas em relação à manifestação que originou o erro;\n- FCC real preferencial quando houver correspondência útil;\n- autoral permitida para reteste preciso e identificada;\n- validade normativa obrigatória quando houver norma."
+        },
+        {
+          "heading": "Estado editorial",
+          "body": "- slots adaptativos: 20;\n- Questões válidas literais antes da execução dos erros predecessores: 0;\n- nenhum item aleatório foi criado."
+        },
+        {
+          "heading": "12. Como montar cada reteste no dia real",
+          "body": "Para cada slot:\n1. escolher a raiz de erro;\n2. registrar ID do erro;\n3. explicar por que é Fatal/P1/reincidente;\n4. definir o conceito exato a testar;\n5. selecionar questão inédita adequada;\n6. registrar origem e validade;\n7. tentar sem consulta;\n8. corrigir;\n9. verificar se a resposta mudou;\n10. atualizar status do erro."
+        },
+        {
+          "heading": "13. Critério de superação",
+          "body": "Um Fatal Error não desaparece porque o resumo “pareceu claro”.\nRegra-padrão:\n- 2 acertos em questões inéditas do mesmo conceito, em contatos separados;\n- ou evidência equivalente de validação em checkpoint/simulado.\nNo D099:\n- acerto único pode reduzir risco;\n- não apaga histórico;\n- erro reaberto continua visível;\n- D100 funciona como validação adicional."
+        },
+        {
+          "heading": "14. Matriz do fechamento",
+          "body": "Indicador\nAntes D099\nDepois D099\nErros abertos\n—\n—\nP1\n—\n—\nP2\n—\n—\nP3\n—\n—\nReincidentes\n—\n—\nReabertos\n—\n—\nFatal Errors\n—\n—\nAlertas finais\n—\n—"
+        },
+        {
+          "heading": "15. Causas E1–E8",
+          "body": "- E1: desconhecimento;\n- E2: confusão conceitual;\n- E3: lei/norma;\n- E4: memória;\n- E5: interpretação;\n- E6: cálculo;\n- E7: distração;\n- E8: gestão do tempo.\nNo fechamento, a causa importa porque a intervenção deve ser mínima e proporcional."
+        },
+        {
+          "heading": "16. Regra de material de correção",
+          "body": "- erro simples → 1–3 linhas;\n- confusão → quadro curto;\n- norma → artigo/regra + explicação curta;\n- conteúdo realmente novo → link para material-base;\n- proibido: copiar páginas de teoria para um único erro."
+        },
+        {
+          "heading": "17. D0",
+          "body": "Ao final:\n1. recitar os 5 alertas mais perigosos;\n2. explicar a regra correta sem consulta;\n3. revisar os itens errados no Q099;\n4. registrar até 20 alertas finais;\n5. preparar a entrada do D100.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "18. D7 / D20",
+          "body": "D099 está imediatamente antes do D100 e da reta final.\nPor isso:\n- D7 não deve ser aberto por burocracia;\n- D20, em regra, já não cabe dentro do calendário pré-prova;\n- erro vivo deve alimentar D100 e Reta Final, salvo razão concreta em contrário.\nNa preparação:\n- D7 acionado = não;\n- D20 acionado = não."
+        },
+        {
+          "heading": "19. Ponte para D100",
+          "body": "D099 entrega ao D100:\n- lista Fatal Errors;\n- até 20 alertas finais;\n- resultado dos 20 retestes;\n- R8;\n- erros que permaneceram vivos;\n- nenhum conteúdo novo.\nD100 fará o benchmark final e consolidará o ranking de risco."
+        },
+        {
+          "heading": "20. Critério editorial de liberação",
+          "body": "- R8 preparada;\n- Q099 com 20 slots adaptativos;\n- regra de seleção por erro real;\n- integração Caderno/D96;\n- folha final de até 20 alertas;\n- D0;\n- ponte D100;\n- execução vazia."
+        },
+        {
+          "heading": "21. Critério real de conclusão",
+          "body": "D099 só termina quando:\n1. R8 for produzida;\n2. erros vivos forem triados;\n3. 20 retestes forem realizados quando houver erros reais suficientes para distribuí-los;\n4. erros forem recategorizados;\n5. lista final tiver no máximo 20 alertas;\n6. D0 for realizado;\n7. D100 receber os conteúdos vivos.\nNesta preparação editorial, não há Fatal Error real registrado. Nenhum alerta, questão de reteste, nota de redação ou melhoria foi inventado."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-23T07:41:26.313Z"
+    },
+    "d100": {
+      "dxx": "D100",
+      "title": "D100 — CHECKPOINT D100",
+      "summary": "CHECKPOINT D100 — FECHAMENTO — 70 objetivas como benchmark final do projeto; sem teoria nova. Auditoria da cobertura D01–D100.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D100 — CHECKPOINT FINAL \\| benchmark + transferência para Reta Final\nS47 / D100 — até 3h · 70 objetivas · sem redação. Último dia ativo do Projeto 100 Dias. O objetivo é produzir o benchmark objetivo final, auditar cobertura D001–D100, consolidar Fatal Errors e gerar o ranking de risco que governará a Reta Final de 31/12/2026 a 16/01/2027."
+        },
+        {
+          "heading": "1. Função do D100",
+          "body": "O D100 é benchmark final, não novo simulado integral de 4h30.\nEle deve entregar, depois da execução real:\n1. resultado geral;\n2. Gerais;\n3. Específicos;\n4. IPI interno;\n5. desempenho matéria por matéria;\n6. Controle Externo;\n7. CASP;\n8. Legislação Institucional;\n9. top 10 riscos;\n10. Fatal Errors;\n11. inventário de cobertura;\n12. mapa verde/amarelo/laranja/vermelho;\n13. lista de revisão permitida;\n14. lista de conteúdo proibido de reabrir;\n15. carga possível da Reta Final;\n16. transferência formal para RF01–RF08."
+        },
+        {
+          "heading": "Não há redação",
+          "body": "A redação final do Projeto 100 Dias é a R8 no D099. O D100 não cria nova Rxx."
+        },
+        {
+          "heading": "2. Estado real antes da execução",
+          "body": "Na preparação editorial atual:\n- D070: preparado, sem resultado real;\n- D090: preparado, sem resultado real;\n- D096: preparado, sem resultado real;\n- D099/R8: preparados, sem execução real;\n- Caderno de Erros: sem Fatal Errors reais localizados;\n- nenhuma tendência longitudinal pode ser afirmada.\nPortanto, o D100 deixa toda comparação e todo ranking vazios até haver execução real."
+        },
+        {
+          "heading": "Gerais — 25",
+          "body": "- Português: 10\n- Matemática/RLM: 10\n- Legislação Institucional: 5"
+        },
+        {
+          "heading": "Específicos — 45",
+          "body": "- Direito Administrativo: 5\n- Licitações e Contratos: 5\n- Direito Constitucional: 3\n- Controle Externo: 4\n- AFO: 5\n- CASP: 5\n- Administração Pública: 5\n- Administração Geral: 4\n- Administração Estratégica: 3\n- Comportamento Organizacional: 3\n- Gestão de Pessoas: 3"
+        },
+        {
+          "heading": "Pesos",
+          "body": "- Gerais = 1\n- Específicos = 2"
+        },
+        {
+          "heading": "Tempo",
+          "body": "- até 3h\n- sem redação;\n- sem consulta;\n- correção apenas após encerrar a tentativa."
+        },
+        {
+          "heading": "4. Por que o Q100 usa forma paralela",
+          "body": "O Q100 foi construído como forma paralela autoral controlada:\n- mesma distribuição oficial;\n- mesmos eixos já estudados;\n- nenhum conteúdo novo;\n- itens diferentes das baterias anteriores;\n- 70/70 classificados como autorais;\n- fora da taxa de questões FCC reais."
+        },
+        {
+          "heading": "Motivo metodológico",
+          "body": "Reexpor o Q096 quatro dias depois poderia medir memória do item, não apenas retenção do conteúdo. Como não havia, no acervo curado, 70 FCC frescas já validadas e não expostas para todos os blocos, o benchmark final usa forma paralela controlada em vez de fingir frescor externo.\nIsso é benchmark interno do projeto, não prova oficial FCC."
+        },
+        {
+          "heading": "Ordem-base",
+          "body": "1. Gerais;\n2. Específicos."
+        },
+        {
+          "heading": "Primeira passada",
+          "body": "- resolver rota clara;\n- marcar retorno;\n- não consultar;\n- não abrir correção."
+        },
+        {
+          "heading": "Segunda passada",
+          "body": "- priorizar peso 2;\n- revisar itens travados;\n- registrar chutes;\n- não trocar resposta sem motivo identificável."
+        },
+        {
+          "heading": "Tempo-reserva",
+          "body": "Preservar bloco final para:\n- retornos;\n- conferência;\n- marcação de respostas;\n- não ultrapassar 3h."
+        },
+        {
+          "heading": "7. Resultado por matéria",
+          "body": "Matéria\nQuestões\nAcertos\nErros\nDúvidas\nRisco\nPortuguês\n10\n—\n—\n—\n—\nMatemática/RLM\n10\n—\n—\n—\n—\nLegislação Institucional\n5\n—\n—\n—\n—\nDireito Administrativo\n5\n—\n—\n—\n—\nLicitações e Contratos\n5\n—\n—\n—\n—\nDireito Constitucional\n3\n—\n—\n—\n—\nControle Externo\n4\n—\n—\n—\n—\nAFO\n5\n—\n—\n—\n—\nCASP\n5\n—\n—\n—\n—\nAdministração Pública\n5\n—\n—\n—\n—\nAdministração Geral\n4\n—\n—\n—\n—\nAdministração Estratégica\n3\n—\n—\n—\n—\nComportamento Organizacional\n3\n—\n—\n—\n—\nGestão de Pessoas\n3\n—\n—\n—\n—"
+        },
+        {
+          "heading": "8. IPI interno",
+          "body": "O IPI permanece métrica interna:\n- não é nota oficial FCC;\n- não é corte;\n- não prevê classificação;\n- deve usar a mesma regra aplicada nos checkpoints comparáveis.\nIPI D100: —"
+        },
+        {
+          "heading": "9. Comparação longitudinal principal",
+          "body": "A cadeia canônica é:\nD20 × D45 → D45 × D70 → D70 × D90 → D90 × D100.\nD96 é validação adicional pós-D90.\nIndicador\nD70\nD90\nD96\nD100\nLeitura\nGerais\n—\n—\n—\n—\n—\nEspecíficos\n—\n—\n—\n—\n—\nIPI\n—\n—\n—\n—\n—\nControle Externo\n—\n—\n—\n—\n—\nCASP\n—\n—\n—\n—\n—\nLegislação Institucional\n—\n—\n—\n—\n—\nP1\n—\n—\n—\n—\n—\nReincidência\n—\n—\n—\n—\n—\nFatal Errors\n—\n—\n—\n—\n—\nTempo objetiva\n—\n—\n—\n—\n—\nNão registrar “melhora”, “queda” ou “estabilidade” sem dados comparáveis."
+        },
+        {
+          "heading": "10. Inventário de cobertura D001–D100",
+          "body": "Para cada eixo, classificar somente após a execução:\n- coberto e estável;\n- coberto com risco;\n- coberto mas não validado;\n- lacuna real de primeira passagem.\nEixo\nStatus\nEvidência\nAção\nControle/Auditoria\n—\n—\n—\nCASP\n—\n—\n—\nLegislação Institucional\n—\n—\n—\nPortuguês\n—\n—\n—\nMatemática/RLM\n—\n—\n—\nDireito Administrativo\n—\n—\n—\nLicitações\n—\n—\n—\nDireito Constitucional\n—\n—\n—\nAFO\n—\n—\n—\nAdministração\n—\n—\n—"
+        },
+        {
+          "heading": "🔴 Vermelho",
+          "body": "Usar quando houver evidência forte de risco, como:\n- Fatal Error ativo;\n- P1;\n- reincidência relevante;\n- erro reaberto;\n- falha central de peso 2;\n- lacuna real de primeira passagem."
+        },
+        {
+          "heading": "🟠 Laranja",
+          "body": "- conceito importante ainda instável;\n- múltiplas dúvidas;\n- resultado fraco sem preencher critérios de vermelho;\n- regra institucional crítica ainda não recuperável."
+        },
+        {
+          "heading": "🟡 Amarelo",
+          "body": "- erro isolado;\n- dúvida pontual;\n- conteúdo recuperável com revisão curta."
+        },
+        {
+          "heading": "🟢 Verde",
+          "body": "- conteúdo coberto;\n- sem erro ativo relevante;\n- evidência suficiente de estabilidade no ciclo.\nCor não nasce de sensação. Nasce de evidência."
+        },
+        {
+          "heading": "12. Top 10 riscos",
+          "body": "Preencher depois da correção:\n1. —\n2. —\n3. —\n4. —\n5. —\n6. —\n7. —\n8. —\n9. —\n10. —\nCada risco deve conter:\n- matéria/tópico;\n- evidência;\n- cor;\n- P1/P2/P3;\n- reincidência;\n- ação curta;\n- RFxx de destino."
+        },
+        {
+          "heading": "13. Fatal Errors consolidados",
+          "body": "- Fatal Errors antes D100: —\n- Fatal Errors confirmados no D100: —\n- Fatal Errors encerrados: —\n- Fatal Errors reabertos: —\n- Fatal Errors enviados à Reta Final: —\nNão criar Fatal Error por um erro isolado sem valor sistêmico."
+        },
+        {
+          "heading": "14. Lista de revisão permitida",
+          "body": "Somente depois do D100:\n1. —\n2. —\n3. —\n4. —\n5. —\n6. —\n7. —\n8. —\n9. —\n10. —\nPode conter:\n- Fatal Errors;\n- vermelho/laranja;\n- lei seca marcada;\n- contraste central;\n- fórmula/regra curta;\n- erro de simulado recuperável."
+        },
+        {
+          "heading": "15. Lista proibida de reabrir",
+          "body": "Preencher com conteúdos verdes/estáveis e decisões conscientes:\n1. —\n2. —\n3. —\n4. —\n5. —\nProibições gerais já valem:\n- curso completo;\n- livro inteiro;\n- nova trilha;\n- matéria fora do edital;\n- atualidades genéricas;\n- método novo de redação;\n- centenas de questões aleatórias."
+        },
+        {
+          "heading": "16. Carga da Reta Final",
+          "body": "A carga deve ser definida por:\n- top 10 riscos;\n- Fatal Errors;\n- cores;\n- fadiga;\n- impacto sobre SEEDF/TJDFT;\n- proximidade da prova;\n- logística."
+        },
+        {
+          "heading": "Decisão",
+          "body": "- carga possível: —\n- carga recomendada pelo D100: —\n- motivo: —\nNão usar carga máxima como padrão automático."
+        },
+        {
+          "heading": "17. Transferência para a Reta Final",
+          "body": "Entrada obrigatória pós-D100:\n1. top 10 riscos;\n2. Fatal Errors;\n3. mapa de cores;\n4. cobertura;\n5. lista permitida;\n6. lista proibida;\n7. carga possível;\n8. estado de fadiga/impacto externo."
+        },
+        {
+          "heading": "RF01",
+          "body": "RF01 só será recalibrada com dados reais depois da execução do D100. Nesta preparação ela permanece plano-base."
+        },
+        {
+          "heading": "18. Pós-prova D100",
+          "body": "- top erros: —\n- causas dominantes: —\n- maior perda em peso 2: —\n- maior risco institucional: —\n- maior risco de Controle: —\n- maior risco de CASP: —\n- matéria verde que não será reaberta: —\n- 3 ações para a Reta Final: —"
+        },
+        {
+          "heading": "19. Impacto externo",
+          "body": "- Impactou SEEDF: —\n- Impactou TJDFT: —\n- fadiga/energia: —\nEsses campos são qualitativos e não importam métricas dos outros projetos."
+        },
+        {
+          "heading": "20. D0",
+          "body": "Depois da correção:\n1. recuperar os 5 erros de maior valor;\n2. verbalizar a regra correta;\n3. confirmar top 10 riscos;\n4. revisar Fatal Errors;\n5. fechar lista permitida/proibida;\n6. registrar transferência para RF01.\nD0 configurado, não realizado."
+        },
+        {
+          "heading": "21. D7 / D20",
+          "body": "No D100, não faz sentido abrir calendário de revisão automática apenas por taxonomia.\nDepois do benchmark:\n- erro vivo entra prioritariamente na Reta Final;\n- D7/D20 só permanecem como histórico/taxonomia quando útil;\n- não criar dívida pedagógica posterior à prova.\nNa preparação:\n- D7 acionado = não;\n- D20 acionado = não."
+        },
+        {
+          "heading": "22. Critério editorial de liberação",
+          "body": "- Material completo;\n- Q100 = 70/70;\n- distribuição 25 + 45;\n- forma paralela identificada;\n- respostas/confiança/tempo vazios;\n- registro Benchmark preparado;\n- cobertura/ranking/cores/Fatal Errors estruturados;\n- transferência Reta Final estruturada;\n- execução real vazia."
+        },
+        {
+          "heading": "23. Critério real de conclusão",
+          "body": "O Projeto D001–D100 só poderá ser considerado concluído quando:\n- D100 for executado e auditado;\n- checkpoints exigidos tiverem resultado registrado;\n- redações efetivamente produzidas tiverem correção;\n- erros relevantes estiverem classificados;\n- ranking de risco estiver fechado;\n- nenhuma matéria nova permanecer sem primeira passagem;\n- a Reta Final receber entradas objetivas.\nS47 validada editorialmente ≠ Projeto 100 Dias executado. O ciclo pedagógico só termina com execução real."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-23T10:10:01.818Z"
     }
   },
   "questions": {
@@ -11523,6 +11950,40 @@
       "copyrightMode": "metadata-only",
       "version": 2,
       "lastEdited": "2026-09-23T02:48:52.993Z"
+    },
+    "q096": {
+      "qxx": "Q096",
+      "dxx": "D096",
+      "title": "Q096 — Questões \\| SIMULADO 3",
+      "meta": 70,
+      "valid": 70,
+      "sourceSummary": "45 FCC frescas no projeto (zero colisão exata anterior por ID) + 25 autorais controladas; todas V1 no recorte editorial de 23/09/2026.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-23T05:31:59.793Z"
+    },
+    "q099": {
+      "qxx": "Q099",
+      "dxx": "D099",
+      "title": "Q099 — Questões \\| Redação R8 + erros fatais",
+      "meta": 20,
+      "valid": 0,
+      "sourceSummary": "20 retestes adaptativos derivados dos Fatal Errors/P1/reincidências reais do Caderno de Erros e D096; não usar bateria genérica para completar meta.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-23T07:41:28.604Z"
+    },
+    "q100": {
+      "qxx": "Q100",
+      "dxx": "D100",
+      "title": "Q100 — Questões \\| CHECKPOINT D100",
+      "meta": 70,
+      "valid": 70,
+      "sourceSummary": "Forma paralela autoral controlada 70/70; lacuna FCC declarada para preservar benchmark sem reexposição literal de baterias anteriores.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-23T10:10:03.987Z",
+      "gapDeclared": true
     }
   },
   "publicStats": {
@@ -11531,7 +11992,7 @@
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 44,
-    "questionPages": 44
+    "materialPages": 47,
+    "questionPages": 47
   }
 }
