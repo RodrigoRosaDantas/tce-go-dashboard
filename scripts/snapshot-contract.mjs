@@ -10,7 +10,6 @@ export function validateSnapshot(snapshot) {
   if (snapshot.schemaVersion !== "1.0.0") errors.push("schemaVersion inválida");
   if (snapshot.source !== "notion") errors.push("source deve ser notion");
   if (!Array.isArray(snapshot.days)) errors.push("days deve ser array");
-  if (snapshot.contentHash && !/^[a-f0-9]{64}$/.test(snapshot.contentHash)) errors.push("contentHash inválido");
   if (errors.length) return errors;
 
   const days = snapshot.days;
@@ -27,7 +26,6 @@ export function validateSnapshot(snapshot) {
     if (d.protected && d.session) errors.push(`${d.dxx}: protegido não pode ter session`);
     if (!d.protected && !d.session) errors.push(`${d.dxx}: ativo sem session`);
     if (d.protected && d.readyForStudy) errors.push(`${d.dxx}: protegido não pode estar liberado`);
-    if (!d.protected && (!d.slug || !d.questionSlug)) errors.push(`${d.dxx}: ativo sem slug público`);
   }
 
   const active = days.filter((d) => !d.protected);
@@ -42,25 +40,59 @@ export function validateSnapshot(snapshot) {
   }
   if (new Set(sessions).size !== 47) errors.push("Sxx duplicado");
 
+  const ready = days.filter((d) => d.readyForStudy && !d.protected);
+  const readyMaterialSlugs = new Set(ready.map((d) => d.slug).filter(Boolean));
+  const readyQuestionSlugs = new Set(ready.map((d) => d.questionSlug).filter(Boolean));
+  const materials = snapshot.materials || {};
+  const questions = snapshot.questions || {};
+
+  for (const [slug, material] of Object.entries(materials)) {
+    if (!readyMaterialSlugs.has(slug)) errors.push(`material ${slug}: publicado sem Dxx liberado`);
+    const day = ready.find((d) => d.slug === slug);
+    if (day && material?.dxx !== day.dxx) errors.push(`material ${slug}: dxx divergente`);
+    validatePublicHtml(material?.contentHtml, `materials.${slug}.contentHtml`, errors);
+  }
+
+  for (const [slug, question] of Object.entries(questions)) {
+    if (!readyQuestionSlugs.has(slug)) errors.push(`questões ${slug}: publicadas sem Dxx liberado`);
+    const day = ready.find((d) => d.questionSlug === slug);
+    if (day && question?.dxx !== day.dxx) errors.push(`questões ${slug}: dxx divergente`);
+    if (question?.qxx && question.qxx.toLowerCase() !== slug) errors.push(`questões ${slug}: qxx divergente`);
+    validatePublicHtml(question?.contentHtml, `questions.${slug}.contentHtml`, errors);
+  }
+
   if (snapshot.publicStats) {
     if (snapshot.publicStats.totalDays !== 100) errors.push("publicStats.totalDays inválido");
     if (snapshot.publicStats.activeDays !== 47) errors.push("publicStats.activeDays inválido");
     if (snapshot.publicStats.protectedDays !== 53) errors.push("publicStats.protectedDays inválido");
     if (snapshot.publicStats.sessions !== 47) errors.push("publicStats.sessions inválido");
-  }
-
-  if (snapshot.contentMode === "full") {
-    const ready = days.filter((d) => !d.protected && d.readyForStudy);
-    for (const d of ready) {
-      if (!snapshot.materials?.[d.slug]) errors.push(`${d.dxx}: material público ausente em modo full`);
-      if (!snapshot.questions?.[d.questionSlug]) errors.push(`${d.dxx}: caderno público ausente em modo full`);
-    }
-    if (snapshot.publicStats?.materialDays !== ready.length) errors.push("publicStats.materialDays inválido");
-    if (snapshot.publicStats?.questionDays !== ready.length) errors.push("publicStats.questionDays inválido");
+    if (snapshot.publicStats.readyDays !== ready.length) errors.push("publicStats.readyDays inválido");
+    if (
+      typeof snapshot.publicStats.materialPages === "number"
+      && snapshot.publicStats.materialPages !== Object.keys(materials).length
+    ) errors.push("publicStats.materialPages inválido");
+    if (
+      typeof snapshot.publicStats.questionPages === "number"
+      && snapshot.publicStats.questionPages !== Object.keys(questions).length
+    ) errors.push("publicStats.questionPages inválido");
   }
 
   walk(snapshot, [], errors);
   return errors;
+}
+
+function validatePublicHtml(value, path, errors) {
+  if (!value) return;
+  if (typeof value !== "string") {
+    errors.push(`${path}: HTML deve ser string`);
+    return;
+  }
+  if (/<script\b|javascript:|\son[a-z]+\s*=/i.test(value)) {
+    errors.push(`${path}: HTML público contém construção insegura`);
+  }
+  if (/app\.notion\.com|notion\.so|collection:\/\//i.test(value)) {
+    errors.push(`${path}: HTML público contém referência interna do Notion`);
+  }
 }
 
 function walk(value, path, errors) {
