@@ -3,6 +3,7 @@ const SUPABASE_KEY = "sb_publishable_GfoaAPKtYuSu_UY6wE8jMg_XsVjdWU7";
 const SESSION_KEY = "plataforma.questoes.supabase.session.v1";
 const QUEUE_KEY = "tce-go.pending-events.v1";
 const CACHE_KEY = "tce-go.confirmed-progress.v1";
+const SUMMARY_CACHE_KEY = "tce-go.operational-summary.v1";
 const ENDPOINT = `${SUPABASE_URL}/functions/v1/tce-progress`;
 
 export type ProgressState = {
@@ -21,6 +22,81 @@ export type ProgressState = {
   canonicalRevision?: string | null;
   canonical: boolean;
   source: "notion" | "cache";
+};
+
+export type OperationalReview = {
+  id: string;
+  title: string;
+  dxx: string;
+  type: string;
+  status: string;
+  reason?: string | null;
+  plannedDate?: string | null;
+  performedDate?: string | null;
+  questions: number;
+  correct: number;
+  errors: number;
+  notes?: string | null;
+  lastEditedAt?: string | null;
+};
+
+export type OperationalError = {
+  id: string;
+  errorId?: string | null;
+  dxx?: string | null;
+  date?: string | null;
+  status: string;
+  error: string;
+  questionId?: string | null;
+  subject?: string | null;
+  topic?: string | null;
+  source?: string | null;
+  reason?: string | null;
+  severity?: string | null;
+  recurrence: number;
+  doubt: boolean;
+  fatal: boolean;
+  nextCheck?: string | null;
+  action?: string | null;
+  lastEditedAt?: string | null;
+};
+
+export type OperationalRedaction = {
+  id: string;
+  dxx: string;
+  title: string;
+  status: string;
+  score: number;
+  rewriteNeeded: boolean;
+  lastEditedAt?: string | null;
+};
+
+export type OperationalSimulation = {
+  id: string;
+  dxx: string;
+  title: string;
+  decision?: string | null;
+  ipi: number;
+  generalTotal: number;
+  generalCorrect: number;
+  specificTotal: number;
+  specificCorrect: number;
+  openErrors: number;
+  p1Open: number;
+  recurrent: number;
+  lastEditedAt?: string | null;
+};
+
+export type OperationalSummary = {
+  generatedAt: string;
+  canonical: boolean;
+  source: "notion" | "cache";
+  degraded?: boolean;
+  progress: ProgressState[];
+  reviews: OperationalReview[];
+  errors: OperationalError[];
+  redactions: OperationalRedaction[];
+  simulations: OperationalSimulation[];
 };
 
 export type ProgressEvent = {
@@ -119,6 +195,53 @@ export function cachedProgress(dxx: string) {
   return cacheMap()[dxx] ?? null;
 }
 
+export function cachedOperationalSummary() {
+  return readJson<OperationalSummary | null>(SUMMARY_CACHE_KEY, null);
+}
+
+function saveOperationalSummary(summary: OperationalSummary) {
+  writeJson(SUMMARY_CACHE_KEY, summary);
+  for (const state of summary.progress || []) {
+    if (state?.dxx) saveCache(state);
+  }
+  window.dispatchEvent(new CustomEvent("tce-operational-summary", { detail: summary }));
+}
+
+function invalidateOperationalSummary() {
+  try { localStorage.removeItem(SUMMARY_CACHE_KEY); } catch { /* storage indisponível */ }
+  window.dispatchEvent(new CustomEvent("tce-operational-dirty"));
+}
+
+export async function loadOperationalSummary() {
+  const fallback = cachedOperationalSummary();
+  if (!navigator.onLine) return fallback;
+
+  try {
+    const { response, data, authenticated } = await endpoint("?mode=summary");
+    if (!authenticated || !response) return fallback;
+    if (!response.ok || !data || !Array.isArray(data.progress)) return fallback;
+    const summary: OperationalSummary = {
+      generatedAt: String(data.generatedAt || new Date().toISOString()),
+      canonical: data.canonical === true,
+      source: data.source === "notion" ? "notion" : "cache",
+      degraded: data.degraded === true,
+      progress: Array.isArray(data.progress) ? data.progress as ProgressState[] : [],
+      reviews: Array.isArray(data.reviews) ? data.reviews as OperationalReview[] : [],
+      errors: Array.isArray(data.errors) ? data.errors as OperationalError[] : [],
+      redactions: Array.isArray(data.redactions) ? data.redactions as OperationalRedaction[] : [],
+      simulations: Array.isArray(data.simulations) ? data.simulations as OperationalSimulation[] : [],
+    };
+    saveOperationalSummary(summary);
+    return summary;
+  } catch {
+    return fallback;
+  }
+}
+
+export function operationalProgress(summary: OperationalSummary | null | undefined, dxx: string) {
+  return summary?.progress?.find((state) => state.dxx === dxx) ?? cachedProgress(dxx);
+}
+
 export function queuedEvents() {
   return readJson<ProgressEvent[]>(QUEUE_KEY, []);
 }
@@ -199,6 +322,7 @@ async function syncEvent(event: ProgressEvent) {
 
     if (response.ok && data?.status === "confirmed") {
       removeQueued(event.idempotencyKey);
+      invalidateOperationalSummary();
       if (data.state) {
         saveCache({
           dxx: data.dxx,
