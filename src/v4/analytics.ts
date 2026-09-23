@@ -104,8 +104,10 @@ export function buildDataIssues(summary: OperationalSummary, snapshot: Snapshot)
   const active = new Set(snapshot.days.filter((day) => !day.protected).map((day) => day.dxx));
   const sessionMap = sessionRowsByDay(summary);
   const questionDays = new Set(summary.questionMeta.map((item) => String(item.dxx || "").toUpperCase()).filter(Boolean));
-  for (const dxx of active) {
-    if (!questionDays.has(dxx)) issues.push({ level:"warning", source:"Qxx", key:dxx, message:"Dxx ativo sem Matéria/foco no resumo do Banco de Questões." });
+  if (summary.canonical) {
+    for (const dxx of active) {
+      if (!questionDays.has(dxx)) issues.push({ level:"warning", source:"Qxx", key:dxx, message:"Dxx ativo sem Matéria/foco no resumo do Banco de Questões." });
+    }
   }
 
   for (const day of summary.dayControl.filter((item) => !item.protected && hasExecution(item))) {
