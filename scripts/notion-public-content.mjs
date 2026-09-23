@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 
-const PRIVATE_SECTION = /(?:navega[çc][ãa]o|controle\s+operacional|execu[çc][ãa]o\s+real|registro\s+de\s+execu[çc][ãa]o|folha\s+de\s+resposta|respostas\s+pessoais|tempo\s+real|desempenho\s+pessoal|hist[óo]rico\s+pessoal|hist[óo]rico\s+reaproveitado|baseline\s+pessoal)/i;
+const PRIVATE_SECTION = /(?:navega[çc][ãa]o|controle\s+operacional|execu[çc][ãa]o\s+real|registro\s+de\s+execu[çc][ãa]o|folha\s+de\s+resposta|respostas\s+pessoais|tempo\s+real|desempenho\s+pessoal|hist[óo]rico\s+pessoal|hist[óo]rico\s+reaproveitado|o\s+que\s+j[áa]\s+existe\s+no\s+hist[óo]rico|baseline\s+pessoal)/i;
 const PRIVATE_LINE = /(?:resposta\s+pessoal|tempo\s+real|acertos\/erros\s+reais|n[ãa]o\s+preencher\s+editorialmente|meus\s+dados)/i;
 const NOTION_INTERNAL_URL = /https?:\/\/(?:www\.)?(?:app\.)?notion\.(?:so|com)\/[^\s)\]}]+/gi;
 const NOTION_INTERNAL_REF = /collection:\/\/[-a-z0-9]+/gi;
@@ -44,11 +44,12 @@ export function relationIds(property) {
 }
 
 export function materialSnapshotFromBlocks({ dxx, title, focus, version, lastEdited }, blocks) {
+  const publicBlocks = filterPublicBlocks(blocks);
   const contentHtml = withStudyIndex(
-    sanitizeMaterialHtml(renderBlocks(blocks)),
+    sanitizeMaterialHtml(renderBlocks(publicBlocks)),
     dxx.toLowerCase(),
   );
-  const sections = extractTextSections(blocks);
+  const sections = extractTextSections(publicBlocks);
   const summary = sanitizePublicText(focus) || stripHtml(contentHtml).slice(0, 420);
 
   return {
@@ -71,8 +72,7 @@ export function questionSnapshotFromPage({ dxx, page }) {
   const valid = propertyNumber(p, "Questões válidas");
   const priority = propertyText(p, "Origem prioritária");
   const focus = propertyText(p, "Matéria/foco");
-  const notes = propertyText(p, "Observações editoriais");
-  const sourceSummary = priority || focus || notes || "Metadados editoriais do caderno canônico.";
+  const sourceSummary = priority || focus || "Metadados editoriais do caderno canônico.";
   const version = propertyNumber(p, "Versão editorial");
   const gapDeclared = propertyCheckbox(p, "Lacuna declarada");
 
@@ -205,36 +205,51 @@ function richTextHtml(items = []) {
 }
 
 function sanitizeMaterialHtml(value) {
-  let html = String(value || "")
+  return String(value || "")
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/\son[a-z]+="[^"]*"/gi, "")
-    .replace(/\son[a-z]+='[^']*'/gi, "");
-
-  html = removeHtmlSections(html, (heading) => PRIVATE_SECTION.test(stripHtml(heading)));
-  html = html.replace(/<(p|blockquote|li|aside)\b[^>]*>[\s\S]*?<\/\1>/gi, (block) => {
-    const plain = stripHtml(block);
-    return PRIVATE_LINE.test(plain) ? "" : block;
-  });
-
-  return html.replace(/\s{2,}/g, " ").trim();
+    .replace(/\son[a-z]+='[^']*'/gi, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
 }
 
-function removeHtmlSections(html, shouldRemove) {
-  const headingPattern = /<h[23]\b[^>]*>[\s\S]*?<\/h[23]>/gi;
-  const matches = [...html.matchAll(headingPattern)];
-  if (!matches.length) return html;
+function filterPublicBlocks(blocks) {
+  const output = [];
+  let skipLevel = null;
 
-  let output = "";
-  let cursor = 0;
-  for (let index = 0; index < matches.length; index += 1) {
-    const match = matches[index];
-    const start = match.index ?? 0;
-    const nextStart = matches[index + 1]?.index ?? html.length;
-    output += html.slice(cursor, start);
-    if (!shouldRemove(match[0])) output += html.slice(start, nextStart);
-    cursor = nextStart;
+  for (const original of blocks || []) {
+    const block = { ...original };
+    const level = headingLevel(block.type);
+    const text = blockPlainText(block);
+
+    if (level !== null) {
+      if (skipLevel !== null) {
+        if (level > skipLevel) continue;
+        skipLevel = null;
+      }
+      if (PRIVATE_SECTION.test(text)) {
+        skipLevel = level;
+        continue;
+      }
+    } else if (skipLevel !== null) {
+      continue;
+    }
+
+    if (PRIVATE_LINE.test(text)) continue;
+    if (Array.isArray(block.children)) {
+      block.children = filterPublicBlocks(block.children);
+    }
+    output.push(block);
   }
-  return output + html.slice(cursor);
+
+  return output;
+}
+
+function headingLevel(type) {
+  if (type === "heading_1") return 1;
+  if (type === "heading_2") return 2;
+  if (type === "heading_3") return 3;
+  return null;
 }
 
 function withStudyIndex(html, code) {
