@@ -31,4 +31,45 @@ for (const route of routes) {
 
 fs.copyFileSync(index, path.join(dist, "404.html"));
 fs.writeFileSync(path.join(dist, ".nojekyll"), "");
-console.log(`GitHub Pages preparado: ${routes.length + 1} rotas + fallback.`);
+
+const assetDir = path.join(dist, "assets");
+const assets = fs.existsSync(assetDir)
+  ? fs.readdirSync(assetDir, { recursive: true, withFileTypes: true })
+      .filter((entry) => entry.isFile())
+      .map((entry) => {
+        const parent = path.relative(assetDir, entry.parentPath || entry.path || assetDir);
+        return `./assets/${path.join(parent, entry.name).replaceAll("\\", "/").replace(/^\.\//, "")}`;
+      })
+  : [];
+const offlineCore = [
+  "./",
+  "./dias/",
+  "./data/tce-go-snapshot.json",
+  "./manifest.webmanifest",
+  "./icon.svg",
+  ...staticRoutes.map((route) => `./${route}/`),
+  ...dynamicRoutes.map((route) => `./${route}/`),
+  ...assets,
+];
+const cacheName = `tce-go-${snapshot.contentHash?.slice(0, 12) || snapshot.generatedAt.replace(/[^0-9]/g, "").slice(0, 14) || "v1"}`;
+const serviceWorker = `const CACHE = ${JSON.stringify(cacheName)};
+const CORE = ${JSON.stringify(offlineCore)};
+self.addEventListener("install", (event) => {
+  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(CORE)).then(() => self.skipWaiting()));
+});
+self.addEventListener("activate", (event) => {
+  event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)))).then(() => self.clients.claim()));
+});
+self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET" || new URL(event.request.url).origin !== location.origin) return;
+  event.respondWith(fetch(event.request)
+    .then((response) => {
+      const clone = response.clone();
+      caches.open(CACHE).then((cache) => cache.put(event.request, clone));
+      return response;
+    })
+    .catch(() => caches.match(event.request).then((cached) => cached || (event.request.mode === "navigate" ? caches.match("./") : undefined))));
+});
+`;
+fs.writeFileSync(path.join(dist, "sw.js"), serviceWorker);
+console.log(`GitHub Pages preparado: ${routes.length + 1} rotas + fallback; ${offlineCore.length} recursos precacheados.`);
