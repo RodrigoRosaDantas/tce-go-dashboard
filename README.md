@@ -33,3 +33,7 @@ O workflow usa:
 - Notion API version: `2026-03-11`
 
 Nenhum token é enviado ao navegador ou gravado no snapshot.
+
+## QA de bootstrap
+
+Esta branch existe apenas para disparar e verificar o quality gate completo antes do fechamento da implantação inicial.
