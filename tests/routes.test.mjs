@@ -53,3 +53,9 @@ test("rotas dinâmicas existem somente quando Material + Qxx públicos estão di
     assert.equal(fs.existsSync(questionFile), shouldPublish, `${day.dxx}: rota Qxx divergente da cobertura pública`);
   }
 });
+
+test("Hoje usa o fuso do calendário TCE-GO", () => {
+  const app = fs.readFileSync("src/App.tsx", "utf8");
+  assert.match(app, /America\/Sao_Paulo/);
+  assert.doesNotMatch(app, /new Date\(\)\.toISOString\(\)\.slice\(0,\s*10\)/);
+});
