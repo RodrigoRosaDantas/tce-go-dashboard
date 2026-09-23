@@ -1,0 +1,247 @@
+const SUPABASE_URL = "https://fqqkkyusnzhuuizahkww.supabase.co";
+const SUPABASE_KEY = "sb_publishable_GfoaAPKtYuSu_UY6wE8jMg_XsVjdWU7";
+const SESSION_KEY = "plataforma.questoes.supabase.session.v1";
+const QUEUE_KEY = "tce-go.pending-events.v1";
+const CACHE_KEY = "tce-go.confirmed-progress.v1";
+const ENDPOINT = `${SUPABASE_URL}/functions/v1/tce-progress`;
+
+export type ProgressState = {
+  dxx: string;
+  sxx?: string | null;
+  studied: boolean;
+  completed: boolean;
+  timeMinutes: number;
+  questionsDone: number;
+  correct: number;
+  errors: number;
+  doubts: number;
+  status?: string | null;
+  confirmedAt?: string | null;
+  eventOccurredAt?: string | null;
+  canonical: boolean;
+  source: "notion" | "cache";
+};
+
+export type ProgressEvent = {
+  dxx: string;
+  sxx?: string | null;
+  eventType: "progress.snapshot" | "questions.result" | "day.completed" | "day.reopened" | "review.snapshot" | "simulation.result" | "essay.result";
+  timestamp: string;
+  origin: "tce-go-dashboard";
+  idempotencyKey: string;
+  payload: {
+    studied?: boolean;
+    completed?: boolean;
+    timeMinutes?: number;
+    questionsDone?: number;
+    correct?: number;
+    errors?: number;
+    doubts?: number;
+    notes?: string;
+    sourceUrl?: string;
+  };
+  localStatus?: "pending" | "conflict";
+  lastError?: string;
+};
+
+type StoredSession = { access_token: string; refresh_token: string; expires_at?: number };
+
+function readJson<T>(key: string, fallback: T): T {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) as T : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function writeJson(key: string, value: unknown) {
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage indisponível */ }
+}
+
+function uuid() {
+  if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
+  const bytes = new Uint8Array(16);
+  globalThis.crypto?.getRandomValues?.(bytes);
+  bytes[6] = (bytes[6] & 0x0f) | 0x40;
+  bytes[8] = (bytes[8] & 0x3f) | 0x80;
+  const hex = [...bytes].map((value) => value.toString(16).padStart(2, "0")).join("");
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+}
+
+function storedSession(): StoredSession | null {
+  const session = readJson<StoredSession | null>(SESSION_KEY, null);
+  return session?.access_token && session?.refresh_token ? session : null;
+}
+
+async function accessToken() {
+  let session = storedSession();
+  if (!session) return null;
+  if (!session.expires_at || session.expires_at * 1000 > Date.now() + 60_000) return session.access_token;
+
+  const response = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=refresh_token`, {
+    method: "POST",
+    headers: { apikey: SUPABASE_KEY, "Content-Type": "application/json" },
+    body: JSON.stringify({ refresh_token: session.refresh_token }),
+  });
+  if (!response.ok) {
+    localStorage.removeItem(SESSION_KEY);
+    return null;
+  }
+  const data = await response.json();
+  session = {
+    access_token: data.access_token,
+    refresh_token: data.refresh_token || session.refresh_token,
+    expires_at: Math.floor(Date.now() / 1000) + Number(data.expires_in || 3600),
+  };
+  writeJson(SESSION_KEY, session);
+  return session.access_token;
+}
+
+export function hasConnectedAccount() {
+  return Boolean(storedSession());
+}
+
+function cacheMap() {
+  return readJson<Record<string, ProgressState>>(CACHE_KEY, {});
+}
+
+function saveCache(state: ProgressState) {
+  const cache = cacheMap();
+  cache[state.dxx] = state;
+  writeJson(CACHE_KEY, cache);
+}
+
+export function cachedProgress(dxx: string) {
+  return cacheMap()[dxx] ?? null;
+}
+
+export function queuedEvents() {
+  return readJson<ProgressEvent[]>(QUEUE_KEY, []);
+}
+
+function saveQueue(queue: ProgressEvent[]) {
+  writeJson(QUEUE_KEY, queue);
+  window.dispatchEvent(new CustomEvent("tce-progress-queue"));
+}
+
+function replaceQueued(event: ProgressEvent) {
+  const queue = queuedEvents();
+  const index = queue.findIndex((item) => item.idempotencyKey === event.idempotencyKey);
+  if (index >= 0) queue[index] = event;
+  else queue.push(event);
+  saveQueue(queue);
+}
+
+function removeQueued(key: string) {
+  saveQueue(queuedEvents().filter((item) => item.idempotencyKey !== key));
+}
+
+export function pendingCount(dxx?: string) {
+  return queuedEvents().filter((event) => event.localStatus !== "conflict" && (!dxx || event.dxx === dxx)).length;
+}
+
+export function conflictCount(dxx?: string) {
+  return queuedEvents().filter((event) => event.localStatus === "conflict" && (!dxx || event.dxx === dxx)).length;
+}
+
+async function endpoint(path = "", init: RequestInit = {}) {
+  const token = await accessToken();
+  if (!token) return { response: null, data: null, authenticated: false };
+  const headers = new Headers(init.headers);
+  headers.set("apikey", SUPABASE_KEY);
+  headers.set("Authorization", `Bearer ${token}`);
+  if (init.body) headers.set("Content-Type", "application/json");
+  const response = await fetch(`${ENDPOINT}${path}`, { ...init, headers });
+  const data = await response.json().catch(() => null);
+  return { response, data, authenticated: true };
+}
+
+export async function loadProgress(dxx: string) {
+  if (!navigator.onLine) return cachedProgress(dxx);
+  try {
+    const { response, data, authenticated } = await endpoint(`?dxx=${encodeURIComponent(dxx)}`);
+    if (!authenticated || !response) return cachedProgress(dxx);
+    if (!response.ok || !data) return cachedProgress(dxx);
+    if (data.dxx && typeof data.studied === "boolean") {
+      const state = data as ProgressState;
+      saveCache(state);
+      return state;
+    }
+  } catch { /* cache abaixo */ }
+  return cachedProgress(dxx);
+}
+
+export function createProgressEvent(input: Omit<ProgressEvent, "timestamp" | "origin" | "idempotencyKey" | "localStatus">): ProgressEvent {
+  return {
+    ...input,
+    timestamp: new Date().toISOString(),
+    origin: "tce-go-dashboard",
+    idempotencyKey: uuid(),
+    localStatus: "pending",
+  };
+}
+
+export async function queueAndSync(event: ProgressEvent) {
+  replaceQueued(event);
+  return syncEvent(event);
+}
+
+async function syncEvent(event: ProgressEvent) {
+  if (!navigator.onLine) return { status: "pending" as const, reason: "offline" };
+  try {
+    const { response, data, authenticated } = await endpoint("", { method: "POST", body: JSON.stringify(event) });
+    if (!authenticated) return { status: "pending" as const, reason: "auth" };
+    if (!response) return { status: "pending" as const, reason: "network" };
+
+    if (response.ok && data?.status === "confirmed") {
+      removeQueued(event.idempotencyKey);
+      if (data.state) {
+        saveCache({
+          dxx: data.dxx,
+          sxx: data.sxx,
+          ...data.state,
+          canonical: true,
+          source: "notion",
+          confirmedAt: data.confirmation?.confirmedAt ?? new Date().toISOString(),
+          eventOccurredAt: data.confirmation?.occurredAt ?? event.timestamp,
+        });
+      }
+      return { status: "confirmed" as const, data };
+    }
+
+    if (response.status === 409 || data?.status === "conflict") {
+      replaceQueued({ ...event, localStatus: "conflict", lastError: data?.error || "Conflito com o estado canônico." });
+      return { status: "conflict" as const, data };
+    }
+
+    replaceQueued({ ...event, localStatus: "pending", lastError: data?.message || data?.error || "Pendente de sincronização." });
+    return { status: "pending" as const, reason: data?.reason || "server", data };
+  } catch (error) {
+    replaceQueued({ ...event, localStatus: "pending", lastError: error instanceof Error ? error.message : "Falha de rede." });
+    return { status: "pending" as const, reason: "network" };
+  }
+}
+
+export async function flushPending() {
+  const queue = queuedEvents().filter((event) => event.localStatus !== "conflict");
+  const results = [];
+  for (const event of queue) results.push(await syncEvent(event));
+  return results;
+}
+
+export function platformAccountUrl() {
+  return "https://rodrigorosadantas.github.io/plataforma-questoes/?view=settings";
+}
+
+export function platformBatteryUrl(input: { dxx: string; sxx?: string | null; materia: string; topico: string; subtopico?: string | null }) {
+  const url = new URL("https://rodrigorosadantas.github.io/plataforma-questoes/");
+  url.searchParams.set("view", "questions");
+  url.searchParams.set("dxx", input.dxx);
+  if (input.sxx) url.searchParams.set("sxx", input.sxx);
+  url.searchParams.set("disciplina", input.materia);
+  url.searchParams.set("assunto", input.topico);
+  if (input.subtopico) url.searchParams.set("subassunto", input.subtopico);
+  url.searchParams.set("autostart", "1");
+  return url.href;
+}
