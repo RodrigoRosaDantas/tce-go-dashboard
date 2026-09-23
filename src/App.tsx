@@ -3,7 +3,7 @@ import { loadSnapshot, publicRoute } from "./data";
 import type { DaySnapshot, Snapshot } from "./types";
 import { ProgressPanel } from "./ProgressPanel";
 import { ErrorWriteback, EssayWriteback, ReviewWriteback, SimulationWriteback } from "./ExecutionForms";
-import { platformBatteryUrl } from "./progress";
+import { cachedProgress, conflictCount, hasConnectedAccount, pendingCount, platformBatteryUrl } from "./progress";
 
 const primaryNav = [
   ["/", "Hoje", "⌂"],
@@ -119,6 +119,9 @@ function SessionNavigation({
 }
 
 function Shell({ children, syncTime }: { children: React.ReactNode; syncTime?: string }) {
+  const currentRoute = publicRoute(window.location.pathname);
+  const isCurrent = (path: string) => path === "/" ? currentRoute === "/" : currentRoute.startsWith(path);
+
   return (
     <>
       <header className="topbar v2-topbar">
@@ -137,7 +140,12 @@ function Shell({ children, syncTime }: { children: React.ReactNode; syncTime?: s
           <div className="sidebar-group">
             <p className="sidebar-label">Estudar</p>
             {primaryNav.map(([path, label, icon]) => (
-              <a key={path} href={href(path)} className="sidebar-link">
+              <a
+                key={path}
+                href={href(path)}
+                className={`sidebar-link ${isCurrent(path) ? "active" : ""}`}
+                aria-current={isCurrent(path) ? "page" : undefined}
+              >
                 <span aria-hidden="true">{icon}</span><span>{label}</span>
               </a>
             ))}
@@ -145,17 +153,21 @@ function Shell({ children, syncTime }: { children: React.ReactNode; syncTime?: s
 
           <div className="sidebar-group">
             <p className="sidebar-label">Treino</p>
-            {studyNav.map(([path, label]) => <a key={path} href={href(path)} className="sidebar-link compact">{label}</a>)}
+            {studyNav.map(([path, label]) => (
+              <a key={path} href={href(path)} className={`sidebar-link compact ${isCurrent(path) ? "active" : ""}`} aria-current={isCurrent(path) ? "page" : undefined}>{label}</a>
+            ))}
           </div>
 
           <div className="sidebar-group">
             <p className="sidebar-label">Referência</p>
-            {referenceNav.map(([path, label]) => <a key={path} href={href(path)} className="sidebar-link compact">{label}</a>)}
+            {referenceNav.map(([path, label]) => (
+              <a key={path} href={href(path)} className={`sidebar-link compact ${isCurrent(path) ? "active" : ""}`} aria-current={isCurrent(path) ? "page" : undefined}>{label}</a>
+            ))}
           </div>
 
           <div className="sidebar-system">
             <span className="system-dot" aria-hidden="true" />
-            <span>Conteúdo sincronizado</span>
+            <span>Snapshot carregado</span>
             {syncTime ? <small>{new Date(syncTime).toLocaleString("pt-BR")}</small> : null}
           </div>
         </aside>
@@ -165,7 +177,9 @@ function Shell({ children, syncTime }: { children: React.ReactNode; syncTime?: s
 
       <nav className="mobile-bottom-nav" aria-label="Navegação móvel">
         {primaryNav.map(([path, label, icon]) => (
-          <a key={path} href={href(path)}><span aria-hidden="true">{icon}</span><small>{label}</small></a>
+          <a key={path} href={href(path)} className={isCurrent(path) ? "active" : ""} aria-current={isCurrent(path) ? "page" : undefined}>
+            <span aria-hidden="true">{icon}</span><small>{label}</small>
+          </a>
         ))}
         <details className="mobile-more">
           <summary><span aria-hidden="true">•••</span><small>Mais</small></summary>
@@ -183,8 +197,8 @@ function Home({ snapshot }: { snapshot: Snapshot }) {
   const ordered = [...snapshot.days].sort((a, b) => a.order - b.order);
   const active = ordered.filter((d) => !d.protected);
   const published = active.filter((d) => hasPublicSession(snapshot, d));
-  const next = ordered.find((d) => hasPublicSession(snapshot, d) && d.date >= today)
-    ?? ordered.find((d) => hasPublicSession(snapshot, d));
+  const next = published.find((d) => !cachedProgress(d.dxx)?.completed);
+  const allPublishedCompleted = published.length > 0 && !next;
   const nextIndex = next ? active.findIndex((d) => d.dxx === next.dxx) : -1;
   const nextAfter = nextIndex >= 0 ? active[nextIndex + 1] : undefined;
 
@@ -194,7 +208,7 @@ function Home({ snapshot }: { snapshot: Snapshot }) {
         <div>
           <p className="eyebrow">Técnico de Controle Externo · TCE-GO</p>
           <h1>Seu próximo passo.</h1>
-          <p>Abra a sessão, estude o material, faça a bateria e feche o D0. O resto fica fora do caminho.</p>
+          <p>Sequência pedagógica primeiro, calendário depois. Hoje é {formatDate(today)}; a home não pula sessão só porque a data virou.</p>
         </div>
         <div className="trail-meter" aria-label="Cobertura editorial da trilha">
           <div className="trail-meter-head"><span>Trilha pedagógica</span><strong>{published.length}/{active.length}</strong></div>
@@ -224,7 +238,7 @@ function Home({ snapshot }: { snapshot: Snapshot }) {
             <span className="step"><b>3</b> D0</span>
           </div>
         </article>
-      ) : <div className="empty-state">Nenhuma sessão está liberada para estudo neste momento.</div>}
+      ) : <div className="empty-state">{allPublishedCompleted ? "Todas as sessões publicadas estão concluídas neste dispositivo." : "Nenhuma sessão está liberada para estudo neste momento."}</div>}
 
       <div className="quick-grid">
         <a className="quick-card" href={href("/dias/")}>
@@ -487,9 +501,61 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
   );
 }
 
-const sectionCopy: Record<string, [string, string]> = {
-  "/desempenho/": ["Desempenho", "Tempo, acertos, erros, dúvidas e sessões são privados. O registro operacional acontece na sessão autenticada e só vira canônico após confirmação do Notion."],
-};
+const sectionCopy: Record<string, [string, string]> = {};
+
+function PerformancePage({ snapshot }: { snapshot: Snapshot }) {
+  const rows = snapshot.days
+    .filter((day) => !day.protected)
+    .sort((a, b) => a.order - b.order)
+    .map((day) => ({ day, progress: cachedProgress(day.dxx) }))
+    .filter((item) => item.progress);
+
+  const completed = rows.filter((item) => item.progress?.completed).length;
+  const studied = rows.filter((item) => item.progress?.studied).length;
+  const totalMinutes = rows.reduce((sum, item) => sum + (item.progress?.timeMinutes ?? 0), 0);
+  const questions = rows.reduce((sum, item) => sum + (item.progress?.questionsDone ?? 0), 0);
+  const correct = rows.reduce((sum, item) => sum + (item.progress?.correct ?? 0), 0);
+  const errors = rows.reduce((sum, item) => sum + (item.progress?.errors ?? 0), 0);
+  const accuracy = correct + errors > 0 ? Math.round((correct / (correct + errors)) * 100) : null;
+  const pending = pendingCount();
+  const conflicts = conflictCount();
+  const connected = hasConnectedAccount();
+
+  return (
+    <section>
+      <div className="page-head v2-page-head">
+        <p className="eyebrow">Dados privados deste dispositivo</p>
+        <h1>Desempenho</h1>
+        <p>Resumo do progresso confirmado em cache. O Notion continua sendo a fonte canônica; esta tela não inventa desempenho quando não há registro real.</p>
+      </div>
+
+      <div className="performance-grid">
+        <article className="metric-card"><strong>{completed}</strong><span>Sessões concluídas</span><small>{studied} com estudo registrado</small></article>
+        <article className="metric-card"><strong>{totalMinutes}</strong><span>Minutos registrados</span><small>{Math.floor(totalMinutes / 60)}h {totalMinutes % 60}min</small></article>
+        <article className="metric-card"><strong>{questions}</strong><span>Questões feitas</span><small>{correct} acertos · {errors} erros</small></article>
+        <article className="metric-card"><strong>{accuracy === null ? "—" : accuracy + "%"}</strong><span>Aproveitamento</span><small>Somente itens com acerto/erro registrado</small></article>
+      </div>
+
+      <div className="panel performance-status">
+        <h2>Status dos dados</h2>
+        <p><strong>Conta:</strong> {connected ? "conectada" : "não conectada neste navegador"}.</p>
+        <p><strong>Fila local:</strong> {pending} pendente{pending === 1 ? "" : "s"} · {conflicts} conflito{conflicts === 1 ? "" : "s"}.</p>
+        {!rows.length ? <div className="notice">Ainda não há progresso confirmado em cache neste dispositivo. Abra uma sessão e registre a execução real para esta tela ganhar dados.</div> : null}
+      </div>
+
+      {rows.length ? (
+        <div className="performance-list">
+          {rows.map(({ day, progress }) => (
+            <article key={day.dxx} className="performance-row">
+              <div><strong>{day.session} · {day.dxx}</strong><span>{day.focus}</span></div>
+              <div><strong>{progress?.completed ? "Concluída" : progress?.studied ? "Em andamento" : "Registrada"}</strong><span>{progress?.timeMinutes ?? 0} min · {progress?.questionsDone ?? 0} questões</span></div>
+            </article>
+          ))}
+        </div>
+      ) : null}
+    </section>
+  );
+}
 
 function RevisionsPage({ snapshot }: { snapshot: Snapshot }) {
   return (
@@ -661,6 +727,7 @@ export default function App() {
   else if (route === "/redacoes/") page = <RedactionsPage snapshot={snapshot} />;
   else if (route === "/erros/") page = <ErrorsPage snapshot={snapshot} />;
   else if (route === "/simulados/") page = <SimulationsPage snapshot={snapshot} />;
+  else if (route === "/desempenho/") page = <PerformancePage snapshot={snapshot} />;
   else if (route === "/edital/") page = <EditalPage snapshot={snapshot} />;
   else if (route === "/legislacao/") page = <LegislationPage snapshot={snapshot} />;
   else if (route === "/reta-final/") page = <FinalSprintPage snapshot={snapshot} />;
