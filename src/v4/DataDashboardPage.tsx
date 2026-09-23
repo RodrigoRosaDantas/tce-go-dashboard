@@ -6,7 +6,7 @@ import { DataNotice, EmptyState, MetricCard, PageHeader, SectionHeader, StatusPi
 import { accuracy, buildDataIssues, dataOrigin, disciplineRows, errorRows, hasExecution, pct, plannedTimeRange, reviewStats, sessionRowsByDay, subjectForDay } from "./analytics";
 import { href } from "../v3/shared";
 
-type Tab = "overview" | "execution" | "subjects" | "errors" | "reviews" | "writing" | "checkpoints" | "quality";
+type Tab = "overview" | "execution" | "subjects" | "edital" | "errors" | "reviews" | "writing" | "checkpoints" | "quality";
 type StatusFilter = "all" | "executed" | "pending" | "completed";
 
 function formatMinutes(value: number | null) {
@@ -78,7 +78,7 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
     return true;
   });
 
-  const tabs: Array<[Tab, string]> = [["overview","Visão geral"],["execution","Execução"],["subjects","Matérias"],["errors","Erros"],["reviews","Retenção"],["writing","Redação"],["checkpoints","Checkpoints"],["quality","Dados"]];
+  const tabs: Array<[Tab, string]> = [["overview","Visão geral"],["execution","Execução"],["subjects","Matérias"],["edital","Edital"],["errors","Erros"],["reviews","Retenção"],["writing","Redação"],["checkpoints","Checkpoints"],["quality","Dados"]];
 
   return <section className="data-dashboard-v41">
     <PageHeader eyebrow="DATA & ANALYTICS · NOTION CANÔNICO" title="Dashboard de preparação" description="O Notion é a fonte da verdade. Se você estudar direto nele, o Dashboard deve refletir os mesmos registros sem depender do site." aside={<DataNotice canonical={summary.canonical} degraded={summary.degraded} generatedAt={summary.generatedAt} />} />
@@ -149,6 +149,20 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
     </> : null}
 
     {tab === "subjects" ? <section className="analytics-panel-v41"><SectionHeader eyebrow="MATÉRIAS" title="Carga e desempenho por disciplina" detail="O agrupamento vem de Matéria/foco no Banco de Questões do Notion; checkpoints, redações e correções não entram na estatística por matéria." /><div className="subject-cards-v41">{disciplines.map((row) => <article key={row.discipline}><header><strong>{row.discipline}</strong><StatusPill>{row.execution}/{row.sessions} sessões</StatusPill></header><div className="subject-kpis-v41"><span><b>{row.planned}</b> previstas</span><span><b>{row.done}</b> feitas</span><span><b>{pct(accuracy(row.correct, row.errors), 1)}</b> precisão</span><span><b>{formatMinutes(row.minutes)}</b> tempo</span></div><AnalyticsBar value={row.done} max={row.planned} /></article>)}</div></section> : null}
+
+    {tab === "edital" ? <section className="analytics-panel-v41">
+      <SectionHeader eyebrow="BLUEPRINT DO EDITAL" title="Distribuição planejada por disciplina" detail="Questões, pesos e pontos vêm do banco verticalizado. Execução por item não é inferida sem relação Dxx/Qxx." action={<a href={href("/edital/")}>Abrir edital →</a>} />
+      <div className="model-gap-v41"><StatusPill tone="warning">Lacuna estrutural declarada</StatusPill><p>O banco de Edital Verticalizado ainda não possui relação direta com Dxx/Qxx. Por isso o Dashboard não fabrica percentual de cobertura executada por item. A execução por matéria usa Matéria/foco do Banco de Questões.</p></div>
+      <div className="analytics-kpis-v41 compact">
+        <MetricCard label="DISCIPLINAS / ITENS" value={(snapshot.edital ?? []).filter((item) => item.active).length} />
+        <MetricCard label="QUESTÕES PREVISTAS" value={(snapshot.edital ?? []).filter((item) => item.active).reduce((sum,item)=>sum+item.questions,0)} />
+        <MetricCard label="PONTOS PONDERADOS" value={(snapshot.edital ?? []).filter((item) => item.active).reduce((sum,item)=>sum+item.weightedPoints,0)} />
+        <MetricCard label="FONTES NORMATIVAS" value={(snapshot.edital ?? []).filter((item) => item.active && item.normativeSource).length} />
+      </div>
+      <div className="analytics-table-wrap-v41"><table className="analytics-table-v41"><thead><tr><th>Código</th><th>Disciplina</th><th>Bloco</th><th>Questões</th><th>Peso</th><th>Pontos</th><th>Fonte normativa</th></tr></thead><tbody>
+        {(snapshot.edital ?? []).filter((item)=>item.active).sort((a,b)=>a.order-b.order).map((item)=><tr key={item.code}><td><strong>{item.code}</strong></td><td>{item.discipline}</td><td>{item.block}</td><td>{item.questions}</td><td>{item.weight}</td><td>{item.weightedPoints}</td><td>{item.normativeSource || "—"}</td></tr>)}
+      </tbody></table></div>
+    </section> : null}
 
     {tab === "errors" ? <section className="analytics-panel-v41"><SectionHeader eyebrow="CLÍNICA DE ERROS" title="Matéria × tópico" action={<a href={href("/erros/")}>Abrir Caderno →</a>} />{errorsByTopic.length ? <div className="analytics-table-wrap-v41"><table className="analytics-table-v41"><thead><tr><th>Matéria</th><th>Tópico</th><th>Abertos</th><th>P1/Fatal</th><th>Reincidências</th><th>Dúvidas</th></tr></thead><tbody>{errorsByTopic.map((row) => <tr key={row.label}><td><strong>{row.subject}</strong></td><td>{row.topic}</td><td>{row.open}</td><td>{row.critical}</td><td>{row.recurrent}</td><td>{row.doubts}</td></tr>)}</tbody></table></div> : <EmptyState title="Sem dados de erro." description="Preencha o Caderno de Erros no Notion ou registre pelo site." />}</section> : null}
 
