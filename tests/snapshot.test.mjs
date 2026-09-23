@@ -61,7 +61,7 @@ test("snapshot não expõe referência interna do Notion nem HTML ativo", () => 
 
 
 test("cobertura editorial auxiliar full é derivada sem execução pessoal", () => {
-  if (snapshot.auxiliaryMode !== "full") return;
+  assert.equal(snapshot.auxiliaryMode, "full");
   assert.equal(snapshot.redactions?.length, 8);
   assert.deepEqual(snapshot.redactions.map((item) => item.code), ["R1","R2","R3","R4","R5","R6","R7","R8"]);
   assert.deepEqual(snapshot.simulations?.map((item) => item.dxx), ["D020","D045","D070","D090","D096","D100"]);
