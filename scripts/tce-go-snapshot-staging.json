@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "notion",
   "contentMode": "bootstrap",
-  "generatedAt": "2026-09-23T14:01:14.636Z",
+  "generatedAt": "2026-09-23T14:01:48.949Z",
   "days": [
     {
       "dxx": "D001",
@@ -1628,6 +1628,513 @@
       ],
       "version": 2,
       "lastEdited": "2026-09-22T10:31:01.074Z"
+    },
+    "d008": {
+      "dxx": "D008",
+      "title": "D008 — Controle Externo II",
+      "summary": "Controle Externo II — instrumentos de fiscalização — levantamento, auditoria, inspeção, acompanhamento e monitoramento; finalidade e diferenças.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D008 — Controle Externo II \\| instrumentos de fiscalização\nSessão técnica — 90 min. O objetivo é distinguir com segurança levantamento, auditoria, inspeção, acompanhamento e monitoramento pela finalidade, pelo momento e pela pergunta que cada instrumento responde."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "O D001 construiu a base constitucional do controle externo. Agora a trilha passa da pergunta “quem controla e com que competências?” para “qual instrumento usar em cada situação de fiscalização?”.\nEsse é um ponto de transição importante:\n- D001: sistema constitucional;\n- D008: instrumentos de fiscalização;\n- D015: tipos de auditoria;\n- D022: INTOSAI/NBASP 100;\n- sessões posteriores: planejamento, risco, procedimentos, achados, evidências e responsabilização.\nO D008 não é sobre tipos de auditoria. Hoje você aprende qual instrumento de fiscalização está sendo usado. Conformidade × operacional × financeira fica para o D015."
+        },
+        {
+          "heading": "3. Posição no edital",
+          "body": "B04 — Noções de Controle Externo\n- bloco: Específicos;\n- 4 questões;\n- peso 2;\n- tratamento: Construção;\n- baseline histórico: Misto.\nRecorte verticalizado de hoje:\n- levantamento;\n- auditoria;\n- inspeção;\n- acompanhamento;\n- monitoramento;\n- finalidade e diferenças.\nFora do recorte:\n- auditoria financeira, operacional e de conformidade em profundidade;\n- NBASP/INTOSAI;\n- planejamento, escopo, amostragem e matriz de risco;\n- procedimentos e evidências;\n- achados e responsabilização."
+        },
+        {
+          "heading": "Já conhecido",
+          "body": "O histórico demonstra boa base em:\n- CF/88 arts. 70–75;\n- controle interno e externo;\n- competências constitucionais;\n- accountability e princípios de controle."
+        },
+        {
+          "heading": "Realmente novo ou aprofundado",
+          "body": "O que ainda precisa ser construído tecnicamente é:\n- escolha do instrumento adequado;\n- diferença entre fiscalização exploratória, específica, concomitante e pós-deliberação;\n- linguagem regimental do TCE-GO;\n- distinção entre acompanhamento e monitoramento.\n> Regra de leitura: o histórico forte em fundamentos constitucionais não autoriza transportar desempenho para instrumentos técnicos."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final do D008, você deve conseguir:\n1. definir os cinco instrumentos em uma frase;\n2. classificar casos práticos sem consulta;\n3. distinguir acompanhamento × monitoramento sem hesitação;\n4. reconhecer quando o levantamento é preparatório;\n5. explicar quando a inspeção é adequada;\n6. separar instrumento de fiscalização × tipo de auditoria;\n7. resolver o Q008 e identificar a causa dos próprios erros."
+        },
+        {
+          "heading": "Fonte principal",
+          "body": "[Resolução nº 22/2008 — Regimento Interno do TCE-GO, texto consolidado oficial](https://gnoi.tce.go.gov.br/atoNormativo/Publicado?id=9544)\nRecorte principal: arts. 237 a 244, especialmente arts. 238–244.\nCorte normativo do projeto: 25/08/2026.\nO texto consolidado oficial registra alterações posteriores à redação original; portanto, a aprendizagem deve partir da página consolidada do GNOI, não de cópia antiga isolada."
+        },
+        {
+          "heading": "7. Como estudar os 90 minutos",
+          "body": "1. 10 min — mapa LAIAM: memorize a pergunta mental de cada instrumento.\n2. 30 min — arts. 238–244: leia com foco em finalidade e momento.\n3. 15 min — contrastes: acompanhamento × monitoramento; levantamento × inspeção; auditoria × acompanhamento.\n4. 25 min — Q008: faça as 20 questões sem abrir a correção.\n5. 10 min — D0: refaça de memória o quadro e os erros P1."
+        },
+        {
+          "heading": "8. Mapa de entrada — LAIAM",
+          "body": "Instrumento\nPergunta mental\nNúcleo\nLevantamento\n“O que existe e vale fiscalizar?”\nConhecer, identificar, avaliar viabilidade e subsidiar planejamento.\nAuditoria\n“Está regular? Está funcionando bem?”\nExaminar legalidade/legitimidade/economicidade e avaliar desempenho.\nInspeção\n“Falta informação ou há fato específico?”\nSuprir lacunas, esclarecer dúvida, apurar denúncia/representação e subsidiar registro.\nAcompanhamento\n“O que está acontecendo ao longo do período?”\nExaminar atos/desempenho de modo seletivo e concomitante.\nMonitoramento\n“Cumpriram o que o Tribunal decidiu?”\nVerificar cumprimento de decisões e resultados decorrentes."
+        },
+        {
+          "heading": "Macete",
+          "body": "L-A-I-A-M\n- Levantamento → Localiza o cenário;\n- Auditoria → Avalia;\n- Inspeção → Investiga/esclarece;\n- Acompanhamento → Acompanha enquanto ocorre;\n- Monitoramento → Mede cumprimento depois da decisão."
+        },
+        {
+          "heading": "9. Levantamento — art. 238",
+          "body": "O levantamento é instrumento usado independentemente de plano de fiscalização.\nServe para:\n- conhecer organização e funcionamento de órgãos, entidades, sistemas, programas, projetos e atividades;\n- identificar ações, fatos ou atos a fiscalizar;\n- avaliar a viabilidade de realizar fiscalizações;\n- subsidiar o planejamento e a formação de cadastro."
+        },
+        {
+          "heading": "O que ele não é",
+          "body": "Não é uma auditoria completa disfarçada.\nImagem mental: antes de escolher onde cavar, o Tribunal mapeia o terreno."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "O TCE-GO quer decidir se vale iniciar uma fiscalização aprofundada sobre gestão de frota. Primeiro coleta informações sobre estrutura, gastos, sistemas, contratos e riscos para identificar objetos e viabilidade. Isso é levantamento."
+        },
+        {
+          "heading": "10. Auditoria — arts. 239–240",
+          "body": "A auditoria é instrumento de fiscalização utilizado para:\n- examinar legalidade, legitimidade e economicidade dos atos de gestão;\n- avaliar desempenho de órgãos, entidades, sistemas, programas, projetos e atividades.\nO Regimento também usa uma classificação local de auditorias:\n- programadas;\n- especiais;\n- de irregularidades.\nPegadinha: essa classificação local não substitui os tipos do edital — financeira, operacional e conformidade. São planos classificatórios diferentes."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Se a pergunta é se a gestão de determinado programa foi legal, econômica e eficiente, o instrumento pode ser auditoria."
+        },
+        {
+          "heading": "11. Inspeção — art. 241",
+          "body": "A inspeção:\n- independe de programação;\n- pode ser rotineira ou eventual;\n- supre omissões e lacunas;\n- esclarece dúvidas;\n- apura denúncias ou representações;\n- examina legalidade, legitimidade e economicidade de fatos/atos;\n- pode subsidiar atos sujeitos a registro."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Chega uma representação com documentação incompleta e um ponto específico exige verificação direta para esclarecer a situação. O instrumento adequado tende a ser inspeção."
+        },
+        {
+          "heading": "Contraste com levantamento",
+          "body": "- levantamento: conhece o cenário para decidir/planejar fiscalização;\n- inspeção: esclarece ou apura questão concreta."
+        },
+        {
+          "heading": "12. Acompanhamento — arts. 242–243",
+          "body": "O acompanhamento é temporal e concomitante.\nEle permite:\n- examinar, ao longo de período predeterminado, legalidade e legitimidade de atos de gestão;\n- avaliar, no mesmo período, desempenho sob economicidade, eficiência e eficácia;\n- acompanhar de forma seletiva e concomitante.\nAs informações podem vir de:\n- publicações oficiais;\n- sistemas informatizados;\n- documentos/informações;\n- visitas e representações técnicas;\n- denúncias e representações."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "O Tribunal acompanha a execução de um programa durante seis meses, observando legalidade dos atos e desempenho enquanto a política está em curso. Isso é acompanhamento."
+        },
+        {
+          "heading": "13. Monitoramento — art. 244",
+          "body": "O monitoramento existe para verificar:\n- cumprimento das decisões expedidas pelo Tribunal;\n- resultados delas decorrentes.\nPodem ser objeto de monitoramento, entre outros:\n- determinações;\n- recomendações;\n- planos de ação;\n- compromissos assumidos;\n- medidas cautelares;\n- decisões que imponham providências ou prazo."
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Depois de uma auditoria, o TCE determina correções e recomenda providências. Meses depois, verifica se foram implementadas e quais resultados produziram. Isso é monitoramento.\nErro P1 clássico: acompanhamento ≠ monitoramento.\nAcompanhamento: observa enquanto acontece.\nMonitoramento: verifica depois se decisão/providência foi cumprida e produziu resultado."
+        },
+        {
+          "heading": "14. Comparações de alto rendimento",
+          "body": "Confusão\nRegra correta\nLevantamento × Auditoria\nLevantamento conhece/planeja; auditoria examina/avalia.\nLevantamento × Inspeção\nLevantamento mapeia o cenário; inspeção esclarece/apura ponto concreto.\nAuditoria × Acompanhamento\nAmbos podem avaliar legalidade/desempenho, mas acompanhamento enfatiza período predeterminado e concomitância.\nAcompanhamento × Monitoramento\nAcompanhamento acompanha atos/desempenho; monitoramento verifica decisão e resultado posterior.\nInspeção × Monitoramento\nInspeção apura/esclarece; monitoramento cobra/verifica cumprimento de deliberação."
+        },
+        {
+          "heading": "15. Como a FCC tende a cobrar",
+          "body": "Questões reais FCC já exploraram:\n- monitoramento como verificação de cumprimento de deliberações e resultados;\n- auditoria como instrumento para examinar legalidade/legitimidade;\n- reconhecimento dos instrumentos de fiscalização em lista.\nPadrões prováveis:\n- descrever a finalidade e pedir o nome do instrumento;\n- trocar acompanhamento por monitoramento;\n- transformar levantamento em auditoria;\n- atribuir ao monitoramento função de apuração inicial;\n- usar a palavra “acompanhamento” em sentido comum, fora do conceito técnico;\n- misturar instrumento de fiscalização com procedimento de auditoria."
+        },
+        {
+          "heading": "Atenção à palavra “inspeção”",
+          "body": "“Inspeção” também pode aparecer como procedimento/técnica de auditoria em outros contextos. No D008, o foco é instrumento de fiscalização do Tribunal, não a técnica de examinar documentos/ativos."
+        },
+        {
+          "heading": "Caso 1",
+          "body": "O Tribunal ainda não sabe se determinada política merece fiscalização aprofundada e quer mapear estrutura, riscos e objetos.\nResposta: levantamento."
+        },
+        {
+          "heading": "Caso 2",
+          "body": "Há denúncia específica e informação insuficiente para formar convicção.\nResposta: inspeção."
+        },
+        {
+          "heading": "Caso 3",
+          "body": "O Tribunal observa a execução de um contrato ao longo de seis meses.\nResposta: acompanhamento."
+        },
+        {
+          "heading": "Caso 4",
+          "body": "Após decisão que determinou correção, verifica-se se a medida foi implementada.\nResposta: monitoramento."
+        },
+        {
+          "heading": "Caso 5",
+          "body": "A equipe examina regularidade e desempenho de gestão.\nResposta: auditoria."
+        },
+        {
+          "heading": "17. Pré-Q008",
+          "body": "Sem consultar, responda:\n1. Qual instrumento serve para mapear e planejar?\n2. Qual esclarece dúvida/apura fato específico?\n3. Qual acompanha ao longo de período predeterminado?\n4. Qual verifica decisões já expedidas?\n5. Qual examina legalidade e desempenho?\n6. Levantamento depende de plano de fiscalização?\n7. Inspeção depende de programação?\n8. “Programada/especial/de irregularidades” é o mesmo que “financeira/operacional/conformidade”?"
+        },
+        {
+          "heading": "18. Pós-Q008",
+          "body": "Classifique apenas os erros reais:\n- I1 — finalidade: confundiu o objetivo do instrumento;\n- I2 — tempo: confundiu concomitante × pós-decisão;\n- I3 — planejamento: confundiu instrumento preparatório × execução;\n- I4 — contexto: confundiu instrumento de fiscalização × técnica/procedimento;\n- I5 — leitura FCC: sabia o conceito, mas caiu em troca lexical."
+        },
+        {
+          "heading": "Severidade",
+          "body": "- P1: acompanhamento × monitoramento; levantamento × auditoria; inspeção × levantamento.\n- P2: detalhe periférico sem prejuízo da classificação do instrumento."
+        },
+        {
+          "heading": "19. D0",
+          "body": "Depois do Q008:\n1. desenhe de memória LAIAM;\n2. escreva uma frase de finalidade para cada instrumento;\n3. refaça erradas e acertos com dúvida;\n4. explique em voz alta acompanhamento × monitoramento;\n5. registre no Caderno de Erros apenas erro real ou dúvida relevante."
+        },
+        {
+          "heading": "D7 — acionado",
+          "body": "O recorte técnico é novo e possui confusões conceituais de alta probabilidade.\nPriorizar:\n- acompanhamento × monitoramento;\n- levantamento × inspeção;\n- auditoria × acompanhamento;\n- qualquer erro P1 ou acerto com dúvida."
+        },
+        {
+          "heading": "D20 — acionado",
+          "body": "Os instrumentos compõem o núcleo novo de Controle Externo e entram no primeiro checkpoint cumulativo.\n> Acionado ≠ realizado. A revisão só será marcada como feita quando houver execução real."
+        },
+        {
+          "heading": "21. Flashcards candidatos",
+          "body": "Cartões de alta utilidade\n1. Levantamento → conhecer/identificar/avaliar viabilidade/planejar.\n2. Auditoria → examinar regularidade e avaliar desempenho.\n3. Inspeção → suprir lacuna/esclarecer/apurar.\n4. Acompanhamento → ao longo de período predeterminado; seletivo e concomitante.\n5. Monitoramento → cumprimento de decisões + resultados.\n6. Inspeção e levantamento independem de programação/plano nos termos regimentais.\n7. Classificação regimental de auditoria ≠ tipos financeira/operacional/conformidade."
+        },
+        {
+          "heading": "22. Ponte para D015",
+          "body": "No D008, auditoria é um dos instrumentos. No D015, a pergunta muda para: que tipo de auditoria está sendo realizada?\nNão antecipe hoje o estudo completo de:\n- auditoria financeira;\n- auditoria operacional;\n- auditoria de conformidade."
+        },
+        {
+          "heading": "Editorial",
+          "body": "Material + Q008 coerentes, fontes oficiais válidas, recorte B04 respeitado e D7/D20 configurados."
+        },
+        {
+          "heading": "Execução do aluno",
+          "body": "Só considerar D008 estudado quando houver:\n- leitura efetiva do Material;\n- 20 questões respondidas;\n- correção;\n- D0;\n- registro real de erros/dúvidas;\n- capacidade de distinguir os cinco instrumentos sem consulta."
+        },
+        {
+          "heading": "24. Fontes efetivamente usadas",
+          "body": "- Fonte-Mestra v1.3 — planejamento D008 e baseline histórico;\n- Base Técnica v1.3 — instrumentos e contrastes;\n- Base Operacional v1.3 — curadoria Qxx e tratamento de erros;\n- Fonte 04 v1.3 — prioridade futura de Controle Externo;\n- Fonte 05 v1.1 — template técnico, D0/D7/D20 e esteira Sxx;\n- Índice v1.4 — governança do bundle;\n- Regimento Interno do TCE-GO, Resolução nº 22/2008 consolidada, arts. 237–244."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T10:49:07.381Z"
+    },
+    "d010": {
+      "dxx": "D010",
+      "title": "D010 — CASP II",
+      "summary": "CASP II — arquitetura MCASP — MCASP 11ª ed.; Partes I, II, IV e V; ligação com Lei 4.320, PCASP e DCASP.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D010 — CASP II \\| arquitetura do MCASP 11ª edição\nSessão técnica — 90 min. Hoje você não “estuda o MCASP inteiro”. Você aprende a navegar a 11ª edição, entende o papel das Partes I, II, IV e V e constrói a ponte AFO → patrimônio → PCASP → DCASP."
+        },
+        {
+          "heading": "2. Por que este assunto entra agora",
+          "body": "O D003 ensinou a gramática mínima da CASP:\n- AFO × CASP;\n- ativo e passivo;\n- VPA/VPD;\n- enfoque orçamentário × patrimonial;\n- Estrutura Conceitual.\nAgora o D010 responde à pergunta:\n> Onde cada assunto mora dentro do MCASP e como eu navego sem estudar o manual de capa a capa?\nA sequência do projeto passa a ficar visível:\n- D003: conceitos-base;\n- D010: arquitetura MCASP;\n- D017/D024/D031/D038: NBC TSP + procedimentos patrimoniais;\n- D050: PCASP / Parte IV;\n- D057: DCASP / Parte V;\n- D061: integração Lei nº 4.320 + MCASP + prestação de contas."
+        },
+        {
+          "heading": "3. Posição no edital",
+          "body": "B06 — Contabilidade Aplicada ao Setor Público\n- bloco: Específicos;\n- 5 questões;\n- peso 2;\n- pontos ponderados internos: 10;\n- baseline histórico: Novo;\n- tratamento: Construção.\nO edital exige, entre outros conteúdos:\n- NBC TSP;\n- MCASP 11ª edição;\n- Parte I — Procedimentos Contábeis Orçamentários;\n- Parte II — Procedimentos Contábeis Patrimoniais;\n- Parte IV — Plano de Contas Aplicado ao Setor Público;\n- Parte V — Demonstrações Contábeis Aplicadas ao Setor Público;\n- PCASP;\n- Lei nº 4.320/1964;\n- prestação de contas."
+        },
+        {
+          "heading": "Fora do recorte hoje",
+          "body": "Não aprofundar:\n- critérios específicos de cada NBC TSP;\n- lançamentos complexos;\n- oito classes do PCASP em detalhe operacional;\n- leitura de lançamentos por classe;\n- estrutura detalhada de cada DCASP;\n- cálculos de balanços;\n- procedimentos patrimoniais específicos."
+        },
+        {
+          "heading": "5. Objetivos mensuráveis",
+          "body": "Ao final do D010, você deve conseguir:\n1. explicar para que serve o MCASP;\n2. identificar a função das Partes I, II, IV e V;\n3. decidir em qual Parte procurar um problema dado;\n4. distinguir o que é reaproveitamento de AFO e o que é CASP nova;\n5. reconhecer PCASP e DCASP como camadas diferentes;\n6. explicar a sequência orçamento → fato patrimonial → conta → demonstração;\n7. resolver Q010 sem depender de leitura integral do Manual."
+        },
+        {
+          "heading": "MCASP",
+          "body": "[Secretaria do Tesouro Nacional — página oficial do MCASP](https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/manuais/manual-de-contabilidade-aplicada-ao-setor-publico-mcasp-1)\nA referência do projeto é a 11ª edição, indicada no edital e ainda apresentada pela STN como edição vigente.\nA 11ª edição produz efeitos desde o exercício financeiro de 2025."
+        },
+        {
+          "heading": "Corte do projeto",
+          "body": "25/08/2026, data de publicação do edital de abertura."
+        },
+        {
+          "heading": "PCASP 2027",
+          "body": "A STN já disponibiliza PCASP 2027. Porém, a regra canônica do projeto é não migrar automaticamente para uma versão futura apenas porque a prova ocorrerá em 2027. O estudo deve continuar compatível com o corte e com o recorte expresso do edital, salvo orientação posterior oficial da FCC/TCE-GO."
+        },
+        {
+          "heading": "7. O que é o MCASP",
+          "body": "O Manual de Contabilidade Aplicada ao Setor Público organiza procedimentos para:\n- apoiar elaboração e execução do orçamento;\n- recolocar o patrimônio como objeto central da contabilidade;\n- padronizar registros;\n- permitir consolidação nacional;\n- orientar evidenciação e demonstrações;\n- harmonizar a contabilidade pública com normas e padrões aplicáveis."
+        },
+        {
+          "heading": "Ideia central",
+          "body": "O MCASP não substitui:\n- a Lei nº 4.320/1964;\n- a LRF;\n- as NBC TSP.\nEle integra e operacionaliza essas bases no sistema contábil aplicado ao setor público."
+        },
+        {
+          "heading": "8. Mapa de entrada — quatro Partes do edital",
+          "body": "Parte\nNome\nPergunta mental\nTratamento no projeto\nI\nProcedimentos Contábeis Orçamentários\nComo o orçamento é classificado/executado/registrado?\nReaproveitar AFO e corrigir interfaces contábeis.\nII\nProcedimentos Contábeis Patrimoniais\nO que reconhecer, quando, por quanto e com qual efeito patrimonial?\nCoração novo da CASP.\nIV\nPlano de Contas Aplicado ao Setor Público\nEm que estrutura de contas a informação é registrada?\nMapa agora; aprofundamento D050.\nV\nDemonstrações Contábeis Aplicadas ao Setor Público\nOnde a informação aparece para o usuário?\nMapa agora; aprofundamento D057."
+        },
+        {
+          "heading": "Macete",
+          "body": "I = Orçamento\nII = Patrimônio\nIV = Contas\nV = Demonstrações"
+        },
+        {
+          "heading": "9. Parte I — Procedimentos Contábeis Orçamentários",
+          "body": "É a área mais próxima do que você já estudou em AFO.\nO núcleo inclui:\n- receita orçamentária;\n- despesa orçamentária;\n- etapas;\n- classificações;\n- créditos;\n- restos a pagar;\n- despesas de exercícios anteriores;\n- fontes/destinação;\n- registros e efeitos contábeis orçamentários."
+        },
+        {
+          "heading": "Estratégia correta",
+          "body": "Não reestudar toda a Parte I.\nUse a Parte I para responder:\n- qual é o tratamento orçamentário?\n- qual etapa está ocorrendo?\n- qual classificação?\n- como isso conversa com o registro contábil?"
+        },
+        {
+          "heading": "Exemplo",
+          "body": "Despesa empenhada em X1 e ainda não paga em 31/12:\n- AFO ajuda a classificar a execução e restos a pagar;\n- MCASP ajuda a organizar o registro e a evidenciação;\n- CASP patrimonial pergunta adicionalmente se houve ativo, passivo ou VPD."
+        },
+        {
+          "heading": "10. Parte II — Procedimentos Contábeis Patrimoniais",
+          "body": "Esta é a camada mais nova.\nEla organiza temas como:"
+        },
+        {
+          "heading": "Ativos",
+          "body": "- caixa e créditos;\n- estoques;\n- propriedade para investimento;\n- imobilizado;\n- intangível;\n- redução ao valor recuperável."
+        },
+        {
+          "heading": "Passivos",
+          "body": "- obrigações;\n- provisões;\n- contingências;\n- benefícios e demais passivos dentro do escopo."
+        },
+        {
+          "heading": "Variações patrimoniais",
+          "body": "- VPA;\n- VPD;\n- reconhecimento segundo o fato gerador patrimonial."
+        },
+        {
+          "heading": "Mensuração",
+          "body": "- custo;\n- bases aplicáveis;\n- depreciação;\n- amortização;\n- impairment;\n- reavaliação quando prevista."
+        },
+        {
+          "heading": "Quatro perguntas universais",
+          "body": "Quando encontrar um tema patrimonial, pergunte:\n1. o que é?\n2. quando reconhecer?\n3. por qual valor?\n4. onde evidenciar?\nEsse roteiro será reutilizado nas sessões futuras de NBC TSP."
+        },
+        {
+          "heading": "11. Parte IV — PCASP: mapa, não mergulho",
+          "body": "O Plano de Contas Aplicado ao Setor Público (PCASP) padroniza a estrutura de contas e viabiliza a consolidação nacional.\nHoje basta reconhecer o mapa:\nClasses\nNatureza\nIdeia\n1–4\nPatrimonial\nativo, passivo/PL, VPD e VPA\n5–6\nOrçamentária\naprovação e execução do planejamento/orçamento\n7–8\nControle\ncontroles devedores e credores\nMacete: 1–4 patrimônio \\| 5–6 orçamento \\| 7–8 controle.\nNo D010, esse quadro serve para localização. Leitura de lançamentos, natureza de informação e classes em profundidade pertencem ao D050."
+        },
+        {
+          "heading": "12. Parte V — DCASP: onde a informação aparece",
+          "body": "A Parte V organiza as Demonstrações Contábeis Aplicadas ao Setor Público (DCASP).\nMapa mínimo:\n- Balanço Orçamentário;\n- Balanço Financeiro;\n- Balanço Patrimonial;\n- Demonstração das Variações Patrimoniais;\n- Demonstração dos Fluxos de Caixa;\n- Demonstração das Mutações do Patrimônio Líquido, quando aplicável;\n- Notas Explicativas."
+        },
+        {
+          "heading": "Pergunta mental",
+          "body": "“Depois de classificar e registrar, em qual demonstração essa informação será apresentada?”\nO D010 não exige decorar hoje cada quadro, fórmula ou saldo da DCASP. Isso fica para o D057."
+        },
+        {
+          "heading": "13. Lei nº 4.320/1964 × MCASP",
+          "body": "Não trate as fontes como concorrentes."
+        },
+        {
+          "heading": "Lei nº 4.320/1964",
+          "body": "Fornece base legal clássica para:\n- exercício financeiro;\n- receita/despesa;\n- balanços;\n- contabilidade e execução orçamentária."
+        },
+        {
+          "heading": "MCASP",
+          "body": "Detalha, padroniza e integra:\n- procedimentos;\n- registros;\n- plano de contas;\n- evidenciação;\n- tratamento patrimonial;\n- demonstrações."
+        },
+        {
+          "heading": "NBC TSP",
+          "body": "Fornecem normas contábeis técnicas sobre temas específicos.\nImagem mental:\nLei 4.320 = base legal → NBC TSP = regra técnica → MCASP = operacionalização/padronização."
+        },
+        {
+          "heading": "14. A cadeia completa",
+          "body": "Use esta sequência como “GPS” da CASP:\norçamento → fato patrimonial → reconhecimento/mensuração → PCASP → DCASP → prestação de contas/controle"
+        },
+        {
+          "heading": "Caso simples",
+          "body": "Aquisição de equipamento:\n1. orçamento: há empenho/liquidação/pagamento;\n2. patrimônio: surge um ativo, conforme critérios aplicáveis;\n3. PCASP: o fato é registrado na estrutura de contas;\n4. DCASP: o efeito aparece nas demonstrações pertinentes;\n5. controle: a informação alimenta prestação de contas e fiscalização."
+        },
+        {
+          "heading": "15. O que a FCC tende a cobrar",
+          "body": "A FCC costuma misturar camadas:\n- etapa orçamentária × efeito patrimonial;\n- classe PCASP × demonstração;\n- saldo de uma DCASP × fato de outra natureza;\n- receita/despesa orçamentária × VPA/VPD;\n- restos a pagar × momento patrimonial;\n- ingresso extraorçamentário × receita;\n- natureza patrimonial × orçamentária × controle."
+        },
+        {
+          "heading": "Padrão de erro",
+          "body": "A alternativa parece correta porque usa uma palavra verdadeira, mas na camada errada.\nExemplo:\n> “Receita arrecadada” pode ser expressão correta no orçamento, mas isso não significa que qualquer entrada de caixa seja VPA."
+        },
+        {
+          "heading": "16. Contrastes que devem ficar automáticos",
+          "body": "Par\nDiferença\nAFO × CASP\nAFO acompanha orçamento; CASP acompanha patrimônio sem abandonar orçamento.\nParte I × Parte II\norçamentária × patrimonial.\nPCASP × DCASP\nestrutura de registro × apresentação/evidenciação.\nReceita orçamentária × VPA\nexecução orçamentária × efeito patrimonial.\nDespesa orçamentária × VPD\nexecução orçamentária × consumo/redução patrimonial.\nLei 4.320 × MCASP\nbase legal × detalhamento/padronização técnico-operacional."
+        },
+        {
+          "heading": "17. Pré-Q010",
+          "body": "Sem consulta, responda:\n1. Qual Parte faz a ponte com AFO?\n2. Qual Parte é o coração patrimonial?\n3. Onde mora o PCASP?\n4. Onde moram as DCASP?\n5. PCASP e DCASP são a mesma coisa?\n6. Qual é o mapa das classes 1–4 / 5–6 / 7–8?\n7. A existência do PCASP 2027 muda automaticamente o recorte do projeto?\n8. Qual a sequência orçamento → patrimônio → conta → demonstração?"
+        },
+        {
+          "heading": "18. Pós-Q010",
+          "body": "Classifique somente erros reais:\n- M1 — mapa MCASP: não sabia em qual Parte procurar;\n- M2 — AFO × CASP: confundiu execução orçamentária com efeito patrimonial;\n- M3 — PCASP × DCASP: confundiu registro com evidenciação;\n- M4 — natureza: misturou patrimonial/orçamentária/controle;\n- M5 — versão: errou por edição/corte;\n- M6 — leitura FCC: sabia a arquitetura, mas caiu na camada errada."
+        },
+        {
+          "heading": "Severidade",
+          "body": "- P1: Parte I × II; PCASP × DCASP; orçamento × patrimônio.\n- P2: detalhe de nomenclatura sem perda do mapa."
+        },
+        {
+          "heading": "19. D0",
+          "body": "Após Q010:\n1. desenhe de memória as quatro Partes;\n2. escreva uma frase sobre a função de cada uma;\n3. recite 1–4 / 5–6 / 7–8;\n4. explique PCASP × DCASP;\n5. refaça erradas e acertos com dúvida;\n6. só registre no Caderno de Erros aquilo que efetivamente falhou."
+        },
+        {
+          "heading": "D7 — acionado",
+          "body": "Motivo: CASP continua sendo conteúdo realmente novo e o mapa MCASP é estruturante para todas as sessões seguintes."
+        },
+        {
+          "heading": "D20 — acionado",
+          "body": "Motivo: arquitetura MCASP é um dos itens explicitamente avaliados no primeiro checkpoint de entrada.\n> Acionado ≠ realizado. Nenhuma revisão é marcada como feita antes da execução real."
+        },
+        {
+          "heading": "21. Flashcards candidatos",
+          "body": "Cartões estruturais\n1. MCASP I → Procedimentos Contábeis Orçamentários.\n2. MCASP II → Procedimentos Contábeis Patrimoniais.\n3. MCASP IV → PCASP.\n4. MCASP V → DCASP.\n5. PCASP: 1–4 patrimônio; 5–6 orçamento; 7–8 controle.\n6. PCASP = registro; DCASP = evidenciação.\n7. CASP: orçamento → fato patrimonial → PCASP → DCASP."
+        },
+        {
+          "heading": "22. Pontes futuras",
+          "body": "- D017/D024/D031/D038: normas e procedimentos patrimoniais;\n- D050: PCASP/Parte IV em profundidade;\n- D057: DCASP/Parte V em profundidade;\n- D061: integração completa com Lei nº 4.320 e prestação de contas."
+        },
+        {
+          "heading": "Editorial",
+          "body": "Material, Q010, fonte oficial, mapa e fronteiras futuras coerentes."
+        },
+        {
+          "heading": "Execução do aluno",
+          "body": "Só considerar D010 estudado quando:\n- o Material tiver sido lido;\n- as 15 questões tiverem sido respondidas;\n- D0 tiver sido realizado;\n- o mapa I/II/IV/V puder ser reproduzido sem consulta;\n- PCASP × DCASP e AFO × CASP puderem ser explicados em linguagem própria."
+        },
+        {
+          "heading": "24. Fontes efetivamente usadas",
+          "body": "- Fonte-Mestra v1.3 — planejamento e histórico;\n- Base Técnica v1.3 — seção 06 CASP e arquitetura MCASP;\n- Base Operacional v1.3 — curadoria e regra de questões;\n- Fonte 04 v1.3 — prioridade de CASP na reta final;\n- Fonte 05 v1.1 — template técnico e esteira Sxx;\n- Índice v1.4 — governança;\n- Secretaria do Tesouro Nacional — MCASP 11ª edição e página oficial;\n- Secretaria do Tesouro Nacional — página oficial do PCASP;\n- Lei nº 4.320/1964 como base legal de integração."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T10:56:08.143Z"
+    },
+    "d012": {
+      "dxx": "D012",
+      "title": "D012 — Legislação Institucional II",
+      "summary": "Legislação Institucional II — Lei Orgânica — organização, competências, jurisdição, processos e sanções; primeira leitura dirigida.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "body": "# D012 — Legislação Institucional II \\| Lei Orgânica do TCE-GO\nPrimeira leitura dirigida — 105 min. O objetivo é transformar a Lei nº 16.168/2007 em um mapa operacional: organização → competência/jurisdição → processo → contas/decisões → sanções → cautelares → recursos. Não é leitura corrida de 60 páginas."
+        },
+        {
+          "heading": "1. Identificação oficial",
+          "body": "- Diploma: Lei Estadual nº 16.168, de 11 de dezembro de 2007.\n- Natureza: Lei Orgânica do Tribunal de Contas do Estado de Goiás.\n- Órgão: Estado de Goiás.\n- Função no edital: espinha dorsal da Legislação Institucional."
+        },
+        {
+          "heading": "2. Fonte oficial, versão e corte",
+          "body": "[Texto oficial consolidado — Casa Civil de Goiás](https://legisla.casacivil.go.gov.br/api/v2/pesquisa/legislacoes/86708/pdf)\nCorte normativo do projeto: 25/08/2026.\nO texto consolidado oficial registra as alterações sucessivas da Lei Orgânica e deve prevalecer sobre cópias históricas isoladas."
+        },
+        {
+          "heading": "Atualização crítica",
+          "body": "A Lei nº 23.413/2025 alterou o art. 84, relativo ao envio ao Ministério Público Eleitoral dos nomes de responsáveis com contas julgadas irregulares. Logo, questão antiga sobre esse artigo exige controle de versão."
+        },
+        {
+          "heading": "3. Posição no edital e recorte do dia",
+          "body": "A03 — Legislação Institucional\n- 5 questões;\n- peso 1;\n- baseline: Novo;\n- tratamento: Construção.\nO D005 já entregou:\n- Constituição estadual;\n- mapa da Lei Orgânica;\n- apreciar × julgar;\n- estrutura constitucional básica.\nO D012 aprofunda:\n1. organização;\n2. competência/jurisdição;\n3. classificação e princípios dos processos;\n4. tomada/prestação de contas;\n5. decisões;\n6. contas regulares/ressalva/irregulares;\n7. sanções;\n8. cautelares;\n9. recursos e revisão;\n10. atualização do art. 84."
+        },
+        {
+          "heading": "Fora do recorte",
+          "body": "- Regimento Interno em profundidade → D026;\n- estrutura organizacional atual em resolução administrativa → dia próprio;\n- políticas institucionais → dias posteriores;\n- estatuto/carreira/ética → dias próprios."
+        },
+        {
+          "heading": "4. Como ler em 105 minutos",
+          "body": "1. 10 min — mapa do diploma: títulos e blocos.\n2. 20 min — arts. 1º–5º: competência e jurisdição.\n3. 15 min — organização essencial: arts. 6º–22 e 16-A–16-F apenas no que a FCC já cobrou.\n4. 20 min — processo/contas: arts. 45–75.\n5. 10 min — art. 84 + fiscalização como ponte.\n6. 10 min — sanções/cautelares/recursos: arts. 111–129.\n7. 15 min — Q012: 20 itens.\n8. 5 min — D0: dez dispositivos-chave sem consulta."
+        },
+        {
+          "heading": "5. Mapa do diploma",
+          "body": "Bloco\nFunção\nCompetência e jurisdição\nDefine o que o TCE-GO faz e quem está submetido ao controle.\nOrganização\nSede, composição, autonomia, Presidência, Corregedoria, Ouvidoria, ESCOEX, Conselheiros, Auditores e MPC.\nControle interno\nIntegra apoio ao controle externo e dever de comunicação de irregularidade.\nProcesso em geral\nClassificação, princípios, partes, comunicação, instrução e decisões.\nContas e fiscalização\nContas de governo, tomadas/prestações, TCE, instrumentos e atos/contratos.\nSanções e cautelares\nMultas, inabilitação, inidoneidade e medidas cautelares.\nRecursos e revisão\nReconsideração, reexame, embargos, agravo e pedido de revisão."
+        },
+        {
+          "heading": "1) Arts. 1º e 2º — competência + poder regulamentar",
+          "body": "O art. 1º reúne extensa lista de competências do TCE-GO. O D005 já trabalhou a matriz constitucional; aqui importa reconhecer que a Lei Orgânica:\n- aprecia contas do Governador;\n- julga contas de administradores;\n- aprecia atos sujeitos a registro;\n- fiscaliza atos, contratos, recursos, gestão fiscal e políticas;\n- aplica sanções;\n- decide denúncias/representações;\n- julga recursos.\nO art. 2º atribui poder regulamentar ao Tribunal no âmbito de sua competência e jurisdição.\n> Pegadinha FCC: poder regulamentar ≠ poder hierárquico, tutelar ou executivo."
+        },
+        {
+          "heading": "2) Arts. 3º–5º — jurisdição",
+          "body": "A jurisdição é própria e privativa em todo o território estadual, sobre pessoas e matérias sujeitas à competência do Tribunal.\nAbrange, entre outros:\n- pessoas físicas ou jurídicas, públicas ou privadas, que administrem ou gerenciem recursos públicos;\n- quem causar perda, extravio ou dano;\n- dirigentes/liquidantes das entidades indicadas na lei;\n- responsáveis por recursos repassados;\n- sucessores, até o limite do patrimônio transferido, nos termos legais;\n- demais sujeitos abrangidos por lei ou pela natureza dos recursos.\nNão importar “jurisdição” do Judiciário. Aqui o termo identifica o universo submetido à atuação de controle."
+        },
+        {
+          "heading": "3) Arts. 6º–22 e 16-A–16-F — organização essencial",
+          "body": "O Tribunal:\n- tem sede em Goiânia;\n- compõe-se de 7 Conselheiros;\n- possui autonomia funcional, administrativa e financeira.\nA FCC já cobrou:\n- Ouvidoria;\n- ESCOEX;\n- vedações dos Conselheiros.\nOuvidoria e ESCOEX: cada uma é dirigida por Conselheiro designado pelo Presidente, para mandato de 2 anos, coincidente com a administração da Presidência, permitida a recondução.\nVedações dos Conselheiros: cuidado com exceções — associação de classe sem remuneração não é tratada como vedação absoluta."
+        },
+        {
+          "heading": "4) Arts. 45–47 — classificação, princípios e partes",
+          "body": "O art. 45 divide os processos em dois grandes grupos:\nProcessos de contas\n- prestação de contas do Governador;\n- prestação de contas;\n- tomada de contas;\n- tomada de contas especial.\nProcessos de fiscalização\n- atos de pessoal sujeitos a registro;\n- inspeção e auditoria;\n- levantamento, acompanhamento e monitoramento;\n- denúncia;\n- representação;\n- demais processos relacionados à competência do Tribunal.\nO art. 46 destaca princípios como:\n- contraditório;\n- ampla defesa;\n- oficialidade;\n- verdade material;\n- formalismo moderado;\n- publicidade;\n- segurança jurídica.\nO art. 47 define como partes responsável e interessado, que podem atuar diretamente, mesmo sem advogado, ou por procurador regularmente constituído."
+        },
+        {
+          "heading": "5) Arts. 56–58 — contas anuais e parecer prévio",
+          "body": "As contas prestadas pelo Governador incluem:\n- balanços gerais do Estado;\n- relatório do órgão central do sistema de controle interno do Poder Executivo.\nO Tribunal emite parecer prévio em 60 dias a contar do recebimento e encaminha à Assembleia Legislativa.\nParecer prévio não elimina julgamento de contas de administradores. A Lei separa contas de governo e contas de gestão."
+        },
+        {
+          "heading": "6) Arts. 62–65 — tomada de contas especial",
+          "body": "A TCE é instrumento processual para apuração de fatos, responsabilidade e dano em hipóteses legais.\nNúcleos do art. 62:\n- omissão no dever de prestar contas;\n- não comprovação da aplicação de recursos repassados;\n- desfalque/desvio de bens ou valores;\n- ato ilegal, ilegítimo ou antieconômico com dano ao erário.\nSe houver ressarcimento imediato, sem má-fé, em hipótese prevista, a lei admite comunicação no processo de contas, dispensando a instauração da TCE.\n> Não decorar valor de alçada como número eterno. O art. 63 remete a quantia fixada periodicamente por ato normativo."
+        },
+        {
+          "heading": "Espécies de decisão",
+          "body": "- Preliminar: saneia/instrui antes do mérito.\n- Definitiva: julga as contas.\n- Terminativa: tranca/arquiva nas hipóteses legais."
+        },
+        {
+          "heading": "Mérito das contas",
+          "body": "- regulares;\n- regulares com ressalva;\n- irregulares.\nRegulares: exatidão dos demonstrativos + legalidade + legitimidade + economicidade.\nCom ressalva: impropriedade/falta formal sem dano ao erário.\nIrregulares: podem decorrer de:\n- omissão de prestar contas;\n- ato ilegal, ilegítimo ou antieconômico;\n- dano ao erário;\n- desfalque/desvio.\nQuando houver débito, a lei prevê condenação ao pagamento da dívida atualizada, juros e possível multa."
+        },
+        {
+          "heading": "8) Art. 84 — atualização de 2025",
+          "body": "O texto vigente prevê envio ao Ministério Público Eleitoral dos nomes dos responsáveis cujas contas tenham sido julgadas irregulares nos 5 anos imediatamente anteriores às eleições, observadas as regras e exceções legais.\nA alteração de 2025 também explicita hipóteses de não inclusão e recurso com efeito suspensivo.\nControle de versão: não usar questão histórica sobre art. 84 sem comparar com a redação consolidada de 2025."
+        },
+        {
+          "heading": "9) Arts. 111–115 — sanções",
+          "body": "#### Multa com débito — art. 111\nQuando o responsável for julgado em débito, o Tribunal pode aplicar multa de até 2 vezes o valor atualizado do dano ao erário.\n#### Art. 112\nPrevê multas percentuais para hipóteses como:\n- contas irregulares;\n- ato ilegal/ilegítimo/antieconômico;\n- dano ao erário;\n- descumprimento de diligência/decisão;\n- obstrução de fiscalização;\n- sonegação de documento/informação;\n- reincidência;\n- descumprimento de obrigação formal.\n#### Outras sanções\n- Art. 114: infração grave → inabilitação por 5 a 8 anos para cargo em comissão ou função de confiança na administração estadual, mediante maioria absoluta.\n- Art. 115: fraude comprovada em licitação → inidoneidade por até 5 anos para participar de licitação na administração pública estadual."
+        },
+        {
+          "heading": "10) Arts. 119–129 — cautelares, recursos e revisão",
+          "body": "#### Art. 119 — cautelar\nEm urgência, grave lesão ou risco de ineficácia da decisão de mérito, o Tribunal pode adotar medida cautelar, de ofício ou mediante provocação.\n#### Art. 120 — quatro recursos\n1. recurso de reconsideração;\n2. pedido de reexame;\n3. embargos de declaração;\n4. agravo.\n#### Reconsideração — art. 125\n- decisão definitiva em prestação/tomada de contas;\n- efeito suspensivo;\n- uma vez;\n- prazo de 15 dias.\n#### Reexame — art. 126\n- decisão de mérito em ato sujeito a registro;\n- fiscalização de atos e contratos;\n- segue, no que couber, regras do art. 125.\n#### Embargos — art. 127\n- obscuridade;\n- omissão;\n- contradição;\n- prazo de 5 dias.\n#### Agravo — art. 128\n- despacho decisório desfavorável e cautelar do art. 119;\n- prazo de 10 dias;\n- efeito suspensivo pode ser conferido conforme a lei.\n#### Revisão — art. 129\nNão é recurso do art. 120. É pedido autônomo:\n- decisão definitiva em tomada/prestação de contas;\n- Plenário;\n- uma só vez;\n- sem efeito suspensivo;\n- prazo de 5 anos;\n- hipóteses legais de erro de cálculo, falsidade/insuficiência documental ou documento novo eficaz."
+        },
+        {
+          "heading": "7. Mapa de prazos e números",
+          "body": "Regra\nNúmero\nParecer prévio das contas anuais\n60 dias\nCitação no art. 67\n15 dias\nInabilitação por infração grave\n5 a 8 anos\nInidoneidade por fraude em licitação\naté 5 anos\nReconsideração\n15 dias\nEmbargos de declaração\n5 dias\nAgravo\n10 dias\nPedido de revisão\n5 anos"
+        },
+        {
+          "heading": "8. Mapa de sujeitos e verbos",
+          "body": "Sujeito\nVerbo/efeito\nTCE-GO\naprecia, julga, fiscaliza, sanciona, determina, susta nas hipóteses legais, regulamenta.\nGovernador\npresta contas anuais; TCE emite parecer prévio.\nAdministradores/responsáveis\nprestam contas; podem ter contas julgadas regulares/ressalva/irregulares.\nResponsável/interessado\npartes no processo; podem atuar sem advogado ou por procurador.\nMinistério Público Eleitoral\nrecebe a lista do art. 84 nos termos vigentes.\nProcuradoria-Geral de Contas\natua nos processos/recursos nos termos da Lei Orgânica."
+        },
+        {
+          "heading": "9. Atualizações e redações que exigem cuidado",
+          "body": "1. Art. 84: Lei nº 23.413/2025 — usar redação consolidada.\n2. Art. 12: o texto consolidado registra declaração de inconstitucionalidade e efeito repristinatório; não aprender redação intermediária sem observar as notas oficiais.\n3. Nomenclatura de Auditor: o texto consolidado traz remissões a alterações posteriores; questões antigas podem usar nomenclatura histórica.\n4. Valor de alçada da TCE: variável por ato normativo — não transformar valor anual em regra permanente."
+        },
+        {
+          "heading": "10. Quadro de prioridade",
+          "body": "Prioridade\nConteúdo\nA — automático\narts. 1º–5º; 45–47; 56–57; 66–75; 111–115; 120–129.\nB — reconhecer\norganização; Ouvidoria/ESCOEX; TCE especial; art. 84; cautelares.\nC — localizar\ndetalhes regimentais remetidos pela lei, órgãos internos em profundidade e procedimentos específicos que serão retomados no D026."
+        },
+        {
+          "heading": "11. Como a FCC já atacou a Lei Orgânica",
+          "body": "No TCE-GO/2022, a FCC explorou:\n- conteúdo das contas do Governador;\n- natureza da jurisdição;\n- direção da Ouvidoria e ESCOEX;\n- vedações dos Conselheiros;\n- poder regulamentar.\nEm 2014, cobrou o rol de recursos."
+        },
+        {
+          "heading": "Padrão de prova",
+          "body": "A banca tende a trocar:\n- própria e privativa por expressões plausíveis;\n- parecer prévio por julgamento;\n- Conselheiro/Presidente por servidor/Plenário;\n- exceção em vedação de Conselheiro;\n- reconsideração × reexame × agravo;\n- recurso × revisão;\n- 5/10/15 dias;\n- regular com ressalva × irregular;\n- sanção de 5–8 anos × inidoneidade até 5 anos."
+        },
+        {
+          "heading": "12. Pegadinhas de alta prioridade",
+          "body": "1. Jurisdição do TCE não é jurisdição judicial.\n2. Parecer prévio não julga contas de gestão.\n3. Conta com falha formal sem dano pode ser regular com ressalva.\n4. Irregularidade não se resume a dano financeiro.\n5. Revisão não integra o rol do art. 120.\n6. Reconsideração = contas; reexame = registro/fiscalização de atos e contratos.\n7. Embargos = obscuridade/omissão/contradição.\n8. Art. 84 antigo pode contaminar a resposta.\n9. Inabilitação 5–8 anos ≠ inidoneidade até 5 anos.\n10. Valor de alçada não é número fixo eterno."
+        },
+        {
+          "heading": "13. Pré-Q012",
+          "body": "Responda sem consulta:\n1. Como a lei qualifica a jurisdição?\n2. Quais os dois grandes grupos do art. 45?\n3. Quem são as partes no processo?\n4. Quais três espécies de decisão?\n5. Quais três resultados de mérito das contas?\n6. Falha formal sem dano leva a qual classificação?\n7. Qual o prazo do parecer prévio?\n8. Quais quatro recursos do art. 120?\n9. Reconsideração, embargos e agravo: 15, 5 ou 10 dias?\n10. Qual a diferença entre inabilitação e inidoneidade?"
+        },
+        {
+          "heading": "14. D0",
+          "body": "Após o Q012:\n1. recite os 10 dispositivos-chave;\n2. refaça erradas e acertos com dúvida;\n3. escreva sem consulta:\n- jurisdição;\n- três espécies de decisão;\n- três classificações de contas;\n- quatro recursos;\n- prazos 15/5/10;\n4. marque no Caderno de Erros apenas falha real."
+        },
+        {
+          "heading": "D7 — acionado",
+          "body": "Lei institucional local nova + alta carga de literalidade."
+        },
+        {
+          "heading": "D20 — acionado",
+          "body": "A Lei Orgânica é um dos núcleos expressos do checkpoint de entrada e precisa estar operacional, não apenas reconhecida.\n> Acionado ≠ realizado. Nenhuma revisão é marcada como executada nesta preparação editorial."
+        },
+        {
+          "heading": "16. Flashcards candidatos",
+          "body": "Cartões úteis\n1. Jurisdição TCE-GO = própria e privativa.\n2. Art. 45 = contas × fiscalização.\n3. Art. 66 = preliminar × definitiva × terminativa.\n4. Art. 70 = regulares × ressalva × irregulares.\n5. Ressalva = falta formal sem dano.\n6. Art. 120 = reconsideração + reexame + embargos + agravo.\n7. Reconsideração 15d; embargos 5d; agravo 10d.\n8. Revisão = 5 anos, sem efeito suspensivo.\n9. Inabilitação = 5–8 anos; inidoneidade licitatória = até 5 anos.\n10. Art. 84 = conferir redação 2025."
+        },
+        {
+          "heading": "17. Ponte para D026",
+          "body": "O D012 ensina a Lei Orgânica. O D026 mostrará como o Regimento Interno operacionaliza:\n- Pleno/Câmaras;\n- Presidente/Relator;\n- tramitação;\n- competências internas;\n- fiscalização;\n- procedimentos.\nNão use o Regimento para substituir a Lei Orgânica; as duas fontes atuam em níveis diferentes."
+        },
+        {
+          "heading": "Editorial",
+          "body": "Fonte oficial, versão/corte, leitura guiada, literalidade, Q012 e revisão configurados."
+        },
+        {
+          "heading": "Execução do aluno",
+          "body": "Só considerar D012 estudado quando houver:\n- leitura real do recorte;\n- 20 questões respondidas;\n- correção;\n- D0;\n- recuperação sem consulta dos dez dispositivos-chave;\n- registro real de erros/dúvidas."
+        },
+        {
+          "heading": "19. Fontes efetivamente usadas",
+          "body": "- Fonte-Mestra v1.3 — D012, 20 questões, 105 min, entregável “lei marcada + 10 dispositivos-chave”;\n- Base Técnica v1.3 — Lei Orgânica como espinha dorsal institucional e mapa de primeira leitura;\n- Base Operacional v1.3 — validade V1–V4 e hierarquia de questões de Legislação Institucional;\n- Fonte 04 v1.3 — prioridade institucional na reta final;\n- Fonte 05 v1.1 — Template Legislação e esteira Sxx;\n- Índice v1.4 — governança;\n- Lei Estadual nº 16.168/2007 — texto oficial consolidado da Casa Civil de Goiás."
+        }
+      ],
+      "version": 2,
+      "lastEdited": "2026-09-22T11:04:55.806Z"
     }
   },
   "questions": {
@@ -1663,6 +2170,39 @@
       "copyrightMode": "metadata-only",
       "version": 2,
       "lastEdited": "2026-09-22T10:31:03.134Z"
+    },
+    "q008": {
+      "qxx": "Q008",
+      "dxx": "D008",
+      "title": "Q008 — Questões \\| Controle Externo II",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "3 FCC reais de nível superior, usadas como referência semântica de banca e classificadas V2 controlado, + 17 autorais normativas locais TCE-GO V1 baseadas nos arts. 238–244 do Regimento Interno.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T10:49:09.474Z"
+    },
+    "q010": {
+      "qxx": "Q010",
+      "dxx": "D010",
+      "title": "Q010 — Questões \\| CASP II",
+      "meta": 15,
+      "valid": 15,
+      "sourceSummary": "5 FCC reais sem duplicação com Q003 (4 de nível superior + 1 de nível médio), todos V1 no recorte usado, + 10 autorais de arquitetura MCASP claramente identificados.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T10:56:10.339Z"
+    },
+    "q012": {
+      "qxx": "Q012",
+      "dxx": "D012",
+      "title": "Q012 — Questões \\| Legislação Institucional II",
+      "meta": 20,
+      "valid": 20,
+      "sourceSummary": "5 FCC reais do próprio TCE-GO, todas de nível superior e validadas contra o texto vigente, + 15 autorais normativas locais; nenhuma questão real do Q005 reutilizada.",
+      "copyrightMode": "metadata-only",
+      "version": 2,
+      "lastEdited": "2026-09-22T11:04:57.519Z"
     }
   },
   "publicStats": {
@@ -1671,7 +2211,7 @@
     "protectedDays": 53,
     "sessions": 47,
     "readyDays": 47,
-    "materialPages": 3,
-    "questionPages": 3
+    "materialPages": 6,
+    "questionPages": 6
   }
 }
