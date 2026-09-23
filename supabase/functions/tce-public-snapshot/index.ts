@@ -30,14 +30,30 @@ Deno.serve(async (req) => {
     const ready = links.filter((item) => !item.day.protected && item.day.readyForStudy);
 
     if (new URL(req.url).searchParams.get("health") === "1") {
+      const [redactionRows, simulationRows, editalRows, sourceRows, finalSprintRows] = await Promise.all([
+        queryAllDataSource(REDACTIONS, token),
+        queryAllDataSource(SIMULATIONS, token),
+        queryAllDataSource(EDITAL, token),
+        queryAllDataSource(SOURCES, token),
+        queryAllDataSource(FINAL_SPRINT, token),
+      ]);
+      const legislation = sourceRows.map(normalizeLegislationSource)
+        .filter((item) => item && ["Constituição", "Lei estadual", "Ato TCE-GO"].includes(item.category));
       return json({
         ok: true,
         notionConfigured: true,
+        contentMode: "full",
+        auxiliaryMode: "full",
         totalDays: days.length,
         activeDays: days.filter((d) => !d.protected).length,
         protectedDays: days.filter((d) => d.protected).length,
         readyDays: ready.length,
         sessions: new Set(days.map((d) => d.session).filter(Boolean)).size,
+        redactionPlans: redactionRows.length,
+        simulationPlans: simulationRows.length,
+        editalItems: editalRows.length,
+        legislationSources: legislation.length,
+        finalSprintDays: finalSprintRows.length,
       });
     }
 
