@@ -5,14 +5,15 @@ const roots = ["src", "scripts"];
 const files = [];
 for (const root of roots) collect(root, files);
 let failed = false;
+const forbiddenMarkers = ["TO" + "DO", "FIX" + "ME"];
 
 for (const file of files) {
-  const text = fs.readFileSync(file, "utf8");
-  if (/\b(TODO|FIXME)\b/.test(text)) {
-    console.error(`${file}: marcador TODO/FIXME não permitido em release`);
+  const source = fs.readFileSync(file, "utf8");
+  if (forbiddenMarkers.some((marker) => new RegExp(`\\b${marker}\\b`).test(source))) {
+    console.error(`${file}: marcador de pendência não permitido em release`);
     failed = true;
   }
-  if (/sk-[A-Za-z0-9_-]{20,}/.test(text)) {
+  if (/sk-[A-Za-z0-9_-]{20,}/.test(source)) {
     console.error(`${file}: possível secret detectado`);
     failed = true;
   }
