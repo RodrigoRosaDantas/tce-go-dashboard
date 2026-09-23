@@ -93,9 +93,18 @@ export function sessionRowsByDay(summary: OperationalSummary) {
 
 export function dataOrigin(day: OperationalDay, sessions: OperationalSession[]) {
   if (!hasExecution(day)) return "Sem execução";
-  if (!sessions.length) return "Banco Dxx";
-  if (sessions.some((row) => row.origin === "tce-go-dashboard")) return "Site → Notion";
-  if (sessions.some((row) => row.origin === "plataforma-questoes")) return "Plataforma → Notion";
+  const stateEvents = new Set(["progress.snapshot","questions.result","day.completed","day.reopened"]);
+  const executionSessions = sessions.filter((row) =>
+    stateEvents.has(row.eventType || "")
+    || (row.timeMinutes ?? 0) > 0
+    || (row.questions ?? 0) > 0
+    || (row.correct ?? 0) > 0
+    || (row.errors ?? 0) > 0
+    || (row.doubts ?? 0) > 0
+  );
+  if (!executionSessions.length) return "Banco Dxx";
+  if (executionSessions.some((row) => row.origin === "tce-go-dashboard")) return "Site → Notion";
+  if (executionSessions.some((row) => row.origin === "plataforma-questoes")) return "Plataforma → Notion";
   return "Sessão no Notion";
 }
 
@@ -161,6 +170,26 @@ export function buildDataIssues(summary: OperationalSummary, snapshot: Snapshot)
     }
     if (day.completed && day.status !== "Concluído") {
       issues.push({ level:"warning", source:"Dxx", key:day.dxx, fields:["Concluído","Status"], message:`Checkbox Concluído está marcado, mas Status = ${day.status || "vazio"}.` });
+    }
+    if (day.status === "Concluído" && !day.completed) {
+      issues.push({ level:"warning", source:"Dxx", key:day.dxx, fields:["Concluído","Status"], message:"Status está Concluído, mas o checkbox Concluído não está marcado." });
+    }
+    if (day.completed && !day.studied) {
+      issues.push({ level:"warning", source:"Dxx", key:day.dxx, fields:["Estudado","Concluído"], message:"Dxx está concluído sem o checkbox Estudado marcado." });
+    }
+    if (day.status === "Não iniciado" && hasExecution(day)) {
+      issues.push({ level:"warning", source:"Dxx", key:day.dxx, fields:["Status"], message:"Há execução registrada, mas o Status continua Não iniciado." });
+    }
+    const numericFields: Array<[string, number | null]> = [
+      ["Tempo real (min)", day.timeMinutes],
+      ["Meta de questões", day.metaQuestions],
+      ["Questões feitas", day.questionsDone],
+      ["Acertos", day.correct],
+      ["Erros", day.errors],
+      ["Acertos com dúvida", day.doubts],
+    ];
+    for (const [field, value] of numericFields) {
+      if (value != null && value < 0) issues.push({ level:"error", source:"Dxx", key:day.dxx, fields:[field], message:`${field} não pode ser negativo.` });
     }
     if (!sessionMap.get(day.dxx)?.length) {
       issues.push({ level:"info", source:"Sessões", key:day.dxx, message:"Há execução no Banco Dxx sem linha detalhada em Sessões e Desempenho. O Dashboard usa o Dxx como total canônico." });
