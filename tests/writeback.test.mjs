@@ -6,6 +6,8 @@ const edge = fs.readFileSync("supabase/functions/tce-progress/index.ts", "utf8")
 const config = fs.readFileSync("supabase/config.toml", "utf8");
 const client = fs.readFileSync("src/progress.ts", "utf8");
 const panel = fs.readFileSync("src/ProgressPanel.tsx", "utf8");
+const executionForms = fs.readFileSync("src/ExecutionForms.tsx", "utf8");
+const publicEdge = fs.readFileSync("supabase/functions/tce-public-snapshot/index.ts", "utf8");
 
 test("writeback versionado preserva Dxx como identidade e resolve Sxx no Notion", () => {
   assert.match(edge, /normDxx/);
@@ -62,4 +64,43 @@ test("deep-link reutiliza Plataforma sem substituir Qxx", () => {
   assert.match(client, /searchParams\.set\("assunto"/);
   assert.match(client, /searchParams\.set\("size"/);
   assert.match(client, /searchParams\.set\("autostart", "1"\)/);
+});
+
+
+test("writeback especializado atualiza os bancos canônicos dedicados", () => {
+  for (const marker of [
+    "const REVIEWS=",
+    "REDACTIONS=",
+    "ERRORS_BANK=",
+    "SIMULATIONS=",
+    "writeReview",
+    "writeEssay",
+    "writeSimulation",
+    "writeError",
+    "queryDataSource",
+  ]) assert.ok(edge.includes(marker), `writeback especializado ausente: ${marker}`);
+  assert.match(edge, /if\(!stateEvent\)/);
+  assert.match(edge, /SPECIALIZED_PAYLOAD_INVALID/);
+  assert.match(edge, /error\.capture/);
+});
+
+test("site expõe formulários privados sem inserir execução por padrão", () => {
+  for (const marker of ["ReviewWriteback", "EssayWriteback", "SimulationWriteback", "ErrorWriteback"]) {
+    assert.ok(executionForms.includes(marker), `formulário ausente: ${marker}`);
+  }
+  for (const eventType of ["review.snapshot", "essay.result", "simulation.result", "error.capture"]) {
+    assert.ok(executionForms.includes(eventType), `evento não ligado à UI: ${eventType}`);
+  }
+  assert.match(executionForms, /hasConnectedAccount/);
+  assert.match(executionForms, /queueAndSync/);
+});
+
+test("fallback Edge publica o mesmo núcleo auxiliar do sync direto", () => {
+  assert.match(publicEdge, /auxiliaryMode:\s*"full"/);
+  for (const marker of ["REDACTIONS", "SIMULATIONS", "EDITAL", "SOURCES", "FINAL_SPRINT"]) {
+    assert.ok(publicEdge.includes(marker), `fonte auxiliar ausente no fallback: ${marker}`);
+  }
+  for (const marker of ["redactions", "simulations", "edital", "legislation", "finalSprint"]) {
+    assert.ok(publicEdge.includes(marker), `payload auxiliar ausente no fallback: ${marker}`);
+  }
 });
