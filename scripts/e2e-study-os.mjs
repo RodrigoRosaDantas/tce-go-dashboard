@@ -101,7 +101,8 @@ const d7Link = page.locator(".closing-links-v4 a", { hasText: "Programar D7" });
 check((await d7Link.getAttribute("href") || "").includes("status=Pr%C3%B3xima"), "Deep-link D7 não abre como Próxima");
 await d7Link.click();
 await page.waitForSelector("#review-form");
-check(await page.locator("#review-form select").nth(2).inputValue() === "Próxima", "Formulário D7 não respeitou status Próxima");
+const statusSelect = page.locator("#review-form label", { hasText: "Status" }).locator("select");
+check(await statusSelect.inputValue() === "Próxima", "Formulário D7 não respeitou status Próxima");
 
 // Nenhum evento canônico deve ter sido enfileirado pelo E2E.
 const queued = await page.evaluate(() => localStorage.getItem("tce-go.pending-events.v1"));
