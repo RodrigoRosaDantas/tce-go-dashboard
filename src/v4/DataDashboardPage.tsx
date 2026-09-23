@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Snapshot } from "../types";
-import { conflictCount, pendingCount } from "../progress";
+import { conflictCount, pendingCount, platformAccountUrl } from "../progress";
 import { useOperational } from "./OperationalContext";
 import { DataNotice, EmptyState, MetricCard, PageHeader, SectionHeader, StatusPill } from "./ui";
 import { accuracy, buildDataIssues, dataOrigin, disciplineRows, errorRows, hasExecution, pct, plannedTimeRange, reviewStats, sessionRowsByDay } from "./analytics";
@@ -86,7 +86,9 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
     <div className="dashboard-source-banner-v41">
       <div><span className={summary.canonical ? "live-dot" : "warn-dot"} /><div><strong>{summary.canonical ? "Notion lido diretamente" : "Modo degradado / cache"}</strong><small>{latestEdit ? "Última edição observada: " + new Date(latestEdit).toLocaleString("pt-BR") : "Nenhuma edição operacional observada"}</small></div></div>
       <p><b>Regra:</b> timer, bookmark e nota local não viram desempenho. Indicadores usam os bancos operacionais do Notion.</p>
-      <button type="button" className="button secondary small" disabled={loading || !connected} onClick={() => void refresh()}>{loading ? "Atualizando…" : "Reler Notion"}</button>
+      {connected
+        ? <button type="button" className="button secondary small" disabled={loading} onClick={() => void refresh()}>{loading ? "Atualizando…" : "Reler Notion"}</button>
+        : <a className="button secondary small" href={platformAccountUrl()}>Conectar dados privados →</a>}
     </div>
 
     <nav className="analytics-tabs-v41" aria-label="Seções do Dashboard">{tabs.map(([value, label]) => <button type="button" key={value} className={tab === value ? "active" : ""} onClick={() => setTab(value)}>{label}</button>)}</nav>
