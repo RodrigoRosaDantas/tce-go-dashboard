@@ -6,6 +6,7 @@ import { ReadingControls, ReadingProgress, RevisionLens, SectionNavigator, Sessi
 import { useOperational } from "../v4/OperationalContext";
 import { errorsForDay, reviewBucket, reviewsForDay } from "../v4/operations";
 import { StatusPill } from "../v4/ui";
+import { AuthorialTrainer } from "../v4/QuestionTrainer";
 
 function SessionNavigation({ snapshot, day }: { snapshot: Snapshot; day: DaySnapshot }) {
   const active = activeDays(snapshot);
@@ -242,6 +243,8 @@ export function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: strin
           })}>Resolver na Plataforma →</a>
         </div>
       ) : null}
+
+      {question.authorialItems?.length ? <AuthorialTrainer question={question} day={day} /> : null}
 
       {question.contentHtml ? (
         <div className="question-workspace">
