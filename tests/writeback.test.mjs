@@ -145,3 +145,32 @@ test("redação produzida ou corrigida exige linhas e tempo e mantém rubrica FC
     "Morfossintaxe /6",
   ]) assert.ok(edge.includes(marker), `critério FCC ausente: ${marker}`);
 });
+
+
+test("resumo operacional privado agrega estado canônico e degrada sem Notion", () => {
+  assert.match(edge, /mode\"\)==\=\"summary\"/);
+  assert.match(edge, /readOperationalSummary/);
+  assert.match(edge, /queryAllDataSource\(DAYS/);
+  assert.match(edge, /queryAllDataSource\(REVIEWS/);
+  assert.match(edge, /queryAllDataSource\(ERRORS_BANK/);
+  assert.match(edge, /queryAllDataSource\(REDACTIONS/);
+  assert.match(edge, /queryAllDataSource\(SIMULATIONS/);
+  assert.match(edge, /canonical:false,[\s\S]*source:\"cache\"[\s\S]*degraded:true/);
+  assert.match(edge, /canonical:true,[\s\S]*source:\"notion\"/);
+});
+
+test("cliente usa resumo cross-device e o invalida após writeback confirmado", () => {
+  assert.match(client, /tce-go\.operational-summary\.v1/);
+  assert.match(client, /loadOperationalSummary/);
+  assert.match(client, /\?mode=summary/);
+  assert.match(client, /invalidateOperationalSummary\(\)/);
+  assert.match(client, /tce-operational-dirty/);
+});
+
+test("revisões podem ser programadas e erros carregam reincidência e próxima checagem", () => {
+  for (const marker of ["plannedDate","status","recurrence","nextCheck"]) {
+    assert.ok(executionForms.includes(marker), `campo operacional ausente: ${marker}`);
+  }
+  assert.match(executionForms, /option>Pendente<\/option>/);
+  assert.match(executionForms, /option>Próxima<\/option>/);
+});
