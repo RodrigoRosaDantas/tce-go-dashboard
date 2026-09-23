@@ -208,6 +208,8 @@ function questionSnapshotFromPage(dxx: string, page: any) {
   const valid = numberProperty(p, "Questões válidas");
   const priority = propertyText(p, "Origem prioritária");
   const focus = propertyText(p, "Matéria/foco");
+  const sourceSummary = priority || focus || "Metadados editoriais do caderno canônico.";
+  const adaptive = valid === 0 && meta > 0 && /adaptativ|reteste|equivalente/i.test(sourceSummary);
   const version = numberProperty(p, "Versão editorial");
   const gapDeclared = checkboxProperty(p, "Lacuna declarada");
   const platformValidated = checkboxProperty(p, "Plataforma — bateria validada");
@@ -224,11 +226,12 @@ function questionSnapshotFromPage(dxx: string, page: any) {
     title,
     meta,
     valid,
-    sourceSummary: priority || focus || "Metadados editoriais do caderno canônico.",
+    sourceSummary,
     copyrightMode: "metadata-only",
     ...(version ? { version } : {}),
     ...(page?.last_edited_time ? { lastEdited: page.last_edited_time } : {}),
     ...(gapDeclared ? { gapDeclared: true } : {}),
+    ...(adaptive ? { adaptive: true } : {}),
     ...(platformBattery ? { platformBattery } : {}),
   };
 }
