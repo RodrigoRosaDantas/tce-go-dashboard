@@ -26,6 +26,12 @@ export interface MaterialSnapshot {
   hash?: string;
 }
 
+export interface PlatformBattery {
+  materia: string;
+  topico: string;
+  subtopico?: string;
+}
+
 export interface QuestionSnapshot {
   qxx: string;
   dxx: string;
@@ -37,6 +43,7 @@ export interface QuestionSnapshot {
   version?: number;
   lastEdited?: string;
   gapDeclared?: boolean;
+  platformBattery?: PlatformBattery;
 }
 
 export interface Snapshot {
