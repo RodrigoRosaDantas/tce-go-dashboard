@@ -34,6 +34,8 @@ O workflow usa:
 
 Nenhum token é enviado ao navegador ou gravado no snapshot.
 
+O sincronizador usa as relações do próprio D001–D100 para localizar **Material canônico e Qxx**. Assim, não é necessário publicar IDs internos adicionais de bancos no repositório. Material é extraído e sanitizado server-side; Qxx externo é publicado por metadados/referência, sem republicação massiva de questões de terceiros.
+
 ## GitHub Pages
 
 A implantação usa GitHub Actions e o base path `/tce-go-dashboard/`.
