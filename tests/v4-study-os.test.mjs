@@ -14,14 +14,15 @@ const context = fs.readFileSync("src/v4/OperationalContext.tsx","utf8");
 const trail = fs.readFileSync("src/v4/TrailPage.tsx","utf8");
 const revisions = fs.readFileSync("src/v4/RevisionsPage.tsx","utf8");
 const errors = fs.readFileSync("src/v4/ErrorsPage.tsx","utf8");
-const performance = fs.readFileSync("src/v4/PerformancePage.tsx","utf8");
+const performance = fs.readFileSync("src/v4/DataDashboardPage.tsx","utf8");
+const analytics = fs.readFileSync("src/v4/analytics.ts","utf8");
 const sprint = fs.readFileSync("src/v4/FinalSprintPage.tsx","utf8");
 const sync = fs.readFileSync("scripts/sync-tce-go.mjs","utf8");
 const contract = fs.readFileSync("scripts/snapshot-contract.mjs","utf8");
 
 test("V4 mantém provider operacional acima de todas as páginas", () => {
   assert.match(app, /OperationalProvider snapshot=\{snapshot\}/);
-  for (const marker of ["TrailPageV4","RevisionsPageV4","ErrorsPageV4","PerformancePageV4","FinalSprintPageV4"]) {
+  for (const marker of ["TrailPageV4","RevisionsPageV4","ErrorsPageV4","DataDashboardPage","FinalSprintPageV4"]) {
     assert.ok(app.includes(marker), `página V4 não ativada: ${marker}`);
   }
 });
@@ -50,7 +51,7 @@ test("Trilha, Revisões, Erros e Desempenho consomem o mesmo estado operacional"
   assert.match(trail, /reviewsForDay/);
   assert.match(revisions, /reviewQueues/);
   assert.match(errors, /isOpenError/);
-  assert.match(performance, /DIAGNÓSTICO EXPLICÁVEL/);
+  assert.match(performance, /DATA & ANALYTICS · NOTION CANÔNICO/);
 });
 
 test("player local mantém ferramentas não canônicas separadas do writeback", () => {
@@ -95,6 +96,8 @@ test("contexto cross-device atualiza após writeback, online e storage", () => {
   assert.match(context, /tce-progress-confirmed/);
   assert.match(context, /window\.addEventListener\("online"/);
   assert.match(context, /window\.addEventListener\("storage"/);
+  assert.match(context, /document\.addEventListener\("visibilitychange"/);
+  assert.match(context, /60_000/);
 });
 
 
@@ -109,4 +112,49 @@ test("resultado Qxx substitui métricas como conjunto atômico no fechamento", (
   assert.match(progress, /if \(correct \+ errors > questionsDone \|\| doubts > correct\) return base/);
   assert.match(progress, /questionsDone,\s*correct,\s*errors,\s*doubts,/);
   assert.doesNotMatch(progress, /questionsDone: Math\.max\(base\.questionsDone/);
+});
+
+
+test("Dashboard V4.1 é Notion-first e não usa storage local como fonte analítica", () => {
+  assert.match(performance, /summary\.dayControl/);
+  assert.match(performance, /summary\.sessions/);
+  assert.match(performance, /Planejamento × execução/);
+  assert.match(performance, /QUALIDADE DOS DADOS/);
+  assert.doesNotMatch(performance, /localStorage|sessionStorage/);
+});
+
+test("analytics preserva ausência de dado e audita inconsistências", () => {
+  assert.match(analytics, /questionsDone == null/);
+  assert.match(analytics, /correct == null/);
+  assert.match(analytics, /errors == null/);
+  assert.match(analytics, /doubts == null/);
+  assert.match(analytics, /Acertos \+ erros/);
+  assert.match(analytics, /Banco Dxx/);
+  assert.match(analytics, /Sessão no Notion/);
+  assert.match(analytics, /Banco Dxx não registra execução/);
+});
+
+test("Dashboard V4.1 cobre execução, matérias, erros, retenção, redação, checkpoints e dados", () => {
+  for (const label of ["Visão geral","Execução","Matérias","Edital","Erros","Retenção","Redação","Checkpoints","Dados"]) {
+    assert.ok(performance.includes(label), `aba analítica ausente: ${label}`);
+  }
+  assert.match(performance, /Meta de questões/);
+  assert.match(performance, /Sessões detalhadas/);
+  assert.match(performance, /Evolução por critério/);
+});
+
+
+test("V4.1 usa cache analítico versionado e não reutiliza contrato V4 antigo", () => {
+  const progressSource = fs.readFileSync("src/progress.ts","utf8");
+  assert.match(progressSource, /tce-go\.operational-summary\.v2/);
+  assert.doesNotMatch(progressSource, /const SUMMARY_CACHE_KEY = "tce-go\.operational-summary\.v1"/);
+});
+
+
+test("Dashboard usa Matéria/foco canônica e declara lacuna de cobertura do edital", () => {
+  assert.match(analytics, /canonicalSubjectLabel/);
+  assert.match(analytics, /summary\.questionMeta/);
+  assert.match(performance, /Matéria\/foco no Banco de Questões do Notion/);
+  assert.match(performance, /Lacuna estrutural declarada/);
+  assert.match(performance, /não fabrica percentual de cobertura executada por item/);
 });

@@ -151,6 +151,8 @@ test("resumo operacional privado agrega estado canônico e degrada sem Notion", 
   assert.match(edge, /mode\"\)==\=\"summary\"/);
   assert.match(edge, /readOperationalSummary/);
   assert.match(edge, /queryAllDataSource\(DAYS/);
+  assert.match(edge, /queryAllDataSource\(SESSIONS/);
+  assert.match(edge, /queryAllDataSource\(QUESTIONS/);
   assert.match(edge, /queryAllDataSource\(REVIEWS/);
   assert.match(edge, /queryAllDataSource\(ERRORS_BANK/);
   assert.match(edge, /queryAllDataSource\(REDACTIONS/);
@@ -160,7 +162,7 @@ test("resumo operacional privado agrega estado canônico e degrada sem Notion", 
 });
 
 test("cliente usa resumo cross-device e o invalida após writeback confirmado", () => {
-  assert.match(client, /tce-go\.operational-summary\.v1/);
+  assert.match(client, /tce-go\.operational-summary\.v2/);
   assert.match(client, /loadOperationalSummary/);
   assert.match(client, /\?mode=summary/);
   assert.match(client, /invalidateOperationalSummary\(\)/);
@@ -198,4 +200,21 @@ test("sync alterado dispara explicitamente o deploy do Pages", () => {
   assert.match(workflow, /Publish changed snapshot/);
   assert.match(workflow, /gh workflow run deploy-pages\.yml --ref main/);
   assert.match(workflow, /if: steps\.diff\.outputs\.changed == 'true'/);
+});
+
+
+test("resumo analítico preserva null e expõe bancos operacionais detalhados", () => {
+  assert.match(edge, /npropNull/);
+  assert.match(edge, /dayControl/);
+  assert.match(edge, /sessions/);
+  assert.match(edge, /questionMeta/);
+  assert.match(edge, /Matéria\/foco/);
+  assert.match(edge, /plannedTime/);
+  assert.match(edge, /metaQuestions/);
+  assert.match(edge, /thematicCut/);
+  assert.match(edge, /controlExternalPct/);
+  assert.match(edge, /function dayAnalyticsFromPage[\s\S]*timeMinutes:npropNull\(p,"Tempo real \(min\)"\)[\s\S]*questionsDone:npropNull\(p,"Questões feitas"\)[\s\S]*correct:npropNull\(p,"Acertos"\)[\s\S]*errors:npropNull\(p,"Erros"\)[\s\S]*doubts:npropNull\(p,"Acertos com dúvida"\)/);
+  assert.match(client, /dayControl: OperationalDay\[\]/);
+  assert.match(client, /sessions: OperationalSession\[\]/);
+  assert.match(client, /questionMeta: OperationalQuestionMeta\[\]/);
 });

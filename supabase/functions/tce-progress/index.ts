@@ -1,5 +1,5 @@
 const NAPI="https://api.notion.com/v1",NVER="2026-03-11";
-const DAYS="a1075521-857b-4e1e-8fb2-849b51fdccc0",SESSIONS="f70b8e2d-31cc-4a26-9c06-9d0a9fe69de0";
+const DAYS="a1075521-857b-4e1e-8fb2-849b51fdccc0",SESSIONS="f70b8e2d-31cc-4a26-9c06-9d0a9fe69de0",QUESTIONS="b699f09b-8dc2-4da6-8cd5-668dc15088f9";
 const REVIEWS="d4733b43-6f1c-41ff-a066-ddc7a13f9d44",REDACTIONS="d837d3d6-7646-4f41-888a-ed8b48f94c9d",ERRORS_BANK="c0d696b3-99de-4d20-ae0e-a3324b74e038",SIMULATIONS="6deb1496-01ae-4a2d-8b38-5e99423410ee";
 const ORIGINS=new Set(["https://rodrigorosadantas.github.io","http://localhost:3000","http://localhost:4173"]);
 const STATE_TYPES=new Set(["progress.snapshot","questions.result","day.completed","day.reopened"]);
@@ -137,12 +137,15 @@ async function readOperationalSummary(owner,cors){
       source:"cache",
       degraded:true,
       progress:(states||[]).map(row=>pub(row,false)),
+      dayControl:[],sessions:[],questionMeta:[],
       reviews:[],errors:[],redactions:[],simulations:[],
     },200,cors);
   }
 
-  const [dayPages,reviewPages,errorPages,redactionPages,simulationPages]=await Promise.all([
+  const [dayPages,sessionPages,questionPages,reviewPages,errorPages,redactionPages,simulationPages]=await Promise.all([
     queryAllDataSource(DAYS,null,nt),
+    queryAllDataSource(SESSIONS,null,nt),
+    queryAllDataSource(QUESTIONS,null,nt),
     queryAllDataSource(REVIEWS,null,nt),
     queryAllDataSource(ERRORS_BANK,null,nt),
     queryAllDataSource(REDACTIONS,null,nt),
@@ -156,6 +159,48 @@ async function readOperationalSummary(owner,cors){
     canonical:true,source:"notion",
   }));
 
+  const dayControl=dayPages.map(page=>dayAnalyticsFromPage(page)).filter(Boolean).sort((a,b)=>a.order-b.order);
+
+  const sessions=sessionPages.map(page=>{
+    const p=page.properties||{};
+    return {
+      id:page.id,
+      title:txt(p,"Sessão")||"Sessão",
+      dxx:normDxx(txt(p,"Dxx"))||txt(p,"Dxx"),
+      sxx:txt(p,"Sessão TCE")||null,
+      type:txt(p,"Tipo")||null,
+      eventType:txt(p,"Tipo de evento")||null,
+      origin:txt(p,"Origem")||null,
+      date:dateVal(p,"Data"),
+      timestamp:dateVal(p,"Timestamp"),
+      timeMinutes:npropNull(p,"Tempo (min)"),
+      questions:npropNull(p,"Questões"),
+      correct:npropNull(p,"Acertos"),
+      errors:npropNull(p,"Erros"),
+      doubts:npropNull(p,"Acertos com dúvida"),
+      sourceUrl:p?.["Fonte/material"]?.url||null,
+      notes:txt(p,"Observações")||null,
+      lastEditedAt:page.last_edited_time||null,
+    };
+  }).filter(item=>item.dxx||item.sxx||item.timestamp);
+
+  const questionMeta=questionPages.map(page=>{
+    const p=page.properties||{};
+    const dxx=normDxx(txt(p,"Dxx"))||txt(p,"Dxx");
+    return {
+      id:page.id,
+      dxx,
+      qxx:txt(p,"Qxx")||null,
+      focus:txt(p,"Matéria/foco")||null,
+      meta:npropNull(p,"Meta"),
+      valid:npropNull(p,"Questões válidas"),
+      prioritySource:txt(p,"Origem prioritária")||null,
+      platformMatter:txt(p,"Plataforma — matéria")||null,
+      platformTopic:txt(p,"Plataforma — tópico")||null,
+      lastEditedAt:page.last_edited_time||null,
+    };
+  }).filter(item=>item.dxx||item.qxx);
+
   const reviews=reviewPages.map(page=>{
     const p=page.properties||{};
     return {
@@ -167,9 +212,9 @@ async function readOperationalSummary(owner,cors){
       reason:txt(p,"Motivo"),
       plannedDate:dateVal(p,"Data prevista"),
       performedDate:dateVal(p,"Data realizada"),
-      questions:nprop(p,"Questões de revisão"),
-      correct:nprop(p,"Acertos"),
-      errors:nprop(p,"Erros"),
+      questions:npropNull(p,"Questões de revisão"),
+      correct:npropNull(p,"Acertos"),
+      errors:npropNull(p,"Erros"),
       notes:txt(p,"Observações"),
       lastEditedAt:page.last_edited_time||null,
     };
@@ -190,7 +235,7 @@ async function readOperationalSummary(owner,cors){
       source:txt(p,"Fonte"),
       reason:txt(p,"Motivo do erro"),
       severity:txt(p,"Severidade"),
-      recurrence:nprop(p,"Reincidência"),
+      recurrence:npropNull(p,"Reincidência"),
       doubt:check(p,"Acerto com dúvida?"),
       fatal:check(p,"Fatal Error?"),
       nextCheck:txt(p,"Próxima checagem"),
@@ -206,7 +251,18 @@ async function readOperationalSummary(owner,cors){
       dxx:txt(p,"Dxx"),
       title:txt(p,"Redação")||txt(p,"Título")||"Redação",
       status:txt(p,"Status")||"Planejada",
-      score:nprop(p,"Nota simulada /100"),
+      score:npropNull(p,"Nota simulada /100"),
+      timeMinutes:npropNull(p,"Tempo (min)"),
+      lines:npropNull(p,"Linhas"),
+      thematicCut:npropNull(p,"Recorte temático /20"),
+      criticalInterpretation:npropNull(p,"Interpretação crítica /20"),
+      progression:npropNull(p,"Progressão /30"),
+      cohesion:npropNull(p,"Coesão /16"),
+      morphosyntax:npropNull(p,"Morfossintaxe /6"),
+      vocabulary:npropNull(p,"Vocabulário /8"),
+      mainError:txt(p,"Erro principal")||null,
+      theme:txt(p,"Tema")||null,
+      date:dateVal(p,"Data"),
       rewriteNeeded:check(p,"Reescrita necessária"),
       lastEditedAt:page.last_edited_time||null,
     };
@@ -217,16 +273,32 @@ async function readOperationalSummary(owner,cors){
     return {
       id:page.id,
       dxx:txt(p,"Dxx"),
-      title:txt(p,"Simulado")||txt(p,"Título")||"Simulado",
+      title:txt(p,"Marco")||"Simulado / checkpoint",
       decision:txt(p,"Decisão"),
-      ipi:nprop(p,"IPI interno"),
-      generalTotal:nprop(p,"Gerais — total"),
-      generalCorrect:nprop(p,"Gerais — acertos"),
-      specificTotal:nprop(p,"Específicos — total"),
-      specificCorrect:nprop(p,"Específicos — acertos"),
-      openErrors:nprop(p,"Erros abertos"),
-      p1Open:nprop(p,"P1 abertos"),
-      recurrent:nprop(p,"Reincidentes"),
+      type:txt(p,"Tipo")||null,
+      date:dateVal(p,"Data"),
+      ipi:npropNull(p,"IPI interno"),
+      generalTotal:npropNull(p,"Gerais — total"),
+      generalCorrect:npropNull(p,"Gerais — acertos"),
+      specificTotal:npropNull(p,"Específicos — total"),
+      specificCorrect:npropNull(p,"Específicos — acertos"),
+      openErrors:npropNull(p,"Erros abertos"),
+      p1Open:npropNull(p,"P1 abertos"),
+      recurrent:npropNull(p,"Reincidentes"),
+      timeMinutes:npropNull(p,"Tempo (min)"),
+      coveragePlanned:npropNull(p,"Cobertura — previstos"),
+      coverageExecuted:npropNull(p,"Cobertura — executados"),
+      sessionsPlanned:npropNull(p,"Carga — sessões previstas"),
+      sessionsExecuted:npropNull(p,"Carga — sessões realizadas"),
+      controlExternalPct:npropNull(p,"Controle Externo %"),
+      caspPct:npropNull(p,"CASP %"),
+      legislationPct:npropNull(p,"Legislação Institucional %"),
+      knownSubjectsPct:npropNull(p,"Matérias conhecidas %"),
+      writingScore:npropNull(p,"Redação /100"),
+      weakKnownSubjects:txt(p,"Pontos fracos — matérias conhecidas")||null,
+      writingLoss:txt(p,"Maior perda — redação")||null,
+      timePerBlock:txt(p,"Tempo por bloco")||null,
+      notes:txt(p,"Observações")||null,
       lastEditedAt:page.last_edited_time||null,
     };
   }).filter(item=>item.dxx);
@@ -236,8 +308,38 @@ async function readOperationalSummary(owner,cors){
     canonical:true,
     source:"notion",
     degraded:false,
-    progress,reviews,errors,redactions,simulations,
+    progress,dayControl,sessions,questionMeta,reviews,errors,redactions,simulations,
   },200,cors);
+}
+
+function dayAnalyticsFromPage(page){
+  if(!page)return null;
+  const p=page.properties||{};
+  const dxx=(txt(p,"Dxx")||txt(p,"Slug")).toUpperCase();
+  if(!/^D(?:00[1-9]|0[1-9]\d|100)$/.test(dxx))return null;
+  const type=txt(p,"Tipo");
+  return {
+    id:page.id,
+    dxx,
+    sxx:txt(p,"Sessão TCE")||null,
+    order:npropNull(p,"Ordem")??999,
+    type:type||null,
+    protected:type==="Protegido",
+    status:txt(p,"Status")||null,
+    focus:txt(p,"Foco")||null,
+    studied:check(p,"Estudado"),
+    completed:check(p,"Concluído"),
+    plannedTime:txt(p,"Tempo planejado")||null,
+    metaQuestions:npropNull(p,"Meta de questões"),
+    timeMinutes:npropNull(p,"Tempo real (min)"),
+    questionsDone:npropNull(p,"Questões feitas"),
+    correct:npropNull(p,"Acertos"),
+    errors:npropNull(p,"Erros"),
+    doubts:npropNull(p,"Acertos com dúvida"),
+    d7Triggered:check(p,"D7 acionado"),
+    d20Triggered:check(p,"D20 acionado"),
+    lastEditedAt:page.last_edited_time||null,
+  };
 }
 
 function dayFromPage(page){
@@ -496,9 +598,25 @@ async function resolveNotionToken(){
   return "";
 }
 
-async function notion(path,token,init={}){const h=new Headers(init.headers);h.set("Authorization",`Bearer ${token}`);h.set("Notion-Version",NVER);h.set("Content-Type","application/json");const r=await fetch(NAPI+path,{...init,headers:h});const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(`Notion ${r.status}: ${data?.message||"erro"}`);return data;}
+async function notion(path,token,init={},attempt=0){
+  const h=new Headers(init.headers);
+  h.set("Authorization",`Bearer ${token}`);
+  h.set("Notion-Version",NVER);
+  h.set("Content-Type","application/json");
+  const r=await fetch(NAPI+path,{...init,headers:h});
+  if(r.status===429&&attempt<3){
+    const retryHeader=Number(r.headers.get("retry-after")||0);
+    const delay=Math.max(350,retryHeader>0?retryHeader*1000:450*(attempt+1));
+    await new Promise(resolve=>setTimeout(resolve,delay));
+    return await notion(path,token,init,attempt+1);
+  }
+  const data=await r.json().catch(()=>({}));
+  if(!r.ok)throw new Error(`Notion ${r.status}: ${data?.message||"erro"}`);
+  return data;
+}
 function txt(p,n){const x=p?.[n];if(!x)return"";if(x.title)return x.title.map(y=>y.plain_text||"").join("").trim();if(x.rich_text)return x.rich_text.map(y=>y.plain_text||"").join("").trim();return x.select?.name||x.status?.name||"";}
-function nprop(p,n){const x=p?.[n]?.number;return typeof x==="number"&&Number.isFinite(x)?x:0;}function check(p,n){return Boolean(p?.[n]?.checkbox);}
+function npropNull(p,n){const x=p?.[n]?.number;return typeof x==="number"&&Number.isFinite(x)?x:null;}
+function nprop(p,n){return npropNull(p,n)??0;}function check(p,n){return Boolean(p?.[n]?.checkbox);}
 function title(v){return{title:[{type:"text",text:{content:String(v).slice(0,180)}}]};}function rich(v){return{rich_text:[{type:"text",text:{content:String(v).slice(0,1900)}}]};}
 
 function svc(){const key=Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");if(!key)throw new Error("Service role indisponível.");return{apikey:key,Authorization:`Bearer ${key}`,"Content-Type":"application/json"};}

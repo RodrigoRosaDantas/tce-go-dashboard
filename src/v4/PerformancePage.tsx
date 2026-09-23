@@ -78,7 +78,7 @@ export function PerformancePageV4({ snapshot }: { snapshot: Snapshot }) {
           <article>
             <span className="eyebrow">ERROS</span>
             <strong>{openErrors.length} aberto(s)</strong>
-            <p>{critical.length} P1/Fatal · {openErrors.filter((item)=>item.recurrence>0).length} com reincidência registrada.</p>
+            <p>{critical.length} P1/Fatal · {openErrors.filter((item)=>(item.recurrence ?? 0)>0).length} com reincidência registrada.</p>
           </article>
           <article>
             <span className="eyebrow">CONFIANÇA</span>
