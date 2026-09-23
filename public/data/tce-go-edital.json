@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-23T10:25:00.000Z",
+  "source": "notion",
+  "note": "Snapshot público mínimo do edital. A verticalização integral será sincronizada server-side sem URLs ou IDs internos.",
+  "blocks": [
+    {
+      "code": "B04",
+      "name": "Noções de Controle Externo",
+      "treatment": "Construção",
+      "public": true
+    }
+  ]
+}
