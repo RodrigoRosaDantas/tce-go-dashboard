@@ -8,12 +8,15 @@ on:
       - "scripts/sync-tce-go.mjs"
       - "scripts/notion-public-content.mjs"
       - "scripts/snapshot-contract.mjs"
+      - "scripts/import-edge-snapshot.mjs"
+      - "supabase/functions/tce-public-snapshot/**"
       - ".github/workflows/sync-notion.yml"
   schedule:
     - cron: "*/15 * * * *"
 
 permissions:
   contents: write
+  id-token: write
 
 concurrency:
   group: tce-go-notion-sync
@@ -39,21 +42,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check server-side Notion configuration
+      - name: Select sync transport
         id: config
         env:
           TCE_GO_NOTION_TOKEN: ${{ secrets.TCE_GO_NOTION_TOKEN }}
         shell: bash
         run: |
           if [ -n "$TCE_GO_NOTION_TOKEN" ]; then
-            echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "mode=direct" >> "$GITHUB_OUTPUT"
           else
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::Notion sync is configured but inactive until TCE_GO_NOTION_TOKEN is set."
+            echo "mode=edge" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Extract, normalize, validate and sanitize
-        if: steps.config.outputs.ready == 'true'
+      - name: Extract directly from Notion
+        if: steps.config.outputs.mode == 'direct'
         env:
           TCE_GO_NOTION_TOKEN: ${{ secrets.TCE_GO_NOTION_TOKEN }}
           TCE_GO_DAYS_DATA_SOURCE_ID: ${{ vars.TCE_GO_DAYS_DATA_SOURCE_ID }}
@@ -62,12 +64,31 @@ jobs:
           node scripts/sync-tce-go.mjs
           node scripts/validate-tce-go-snapshot.mjs
 
+      - name: Request GitHub OIDC token
+        if: steps.config.outputs.mode == 'edge'
+        id: oidc
+        shell: bash
+        run: |
+          set -euo pipefail
+          response="$(curl -fsS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=tce-go-sync")"
+          token="$(node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>process.stdout.write(JSON.parse(s).value))' <<<"$response")"
+          echo "token=$token" >> "$GITHUB_OUTPUT"
+
+      - name: Extract through authenticated Edge bridge
+        if: steps.config.outputs.mode == 'edge'
+        env:
+          OIDC_TOKEN: ${{ steps.oidc.outputs.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS --retry 3 --retry-delay 2             -H "Authorization: Bearer $OIDC_TOKEN"             "https://fqqkkyusnzhuuizahkww.supabase.co/functions/v1/tce-public-snapshot"             -o /tmp/tce-go-edge-snapshot.json
+          node scripts/import-edge-snapshot.mjs /tmp/tce-go-edge-snapshot.json
+          node scripts/validate-tce-go-snapshot.mjs
+
       - name: Check diff integrity
-        if: steps.config.outputs.ready == 'true'
         run: git diff --check
 
       - name: Detect real snapshot changes
-        if: steps.config.outputs.ready == 'true'
         id: diff
         shell: bash
         run: |
