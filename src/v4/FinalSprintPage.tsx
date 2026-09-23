@@ -13,12 +13,18 @@ export function FinalSprintPageV4({ snapshot }: { snapshot: Snapshot }) {
   const byProgress = progressMap(summary);
   const incomplete = publishedDays(snapshot).filter((day)=>sessionState(byProgress.get(day.dxx))!=="completed");
 
-  const topics = new Map<string,number>();
+  const topics = new Map<string,{ label:string; open:number; critical:number; recurrence:number }>();
   for (const error of openErrors) {
     const label=[error.subject,error.topic].filter(Boolean).join(" · ") || error.error || "Sem tópico";
-    topics.set(label,(topics.get(label)||0)+1+(error.fatal||error.severity==="P1"?2:0)+(error.recurrence||0));
+    const current=topics.get(label)||{label,open:0,critical:0,recurrence:0};
+    current.open+=1;
+    current.critical+=Number(error.fatal||error.severity==="P1");
+    current.recurrence+=error.recurrence||0;
+    topics.set(label,current);
   }
-  const priorities=[...topics.entries()].sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const priorities=[...topics.values()]
+    .sort((a,b)=>b.critical-a.critical||b.recurrence-a.recurrence||b.open-a.open||a.label.localeCompare(b.label,"pt-BR"))
+    .slice(0,6);
 
   return (
     <section className="aux-page final-sprint-v4">
@@ -39,8 +45,8 @@ export function FinalSprintPageV4({ snapshot }: { snapshot: Snapshot }) {
       <section className="sprint-priority-v4">
         <SectionHeader eyebrow="ENTRADAS DO D100" title="Prioridades atuais para a reta final" detail="Ordenadas por sinais existentes; não cria conteúdo ou peso novo." />
         {priorities.length ? <div className="weak-signals-v4">
-          {priorities.map(([label,score],index)=><article key={label}>
-            <b>{String(index+1).padStart(2,"0")}</b><div><strong>{label}</strong><small>Índice operacional de atenção: {score} · baseado em erro/criticidade/reincidência</small></div>
+          {priorities.map((item,index)=><article key={item.label}>
+            <b>{String(index+1).padStart(2,"0")}</b><div><strong>{item.label}</strong><small>{item.critical} crítico(s) · {item.recurrence} reincidência(s) · {item.open} erro(s) aberto(s)</small></div>
             <a href={href("/erros/")}>Abrir erros →</a>
           </article>)}
         </div> : <EmptyState title="Sem tópicos de erro suficientes para priorização." description="A reta final seguirá o calendário até que dados reais indiquem ajustes." />}
