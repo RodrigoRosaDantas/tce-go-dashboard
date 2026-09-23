@@ -114,11 +114,11 @@ footer { max-width: 1440px; margin: 0 auto; padding: 1rem 1.25rem 2rem; color: #
 .check-field input { width: 1.05rem; height: 1.05rem; }
 .progress-fields { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: .65rem; }
 .progress-fields label, .notes-field { display: grid; gap: .35rem; color: #cbd5e1; font-size: .82rem; font-weight: 700; }
-.progress-fields input, .notes-field textarea {
+.progress-fields input, .progress-fields select, .notes-field textarea {
   width: 100%; border: 1px solid #475569; border-radius: .65rem; padding: .62rem .7rem;
   background: #0b1220; color: #f8fafc; font: inherit;
 }
-.progress-fields input:focus, .notes-field textarea:focus { outline: 2px solid #2563eb; outline-offset: 1px; }
+.progress-fields input:focus, .progress-fields select:focus, .notes-field textarea:focus { outline: 2px solid #2563eb; outline-offset: 1px; }
 .notes-field textarea { resize: vertical; min-height: 4.5rem; }
 .progress-actions { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
 .button { border: 0; cursor: pointer; }
@@ -146,3 +146,7 @@ footer { max-width: 1440px; margin: 0 auto; padding: 1rem 1.25rem 2rem; color: #
 @media (max-width: 640px) {
   .aux-grid { grid-template-columns: 1fr; }
 }
+
+.execution-module { margin-top: 1rem; }
+.private-writeback-intro .secondary { margin-left: .5rem; }
+@media (max-width: 640px) { .private-writeback-intro .secondary { margin-left: 0; width: 100%; } }
