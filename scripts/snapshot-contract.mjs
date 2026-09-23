@@ -79,6 +79,7 @@ export function validateSnapshot(snapshot) {
   }
 
   if (snapshot.contentMode === "full") {
+    if (snapshot.auxiliaryMode !== "full") errors.push("modo full exige cobertura editorial auxiliar full");
     for (const d of ready) {
       if (!materials[d.slug]) errors.push(`${d.dxx}: material público ausente em modo full`);
       if (!questions[d.questionSlug]) errors.push(`${d.dxx}: caderno Qxx ausente em modo full`);
