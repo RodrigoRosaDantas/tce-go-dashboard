@@ -61,6 +61,26 @@ export function validateSnapshot(snapshot) {
     validatePublicHtml(question?.contentHtml, `questions.${slug}.contentHtml`, errors);
   }
 
+  if (snapshot.contentMode === "full") {
+    if (Object.keys(materials).length !== ready.length) {
+      errors.push(`modo full exige ${ready.length} materiais; recebido ${Object.keys(materials).length}`);
+    }
+    if (Object.keys(questions).length !== ready.length) {
+      errors.push(`modo full exige ${ready.length} Qxx; recebido ${Object.keys(questions).length}`);
+    }
+    for (const day of ready) {
+      if (!day.slug || !materials[day.slug]) errors.push(`${day.dxx}: material ausente no modo full`);
+      if (!day.questionSlug || !questions[day.questionSlug]) errors.push(`${day.dxx}: Qxx ausente no modo full`);
+      const material = day.slug ? materials[day.slug] : null;
+      if (material && (!Array.isArray(material.sections) || material.sections.length === 0)) {
+        errors.push(`${day.dxx}: material sem seções públicas no modo full`);
+      }
+    }
+    if (!/^[a-f0-9]{64}$/i.test(snapshot.contentHash || "")) {
+      errors.push("modo full exige contentHash SHA-256");
+    }
+  }
+
   if (snapshot.publicStats) {
     if (snapshot.publicStats.totalDays !== 100) errors.push("publicStats.totalDays inválido");
     if (snapshot.publicStats.activeDays !== 47) errors.push("publicStats.activeDays inválido");
@@ -75,6 +95,14 @@ export function validateSnapshot(snapshot) {
       typeof snapshot.publicStats.questionPages === "number"
       && snapshot.publicStats.questionPages !== Object.keys(questions).length
     ) errors.push("publicStats.questionPages inválido");
+    if (
+      typeof snapshot.publicStats.materialDays === "number"
+      && snapshot.publicStats.materialDays !== Object.keys(materials).length
+    ) errors.push("publicStats.materialDays inválido");
+    if (
+      typeof snapshot.publicStats.questionDays === "number"
+      && snapshot.publicStats.questionDays !== Object.keys(questions).length
+    ) errors.push("publicStats.questionDays inválido");
   }
 
   walk(snapshot, [], errors);
