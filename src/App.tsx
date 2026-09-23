@@ -53,6 +53,45 @@ function DayLabel({ day }: { day: DaySnapshot }) {
   );
 }
 
+function SessionNavigation({
+  snapshot,
+  day,
+}: {
+  snapshot: Snapshot;
+  day: DaySnapshot;
+}) {
+  const activeDays = [...snapshot.days]
+    .filter((item) => !item.protected)
+    .sort((a, b) => a.order - b.order);
+  const index = activeDays.findIndex((item) => item.dxx === day.dxx);
+  const previous = index > 0 ? activeDays[index - 1] : undefined;
+  const next = index >= 0 ? activeDays[index + 1] : undefined;
+
+  const renderNeighbor = (neighbor: DaySnapshot | undefined, direction: "Anterior" | "Próxima") => {
+    if (!neighbor) return <span className="session-nav-placeholder">{direction}: —</span>;
+    if (hasPublicSession(snapshot, neighbor)) {
+      return (
+        <a className="secondary session-nav-link" href={href(`/dia/${neighbor.dxx.toLowerCase()}/`)}>
+          {direction}: <DayLabel day={neighbor} />
+        </a>
+      );
+    }
+    return (
+      <span className="session-nav-placeholder">
+        {direction}: <DayLabel day={neighbor} /> · aguardando sync
+      </span>
+    );
+  };
+
+  return (
+    <nav className="session-nav" aria-label="Navegação entre sessões TCE">
+      <a className="secondary session-nav-link" href={href("/dias/")}>← Voltar ao calendário</a>
+      {renderNeighbor(previous, "Anterior")}
+      {renderNeighbor(next, "Próxima")}
+    </nav>
+  );
+}
+
 function Shell({ children, syncTime }: { children: React.ReactNode; syncTime?: string }) {
   return (
     <>
@@ -145,6 +184,7 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
         <div className="page-head"><DayLabel day={day} /><h1>Dia protegido</h1></div>
         <p>{formatDate(day.date)}</p>
         <div className="notice">Este dia aparece no calendário, mas não recebe sessão Sxx e não cria dívida pedagógica.</div>
+        <a className="secondary" href={href("/dias/")}>← Voltar ao calendário</a>
       </section>
     );
   }
@@ -153,10 +193,6 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
 
   const material = snapshot.materials[day.slug ?? ""];
   const question = snapshot.questions[day.questionSlug ?? ""];
-  const currentIndex = days.findIndex((d) => d.dxx === day.dxx);
-  const nextActive = days.slice(currentIndex + 1).find((d) => !d.protected);
-  const nextActivePublic = nextActive ? hasPublicSession(snapshot, nextActive) : false;
-
   if (!material || !question) {
     return (
       <section>
@@ -169,6 +205,7 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
           Esta sessão está pronta no Notion, mas o Material + Qxx ainda não chegaram ao snapshot público sanitizado.
           O site não a trata como sessão publicada até o próximo sync completo.
         </div>
+        <SessionNavigation snapshot={snapshot} day={day} />
       </section>
     );
   }
@@ -226,14 +263,7 @@ function DayPage({ snapshot, dxx }: { snapshot: Snapshot; dxx: string }) {
         </article>
       </div>
       <ProgressPanel day={day} />
-      <div className="next-card">
-        <span>Próxima sessão ativa</span>
-        {nextActive ? (
-          nextActivePublic
-            ? <a href={href(`/dia/${nextActive.dxx.toLowerCase()}/`)}><DayLabel day={nextActive} /> — {nextActive.focus}</a>
-            : <span><DayLabel day={nextActive} /> — {nextActive.focus} · aguardando sync</span>
-        ) : <strong>Fim da esteira D001–D100</strong>}
-      </div>
+      <SessionNavigation snapshot={snapshot} day={day} />
     </section>
   );
 }
@@ -267,7 +297,10 @@ function QuestionPage({ snapshot, qxx }: { snapshot: Snapshot; qxx: string }) {
           )}
         </div>
       ) : <div className="notice">Qxx liberado no dia, aguardando extração sanitizada do conteúdo.</div>}
-      <a className="secondary" href={href(`/dia/${day.dxx.toLowerCase()}/`)}>Voltar ao dia</a>
+      <div className="question-nav">
+        <a className="secondary" href={href(`/dia/${day.dxx.toLowerCase()}/`)}>← Voltar à sessão</a>
+        <a className="secondary" href={href("/dias/")}>Voltar ao calendário</a>
+      </div>
     </section>
   );
 }
