@@ -20,6 +20,7 @@ export interface MaterialSnapshot {
   title: string;
   summary: string;
   sections?: Array<{ heading: string; body: string }>;
+  contentHtml?: string;
   version?: number;
   lastEdited?: string;
 }
@@ -31,7 +32,8 @@ export interface QuestionSnapshot {
   meta: number;
   valid: number;
   sourceSummary: string;
-  copyrightMode: "metadata-only" | "project-authored";
+  copyrightMode: "metadata-only" | "project-authored" | "sanitized-mixed";
+  contentHtml?: string;
   version?: number;
   lastEdited?: string;
   gapDeclared?: boolean;
