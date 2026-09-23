@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { loadSnapshot, publicRoute } from "./data";
 import type { Snapshot } from "./types";
 import { Shell } from "./v3/Shell";
+import { OperationalProvider } from "./v4/OperationalContext";
 import { HomePage } from "./v3/HomePage";
 import { StudyPage, QuestionPage } from "./v3/StudyPage";
 import { PerformancePage } from "./v3/PerformancePage";
@@ -71,5 +72,5 @@ export default function AppV3() {
   else if (route === "/sync/") page = <SyncPage snapshot={snapshot} />;
   else page = <NotFoundPage />;
 
-  return <Shell snapshot={snapshot}>{page}</Shell>;
+  return <OperationalProvider snapshot={snapshot}><Shell snapshot={snapshot}>{page}</Shell></OperationalProvider>;
 }
