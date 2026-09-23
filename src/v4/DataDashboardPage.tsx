@@ -157,10 +157,10 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
       <SectionHeader eyebrow="BLUEPRINT DO EDITAL" title="Distribuição planejada por disciplina" detail="Questões, pesos e pontos vêm do banco verticalizado. Execução por item não é inferida sem relação Dxx/Qxx." action={<a href={href("/edital/")}>Abrir edital →</a>} />
       <div className="model-gap-v41"><StatusPill tone="warning">Lacuna estrutural declarada</StatusPill><p>O banco de Edital Verticalizado ainda não possui relação direta com Dxx/Qxx. Por isso o Dashboard não fabrica percentual de cobertura executada por item. A execução por matéria usa Matéria/foco do Banco de Questões.</p></div>
       <div className="analytics-kpis-v41 compact">
-        <MetricCard label="DISCIPLINAS / ITENS" value={(snapshot.edital ?? []).filter((item) => item.active).length} />
+        <MetricCard label="ITENS ATIVOS" value={(snapshot.edital ?? []).filter((item) => item.active).length} />
         <MetricCard label="QUESTÕES PREVISTAS" value={(snapshot.edital ?? []).filter((item) => item.active).reduce((sum,item)=>sum+item.questions,0)} />
         <MetricCard label="PONTOS PONDERADOS" value={(snapshot.edital ?? []).filter((item) => item.active).reduce((sum,item)=>sum+item.weightedPoints,0)} />
-        <MetricCard label="FONTES NORMATIVAS" value={(snapshot.edital ?? []).filter((item) => item.active && item.normativeSource).length} />
+        <MetricCard label="ITENS COM FONTE" value={(snapshot.edital ?? []).filter((item) => item.active && item.normativeSource).length} />
       </div>
       <div className="analytics-table-wrap-v41"><table className="analytics-table-v41"><thead><tr><th>Código</th><th>Disciplina</th><th>Bloco</th><th>Questões</th><th>Peso</th><th>Pontos</th><th>Fonte normativa</th></tr></thead><tbody>
         {(snapshot.edital ?? []).filter((item)=>item.active).sort((a,b)=>a.order-b.order).map((item)=><tr key={item.code}><td><strong>{item.code}</strong></td><td>{item.discipline}</td><td>{item.block}</td><td>{item.questions}</td><td>{item.weight}</td><td>{item.weightedPoints}</td><td>{item.normativeSource || "—"}</td></tr>)}
