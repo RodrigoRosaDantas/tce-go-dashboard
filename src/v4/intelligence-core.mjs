@@ -193,7 +193,8 @@ function reviewCandidate(review,summary,referenceDate,weaknesses){
 }
 function candidateWeakness(w,phase){
   const action=phase.key==="final"||phase.key==="near"?"revisão dirigida + questões seletivas":"revisão curta + questões dirigidas";
-  const score=w.fatal?100:w.p1?Math.max(90,Math.min(98,w.score+12)):Math.min(96,w.score+8);\n  return {kind:"weakness",score,eyebrow:w.fatal?"FATAL ERROR":w.p1?"ERRO P1":"FRAGILIDADE PRIORITÁRIA",title:`${w.subject} · ${w.topic}`,reason:`${action}; prioridade ${w.score}/100 sustentada por evidências registradas.`,href:"/mentor/",dxx:w.dxx[0],badge:`${w.level} · ${w.score}/100`,evidence:w.evidence,breakdown:w.breakdown};
+  const score=w.fatal?100:w.p1?Math.max(90,Math.min(98,w.score+12)):Math.min(96,w.score+8);
+  return {kind:"weakness",score,eyebrow:w.fatal?"FATAL ERROR":w.p1?"ERRO P1":"FRAGILIDADE PRIORITÁRIA",title:`${w.subject} · ${w.topic}`,reason:`${action}; prioridade ${w.score}/100 sustentada por evidências registradas.`,href:"/mentor/",dxx:w.dxx[0],badge:`${w.level} · ${w.score}/100`,evidence:w.evidence,breakdown:w.breakdown};
 }
 function hasSimulationEvidence(item){
   return ["generalTotal","generalCorrect","specificTotal","specificCorrect","timeMinutes","coverageExecuted","sessionsExecuted","writingScore"].some(key=>item?.[key]!=null);
