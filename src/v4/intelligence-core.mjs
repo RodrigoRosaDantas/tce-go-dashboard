@@ -158,9 +158,9 @@ function buildCoverage(summary,index,subjects){
   const matchedCodes=(labels)=>new Set(labels.map(label=>matchEdital(label,index)?.code).filter(Boolean));
   const inTrail=matchedCodes((summary.questionMeta||[]).map(item=>item.focus).filter(Boolean));
   const studied=matchedCodes(subjects.filter(item=>item.sessions>0).map(item=>item.subject));
-  const practiced=matchedCodes(subjects.filter(item=>item.questions>0).map(item=>item.subject));
-  const evidenced=matchedCodes(subjects.filter(item=>item.questions>0&&item.confidence.rank>=1).map(item=>item.subject));
-  const consolidated=matchedCodes(subjects.filter(item=>item.confidence.rank>=3).map(item=>item.subject));
+  const practiced=matchedCodes(subjects.filter(item=>(item.knownQuestions||0)>0).map(item=>item.subject));
+  const evidenced=matchedCodes(subjects.filter(item=>(item.knownQuestions||0)>0&&item.confidence.rank>=1).map(item=>item.subject));
+  const consolidated=matchedCodes(subjects.filter(item=>item.performanceComplete&&item.confidence.rank>=3).map(item=>item.subject));
   const weighted=(set)=>index.filter(item=>set.has(item.code)).reduce((sum,item)=>sum+Number(item.weightedPoints||0),0);
   const totalWeighted=index.reduce((sum,item)=>sum+Number(item.weightedPoints||0),0);
   return {
@@ -177,7 +177,7 @@ function buildCoverage(summary,index,subjects){
   };
 }
 function strengthLevel(row){
-  if(row.accuracy==null) return null;
+  if(!row.performanceComplete||row.accuracy==null) return null;
   if(row.confidence.rank<3||row.accuracy<85) return null;
   if(row.trend.key==="worsening") return null;
   if(row.confidence.key==="strong"&&row.accuracy>=90) return "forte com boa amostra";
@@ -185,7 +185,7 @@ function strengthLevel(row){
   if(row.trend.key==="improving") return "recuperando";
   return "estável";
 }
-function recencyPoints(days){if(days==null)return 0;if(days<=2)return 10;if(days<=7)return 8;if(days<=14)return 6;if(days<=30)return 3;return 0;}
+function recencyPoints(days){if(days==null||days<0)return 0;if(days<=2)return 10;if(days<=7)return 8;if(days<=14)return 6;if(days<=30)return 3;return 0;}
 function reviewSignal(summary,dxx,referenceDate){
   const active=(summary.reviews||[]).filter(r=>r.dxx===dxx&&!["Concluída","Cancelada por domínio"].includes(r.status));
   if(!active.length) return {points:0,label:"sem revisão ativa",items:[]};
@@ -224,8 +224,10 @@ function weaknessGroups(snapshot,summary,index,subjectStats,referenceDate,phase)
     const days=latest?daysBetween(latest,referenceDate):null;
     const recurrence=Math.max(0,...g.errors.map(x=>Number(x.recurrence||0)),g.errors.length-1);
     const severity=Math.max(...g.errors.map(errorSeverity));
-    const subjectRow=subjectStats.find(row=>norm(row.subject)===norm(g.subject));
     const edital=matchEdital(g.subject,index);
+    const subjectRow=edital
+      ? subjectStats.find(row=>row.edital?.code===edital.code)
+      : subjectStats.find(row=>norm(canonicalSubjectLabel(row.subject))===norm(canonicalSubjectLabel(g.subject)));
     const retention=Math.max(0,...[...g.dxx].map(dxx=>reviewSignal(summary,dxx,referenceDate).points));
     const trend=subjectRow?.trend?.key==="worsening"?10:subjectRow?.trend?.key==="stable"&&recurrence?5:0;
     const confidence=g.errors.length>=4||recurrence>=3?5:g.errors.length>=2||recurrence>=1?3:1;
@@ -415,11 +417,11 @@ function risks(snapshot,summary,index,subjectStats,weaknesses,phase,writing,chec
   for(const w of weaknesses.filter(x=>x.score>=55)){
     out.push({level:w.score>=75?"critical":"attention",title:`${w.subject} · ${w.topic}`,detail:`Prioridade ${w.score}/100 · ${w.evidence.slice(0,3).join(" · ")}`,href:"/mentor/",evidence:w.evidence});
   }
-  const anyExecution=subjectStats.some(x=>x.questions>0);
+  const anyExecution=subjectStats.some(x=>(x.knownQuestions||0)>0);
   if(anyExecution||["near","final"].includes(phase.key)){
     for(const item of index.filter(x=>x.impact>=.75)){
       const row=subjectStats.find(s=>s.edital?.code===item.code);
-      if(!row||row.questions===0) out.push({level:"attention",title:`${item.discipline} · alto impacto sem amostra`,detail:`${item.weightedPoints} pontos ponderados no edital e nenhuma questão de execução associada de forma segura.`,href:"/edital/",evidence:["alto impacto editalício","sem amostra operacional vinculada"]});
+      if(!row||(row.knownQuestions||0)===0) out.push({level:"attention",title:`${item.discipline} · alto impacto sem amostra`,detail:`${item.weightedPoints} pontos ponderados no edital e nenhuma questão de execução associada de forma segura.`,href:"/edital/",evidence:["alto impacto editalício","sem amostra operacional vinculada"]});
     }
   }
   const overdue=(summary.reviews||[]).filter(r=>!["Concluída","Cancelada por domínio"].includes(r.status)&&dateOnly(r.plannedDate)&&dateOnly(r.plannedDate)<phase.referenceDate);
@@ -442,7 +444,10 @@ export function buildStudyIntelligence({snapshot,summary,referenceDate,examDate=
   const agenda=buildAgenda(snapshot,summary,ref,examDate);
   const uncertainties=[];
   if(!subjects.length) uncertainties.push({title:"Desempenho ainda sem amostra",detail:"Nenhuma sessão real com questões foi localizada. Isso não significa 0% nem fraqueza."});
-  for(const row of subjects.filter(x=>x.confidence.rank<3)) uncertainties.push({title:`${row.subject}: ${row.confidence.label}`,detail:`${row.questions} questão(ões) em ${row.sessions} sessão(ões); ainda insuficiente para afirmar domínio.`});
+  for(const row of subjects.filter(x=>x.confidence.rank<3||!x.performanceComplete)) {
+    const quantity=row.questions==null?row.knownQuestions+" questão(ões) conhecidas; há métricas ausentes":row.questions+" questão(ões)";
+    uncertainties.push({title:`${row.subject}: ${row.confidence.label}`,detail:quantity+" em "+row.sessions+" sessão(ões); ainda insuficiente para afirmar domínio."});
+  }
   const recommendation=buildRecommendation(snapshot,summary,ref,phase,weaknesses,writing,checkpoint);
   const riskRows=risks(snapshot,summary,index,subjects,weaknesses,phase,writing,checkpoint);
   const totalQuestions=index.reduce((s,x)=>s+Number(x.questions||0),0);
@@ -462,7 +467,7 @@ export function buildStudyIntelligence({snapshot,summary,referenceDate,examDate=
     agenda,
     methodology:{
       priority:"0–100 = severidade 25 + reincidência 15 + recência 10 + retenção 15 + impacto do edital 15 + tendência 10 + confiança 5 + horizonte 5. Um erro isolado não P1/Fatal é limitado a 49.",
-      confidence:"Amostra: <10 questões = muito pequena; 10–24 ou <2 sessões = pequena; 25–59 com ≥2 sessões = moderada; ≥60 com ≥3 sessões = forte.",
+      confidence:"Amostra: <10 questões = muito pequena; 10–24 ou <2 sessões = pequena; 25–59 com ≥2 sessões = moderada; ≥60 com ≥3 sessões = forte. Campo ausente permanece ausente: amostra parcial pode orientar fragilidade, mas não autoriza declarar força.",
       strength:"Força exige precisão ≥85%, evidência ao menos moderada e ausência de tendência de piora. 100% em poucas questões continua sendo amostra pequena.",
       decision:"Fatal/P1 entram acima da expansão. Revisões não bloqueiam por tipo apenas: atraso, motivo, reincidência, edital e fragilidade associada alteram prioridade. Redação corrigida volta ao motor quando há reescrita/reincidência; checkpoint real recalibra quando há P1, reincidência ou piora comparável. A Ordem D001–D100/S01–S47 nunca é reescrita.",
       edital:`${index.length} itens ativos · ${index.reduce((s,x)=>s+Number(x.questions||0),0)} questões · ${totalWeighted} pontos ponderados. ${coverage.evidenceItems}/${coverage.activeItems} itens têm alguma evidência operacional; ${coverage.consolidatedItems} têm amostra ao menos moderada.`,
