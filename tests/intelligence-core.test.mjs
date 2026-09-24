@@ -123,10 +123,13 @@ test("cenário 10 — redação vencida participa do motor",()=>{
   assert.equal(intel.recommendation.kind,"redaction");
 });
 
-test("cenário 11 — checkpoint pendente altera a decisão posterior",()=>{
+test("cenário 11 — checkpoint executado recalibra decisões posteriores",()=>{
   const snapshot={...baseSnapshot,simulations:[{dxx:"D001",date:"2026-09-20",title:"Checkpoint 1",type:"Checkpoint"}]};
-  const intel=buildStudyIntelligence({snapshot,summary:summary(),referenceDate:"2026-09-23"});
+  const s=summary({simulations:[{dxx:"D001",date:"2026-09-20",title:"Checkpoint 1",type:"Checkpoint",generalTotal:25,generalCorrect:20,specificTotal:45,specificCorrect:32,p1Open:2,recurrent:1}]});
+  const intel=buildStudyIntelligence({snapshot,summary:s,referenceDate:"2026-09-23"});
   assert.equal(intel.recommendation.kind,"simulation");
+  assert.match(intel.recommendation.eyebrow,/RECALIBRAÇÃO/);
+  assert.ok(intel.risks.some((x)=>x.title==="Checkpoint exige recalibração"));
 });
 
 test("cenário 12 — mesma fragilidade fica mais seletiva perto da prova",()=>{
@@ -142,4 +145,15 @@ test("erros Validado/Encerrado não voltam como fragilidade",()=>{
     const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({errors:[error({status})]}),referenceDate:"2026-09-23"});
     assert.equal(intel.weaknesses.length,0);
   }
+});
+
+test("redação corrigida com reescrita volta ao motor e registra reincidência",()=>{
+  const s=summary({redactions:[
+    {dxx:"D001",title:"R1",status:"Corrigida",score:72,date:"2026-09-10",rewriteNeeded:true,mainError:"coesão"},
+    {dxx:"D003",title:"R2",status:"Corrigida",score:76,date:"2026-09-20",rewriteNeeded:true,mainError:"coesão"},
+  ]});
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:s,referenceDate:"2026-09-23"});
+  assert.equal(intel.recommendation.kind,"redaction");
+  assert.equal(intel.writing.repeatedMainError.count,2);
+  assert.ok(intel.risks.some((x)=>x.title==="Redação com reescrita pendente"));
 });
