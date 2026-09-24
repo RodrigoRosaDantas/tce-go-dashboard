@@ -3,6 +3,7 @@ import type { Snapshot } from "../types";
 import { publicRoute } from "../data";
 import { extractStudyToc, href, publishedDays } from "./shared";
 import { useOperational } from "../v4/OperationalContext";
+import { TCE_EXAM } from "../v4/intelligence-core.mjs";
 
 const primaryNav = [
   ["/", "Home", "⌂"],
@@ -190,8 +191,8 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
           <span><strong>TCE-GO</strong><small>Técnico de Controle Externo</small></span>
         </a>
         <div className="topbar-context">
-          <span className="context-kicker">EDITAL ABERTO · FCC</span>
-          <strong>Prova 17/01/2027 · S01–S47</strong>
+          <span className="context-kicker">{TCE_EXAM.status} · {TCE_EXAM.board}</span>
+          <strong>Prova {new Date(TCE_EXAM.date + "T12:00:00-03:00").toLocaleDateString("pt-BR")} · S01–S47</strong>
         </div>
         <div className="topbar-actions">
           <button className="search-trigger" type="button" onClick={() => setSearchOpen(true)}>
