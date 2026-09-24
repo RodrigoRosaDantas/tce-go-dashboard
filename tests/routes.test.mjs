@@ -5,7 +5,10 @@ import path from "node:path";
 
 const required = [
   "",
+  "hoje",
   "dias",
+  "mentor",
+  "riscos",
   "dia/d001",
   "questoes/q001",
   "revisoes",
