@@ -54,16 +54,40 @@ function editalIndex(snapshot){
     impact:clamp(Number(item.weightedPoints||0)/max,0,1),
   }));
 }
+function canonicalSubjectLabel(value){
+  const raw=String(value||"").trim();
+  if(!raw) return null;
+  const head=raw.split(" — ")[0].trim();
+  return head.replace(/\s+(?:I|II|III|IV|V|VI|VII|VIII|IX|X)$/i,"").trim()||null;
+}
+const EDITAL_ALIASES = new Map([
+  ["casp","contabilidade aplicada ao setor publico"],
+  ["afo","administracao financeira e orcamentaria"],
+  ["matematica rlm","matematica e raciocinio logico"],
+  ["direito administrativo","nocoes de direito administrativo"],
+  ["direito constitucional","nocoes de direito constitucional"],
+  ["controle externo","nocoes de controle externo"],
+  ["licitacoes","licitacoes e contratos"],
+  ["administracao estrategica","nocoes de administracao estrategica"],
+  ["administracao publica","nocoes de administracao publica"],
+  ["administracao geral","nocoes de administracao geral"],
+  ["comportamento organizacional","nocoes de comportamento organizacional"],
+  ["gestao de pessoas","nocoes de gestao de pessoas"],
+  ["redacao","redacao fcc"],
+]);
 function matchEdital(subject,index){
-  const n=norm(subject);
+  const label=canonicalSubjectLabel(subject)||subject;
+  const n=norm(label);
   if(!n) return null;
-  const exact=index.find(item=>item.n===n);
-  if(exact) return {...exact,match:"exact"};
-  const partial=index.filter(item=>item.n.length>=6&&n.length>=6&&(item.n.includes(n)||n.includes(item.n)));
+  const aliased=EDITAL_ALIASES.get(n)||n;
+  const exact=index.find(item=>item.n===aliased);
+  if(exact) return {...exact,match:aliased===n?"exact":"alias"};
+  const partial=index.filter(item=>item.n.length>=6&&aliased.length>=6&&(item.n.includes(aliased)||aliased.includes(item.n)));
   return partial.length===1?{...partial[0],match:"partial"}:null;
 }
 function subjectForDay(summary,dxx){
-  return summary.questionMeta?.find(item=>String(item.dxx||"").toUpperCase()===String(dxx||"").toUpperCase())?.focus?.trim()||null;
+  const focus=summary.questionMeta?.find(item=>String(item.dxx||"").toUpperCase()===String(dxx||"").toUpperCase())?.focus;
+  return canonicalSubjectLabel(focus);
 }
 function buildSubjectStats(snapshot,summary,index){
   const daysById=new Map((snapshot.days||[]).map(day=>[day.dxx,day]));
@@ -194,7 +218,7 @@ function reviewCandidate(review,summary,referenceDate,weaknesses){
 function candidateWeakness(w,phase){
   const action=phase.key==="final"||phase.key==="near"?"revisão dirigida + questões seletivas":"revisão curta + questões dirigidas";
   const score=w.fatal?100:w.p1?Math.max(90,Math.min(98,w.score+12)):Math.min(96,w.score+8);
-  return {kind:"weakness",score,eyebrow:w.fatal?"FATAL ERROR":w.p1?"ERRO P1":"FRAGILIDADE PRIORITÁRIA",title:`${w.subject} · ${w.topic}`,reason:`${action}; prioridade ${w.score}/100 sustentada por evidências registradas.`,href:"/mentor/",dxx:w.dxx[0],badge:`${w.level} · ${w.score}/100`,evidence:w.evidence,breakdown:w.breakdown};
+  return {kind:"weakness",score,eyebrow:w.fatal?"FATAL ERROR":w.p1?"ERRO P1":"FRAGILIDADE PRIORITÁRIA",title:`${w.subject} · ${w.topic}`,reason:`${action}; prioridade ${w.score}/100 sustentada por evidências registradas.`,href:w.dxx[0]?`/erros/?dxx=${encodeURIComponent(w.dxx[0])}`:"/erros/",dxx:w.dxx[0],badge:`${w.level} · ${w.score}/100`,evidence:w.evidence,breakdown:w.breakdown};
 }
 function hasSimulationEvidence(item){
   return ["generalTotal","generalCorrect","specificTotal","specificCorrect","timeMinutes","coverageExecuted","sessionsExecuted","writingScore"].some(key=>item?.[key]!=null);
