@@ -199,7 +199,40 @@ function candidateWeakness(w,phase){
 function hasSimulationEvidence(item){
   return ["generalTotal","generalCorrect","specificTotal","specificCorrect","timeMinutes","coverageExecuted","sessionsExecuted","writingScore"].some(key=>item?.[key]!=null);
 }
-function buildRecommendation(snapshot,summary,referenceDate,phase,weaknesses){
+function buildWritingSignal(summary){
+  const rows=(summary.redactions||[]).filter(item=>item.score!=null||item.rewriteNeeded||item.mainError);
+  const scored=rows.filter(item=>item.score!=null).sort((a,b)=>String(a.date||a.lastEditedAt||"").localeCompare(String(b.date||b.lastEditedAt||"")));
+  const latest=[...rows].sort((a,b)=>String(b.date||b.lastEditedAt||"").localeCompare(String(a.date||a.lastEditedAt||"")))[0]||null;
+  const errorCounts=new Map();
+  for(const item of rows){
+    const key=norm(item.mainError);
+    if(key) errorCounts.set(key,(errorCounts.get(key)||0)+1);
+  }
+  const repeated=[...errorCounts.entries()].sort((a,b)=>b[1]-a[1])[0]||null;
+  let trend={key:"insufficient",label:"amostra temporal insuficiente",delta:null};
+  if(scored.length>=2){
+    const previous=Number(scored.at(-2).score), current=Number(scored.at(-1).score), delta=current-previous;
+    trend=delta>=5?{key:"improving",label:"melhorando",delta}:delta<=-5?{key:"worsening",label:"piorando",delta}:{key:"stable",label:"estável",delta};
+  }
+  return {
+    count:rows.length,latest,trend,
+    rewriteNeeded:Boolean(latest?.rewriteNeeded),
+    repeatedMainError:repeated&&repeated[1]>=2?{key:repeated[0],count:repeated[1]}:null,
+  };
+}
+function buildCheckpointSignal(summary){
+  const rows=(summary.simulations||[]).filter(hasSimulationEvidence)
+    .sort((a,b)=>String(b.date||b.lastEditedAt||"").localeCompare(String(a.date||a.lastEditedAt||"")));
+  const latest=rows[0]||null;
+  if(!latest) return {count:0,latest:null,generalAccuracy:null,specificAccuracy:null};
+  const ratio=(correct,total)=>correct!=null&&total!=null&&Number(total)>0?Number(correct)/Number(total)*100:null;
+  return {
+    count:rows.length,latest,
+    generalAccuracy:ratio(latest.generalCorrect,latest.generalTotal),
+    specificAccuracy:ratio(latest.specificCorrect,latest.specificTotal),
+  };
+}
+function buildRecommendation(snapshot,summary,referenceDate,phase,weaknesses,writing,checkpoint){
   const candidates=[];
   for(const w of weaknesses.filter(x=>x.fatal||x.p1||x.score>=55)) candidates.push(candidateWeakness(w,phase));
   for(const r of summary.reviews||[]){
@@ -211,6 +244,16 @@ function buildRecommendation(snapshot,summary,referenceDate,phase,weaknesses){
   const byDay=new Map((summary.dayControl||[]).map(day=>[day.dxx,day]));
   const resume=published.find(day=>{const p=byDay.get(day.dxx);return p&&hasExecution(p)&&!p.completed;});
   if(resume) candidates.push({kind:"resume",score:65,eyebrow:"RETOMAR SESSÃO",title:`${resume.session||resume.dxx} · ${resume.focus}`,reason:"Há execução real iniciada e ainda não concluída; a continuidade reduz custo de contexto.",href:`/dia/${resume.dxx.toLowerCase()}/`,dxx:resume.dxx,badge:resume.session,evidence:["sessão iniciada no estado canônico","conclusão ainda não registrada"],breakdown:{continuity:65}});
+  if(writing.rewriteNeeded&&writing.latest){
+    const repeat=writing.repeatedMainError?.count||0;
+    const score=clamp(76+(repeat>=2?8:0),0,88);
+    candidates.push({kind:"redaction",score,eyebrow:"REESCRITA DE REDAÇÃO",title:writing.latest.title||writing.latest.dxx,reason:"A correção registrou necessidade de reescrita; a redação volta ao motor em vez de ficar isolada.",href:`/redacoes/?dxx=${writing.latest.dxx}`,dxx:writing.latest.dxx,badge:"Reescrita",evidence:["reescrita necessária registrada",writing.latest.mainError?`erro principal: ${writing.latest.mainError}`:"erro principal não informado",repeat>=2?`erro principal reincidente em ${repeat} redações`:"sem reincidência comprovada do erro principal"],breakdown:{rewrite:76,recurrence:repeat>=2?8:0}});
+  }
+  if(checkpoint.latest&&((checkpoint.latest.p1Open||0)>0||(checkpoint.latest.recurrent||0)>0)){
+    const p1=Number(checkpoint.latest.p1Open||0), recurrent=Number(checkpoint.latest.recurrent||0);
+    const score=clamp(74+Math.min(10,p1*5)+Math.min(6,recurrent*3),0,90);
+    candidates.push({kind:"simulation",score,eyebrow:"RECALIBRAÇÃO PÓS-CHECKPOINT",title:checkpoint.latest.title||checkpoint.latest.dxx,reason:"O checkpoint registrou P1/reincidência; a execução seguinte deve absorver esse diagnóstico.",href:`/simulados/?dxx=${checkpoint.latest.dxx}`,dxx:checkpoint.latest.dxx,badge:"Pós-checkpoint",evidence:[`${p1} P1 aberto(s) no checkpoint`,`${recurrent} reincidência(s) registrada(s)`,checkpoint.latest.decision||"decisão pós-checkpoint não informada"],breakdown:{checkpoint:74,p1:Math.min(10,p1*5),recurrence:Math.min(6,recurrent*3)}});
+  }
   const redactionStatus=new Map((summary.redactions||[]).map(x=>[x.dxx,x.status]));
   const red=(snapshot.redactions||[]).find(plan=>plan.date<=referenceDate&&!["Produzida","Corrigida","Reescrita"].includes(redactionStatus.get(plan.dxx)||"Planejada"));
   if(red) candidates.push({kind:"redaction",score:72,eyebrow:"REDAÇÃO PENDENTE",title:red.title,reason:`${red.dxx} chegou ao marco planejado e ainda não possui execução confirmada.`,href:`/redacoes/?dxx=${red.dxx}`,dxx:red.dxx,badge:red.code,evidence:["marco do ciclo atingido","execução não confirmada"],breakdown:{schedule:72}});
@@ -224,7 +267,7 @@ function buildRecommendation(snapshot,summary,referenceDate,phase,weaknesses){
   const canonical=next?{title:`${next.session||next.dxx} · ${next.focus}`,href:`/dia/${next.dxx.toLowerCase()}/`,dxx:next.dxx}:null;
   return {...top,after:top.kind==="next-session"?null:canonical,candidates:candidates.slice(0,8)};
 }
-function risks(snapshot,summary,index,subjectStats,weaknesses,phase){
+function risks(snapshot,summary,index,subjectStats,weaknesses,phase,writing,checkpoint){
   const out=[];
   for(const w of weaknesses.filter(x=>x.score>=55)){
     out.push({level:w.score>=75?"critical":"attention",title:`${w.subject} · ${w.topic}`,detail:`Prioridade ${w.score}/100 · ${w.evidence.slice(0,3).join(" · ")}`,href:"/mentor/",evidence:w.evidence});
@@ -238,6 +281,8 @@ function risks(snapshot,summary,index,subjectStats,weaknesses,phase){
   }
   const overdue=(summary.reviews||[]).filter(r=>!["Concluída","Cancelada por domínio"].includes(r.status)&&dateOnly(r.plannedDate)&&dateOnly(r.plannedDate)<phase.referenceDate);
   if(overdue.length) out.push({level:"attention",title:`${overdue.length} revisão(ões) vencida(s)`,detail:"Atraso de retenção confirmado no banco canônico; a prioridade individual depende do motivo e da gravidade.",href:"/revisoes/",evidence:["datas canônicas de revisão"]});
+  if(writing.rewriteNeeded&&writing.latest) out.push({level:"attention",title:"Redação com reescrita pendente",detail:writing.latest.mainError?`Erro principal: ${writing.latest.mainError}`:"A correção marcou reescrita necessária.",href:"/redacoes/",evidence:["reescrita necessária registrada",writing.repeatedMainError?`erro principal repetido ${writing.repeatedMainError.count} vezes`:"sem reincidência comprovada"]});
+  if(checkpoint.latest&&((checkpoint.latest.p1Open||0)>0||(checkpoint.latest.recurrent||0)>0)) out.push({level:(checkpoint.latest.p1Open||0)>0?"critical":"attention",title:"Checkpoint exige recalibração",detail:`${checkpoint.latest.p1Open||0} P1 aberto(s) · ${checkpoint.latest.recurrent||0} reincidência(s)`,href:"/simulados/",evidence:["resultado real de checkpoint","P1/reincidência registrados"]});
   return out.slice(0,10);
 }
 
@@ -248,14 +293,17 @@ export function buildStudyIntelligence({snapshot,summary,referenceDate,examDate=
   const subjects=buildSubjectStats(snapshot,summary,index);
   const weaknesses=weaknessGroups(snapshot,summary,index,subjects,ref,phase);
   const strengths=subjects.map(row=>({...row,level:strengthLevel(row)})).filter(row=>row.level);
+  const writing=buildWritingSignal(summary);
+  const checkpoint=buildCheckpointSignal(summary);
   const uncertainties=[];
   if(!subjects.length) uncertainties.push({title:"Desempenho ainda sem amostra",detail:"Nenhuma sessão real com questões foi localizada. Isso não significa 0% nem fraqueza."});
   for(const row of subjects.filter(x=>x.confidence.rank<3)) uncertainties.push({title:`${row.subject}: ${row.confidence.label}`,detail:`${row.questions} questão(ões) em ${row.sessions} sessão(ões); ainda insuficiente para afirmar domínio.`});
-  const recommendation=buildRecommendation(snapshot,summary,ref,phase,weaknesses);
-  const riskRows=risks(snapshot,summary,index,subjects,weaknesses,phase);
+  const recommendation=buildRecommendation(snapshot,summary,ref,phase,weaknesses,writing,checkpoint);
+  const riskRows=risks(snapshot,summary,index,subjects,weaknesses,phase,writing,checkpoint);
+  const totalQuestions=index.reduce((s,x)=>s+Number(x.questions||0),0);
   const totalWeighted=index.reduce((s,x)=>s+Number(x.weightedPoints||0),0);
   return {
-    exam:{...TCE_EXAM,date:examDate,daysRemaining:phase.days,phase:phase.label},
+    exam:{...TCE_EXAM,date:examDate,objectiveQuestions:totalQuestions||TCE_EXAM.objectiveQuestions,weightedPoints:totalWeighted||TCE_EXAM.weightedPoints,daysRemaining:phase.days,phase:phase.label},
     referenceDate:ref,
     recommendation,
     weaknesses,
@@ -263,6 +311,8 @@ export function buildStudyIntelligence({snapshot,summary,referenceDate,examDate=
     uncertainties:uncertainties.slice(0,8),
     risks:riskRows,
     subjects,
+    writing,
+    checkpoint,
     methodology:{
       priority:"0–100 = severidade 25 + reincidência 15 + recência 10 + retenção 15 + impacto do edital 15 + tendência 10 + confiança 5 + horizonte 5. Um erro isolado não P1/Fatal é limitado a 49.",
       confidence:"Amostra: <10 questões = muito pequena; 10–24 ou <2 sessões = pequena; 25–59 com ≥2 sessões = moderada; ≥60 com ≥3 sessões = forte.",
