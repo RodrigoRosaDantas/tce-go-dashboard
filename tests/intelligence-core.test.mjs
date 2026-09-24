@@ -283,6 +283,14 @@ test("erro com nome formal herda amostra e tendência do alias CASP",()=>{
   assert.equal(intel.weaknesses[0].trend.key,"worsening");
 });
 
+test("redação Planejada pré-criada no banco continua aparecendo na Agenda",()=>{
+  const snapshot={...baseSnapshot,redactions:[{dxx:"D001",date:"2026-10-01",title:"R1",code:"R1"}]};
+  const s=summary({redactions:[{dxx:"D001",title:"R1",status:"Planejada",score:null,date:"2026-10-01",rewriteNeeded:false}]});
+  const intel=buildStudyIntelligence({snapshot,summary:s,referenceDate:"2026-09-23"});
+  assert.ok(intel.agenda.some((x)=>x.type==="Redação"&&x.dxx==="D001"));
+  assert.ok(!intel.agenda.some((x)=>x.type==="Redação em produção"&&x.dxx==="D001"));
+});
+
 test("redação Em produção continua visível para retomada",()=>{
   const snapshot={...baseSnapshot,redactions:[{dxx:"D001",date:"2026-09-20",title:"R1",code:"R1"}]};
   const s=summary({redactions:[{dxx:"D001",title:"R1",status:"Em produção",score:null,date:"2026-09-20",rewriteNeeded:false}]});
