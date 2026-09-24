@@ -4,23 +4,30 @@ import fs from "node:fs";
 const baseUrl = process.env.V3_VISUAL_BASE_URL || "http://127.0.0.1:4173";
 const outDir = process.env.V3_VISUAL_OUT || "artifacts/v3-visual";
 const viewports = [
-  { name: "mobile-375", width: 375, height: 812 },
-  { name: "mobile-430", width: 430, height: 932 },
+  { name: "mobile-360", width: 360, height: 800 },
+  { name: "mobile-390", width: 390, height: 844 },
+  { name: "mobile-412", width: 412, height: 915 },
   { name: "tablet-768", width: 768, height: 1024 },
-  { name: "tablet-834", width: 834, height: 1194 },
   { name: "tablet-1024", width: 1024, height: 1366 },
-  { name: "desktop-1366", width: 1366, height: 768 },
   { name: "desktop-1440", width: 1440, height: 900 },
 ];
 const routes = [
-  { name: "hoje", path: "/" },
+  { name: "home", path: "/" },
+  { name: "hoje", path: "/hoje/" },
+  { name: "mentor", path: "/mentor/" },
   { name: "trilha", path: "/dias/" },
   { name: "d001", path: "/dia/d001/" },
   { name: "q001", path: "/questoes/q001/" },
   { name: "revisoes", path: "/revisoes/" },
   { name: "erros", path: "/erros/" },
   { name: "desempenho", path: "/desempenho/" },
+  { name: "riscos", path: "/riscos/" },
+  { name: "redacoes", path: "/redacoes/" },
+  { name: "simulados", path: "/simulados/" },
+  { name: "edital", path: "/edital/" },
+  { name: "legislacao", path: "/legislacao/" },
   { name: "reta-final", path: "/reta-final/" },
+  { name: "sync", path: "/sync/" },
 ];
 
 fs.mkdirSync(outDir, { recursive: true });
