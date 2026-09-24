@@ -46,7 +46,7 @@ export function HomePage({ snapshot }: { snapshot: Snapshot }) {
     <section className="home-dashboard home-v4">
       <div className="home-state-row">
         <DataNotice canonical={summary.canonical} degraded={summary.degraded} generatedAt={summary.generatedAt} />
-        <div className="exam-state-v5"><strong>{intel.exam.status}</strong><span>{intel.exam.board} · 17/01/2027 · {intel.exam.daysRemaining} dias · {intel.exam.weightedPoints} pontos ponderados</span></div>
+        <div className="exam-state-v5"><strong>{intel.exam.status}</strong><span>{intel.exam.board} · {formatDate(intel.exam.date)} · {intel.exam.daysRemaining} dias · {intel.exam.weightedPoints} pontos ponderados</span></div>
         <div className="home-state-actions">
           <span>{connected ? "Conta privada conectada" : "Sem conta privada"}</span>
           <button type="button" className="text-action" onClick={() => void refresh()} disabled={loading}>
