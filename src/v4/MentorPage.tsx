@@ -55,6 +55,25 @@ export function MentorPage({snapshot}:{snapshot:Snapshot}){
       </article>
     </section>
 
+    <section className="mentor-grid-v5">
+      <article className="performance-panel">
+        <SectionHeader eyebrow="REDAÇÃO FCC" title="Correção também entra na estratégia" />
+        {intel.writing.count ? <>
+          <strong>{intel.writing.latest?.title || intel.writing.latest?.dxx || "Última redação"}</strong>
+          <p>{intel.writing.rewriteNeeded ? "Reescrita necessária." : "Sem reescrita pendente no último registro."} {intel.writing.trend.label}.</p>
+          {intel.writing.repeatedMainError ? <StatusPill tone="warning">erro principal × {intel.writing.repeatedMainError.count}</StatusPill> : <StatusPill>sem reincidência comprovada</StatusPill>}
+        </> : <EmptyState title="Ainda sem redação executada." description="O módulo entra na decisão quando houver prazo vencido, reescrita ou evidência de reincidência."/>}
+      </article>
+      <article className="performance-panel">
+        <SectionHeader eyebrow="CHECKPOINTS" title="Resultado que recalibra a sequência" />
+        {intel.checkpoint.latest ? <>
+          <strong>{intel.checkpoint.latest.title || intel.checkpoint.latest.dxx}</strong>
+          <p>{intel.checkpoint.latest.p1Open || 0} P1 aberto(s) · {intel.checkpoint.latest.recurrent || 0} reincidência(s).</p>
+          <StatusPill tone={(intel.checkpoint.latest.p1Open || 0) > 0 ? "danger" : "neutral"}>{intel.checkpoint.specificAccuracy == null ? "sem precisão específica" : intel.checkpoint.specificAccuracy.toFixed(1) + "% específicos"}</StatusPill>
+        </> : <EmptyState title="Ainda sem checkpoint executado." description="Quando houver resultado real, P1 e reincidência passam a recalibrar a próxima ação."/>}
+      </article>
+    </section>
+
     <section className="performance-panel">
       <SectionHeader eyebrow="INCERTEZA" title="Onde ainda não sabemos" detail="Desconhecido não é convertido em zero nem em fraqueza."/>
       {intel.uncertainties.length?<div className="uncertainty-grid-v5">{intel.uncertainties.map((u:any)=><article key={u.title}><strong>{u.title}</strong><p>{u.detail}</p></article>)}</div>:<EmptyState title="Nenhuma incerteza relevante identificada no recorte atual."/>}
