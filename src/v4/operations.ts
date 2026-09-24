@@ -1,6 +1,6 @@
 import type { Snapshot } from "../types";
 import type { OperationalError, OperationalReview, OperationalSummary, ProgressState } from "../progress";
-import { publishedDays } from "../v3/shared";
+import { buildStudyIntelligence } from "./intelligence-core.mjs";
 
 export function todayBrasilia() {
   const parts = new Intl.DateTimeFormat("en-CA", {
@@ -74,120 +74,32 @@ export function sessionState(progress?: ProgressState | null) {
 }
 
 export type DecisionAction = {
-  kind: "critical-error" | "overdue-review" | "resume" | "redaction" | "simulation" | "next-session" | "upcoming-review" | "maintenance";
+  kind: "weakness" | "review" | "resume" | "redaction" | "simulation" | "next-session" | "upcoming-review" | "maintenance";
   eyebrow: string;
   title: string;
   reason: string;
   href: string;
   dxx?: string;
   badge?: string;
+  score?: number;
+  evidence?: string[];
+  breakdown?: Record<string, unknown>;
+  after?: { title: string; href: string; dxx?: string } | null;
 };
 
 export function deriveDecision(snapshot: Snapshot, summary: OperationalSummary): DecisionAction {
-  const today = todayBrasilia();
-  const critical = criticalErrors(summary)[0];
-  if (critical) {
-    return {
-      kind: "critical-error",
-      eyebrow: critical.fatal ? "FATAL ERROR" : "ERRO P1",
-      title: critical.topic || critical.error || "Erro crítico aberto",
-      reason: `${critical.dxx || "Origem não informada"} · ${critical.recurrence ? `${critical.recurrence} reincidência(s) · ` : ""}corrigir antes de acumular nova matéria.`,
-      href: `/erros/?dxx=${encodeURIComponent(critical.dxx || "")}`,
-      dxx: critical.dxx || undefined,
-      badge: critical.severity || "Fatal",
-    };
-  }
-
-  const queues = reviewQueues(summary);
-  const review = queues.overdue[0] ?? queues.today[0];
-  if (review) {
-    return {
-      kind: "overdue-review",
-      eyebrow: queues.overdue.includes(review) ? "REVISÃO ATRASADA" : "REVISÃO DE HOJE",
-      title: `${review.type} · ${review.dxx}`,
-      reason: `${review.reason || "Retenção programada"} · prevista para ${dateOnly(review.plannedDate) || "sem data"}.`,
-      href: `/revisoes/?dxx=${review.dxx}&type=${encodeURIComponent(review.type)}&reason=${encodeURIComponent(review.reason || "Conteúdo novo")}`,
-      dxx: review.dxx,
-      badge: review.type,
-    };
-  }
-
-  const published = publishedDays(snapshot);
-  const byProgress = progressMap(summary);
-  const resume = published.find((day) => sessionState(byProgress.get(day.dxx)) === "in-progress");
-  if (resume) {
-    return {
-      kind: "resume",
-      eyebrow: "RETOMAR SESSÃO",
-      title: `${resume.session} · ${resume.focus}`,
-      reason: "Há execução iniciada e ainda não concluída no estado canônico.",
-      href: `/dia/${resume.dxx.toLowerCase()}/`,
-      dxx: resume.dxx,
-      badge: resume.session,
-    };
-  }
-
-  const redactionPlans = snapshot.redactions ?? [];
-  const redactionStatus = new Map(summary.redactions.map((item) => [item.dxx, item.status]));
-  const pendingRedaction = redactionPlans.find((plan) => plan.date <= today && !["Produzida", "Corrigida", "Reescrita"].includes(redactionStatus.get(plan.dxx) || "Planejada"));
-  if (pendingRedaction) {
-    return {
-      kind: "redaction",
-      eyebrow: "REDAÇÃO PENDENTE",
-      title: pendingRedaction.title,
-      reason: `${pendingRedaction.dxx} · marco previsto em ${pendingRedaction.date} ainda sem execução confirmada.`,
-      href: `/redacoes/?dxx=${pendingRedaction.dxx}`,
-      dxx: pendingRedaction.dxx,
-      badge: pendingRedaction.code,
-    };
-  }
-
-  const simulations = snapshot.simulations ?? [];
-  const simDone = new Set(summary.simulations.filter((item) => (item.generalTotal ?? 0) + (item.specificTotal ?? 0) > 0).map((item) => item.dxx));
-  const pendingSimulation = simulations.find((plan) => plan.date <= today && !simDone.has(plan.dxx));
-  if (pendingSimulation) {
-    return {
-      kind: "simulation",
-      eyebrow: "CHECKPOINT PENDENTE",
-      title: pendingSimulation.title,
-      reason: `${pendingSimulation.dxx} · marco previsto em ${pendingSimulation.date} ainda sem resultado real.`,
-      href: `/simulados/?dxx=${pendingSimulation.dxx}`,
-      dxx: pendingSimulation.dxx,
-      badge: pendingSimulation.type,
-    };
-  }
-
-  const next = published.find((day) => sessionState(byProgress.get(day.dxx)) !== "completed");
-  if (next) {
-    return {
-      kind: "next-session",
-      eyebrow: "PRÓXIMA SESSÃO",
-      title: `${next.session} · ${next.focus}`,
-      reason: "Primeira sessão publicada ainda não concluída, respeitando a ordem pedagógica.",
-      href: `/dia/${next.dxx.toLowerCase()}/`,
-      dxx: next.dxx,
-      badge: next.session,
-    };
-  }
-
-  const upcoming = queues.upcoming[0];
-  if (upcoming) {
-    return {
-      kind: "upcoming-review",
-      eyebrow: "PRÓXIMA REVISÃO",
-      title: `${upcoming.type} · ${upcoming.dxx}`,
-      reason: `Trilha publicada concluída; próxima retenção prevista em ${dateOnly(upcoming.plannedDate)}.`,
-      href: "/revisoes/",
-      dxx: upcoming.dxx,
-      badge: upcoming.type,
-    };
-  }
-
+  const recommendation = buildStudyIntelligence({ snapshot, summary, referenceDate: todayBrasilia() }).recommendation;
   return {
-    kind: "maintenance",
-    eyebrow: "MANUTENÇÃO",
-    title: "Sem pendência prioritária confirmada.",
-    reason: "Use Desempenho, Erros e Reta Final para manutenção seletiva.",
-    href: "/desempenho/",
+    kind: recommendation.kind,
+    eyebrow: recommendation.eyebrow,
+    title: recommendation.title,
+    reason: recommendation.reason,
+    href: recommendation.href,
+    dxx: recommendation.dxx,
+    badge: recommendation.badge,
+    score: recommendation.score,
+    evidence: recommendation.evidence,
+    breakdown: recommendation.breakdown,
+    after: recommendation.after,
   };
 }

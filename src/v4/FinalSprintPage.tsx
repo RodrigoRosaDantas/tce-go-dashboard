@@ -1,30 +1,20 @@
 import type { Snapshot } from "../types";
 import { useOperational } from "./OperationalContext";
-import { criticalErrors, isOpenError, progressMap, reviewQueues, sessionState } from "./operations";
+import { progressMap, reviewQueues, sessionState } from "./operations";
+import { buildStudyIntelligence } from "./intelligence-core.mjs";
 import { DataNotice, EmptyState, MetricCard, PageHeader, SectionHeader, StatusPill } from "./ui";
 import { formatDate, href, publishedDays } from "../v3/shared";
 
 export function FinalSprintPageV4({ snapshot }: { snapshot: Snapshot }) {
   const { summary } = useOperational();
   const rows = snapshot.finalSprint ?? [];
-  const critical = criticalErrors(summary);
+  const intel = buildStudyIntelligence({ snapshot, summary });
   const reviews = reviewQueues(summary);
-  const openErrors = summary.errors.filter(isOpenError);
   const byProgress = progressMap(summary);
   const incomplete = publishedDays(snapshot).filter((day)=>sessionState(byProgress.get(day.dxx))!=="completed");
 
-  const topics = new Map<string,{ label:string; open:number; critical:number; recurrence:number }>();
-  for (const error of openErrors) {
-    const label=[error.subject,error.topic].filter(Boolean).join(" · ") || error.error || "Sem tópico";
-    const current=topics.get(label)||{label,open:0,critical:0,recurrence:0};
-    current.open+=1;
-    current.critical+=Number(error.fatal||error.severity==="P1");
-    current.recurrence+=error.recurrence||0;
-    topics.set(label,current);
-  }
-  const priorities=[...topics.values()]
-    .sort((a,b)=>b.critical-a.critical||b.recurrence-a.recurrence||b.open-a.open||a.label.localeCompare(b.label,"pt-BR"))
-    .slice(0,6);
+  const priorities = intel.weaknesses.slice(0, 6);
+
 
   return (
     <section className="aux-page final-sprint-v4">
@@ -36,7 +26,7 @@ export function FinalSprintPageV4({ snapshot }: { snapshot: Snapshot }) {
       />
 
       <div className="metric-strip metric-strip-v4">
-        <MetricCard label="ERROS CRÍTICOS" value={critical.length} tone={critical.length ? "danger" : "default"} />
+        <MetricCard label="RISCOS COM EVIDÊNCIA" value={intel.risks.length} tone={intel.risks.some((item: any)=>item.level==="critical") ? "danger" : intel.risks.length ? "warning" : "default"} />
         <MetricCard label="REVISÕES ATRASADAS" value={reviews.overdue.length} tone={reviews.overdue.length ? "warning" : "default"} />
         <MetricCard label="SESSÕES PUBLICADAS PENDENTES" value={incomplete.length} />
         <MetricCard label="DIAS DE RETA FINAL" value={rows.length} tone="accent" />
@@ -45,17 +35,17 @@ export function FinalSprintPageV4({ snapshot }: { snapshot: Snapshot }) {
       <section className="sprint-priority-v4">
         <SectionHeader eyebrow="ENTRADAS DO D100" title="Prioridades atuais para a reta final" detail="Ordenadas por sinais existentes; não cria conteúdo ou peso novo." />
         {priorities.length ? <div className="weak-signals-v4">
-          {priorities.map((item,index)=><article key={item.label}>
-            <b>{String(index+1).padStart(2,"0")}</b><div><strong>{item.label}</strong><small>{item.critical} crítico(s) · {item.recurrence} reincidência(s) · {item.open} erro(s) aberto(s)</small></div>
-            <a href={href("/erros/")}>Abrir erros →</a>
+          {priorities.map((item: any,index: number)=><article key={item.id}>
+            <b>{String(index+1).padStart(2,"0")}</b><div><strong>{item.subject} · {item.topic}</strong><small>{item.score}/100 · {item.recurrence} reincidência(s) · {item.confidence.label}</small></div>
+            <a href={href("/mentor/")}>Ver evidências →</a>
           </article>)}
         </div> : <EmptyState title="Sem tópicos de erro suficientes para priorização." description="A reta final seguirá o calendário até que dados reais indiquem ajustes." />}
       </section>
 
-      {critical.length || reviews.overdue.length ? (
+      {intel.risks.length || reviews.overdue.length ? (
         <div className="sprint-alerts-v4">
-          {critical.length ? <a href={href("/erros/")}><StatusPill tone="danger">{critical.length} P1/Fatal</StatusPill><span>Tratar erros críticos antes de expandir revisão.</span><b>→</b></a> : null}
-          {reviews.overdue.length ? <a href={href("/revisoes/")}><StatusPill tone="warning">{reviews.overdue.length} atrasada(s)</StatusPill><span>Regularizar retenção vencida.</span><b>→</b></a> : null}
+          {intel.risks.some((item: any)=>item.level==="critical") ? <a href={href("/riscos/")}><StatusPill tone="danger">Risco crítico</StatusPill><span>Tratar a evidência crítica antes de expansão aleatória.</span><b>→</b></a> : null}
+          {reviews.overdue.length ? <a href={href("/revisoes/")}><StatusPill tone="warning">{reviews.overdue.length} atrasada(s)</StatusPill><span>Regularizar retenção conforme prioridade do Mentor.</span><b>→</b></a> : null}
         </div>
       ) : null}
 

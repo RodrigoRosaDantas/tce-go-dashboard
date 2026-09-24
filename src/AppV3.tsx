@@ -10,6 +10,9 @@ import { TrailPageV4 } from "./v4/TrailPage";
 import { RevisionsPageV4 } from "./v4/RevisionsPage";
 import { ErrorsPageV4 } from "./v4/ErrorsPage";
 import { FinalSprintPageV4 } from "./v4/FinalSprintPage";
+import { TodayPage } from "./v4/TodayPage";
+import { MentorPage } from "./v4/MentorPage";
+import { RisksPage } from "./v4/RisksPage";
 import {
   EditalPage,
   LegislationPage,
@@ -58,6 +61,9 @@ export default function AppV3() {
 
   let page: React.ReactNode;
   if (route === "/") page = <HomePage snapshot={snapshot} />;
+  else if (route === "/hoje/") page = <TodayPage snapshot={snapshot} />;
+  else if (route === "/mentor/") page = <MentorPage snapshot={snapshot} />;
+  else if (route === "/riscos/") page = <RisksPage snapshot={snapshot} />;
   else if (route === "/dias/") page = <TrailPageV4 snapshot={snapshot} />;
   else if (dayMatch) page = <StudyPage snapshot={snapshot} dxx={dayMatch[1]} />;
   else if (questionMatch) page = <QuestionPage snapshot={snapshot} qxx={questionMatch[1]} />;

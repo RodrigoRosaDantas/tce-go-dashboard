@@ -46,7 +46,7 @@ export function RevisionsPageV4({ snapshot }: { snapshot: Snapshot }) {
 
       {queues.overdue.length || queues.today.length ? (
         <section className="review-group-v4">
-          <SectionHeader eyebrow="AGORA" title="Revisões que bloqueiam avanço" detail="Atrasadas primeiro; depois as previstas para hoje." />
+          <SectionHeader eyebrow="AGORA" title="Revisões que merecem atenção" detail="Atraso importa, mas D7/D20 não bloqueiam a trilha por rótulo: o Mentor combina motivo, gravidade, reincidência, recência e impacto." />
           <div className="review-grid-v4">
             {queues.overdue.map((review) => <ReviewCard key={review.id} review={review} bucket="overdue" />)}
             {queues.today.map((review) => <ReviewCard key={review.id} review={review} bucket="today" />)}

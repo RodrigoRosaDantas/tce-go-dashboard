@@ -10,6 +10,10 @@ const tools = fs.readFileSync("src/v3/StudyTools.tsx","utf8");
 const progress = fs.readFileSync("src/ProgressPanel.tsx","utf8");
 const trainer = fs.readFileSync("src/v4/QuestionTrainer.tsx","utf8");
 const operations = fs.readFileSync("src/v4/operations.ts","utf8");
+const intelligence = fs.readFileSync("src/v4/intelligence-core.mjs","utf8");
+const mentor = fs.readFileSync("src/v4/MentorPage.tsx","utf8");
+const todayPage = fs.readFileSync("src/v4/TodayPage.tsx","utf8");
+const risks = fs.readFileSync("src/v4/RisksPage.tsx","utf8");
 const context = fs.readFileSync("src/v4/OperationalContext.tsx","utf8");
 const trail = fs.readFileSync("src/v4/TrailPage.tsx","utf8");
 const revisions = fs.readFileSync("src/v4/RevisionsPage.tsx","utf8");
@@ -22,25 +26,22 @@ const contract = fs.readFileSync("scripts/snapshot-contract.mjs","utf8");
 
 test("V4 mantém provider operacional acima de todas as páginas", () => {
   assert.match(app, /OperationalProvider snapshot=\{snapshot\}/);
-  for (const marker of ["TrailPageV4","RevisionsPageV4","ErrorsPageV4","DataDashboardPage","FinalSprintPageV4"]) {
+  for (const marker of ["TodayPage","MentorPage","RisksPage","TrailPageV4","RevisionsPageV4","ErrorsPageV4","DataDashboardPage","FinalSprintPageV4"]) {
     assert.ok(app.includes(marker), `página V4 não ativada: ${marker}`);
   }
 });
 
-test("orquestrador usa prioridade determinística sem inventar score", () => {
-  const order = [
-    'kind: "critical-error"',
-    'kind: "overdue-review"',
-    'kind: "resume"',
-    'kind: "redaction"',
-    'kind: "simulation"',
-    'kind: "next-session"',
-    'kind: "upcoming-review"',
-  ].map((marker) => operations.indexOf(marker));
-  assert.ok(order.every((index) => index >= 0));
-  for (let i=1;i<order.length;i++) assert.ok(order[i] > order[i-1], "ordem de decisão mudou");
-  assert.doesNotMatch(operations, /Math\.random|machine learning|OpenAI|chatgpt/i);
+test("orquestrador usa um único motor explicável e preserva Ordem canônica", () => {
+  assert.match(operations, /buildStudyIntelligence/);
+  assert.match(home, /buildStudyIntelligence/);
+  assert.match(mentor, /buildStudyIntelligence/);
+  assert.match(todayPage, /buildStudyIntelligence/);
+  assert.match(risks, /buildStudyIntelligence/);
+  assert.match(intelligence, /severidade 25 \+ reincidência 15 \+ recência 10/);
+  assert.match(intelligence, /single non-P1\/Fatal|erro isolado/i);
+  assert.doesNotMatch(intelligence, /Math\.random|machine learning|OpenAI|chatgpt/i);
   assert.match(home, /Por que agora\?/);
+  assert.match(intelligence, /Primeira sessão publicada ainda não concluída|primeira sessão publicada ainda não concluída/i);
 });
 
 test("Trilha, Revisões, Erros e Desempenho consomem o mesmo estado operacional", () => {
@@ -81,11 +82,15 @@ test("Q001 é regenerado se snapshot antigo não possuir authorialItems", () => 
   assert.match(contract, /item autoral sem ID AUT válido/);
 });
 
-test("command palette indexa material, questões, edital e legislação com âncoras", () => {
+test("command palette indexa conteúdo editorial e estado operacional vivo", () => {
   assert.match(shell, /group: "Conteúdo"/);
   assert.match(shell, /group: "Questões"/);
   assert.match(shell, /group: "Edital"/);
   assert.match(shell, /group: "Legislação"/);
+  assert.match(shell, /summary\.reviews\.map/);
+  assert.match(shell, /summary\.errors\.map/);
+  assert.match(shell, /group: "Revisões"/);
+  assert.match(shell, /group: "Erros"/);
   assert.match(shell, /#\$\{item\.id\}/);
   assert.match(shell, /art\. 71, apreciar × julgar/);
 });
@@ -160,8 +165,8 @@ test("Dashboard usa Matéria/foco canônica e declara lacuna de cobertura do edi
 });
 
 
-test("auditoria V4.1 protege rótulo Dashboard e meta adaptativa", () => {
-  assert.match(shell, /\["\/desempenho\/", "Dashboard", "◔"\]/);
+test("auditoria V4.1 protege rótulo Desempenho e meta adaptativa", () => {
+  assert.match(shell, /\["\/desempenho\/", "Desempenho", "◔"\]/);
   assert.match(performance, /snapshot\.questions\[day\.questionSlug\]\?\.meta \?\? snapshot\.questions\[day\.questionSlug\]\?\.valid/);
   assert.match(performance, /summary\.questionMeta\.map\(\(x\) => x\.lastEditedAt\)/);
 });
@@ -209,4 +214,17 @@ test("auditoria manual detecta inconsistências de status e números negativos",
   assert.match(analytics, /Dxx está concluído sem o checkbox Estudado marcado/);
   assert.match(analytics, /Há execução registrada, mas o Status continua Não iniciado/);
   assert.match(analytics, /não pode ser negativo/);
+});
+
+test("Home e Dashboard preservam desconhecido como desconhecido", () => {
+  assert.match(home, /knownTotal/);
+  assert.match(home, /questions === null \? "—"/);
+  assert.match(performance, /knownAggregate/);
+  assert.match(performance, /Ausência de métricas completas não é convertida em zero executado/);
+  assert.match(analytics, /metricsComplete/);
+});
+
+test("analytics central usa cards no mobile em vez de tabela horizontal como solução única", () => {
+  assert.match(performance, /execution-cards-mobile-v5/);
+  assert.match(performance, /execution-table-desktop-v5/);
 });

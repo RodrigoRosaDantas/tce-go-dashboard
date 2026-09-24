@@ -103,6 +103,9 @@ jobs:
           base="${PAGE_URL%/}"
           routes=(
             ""
+            "hoje/"
+            "mentor/"
+            "riscos/"
             "dias/"
             "dia/d001/"
             "questoes/q001/"
@@ -168,4 +171,4 @@ jobs:
             exit 1
           fi
           grep -q '<div id="root"></div>' /tmp/tce-fallback.html
-          echo "Smoke test publicado concluído: 17 rotas + snapshot full editorial/auxiliar + PWA + fallback."
+          echo "Smoke test publicado concluído: 20 rotas + snapshot full editorial/auxiliar + PWA + fallback."

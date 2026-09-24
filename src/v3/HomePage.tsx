@@ -2,7 +2,8 @@ import type { Snapshot } from "../types";
 import { conflictCount, pendingCount } from "../progress";
 import { useOperational } from "../v4/OperationalContext";
 import { DataNotice, MetricCard, SectionHeader, StatusPill } from "../v4/ui";
-import { criticalErrors, deriveDecision, progressMap, reviewQueues, sessionState } from "../v4/operations";
+import { criticalErrors, progressMap, reviewQueues, sessionState } from "../v4/operations";
+import { buildStudyIntelligence } from "../v4/intelligence-core.mjs";
 import { activeDays, formatDate, href, publishedDays } from "./shared";
 
 export function HomePage({ snapshot }: { snapshot: Snapshot }) {
@@ -10,20 +11,28 @@ export function HomePage({ snapshot }: { snapshot: Snapshot }) {
   const published = publishedDays(snapshot);
   const active = activeDays(snapshot);
   const byProgress = progressMap(summary);
-  const decision = deriveDecision(snapshot, summary);
+  const intel = buildStudyIntelligence({ snapshot, summary });
+  const decision = intel.recommendation;
   const reviews = reviewQueues(summary);
   const critical = criticalErrors(summary);
   const pending = pendingCount();
   const conflicts = conflictCount();
 
   const completed = published.filter((day) => sessionState(byProgress.get(day.dxx)) === "completed").length;
-  const studied = summary.progress.filter((state) => state.studied).length;
-  const minutes = summary.progress.reduce((sum, state) => sum + (state.timeMinutes || 0), 0);
-  const questions = summary.progress.reduce((sum, state) => sum + (state.questionsDone || 0), 0);
-  const correct = summary.progress.reduce((sum, state) => sum + (state.correct || 0), 0);
-  const errors = summary.progress.reduce((sum, state) => sum + (state.errors || 0), 0);
-  const doubts = summary.progress.reduce((sum, state) => sum + (state.doubts || 0), 0);
-  const accuracy = correct + errors > 0 ? Math.round((correct / (correct + errors)) * 100) : null;
+  const executedRows = summary.dayControl.filter((day) =>
+    !day.protected && (day.studied || day.completed || (day.timeMinutes ?? 0) > 0 || (day.questionsDone ?? 0) > 0 || (day.correct ?? 0) > 0 || (day.errors ?? 0) > 0 || (day.doubts ?? 0) > 0)
+  );
+  const studied = executedRows.filter((state) => state.studied).length;
+  const knownTotal = (key: "timeMinutes" | "questionsDone" | "correct" | "errors" | "doubts") =>
+    executedRows.length > 0 && executedRows.every((row) => row[key] != null)
+      ? executedRows.reduce((sum, row) => sum + Number(row[key]), 0)
+      : null;
+  const minutes = knownTotal("timeMinutes");
+  const questions = knownTotal("questionsDone");
+  const correct = knownTotal("correct");
+  const errors = knownTotal("errors");
+  const doubts = knownTotal("doubts");
+  const accuracy = correct != null && errors != null && correct + errors > 0 ? Math.round((correct / (correct + errors)) * 100) : null;
   const executionPct = published.length ? Math.round((completed / published.length) * 100) : 0;
 
   const nextSession = published.find((day) => sessionState(byProgress.get(day.dxx)) !== "completed");
@@ -37,6 +46,7 @@ export function HomePage({ snapshot }: { snapshot: Snapshot }) {
     <section className="home-dashboard home-v4">
       <div className="home-state-row">
         <DataNotice canonical={summary.canonical} degraded={summary.degraded} generatedAt={summary.generatedAt} />
+        <div className="exam-state-v5"><strong>{intel.exam.status}</strong><span>{intel.exam.board} · {formatDate(intel.exam.date)} · {intel.exam.daysRemaining} dias · {intel.exam.weightedPoints} pontos ponderados</span></div>
         <div className="home-state-actions">
           <span>{connected ? "Conta privada conectada" : "Sem conta privada"}</span>
           <button type="button" className="text-action" onClick={() => void refresh()} disabled={loading}>
@@ -64,15 +74,7 @@ export function HomePage({ snapshot }: { snapshot: Snapshot }) {
             <p>{decision.reason}</p>
             <div className="decision-explain">
               <span>Por que agora?</span>
-              <strong>
-                {decision.kind === "critical-error" ? "Erro crítico prevalece sobre matéria nova." :
-                 decision.kind === "overdue-review" ? "Retenção vencida prevalece sobre avanço." :
-                 decision.kind === "resume" ? "Concluir o que já foi iniciado reduz fragmentação." :
-                 decision.kind === "redaction" ? "Marco de redação vencido na agenda canônica." :
-                 decision.kind === "simulation" ? "Checkpoint vencido sem execução confirmada." :
-                 decision.kind === "next-session" ? "Nenhuma pendência de maior prioridade foi encontrada." :
-                 "Trilha corrente sem bloqueio prioritário."}
-              </strong>
+              <strong>{decision.evidence?.slice(0, 3).join(" · ") || decision.reason}</strong>
             </div>
             <div className="decision-actions">
               <a className="button primary large" href={href(decision.href)}>
@@ -104,10 +106,10 @@ export function HomePage({ snapshot }: { snapshot: Snapshot }) {
           </div>
           <div className="pulse-lines">
             <div><span>Sessões com estudo</span><strong>{studied}</strong></div>
-            <div><span>Tempo registrado</span><strong>{Math.floor(minutes / 60)}h {minutes % 60}min</strong></div>
-            <div><span>Questões feitas</span><strong>{questions}</strong></div>
+            <div><span>Tempo registrado</span><strong>{minutes === null ? "—" : `${Math.floor(minutes / 60)}h ${minutes % 60}min`}</strong></div>
+            <div><span>Questões feitas</span><strong>{questions === null ? "—" : questions}</strong></div>
             <div><span>Aproveitamento</span><strong>{accuracy === null ? "—" : `${accuracy}%`}</strong></div>
-            <div><span>Acertos com dúvida</span><strong>{doubts}</strong></div>
+            <div><span>Acertos com dúvida</span><strong>{doubts === null ? "—" : doubts}</strong></div>
           </div>
           <a href={href("/desempenho/")}>Abrir diagnóstico <span>→</span></a>
         </aside>
@@ -119,6 +121,21 @@ export function HomePage({ snapshot }: { snapshot: Snapshot }) {
         <MetricCard label="EXECUÇÃO REAL" value={completed} detail={`${published.length} sessões publicadas`} tone="accent" />
         <MetricCard label="SINCRONIZAÇÃO" value={conflicts ? `${conflicts} conflito(s)` : pending ? `${pending} pendente(s)` : "Em dia"} detail={summary.canonical ? "Notion carregado" : "Usando cache"} tone={conflicts ? "danger" : pending ? "warning" : "default"} />
       </div>
+
+      <section className="home-intelligence-v5">
+        <article className="performance-panel">
+          <SectionHeader eyebrow="FRAGILIDADES" title="O que merece intervenção" action={<a href={href("/mentor/")}>Abrir Mentor</a>} />
+          {intel.weaknesses.length ? <div className="home-signal-list-v5">{intel.weaknesses.slice(0,3).map((item: any)=><div key={item.id}><strong>{item.subject} · {item.topic}</strong><span>{item.level} · {item.score}/100 · {item.confidence.label}</span></div>)}</div> : <p className="muted">Ainda não há fragilidade real registrada. Sem amostra não significa domínio.</p>}
+        </article>
+        <article className="performance-panel">
+          <SectionHeader eyebrow="FORÇAS" title="O que está controlado" />
+          {intel.strengths.length ? <div className="home-signal-list-v5">{intel.strengths.slice(0,3).map((item: any)=><div key={item.subject}><strong>{item.subject}</strong><span>{item.level} · {item.accuracy?.toFixed(1)}% · {item.confidence.label}</span></div>)}</div> : <p className="muted">Ainda sem força sustentada por amostra suficiente.</p>}
+        </article>
+        <article className="performance-panel">
+          <SectionHeader eyebrow="EVOLUÇÃO" title="Mudanças recentes" action={<a href={href("/desempenho/")}>Ver dados</a>} />
+          {intel.subjects.some((item: any)=>item.trend.key!=="insufficient") ? <div className="home-signal-list-v5">{intel.subjects.filter((item: any)=>item.trend.key!=="insufficient").slice(0,3).map((item: any)=><div key={item.subject}><strong>{item.subject}</strong><span>{item.trend.label}{item.trend.delta==null?"":" · "+(item.trend.delta>0?"+":"")+item.trend.delta.toFixed(1)+" p.p."}</span></div>)}</div> : <p className="muted">Tendência exige pelo menos quatro eventos comparáveis; ainda não há base temporal.</p>}
+        </article>
+      </section>
 
       <section className="operational-grid">
         <article className="plan-card priority-queue-card">
