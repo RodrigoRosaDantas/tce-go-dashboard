@@ -4,22 +4,28 @@ import { publicRoute } from "../data";
 import { extractStudyToc, href, publishedDays } from "./shared";
 
 const primaryNav = [
-  ["/", "Hoje", "⌂"],
+  ["/", "Home", "⌂"],
+  ["/hoje/", "Hoje", "◎"],
   ["/dias/", "Trilha", "▤"],
-  ["/revisoes/", "Revisar", "↻"],
-  ["/desempenho/", "Dashboard", "◔"],
+  ["/revisoes/", "Revisões", "↻"],
 ] as const;
 
-const studyNav = [
+const diagnosticNav = [
+  ["/mentor/", "Mentor", "◇"],
+  ["/erros/", "Caderno de erros", "!"],
+  ["/desempenho/", "Desempenho", "◔"],
+  ["/riscos/", "Riscos", "△"],
+] as const;
+
+const proofNav = [
   ["/redacoes/", "Redações"],
-  ["/erros/", "Caderno de erros"],
   ["/simulados/", "Simulados"],
-] as const;
-
-const referenceNav = [
   ["/edital/", "Edital verticalizado"],
   ["/legislacao/", "Legislação"],
   ["/reta-final/", "Reta final"],
+] as const;
+
+const systemNav = [
   ["/sync/", "Sistema e sincronização"],
 ] as const;
 
@@ -45,8 +51,9 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
   const searchItems = useMemo<SearchItem[]>(() => {
     const routes: SearchItem[] = [
       ...primaryNav.map(([path, label]) => ({ label, detail: "Navegação principal", href: path, group: "Navegação", keywords: label })),
-      ...studyNav.map(([path, label]) => ({ label, detail: "Treino", href: path, group: "Treino", keywords: label })),
-      ...referenceNav.map(([path, label]) => ({ label, detail: "Referência", href: path, group: "Referência", keywords: label })),
+      ...diagnosticNav.map(([path, label]) => ({ label, detail: "Diagnóstico", href: path, group: "Diagnóstico", keywords: label })),
+      ...proofNav.map(([path, label]) => ({ label, detail: "Prova", href: path, group: "Prova", keywords: label })),
+      ...systemNav.map(([path, label]) => ({ label, detail: "Sistema", href: path, group: "Sistema", keywords: label })),
     ];
     const published = publishedDays(snapshot);
     const sessions = published.map((day) => ({
@@ -166,8 +173,8 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
           <span><strong>TCE-GO</strong><small>Técnico de Controle Externo</small></span>
         </a>
         <div className="topbar-context">
-          <span className="context-kicker">Projeto 100 Dias</span>
-          <strong>S01–S47 · execução pedagógica</strong>
+          <span className="context-kicker">EDITAL ABERTO · FCC</span>
+          <strong>Prova 17/01/2027 · S01–S47</strong>
         </div>
         <div className="topbar-actions">
           <button className="search-trigger" type="button" onClick={() => setSearchOpen(true)}>
@@ -191,14 +198,22 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
               ))}
             </div>
             <div className="nav-group">
-              <span className="nav-label">Treino</span>
-              {studyNav.map(([path, label]) => (
+              <span className="nav-label">Diagnosticar</span>
+              {diagnosticNav.map(([path, label, icon]) => (
+                <a key={path} href={href(path)} className={isCurrent(path) ? "active compact" : "compact"} aria-current={isCurrent(path) ? "page" : undefined}>
+                  <span className="nav-icon">{icon}</span><span>{label}</span>
+                </a>
+              ))}
+            </div>
+            <div className="nav-group">
+              <span className="nav-label">Prova</span>
+              {proofNav.map(([path, label]) => (
                 <a key={path} href={href(path)} className={isCurrent(path) ? "active compact" : "compact"} aria-current={isCurrent(path) ? "page" : undefined}>{label}</a>
               ))}
             </div>
             <div className="nav-group">
-              <span className="nav-label">Referência</span>
-              {referenceNav.map(([path, label]) => (
+              <span className="nav-label">Sistema</span>
+              {systemNav.map(([path, label]) => (
                 <a key={path} href={href(path)} className={isCurrent(path) ? "active compact" : "compact"} aria-current={isCurrent(path) ? "page" : undefined}>{label}</a>
               ))}
             </div>
@@ -223,7 +238,7 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
           <div className="bottom-more-sheet">
             <div className="sheet-handle" />
             <strong>Mais áreas</strong>
-            {[...studyNav, ...referenceNav].map(([path, label]) => <a key={path} href={href(path)}>{label}</a>)}
+            {[...diagnosticNav, ...proofNav, ...systemNav].map(([path, label]) => <a key={path} href={href(path)}>{label}</a>)}
           </div>
         </details>
       </nav>
