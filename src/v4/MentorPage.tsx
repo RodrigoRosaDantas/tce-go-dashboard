@@ -73,7 +73,7 @@ export function MentorPage({snapshot}:{snapshot:Snapshot}){
         <SectionHeader eyebrow="CHECKPOINTS" title="Resultado que recalibra a sequência" />
         {intel.checkpoint.latest ? <>
           <strong>{intel.checkpoint.latest.title || intel.checkpoint.latest.dxx}</strong>
-          <p>{intel.checkpoint.latest.p1Open || 0} P1 aberto(s) · {intel.checkpoint.latest.recurrent || 0} reincidência(s) · {intel.checkpoint.trend.label}{intel.checkpoint.trend.delta==null?"":" · "+(intel.checkpoint.trend.delta>0?"+":"")+intel.checkpoint.trend.delta.toFixed(1)+" p.p."}.</p>
+          <p>{intel.checkpoint.latest.p1Open == null ? "P1 —" : intel.checkpoint.latest.p1Open + " P1 aberto(s)"} · {intel.checkpoint.latest.recurrent == null ? "reincidências —" : intel.checkpoint.latest.recurrent + " reincidência(s)"} · {intel.checkpoint.trend.label}{intel.checkpoint.trend.delta==null?"":" · "+(intel.checkpoint.trend.delta>0?"+":"")+intel.checkpoint.trend.delta.toFixed(1)+" p.p."}.</p>
           <div className="mentor-evidence-v5">
             <span>{intel.checkpoint.generalAccuracy == null ? "gerais sem precisão calculável" : intel.checkpoint.generalAccuracy.toFixed(1) + "% gerais"}</span>
             <span>{intel.checkpoint.specificAccuracy == null ? "específicos sem precisão calculável" : intel.checkpoint.specificAccuracy.toFixed(1) + "% específicos"}</span>
