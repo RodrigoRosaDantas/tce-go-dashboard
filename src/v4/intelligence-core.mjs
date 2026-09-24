@@ -103,7 +103,7 @@ function executionDateForDxx(summary,dxx){
     .sort();
   return dates.at(-1)||null;
 }
-function buildSubjectStats(snapshot,summary,index){
+function buildSubjectStats(summary,index){
   const groups=new Map();
   for(const row of summary.dayControl||[]){
     if(!hasExecution(row)) continue;
@@ -288,10 +288,11 @@ const WRITING_CRITERIA=[
   ["vocabulary","vocabulário",8],
 ];
 function buildWritingSignal(summary){
-  const rows=(summary.redactions||[]).filter(item=>item.status==="Produzida"||item.score!=null||item.rewriteNeeded||item.mainError||WRITING_CRITERIA.some(([key])=>item[key]!=null));
+  const rows=(summary.redactions||[]).filter(item=>["Em produção","Produzida"].includes(item.status)||item.score!=null||item.rewriteNeeded||item.mainError||WRITING_CRITERIA.some(([key])=>item[key]!=null));
   const chronology=[...rows].sort((a,b)=>String(a.date||a.lastEditedAt||"").localeCompare(String(b.date||b.lastEditedAt||"")));
   const scored=chronology.filter(item=>item.score!=null);
   const latest=chronology.at(-1)||null;
+  const productionPending=chronology.filter(item=>item.status==="Em produção").at(-1)||null;
   const correctionPending=chronology.filter(item=>item.status==="Produzida"&&item.score==null).at(-1)||null;
   const pendingRewrites=chronology.filter(item=>item.rewriteNeeded&&item.status!=="Reescrita");
   const pendingRewrite=pendingRewrites.at(-1)||null;
@@ -315,7 +316,7 @@ function buildWritingSignal(summary){
     weakestCriterion=values[0]||null;
   }
   return {
-    count:rows.length,scoredCount:scored.length,latest,trend,correctionPending,
+    count:rows.length,scoredCount:scored.length,latest,trend,productionPending,correctionPending,
     rewriteNeeded:Boolean(pendingRewrite),pendingRewrite,pendingRewriteCount:pendingRewrites.length,
     repeatedMainError:repeated&&repeated[1]>=2?{key:repeated[0],count:repeated[1]}:null,
     weakestCriterion,
@@ -355,12 +356,14 @@ function buildCheckpointSignal(summary){
 }
 function buildAgenda(snapshot,summary,referenceDate,examDate){
   const redactionStarted=new Set((summary.redactions||[]).map(item=>item.dxx));
+  const productionPending=(summary.redactions||[]).filter(item=>item.status==="Em produção");
   const correctionPending=(summary.redactions||[]).filter(item=>item.status==="Produzida"&&item.score==null);
   const simulationDone=new Set((summary.simulations||[]).filter(hasSimulationEvidence).map(item=>item.dxx));
   const rows=[
     ...(summary.reviews||[])
       .filter(item=>!["Concluída","Cancelada por domínio"].includes(item.status)&&dateOnly(item.plannedDate))
       .map(item=>({date:dateOnly(item.plannedDate),type:"Revisão",title:`${item.type} · ${item.dxx}`,href:"/revisoes/",dxx:item.dxx})),
+    ...productionPending.map(item=>({date:dateOnly(item.date||item.lastEditedAt)||referenceDate,type:"Redação em produção",title:item.title,href:"/redacoes/",dxx:item.dxx})),
     ...correctionPending.map(item=>({date:dateOnly(item.date||item.lastEditedAt)||referenceDate,type:"Correção de redação",title:item.title,href:"/redacoes/",dxx:item.dxx})),
     ...(snapshot.redactions||[])
       .filter(item=>item.date&&!redactionStarted.has(item.dxx))
@@ -391,6 +394,9 @@ function buildRecommendation(snapshot,summary,referenceDate,phase,weaknesses,wri
   const byDay=new Map((summary.dayControl||[]).map(day=>[day.dxx,day]));
   const resume=published.find(day=>{const p=byDay.get(day.dxx);return p&&hasExecution(p)&&!p.completed;});
   if(resume) candidates.push({kind:"resume",score:65,eyebrow:"RETOMAR SESSÃO",title:`${resume.session||resume.dxx} · ${resume.focus}`,reason:"Há execução real iniciada e ainda não concluída; a continuidade reduz custo de contexto.",href:`/dia/${resume.dxx.toLowerCase()}/`,dxx:resume.dxx,badge:resume.session,evidence:["sessão iniciada no estado canônico","conclusão ainda não registrada"],breakdown:{continuity:65}});
+  if(writing.productionPending){
+    candidates.push({kind:"redaction",score:68,eyebrow:"RETOMAR REDAÇÃO",title:writing.productionPending.title||writing.productionPending.dxx,reason:"A redação está com status Em produção no banco canônico; concluir o texto evita fragmentar o ciclo discursivo.",href:`/redacoes/?dxx=${writing.productionPending.dxx}`,dxx:writing.productionPending.dxx,badge:"Em produção",evidence:["status Em produção no banco canônico","execução discursiva iniciada e ainda não produzida"],breakdown:{continuity:68}});
+  }
   if(writing.correctionPending){
     candidates.push({kind:"redaction",score:74,eyebrow:"CORRIGIR REDAÇÃO",title:writing.correctionPending.title||writing.correctionPending.dxx,reason:"A redação foi produzida, mas ainda não possui correção/nota. O fluxo FCC precisa fechar diagnóstico antes de seguir como concluído.",href:`/redacoes/?dxx=${writing.correctionPending.dxx}`,dxx:writing.correctionPending.dxx,badge:"Correção pendente",evidence:["status Produzida no banco canônico","nota simulada ainda ausente","a visão Pendentes do Notion inclui redações Produzidas"],breakdown:{correction:74}});
   }
@@ -441,7 +447,7 @@ export function buildStudyIntelligence({snapshot,summary,referenceDate,examDate=
   const ref=referenceDate||new Intl.DateTimeFormat("en-CA",{timeZone:"America/Sao_Paulo",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
   const phase={...examPhase(ref,examDate),referenceDate:ref};
   const index=editalIndex(snapshot);
-  const subjects=buildSubjectStats(snapshot,summary,index);
+  const subjects=buildSubjectStats(summary,index);
   const weaknesses=weaknessGroups(snapshot,summary,index,subjects,ref,phase);
   const strengths=subjects.map(row=>({...row,level:strengthLevel(row)})).filter(row=>row.level);
   const writing=buildWritingSignal(summary);
@@ -475,9 +481,9 @@ export function buildStudyIntelligence({snapshot,summary,referenceDate,examDate=
       priority:"0–100 = severidade 25 + reincidência 15 + recência 10 + retenção 15 + impacto do edital 15 + tendência 10 + confiança 5 + horizonte 5. Um erro isolado não P1/Fatal é limitado a 49.",
       confidence:"Amostra: <10 questões = muito pequena; 10–24 ou <2 sessões = pequena; 25–59 com ≥2 sessões = moderada; ≥60 com ≥3 sessões = forte. Campo ausente permanece ausente: amostra parcial pode orientar fragilidade, mas não autoriza declarar força.",
       strength:"Força exige precisão ≥85%, evidência ao menos moderada e ausência de tendência de piora. 100% em poucas questões continua sendo amostra pequena.",
-      decision:"Fatal/P1 entram acima da expansão. Revisões não bloqueiam por tipo apenas: atraso, motivo, reincidência, edital e fragilidade associada alteram prioridade. Redação Produzida permanece pendente de correção; redação corrigida volta ao motor quando há reescrita/reincidência; checkpoint real recalibra quando há P1, reincidência ou piora comparável. A Ordem D001–D100/S01–S47 nunca é reescrita.",
+      decision:"Fatal/P1 entram acima da expansão. Revisões não bloqueiam por tipo apenas: atraso, motivo, reincidência, edital e fragilidade associada alteram prioridade. Redação Em produção permanece como retomada; Redação Produzida permanece pendente de correção; redação corrigida volta ao motor quando há reescrita/reincidência; checkpoint real recalibra quando há P1, reincidência ou piora comparável. A Ordem D001–D100/S01–S47 nunca é reescrita.",
       edital:`${index.length} itens ativos · ${index.reduce((s,x)=>s+Number(x.questions||0),0)} questões · ${totalWeighted} pontos ponderados. ${coverage.evidenceItems}/${coverage.activeItems} itens têm alguma evidência operacional; ${coverage.consolidatedItems} têm amostra ao menos moderada.`,
-      agenda:"Agenda integra revisões, redações planejadas, correções de redação Produzida, checkpoints não executados, reta final e prova. Ela é contexto temporal e nunca reordena a sequência pedagógica canônica. Tendência por matéria usa datas reais do banco Sessões; data planejada do Dxx não substitui execução.",
+      agenda:"Agenda integra revisões, redações planejadas, redações Em produção, correções de redação Produzida, checkpoints não executados, reta final e prova. Ela é contexto temporal e nunca reordena a sequência pedagógica canônica. Tendência por matéria usa datas reais do banco Sessões; data planejada do Dxx não substitui execução.",
     },
   };
 }
