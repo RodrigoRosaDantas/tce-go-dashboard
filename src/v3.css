@@ -803,3 +803,12 @@ html[data-tce-focus="true"] .lesson-card{border:0;box-shadow:none;background:tra
   .home-intelligence-v5{margin-top:12px}
   .today-command-v5{padding:20px 17px}
 }
+
+.today-agenda-v5{margin-top:18px}
+.today-agenda-list-v5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.today-agenda-list-v5>a{display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--surface-2);color:inherit;text-decoration:none}
+.today-agenda-list-v5>a:hover{border-color:var(--accent);transform:translateY(-1px)}
+.today-agenda-list-v5 time{font-variant-numeric:tabular-nums;color:var(--accent);font-weight:800;font-size:.8rem}
+.today-agenda-list-v5 strong,.today-agenda-list-v5 small{display:block}
+.today-agenda-list-v5 small{margin-top:2px;color:var(--muted)}
+@media(max-width:640px){.today-agenda-list-v5{grid-template-columns:1fr}.today-agenda-list-v5>a{grid-template-columns:82px minmax(0,1fr) auto}}
