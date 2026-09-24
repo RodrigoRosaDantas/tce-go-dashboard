@@ -60,16 +60,23 @@ export function MentorPage({snapshot}:{snapshot:Snapshot}){
         <SectionHeader eyebrow="REDAÇÃO FCC" title="Correção também entra na estratégia" />
         {intel.writing.count ? <>
           <strong>{intel.writing.latest?.title || intel.writing.latest?.dxx || "Última redação"}</strong>
-          <p>{intel.writing.rewriteNeeded ? "Reescrita necessária." : "Sem reescrita pendente no último registro."} {intel.writing.trend.label}.</p>
-          {intel.writing.repeatedMainError ? <StatusPill tone="warning">erro principal × {intel.writing.repeatedMainError.count}</StatusPill> : <StatusPill>sem reincidência comprovada</StatusPill>}
+          <p>{intel.writing.rewriteNeeded ? intel.writing.pendingRewriteCount + " reescrita(s) pendente(s)." : "Sem reescrita pendente."} {intel.writing.trend.label}{intel.writing.trend.delta==null?"":" · "+(intel.writing.trend.delta>0?"+":"")+intel.writing.trend.delta.toFixed(1)+" p.p."}.</p>
+          <div className="mentor-evidence-v5">
+            {intel.writing.weakestCriterion ? <span>critério mais frágil: {intel.writing.weakestCriterion.label} · {intel.writing.weakestCriterion.value}/{intel.writing.weakestCriterion.max}</span> : <span>critérios ainda incompletos</span>}
+            {intel.writing.repeatedMainError ? <span>erro principal reincidente × {intel.writing.repeatedMainError.count}</span> : <span>sem reincidência comprovada</span>}
+          </div>
         </> : <EmptyState title="Ainda sem redação executada." description="O módulo entra na decisão quando houver prazo vencido, reescrita ou evidência de reincidência."/>}
       </article>
       <article className="performance-panel">
         <SectionHeader eyebrow="CHECKPOINTS" title="Resultado que recalibra a sequência" />
         {intel.checkpoint.latest ? <>
           <strong>{intel.checkpoint.latest.title || intel.checkpoint.latest.dxx}</strong>
-          <p>{intel.checkpoint.latest.p1Open || 0} P1 aberto(s) · {intel.checkpoint.latest.recurrent || 0} reincidência(s).</p>
-          <StatusPill tone={(intel.checkpoint.latest.p1Open || 0) > 0 ? "danger" : "neutral"}>{intel.checkpoint.specificAccuracy == null ? "sem precisão específica" : intel.checkpoint.specificAccuracy.toFixed(1) + "% específicos"}</StatusPill>
+          <p>{intel.checkpoint.latest.p1Open || 0} P1 aberto(s) · {intel.checkpoint.latest.recurrent || 0} reincidência(s) · {intel.checkpoint.trend.label}{intel.checkpoint.trend.delta==null?"":" · "+(intel.checkpoint.trend.delta>0?"+":"")+intel.checkpoint.trend.delta.toFixed(1)+" p.p."}.</p>
+          <div className="mentor-evidence-v5">
+            <span>{intel.checkpoint.generalAccuracy == null ? "gerais sem precisão calculável" : intel.checkpoint.generalAccuracy.toFixed(1) + "% gerais"}</span>
+            <span>{intel.checkpoint.specificAccuracy == null ? "específicos sem precisão calculável" : intel.checkpoint.specificAccuracy.toFixed(1) + "% específicos"}</span>
+            <span>{intel.checkpoint.weightedAccuracy == null ? "ponderada indisponível" : intel.checkpoint.weightedAccuracy.toFixed(1) + "% precisão ponderada"}</span>
+          </div>
         </> : <EmptyState title="Ainda sem checkpoint executado." description="Quando houver resultado real, P1 e reincidência passam a recalibrar a próxima ação."/>}
       </article>
     </section>
@@ -81,7 +88,7 @@ export function MentorPage({snapshot}:{snapshot:Snapshot}){
 
     <details className="methodology-card-v5"><summary>Metodologia completa do Mentor</summary>
       <p><b>Prioridade:</b> {intel.methodology.priority}</p><p><b>Confiança:</b> {intel.methodology.confidence}</p>
-      <p><b>Força:</b> {intel.methodology.strength}</p><p><b>Decisão:</b> {intel.methodology.decision}</p><p><b>Edital:</b> {intel.methodology.edital}</p>
+      <p><b>Força:</b> {intel.methodology.strength}</p><p><b>Decisão:</b> {intel.methodology.decision}</p><p><b>Edital:</b> {intel.methodology.edital}</p><p><b>Agenda:</b> {intel.methodology.agenda}</p>
     </details>
   </section>;
 }
