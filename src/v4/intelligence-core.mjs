@@ -391,6 +391,9 @@ function buildRecommendation(snapshot,summary,referenceDate,phase,weaknesses,wri
   const byDay=new Map((summary.dayControl||[]).map(day=>[day.dxx,day]));
   const resume=published.find(day=>{const p=byDay.get(day.dxx);return p&&hasExecution(p)&&!p.completed;});
   if(resume) candidates.push({kind:"resume",score:65,eyebrow:"RETOMAR SESSÃO",title:`${resume.session||resume.dxx} · ${resume.focus}`,reason:"Há execução real iniciada e ainda não concluída; a continuidade reduz custo de contexto.",href:`/dia/${resume.dxx.toLowerCase()}/`,dxx:resume.dxx,badge:resume.session,evidence:["sessão iniciada no estado canônico","conclusão ainda não registrada"],breakdown:{continuity:65}});
+  if(writing.correctionPending){
+    candidates.push({kind:"redaction",score:74,eyebrow:"CORRIGIR REDAÇÃO",title:writing.correctionPending.title||writing.correctionPending.dxx,reason:"A redação foi produzida, mas ainda não possui correção/nota. O fluxo FCC precisa fechar diagnóstico antes de seguir como concluído.",href:`/redacoes/?dxx=${writing.correctionPending.dxx}`,dxx:writing.correctionPending.dxx,badge:"Correção pendente",evidence:["status Produzida no banco canônico","nota simulada ainda ausente","a visão Pendentes do Notion inclui redações Produzidas"],breakdown:{correction:74}});
+  }
   if(writing.rewriteNeeded&&writing.pendingRewrite){
     const repeat=writing.repeatedMainError?.count||0;
     const score=clamp(76+(repeat>=2?8:0)+(writing.trend.key==="worsening"?4:0),0,88);
