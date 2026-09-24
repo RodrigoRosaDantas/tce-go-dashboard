@@ -20,7 +20,7 @@ test("V3 é a aplicação ativa e a V2 continua preservada", () => {
 });
 
 test("Home mantém sequência pedagógica dentro do orquestrador operacional", () => {
-  assert.match(home, /deriveDecision\(snapshot, summary\)/);
+  assert.match(home, /buildStudyIntelligence\(\{ snapshot, summary \}\)/);
   assert.match(home, /nextSession = published\.find/);
   assert.doesNotMatch(home, /date >= today/);
 });
@@ -67,7 +67,7 @@ test("CSS V3 é independente da pilha V2 e cobre foco + mobile", () => {
 });
 
 test("Router V3 mantém rotas públicas críticas", () => {
-  for (const route of ["/dias/", "/revisoes/", "/redacoes/", "/erros/", "/simulados/", "/desempenho/", "/edital/", "/legislacao/", "/reta-final/", "/sync/"]) {
+  for (const route of ["/hoje/", "/dias/", "/revisoes/", "/mentor/", "/erros/", "/desempenho/", "/riscos/", "/redacoes/", "/simulados/", "/edital/", "/legislacao/", "/reta-final/", "/sync/"]) {
     assert.ok(app.includes(`route === "${route}"`), `rota ausente: ${route}`);
   }
   assert.match(app, /\/dia\\\/\(d\\d\{3\}\)/);
