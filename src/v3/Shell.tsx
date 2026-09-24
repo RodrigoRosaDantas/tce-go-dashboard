@@ -14,7 +14,7 @@ const primaryNav = [
 const diagnosticNav = [
   ["/mentor/", "Mentor", "◇"],
   ["/erros/", "Caderno de erros", "!"],
-  ["/desempenho/", "Dashboard", "◔"],
+  ["/desempenho/", "Desempenho", "◔"],
   ["/riscos/", "Riscos", "△"],
 ] as const;
 
