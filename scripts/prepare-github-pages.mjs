@@ -7,8 +7,8 @@ if (!fs.existsSync(index)) throw new Error("dist/index.html não encontrado");
 
 const snapshot = JSON.parse(fs.readFileSync("public/data/tce-go-snapshot.json", "utf8"));
 const staticRoutes = [
-  "dias","revisoes","redacoes","erros","simulados","desempenho",
-  "edital","legislacao","reta-final","sync"
+  "hoje","dias","revisoes","mentor","erros","desempenho","riscos",
+  "redacoes","simulados","edital","legislacao","reta-final","sync"
 ];
 const hasPublicPayload = (d) => (
   !d.protected
