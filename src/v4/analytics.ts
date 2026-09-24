@@ -251,23 +251,24 @@ export function disciplineRows(summary: OperationalSummary, snapshot: Snapshot) 
   const dayMap = new Map(summary.dayControl.map((day) => [day.dxx, day]));
   const metaMap = new Map(summary.questionMeta.map((item) => [String(item.dxx || "").toUpperCase(), item]));
   const groups = new Map<string, {
-    discipline:string; sessions:number; planned:number; done:number; correct:number; errors:number; doubts:number; minutes:number; execution:number;
+    discipline:string; sessions:number; planned:number; done:number; correct:number; errors:number; doubts:number; minutes:number; execution:number; metricsComplete:boolean;
   }>();
 
   for (const day of snapshot.days.filter((item) => !item.protected && item.type === "Estudo")) {
     const meta = metaMap.get(day.dxx);
     const discipline = canonicalSubjectLabel(meta?.focus);
     const row = dayMap.get(day.dxx);
-    const group = groups.get(discipline) ?? { discipline,sessions:0,planned:0,done:0,correct:0,errors:0,doubts:0,minutes:0,execution:0 };
+    const group = groups.get(discipline) ?? { discipline,sessions:0,planned:0,done:0,correct:0,errors:0,doubts:0,minutes:0,execution:0,metricsComplete:true };
     group.sessions += 1;
     group.planned += row?.metaQuestions ?? meta?.meta ?? 0;
     if (row && hasExecution(row)) {
       group.execution += 1;
-      group.done += row.questionsDone ?? 0;
-      group.correct += row.correct ?? 0;
-      group.errors += row.errors ?? 0;
-      group.doubts += row.doubts ?? 0;
-      group.minutes += row.timeMinutes ?? 0;
+      if ([row.questionsDone,row.correct,row.errors,row.doubts,row.timeMinutes].some((value)=>value==null)) group.metricsComplete = false;
+      if (row.questionsDone != null) group.done += row.questionsDone;
+      if (row.correct != null) group.correct += row.correct;
+      if (row.errors != null) group.errors += row.errors;
+      if (row.doubts != null) group.doubts += row.doubts;
+      if (row.timeMinutes != null) group.minutes += row.timeMinutes;
     }
     groups.set(discipline, group);
   }
@@ -291,13 +292,14 @@ export function errorRows(errors: OperationalError[]) {
 }
 
 export function reviewStats(reviews: OperationalReview[]) {
-  const result = { total:reviews.length, completed:0, pending:0, questions:0, correct:0, errors:0 };
+  const result = { total:reviews.length, completed:0, pending:0, questions:0, correct:0, errors:0, metricsComplete:true };
   for (const review of reviews) {
     if (review.status === "Concluída") {
       result.completed += 1;
-      result.questions += review.questions ?? 0;
-      result.correct += review.correct ?? 0;
-      result.errors += review.errors ?? 0;
+      if ([review.questions,review.correct,review.errors].some((value)=>value==null)) result.metricsComplete = false;
+      if (review.questions != null) result.questions += review.questions;
+      if (review.correct != null) result.correct += review.correct;
+      if (review.errors != null) result.errors += review.errors;
     } else if (review.status !== "Cancelada por domínio") {
       result.pending += 1;
     }
