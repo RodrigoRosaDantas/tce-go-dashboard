@@ -272,6 +272,26 @@ test("erro com nome formal herda amostra e tendência do alias CASP",()=>{
   assert.equal(intel.weaknesses[0].trend.key,"worsening");
 });
 
+test("redação Em produção continua visível para retomada",()=>{
+  const snapshot={...baseSnapshot,redactions:[{dxx:"D001",date:"2026-09-20",title:"R1",code:"R1"}]};
+  const s=summary({redactions:[{dxx:"D001",title:"R1",status:"Em produção",score:null,date:"2026-09-20",rewriteNeeded:false}]});
+  const intel=buildStudyIntelligence({snapshot,summary:s,referenceDate:"2026-09-23"});
+  assert.equal(intel.writing.productionPending.dxx,"D001");
+  assert.equal(intel.recommendation.kind,"redaction");
+  assert.match(intel.recommendation.eyebrow,/RETOMAR REDAÇÃO/);
+  assert.ok(intel.agenda.some((x)=>x.type==="Redação em produção"&&x.dxx==="D001"));
+  assert.ok(!intel.agenda.some((x)=>x.type==="Redação"&&x.dxx==="D001"));
+});
+
+test("sessão com zero questões não inventa acertos nem gera falsa ausência de resposta",()=>{
+  const row=executed("D001",0,0,{questionsDone:0,correct:null,errors:null,doubts:null,timeMinutes:60});
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({dayControl:[row]}),referenceDate:"2026-09-23"});
+  assert.equal(intel.subjects[0].questions,0);
+  assert.equal(intel.subjects[0].performanceComplete,true);
+  assert.equal(intel.subjects[0].accuracy,null);
+  assert.equal(intel.strengths.length,0);
+});
+
 test("redação Produzida continua pendente de correção no Mentor e na Agenda",()=>{
   const snapshot={...baseSnapshot,redactions:[{dxx:"D001",date:"2026-09-20",title:"R1",code:"R1"}]};
   const s=summary({redactions:[{dxx:"D001",title:"R1",status:"Produzida",score:null,date:"2026-09-20",rewriteNeeded:false}]});
