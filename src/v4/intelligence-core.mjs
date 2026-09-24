@@ -288,10 +288,11 @@ const WRITING_CRITERIA=[
   ["vocabulary","vocabulário",8],
 ];
 function buildWritingSignal(summary){
-  const rows=(summary.redactions||[]).filter(item=>item.score!=null||item.rewriteNeeded||item.mainError||WRITING_CRITERIA.some(([key])=>item[key]!=null));
+  const rows=(summary.redactions||[]).filter(item=>item.status==="Produzida"||item.score!=null||item.rewriteNeeded||item.mainError||WRITING_CRITERIA.some(([key])=>item[key]!=null));
   const chronology=[...rows].sort((a,b)=>String(a.date||a.lastEditedAt||"").localeCompare(String(b.date||b.lastEditedAt||"")));
   const scored=chronology.filter(item=>item.score!=null);
   const latest=chronology.at(-1)||null;
+  const correctionPending=chronology.filter(item=>item.status==="Produzida"&&item.score==null).at(-1)||null;
   const pendingRewrites=chronology.filter(item=>item.rewriteNeeded&&item.status!=="Reescrita");
   const pendingRewrite=pendingRewrites.at(-1)||null;
   const errorCounts=new Map();
@@ -314,7 +315,7 @@ function buildWritingSignal(summary){
     weakestCriterion=values[0]||null;
   }
   return {
-    count:rows.length,scoredCount:scored.length,latest,trend,
+    count:rows.length,scoredCount:scored.length,latest,trend,correctionPending,
     rewriteNeeded:Boolean(pendingRewrite),pendingRewrite,pendingRewriteCount:pendingRewrites.length,
     repeatedMainError:repeated&&repeated[1]>=2?{key:repeated[0],count:repeated[1]}:null,
     weakestCriterion,
@@ -353,14 +354,16 @@ function buildCheckpointSignal(summary){
   };
 }
 function buildAgenda(snapshot,summary,referenceDate,examDate){
-  const redactionDone=new Set((summary.redactions||[]).filter(item=>["Produzida","Corrigida","Reescrita"].includes(item.status)).map(item=>item.dxx));
+  const redactionStarted=new Set((summary.redactions||[]).map(item=>item.dxx));
+  const correctionPending=(summary.redactions||[]).filter(item=>item.status==="Produzida"&&item.score==null);
   const simulationDone=new Set((summary.simulations||[]).filter(hasSimulationEvidence).map(item=>item.dxx));
   const rows=[
     ...(summary.reviews||[])
       .filter(item=>!["Concluída","Cancelada por domínio"].includes(item.status)&&dateOnly(item.plannedDate))
       .map(item=>({date:dateOnly(item.plannedDate),type:"Revisão",title:`${item.type} · ${item.dxx}`,href:"/revisoes/",dxx:item.dxx})),
+    ...correctionPending.map(item=>({date:dateOnly(item.date||item.lastEditedAt)||referenceDate,type:"Correção de redação",title:item.title,href:"/redacoes/",dxx:item.dxx})),
     ...(snapshot.redactions||[])
-      .filter(item=>item.date&&!redactionDone.has(item.dxx))
+      .filter(item=>item.date&&!redactionStarted.has(item.dxx))
       .map(item=>({date:dateOnly(item.date),type:"Redação",title:item.title,href:"/redacoes/",dxx:item.dxx})),
     ...(snapshot.simulations||[])
       .filter(item=>item.date&&!simulationDone.has(item.dxx))
@@ -469,9 +472,9 @@ export function buildStudyIntelligence({snapshot,summary,referenceDate,examDate=
       priority:"0–100 = severidade 25 + reincidência 15 + recência 10 + retenção 15 + impacto do edital 15 + tendência 10 + confiança 5 + horizonte 5. Um erro isolado não P1/Fatal é limitado a 49.",
       confidence:"Amostra: <10 questões = muito pequena; 10–24 ou <2 sessões = pequena; 25–59 com ≥2 sessões = moderada; ≥60 com ≥3 sessões = forte. Campo ausente permanece ausente: amostra parcial pode orientar fragilidade, mas não autoriza declarar força.",
       strength:"Força exige precisão ≥85%, evidência ao menos moderada e ausência de tendência de piora. 100% em poucas questões continua sendo amostra pequena.",
-      decision:"Fatal/P1 entram acima da expansão. Revisões não bloqueiam por tipo apenas: atraso, motivo, reincidência, edital e fragilidade associada alteram prioridade. Redação corrigida volta ao motor quando há reescrita/reincidência; checkpoint real recalibra quando há P1, reincidência ou piora comparável. A Ordem D001–D100/S01–S47 nunca é reescrita.",
+      decision:"Fatal/P1 entram acima da expansão. Revisões não bloqueiam por tipo apenas: atraso, motivo, reincidência, edital e fragilidade associada alteram prioridade. Redação Produzida permanece pendente de correção; redação corrigida volta ao motor quando há reescrita/reincidência; checkpoint real recalibra quando há P1, reincidência ou piora comparável. A Ordem D001–D100/S01–S47 nunca é reescrita.",
       edital:`${index.length} itens ativos · ${index.reduce((s,x)=>s+Number(x.questions||0),0)} questões · ${totalWeighted} pontos ponderados. ${coverage.evidenceItems}/${coverage.activeItems} itens têm alguma evidência operacional; ${coverage.consolidatedItems} têm amostra ao menos moderada.`,
-      agenda:"Agenda integra revisões, redações pendentes, checkpoints não executados, reta final e prova. Ela é contexto temporal e nunca reordena a sequência pedagógica canônica.",
+      agenda:"Agenda integra revisões, redações planejadas, correções de redação Produzida, checkpoints não executados, reta final e prova. Ela é contexto temporal e nunca reordena a sequência pedagógica canônica. Tendência por matéria usa datas reais do banco Sessões; data planejada do Dxx não substitui execução.",
     },
   };
 }
