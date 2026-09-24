@@ -47,6 +47,10 @@ for (const viewport of viewports) {
 
     const response = await page.goto(baseUrl + route.path, { waitUntil: "domcontentloaded" });
     await page.waitForSelector(".app-v3", { timeout: 10_000 });
+    if (route.name === "desempenho") {
+      await page.locator(".analytics-tabs-v41 button", { hasText: "Execução" }).click();
+      await page.waitForSelector(".execution-cards-mobile-v5");
+    }
 
     const geometry = await page.evaluate(() => {
       const rect = (selector) => {
@@ -74,6 +78,8 @@ for (const viewport of viewports) {
         readerPanel: rect(".reader-settings-panel"),
         sidebarVisible: visible(".sidebar-v3"),
         bottomNavVisible: visible(".bottom-nav-v3"),
+        executionCardsVisible: visible(".execution-cards-mobile-v5"),
+        executionTableVisible: visible(".execution-table-desktop-v5"),
       };
     });
 
@@ -87,6 +93,13 @@ for (const viewport of viewports) {
     if (viewport.width > 1050 && geometry.bottomNavVisible) issues.push("bottom nav móvel visível no desktop/tablet amplo");
     if (viewport.width > 1050 && !geometry.sidebarVisible) issues.push("sidebar desktop ausente acima de 1050px");
     if (geometry.topbar && geometry.main && geometry.main.top < geometry.topbar.bottom - 1) issues.push("conteúdo inicia sob a topbar");
+    if (route.name === "desempenho") {
+      if (viewport.width <= 820 && !geometry.executionCardsVisible) issues.push("cards de execução ausentes no analytics mobile");
+      if (viewport.width <= 820 && geometry.executionTableVisible) issues.push("tabela central de execução ainda visível no analytics mobile");
+      if (viewport.width > 820 && geometry.executionCardsVisible) issues.push("cards mobile de execução visíveis no desktop");
+      if (viewport.width > 820 && !geometry.executionTableVisible) issues.push("tabela de execução ausente no desktop");
+    }
+
     if (geometry.bottomNav && viewport.width <= 1050) {
       const bodyPadding = await page.evaluate(() => parseFloat(getComputedStyle(document.body).paddingBottom) || 0);
       if (bodyPadding + 4 < geometry.bottomNav.height) issues.push("padding inferior insuficiente para bottom nav");
