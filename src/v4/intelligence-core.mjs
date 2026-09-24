@@ -416,7 +416,10 @@ function buildRecommendation(snapshot,summary,referenceDate,phase,weaknesses,wri
     candidates.push({kind:"simulation",score,eyebrow:"RECALIBRAÇÃO PÓS-CHECKPOINT",title:checkpoint.latest.title||checkpoint.latest.dxx,reason:"O checkpoint trouxe sinal objetivo de recuperação necessária; a execução seguinte deve absorver esse diagnóstico.",href:`/simulados/?dxx=${checkpoint.latest.dxx}`,dxx:checkpoint.latest.dxx,badge:"Pós-checkpoint",evidence:[`${p1} P1 aberto(s) no checkpoint`,`${recurrent} reincidência(s) registrada(s)`,checkpoint.weightedAccuracy==null?"precisão ponderada não calculável":`precisão ponderada: ${checkpoint.weightedAccuracy.toFixed(1)}%`,checkpoint.trend.delta==null?checkpoint.trend.label:`${checkpoint.trend.label}: ${checkpoint.trend.delta>0?"+":""}${checkpoint.trend.delta.toFixed(1)} p.p.`,checkpoint.latest.weakKnownSubjects?`fragilidades declaradas: ${checkpoint.latest.weakKnownSubjects}`:checkpoint.latest.decision||"decisão pós-checkpoint não informada"],breakdown:{checkpoint:74,p1:Math.min(10,p1*5),recurrence:Math.min(6,recurrent*3),trend:trendPoints}});
   }
   const redactionStatus=new Map((summary.redactions||[]).map(x=>[x.dxx,x.status]));
-  const red=(snapshot.redactions||[]).find(plan=>plan.date<=referenceDate&&!["Produzida","Corrigida","Reescrita"].includes(redactionStatus.get(plan.dxx)||"Planejada"));
+  const red=(snapshot.redactions||[]).find(plan=>{
+    const status=redactionStatus.get(plan.dxx);
+    return plan.date<=referenceDate&&(!status||status==="Planejada");
+  });
   if(red) candidates.push({kind:"redaction",score:72,eyebrow:"REDAÇÃO PENDENTE",title:red.title,reason:`${red.dxx} chegou ao marco planejado e ainda não possui execução confirmada.`,href:`/redacoes/?dxx=${red.dxx}`,dxx:red.dxx,badge:red.code,evidence:["marco do ciclo atingido","execução não confirmada"],breakdown:{schedule:72}});
   const doneSim=new Set((summary.simulations||[]).filter(hasSimulationEvidence).map(x=>x.dxx));
   const sim=(snapshot.simulations||[]).find(plan=>plan.date<=referenceDate&&!doneSim.has(plan.dxx));
