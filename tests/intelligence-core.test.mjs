@@ -216,6 +216,17 @@ test("checkpoint comparável detecta piora sem inventar precisão quando faltam 
   assert.equal(incomplete.checkpoint.weightedAccuracy,null);
 });
 
+test("checkpoint com contadores vazios não exibe zero inventado",()=>{
+  const first={dxx:"D001",title:"C1",date:"2026-09-10",generalTotal:25,generalCorrect:22,specificTotal:45,specificCorrect:38,p1Open:null,recurrent:null};
+  const second={dxx:"D003",title:"C2",date:"2026-09-20",generalTotal:25,generalCorrect:17,specificTotal:45,specificCorrect:28,p1Open:null,recurrent:null};
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({simulations:[first,second]}),referenceDate:"2026-09-23"});
+  assert.equal(intel.checkpoint.trend.key,"worsening");
+  assert.equal(intel.recommendation.kind,"simulation");
+  assert.ok(intel.recommendation.evidence.some((x)=>/não informad/.test(x)));
+  assert.ok(!intel.recommendation.evidence.some((x)=>/^0 P1/.test(x)));
+  assert.match(intel.risks.find((x)=>x.title==="Checkpoint exige recalibração").detail,/P1 —/);
+});
+
 test("critério de redação ausente não vira zero e reescrita antiga continua pendente",()=>{
   const s=summary({redactions:[
     {dxx:"D001",title:"R1",status:"Corrigida",score:70,date:"2026-09-10",rewriteNeeded:true,mainError:"coesão",thematicCut:15,criticalInterpretation:null,progression:24,cohesion:9,morphosyntax:5,vocabulary:7},
