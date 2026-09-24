@@ -46,13 +46,17 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
     const publicFallback = day.questionSlug ? snapshot.questions[day.questionSlug]?.meta ?? snapshot.questions[day.questionSlug]?.valid ?? 0 : 0;
     return sum + (canonicalMeta ?? publicFallback);
   }, 0);
-  const questions = executionDays.reduce((sum, day) => sum + (day.questionsDone ?? 0), 0);
-  const correct = executionDays.reduce((sum, day) => sum + (day.correct ?? 0), 0);
-  const errors = executionDays.reduce((sum, day) => sum + (day.errors ?? 0), 0);
-  const doubts = executionDays.reduce((sum, day) => sum + (day.doubts ?? 0), 0);
-  const minutes = executionDays.reduce((sum, day) => sum + (day.timeMinutes ?? 0), 0);
+  const knownAggregate = (key: "questionsDone" | "correct" | "errors" | "doubts" | "timeMinutes") =>
+    executionDays.length > 0 && executionDays.every((day) => day[key] != null)
+      ? executionDays.reduce((sum, day) => sum + Number(day[key]), 0)
+      : null;
+  const questions = knownAggregate("questionsDone");
+  const correct = knownAggregate("correct");
+  const errors = knownAggregate("errors");
+  const doubts = knownAggregate("doubts");
+  const minutes = knownAggregate("timeMinutes");
   const precision = accuracy(correct, errors);
-  const coverage = plannedQuestions ? (questions / plannedQuestions) * 100 : null;
+  const coverage = plannedQuestions && questions != null ? (questions / plannedQuestions) * 100 : null;
   const timePlan = plannedTimeRange(summary.dayControl);
   const openErrors = summary.errors.filter((item) => !["Validado", "Encerrado"].includes(item.status));
   const criticalErrors = openErrors.filter((item) => item.fatal || item.severity === "P1");
@@ -102,8 +106,8 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
       <div className="analytics-kpis-v41">
         <MetricCard label="SESSÕES CONCLUÍDAS" value={completed} detail={executionDays.length + " com execução · " + activeDays.length + " previstas"} tone="accent" />
         <MetricCard label="TEMPO EFETIVO" value={formatMinutes(minutes)} detail={timePlan.max != null ? "planejado até " + formatMinutes(timePlan.max) : "planejamento não consolidado"} />
-        <MetricCard label="QUESTÕES" value={questions} detail={plannedQuestions + " previstas · " + pct(coverage, 1) + " executadas"} />
-        <MetricCard label="PRECISÃO" value={pct(precision, 1)} detail={correct + " acertos · " + errors + " erros · " + doubts + " dúvidas"} tone={precision != null && precision < 70 ? "warning" : "default"} />
+        <MetricCard label="QUESTÕES" value={questions ?? "—"} detail={questions == null ? "execução ausente ou campos incompletos" : plannedQuestions + " previstas · " + pct(coverage, 1) + " executadas"} />
+        <MetricCard label="PRECISÃO" value={pct(precision, 1)} detail={correct == null || errors == null || doubts == null ? "dados de execução incompletos" : correct + " acertos · " + errors + " erros · " + doubts + " dúvidas"} tone={precision != null && precision < 70 ? "warning" : "default"} />
         <MetricCard label="REVISÕES PENDENTES" value={retention.pending} detail={retention.completed + " concluídas · " + retention.questions + " questões de revisão"} />
         <MetricCard label="ERROS ABERTOS" value={openErrors.length} detail={criticalErrors.length + " P1/Fatal"} tone={criticalErrors.length ? "danger" : "default"} />
         <MetricCard label="QUALIDADE DOS DADOS" value={issues.filter((x) => x.level !== "info").length} detail={incompleteDxx.size + " Dxx incompletos"} tone={issues.some((x) => x.level === "error") ? "danger" : issues.some((x) => x.level === "warning") ? "warning" : "default"} />
@@ -123,8 +127,8 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
       <div className="analytics-grid-v41 two">
         <section className="analytics-panel-v41">
           <SectionHeader eyebrow="PLANEJAMENTO × EXECUÇÃO" title="Carga de questões" detail="Planejado = Meta de questões do Dxx; realizado = Questões feitas. Ambos vêm do Notion." />
-          <div className="big-comparison-v41"><div><span>Planejado</span><strong>{plannedQuestions}</strong></div><b>→</b><div><span>Executado</span><strong>{questions}</strong></div><em>{pct(coverage, 1)}</em></div>
-          <AnalyticsBar value={questions} max={plannedQuestions} />
+          <div className="big-comparison-v41"><div><span>Planejado</span><strong>{plannedQuestions}</strong></div><b>→</b><div><span>Executado</span><strong>{questions ?? "—"}</strong></div><em>{pct(coverage, 1)}</em></div>
+          {questions == null ? <p className="muted">Ausência de métricas completas não é convertida em zero executado.</p> : <AnalyticsBar value={questions} max={plannedQuestions} />}
           <div className="comparison-foot-v41"><span>Sessões concluídas</span><strong>{completed}/{activeDays.length}</strong></div>
         </section>
         <section className="analytics-panel-v41">
