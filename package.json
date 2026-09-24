@@ -11,7 +11,7 @@
     "lint": "tsc --noEmit && node scripts/lint-content.mjs",
     "audit": "npm audit --audit-level=high",
     "validate:snapshot": "node scripts/validate-tce-go-snapshot.mjs",
-    "build": "vite build && node scripts/prepare-github-pages.mjs",
+    "build": "node scripts/build-github-pages.mjs",
     "test": "node --test tests/*.test.mjs",
     "quality": "npm run lint && npm run audit && npm run validate:snapshot && npm run build && npm test"
   },
