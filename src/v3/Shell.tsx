@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Snapshot } from "../types";
 import { publicRoute } from "../data";
 import { extractStudyToc, href, publishedDays } from "./shared";
+import { useOperational } from "../v4/OperationalContext";
 
 const primaryNav = [
   ["/", "Home", "⌂"],
@@ -13,7 +14,7 @@ const primaryNav = [
 const diagnosticNav = [
   ["/mentor/", "Mentor", "◇"],
   ["/erros/", "Caderno de erros", "!"],
-  ["/desempenho/", "Dashboard", "◔"],
+  ["/desempenho/", "Desempenho", "◔"],
   ["/riscos/", "Riscos", "△"],
 ] as const;
 
@@ -39,6 +40,7 @@ type SearchItem = {
 
 export function Shell({ snapshot, children }: { snapshot: Snapshot; children: React.ReactNode }) {
   const route = publicRoute(window.location.pathname);
+  const { summary } = useOperational();
   const isCurrent = (path: string) => {
     if (path === "/") return route === "/";
     if (path === "/dias/") return route === "/dias/" || route.startsWith("/dia/") || route.startsWith("/questoes/");
@@ -117,8 +119,23 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
       keywords: `${item.code} ${item.title} ${item.category} ${item.cutoff} ${item.use} ${item.dxx}`,
     }));
 
-    return [...routes, ...sessions, ...content, ...edital, ...legislation];
-  }, [snapshot]);
+    const revisions: SearchItem[] = summary.reviews.map((item) => ({
+      label: `${item.type} · ${item.dxx}`,
+      detail: item.reason || item.status,
+      href: "/revisoes/",
+      group: "Revisões",
+      keywords: `${item.type} ${item.dxx} ${item.status} ${item.reason || ""} ${item.notes || ""}`,
+    }));
+    const errors: SearchItem[] = summary.errors.map((item) => ({
+      label: item.topic ? `${item.subject || "Sem matéria"} · ${item.topic}` : item.error,
+      detail: `${item.dxx || "sem Dxx"} · ${item.severity || "sem severidade"} · ${item.status}`,
+      href: "/erros/",
+      group: "Erros",
+      keywords: `${item.error} ${item.subject || ""} ${item.topic || ""} ${item.reason || ""} ${item.action || ""} ${item.dxx || ""}`,
+    }));
+
+    return [...routes, ...sessions, ...content, ...edital, ...legislation, ...revisions, ...errors];
+  }, [snapshot, summary]);
 
   const results = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("pt-BR");
@@ -190,7 +207,7 @@ export function Shell({ snapshot, children }: { snapshot: Snapshot; children: Re
         <aside className="sidebar-v3">
           <nav>
             <div className="nav-group">
-              <span className="nav-label">Execução</span>
+              <span className="nav-label">Executar</span>
               {primaryNav.map(([path, label, icon]) => (
                 <a key={path} href={href(path)} className={isCurrent(path) ? "active" : ""} aria-current={isCurrent(path) ? "page" : undefined}>
                   <span className="nav-icon">{icon}</span><span>{label}</span>
