@@ -5,6 +5,7 @@ import { useOperational } from "./OperationalContext";
 import { DataNotice, EmptyState, MetricCard, PageHeader, SectionHeader, StatusPill } from "./ui";
 import { accuracy, buildDataIssues, dataOrigin, disciplineRows, errorRows, hasExecution, pct, plannedTimeRange, reviewStats, sessionRowsByDay, subjectForDay } from "./analytics";
 import { href } from "../v3/shared";
+import { buildStudyIntelligence } from "./intelligence-core.mjs";
 
 type Tab = "overview" | "execution" | "subjects" | "edital" | "errors" | "reviews" | "writing" | "checkpoints" | "quality";
 type StatusFilter = "all" | "executed" | "pending" | "completed";
@@ -34,6 +35,7 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
   const disciplines = useMemo(() => disciplineRows(summary, snapshot), [summary, snapshot]);
   const errorsByTopic = useMemo(() => errorRows(summary.errors), [summary.errors]);
   const retention = useMemo(() => reviewStats(summary.reviews), [summary.reviews]);
+  const intel = useMemo(() => buildStudyIntelligence({ snapshot, summary }), [snapshot, summary]);
 
   const activeDays = snapshot.days.filter((day) => !day.protected);
   const questionMetaMap = useMemo(() => new Map(summary.questionMeta.map((item) => [String(item.dxx || "").toUpperCase(), item])), [summary.questionMeta]);
@@ -107,6 +109,16 @@ export function DataDashboardPage({ snapshot }: { snapshot: Snapshot }) {
         <MetricCard label="QUALIDADE DOS DADOS" value={issues.filter((x) => x.level !== "info").length} detail={incompleteDxx.size + " Dxx incompletos"} tone={issues.some((x) => x.level === "error") ? "danger" : issues.some((x) => x.level === "warning") ? "warning" : "default"} />
         <MetricCard label="SYNC" value={conflictCount() ? conflictCount() + " conflito(s)" : pendingCount() ? pendingCount() + " pendente(s)" : "Em dia"} detail={summary.canonical ? "dados do Notion" : "último cache"} />
       </div>
+
+      <section className="analytics-panel-v41 intelligence-summary-v5">
+        <SectionHeader eyebrow="INTELIGÊNCIA COMPARTILHADA" title="Diagnóstico que também alimenta Home, Mentor, Riscos e Reta Final" detail="A mesma evidência é interpretada uma vez e apresentada em contextos diferentes." action={<a href={href("/mentor/")}>Abrir Mentor →</a>} />
+        <div className="diagnosis-grid-v4">
+          <article><span className="eyebrow">FRAGILIDADES</span><strong>{intel.weaknesses.length}</strong><p>{intel.weaknesses[0] ? intel.weaknesses[0].subject + " · " + intel.weaknesses[0].topic + " · " + intel.weaknesses[0].score + "/100" : "Nenhuma fragilidade comprovada ainda."}</p></article>
+          <article><span className="eyebrow">FORÇAS</span><strong>{intel.strengths.length}</strong><p>{intel.strengths[0] ? intel.strengths[0].subject + " · " + intel.strengths[0].level : "Amostra ainda insuficiente para reconhecer força."}</p></article>
+          <article><span className="eyebrow">INCERTEZA</span><strong>{intel.uncertainties.length}</strong><p>{intel.uncertainties[0]?.detail || "Sem incerteza relevante no recorte atual."}</p></article>
+          <article><span className="eyebrow">RISCO</span><strong>{intel.risks.length}</strong><p>{intel.risks[0]?.title || "Nenhum risco com evidência suficiente."}</p></article>
+        </div>
+      </section>
 
       <div className="analytics-grid-v41 two">
         <section className="analytics-panel-v41">
