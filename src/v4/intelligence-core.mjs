@@ -89,38 +89,70 @@ function subjectForDay(summary,dxx){
   const focus=summary.questionMeta?.find(item=>String(item.dxx||"").toUpperCase()===String(dxx||"").toUpperCase())?.focus;
   return canonicalSubjectLabel(focus);
 }
+const EXECUTION_EVENT_TYPES=new Set(["progress.snapshot","questions.result","day.completed","day.reopened"]);
+function executionDateForDxx(summary,dxx){
+  const dates=(summary.sessions||[])
+    .filter(item=>String(item.dxx||"").toUpperCase()===String(dxx||"").toUpperCase())
+    .filter(item=>{
+      const event=String(item.eventType||"");
+      if(event) return EXECUTION_EVENT_TYPES.has(event);
+      return [item.timeMinutes,item.questions,item.correct,item.errors,item.doubts].some(value=>value!=null&&Number(value)>0);
+    })
+    .map(item=>dateOnly(item.timestamp||item.date))
+    .filter(Boolean)
+    .sort();
+  return dates.at(-1)||null;
+}
 function buildSubjectStats(snapshot,summary,index){
-  const daysById=new Map((snapshot.days||[]).map(day=>[day.dxx,day]));
   const groups=new Map();
   for(const row of summary.dayControl||[]){
     if(!hasExecution(row)) continue;
     const subject=subjectForDay(summary,row.dxx)||"Matéria não informada";
     const key=norm(subject)||subject;
-    const g=groups.get(key)||{subject,sessions:0,questions:0,correct:0,errors:0,doubts:0,minutes:0,events:[]};
+    const g=groups.get(key)||{
+      subject,sessions:0,knownQuestionSessions:0,questionsSum:0,correctSum:0,errorsSum:0,doubtsSum:0,minutesSum:0,
+      questionsComplete:true,correctComplete:true,errorsComplete:true,doubtsComplete:true,minutesComplete:true,events:[]
+    };
     g.sessions+=1;
-    g.questions+=Number(row.questionsDone||0);
-    g.correct+=Number(row.correct||0);
-    g.errors+=Number(row.errors||0);
-    g.doubts+=Number(row.doubts||0);
-    g.minutes+=Number(row.timeMinutes||0);
+    if(row.questionsDone==null) g.questionsComplete=false; else {g.questionsSum+=Number(row.questionsDone);g.knownQuestionSessions+=1;}
+    if(row.correct==null) g.correctComplete=false; else g.correctSum+=Number(row.correct);
+    if(row.errors==null) g.errorsComplete=false; else g.errorsSum+=Number(row.errors);
+    if(row.doubts==null) g.doubtsComplete=false; else g.doubtsSum+=Number(row.doubts);
+    if(row.timeMinutes==null) g.minutesComplete=false; else g.minutesSum+=Number(row.timeMinutes);
     const a=accuracy(row.correct,row.errors);
-    if(a!=null) g.events.push({date:daysById.get(row.dxx)?.date||"",accuracy:a,dxx:row.dxx});
+    const eventDate=executionDateForDxx(summary,row.dxx);
+    if(a!=null&&eventDate) g.events.push({date:eventDate,accuracy:a,dxx:row.dxx});
     groups.set(key,g);
   }
   return [...groups.values()].map(g=>{
-    const conf=sampleConfidence(g.questions,g.sessions);
-    const a=accuracy(g.correct,g.errors);
+    const questions=g.questionsComplete?g.questionsSum:null;
+    const correct=g.correctComplete?g.correctSum:null;
+    const errors=g.errorsComplete?g.errorsSum:null;
+    const doubts=g.doubtsComplete?g.doubtsSum:null;
+    const minutes=g.minutesComplete?g.minutesSum:null;
+    const performanceComplete=g.questionsComplete&&g.correctComplete&&g.errorsComplete;
+    const baseConfidence=sampleConfidence(g.questionsSum,g.knownQuestionSessions);
+    const confidence=performanceComplete
+      ? baseConfidence
+      : {...baseConfidence,label:baseConfidence.rank?baseConfidence.label+" · dados parciais":"dados parciais sem amostra suficiente",partial:true};
+    const a=accuracy(correct,errors);
     const edital=matchEdital(g.subject,index);
     const events=[...g.events].sort((x,y)=>String(x.date).localeCompare(String(y.date)));
-    let trend={key:"insufficient",label:"amostra temporal insuficiente",delta:null};
+    let trend={key:"insufficient",label:"amostra temporal insuficiente",delta:null,events:events.length};
     if(events.length>=4){
       const current=events.slice(-2).reduce((s,x)=>s+x.accuracy,0)/2;
       const previous=events.slice(-4,-2).reduce((s,x)=>s+x.accuracy,0)/2;
       const delta=current-previous;
-      trend=delta>=5?{key:"improving",label:"melhorando",delta}:delta<=-5?{key:"worsening",label:"piorando",delta}:{key:"stable",label:"estável",delta};
+      const partial=events.length<g.sessions;
+      trend=delta>=5?{key:"improving",label:partial?"melhorando · datas parciais":"melhorando",delta,events:events.length}
+        :delta<=-5?{key:"worsening",label:partial?"piorando · datas parciais":"piorando",delta,events:events.length}
+        :{key:"stable",label:partial?"estável · datas parciais":"estável",delta,events:events.length};
     }
-    return {...g,accuracy:a,confidence:conf,edital,trend};
-  }).sort((a,b)=>(b.edital?.weightedPoints||0)-(a.edital?.weightedPoints||0)||b.questions-a.questions);
+    return {
+      subject:g.subject,sessions:g.sessions,questions,knownQuestions:g.questionsSum,knownQuestionSessions:g.knownQuestionSessions,
+      correct,errors,doubts,minutes,accuracy:a,performanceComplete,confidence,edital,trend,temporalEvents:events.length
+    };
+  }).sort((a,b)=>(b.edital?.weightedPoints||0)-(a.edital?.weightedPoints||0)||(b.knownQuestions||0)-(a.knownQuestions||0));
 }
 function buildCoverage(summary,index,subjects){
   const matchedCodes=(labels)=>new Set(labels.map(label=>matchEdital(label,index)?.code).filter(Boolean));
