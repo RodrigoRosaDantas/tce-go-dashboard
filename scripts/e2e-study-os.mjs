@@ -14,7 +14,7 @@ page.on("pageerror", (error) => failures.push(`pageerror: ${error.message}`));
 
 await page.goto(baseUrl + "/", { waitUntil: "domcontentloaded" });
 await page.waitForSelector(".app-v3");
-check((await page.locator(".sidebar-v3").innerText()).includes("Dashboard"), "Navegação desktop ainda exibe Desempenho em vez de Dashboard");
+check((await page.locator(".sidebar-v3").innerText()).includes("Desempenho"), "Navegação desktop não exibiu Desempenho no grupo Diagnosticar");
 
 // 1) Busca local por conteúdo do material.
 await page.keyboard.press("Control+K");
