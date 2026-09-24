@@ -49,7 +49,7 @@ for (const viewport of viewports) {
     await page.waitForSelector(".app-v3", { timeout: 10_000 });
     if (route.name === "desempenho") {
       await page.locator(".analytics-tabs-v41 button", { hasText: "Execução" }).click();
-      await page.waitForSelector(".execution-cards-mobile-v5");
+      await page.waitForSelector(".execution-cards-mobile-v5", { state: "attached", timeout: 10_000 });
     }
 
     const geometry = await page.evaluate(() => {
