@@ -115,8 +115,12 @@ function buildSubjectStats(summary,index){
     };
     g.sessions+=1;
     if(row.questionsDone==null) g.questionsComplete=false; else {g.questionsSum+=Number(row.questionsDone);g.knownQuestionSessions+=1;}
-    if(row.correct==null) g.correctComplete=false; else g.correctSum+=Number(row.correct);
-    if(row.errors==null) g.errorsComplete=false; else g.errorsSum+=Number(row.errors);
+    if(row.correct==null) {
+      if(row.questionsDone==null||Number(row.questionsDone)>0) g.correctComplete=false;
+    } else g.correctSum+=Number(row.correct);
+    if(row.errors==null) {
+      if(row.questionsDone==null||Number(row.questionsDone)>0) g.errorsComplete=false;
+    } else g.errorsSum+=Number(row.errors);
     if(row.doubts==null) g.doubtsComplete=false; else g.doubtsSum+=Number(row.doubts);
     if(row.timeMinutes==null) g.minutesComplete=false; else g.minutesSum+=Number(row.timeMinutes);
     const a=accuracy(row.correct,row.errors);
