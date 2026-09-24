@@ -162,7 +162,7 @@ test("Dashboard usa Matéria/foco canônica e declara lacuna de cobertura do edi
 
 
 test("auditoria V4.1 protege rótulo Dashboard e meta adaptativa", () => {
-  assert.match(shell, /\["\/desempenho\/", "Desempenho", "◔"\]/);
+  assert.match(shell, /\["\/desempenho\/", "Dashboard", "◔"\]/);
   assert.match(performance, /snapshot\.questions\[day\.questionSlug\]\?\.meta \?\? snapshot\.questions\[day\.questionSlug\]\?\.valid/);
   assert.match(performance, /summary\.questionMeta\.map\(\(x\) => x\.lastEditedAt\)/);
 });
