@@ -19,13 +19,20 @@ export function HomePage({ snapshot }: { snapshot: Snapshot }) {
   const conflicts = conflictCount();
 
   const completed = published.filter((day) => sessionState(byProgress.get(day.dxx)) === "completed").length;
-  const studied = summary.progress.filter((state) => state.studied).length;
-  const minutes = summary.progress.reduce((sum, state) => sum + (state.timeMinutes || 0), 0);
-  const questions = summary.progress.reduce((sum, state) => sum + (state.questionsDone || 0), 0);
-  const correct = summary.progress.reduce((sum, state) => sum + (state.correct || 0), 0);
-  const errors = summary.progress.reduce((sum, state) => sum + (state.errors || 0), 0);
-  const doubts = summary.progress.reduce((sum, state) => sum + (state.doubts || 0), 0);
-  const accuracy = correct + errors > 0 ? Math.round((correct / (correct + errors)) * 100) : null;
+  const executedRows = summary.dayControl.filter((day) =>
+    !day.protected && (day.studied || day.completed || (day.timeMinutes ?? 0) > 0 || (day.questionsDone ?? 0) > 0 || (day.correct ?? 0) > 0 || (day.errors ?? 0) > 0 || (day.doubts ?? 0) > 0)
+  );
+  const studied = executedRows.filter((state) => state.studied).length;
+  const knownTotal = (key: "timeMinutes" | "questionsDone" | "correct" | "errors" | "doubts") =>
+    executedRows.length > 0 && executedRows.every((row) => row[key] != null)
+      ? executedRows.reduce((sum, row) => sum + Number(row[key]), 0)
+      : null;
+  const minutes = knownTotal("timeMinutes");
+  const questions = knownTotal("questionsDone");
+  const correct = knownTotal("correct");
+  const errors = knownTotal("errors");
+  const doubts = knownTotal("doubts");
+  const accuracy = correct != null && errors != null && correct + errors > 0 ? Math.round((correct / (correct + errors)) * 100) : null;
   const executionPct = published.length ? Math.round((completed / published.length) * 100) : 0;
 
   const nextSession = published.find((day) => sessionState(byProgress.get(day.dxx)) !== "completed");
@@ -99,10 +106,10 @@ export function HomePage({ snapshot }: { snapshot: Snapshot }) {
           </div>
           <div className="pulse-lines">
             <div><span>Sessões com estudo</span><strong>{studied}</strong></div>
-            <div><span>Tempo registrado</span><strong>{Math.floor(minutes / 60)}h {minutes % 60}min</strong></div>
-            <div><span>Questões feitas</span><strong>{questions}</strong></div>
+            <div><span>Tempo registrado</span><strong>{minutes === null ? "—" : `${Math.floor(minutes / 60)}h ${minutes % 60}min`}</strong></div>
+            <div><span>Questões feitas</span><strong>{questions === null ? "—" : questions}</strong></div>
             <div><span>Aproveitamento</span><strong>{accuracy === null ? "—" : `${accuracy}%`}</strong></div>
-            <div><span>Acertos com dúvida</span><strong>{doubts}</strong></div>
+            <div><span>Acertos com dúvida</span><strong>{doubts === null ? "—" : doubts}</strong></div>
           </div>
           <a href={href("/desempenho/")}>Abrir diagnóstico <span>→</span></a>
         </aside>
