@@ -12,7 +12,7 @@ const days = [
 const baseSnapshot = {
   days,
   edital: [
-    {code:"E01",discipline:"CASP",block:"Específicos",questions:10,weight:2,weightedPoints:20,active:true},
+    {code:"E01",discipline:"Contabilidade Aplicada ao Setor Público",block:"Específicos",questions:10,weight:2,weightedPoints:20,active:true},
     {code:"G01",discipline:"Português",block:"Gerais",questions:10,weight:1,weightedPoints:10,active:true},
   ],
   redactions: [],
@@ -22,7 +22,7 @@ const baseSnapshot = {
 function summary(patch={}) {
   return {
     dayControl: [],
-    questionMeta: days.map((d)=>({dxx:d.dxx,focus:d.focus})),
+    questionMeta: days.map((d,i)=>({dxx:d.dxx,focus:"CASP "+["I","II","III","IV"][i]+" — recorte técnico"})),
     reviews: [],
     errors: [],
     redactions: [],
@@ -98,6 +98,7 @@ test("cenário 7 — peso do edital aumenta impacto, mas não cria fraqueza sozi
   const high=intel.weaknesses.find((x)=>x.subject==="CASP");
   const low=intel.weaknesses.find((x)=>x.subject==="Português");
   assert.ok(high.score>low.score);
+  assert.equal(high.edital?.discipline,"Contabilidade Aplicada ao Setor Público");
   const empty=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary(),referenceDate:"2026-09-23"});
   assert.equal(empty.weaknesses.length,0);
 });
@@ -138,6 +139,25 @@ test("cenário 12 — mesma fragilidade fica mais seletiva perto da prova",()=>{
   assert.equal(far.exam.phase,"fase de construção");
   assert.equal(near.exam.phase,"perto da prova");
   assert.ok(near.weaknesses[0].score>far.weaknesses[0].score);
+});
+
+
+test("alias canônico agrega focos CASP I–IV sem forçar assunto ambíguo",()=>{
+  const s=summary({dayControl:[
+    executed("D001",8,2),executed("D003",8,2),executed("D005",9,1),executed("D008",9,1),
+  ]});
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:s,referenceDate:"2026-10-14"});
+  assert.equal(intel.subjects.length,1);
+  assert.equal(intel.subjects[0].subject,"CASP");
+  assert.equal(intel.subjects[0].edital?.discipline,"Contabilidade Aplicada ao Setor Público");
+
+  const ambiguous=buildStudyIntelligence({
+    snapshot:baseSnapshot,
+    summary:summary({errors:[error({subject:"Auditoria",topic:"Amostragem"})]}),
+    referenceDate:"2026-09-23",
+  });
+  assert.equal(ambiguous.weaknesses[0].edital,null);
+  assert.match(ambiguous.weaknesses[0].evidence.join(" "),/sem vínculo seguro/);
 });
 
 test("erros Validado/Encerrado não voltam como fragilidade",()=>{
