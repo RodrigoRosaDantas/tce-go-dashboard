@@ -1,5 +1,5 @@
 import type { Snapshot } from "../types";
-import { href, publishedDays } from "../v3/shared";
+import { formatDate, href, publishedDays } from "../v3/shared";
 import { useOperational } from "./OperationalContext";
 import { buildStudyIntelligence } from "./intelligence-core.mjs";
 import { reviewQueues, progressMap, sessionState } from "./operations";
@@ -9,6 +9,13 @@ export function TodayPage({snapshot}:{snapshot:Snapshot}){
   const {summary}=useOperational(); const intel=buildStudyIntelligence({snapshot,summary}); const top=intel.recommendation;
   const reviews=reviewQueues(summary); const byProgress=progressMap(summary);
   const next=publishedDays(snapshot).find(day=>sessionState(byProgress.get(day.dxx))!=="completed");
+  const agenda=[
+    ...summary.reviews.filter(item=>!["Concluída","Cancelada por domínio"].includes(item.status)&&item.plannedDate&&item.plannedDate.slice(0,10)>=intel.referenceDate).map(item=>({date:item.plannedDate!.slice(0,10),type:"Revisão",title:item.type+" · "+item.dxx,href:"/revisoes/"})),
+    ...(snapshot.redactions||[]).filter(item=>item.date>=intel.referenceDate).map(item=>({date:item.date,type:"Redação",title:item.title,href:"/redacoes/"})),
+    ...(snapshot.simulations||[]).filter(item=>item.date>=intel.referenceDate).map(item=>({date:item.date,type:item.type,title:item.title,href:"/simulados/"})),
+    ...(snapshot.finalSprint||[]).filter(item=>item.date>=intel.referenceDate).slice(0,2).map(item=>({date:item.date,type:"Reta Final",title:item.title,href:"/reta-final/"})),
+    {date:intel.exam.date,type:"Prova",title:"TCE-GO · FCC",href:"/edital/"},
+  ].sort((a,b)=>a.date.localeCompare(b.date)).slice(0,6);
   return <section className="aux-page today-v5">
     <PageHeader eyebrow="HOJE · EXECUÇÃO IMEDIATA" title="Hoje" description="Uma tela curta para executar o que importa agora. A Home continua sendo consciência geral."
       aside={<DataNotice canonical={summary.canonical} degraded={summary.degraded} generatedAt={summary.generatedAt}/>} />
@@ -34,6 +41,10 @@ export function TodayPage({snapshot}:{snapshot:Snapshot}){
       <aside className="performance-panel"><SectionHeader eyebrow="PRÓXIMA SESSÃO CANÔNICA" title={next?`${next.session} · ${next.dxx}`:"Trilha publicada concluída"}/>
         {next?<><p>{next.focus}</p><a className="button ghost" href={href(`/dia/${next.dxx.toLowerCase()}/`)}>Abrir sessão →</a></>:<EmptyState title="Nenhuma sessão publicada pendente."/>}
       </aside>
+    </section>
+    <section className="performance-panel today-agenda-v5">
+      <SectionHeader eyebrow="AGENDA" title="Contexto temporal, não fila tirana" detail="A sequência pedagógica continua canônica; calendário apenas ajuda a enxergar marcos próximos." />
+      <div className="today-agenda-list-v5">{agenda.map((item)=><a key={item.type+"-"+item.date+"-"+item.title} href={href(item.href)}><time>{formatDate(item.date)}</time><span><strong>{item.type}</strong><small>{item.title}</small></span><b>→</b></a>)}</div>
     </section>
   </section>;
 }
