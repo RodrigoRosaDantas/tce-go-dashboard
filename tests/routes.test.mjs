@@ -58,7 +58,11 @@ test("rotas dinâmicas existem somente quando Material + Qxx públicos estão di
 });
 
 test("Hoje usa o fuso do calendário TCE-GO", () => {
-  const app = fs.readFileSync("src/App.tsx", "utf8");
-  assert.match(app, /America\/Sao_Paulo/);
-  assert.doesNotMatch(app, /new Date\(\)\.toISOString\(\)\.slice\(0,\s*10\)/);
+  const main = fs.readFileSync("src/main.tsx", "utf8");
+  const home = fs.readFileSync("src/v3/HomePage.tsx", "utf8");
+  const intelligence = fs.readFileSync("src/v4/intelligence-core.mjs", "utf8");
+  assert.match(main, /import App from "\.\/AppV3"/);
+  assert.match(home, /buildStudyIntelligence\(\{ snapshot, summary \}\)/);
+  assert.match(intelligence, /timeZone:\s*"America\/Sao_Paulo"/);
+  assert.doesNotMatch(intelligence, /new Date\(\)\.toISOString\(\)\.slice\(0,\s*10\)/);
 });

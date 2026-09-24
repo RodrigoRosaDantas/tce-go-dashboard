@@ -115,13 +115,13 @@ export function EditalPage({ snapshot }: { snapshot: Snapshot }) {
   return (
     <section className="aux-page">
       <div className="page-heading split">
-        <div><span className="eyebrow">MAPA DA PROVA</span><h1>Edital verticalizado</h1><p>Estrutura pública do edital usada para orientar a cobertura editorial.</p></div>
+        <div><span className="eyebrow">MAPA DA PROVA</span><h1>Edital verticalizado</h1><p>Estrutura do Edital nº 01/2026 com as alterações da Retificação nº 02/2026. A verticalização está concluída, cruzada e auditada; a coluna abaixo mostra o status editorial publicado pelo Notion.</p></div>
         <div className="mini-stats"><div><strong>{rows.length}</strong><span>eixos</span></div><div><strong>{totalQuestions}</strong><span>questões</span></div><div><strong>{totalWeighted}</strong><span>pontos ponderados</span></div></div>
       </div>
       {rows.length ? (
         <div className="table-shell">
           <table className="data-table-v3">
-            <thead><tr><th>Código</th><th>Disciplina</th><th>Bloco</th><th>Questões</th><th>Peso</th><th>Pontos</th><th>Status</th></tr></thead>
+            <thead><tr><th>Código</th><th>Disciplina</th><th>Bloco</th><th>Questões</th><th>Peso</th><th>Pontos</th><th>Status editorial (Notion)</th></tr></thead>
             <tbody>{rows.map((item) => <tr key={item.code}><td><strong>{item.code}</strong></td><td>{item.discipline}</td><td>{item.block}</td><td>{item.questions}</td><td>{item.weight}</td><td>{item.weightedPoints}</td><td><span className="status-chip">{item.editorialStatus}</span></td></tr>)}</tbody>
           </table>
         </div>
