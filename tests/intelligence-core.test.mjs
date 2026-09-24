@@ -167,6 +167,66 @@ test("erros Validado/Encerrado não voltam como fragilidade",()=>{
   }
 });
 
+
+test("agenda unificada remove marcos já executados e preserva vencidos como contexto",()=>{
+  const snapshot={...baseSnapshot,
+    redactions:[
+      {dxx:"D001",date:"2026-09-20",title:"R1",code:"R1"},
+      {dxx:"D003",date:"2026-10-01",title:"R2",code:"R2"},
+    ],
+    simulations:[
+      {dxx:"D001",date:"2026-09-21",title:"Checkpoint 1",type:"Checkpoint"},
+      {dxx:"D005",date:"2026-10-07",title:"Checkpoint 2",type:"Checkpoint"},
+    ],
+    finalSprint:[{code:"RF01",date:"2026-12-31",title:"Reta final 1"}],
+  };
+  const s=summary({
+    reviews:[{id:"r1",dxx:"D001",type:"D7",reason:"Conteúdo novo",plannedDate:"2026-09-22",status:"Pendente"}],
+    redactions:[{dxx:"D001",title:"R1",status:"Corrigida",score:75,date:"2026-09-20",rewriteNeeded:false}],
+    simulations:[{dxx:"D001",title:"Checkpoint 1",date:"2026-09-21",generalTotal:25,generalCorrect:20,specificTotal:45,specificCorrect:35}],
+  });
+  const intel=buildStudyIntelligence({snapshot,summary:s,referenceDate:"2026-09-23"});
+  assert.ok(intel.agenda.some((x)=>x.type==="Revisão"&&x.state==="overdue"));
+  assert.ok(intel.agenda.some((x)=>x.title==="R2"));
+  assert.ok(intel.agenda.some((x)=>x.title==="Checkpoint 2"));
+  assert.ok(intel.agenda.some((x)=>x.type==="Reta Final"));
+  assert.ok(intel.agenda.some((x)=>x.type==="Prova"));
+  assert.ok(!intel.agenda.some((x)=>x.title==="R1"));
+  assert.ok(!intel.agenda.some((x)=>x.title==="Checkpoint 1"));
+});
+
+test("checkpoint comparável detecta piora sem inventar precisão quando faltam campos",()=>{
+  const first={dxx:"D001",title:"C1",date:"2026-09-10",generalTotal:25,generalCorrect:22,specificTotal:45,specificCorrect:38,p1Open:0,recurrent:0};
+  const second={dxx:"D003",title:"C2",date:"2026-09-20",generalTotal:25,generalCorrect:17,specificTotal:45,specificCorrect:28,p1Open:0,recurrent:0};
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({simulations:[first,second]}),referenceDate:"2026-09-23"});
+  assert.equal(intel.checkpoint.trend.key,"worsening");
+  assert.ok(intel.checkpoint.weightedAccuracy<80);
+  assert.equal(intel.recommendation.kind,"simulation");
+  assert.ok(intel.risks.some((x)=>x.title==="Checkpoint exige recalibração"));
+
+  const incomplete=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({simulations:[{...second,specificCorrect:null}]}),referenceDate:"2026-09-23"});
+  assert.equal(incomplete.checkpoint.weightedAccuracy,null);
+});
+
+test("critério de redação ausente não vira zero e reescrita antiga continua pendente",()=>{
+  const s=summary({redactions:[
+    {dxx:"D001",title:"R1",status:"Corrigida",score:70,date:"2026-09-10",rewriteNeeded:true,mainError:"coesão",thematicCut:15,criticalInterpretation:null,progression:24,cohesion:9,morphosyntax:5,vocabulary:7},
+    {dxx:"D003",title:"R2",status:"Corrigida",score:82,date:"2026-09-20",rewriteNeeded:false,mainError:null,thematicCut:18,criticalInterpretation:17,progression:25,cohesion:14,morphosyntax:5,vocabulary:7},
+  ]});
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:s,referenceDate:"2026-09-23"});
+  assert.equal(intel.writing.pendingRewrite.dxx,"D001");
+  assert.equal(intel.writing.pendingRewriteCount,1);
+  assert.equal(intel.writing.weakestCriterion.label,"progressão");
+  assert.notEqual(intel.writing.weakestCriterion.label,"interpretação crítica");
+  assert.equal(intel.recommendation.kind,"redaction");
+});
+
+test("alto impacto com alias CASP praticado não vira falso risco de ausência",()=>{
+  const s=summary({dayControl:[executed("D001",8,2),executed("D003",8,2)]});
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:s,referenceDate:"2026-12-20"});
+  assert.ok(!intel.risks.some((x)=>x.title.includes("Contabilidade Aplicada ao Setor Público · alto impacto sem amostra")));
+});
+
 test("redação corrigida com reescrita volta ao motor e registra reincidência",()=>{
   const s=summary({redactions:[
     {dxx:"D001",title:"R1",status:"Corrigida",score:72,date:"2026-09-10",rewriteNeeded:true,mainError:"coesão"},
