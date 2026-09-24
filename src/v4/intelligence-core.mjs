@@ -359,7 +359,7 @@ function buildCheckpointSignal(summary){
   };
 }
 function buildAgenda(snapshot,summary,referenceDate,examDate){
-  const redactionStarted=new Set((summary.redactions||[]).map(item=>item.dxx));
+  const redactionStarted=new Set((summary.redactions||[]).filter(item=>["Em produção","Produzida","Corrigida","Reescrita"].includes(item.status)).map(item=>item.dxx));
   const productionPending=(summary.redactions||[]).filter(item=>item.status==="Em produção");
   const correctionPending=(summary.redactions||[]).filter(item=>item.status==="Produzida"&&item.score==null);
   const simulationDone=new Set((summary.simulations||[]).filter(hasSimulationEvidence).map(item=>item.dxx));
