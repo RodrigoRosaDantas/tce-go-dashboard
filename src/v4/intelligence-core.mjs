@@ -89,46 +89,82 @@ function subjectForDay(summary,dxx){
   const focus=summary.questionMeta?.find(item=>String(item.dxx||"").toUpperCase()===String(dxx||"").toUpperCase())?.focus;
   return canonicalSubjectLabel(focus);
 }
-function buildSubjectStats(snapshot,summary,index){
-  const daysById=new Map((snapshot.days||[]).map(day=>[day.dxx,day]));
+const EXECUTION_EVENT_TYPES=new Set(["progress.snapshot","questions.result","day.completed","day.reopened"]);
+function executionDateForDxx(summary,dxx){
+  const dates=(summary.sessions||[])
+    .filter(item=>String(item.dxx||"").toUpperCase()===String(dxx||"").toUpperCase())
+    .filter(item=>{
+      const event=String(item.eventType||"");
+      if(event) return EXECUTION_EVENT_TYPES.has(event);
+      return [item.timeMinutes,item.questions,item.correct,item.errors,item.doubts].some(value=>value!=null&&Number(value)>0);
+    })
+    .map(item=>dateOnly(item.timestamp||item.date))
+    .filter(Boolean)
+    .sort();
+  return dates.at(-1)||null;
+}
+function buildSubjectStats(summary,index){
   const groups=new Map();
   for(const row of summary.dayControl||[]){
     if(!hasExecution(row)) continue;
     const subject=subjectForDay(summary,row.dxx)||"Matéria não informada";
     const key=norm(subject)||subject;
-    const g=groups.get(key)||{subject,sessions:0,questions:0,correct:0,errors:0,doubts:0,minutes:0,events:[]};
+    const g=groups.get(key)||{
+      subject,sessions:0,knownQuestionSessions:0,questionsSum:0,correctSum:0,errorsSum:0,doubtsSum:0,minutesSum:0,
+      questionsComplete:true,correctComplete:true,errorsComplete:true,doubtsComplete:true,minutesComplete:true,events:[]
+    };
     g.sessions+=1;
-    g.questions+=Number(row.questionsDone||0);
-    g.correct+=Number(row.correct||0);
-    g.errors+=Number(row.errors||0);
-    g.doubts+=Number(row.doubts||0);
-    g.minutes+=Number(row.timeMinutes||0);
+    if(row.questionsDone==null) g.questionsComplete=false; else {g.questionsSum+=Number(row.questionsDone);g.knownQuestionSessions+=1;}
+    if(row.correct==null) {
+      if(row.questionsDone==null||Number(row.questionsDone)>0) g.correctComplete=false;
+    } else g.correctSum+=Number(row.correct);
+    if(row.errors==null) {
+      if(row.questionsDone==null||Number(row.questionsDone)>0) g.errorsComplete=false;
+    } else g.errorsSum+=Number(row.errors);
+    if(row.doubts==null) g.doubtsComplete=false; else g.doubtsSum+=Number(row.doubts);
+    if(row.timeMinutes==null) g.minutesComplete=false; else g.minutesSum+=Number(row.timeMinutes);
     const a=accuracy(row.correct,row.errors);
-    if(a!=null) g.events.push({date:daysById.get(row.dxx)?.date||"",accuracy:a,dxx:row.dxx});
+    const eventDate=executionDateForDxx(summary,row.dxx);
+    if(a!=null&&eventDate) g.events.push({date:eventDate,accuracy:a,dxx:row.dxx});
     groups.set(key,g);
   }
   return [...groups.values()].map(g=>{
-    const conf=sampleConfidence(g.questions,g.sessions);
-    const a=accuracy(g.correct,g.errors);
+    const questions=g.questionsComplete?g.questionsSum:null;
+    const correct=g.correctComplete?g.correctSum:null;
+    const errors=g.errorsComplete?g.errorsSum:null;
+    const doubts=g.doubtsComplete?g.doubtsSum:null;
+    const minutes=g.minutesComplete?g.minutesSum:null;
+    const performanceComplete=g.questionsComplete&&g.correctComplete&&g.errorsComplete;
+    const baseConfidence=sampleConfidence(g.questionsSum,g.knownQuestionSessions);
+    const confidence=performanceComplete
+      ? baseConfidence
+      : {...baseConfidence,label:baseConfidence.rank?baseConfidence.label+" · dados parciais":"dados parciais sem amostra suficiente",partial:true};
+    const a=accuracy(correct,errors);
     const edital=matchEdital(g.subject,index);
     const events=[...g.events].sort((x,y)=>String(x.date).localeCompare(String(y.date)));
-    let trend={key:"insufficient",label:"amostra temporal insuficiente",delta:null};
+    let trend={key:"insufficient",label:"amostra temporal insuficiente",delta:null,events:events.length};
     if(events.length>=4){
       const current=events.slice(-2).reduce((s,x)=>s+x.accuracy,0)/2;
       const previous=events.slice(-4,-2).reduce((s,x)=>s+x.accuracy,0)/2;
       const delta=current-previous;
-      trend=delta>=5?{key:"improving",label:"melhorando",delta}:delta<=-5?{key:"worsening",label:"piorando",delta}:{key:"stable",label:"estável",delta};
+      const partial=events.length<g.sessions;
+      trend=delta>=5?{key:"improving",label:partial?"melhorando · datas parciais":"melhorando",delta,events:events.length}
+        :delta<=-5?{key:"worsening",label:partial?"piorando · datas parciais":"piorando",delta,events:events.length}
+        :{key:"stable",label:partial?"estável · datas parciais":"estável",delta,events:events.length};
     }
-    return {...g,accuracy:a,confidence:conf,edital,trend};
-  }).sort((a,b)=>(b.edital?.weightedPoints||0)-(a.edital?.weightedPoints||0)||b.questions-a.questions);
+    return {
+      subject:g.subject,sessions:g.sessions,questions,knownQuestions:g.questionsSum,knownQuestionSessions:g.knownQuestionSessions,
+      correct,errors,doubts,minutes,accuracy:a,performanceComplete,confidence,edital,trend,temporalEvents:events.length
+    };
+  }).sort((a,b)=>(b.edital?.weightedPoints||0)-(a.edital?.weightedPoints||0)||(b.knownQuestions||0)-(a.knownQuestions||0));
 }
 function buildCoverage(summary,index,subjects){
   const matchedCodes=(labels)=>new Set(labels.map(label=>matchEdital(label,index)?.code).filter(Boolean));
   const inTrail=matchedCodes((summary.questionMeta||[]).map(item=>item.focus).filter(Boolean));
   const studied=matchedCodes(subjects.filter(item=>item.sessions>0).map(item=>item.subject));
-  const practiced=matchedCodes(subjects.filter(item=>item.questions>0).map(item=>item.subject));
-  const evidenced=matchedCodes(subjects.filter(item=>item.questions>0&&item.confidence.rank>=1).map(item=>item.subject));
-  const consolidated=matchedCodes(subjects.filter(item=>item.confidence.rank>=3).map(item=>item.subject));
+  const practiced=matchedCodes(subjects.filter(item=>(item.knownQuestions||0)>0).map(item=>item.subject));
+  const evidenced=matchedCodes(subjects.filter(item=>(item.knownQuestions||0)>0&&item.confidence.rank>=1).map(item=>item.subject));
+  const consolidated=matchedCodes(subjects.filter(item=>item.performanceComplete&&item.confidence.rank>=3).map(item=>item.subject));
   const weighted=(set)=>index.filter(item=>set.has(item.code)).reduce((sum,item)=>sum+Number(item.weightedPoints||0),0);
   const totalWeighted=index.reduce((sum,item)=>sum+Number(item.weightedPoints||0),0);
   return {
@@ -145,7 +181,7 @@ function buildCoverage(summary,index,subjects){
   };
 }
 function strengthLevel(row){
-  if(row.accuracy==null) return null;
+  if(!row.performanceComplete||row.accuracy==null) return null;
   if(row.confidence.rank<3||row.accuracy<85) return null;
   if(row.trend.key==="worsening") return null;
   if(row.confidence.key==="strong"&&row.accuracy>=90) return "forte com boa amostra";
@@ -153,7 +189,7 @@ function strengthLevel(row){
   if(row.trend.key==="improving") return "recuperando";
   return "estável";
 }
-function recencyPoints(days){if(days==null)return 0;if(days<=2)return 10;if(days<=7)return 8;if(days<=14)return 6;if(days<=30)return 3;return 0;}
+function recencyPoints(days){if(days==null||days<0)return 0;if(days<=2)return 10;if(days<=7)return 8;if(days<=14)return 6;if(days<=30)return 3;return 0;}
 function reviewSignal(summary,dxx,referenceDate){
   const active=(summary.reviews||[]).filter(r=>r.dxx===dxx&&!["Concluída","Cancelada por domínio"].includes(r.status));
   if(!active.length) return {points:0,label:"sem revisão ativa",items:[]};
@@ -192,8 +228,10 @@ function weaknessGroups(snapshot,summary,index,subjectStats,referenceDate,phase)
     const days=latest?daysBetween(latest,referenceDate):null;
     const recurrence=Math.max(0,...g.errors.map(x=>Number(x.recurrence||0)),g.errors.length-1);
     const severity=Math.max(...g.errors.map(errorSeverity));
-    const subjectRow=subjectStats.find(row=>norm(row.subject)===norm(g.subject));
     const edital=matchEdital(g.subject,index);
+    const subjectRow=edital
+      ? subjectStats.find(row=>row.edital?.code===edital.code)
+      : subjectStats.find(row=>norm(canonicalSubjectLabel(row.subject))===norm(canonicalSubjectLabel(g.subject)));
     const retention=Math.max(0,...[...g.dxx].map(dxx=>reviewSignal(summary,dxx,referenceDate).points));
     const trend=subjectRow?.trend?.key==="worsening"?10:subjectRow?.trend?.key==="stable"&&recurrence?5:0;
     const confidence=g.errors.length>=4||recurrence>=3?5:g.errors.length>=2||recurrence>=1?3:1;
@@ -254,10 +292,12 @@ const WRITING_CRITERIA=[
   ["vocabulary","vocabulário",8],
 ];
 function buildWritingSignal(summary){
-  const rows=(summary.redactions||[]).filter(item=>item.score!=null||item.rewriteNeeded||item.mainError||WRITING_CRITERIA.some(([key])=>item[key]!=null));
+  const rows=(summary.redactions||[]).filter(item=>["Em produção","Produzida"].includes(item.status)||item.score!=null||item.rewriteNeeded||item.mainError||WRITING_CRITERIA.some(([key])=>item[key]!=null));
   const chronology=[...rows].sort((a,b)=>String(a.date||a.lastEditedAt||"").localeCompare(String(b.date||b.lastEditedAt||"")));
   const scored=chronology.filter(item=>item.score!=null);
   const latest=chronology.at(-1)||null;
+  const productionPending=chronology.filter(item=>item.status==="Em produção").at(-1)||null;
+  const correctionPending=chronology.filter(item=>item.status==="Produzida"&&item.score==null).at(-1)||null;
   const pendingRewrites=chronology.filter(item=>item.rewriteNeeded&&item.status!=="Reescrita");
   const pendingRewrite=pendingRewrites.at(-1)||null;
   const errorCounts=new Map();
@@ -280,7 +320,7 @@ function buildWritingSignal(summary){
     weakestCriterion=values[0]||null;
   }
   return {
-    count:rows.length,scoredCount:scored.length,latest,trend,
+    count:rows.length,scoredCount:scored.length,latest,trend,productionPending,correctionPending,
     rewriteNeeded:Boolean(pendingRewrite),pendingRewrite,pendingRewriteCount:pendingRewrites.length,
     repeatedMainError:repeated&&repeated[1]>=2?{key:repeated[0],count:repeated[1]}:null,
     weakestCriterion,
@@ -319,14 +359,18 @@ function buildCheckpointSignal(summary){
   };
 }
 function buildAgenda(snapshot,summary,referenceDate,examDate){
-  const redactionDone=new Set((summary.redactions||[]).filter(item=>["Produzida","Corrigida","Reescrita"].includes(item.status)).map(item=>item.dxx));
+  const redactionStarted=new Set((summary.redactions||[]).filter(item=>["Em produção","Produzida","Corrigida","Reescrita"].includes(item.status)).map(item=>item.dxx));
+  const productionPending=(summary.redactions||[]).filter(item=>item.status==="Em produção");
+  const correctionPending=(summary.redactions||[]).filter(item=>item.status==="Produzida"&&item.score==null);
   const simulationDone=new Set((summary.simulations||[]).filter(hasSimulationEvidence).map(item=>item.dxx));
   const rows=[
     ...(summary.reviews||[])
       .filter(item=>!["Concluída","Cancelada por domínio"].includes(item.status)&&dateOnly(item.plannedDate))
       .map(item=>({date:dateOnly(item.plannedDate),type:"Revisão",title:`${item.type} · ${item.dxx}`,href:"/revisoes/",dxx:item.dxx})),
+    ...productionPending.map(item=>({date:dateOnly(item.date||item.lastEditedAt)||referenceDate,type:"Redação em produção",title:item.title,href:"/redacoes/",dxx:item.dxx})),
+    ...correctionPending.map(item=>({date:dateOnly(item.date||item.lastEditedAt)||referenceDate,type:"Correção de redação",title:item.title,href:"/redacoes/",dxx:item.dxx})),
     ...(snapshot.redactions||[])
-      .filter(item=>item.date&&!redactionDone.has(item.dxx))
+      .filter(item=>item.date&&!redactionStarted.has(item.dxx))
       .map(item=>({date:dateOnly(item.date),type:"Redação",title:item.title,href:"/redacoes/",dxx:item.dxx})),
     ...(snapshot.simulations||[])
       .filter(item=>item.date&&!simulationDone.has(item.dxx))
@@ -354,19 +398,30 @@ function buildRecommendation(snapshot,summary,referenceDate,phase,weaknesses,wri
   const byDay=new Map((summary.dayControl||[]).map(day=>[day.dxx,day]));
   const resume=published.find(day=>{const p=byDay.get(day.dxx);return p&&hasExecution(p)&&!p.completed;});
   if(resume) candidates.push({kind:"resume",score:65,eyebrow:"RETOMAR SESSÃO",title:`${resume.session||resume.dxx} · ${resume.focus}`,reason:"Há execução real iniciada e ainda não concluída; a continuidade reduz custo de contexto.",href:`/dia/${resume.dxx.toLowerCase()}/`,dxx:resume.dxx,badge:resume.session,evidence:["sessão iniciada no estado canônico","conclusão ainda não registrada"],breakdown:{continuity:65}});
+  if(writing.productionPending){
+    candidates.push({kind:"redaction",score:68,eyebrow:"RETOMAR REDAÇÃO",title:writing.productionPending.title||writing.productionPending.dxx,reason:"A redação está com status Em produção no banco canônico; concluir o texto evita fragmentar o ciclo discursivo.",href:`/redacoes/?dxx=${writing.productionPending.dxx}`,dxx:writing.productionPending.dxx,badge:"Em produção",evidence:["status Em produção no banco canônico","execução discursiva iniciada e ainda não produzida"],breakdown:{continuity:68}});
+  }
+  if(writing.correctionPending){
+    candidates.push({kind:"redaction",score:74,eyebrow:"CORRIGIR REDAÇÃO",title:writing.correctionPending.title||writing.correctionPending.dxx,reason:"A redação foi produzida, mas ainda não possui correção/nota. O fluxo FCC precisa fechar diagnóstico antes de seguir como concluído.",href:`/redacoes/?dxx=${writing.correctionPending.dxx}`,dxx:writing.correctionPending.dxx,badge:"Correção pendente",evidence:["status Produzida no banco canônico","nota simulada ainda ausente","a visão Pendentes do Notion inclui redações Produzidas"],breakdown:{correction:74}});
+  }
   if(writing.rewriteNeeded&&writing.pendingRewrite){
     const repeat=writing.repeatedMainError?.count||0;
     const score=clamp(76+(repeat>=2?8:0)+(writing.trend.key==="worsening"?4:0),0,88);
     candidates.push({kind:"redaction",score,eyebrow:"REESCRITA DE REDAÇÃO",title:writing.pendingRewrite.title||writing.pendingRewrite.dxx,reason:"A correção registrou necessidade de reescrita; a redação volta ao motor em vez de ficar isolada.",href:`/redacoes/?dxx=${writing.pendingRewrite.dxx}`,dxx:writing.pendingRewrite.dxx,badge:"Reescrita",evidence:["reescrita necessária registrada",writing.pendingRewrite.mainError?`erro principal: ${writing.pendingRewrite.mainError}`:"erro principal não informado",writing.weakestCriterion?`critério mais frágil no último registro: ${writing.weakestCriterion.label} (${writing.weakestCriterion.value}/${writing.weakestCriterion.max})`:"critérios sem preenchimento suficiente",repeat>=2?`erro principal reincidente em ${repeat} redações`:"sem reincidência comprovada do erro principal"],breakdown:{rewrite:76,recurrence:repeat>=2?8:0,trend:writing.trend.key==="worsening"?4:0}});
   }
-  if(checkpoint.latest&&((checkpoint.latest.p1Open||0)>0||(checkpoint.latest.recurrent||0)>0||checkpoint.trend.key==="worsening")){
-    const p1=Number(checkpoint.latest.p1Open||0), recurrent=Number(checkpoint.latest.recurrent||0);
+  if(checkpoint.latest&&((checkpoint.latest.p1Open??0)>0||(checkpoint.latest.recurrent??0)>0||checkpoint.trend.key==="worsening")){
+    const p1=Number(checkpoint.latest.p1Open??0), recurrent=Number(checkpoint.latest.recurrent??0);
     const trendPoints=checkpoint.trend.key==="worsening"?6:0;
     const score=clamp(74+Math.min(10,p1*5)+Math.min(6,recurrent*3)+trendPoints,0,90);
-    candidates.push({kind:"simulation",score,eyebrow:"RECALIBRAÇÃO PÓS-CHECKPOINT",title:checkpoint.latest.title||checkpoint.latest.dxx,reason:"O checkpoint trouxe sinal objetivo de recuperação necessária; a execução seguinte deve absorver esse diagnóstico.",href:`/simulados/?dxx=${checkpoint.latest.dxx}`,dxx:checkpoint.latest.dxx,badge:"Pós-checkpoint",evidence:[`${p1} P1 aberto(s) no checkpoint`,`${recurrent} reincidência(s) registrada(s)`,checkpoint.weightedAccuracy==null?"precisão ponderada não calculável":`precisão ponderada: ${checkpoint.weightedAccuracy.toFixed(1)}%`,checkpoint.trend.delta==null?checkpoint.trend.label:`${checkpoint.trend.label}: ${checkpoint.trend.delta>0?"+":""}${checkpoint.trend.delta.toFixed(1)} p.p.`,checkpoint.latest.weakKnownSubjects?`fragilidades declaradas: ${checkpoint.latest.weakKnownSubjects}`:checkpoint.latest.decision||"decisão pós-checkpoint não informada"],breakdown:{checkpoint:74,p1:Math.min(10,p1*5),recurrence:Math.min(6,recurrent*3),trend:trendPoints}});
+    const p1Evidence=checkpoint.latest.p1Open==null?"P1 abertos não informados":`${checkpoint.latest.p1Open} P1 aberto(s) no checkpoint`;
+    const recurrentEvidence=checkpoint.latest.recurrent==null?"reincidências não informadas":`${checkpoint.latest.recurrent} reincidência(s) registrada(s)`;
+    candidates.push({kind:"simulation",score,eyebrow:"RECALIBRAÇÃO PÓS-CHECKPOINT",title:checkpoint.latest.title||checkpoint.latest.dxx,reason:"O checkpoint trouxe sinal objetivo de recuperação necessária; a execução seguinte deve absorver esse diagnóstico.",href:`/simulados/?dxx=${checkpoint.latest.dxx}`,dxx:checkpoint.latest.dxx,badge:"Pós-checkpoint",evidence:[p1Evidence,recurrentEvidence,checkpoint.weightedAccuracy==null?"precisão ponderada não calculável":`precisão ponderada: ${checkpoint.weightedAccuracy.toFixed(1)}%`,checkpoint.trend.delta==null?checkpoint.trend.label:`${checkpoint.trend.label}: ${checkpoint.trend.delta>0?"+":""}${checkpoint.trend.delta.toFixed(1)} p.p.`,checkpoint.latest.weakKnownSubjects?`fragilidades declaradas: ${checkpoint.latest.weakKnownSubjects}`:checkpoint.latest.decision||"decisão pós-checkpoint não informada"],breakdown:{checkpoint:74,p1:Math.min(10,p1*5),recurrence:Math.min(6,recurrent*3),trend:trendPoints}});
   }
   const redactionStatus=new Map((summary.redactions||[]).map(x=>[x.dxx,x.status]));
-  const red=(snapshot.redactions||[]).find(plan=>plan.date<=referenceDate&&!["Produzida","Corrigida","Reescrita"].includes(redactionStatus.get(plan.dxx)||"Planejada"));
+  const red=(snapshot.redactions||[]).find(plan=>{
+    const status=redactionStatus.get(plan.dxx);
+    return plan.date<=referenceDate&&(!status||status==="Planejada");
+  });
   if(red) candidates.push({kind:"redaction",score:72,eyebrow:"REDAÇÃO PENDENTE",title:red.title,reason:`${red.dxx} chegou ao marco planejado e ainda não possui execução confirmada.`,href:`/redacoes/?dxx=${red.dxx}`,dxx:red.dxx,badge:red.code,evidence:["marco do ciclo atingido","execução não confirmada"],breakdown:{schedule:72}});
   const doneSim=new Set((summary.simulations||[]).filter(hasSimulationEvidence).map(x=>x.dxx));
   const sim=(snapshot.simulations||[]).find(plan=>plan.date<=referenceDate&&!doneSim.has(plan.dxx));
@@ -383,17 +438,21 @@ function risks(snapshot,summary,index,subjectStats,weaknesses,phase,writing,chec
   for(const w of weaknesses.filter(x=>x.score>=55)){
     out.push({level:w.score>=75?"critical":"attention",title:`${w.subject} · ${w.topic}`,detail:`Prioridade ${w.score}/100 · ${w.evidence.slice(0,3).join(" · ")}`,href:"/mentor/",evidence:w.evidence});
   }
-  const anyExecution=subjectStats.some(x=>x.questions>0);
+  const anyExecution=subjectStats.some(x=>(x.knownQuestions||0)>0);
   if(anyExecution||["near","final"].includes(phase.key)){
     for(const item of index.filter(x=>x.impact>=.75)){
       const row=subjectStats.find(s=>s.edital?.code===item.code);
-      if(!row||row.questions===0) out.push({level:"attention",title:`${item.discipline} · alto impacto sem amostra`,detail:`${item.weightedPoints} pontos ponderados no edital e nenhuma questão de execução associada de forma segura.`,href:"/edital/",evidence:["alto impacto editalício","sem amostra operacional vinculada"]});
+      if(!row||(row.knownQuestions||0)===0) out.push({level:"attention",title:`${item.discipline} · alto impacto sem amostra`,detail:`${item.weightedPoints} pontos ponderados no edital e nenhuma questão de execução associada de forma segura.`,href:"/edital/",evidence:["alto impacto editalício","sem amostra operacional vinculada"]});
     }
   }
   const overdue=(summary.reviews||[]).filter(r=>!["Concluída","Cancelada por domínio"].includes(r.status)&&dateOnly(r.plannedDate)&&dateOnly(r.plannedDate)<phase.referenceDate);
   if(overdue.length) out.push({level:"attention",title:`${overdue.length} revisão(ões) vencida(s)`,detail:"Atraso de retenção confirmado no banco canônico; a prioridade individual depende do motivo e da gravidade.",href:"/revisoes/",evidence:["datas canônicas de revisão"]});
   if(writing.rewriteNeeded&&writing.pendingRewrite) out.push({level:"attention",title:"Redação com reescrita pendente",detail:writing.pendingRewrite.mainError?`Erro principal: ${writing.pendingRewrite.mainError}`:"A correção marcou reescrita necessária.",href:"/redacoes/",evidence:["reescrita necessária registrada",writing.weakestCriterion?`critério mais frágil: ${writing.weakestCriterion.label}`:"critérios incompletos",writing.repeatedMainError?`erro principal repetido ${writing.repeatedMainError.count} vezes`:"sem reincidência comprovada"]});
-  if(checkpoint.latest&&((checkpoint.latest.p1Open||0)>0||(checkpoint.latest.recurrent||0)>0||checkpoint.trend.key==="worsening")) out.push({level:(checkpoint.latest.p1Open||0)>0?"critical":"attention",title:"Checkpoint exige recalibração",detail:`${checkpoint.latest.p1Open||0} P1 aberto(s) · ${checkpoint.latest.recurrent||0} reincidência(s) · ${checkpoint.trend.label}`,href:"/simulados/",evidence:["resultado real de checkpoint",checkpoint.weightedAccuracy==null?"precisão ponderada ausente":`precisão ponderada ${checkpoint.weightedAccuracy.toFixed(1)}%`,checkpoint.trend.delta==null?"sem comparação temporal":`variação ${checkpoint.trend.delta.toFixed(1)} p.p.`]});
+  if(checkpoint.latest&&((checkpoint.latest.p1Open??0)>0||(checkpoint.latest.recurrent??0)>0||checkpoint.trend.key==="worsening")) {
+    const p1Label=checkpoint.latest.p1Open==null?"P1 —":`${checkpoint.latest.p1Open} P1 aberto(s)`;
+    const recurrentLabel=checkpoint.latest.recurrent==null?"reincidências —":`${checkpoint.latest.recurrent} reincidência(s)`;
+    out.push({level:(checkpoint.latest.p1Open??0)>0?"critical":"attention",title:"Checkpoint exige recalibração",detail:`${p1Label} · ${recurrentLabel} · ${checkpoint.trend.label}`,href:"/simulados/",evidence:["resultado real de checkpoint",checkpoint.weightedAccuracy==null?"precisão ponderada ausente":`precisão ponderada ${checkpoint.weightedAccuracy.toFixed(1)}%`,checkpoint.trend.delta==null?"sem comparação temporal":`variação ${checkpoint.trend.delta.toFixed(1)} p.p.`]});
+  }
   return out.slice(0,10);
 }
 
@@ -401,7 +460,7 @@ export function buildStudyIntelligence({snapshot,summary,referenceDate,examDate=
   const ref=referenceDate||new Intl.DateTimeFormat("en-CA",{timeZone:"America/Sao_Paulo",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
   const phase={...examPhase(ref,examDate),referenceDate:ref};
   const index=editalIndex(snapshot);
-  const subjects=buildSubjectStats(snapshot,summary,index);
+  const subjects=buildSubjectStats(summary,index);
   const weaknesses=weaknessGroups(snapshot,summary,index,subjects,ref,phase);
   const strengths=subjects.map(row=>({...row,level:strengthLevel(row)})).filter(row=>row.level);
   const writing=buildWritingSignal(summary);
@@ -410,7 +469,10 @@ export function buildStudyIntelligence({snapshot,summary,referenceDate,examDate=
   const agenda=buildAgenda(snapshot,summary,ref,examDate);
   const uncertainties=[];
   if(!subjects.length) uncertainties.push({title:"Desempenho ainda sem amostra",detail:"Nenhuma sessão real com questões foi localizada. Isso não significa 0% nem fraqueza."});
-  for(const row of subjects.filter(x=>x.confidence.rank<3)) uncertainties.push({title:`${row.subject}: ${row.confidence.label}`,detail:`${row.questions} questão(ões) em ${row.sessions} sessão(ões); ainda insuficiente para afirmar domínio.`});
+  for(const row of subjects.filter(x=>x.confidence.rank<3||!x.performanceComplete)) {
+    const quantity=row.questions==null?row.knownQuestions+" questão(ões) conhecidas; há métricas ausentes":row.questions+" questão(ões)";
+    uncertainties.push({title:`${row.subject}: ${row.confidence.label}`,detail:quantity+" em "+row.sessions+" sessão(ões); ainda insuficiente para afirmar domínio."});
+  }
   const recommendation=buildRecommendation(snapshot,summary,ref,phase,weaknesses,writing,checkpoint);
   const riskRows=risks(snapshot,summary,index,subjects,weaknesses,phase,writing,checkpoint);
   const totalQuestions=index.reduce((s,x)=>s+Number(x.questions||0),0);
@@ -430,11 +492,11 @@ export function buildStudyIntelligence({snapshot,summary,referenceDate,examDate=
     agenda,
     methodology:{
       priority:"0–100 = severidade 25 + reincidência 15 + recência 10 + retenção 15 + impacto do edital 15 + tendência 10 + confiança 5 + horizonte 5. Um erro isolado não P1/Fatal é limitado a 49.",
-      confidence:"Amostra: <10 questões = muito pequena; 10–24 ou <2 sessões = pequena; 25–59 com ≥2 sessões = moderada; ≥60 com ≥3 sessões = forte.",
+      confidence:"Amostra: <10 questões = muito pequena; 10–24 ou <2 sessões = pequena; 25–59 com ≥2 sessões = moderada; ≥60 com ≥3 sessões = forte. Campo ausente permanece ausente: amostra parcial pode orientar fragilidade, mas não autoriza declarar força.",
       strength:"Força exige precisão ≥85%, evidência ao menos moderada e ausência de tendência de piora. 100% em poucas questões continua sendo amostra pequena.",
-      decision:"Fatal/P1 entram acima da expansão. Revisões não bloqueiam por tipo apenas: atraso, motivo, reincidência, edital e fragilidade associada alteram prioridade. Redação corrigida volta ao motor quando há reescrita/reincidência; checkpoint real recalibra quando há P1, reincidência ou piora comparável. A Ordem D001–D100/S01–S47 nunca é reescrita.",
+      decision:"Fatal/P1 entram acima da expansão. Revisões não bloqueiam por tipo apenas: atraso, motivo, reincidência, edital e fragilidade associada alteram prioridade. Redação Em produção permanece como retomada; Redação Produzida permanece pendente de correção; redação corrigida volta ao motor quando há reescrita/reincidência; checkpoint real recalibra quando há P1, reincidência ou piora comparável. A Ordem D001–D100/S01–S47 nunca é reescrita.",
       edital:`${index.length} itens ativos · ${index.reduce((s,x)=>s+Number(x.questions||0),0)} questões · ${totalWeighted} pontos ponderados. ${coverage.evidenceItems}/${coverage.activeItems} itens têm alguma evidência operacional; ${coverage.consolidatedItems} têm amostra ao menos moderada.`,
-      agenda:"Agenda integra revisões, redações pendentes, checkpoints não executados, reta final e prova. Ela é contexto temporal e nunca reordena a sequência pedagógica canônica.",
+      agenda:"Agenda integra revisões, redações planejadas, redações Em produção, correções de redação Produzida, checkpoints não executados, reta final e prova. Ela é contexto temporal e nunca reordena a sequência pedagógica canônica. Tendência por matéria usa datas reais do banco Sessões; data planejada do Dxx não substitui execução.",
     },
   };
 }

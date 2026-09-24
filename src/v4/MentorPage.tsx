@@ -60,8 +60,10 @@ export function MentorPage({snapshot}:{snapshot:Snapshot}){
         <SectionHeader eyebrow="REDAÇÃO FCC" title="Correção também entra na estratégia" />
         {intel.writing.count ? <>
           <strong>{intel.writing.latest?.title || intel.writing.latest?.dxx || "Última redação"}</strong>
-          <p>{intel.writing.rewriteNeeded ? intel.writing.pendingRewriteCount + " reescrita(s) pendente(s)." : "Sem reescrita pendente."} {intel.writing.trend.label}{intel.writing.trend.delta==null?"":" · "+(intel.writing.trend.delta>0?"+":"")+intel.writing.trend.delta.toFixed(1)+" p.p."}.</p>
+          <p>{intel.writing.productionPending ? "Redação em produção: concluir o texto antes de abrir outra frente discursiva." : intel.writing.correctionPending ? "Correção pendente: o texto foi produzido, mas ainda não recebeu nota/diagnóstico." : intel.writing.rewriteNeeded ? intel.writing.pendingRewriteCount + " reescrita(s) pendente(s)." : "Sem correção ou reescrita pendente."} {intel.writing.trend.label}{intel.writing.trend.delta==null?"":" · "+(intel.writing.trend.delta>0?"+":"")+intel.writing.trend.delta.toFixed(1)+" p.p."}.</p>
           <div className="mentor-evidence-v5">
+            {intel.writing.productionPending ? <span>status Em produção · concluir redação</span> : null}
+            {intel.writing.correctionPending ? <span>status Produzida · correção ainda necessária</span> : null}
             {intel.writing.weakestCriterion ? <span>critério mais frágil: {intel.writing.weakestCriterion.label} · {intel.writing.weakestCriterion.value}/{intel.writing.weakestCriterion.max}</span> : <span>critérios ainda incompletos</span>}
             {intel.writing.repeatedMainError ? <span>erro principal reincidente × {intel.writing.repeatedMainError.count}</span> : <span>sem reincidência comprovada</span>}
           </div>
@@ -71,7 +73,7 @@ export function MentorPage({snapshot}:{snapshot:Snapshot}){
         <SectionHeader eyebrow="CHECKPOINTS" title="Resultado que recalibra a sequência" />
         {intel.checkpoint.latest ? <>
           <strong>{intel.checkpoint.latest.title || intel.checkpoint.latest.dxx}</strong>
-          <p>{intel.checkpoint.latest.p1Open || 0} P1 aberto(s) · {intel.checkpoint.latest.recurrent || 0} reincidência(s) · {intel.checkpoint.trend.label}{intel.checkpoint.trend.delta==null?"":" · "+(intel.checkpoint.trend.delta>0?"+":"")+intel.checkpoint.trend.delta.toFixed(1)+" p.p."}.</p>
+          <p>{intel.checkpoint.latest.p1Open == null ? "P1 —" : intel.checkpoint.latest.p1Open + " P1 aberto(s)"} · {intel.checkpoint.latest.recurrent == null ? "reincidências —" : intel.checkpoint.latest.recurrent + " reincidência(s)"} · {intel.checkpoint.trend.label}{intel.checkpoint.trend.delta==null?"":" · "+(intel.checkpoint.trend.delta>0?"+":"")+intel.checkpoint.trend.delta.toFixed(1)+" p.p."}.</p>
           <div className="mentor-evidence-v5">
             <span>{intel.checkpoint.generalAccuracy == null ? "gerais sem precisão calculável" : intel.checkpoint.generalAccuracy.toFixed(1) + "% gerais"}</span>
             <span>{intel.checkpoint.specificAccuracy == null ? "específicos sem precisão calculável" : intel.checkpoint.specificAccuracy.toFixed(1) + "% específicos"}</span>

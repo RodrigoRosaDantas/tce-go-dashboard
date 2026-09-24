@@ -23,6 +23,7 @@ function summary(patch={}) {
   return {
     dayControl: [],
     questionMeta: days.map((d,i)=>({dxx:d.dxx,focus:"CASP "+["I","II","III","IV"][i]+" — recorte técnico"})),
+    sessions: [],
     reviews: [],
     errors: [],
     redactions: [],
@@ -37,6 +38,9 @@ const error=(patch={})=>({
 const executed=(dxx,correct,errors,patch={})=>({
   dxx,studied:true,completed:true,status:"Concluído",timeMinutes:60,
   questionsDone:correct+errors,correct,errors,doubts:0,...patch,
+});
+const executionSession=(dxx,date,patch={})=>({
+  dxx,eventType:"day.completed",date,timestamp:date+"T20:00:00-03:00",timeMinutes:60,questions:10,correct:8,errors:2,doubts:0,...patch,
 });
 
 test("cenário 1 — Fatal aberto impede matéria nova",()=>{
@@ -81,9 +85,13 @@ test("cenário 6 — recuperação consistente reduz prioridade relativa",()=>{
   const bad=[
     executed("D001",9,1),executed("D003",9,1),executed("D005",5,5),executed("D008",5,5),
   ];
+  const sessions=[
+    executionSession("D001","2026-09-23"),executionSession("D003","2026-09-30"),
+    executionSession("D005","2026-10-07"),executionSession("D008","2026-10-14"),
+  ];
   const e=error({recurrence:1,date:"2026-10-14"});
-  const improving=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({dayControl:good,errors:[e]}),referenceDate:"2026-10-14"});
-  const worsening=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({dayControl:bad,errors:[e]}),referenceDate:"2026-10-14"});
+  const improving=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({dayControl:good,sessions,errors:[e]}),referenceDate:"2026-10-14"});
+  const worsening=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({dayControl:bad,sessions,errors:[e]}),referenceDate:"2026-10-14"});
   assert.equal(improving.subjects[0].trend.key,"improving");
   assert.equal(worsening.subjects[0].trend.key,"worsening");
   assert.ok(improving.weaknesses[0].score<worsening.weaknesses[0].score);
@@ -208,6 +216,17 @@ test("checkpoint comparável detecta piora sem inventar precisão quando faltam 
   assert.equal(incomplete.checkpoint.weightedAccuracy,null);
 });
 
+test("checkpoint com contadores vazios não exibe zero inventado",()=>{
+  const first={dxx:"D001",title:"C1",date:"2026-09-10",generalTotal:25,generalCorrect:22,specificTotal:45,specificCorrect:38,p1Open:null,recurrent:null};
+  const second={dxx:"D003",title:"C2",date:"2026-09-20",generalTotal:25,generalCorrect:17,specificTotal:45,specificCorrect:28,p1Open:null,recurrent:null};
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({simulations:[first,second]}),referenceDate:"2026-09-23"});
+  assert.equal(intel.checkpoint.trend.key,"worsening");
+  assert.equal(intel.recommendation.kind,"simulation");
+  assert.ok(intel.recommendation.evidence.some((x)=>/não informad/.test(x)));
+  assert.ok(!intel.recommendation.evidence.some((x)=>/^0 P1/.test(x)));
+  assert.match(intel.risks.find((x)=>x.title==="Checkpoint exige recalibração").detail,/P1 —/);
+});
+
 test("critério de redação ausente não vira zero e reescrita antiga continua pendente",()=>{
   const s=summary({redactions:[
     {dxx:"D001",title:"R1",status:"Corrigida",score:70,date:"2026-09-10",rewriteNeeded:true,mainError:"coesão",thematicCut:15,criticalInterpretation:null,progression:24,cohesion:9,morphosyntax:5,vocabulary:7},
@@ -225,6 +244,82 @@ test("alto impacto com alias CASP praticado não vira falso risco de ausência",
   const s=summary({dayControl:[executed("D001",8,2),executed("D003",8,2)]});
   const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:s,referenceDate:"2026-12-20"});
   assert.ok(!intel.risks.some((x)=>x.title.includes("Contabilidade Aplicada ao Setor Público · alto impacto sem amostra")));
+});
+
+test("tendência usa data real de execução, não data planejada do Dxx",()=>{
+  const rows=[
+    executed("D001",5,5),executed("D003",6,4),executed("D005",9,1),executed("D008",9,1),
+  ];
+  const sessions=[
+    executionSession("D005","2026-09-01"),executionSession("D008","2026-09-02"),
+    executionSession("D001","2026-10-01"),executionSession("D003","2026-10-02"),
+  ];
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({dayControl:rows,sessions}),referenceDate:"2026-10-14"});
+  assert.equal(intel.subjects[0].trend.key,"worsening");
+  assert.equal(intel.subjects[0].temporalEvents,4);
+});
+
+test("métrica ausente permanece ausente e não autoriza força",()=>{
+  const row=executed("D001",0,0,{questionsDone:null,correct:null,errors:null,doubts:null,timeMinutes:60});
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({dayControl:[row]}),referenceDate:"2026-09-23"});
+  assert.equal(intel.subjects[0].questions,null);
+  assert.equal(intel.subjects[0].accuracy,null);
+  assert.equal(intel.subjects[0].performanceComplete,false);
+  assert.equal(intel.strengths.length,0);
+  assert.match(intel.uncertainties[0].detail,/métricas ausentes/);
+});
+
+test("erro com nome formal herda amostra e tendência do alias CASP",()=>{
+  const rows=[
+    executed("D001",9,1),executed("D003",9,1),executed("D005",5,5),executed("D008",5,5),
+  ];
+  const sessions=[
+    executionSession("D001","2026-09-23"),executionSession("D003","2026-09-30"),
+    executionSession("D005","2026-10-07"),executionSession("D008","2026-10-14"),
+  ];
+  const formal=error({subject:"Contabilidade Aplicada ao Setor Público",recurrence:1,date:"2026-10-14"});
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({dayControl:rows,sessions,errors:[formal]}),referenceDate:"2026-10-14"});
+  assert.equal(intel.weaknesses[0].confidence.key,intel.subjects[0].confidence.key);
+  assert.equal(intel.weaknesses[0].trend.key,"worsening");
+});
+
+test("redação Planejada pré-criada no banco continua aparecendo na Agenda",()=>{
+  const snapshot={...baseSnapshot,redactions:[{dxx:"D001",date:"2026-10-01",title:"R1",code:"R1"}]};
+  const s=summary({redactions:[{dxx:"D001",title:"R1",status:"Planejada",score:null,date:"2026-10-01",rewriteNeeded:false}]});
+  const intel=buildStudyIntelligence({snapshot,summary:s,referenceDate:"2026-09-23"});
+  assert.ok(intel.agenda.some((x)=>x.type==="Redação"&&x.dxx==="D001"));
+  assert.ok(!intel.agenda.some((x)=>x.type==="Redação em produção"&&x.dxx==="D001"));
+});
+
+test("redação Em produção continua visível para retomada",()=>{
+  const snapshot={...baseSnapshot,redactions:[{dxx:"D001",date:"2026-09-20",title:"R1",code:"R1"}]};
+  const s=summary({redactions:[{dxx:"D001",title:"R1",status:"Em produção",score:null,date:"2026-09-20",rewriteNeeded:false}]});
+  const intel=buildStudyIntelligence({snapshot,summary:s,referenceDate:"2026-09-23"});
+  assert.equal(intel.writing.productionPending.dxx,"D001");
+  assert.equal(intel.recommendation.kind,"redaction");
+  assert.match(intel.recommendation.eyebrow,/RETOMAR REDAÇÃO/);
+  assert.ok(intel.agenda.some((x)=>x.type==="Redação em produção"&&x.dxx==="D001"));
+  assert.ok(!intel.agenda.some((x)=>x.type==="Redação"&&x.dxx==="D001"));
+});
+
+test("sessão com zero questões não inventa acertos nem gera falsa ausência de resposta",()=>{
+  const row=executed("D001",0,0,{questionsDone:0,correct:null,errors:null,doubts:null,timeMinutes:60});
+  const intel=buildStudyIntelligence({snapshot:baseSnapshot,summary:summary({dayControl:[row]}),referenceDate:"2026-09-23"});
+  assert.equal(intel.subjects[0].questions,0);
+  assert.equal(intel.subjects[0].performanceComplete,true);
+  assert.equal(intel.subjects[0].accuracy,null);
+  assert.equal(intel.strengths.length,0);
+});
+
+test("redação Produzida continua pendente de correção no Mentor e na Agenda",()=>{
+  const snapshot={...baseSnapshot,redactions:[{dxx:"D001",date:"2026-09-20",title:"R1",code:"R1"}]};
+  const s=summary({redactions:[{dxx:"D001",title:"R1",status:"Produzida",score:null,date:"2026-09-20",rewriteNeeded:false}]});
+  const intel=buildStudyIntelligence({snapshot,summary:s,referenceDate:"2026-09-23"});
+  assert.equal(intel.writing.correctionPending.dxx,"D001");
+  assert.equal(intel.recommendation.kind,"redaction");
+  assert.match(intel.recommendation.eyebrow,/CORRIGIR REDAÇÃO/);
+  assert.ok(intel.agenda.some((x)=>x.type==="Correção de redação"&&x.dxx==="D001"));
+  assert.ok(!intel.agenda.some((x)=>x.type==="Redação"&&x.dxx==="D001"));
 });
 
 test("redação corrigida com reescrita volta ao motor e registra reincidência",()=>{
