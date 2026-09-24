@@ -82,11 +82,15 @@ test("Q001 é regenerado se snapshot antigo não possuir authorialItems", () => 
   assert.match(contract, /item autoral sem ID AUT válido/);
 });
 
-test("command palette indexa material, questões, edital e legislação com âncoras", () => {
+test("command palette indexa conteúdo editorial e estado operacional vivo", () => {
   assert.match(shell, /group: "Conteúdo"/);
   assert.match(shell, /group: "Questões"/);
   assert.match(shell, /group: "Edital"/);
   assert.match(shell, /group: "Legislação"/);
+  assert.match(shell, /summary\.reviews\.map/);
+  assert.match(shell, /summary\.errors\.map/);
+  assert.match(shell, /group: "Revisões"/);
+  assert.match(shell, /group: "Erros"/);
   assert.match(shell, /#\$\{item\.id\}/);
   assert.match(shell, /art\. 71, apreciar × julgar/);
 });
@@ -161,8 +165,8 @@ test("Dashboard usa Matéria/foco canônica e declara lacuna de cobertura do edi
 });
 
 
-test("auditoria V4.1 protege rótulo Dashboard e meta adaptativa", () => {
-  assert.match(shell, /\["\/desempenho\/", "Dashboard", "◔"\]/);
+test("auditoria V4.1 protege rótulo Desempenho e meta adaptativa", () => {
+  assert.match(shell, /\["\/desempenho\/", "Desempenho", "◔"\]/);
   assert.match(performance, /snapshot\.questions\[day\.questionSlug\]\?\.meta \?\? snapshot\.questions\[day\.questionSlug\]\?\.valid/);
   assert.match(performance, /summary\.questionMeta\.map\(\(x\) => x\.lastEditedAt\)/);
 });
@@ -210,4 +214,17 @@ test("auditoria manual detecta inconsistências de status e números negativos",
   assert.match(analytics, /Dxx está concluído sem o checkbox Estudado marcado/);
   assert.match(analytics, /Há execução registrada, mas o Status continua Não iniciado/);
   assert.match(analytics, /não pode ser negativo/);
+});
+
+test("Home e Dashboard preservam desconhecido como desconhecido", () => {
+  assert.match(home, /knownTotal/);
+  assert.match(home, /questions === null \? "—"/);
+  assert.match(performance, /knownAggregate/);
+  assert.match(performance, /Ausência de métricas completas não é convertida em zero executado/);
+  assert.match(analytics, /metricsComplete/);
+});
+
+test("analytics central usa cards no mobile em vez de tabela horizontal como solução única", () => {
+  assert.match(performance, /execution-cards-mobile-v5/);
+  assert.match(performance, /execution-table-desktop-v5/);
 });
