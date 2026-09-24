@@ -808,6 +808,8 @@ html[data-tce-focus="true"] .lesson-card{border:0;box-shadow:none;background:tra
 .today-agenda-list-v5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .today-agenda-list-v5>a{display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--surface-2);color:inherit;text-decoration:none}
 .today-agenda-list-v5>a:hover{border-color:var(--accent);transform:translateY(-1px)}
+.today-agenda-list-v5>a.agenda-overdue{border-color:color-mix(in srgb,var(--danger) 35%,var(--line));background:color-mix(in srgb,var(--danger-soft) 55%,var(--surface))}
+.today-agenda-list-v5>a.agenda-today{border-color:color-mix(in srgb,var(--warning) 38%,var(--line));background:color-mix(in srgb,var(--warning-soft) 58%,var(--surface))}
 .today-agenda-list-v5 time{font-variant-numeric:tabular-nums;color:var(--accent);font-weight:800;font-size:.8rem}
 .today-agenda-list-v5 strong,.today-agenda-list-v5 small{display:block}
 .today-agenda-list-v5 small{margin-top:2px;color:var(--muted)}
