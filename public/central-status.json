@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "projectId": "tcego",
+  "publishedAt": "2026-09-27",
+  "source": {
+    "kind": "public-project-state",
+    "ref": "data/tce-go-days.json",
+    "status": "published",
+    "updatedAt": "2026-09-26"
+  },
+  "state": {
+    "phase": "Edital publicado",
+    "cycle": "D001–D100 · S01–S47",
+    "currentUnit": null,
+    "nextAction": "D008 — Controle Externo II — instrumentos de fiscalização",
+    "nextActionKind": "planned",
+    "alerts": [
+      "O contrato não expõe progresso privado; a próxima ação é baseada no calendário público."
+    ]
+  }
+}
