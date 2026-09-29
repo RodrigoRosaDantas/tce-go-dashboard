@@ -1330,7 +1330,7 @@
         }
       ],
       "version": 3,
-      "lastEdited": "2026-09-22T04:32:00.000Z",
+      "lastEdited": "2026-09-29T20:01:00.000Z",
       "hash": "6b171d1749463f0b62b36cf658fda7161369c935517ee9039b9a95e4b02dbe93"
     },
     "d003": {
@@ -12964,6 +12964,6 @@
     "legislationSources": 16,
     "finalSprintDays": 17
   },
-  "generatedAt": "2026-09-27T23:52:53.010Z",
-  "contentHash": "e38d22861c806119e60cf899aaf333b31c730e10d61d836371c9c62ef30cbe64"
+  "generatedAt": "2026-09-29T23:26:13.601Z",
+  "contentHash": "e80dd9d59f2f1454eb213e732526aa81aa0120df531224e9ad89ee1da8a808a3"
 }
