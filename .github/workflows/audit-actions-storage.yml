@@ -1,0 +1,23 @@
+name: Audit GitHub Actions temporary storage
+on:
+  push:
+    paths:
+      - .github/workflows/audit-actions-storage.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inventory artifacts without deleting files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "ARTIFACT INVENTORY for $GITHUB_REPOSITORY"
+          gh api --paginate "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100" --jq '.artifacts[] | [.id, .name, .size_in_bytes, .created_at, .expires_at, .expired] | @tsv' > /tmp/action-artifacts.tsv
+          awk -F '\t' 'BEGIN { count=0; bytes=0 } { count++; bytes+=$3 } END { printf "TOTAL_ARTIFACTS=%d TOTAL_MB=%.2f\n", count, bytes/1048576 }' /tmp/action-artifacts.tsv
+          echo "LARGEST 80 ARTIFACTS (id, name, size in bytes, created, expires, expired):"
+          sort -t "$(printf '\t')" -k3,3nr /tmp/action-artifacts.tsv | head -n 80
+          echo "END INVENTORY"
